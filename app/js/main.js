@@ -15,10 +15,22 @@ import { renderDrawer } from './ui/detail.js';
 import { renderExclusions } from './ui/explain.js';
 import { esc } from './ui/format.js';
 import { TEMPLATES } from './ui/templates.js';
+import { renderStart, wireStart } from './ui/start.js';
+
+/**
+ * Which verdicts a policy shows by default. Strict shows what passed; Explore also shows what
+ * could not be evaluated. Derived in one place so the boot path, the mode buttons and scenario
+ * import cannot drift apart, which is how a shared Explore link ended up rendering as Strict.
+ */
+const defaultShowStates = (policy) =>
+  policy === UNKNOWN_POLICY.EXPLORATION ? new Set(['PASS', 'UNKNOWN']) : new Set(['PASS']);
 
 const state = {
   db: null, reference: null, scenario: null, ctx: null,
   lens: 'table', search: '', sort: { key: 'name', dir: 'asc' },
+  // Which constraint verdicts the table shows. The status-bar chips toggle these, which is what
+  // makes them controls rather than decoration, and what makes Strict against Explore visible.
+  showStates: new Set(['PASS']),
   selectedMaterialId: null, drawerTab: 'Overview',
   selection: null, rows: [], subset: null,
 };
@@ -80,7 +92,8 @@ function recompute() {
 
   const q = state.search.trim().toLowerCase();
   const byId = new Map(materials.map((m) => [m.id, m]));
-  state.rows = state.selection.candidates
+  state.rows = state.selection.evaluations
+    .filter((e) => state.showStates.has(e.verdict))
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
     .filter(({ material: m }) => {
       if (state.subset && !state.subset.includes(m.id)) return false;
@@ -118,9 +131,29 @@ const actions = {
     state.drawerTab = 'Evidence';
     renderDrawerHost();
   },
-  setPolicy(p) { state.scenario.unknownPolicy = normalizePolicy(p); render(); pushHash(); },
+  setPolicy(p) {
+    const policy = normalizePolicy(p);
+    state.scenario.unknownPolicy = policy;
+    // Reset the view to the policy's own default so the change is visible in the table, not just
+    // in a label. Strict shows what passed; Explore also shows what could not be evaluated.
+    state.showStates = defaultShowStates(policy);
+    render(); pushHash();
+  },
+  toggleState(verdict) {
+    if (state.showStates.has(verdict)) state.showStates.delete(verdict);
+    else state.showStates.add(verdict);
+    if (!state.showStates.size) state.showStates.add('PASS');
+    render();
+  },
   setPlot(patch) { Object.assign(state.scenario.plot, patch); renderLens(); pushHash(); },
   selectSubset(ids) { state.subset = ids; render(); },
+  applyTemplate(t) {
+    state.scenario.constraints = t.constraints.map((c) => ({ ...c }));
+    state.scenario.template = t.name;
+    state.scenario.unknownPolicy = UNKNOWN_POLICY.STRICT;
+    state.showStates = defaultShowStates(UNKNOWN_POLICY.STRICT);
+    actions.changed();
+  },
   relax(constraint) {
     state.scenario.constraints = state.scenario.constraints.filter((c) => c !== constraint);
     render(); pushHash();
@@ -132,7 +165,18 @@ const actions = {
 function renderLens() {
   const host = document.getElementById('lens');
   switch (state.lens) {
-    case 'table': return renderTable(host, state, actions);
+    case 'table': {
+      const start = renderStart(state, actions);
+      if (start) {
+        host.innerHTML = start;
+        wireStart(host, actions);
+        const tableHost = document.createElement('div');
+        host.appendChild(tableHost);
+        renderTable(tableHost, state, actions);
+        return;
+      }
+      return renderTable(host, state, actions);
+    }
     case 'ashby': return renderAshby(host, state, actions);
     case 'parallel': return renderParallel(host, state, actions);
     case 'coverage': return renderCoverage(host, state, actions);
@@ -150,25 +194,29 @@ function render() {
   const { counts } = state.selection;
   const c = document.getElementById('count');
   const shown = state.rows.length;
-  c.innerHTML = `${shown} candidate${shown === 1 ? '' : 's'}`
+  const eligible = state.selection.candidates.length;
+  const label = [...state.showStates].sort().join(' + ');
+  c.innerHTML = `${shown} shown <small>${esc(label)}${shown !== eligible ? ` · ${eligible} eligible` : ''}</small>`
     + (state.subset ? ` <small>from a selected region · <a href="#" id="clear-subset">clear</a></small>` : '')
     + (state.search ? ` <small>matching "${esc(state.search)}"</small>` : '');
   c.querySelector('#clear-subset')?.addEventListener('click', (e) => { e.preventDefault(); state.subset = null; render(); });
 
-  document.getElementById('s-pass').textContent = `PASS ${counts.pass}`;
-  document.getElementById('s-unknown').textContent = `UNKNOWN ${counts.unknown}`;
-  document.getElementById('s-fail').textContent = `FAIL ${counts.fail}`;
+  for (const [id, verdict, n] of [['s-pass', 'PASS', counts.pass], ['s-unknown', 'UNKNOWN', counts.unknown], ['s-fail', 'FAIL', counts.fail]]) {
+    const el = document.getElementById(id);
+    const on = state.showStates.has(verdict);
+    el.textContent = `${verdict} ${n}`;
+    el.setAttribute('aria-pressed', String(on));
+    el.disabled = n === 0;
+    el.title = n === 0 ? `No candidate is ${verdict} under the current constraints`
+      : on ? `Showing the ${n} ${verdict} candidates. Click to hide them.`
+           : `Click to show the ${n} ${verdict} candidates.`;
+  }
   document.getElementById('policy-note').textContent = state.scenario.unknownPolicy === 'strict'
-    ? 'Strict: unresolved criteria hold a candidate out'
-    : 'Explore: unresolved candidates stay visible, flagged';
+    ? 'Strict: a criterion that cannot be evaluated holds the candidate out'
+    : 'Explore: candidates with unresolved criteria stay visible, flagged';
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));
-
-  // Parallel is disabled with a reason rather than enabled and unreadable.
-  const pbtn = document.querySelector('[data-lens="parallel"]');
-  pbtn.disabled = shown > 30;
-  pbtn.title = shown > 30 ? `Parallel coordinates needs 30 or fewer, you have ${shown}` : '';
 
   renderFilters(document.getElementById('filter-groups'), state, actions);
   renderTray();
@@ -211,6 +259,9 @@ function wireChrome() {
     state.scenario.constraints = []; state.scenario.template = null; actions.changed();
   });
   document.getElementById('btn-explain').addEventListener('click', () => setLens('explain'));
+  for (const [id, verdict] of [['s-pass', 'PASS'], ['s-unknown', 'UNKNOWN'], ['s-fail', 'FAIL']]) {
+    document.getElementById(id).addEventListener('click', () => actions.toggleState(verdict));
+  }
   document.getElementById('btn-compare').addEventListener('click', () => setLens('compare'));
   document.getElementById('btn-clear-pins').addEventListener('click', () => {
     state.scenario.shortlist = []; render(); pushHash();
@@ -302,6 +353,7 @@ function openScenario() {
       try {
         const { scenario, warnings } = deserialize(await file.text(), db.meta);
         state.scenario = scenario;
+        state.showStates = defaultShowStates(scenario.unknownPolicy);
         if (warnings.length) alert(warnings.join('\n'));
         host.innerHTML = '';
         actions.changed();
@@ -321,6 +373,7 @@ function openScenario() {
   state.reference = reference;
   state.ctx = buildContext(db);
   state.scenario = fromHash(location.hash.slice(1), db.meta) ?? newScenario(db.meta);
+  state.showStates = defaultShowStates(state.scenario.unknownPolicy);
 
   document.getElementById('meta').textContent =
     `snapshot ${db.meta.snapshot} · build ${db.meta.build} · ${db.meta.counts.materials} materials · ${db.meta.counts.measurements} measurements`;

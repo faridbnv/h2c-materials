@@ -178,14 +178,17 @@ const HEADLINES = [
   ['hdt045',           'HDT 0.45 MPa °C',          '°C',    'Thermal evidence',    'HDT',                null],
 ];
 
-function compileHeadlines(mat, measurementsById, issues) {
+function compileHeadlines(mat, measurementsById, measurementsByMaterial, issues) {
   const headline = {};
   for (const [key, column, unit, evidenceColumn, property, direction] of HEADLINES) {
     const parsed = parseValue(mat[column]);
     const cited = ids(mat[evidenceColumn]).map((id) => measurementsById.get(id)).filter(Boolean);
 
     if (!parsed.known) {
-      headline[key] = { known: false, missing: parsed.missing, text: parsed.text, unit };
+      headline[key] = {
+        known: false, missing: parsed.missing, text: parsed.text, unit,
+        related: relatedEvidence(mat, key, measurementsByMaterial),
+      };
       continue;
     }
 
@@ -224,11 +227,112 @@ function compileHeadlines(mat, measurementsById, issues) {
       entry.loadStated = match.thermal?.loadStated ?? false;
       entry.loadMPa = match.thermal?.loadMPa ?? null;
       entry.standard = match.thermal?.standard ?? null;
-      if (!entry.loadStated) entry.caveat = 'Source states the standard but not the load';
+      // A stable code, not prose. The engine branches on this, and the UI supplies the wording.
+      if (!entry.loadStated) {
+        entry.caveat = 'load-not-stated';
+        entry.caveatText = 'Source states the standard but not the load';
+      }
     }
     headline[key] = entry;
   }
   return headline;
+}
+
+/**
+ * Related evidence for a headline that has no value.
+ *
+ * 49 materials have no tensile-strength XY headline, yet 29 of them do have a tensile-strength
+ * measurement on record. It was not promoted to the headline because the source never stated a
+ * direction, or because it measures a different endpoint. Showing a blank cell hides real evidence
+ * and invites the reader to assume nothing is known.
+ *
+ * This never becomes the headline and never satisfies a constraint. It is labelled with exactly
+ * why it is not the headline, so the engineer can judge it.
+ */
+const RELATED = {
+  density:           ['Density'],
+  tensileModulusXY:  ['Tensile modulus'],
+  tensileStrengthXY: ['Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength'],
+  elongationXY:      ['Elongation at break', 'Elongation at yield'],
+  hdt045:            ['HDT'],
+};
+
+// There is deliberately NO cross-property fallback.
+//
+// An earlier version fell back to Vicat and glass transition when a material had no HDT. For TPE
+// that surfaced its glass transition of -35 C in a column headed "HDT at 0.45 MPa", which is a
+// different physical quantity and would mislead anyone screening for heat resistance. The Method
+// sheet is explicit: keep HDT load, Tg, Vicat, melting and continuous-service ratings distinct,
+// and flexural strength is not tensile strength. Those other properties are in the material's own
+// Thermal and Mechanical tabs, correctly labelled.
+
+const DIRECTION_NOTE = {
+  XY: null,
+  Z: 'Z direction, the weak axis for a printed part',
+  XZ: 'XZ orientation',
+  ZX: 'ZX orientation',
+  'horizontal-source-label': 'source says "horizontal" without defining the build orientation',
+  'vertical-xz-source-label': 'source says "vertical XZ" without defining the build orientation',
+  'along-flow': 'measured along flow',
+  'not-applicable': null,
+  unknown: 'direction not stated by the source, so it cannot be read as XY',
+};
+
+/**
+ * Related evidence for a headline that has no value.
+ *
+ * 30 materials have a tensile-strength measurement on record that never became the headline,
+ * because the source stated no direction or measured a different endpoint. A blank cell hid that
+ * and implied nothing was known.
+ *
+ * It reports ONE measurement, never a range across grades. The Method sheet's Comparison / Headlines
+ * rule is that the Materials sheet shows labelled single-grade observations and not cross-grade
+ * family ranges; a range would assert exactly the comparability the database refuses to assert.
+ * PEBA is the case that matters: its three grades run 7.5, 25 and 30 MPa, and "7.5 to 30" reads as
+ * one material's uncertainty rather than three different products.
+ *
+ * This never becomes the headline and never satisfies a constraint.
+ */
+function relatedEvidence(mat, key, measurementsByMaterial) {
+  const props = RELATED[key];
+  if (!props) return null;
+  const materialId = mat.MaterialID;
+  const representative = mat['Representative grade'];
+
+  const items = (measurementsByMaterial.get(materialId) ?? [])
+    .filter((m) => m.numeric && !m.quarantined && props.includes(m.property))
+    .map((m) => ({
+      measurementId: m.id, gradeId: m.gradeId, sourceId: m.sourceId,
+      property: m.property, value: m.value, unit: m.unit,
+      direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
+      loadMPa: m.thermal?.loadMPa ?? null,
+      printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
+      why: DIRECTION_NOTE[m.direction]
+        || (key === 'hdt045' && m.thermal && m.thermal.loadMPa !== 0.45
+            ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not 0.45 MPa` : 'load not stated by the source')
+            : null)
+        || (key === 'tensileStrengthXY' && m.property !== props[0]
+            ? `${m.property.replace('Tensile ', '')} endpoint, not the headline endpoint` : null)
+        || 'on record but not selected as the headline observation',
+    }));
+  if (!items.length) return null;
+
+  // Closest to what the headline would have been: XY, printed, the representative grade.
+  const score = (i) =>
+    (i.direction === 'XY' ? 8 : i.direction === 'not-applicable' ? 6 : 0)
+    + (i.printed ? 4 : 0)
+    + (i.gradeId === representative ? 2 : 0)
+    + (i.property === props[0] ? 1 : 0);
+  const sorted = [...items].sort((a, b) => score(b) - score(a));
+  const best = sorted[0];
+
+  return {
+    count: items.length,
+    best,
+    grades: new Set(items.map((i) => i.gradeId)).size,
+    unit: best.unit,
+    items: sorted.slice(0, 10),
+  };
 }
 
 function compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) {
@@ -341,6 +445,12 @@ export function compile(wb, { snapshot, build }) {
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
 
+  const measurementsByMaterial = new Map();
+  for (const m of measurements) {
+    if (!measurementsByMaterial.has(m.materialId)) measurementsByMaterial.set(m.materialId, []);
+    measurementsByMaterial.get(m.materialId).push(m);
+  }
+
   const materials = wb.Materials.rows.map((mat) => {
     const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
     return {
@@ -358,7 +468,7 @@ export function compile(wb, { snapshot, build }) {
       excluded: mat.Scope === 'Excluded',
       representativeGrade: mat['Representative grade'],
       gradeIds: ids(mat.GradeIDs),
-      headline: { ...compileHeadlines(mat, measurementsById, issues), priceCADkg: compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) },
+      headline: { ...compileHeadlines(mat, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) },
       headlineBasis: mat['Headline basis'],
       measurementConditions: mat['Measurement conditions'],
       facets: deriveFacets(mat),

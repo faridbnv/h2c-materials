@@ -54,6 +54,24 @@ function measurementRow(m) {
   </div>`;
 }
 
+/**
+ * Related measurements shown under a missing headline. Never the headline, never used by a
+ * constraint, and always carrying the reason it was not promoted.
+ */
+function relatedBlock(h) {
+  const r = h && !h.known && h.related;
+  if (!r) return '';
+  return `<div class="related-list">
+    <div class="related-head">${r.count} measurement${r.count === 1 ? '' : 's'} of this property on record across ${r.grades} grade${r.grades === 1 ? '' : 's'}, none promoted to the headline</div>
+    ${r.items.map((i) => `<div class="related-item">
+      <span class="rv">${fmtNumber(i.value)} ${esc(i.unit)}</span>
+      <span>${esc(i.property)}</span>
+      <span class="why">${esc(i.why)}</span>
+      <span class="cond">${esc(i.measurementId)} \u00b7 ${esc(i.gradeId)}</span>
+    </div>`).join('')}
+  </div>`;
+}
+
 export function renderDrawer(host, state, actions) {
   const { db, selectedMaterialId, drawerTab, selection, ctx } = state;
   const m = db.materials.find((x) => x.id === selectedMaterialId);
@@ -120,7 +138,8 @@ function tabBody(tab, c) {
         ${[['Density', 'density'], ['Tensile modulus XY', 'tensileModulusXY'], ['Tensile strength XY', 'tensileStrengthXY'],
            ['Elongation at break XY', 'elongationXY'], ['HDT at 0.45 MPa', 'hdt045'], ['Price', 'priceCADkg']]
           .map(([label, k]) => `<dt>${label}</dt><dd>${renderValue(m.headline[k], { showUnit: true })}
-            ${m.headline[k]?.known && m.headline[k].loadStated === false ? '<br><span class="missing" style="font-size:11px">Source states the standard, not the load</span>' : ''}</dd>`).join('')}
+            ${m.headline[k]?.caveatText ? `<br><span class="missing">${esc(m.headline[k].caveatText)}</span>` : ''}
+            ${relatedBlock(m.headline[k])}</dd>`).join('')}
       </dl>
       <div class="note">${esc(m.headlineBasis ?? '')}</div>
 

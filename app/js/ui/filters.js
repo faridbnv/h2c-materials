@@ -20,8 +20,11 @@ const NUMERIC = [
   { group: 'Cost',       key: 'priceCADkg',        label: 'Price',                unit: 'CAD/kg', op: '<=', placeholder: 100 },
 ];
 
-const GROUPS = ['Compatibility', 'Mechanical', 'Thermal', 'Environment', 'Manufacturing', 'Cost', 'Evidence'];
-const OPEN_BY_DEFAULT = new Set(['Compatibility', 'Mechanical']);
+// Ordered by how often a criterion actually decides something. Mechanical and thermal properties
+// carry the decision; compatibility sits last because for this database it mostly cannot
+// discriminate, and putting it first made the whole rail look like it did nothing.
+const GROUPS = ['Mechanical', 'Thermal', 'Cost', 'Environment', 'Manufacturing', 'Evidence', 'Compatibility'];
+const OPEN_BY_DEFAULT = new Set(['Mechanical', 'Thermal']);
 
 const H2C_STATUSES = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical'];
 const REINFORCEMENT = [
@@ -45,6 +48,15 @@ export function renderFilters(host, state, actions) {
   const activeIn = (group) => cs.filter((c) => c.__group === group).length;
   const parts = [];
 
+  // One always-visible control above the groups: it is the only compatibility filter that
+  // changes the candidate set for most sessions.
+  const scopeOn = !!find(cs, (c) => c.gate === 'scope');
+  parts.push(`<div class="rail-pinned">
+    <label class="toggle"><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}>
+      <span>H2C-relevant only</span></label>
+    <div class="avail">Hides the 6 materials outside the printer's envelope</div>
+  </div>`);
+
   for (const group of GROUPS) {
     const n = activeIn(group);
     parts.push(`<details class="group" data-group="${group}" ${OPEN_BY_DEFAULT.has(group) || n ? 'open' : ''}>
@@ -60,12 +72,6 @@ function body(group, materials, cs, db) {
   const out = [];
 
   if (group === 'Compatibility') {
-    const scopeOn = !!find(cs, (c) => c.gate === 'scope');
-    out.push(`<div class="control" data-active="${scopeOn}">
-      <label><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}> H2C-relevant only</label>
-      <div class="avail">96 in scope, 6 excluded as outside the H2C envelope</div>
-    </div>`);
-
     const sel = find(cs, (c) => c.gate === 'h2cStatus')?.in ?? [];
     const counts = {};
     for (const m of materials) counts[m.h2cStatus] = (counts[m.h2cStatus] ?? 0) + 1;

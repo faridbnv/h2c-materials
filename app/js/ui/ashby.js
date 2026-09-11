@@ -12,7 +12,7 @@
 import { INDICES, indexById, indexValue, selectionLine, countAbove } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber } from './format.js';
-import { AXIS_DEFS } from './axes.js';
+import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
 
 let dragState = null;
 
@@ -22,17 +22,13 @@ export function renderAshby(host, state, actions) {
   const xDef = AXIS_DEFS.find((a) => a.key === p.x) ?? AXIS_DEFS[0];
   const yDef = AXIS_DEFS.find((a) => a.key === p.y) ?? AXIS_DEFS[1];
 
-  const pts = rows
-    .map(({ material: m, evaluation: e }) => ({
-      id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
-      material: m, evaluation: e,
-      x: m.headline[xDef.key]?.known ? m.headline[xDef.key].value : null,
-      y: m.headline[yDef.key]?.known ? m.headline[yDef.key].value : null,
-      xh: m.headline[xDef.key], yh: m.headline[yDef.key],
-    }))
-    .filter((q) => q.x !== null && q.y !== null);
+  const measurementMode = p.pointLevel === 'measurements';
+  const { pts, mixed, unavailable } = measurementMode
+    ? measurementPoints(rows, xDef, yDef, p.comparability, state.ctx)
+    : headlinePoints(rows, xDef, yDef);
 
-  const missing = rows.length - pts.length;
+  const subjects = new Set(pts.map((q) => q.id)).size;
+  const missing = rows.length - subjects;
   const thin = pts.length < 10;
 
   const axisSelect = (which, cur) => `<select data-axis="${which}">
@@ -62,13 +58,17 @@ export function renderAshby(host, state, actions) {
         <label style="font-weight:400"><input type="checkbox" data-reference ${p.showReference ? 'checked' : ''}> Generic materials</label></div>
     </div>
 
-    ${thin ? `<div class="warn-chip">Only ${pts.length} material${pts.length === 1 ? '' : 's'} have both properties. Read this chart with care.</div>` : ''}
+    ${unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : ''}
+    ${thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : ''}
     ${p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : ''}
-    ${p.comparability === 'broad' ? `<div class="banner">Broad comparability: points may mix direction, specimen type and conditioning. Differing conditions are listed in each hover card.</div>` : ''}
+    ${mixed && mixed.length ? `<div class="banner">Broad comparability is mixing conditions: ${esc(mixed.join('; '))}. Each affected point is drawn hollow and names the mismatch on hover.</div>` : ''}
+    ${measurementMode && p.comparability === 'strict' ? `<div class="banner">Strict comparability: only measurements matching the axis definition exactly. Switch to Broad to see what the looser evidence looks like.</div>` : ''}
 
     <div id="plot"></div>
     <div class="legend-note">
-      ${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.
+      ${measurementMode
+        ? `${pts.length} measurement pair${pts.length === 1 ? '' : 's'} across ${subjects} of ${rows.length} candidates.`
+        : `${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.`}
       Colour is polymer family, marker shape is filler class.
     </div>
     <div id="index-card"></div>`;
@@ -77,6 +77,59 @@ export function renderAshby(host, state, actions) {
   renderIndexCard(host.querySelector('#index-card'), state, pts, actions);
   wireControls(host, state, actions);
 }
+
+/** One point per canonical material, using the same headline logic as the rest of the selector. */
+function headlinePoints(rows, xDef, yDef) {
+  const pts = rows
+    .map(({ material: m, evaluation: e }) => ({
+      id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
+      material: m, evaluation: e, label: m.name,
+      x: m.headline[xDef.key]?.known ? m.headline[xDef.key].value : null,
+      y: m.headline[yDef.key]?.known ? m.headline[yDef.key].value : null,
+      xh: m.headline[xDef.key], yh: m.headline[yDef.key],
+      notes: [],
+    }))
+    .filter((q) => q.x !== null && q.y !== null);
+  return { pts, mixed: [], unavailable: null };
+}
+
+/**
+ * Mode B from the brief: the evidence behind the points. One point per grade per compatible pair
+ * of measurements, so anisotropy is visible instead of averaged away.
+ */
+function measurementPoints(rows, xDef, yDef, mode, ctx) {
+  if (!xDef.measurement || !yDef.measurement) {
+    const which = !xDef.measurement ? xDef.label : yDef.label;
+    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Switch Points back to Headline, or choose another axis.` };
+  }
+  const pts = [];
+  const mixed = new Set();
+
+  for (const { material: m, evaluation: e } of rows) {
+    const ms = ctx.measurementsByMaterial.get(m.id) ?? [];
+    const xs = ms.map((x) => measurementMatches(x, xDef, mode)).filter(Boolean);
+    const ys = ms.map((x) => measurementMatches(x, yDef, mode)).filter(Boolean);
+    for (const xm of xs) {
+      for (const ym of ys) {
+        if (xm.measurement.gradeId !== ym.measurement.gradeId) continue;
+        if (!pairable(xm.measurement, ym.measurement, mode)) continue;
+        const notes = [...new Set([...xm.notes, ...ym.notes])];
+        notes.forEach((n) => mixed.add(n));
+        pts.push({
+          id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
+          material: m, evaluation: e,
+          label: `${m.name} · ${ym.measurement.direction !== 'not-applicable' ? ym.measurement.direction : ym.measurement.gradeId}`,
+          x: xm.measurement.value, y: ym.measurement.value,
+          xh: { value: xm.measurement.value, unit: xm.measurement.unit, measurementId: xm.measurement.id, gradeId: xm.measurement.gradeId, direction: xm.measurement.direction },
+          yh: { value: ym.measurement.value, unit: ym.measurement.unit, measurementId: ym.measurement.id, gradeId: ym.measurement.gradeId, direction: ym.measurement.direction, uncertainty: ym.measurement.uncertainty },
+          notes,
+        });
+      }
+    }
+  }
+  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement pair satisfies this axis pair under the current comparability. Try Broad, or a different pair.' };
+}
+
 
 function drawPlot(host, state, { xDef, yDef, pts, actions }) {
   const { scenario, reference, db } = state;
@@ -100,9 +153,10 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
       name: `${family} · ${FILLER_LABEL[filler] ?? filler}`,
       legendgroup: family,
       x: list.map((q) => q.x), y: list.map((q) => q.y),
-      customdata: list.map((q) => [q.id, q.name, q.evaluation.verdict,
+      customdata: list.map((q) => [q.id, q.label, q.evaluation.verdict,
         q.xh.measurementId ?? '', q.yh.measurementId ?? '',
-        q.yh.direction ?? '', q.yh.gradeId ?? '', q.evaluation.needsVerification ? 'needs verification' : '']),
+        q.yh.direction ?? '', q.yh.gradeId ?? '',
+        q.notes.length ? 'mixed: ' + q.notes.join(', ') : 'conditions match the axis definition']),
       error_x: errorBars(list, 'xh'),
       error_y: errorBars(list, 'yh'),
       marker: {
@@ -110,12 +164,12 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
         symbol: list.map((q) => FILLER_SYMBOL[q.filler] ?? 'circle'),
         color: colors.color(family),
         // Evidence status in the outline: a held candidate reads hollow.
-        opacity: list.map((q) => (q.evaluation.verdict === 'PASS' ? 1 : 0.45)),
-        line: { width: list.map((q) => (q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
+        opacity: list.map((q) => (q.notes.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
+        line: { width: list.map((q) => (q.notes.length || q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
       },
       hovertemplate:
         `<b>%{customdata[1]}</b><br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}`
-        + `<br>Grade %{customdata[6]}<br>Direction %{customdata[5]}<br>%{customdata[2]} against current constraints<extra></extra>`,
+        + `<br>Grade %{customdata[6]}<br>Direction %{customdata[5]}<br>%{customdata[7]}<br>%{customdata[2]} against current constraints<extra></extra>`,
     });
   }
 
@@ -211,7 +265,7 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     if (scenario.shortlist.includes(q.id)) {
       const ax = X(q.x), ay = Y(q.y);
       if (!placeable(ax, ay)) continue;
-      annotations.push({ x: ax, y: ay, text: q.name, showarrow: true, arrowhead: 0, arrowsize: 0.6, ax: 18, ay: -18, font: { size: 11 } });
+      annotations.push({ x: ax, y: ay, text: q.label, showarrow: true, arrowhead: 0, arrowsize: 0.6, ax: 18, ay: -18, font: { size: 11 } });
     }
   }
 
@@ -246,13 +300,18 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     shapes, annotations,
     showlegend: true,
     legend: { orientation: 'v', x: 1.01, y: 1, font: { size: 10 } },
-    dragmode: 'lasso',
+    // Zoom, not lasso. With lasso as the default every stray drag turned into a candidate subset,
+    // which read as the chart filtering itself at random. Lasso stays one click away in the mode bar.
+    dragmode: 'zoom',
     hovermode: 'closest',
   };
 
   const gd = host.querySelector('#plot');
-  Plotly.newPlot(gd, traces, layout, { displaylogo: false, responsive: true,
-    modeBarButtonsToRemove: ['select2d', 'autoScale2d'] });
+  Plotly.newPlot(gd, traces, layout, {
+    displaylogo: false, responsive: true,
+    modeBarButtonsToRemove: ['select2d'],
+    modeBarButtonsToAdd: [],
+  });
 
   gd.on('plotly_click', (ev) => {
     const id = ev.points?.[0]?.customdata?.[0];

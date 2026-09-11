@@ -54,9 +54,10 @@
   </div>
 
   <footer class="statusbar">
-    <span class="chip chip-PASS"    id="s-pass">PASS 0</span>
-    <span class="chip chip-UNKNOWN" id="s-unknown">UNKNOWN 0</span>
-    <span class="chip chip-FAIL"    id="s-fail">FAIL 0</span>
+    <span class="statusbar-label">Show</span>
+    <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true">PASS 0</button>
+    <button type="button" class="chip chip-UNKNOWN" id="s-unknown" aria-pressed="false">UNKNOWN 0</button>
+    <button type="button" class="chip chip-FAIL"    id="s-fail"    aria-pressed="false">FAIL 0</button>
     <button class="btn btn-sm" id="btn-explain">Explain exclusions</button>
     <div class="spacer"></div>
     <span class="meta-chip" id="policy-note"></span>

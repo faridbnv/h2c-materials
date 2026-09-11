@@ -26,11 +26,31 @@ const MISSING_LABEL = {
   'not-available-in-market': 'No CA price',
 };
 
-/** Render a headline entry with its provenance and an evidence affordance. */
+/**
+ * Render a headline entry with its provenance and an evidence affordance.
+ *
+ * Where there is no headline but related measurements exist, show them. 30 materials have a
+ * tensile-strength measurement that never became the headline because the source stated no
+ * direction or a different endpoint. A blank cell hid that and implied nothing was known.
+ */
 export function renderValue(entry, { showUnit = false } = {}) {
   if (!entry) return `<span class="missing">—</span>`;
   if (!entry.known) {
-    return `<span class="missing" title="${esc(entry.text ?? '')}">${esc(MISSING_LABEL[entry.missing] ?? 'Not published')}</span>`;
+    const label = esc(MISSING_LABEL[entry.missing] ?? 'Not published');
+    const r = entry.related;
+    if (!r) return `<span class="missing" title="${esc(entry.text ?? '')}">${label}</span>`;
+    const b = r.best;
+    const dir = b.direction && b.direction !== 'not-applicable' && b.direction !== 'unknown' ? b.direction : null;
+    const tag = dir ?? (b.direction === 'unknown' ? 'no direction' : b.gradeId);
+    const more = r.count - 1;
+    const title = `${label} as a headline. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
+      + ` (${b.property}, ${b.gradeId}${dir ? ', ' + dir : ''}) \u2014 ${b.why}.`
+      + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}; open the material to see them all.` : ''}`
+      + ' Not a headline value and not used by any constraint.';
+    return `<span class="related" title="${esc(title)}">`
+      + `<span class="rv">${fmtNumber(b.value)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
+      + `<span class="tag">${esc(tag)}</span>`
+      + `${more ? `<span class="tag">+${more}</span>` : ''}</span>`;
   }
   const text = fmtNumber(entry.value, showUnit ? entry.unit : null);
   let cls = '';
