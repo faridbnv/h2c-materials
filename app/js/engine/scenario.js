@@ -1,6 +1,12 @@
+// Scenario state: everything that must be recorded for a selection result to be reproducible by
+// someone else, and everything that travels in a shared link.
+//
+// A scenario is the user's question, never the answer and never the data. It holds the constraints,
+// the unknown-data policy, the shortlist, the plot settings and any user assumptions. Assumptions
+// are scenario data and never database edits: the compiled snapshot is read-only at runtime, so a
+// stand-in value lives here and is marked wherever it surfaces.
+
 import { normalizePolicy } from './constraints.js';
-// Scenario state: what must be recorded for a selection result to be reproducible.
-// Architecture brief section 18. Assumptions are scenario data and never database edits.
 
 export const SCENARIO_VERSION = 1;
 

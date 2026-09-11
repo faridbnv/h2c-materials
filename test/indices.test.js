@@ -1,3 +1,11 @@
+// Performance-index and Pareto tests.
+//
+// The index slopes are the load-bearing part: an index of the form P^n / rho plots as a straight
+// line of slope 1/n on log-log axes, and a line drawn at the wrong slope silently misranks every
+// candidate. Each index's drawn geometry is checked against the slope it declares.
+//
+// The Pareto tests also pin down that a point missing either coordinate is excluded from the front
+// rather than treated as zero, which would put it on the frontier by accident.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { INDICES, indexById, indexValue, selectionLine, countAbove, rankByIndex } from '../app/js/engine/indices.js';

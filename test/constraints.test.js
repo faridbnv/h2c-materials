@@ -1,3 +1,11 @@
+// Selection-engine tests.
+//
+// These cover the rules that decide what a user sees: the four constraint states, how a range that
+// straddles a threshold is reported, what Strict and Explore each do with an unresolved criterion,
+// and the asymmetry that lets a family estimate rule a material out but never rule one in.
+//
+// Several are marked as regressions. Those encode a bug that shipped, and the comment says what
+// went wrong, because the behaviour looks arbitrary without it.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {

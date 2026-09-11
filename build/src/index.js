@@ -1,5 +1,16 @@
 #!/usr/bin/env node
-// Deterministic build: frozen workbooks -> validated JSON -> self-contained HTML.
+//
+// Build entry point. Runs the five stages in order and fails the whole build on any validation
+// error, so a broken snapshot can never reach a distributable file.
+//
+//   extract    read the frozen workbooks into raw rows            extract.js
+//   normalize  free text -> canonical values, each tagged         normalize/
+//   compile    assemble the relational runtime database           compile.js
+//   validate   schema, references, citations, consistency         validate.js
+//   bundle     gzip the data, inline the libraries, emit HTML     bundle.js
+//
+// `npm run validate` stops after the report; `npm run build` continues to the bundle.
+// See docs/PIPELINE.md.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
