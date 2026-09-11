@@ -123,3 +123,56 @@ test('every HDT headline is either a stated 0.45 MPa or flagged as unstated', ()
     else assert.equal(h.caveat, 'load-not-stated', `${m.name} has no caveat`);
   }
 });
+
+// --- family estimates on the compiled snapshot -------------------------------
+test('estimates never sit on a headline that has its own measurement', () => {
+  for (const m of db.materials) {
+    for (const [k, h] of Object.entries(m.headline)) {
+      if (h?.estimate) assert.equal(h.known, false, `${m.name} ${k}`);
+    }
+  }
+});
+
+// Regression: PA, PA6/66 and CoPA all draw their headline from one PolyMide datasheet. Counting
+// them as three peers produced an "estimate" of 2.223 to 2.223 GPa, a precise value dressed as a
+// range. The Method sheet calls shared formulation keys repeated evidence, not independent tests.
+test('estimates are a real range, never a single value repeated', () => {
+  for (const m of db.materials) {
+    for (const [k, h] of Object.entries(m.headline)) {
+      if (!h?.estimate) continue;
+      assert.ok(h.estimate.hi > h.estimate.lo, `${m.name} ${k} spans ${h.estimate.lo} to ${h.estimate.hi}`);
+      assert.ok(h.estimate.peerCount >= 2, `${m.name} ${k} cites ${h.estimate.peerCount} peers`);
+    }
+  }
+});
+
+test('every estimate names its basis and its peers, and excludes the material itself', () => {
+  let n = 0;
+  for (const m of db.materials) {
+    for (const [k, h] of Object.entries(m.headline)) {
+      if (!h?.estimate) continue;
+      n++;
+      assert.ok(h.estimate.basis, `${m.name} ${k} has no basis`);
+      assert.equal(h.estimate.peers.length, h.estimate.peerCount, `${m.name} ${k}`);
+      assert.ok(!h.estimate.peers.some((p) => p.id === m.id), `${m.name} ${k} includes itself`);
+    }
+  }
+  assert.ok(n > 50, `expected a meaningful number of estimates, got ${n}`);
+});
+
+test('excluded materials get no estimates', () => {
+  for (const m of db.materials.filter((x) => x.excluded)) {
+    for (const h of Object.values(m.headline)) assert.equal(h?.estimate, undefined, m.name);
+  }
+});
+
+// Elastomers, supports and rigid thermoplastics are different populations. Pooling them produced a
+// modulus bound from 0.0053 to 2.88 GPa, which rules nothing out and misleads about support materials.
+test('the widest tier never pools elastomers with rigid thermoplastics', () => {
+  const tpu = db.materials.find((m) => m.name === 'TPU');
+  assert.equal(tpu.headline.hdt045.estimate, undefined, 'TPU has no HDT peers and should get no bound');
+  for (const m of db.materials.filter((x) => x.family === 'Flexible Elastomers')) {
+    const e = m.headline.tensileModulusXY?.estimate;
+    if (e) assert.ok(e.lo < 2, `${m.name} borrowed a rigid-thermoplastic bound: ${e.lo} to ${e.hi}`);
+  }
+});

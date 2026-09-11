@@ -124,3 +124,64 @@ test('an unrecognised unknown-data policy falls back to strict, consistently', (
   assert.equal(good.verdict, STATUS.UNKNOWN);
   assert.equal(good.eligible, true);
 });
+
+// --- family estimates -------------------------------------------------------
+// An estimate is inference drawn from a material's relatives. It exists to stop a material falling
+// into a category it clearly does not belong to, and for nothing else.
+
+const estimated = (lo, hi) => ({
+  id: 'M1', excluded: false, gates: {},
+  headline: { elongationXY: { known: false, missing: 'not-published', unit: '%',
+    estimate: { lo, hi, unit: '%', peerCount: 14, basis: 'PLA, unreinforced grades', peers: [] } } },
+});
+
+test('an estimate can rule a material out of a requirement its relatives cannot meet', () => {
+  const m = estimated(2.8, 15.3);
+  const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 };
+  const r = evaluateConstraint(m, c, { useEstimates: true });
+  assert.equal(r.status, STATUS.FAIL);
+  assert.ok(r.estimated);
+  assert.match(r.reason, /measured peers/);
+});
+
+test('an estimate never confirms a requirement, even when every peer would meet it', () => {
+  const m = estimated(2.8, 15.3);
+  const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 2 };
+  const r = evaluateConstraint(m, c, { useEstimates: true });
+  assert.equal(r.status, STATUS.UNKNOWN, 'a passing estimate is still not evidence');
+  assert.equal(r.plausible, STATUS.PASS);
+  assert.ok(r.estimated);
+});
+
+test('a straddling estimate holds rather than deciding', () => {
+  const r = evaluateConstraint(estimated(2.8, 15.3), { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 10 }, { useEstimates: true });
+  assert.equal(r.status, STATUS.UNKNOWN);
+  assert.equal(r.plausible, STATUS.INDETERMINATE);
+});
+
+test('estimates are invisible unless explicitly enabled, so Strict never sees them', () => {
+  const m = estimated(2.8, 15.3);
+  const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 };
+  const off = evaluateConstraint(m, c, {});
+  assert.equal(off.status, STATUS.UNKNOWN);
+  assert.equal(off.estimated, undefined);
+  assert.match(off.reason, /Not published/);
+});
+
+test('a material ruled out only by an estimate says so', () => {
+  const m = estimated(2.8, 15.3);
+  const e = evaluateMaterial(m, [{ kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 }],
+    { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.EXPLORATION });
+  assert.equal(e.verdict, STATUS.FAIL);
+  assert.equal(e.eligible, false);
+  assert.ok(e.ruledOutByEstimate);
+  assert.ok(e.usesEstimate);
+});
+
+test('a material that fails on real evidence is not attributed to an estimate', () => {
+  const m = { id: 'M2', excluded: false, gates: {}, headline: { elongationXY: { known: true, value: 5, unit: '%', interval: { lo: 5, hi: 5 } } } };
+  const e = evaluateMaterial(m, [{ kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 }], { useEstimates: true });
+  assert.equal(e.verdict, STATUS.FAIL);
+  assert.equal(e.ruledOutByEstimate, false);
+  assert.equal(e.usesEstimate, false);
+});

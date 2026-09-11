@@ -14,6 +14,7 @@ import {
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
 import { ORIGIN } from './normalize/provenance.js';
+import { buildEstimates, summariseEstimates } from './estimates.js';
 
 // Identifier lists are semicolon separated. Seven materials have no grades at all and say so in
 // words, so an explicit missing state must not become an identifier.
@@ -497,6 +498,10 @@ export function compile(wb, { snapshot, build }) {
     };
   });
 
+  // Family estimates are attached last, once every headline is known, and only to headlines that
+  // have no value of their own.
+  buildEstimates(materials, grades);
+
   const environmentCategories = countUsableByCategory(wb['Use & durability'].rows);
 
   return {
@@ -515,6 +520,7 @@ export function compile(wb, { snapshot, build }) {
           sources: sources.length, coverage: coverage.length,
         },
         environmentCategories,
+        estimateCoverage: summariseEstimates(materials),
         headlineCoverage: Object.fromEntries(
           [...HEADLINES.map(([k]) => k), 'priceCADkg'].map((k) => [k, materials.filter((m) => m.headline[k]?.known).length]),
         ),

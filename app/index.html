@@ -17,11 +17,14 @@
     <div class="spacer"></div>
 
     <!-- The most consequential control in the product. Top level, never inside a filter group. -->
-    <span class="segmented-label">Unknown data</span>
-    <div class="segmented" role="group" aria-label="Unknown-data policy">
+    <div class="segmented" role="group" aria-label="How to treat data that is missing">
       <button id="mode-strict" aria-pressed="true" title="Unknown or non-comparable data does not satisfy a mandatory constraint">Strict</button>
-      <button id="mode-explore" aria-pressed="false" title="Unknown candidates stay visible, flagged Needs verification">Explore</button>
+      <button id="mode-explore" aria-pressed="false" title="Explore: materials with unresolved criteria stay visible and flagged, and family estimates may rule out implausible ones.">Explore</button>
     </div>
+
+    <label class="est-toggle" id="est-toggle" hidden
+      title="Use the measured range of a material's closest relatives to rule out implausible matches. An estimate can only rule a material out, never confirm it in.">
+      <input type="checkbox" id="use-estimates"><span>Estimates</span></label>
 
     <button class="btn btn-sm" id="btn-scenario">Scenario</button>
     <button class="btn btn-sm" id="btn-theme" title="Toggle theme" aria-label="Toggle theme">◐</button>

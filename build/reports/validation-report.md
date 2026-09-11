@@ -65,6 +65,20 @@ among them, so it can only show evidence and must never be offered as a hard con
 | fatigue | indicator | 5 | 0 | 5 |
 | hydrolysis | indicator | 4 | 0 | 4 |
 
+## Family estimates
+
+Where a material has no measurement of its own, the span of its closest measured relatives
+is recorded as a bound. Peers sharing one commercial source count once. These never appear
+in Strict mode, and can only exclude, never confirm.
+
+| Headline | Missing | From family and filler | From family | From behaviour and filler | No peers |
+|---|---:|---:|---:|---:|---:|
+| density | 14 | 8 | 5 | 1 | 0 |
+| tensileModulusXY | 31 | 7 | 10 | 8 | 6 |
+| tensileStrengthXY | 49 | 11 | 15 | 17 | 6 |
+| elongationXY | 29 | 6 | 9 | 8 | 6 |
+| hdt045 | 35 | 4 | 10 | 7 | 14 |
+
 ## Reference layer
 
 114 generic entries, 10 shown by default. Never part of the candidate set.
@@ -76,4 +90,5 @@ interface can say so rather than implying a certainty it does not have.
 
 - **measurements** — Impact data uses two incompatible units. 8 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
 - **materials** — 24 of 66 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
+- **materials** — 126 family estimates were derived for headlines with no measurement. They are inference, not evidence: Strict mode never sees them, and in Explore they can only rule a material out of a requirement it clearly cannot meet.
 - **materials** — 12 materials have no property measurements at all: PLA Lite, PLA Silk, PA66, PA66-CF, PA612, PA612-GF, PET-GF, Support for PLA, POM / Acetal, CPE, CoPE, nGen / Amphora

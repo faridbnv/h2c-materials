@@ -42,11 +42,22 @@ const MISSING_LABEL = {
  * tensile-strength measurement that never became the headline because the source stated no
  * direction or a different endpoint. A blank cell hid that and implied nothing was known.
  */
-export function renderValue(entry, { showUnit = false, compact = false } = {}) {
+export function renderValue(entry, { showUnit = false, compact = false, estimates = false } = {}) {
   if (!entry) return `<span class="missing">—</span>`;
   if (!entry.known) {
     const label = esc(MISSING_LABEL[entry.missing] ?? 'Not published');
     const r = entry.related;
+
+    // Precedence: a real measurement of this property beats a bound drawn from relatives.
+    if (!r && estimates && entry.estimate) {
+      const e = entry.estimate;
+      const span = `${fmtNumber(e.lo)}–${fmtNumber(e.hi)}${showUnit ? ' ' + esc(e.unit) : ''}`;
+      const title = `Estimated, not measured. This material has no ${''}published value. The `
+        + `${e.peerCount} measured peers in ${e.basis} fall between ${fmtNumber(e.lo)} and ${fmtNumber(e.hi)} ${e.unit}`
+        + `${e.sharedSourceDropped ? ` (${e.sharedSourceDropped} further entries share one commercial source and were counted once)` : ''}.`
+        + ' Used only to rule a material out, never to confirm one in.';
+      return `<span class="est" title="${esc(title)}">~${span}<span class="est-mark">†</span></span>`;
+    }
     // In the table a dash, because "Not published" does not fit a numeric column and was being
     // clipped to "Not publis...". The wording survives in the tooltip, the detail drawer, the
     // comparison view and every export, so the four missing states stay distinct.

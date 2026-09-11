@@ -68,13 +68,16 @@ export function renderTable(host, state, actions) {
         return `<td><button class="btn btn-sm" data-pin="${esc(m.id)}" aria-pressed="${pinned}"
           title="${pinned ? 'Remove from shortlist' : 'Add to shortlist'}">${pinned ? '★' : '☆'}</button></td>`;
       }
-      return `<td class="num">${renderValue(m.headline[c.key], { compact: true })}</td>`;
+      return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.useEstimates })}</td>`;
     }).join('');
     return `<tr data-material="${esc(m.id)}" data-selected="${state.selectedMaterialId === m.id}" tabindex="0">${cells}</tr>`;
   }).join('');
 
   const anyRelated = sorted.some(({ material: m }) =>
     COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known && m.headline[c.key].related));
+  const anyEstimate = state.ctx?.useEstimates && sorted.some(({ material: m }) =>
+    COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known
+      && !m.headline[c.key].related && m.headline[c.key].estimate));
 
   host.innerHTML = `<table class="grid">
       <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
@@ -82,6 +85,10 @@ export function renderTable(host, state, actions) {
     <p class="table-note"><span class="dash">\u2014</span> means the property was not published in
       the sampled sources. It is not zero, and not a low value. Hover any dash for which kind of
       absence it is, or open the material.</p>
+    ${anyEstimate ? `<p class="table-note"><span class="est-mark" style="color:var(--unknown)">\u2020</span>
+      an <b>estimate</b>, not a measurement: the range its closest measured relatives fall in. It rules a
+      material out of a search it clearly cannot meet, and never counts as meeting one. Hover it for
+      which relatives, or turn estimates off in the top bar.</p>` : ''}
     ${anyRelated ? `<p class="table-note"><span class="related-mark">*</span> the nearest measurement on
       record for that property, which was never promoted to a headline value. Hover it for the reason,
       or open the material for the full record. It is not used by any filter.</p>` : ''}`;
@@ -110,12 +117,18 @@ export function renderTable(host, state, actions) {
 export function toCSV(rows, meta) {
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State',
     'Density kg/m3', 'Modulus GPa', 'Strength MPa', 'Elongation %', 'HDT C', 'Price CAD/kg',
-    'HDT load stated', 'Held by'];
+    'HDT load stated', 'Estimated fields', 'Ruled out by estimate', 'Held by'];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
+  // An exported number is always a measurement. An estimated bound travels in its own column so a
+  // spreadsheet can never mistake inference for evidence.
   const val = (m, k) => (m.headline[k]?.known ? m.headline[k].value : m.headline[k]?.missing ?? '');
+  const estimated = (m) => Object.entries(m.headline)
+    .filter(([, h]) => h && !h.known && h.estimate)
+    .map(([k, h]) => `${k} ~${h.estimate.lo}-${h.estimate.hi} (${h.estimate.basis}, n=${h.estimate.peerCount})`)
+    .join(' | ');
   const lines = [
     `# H2C Material Selector export`,
     `# database snapshot ${meta.snapshot}, application build ${meta.build}`,
@@ -125,6 +138,8 @@ export function toCSV(rows, meta) {
       val(m, 'density'), val(m, 'tensileModulusXY'), val(m, 'tensileStrengthXY'),
       val(m, 'elongationXY'), val(m, 'hdt045'), val(m, 'priceCADkg'),
       m.headline.hdt045?.known ? m.headline.hdt045.loadStated : '',
+      estimated(m),
+      e.ruledOutByEstimate ? 'yes' : '',
       e.heldBy.join(' | '),
     ].map(q).join(',')),
   ];

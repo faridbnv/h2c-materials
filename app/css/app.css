@@ -76,17 +76,18 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .app { display: grid; grid-template-rows: auto 1fr auto auto; height: 100vh; }
 
 .topbar {
-  display: flex; align-items: center; gap: 16px; padding: 0 16px; height: 52px;
+  display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 52px;
   background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0;
 }
-.topbar h1 { font-size: 16px; font-weight: 650; margin: 0; letter-spacing: -0.01em; white-space: nowrap; }
+.topbar h1 { font-size: 15px; font-weight: 650; margin: 0; letter-spacing: -0.01em; white-space: nowrap; flex-shrink: 0; }
+@media (max-width: 1400px) { .meta-chip { display: none; } }
 .topbar .spacer { flex: 1; }
 .search { position: relative; }
 .search input {
-  width: 260px; padding: 6px 10px; border: 1px solid var(--border-strong);
+  width: 230px; padding: 6px 10px; border: 1px solid var(--border-strong);
   border-radius: var(--radius); background: var(--bg);
 }
-.meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; font-family: var(--mono); }
+.meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 
 /* Segmented control. The unknown-data mode lives here, never in a filter group. */
 .segmented { display: inline-flex; border: 1px solid var(--border-strong); border-radius: var(--radius); overflow: hidden; }
@@ -531,3 +532,29 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .facts-list { display: grid; gap: 9px; margin-bottom: 14px; }
 .fact { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; font-size: var(--t-body); }
 .fact-why { color: var(--ink-2); font-size: var(--t-small); }
+
+/* ---------------------------------------------------------------- family estimates */
+.est-toggle {
+  display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small);
+  border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 5px 10px; cursor: pointer;
+  white-space: nowrap; color: var(--ink-2); flex-shrink: 0;
+}
+.est-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.est-toggle[data-ruled]:not([data-ruled=""])::after {
+  content: attr(data-ruled); font-size: var(--t-label); color: var(--unknown); font-weight: 650;
+}
+
+/* An estimate must never be mistaken for a measurement: brackets, a dashed rule, and its own colour. */
+.est {
+  display: inline; font-size: var(--t-small); color: var(--unknown);
+  border-bottom: 1px dashed var(--unknown); cursor: help; font-variant-numeric: tabular-nums;
+}
+.est .est-mark { font-weight: 700; margin-left: 2px; }
+.est-card {
+  border: 1px dashed var(--unknown); background: var(--unknown-bg); border-radius: var(--radius);
+  padding: 12px 14px; margin-top: 10px;
+}
+.est-card h4 { margin: 0 0 4px; font-size: var(--t-body); color: var(--unknown); }
+.est-card .est-span { font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; margin: 4px 0; }
+.est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
+.est-card .est-peers { font-size: var(--t-label); color: var(--ink-3); margin-top: 8px; line-height: 1.6; }

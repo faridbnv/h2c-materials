@@ -86,6 +86,22 @@ function describeFacets(m) {
   return bits.length ? bits.join(', ') + '.' : '';
 }
 
+/** The full estimate record: the span, where it came from, and every peer behind it. */
+function estimateBlock(h, label) {
+  const e = h && !h.known && h.estimate;
+  if (!e) return '';
+  return `<div class="est-card">
+    <h4>${esc(label)}: estimated, not measured</h4>
+    <div class="est-span">${fmtNumber(e.lo)} \u2013 ${fmtNumber(e.hi)} ${esc(e.unit)}</div>
+    <div class="est-basis">This material has no published value. The range is the span of the
+      ${e.peerCount} measured peers in <b>${esc(e.basis)}</b>${e.sharedSourceDropped
+        ? `, after collapsing ${e.sharedSourceDropped} further entr${e.sharedSourceDropped === 1 ? 'y that shares' : 'ies that share'} one commercial source`
+        : ''}.
+      It can rule this material out of a requirement it clearly cannot meet. It can never satisfy one.</div>
+    <div class="est-peers">${e.peers.map((p) => `${esc(p.name)} ${fmtNumber(p.value)}`).join(' \u00b7 ')}</div>
+  </div>`;
+}
+
 export function renderDrawer(host, state, actions) {
   const { db, selectedMaterialId, drawerTab, selection, ctx } = state;
   const m = db.materials.find((x) => x.id === selectedMaterialId);
@@ -182,13 +198,15 @@ function tabBody(tab, c) {
           const h = m.headline[k];
           return `<div class="fact-card${h?.known ? '' : ' empty'}">
             <div class="fact-label">${esc(label)}</div>
-            <div class="fact-value">${renderValue(h, { showUnit: true })}</div>
+            <div class="fact-value">${renderValue(h, { showUnit: true, estimates: true })}</div>
             <div class="fact-hint">${esc(hint)}</div>
             ${h?.caveatText ? `<div class="fact-warn">${esc(h.caveatText)}</div>` : ''}
+            ${!h?.known && !h?.related && h?.estimate ? `<div class="fact-warn">estimated from ${h.estimate.peerCount} relatives</div>` : ''}
           </div>`;
         }).join('')}
       </div>
       <p class="fine">${esc((m.headlineBasis ?? '').replace(/[.\s]*$/, ''))}. Click any number to see the measurement behind it.</p>
+      ${HEAD.map(([label, k]) => estimateBlock(m.headline[k], label)).join('')}
 
       <h3 class="sec">Can the H2C print it?</h3>
       <div class="facts-list">

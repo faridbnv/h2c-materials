@@ -78,6 +78,37 @@ stylistic preferences, and changing them changes what the tool asserts.
    envelope reports as exceeding even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates, never in counts,
     Pareto fronts, search, exports or the shortlist.
+11. **A family estimate may rule a material out, never confirm it in.** See below.
+
+## Three kinds of number
+
+The interface shows them differently on purpose, and only the first is evidence.
+
+| | What it is | How it looks |
+|---|---|---|
+| **Measured** | A verified headline value, traceable to one measurement, grade and source | plain |
+| **Related** | A real measurement of the same property that was never promoted to a headline, because the source stated no direction or a different endpoint | `46*` |
+| **Estimated** | The span of the material's closest measured relatives. Inference, not evidence | `~2.8–15.3†` |
+
+### Why estimates exist
+
+In Explore mode a material with no mechanical data answered UNKNOWN to every mechanical criterion,
+so PLA Lite survived a search for "elongation at least 100%" and sat among the elastomers. Knowing
+that all fourteen measured unreinforced PLA grades fall between 2.8 and 15.3% is enough to rule it
+out, without pretending to know its actual value.
+
+The rule that keeps this honest is asymmetric: **a failing estimate fails; a passing one still
+reports UNKNOWN.** A bound drawn from a material's relatives can show it cannot meet a requirement.
+It can never certify that it does.
+
+Estimates are built from compiled headline values only, so every contributing number is already
+verified, measured in XY where direction applies, and drawn from a single grade. Peers are pooled
+by the most specific tier that has at least two independent observations: family and filler class,
+then family, then behaviour and filler class. Elastomers, support materials and rigid
+thermoplastics are never pooled with each other. Peers sharing one commercial formulation key count
+once, because the Method sheet calls those repeated commercial evidence rather than independent
+tests. Every estimate carries its basis, its peer count and the peers themselves, and Strict mode
+never sees them.
 
 ## H2C hardware baseline
 

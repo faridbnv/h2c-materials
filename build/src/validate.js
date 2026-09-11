@@ -104,6 +104,26 @@ export function validate(db, wb) {
     issues.push(warn('materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`));
   }
 
+  // -- family estimates --------------------------------------------------------
+  // These are inference, not evidence, so the rules that keep them separable are checked here.
+  let estimates = 0;
+  for (const mat of db.materials) {
+    for (const [key, h] of Object.entries(mat.headline)) {
+      if (!h?.estimate) continue;
+      estimates++;
+      const e = h.estimate;
+      if (h.known) issues.push(err(`materials ${mat.id}`, `Headline ${key} has a measured value AND a family estimate`));
+      if (mat.excluded) issues.push(err(`materials ${mat.id}`, `Excluded material carries a family estimate for ${key}`));
+      if (!e.peers?.length || e.peerCount < 2) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} cites fewer than two independent peers`));
+      if (e.lo === e.hi) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} is a single value, not a range`));
+      if (!e.basis) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} does not say where it came from`));
+      if (e.peers?.some((p) => p.id === mat.id)) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} includes the material itself`));
+    }
+  }
+  if (estimates) {
+    issues.push(warn('materials', `${estimates} family estimates were derived for headlines with no measurement. They are inference, not evidence: Strict mode never sees them, and in Explore they can only rule a material out of a requirement it clearly cannot meet.`));
+  }
+
   // -- unparsed free text -----------------------------------------------------
   const unparsedProcess = [];
   for (const p of db.profiles) {
@@ -180,6 +200,19 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   L.push('|---|---|---:|---:|---:|');
   for (const [k, v] of Object.entries(db.meta.environmentCategories).sort((a, b) => b[1].usable - a[1].usable)) {
     L.push(`| ${k} | ${v.kind} | ${v.records} | ${v.usable} | ${v.materials} |`);
+  }
+  L.push('');
+
+  L.push('## Family estimates');
+  L.push('');
+  L.push('Where a material has no measurement of its own, the span of its closest measured relatives');
+  L.push('is recorded as a bound. Peers sharing one commercial source count once. These never appear');
+  L.push('in Strict mode, and can only exclude, never confirm.');
+  L.push('');
+  L.push('| Headline | Missing | From family and filler | From family | From behaviour and filler | No peers |');
+  L.push('|---|---:|---:|---:|---:|---:|');
+  for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
+    L.push(`| ${k} | ${v.missing} | ${v['family+filler'] ?? 0} | ${v.family ?? 0} | ${v.filler ?? 0} | ${v.none ?? 0} |`);
   }
   L.push('');
 

@@ -73,11 +73,41 @@ export function compareInterval(interval, operator, threshold) {
 
 // ---------------------------------------------------------------- numeric headline
 
-function evaluateNumeric(material, c) {
+function evaluateNumeric(material, c, ctx = {}) {
   const h = material.headline?.[c.property];
   const label = `${c.property} ${c.operator} ${fmt(c.value)}`;
 
   if (!h || !h.known) {
+    // A family estimate may rule a material OUT, never confirm it in.
+    //
+    // The asymmetry is the whole point. Knowing that every unreinforced PLA in the database
+    // measures between 2.8 and 15.3% elongation is enough to say PLA Lite is not a 100%-elongation
+    // elastomer. It is not enough to certify that it meets a 5% floor, because the bound is drawn
+    // from its relatives and not from the material itself. So a failing estimate fails, and a
+    // passing one still reports UNKNOWN with the estimate attached.
+    if (ctx.useEstimates && h?.estimate) {
+      const est = h.estimate;
+      const verdict = compareInterval({ lo: est.lo, hi: est.hi, kind: 'range' }, c.operator, c.value);
+      const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
+      if (verdict === STATUS.FAIL) {
+        return {
+          status: STATUS.FAIL,
+          estimated: true,
+          estimate: est,
+          criterion: label,
+          reason: `No measurement of its own. Every one of the ${est.peerCount} measured peers in ${est.basis} falls in ${span}, which cannot meet this requirement`,
+        };
+      }
+      return {
+        status: STATUS.UNKNOWN,
+        estimated: true,
+        estimate: est,
+        plausible: verdict,
+        criterion: label,
+        reason: `Not published. ${est.peerCount} measured peers in ${est.basis} fall in ${span}, so this is ${verdict === STATUS.PASS ? 'plausible' : 'possible'}, but the material itself was never measured`,
+        missing: h?.missing ?? 'not-published',
+      };
+    }
     return {
       status: STATUS.UNKNOWN,
       reason: h?.missing === 'not-available-in-market'
@@ -249,7 +279,7 @@ function evaluateEvidence(material, c, ctx) {
 
 export function evaluateConstraint(material, constraint, ctx = {}) {
   switch (constraint.kind) {
-    case 'numeric': return { ...evaluateNumeric(material, constraint), constraint };
+    case 'numeric': return { ...evaluateNumeric(material, constraint, ctx), constraint };
     case 'gate': return { ...evaluateGate(material, constraint), constraint };
     case 'facet': return { ...evaluateFacet(material, constraint), constraint };
     case 'environment': return { ...evaluateEnvironment(material, constraint, ctx), constraint };
@@ -280,6 +310,10 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
     verdict,
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN),
     needsVerification: verdict === STATUS.UNKNOWN,
+    // True when the material survives or falls only because of a family estimate, which the UI
+    // must show rather than let the reader assume a measurement was involved.
+    usesEstimate: results.some((r) => r.estimated),
+    ruledOutByEstimate: failed.length > 0 && failed.every((r) => r.estimated),
     results,
     failed,
     unresolved,

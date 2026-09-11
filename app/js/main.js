@@ -28,6 +28,8 @@ const defaultShowStates = (policy) =>
 const state = {
   db: null, reference: null, scenario: null, ctx: null,
   lens: 'table', search: '', sort: { key: 'name', dir: 'asc' },
+  // Family estimates are an Explore-mode aid only; Strict never sees them.
+  useEstimates: true,
   // Which constraint verdicts the table shows. The status-bar chips toggle these, which is what
   // makes them controls rather than decoration, and what makes Strict against Explore visible.
   showStates: new Set(['PASS']),
@@ -82,6 +84,8 @@ function recompute() {
   const { db, scenario } = state;
   scenario.unknownPolicy = normalizePolicy(scenario.unknownPolicy);
   state.ctx.unknownPolicy = scenario.unknownPolicy;
+  // Strict means measured evidence only. Estimates are never allowed to decide anything there.
+  state.ctx.useEstimates = scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates;
 
   // Assumptions are scenario data. The database object is never mutated.
   const materials = scenario.assumptions.length
@@ -146,6 +150,7 @@ const actions = {
     state.showStates = defaultShowStates(policy);
     render(); pushHash();
   },
+  toggleEstimates(on) { state.useEstimates = on; state.scenario.useEstimates = on; render(); pushHash(); },
   toggleState(verdict) {
     if (state.showStates.has(verdict)) state.showStates.delete(verdict);
     else state.showStates.add(verdict);
@@ -223,6 +228,17 @@ function render() {
       : on ? `Showing the ${n} ${verdict} candidates. Click to hide them.`
            : `Click to show the ${n} ${verdict} candidates.`;
   }
+  const explore = state.scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION;
+  const estToggle = document.getElementById('est-toggle');
+  estToggle.hidden = !explore;
+  document.getElementById('use-estimates').checked = state.useEstimates;
+  if (explore && state.useEstimates) {
+    const ruled = state.selection.evaluations.filter((e) => e.ruledOutByEstimate).length;
+    estToggle.dataset.ruled = ruled ? `${ruled} ruled out` : '';
+  } else {
+    estToggle.dataset.ruled = '';
+  }
+
   document.getElementById('policy-note').textContent = state.scenario.unknownPolicy === 'strict'
     ? 'Strict: a criterion that cannot be evaluated holds the candidate out'
     : 'Explore: candidates with unresolved criteria stay visible, flagged';
@@ -289,6 +305,7 @@ function wireChrome() {
     renderLens();
   });
 
+  document.getElementById('use-estimates').addEventListener('change', (e) => actions.toggleEstimates(e.target.checked));
   document.getElementById('btn-scenario').addEventListener('click', openScenario);
 
   document.addEventListener('keydown', (e) => {
@@ -409,6 +426,7 @@ function openScenario() {
   state.scenario = fromHash(location.hash.slice(1), db.meta) ?? newScenario(db.meta);
   state.showStates = defaultShowStates(state.scenario.unknownPolicy);
   state.selectedMaterialId = state.scenario.openMaterial ?? null;
+  if (typeof state.scenario.useEstimates === 'boolean') state.useEstimates = state.scenario.useEstimates;
 
   document.getElementById('meta').textContent =
     `snapshot ${db.meta.snapshot} · build ${db.meta.build} · ${db.meta.counts.materials} materials · ${db.meta.counts.measurements} measurements`;
