@@ -4,6 +4,8 @@ A self-contained browser application for choosing FDM filaments for a fully conf
 H2C. It compiles a frozen research database into a single HTML file that runs offline, from a local
 file, a shared drive or static hosting, with no backend.
 
+**Live: [pdynamics.ca/h2c-materials](https://pdynamics.ca/h2c-materials/)**
+
 The tool is **decision support**: screening, comparison and evidence navigation. It is not a source
 of certified design allowables, not a substitute for reading the exact grade's technical and safety
 data sheets, and not a guarantee that any third-party filament runs on an H2C.
@@ -20,6 +22,22 @@ npm run validate               # validate only, no bundle
 ```
 
 Open the file in `dist/` in any current browser. Nothing else is required.
+
+## Publishing
+
+`.github/workflows/pages.yml` rebuilds the selector from the workbooks on every push to `main` and
+publishes it to GitHub Pages. The distributable HTML is **not committed**, so the published page
+cannot drift from the source of truth, and a database that fails validation stops in CI and never
+reaches the site.
+
+The page is served at the site root, so the address opens straight into the tool. The
+snapshot-stamped filename and the validation report are published alongside it:
+
+| Address | What |
+|---|---|
+| [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool |
+| `/h2c-materials/H2C_Material_Selector_2026-09-10.html` | The same build, pinned to its database snapshot |
+| `/h2c-materials/validation-report.md` | What the compiled database cannot support |
 
 ## Documentation
 
