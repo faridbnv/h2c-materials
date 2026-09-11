@@ -72,6 +72,20 @@ function relatedBlock(h) {
   </div>`;
 }
 
+/** A plain sentence about what the material is, instead of three coded fields. */
+function describeFacets(m) {
+  const bits = [];
+  const fill = {
+    'carbon-fibre': 'Carbon-fibre reinforced', 'glass-fibre': 'Glass-fibre reinforced',
+    'esd': 'Static-dissipative', 'foaming': 'Foaming, for lightweight parts',
+    'unfilled': 'Unfilled', 'undisclosed': 'A commercial variant whose filler is not disclosed',
+  }[m.facets.reinforcement.value];
+  if (fill) bits.push(fill);
+  if (m.facets.supportMaterial.value) bits.push('a support or interface material rather than a structural one');
+  if (m.facets.flexible.value) bits.push('a flexible elastomer');
+  return bits.length ? bits.join(', ') + '.' : '';
+}
+
 export function renderDrawer(host, state, actions) {
   const { db, selectedMaterialId, drawerTab, selection, ctx } = state;
   const m = db.materials.find((x) => x.id === selectedMaterialId);
@@ -132,37 +146,89 @@ function tabBody(tab, c) {
   const covFor = (t) => cov.filter((r) => (COVERAGE_FOR_TAB[t] ?? []).includes(r.domain));
 
   if (tab === 'Overview') {
+    const HEAD = [
+      ['Density', 'density', 'how heavy a printed part will be'],
+      ['Stiffness', 'tensileModulusXY', 'resistance to bending and stretching'],
+      ['Strength', 'tensileStrengthXY', 'load it takes before failing'],
+      ['Stretch before breaking', 'elongationXY', 'high means tough, low means brittle'],
+      ['Heat resistance', 'hdt045', 'temperature where it starts to soften under load'],
+      ['Price', 'priceCADkg', 'sampled Canadian retail'],
+    ];
+
+    const gateLine = (g, label) => {
+      if (!g) return '';
+      const word = { within: 'Yes', exceeds: 'No', 'exceeds-recommended': 'Yes, with a caveat', unknown: 'Not published' }[g.verdict];
+      const cls = { within: 'PASS', exceeds: 'FAIL', 'exceeds-recommended': 'INDETERMINATE', unknown: 'UNKNOWN' }[g.verdict];
+      return `<div class="fact"><span class="chip chip-${cls}">${esc(word)}</span>
+        <div><b>${esc(label)}</b><br><span class="fact-why">${esc(g.reason)}</span></div></div>`;
+    };
+
+    const printable = m.excluded
+      ? `<div class="callout bad"><b>Outside the printer's envelope.</b> This material is in the
+          database for completeness but is not treated as H2C-printable.</div>`
+      : '';
+
     return `
-      <h3 class="sec">Headline properties</h3>
-      <dl class="kv">
-        ${[['Density', 'density'], ['Tensile modulus XY', 'tensileModulusXY'], ['Tensile strength XY', 'tensileStrengthXY'],
-           ['Elongation at break XY', 'elongationXY'], ['HDT at 0.45 MPa', 'hdt045'], ['Price', 'priceCADkg']]
-          .map(([label, k]) => `<dt>${label}</dt><dd>${renderValue(m.headline[k], { showUnit: true })}
-            ${m.headline[k]?.caveatText ? `<br><span class="missing">${esc(m.headline[k].caveatText)}</span>` : ''}
-            ${relatedBlock(m.headline[k])}</dd>`).join('')}
-      </dl>
-      <div class="note">${esc(m.headlineBasis ?? '')}</div>
+      ${printable}
+      <p class="lede">${esc(m.fullName ?? m.name)}. ${esc(describeFacets(m))}
+        ${m.h2cStatus === 'Official Bambu product' ? 'Sold by Bambu for this printer.'
+          : m.h2cStatus === 'Officially listed family' ? 'Bambu lists this family, but not necessarily every brand of it.'
+          : m.h2cStatus === 'Conditional' ? 'Usable with conditions; check the Printing tab.'
+          : 'Included on the strength of its processing requirements, not on any Bambu validation.'}</p>
 
-      <h3 class="sec">Against your constraints</h3>
-      ${evaluation ? renderWhy(evaluation) : '<p class="missing">No constraints set.</p>'}
+      <h3 class="sec">Key numbers</h3>
+      <div class="facts">
+        ${HEAD.map(([label, k, hint]) => {
+          const h = m.headline[k];
+          return `<div class="fact-card${h?.known ? '' : ' empty'}">
+            <div class="fact-label">${esc(label)}</div>
+            <div class="fact-value">${renderValue(h, { showUnit: true })}</div>
+            <div class="fact-hint">${esc(hint)}</div>
+            ${h?.caveatText ? `<div class="fact-warn">${esc(h.caveatText)}</div>` : ''}
+          </div>`;
+        }).join('')}
+      </div>
+      <p class="fine">${esc((m.headlineBasis ?? '').replace(/[.\s]*$/, ''))}. Click any number to see the measurement behind it.</p>
 
-      <h3 class="sec">Evidence coverage</h3>
-      <dl class="kv">
-        <dt>Measurements</dt><dd>${summary.numericMeasurements} numeric of ${summary.measurements}${summary.quarantined ? `, ${summary.quarantined} quarantined` : ''}</dd>
-        <dt>Grades on record</dt><dd>${summary.grades || '<span class="missing">None</span>'}</dd>
-        <dt>Exact-grade evidence</dt><dd>${summary.exactGradeEvidence ? 'Yes' : '<span class="missing">No</span>'}</dd>
-        <dt>Coverage gaps</dt><dd>${summary.gaps}</dd>
-        <dt>Unresolved conflicts</dt><dd>${summary.conflicts}</dd>
-        <dt>Limited comparability</dt><dd>${summary.limitedComparability}</dd>
-      </dl>
+      <h3 class="sec">Can the H2C print it?</h3>
+      <div class="facts-list">
+        ${gateLine(m.gates.nozzle, 'Nozzle temperature')}
+        ${gateLine(m.gates.bed, 'Bed temperature')}
+        ${gateLine(m.gates.chamber, 'Chamber temperature')}
+        <div class="fact"><span class="chip chip-${m.gates.abrasive === 'requires-hardened' ? 'INDETERMINATE' : m.gates.abrasive === 'no-special-concern' ? 'PASS' : 'UNKNOWN'}">
+          ${m.gates.abrasive === 'requires-hardened' ? 'Hardened nozzle' : m.gates.abrasive === 'no-special-concern' ? 'Any nozzle' : 'Not published'}</span>
+          <div><b>Nozzle wear</b><br><span class="fact-why">${m.gates.abrasive === 'requires-hardened'
+            ? 'Abrasive. A brass nozzle will wear out.' : m.gates.abrasive === 'no-special-concern'
+            ? 'The source states no special nozzle concern.' : 'No abrasion guidance in the sampled sources.'}</span></div></div>
+        <div class="fact"><span class="chip chip-${m.gates.drying === 'required' ? 'INDETERMINATE' : 'UNKNOWN'}">
+          ${m.gates.drying === 'required' ? 'Dry it first' : 'Not published'}</span>
+          <div><b>Drying</b><br><span class="fact-why">${m.gates.drying === 'required'
+            ? 'A drying schedule is published; see the Printing tab.' : 'No drying schedule in the sampled sources.'}</span></div></div>
+      </div>
+      <div class="note">Routing between the H2C's two sides, and AMS feeding, are recorded per grade
+        and almost always say "verify the exact grade". They are in the Printing tab rather than
+        summarised here, because summarising them would overstate what is known.</div>
 
-      <h3 class="sec">Best uses and limitations</h3>
-      <dl class="kv">
-        <dt>Best uses</dt><dd>${m.bestUses === 'Not published' ? '<span class="missing">Not published</span>' : esc(m.bestUses ?? '')}</dd>
-        <dt>Limitations</dt><dd>${esc(m.limitations ?? '')}</dd>
-        <dt>Impact</dt><dd>${esc(m.impactNote ?? '')}</dd>
-        <dt>Fatigue and creep</dt><dd>${esc(m.fatigueCreep ?? '')}</dd>
-      </dl>`;
+      ${m.bestUses && m.bestUses !== 'Not published' ? `<h3 class="sec">Good for</h3><p>${esc(m.bestUses)}</p>` : ''}
+      ${m.limitations ? `<h3 class="sec">Watch out for</h3><p>${esc(m.limitations)}</p>` : ''}
+
+      <h3 class="sec">How well documented is it?</h3>
+      <div class="facts">
+        <div class="fact-card"><div class="fact-label">Measurements</div>
+          <div class="fact-value">${summary.numericMeasurements}</div>
+          <div class="fact-hint">${summary.quarantined ? `${summary.quarantined} quarantined` : 'numeric, each with a source'}</div></div>
+        <div class="fact-card"><div class="fact-label">Grades on record</div>
+          <div class="fact-value">${summary.grades || '\u2014'}</div>
+          <div class="fact-hint">${summary.exactGradeEvidence ? 'grade-specific evidence exists' : 'no grade-specific evidence'}</div></div>
+        <div class="fact-card${summary.gaps ? ' warn' : ''}"><div class="fact-label">Known gaps</div>
+          <div class="fact-value">${summary.gaps}</div>
+          <div class="fact-hint">recorded as missing</div></div>
+        <div class="fact-card${summary.conflicts ? ' warn' : ''}"><div class="fact-label">Unresolved conflicts</div>
+          <div class="fact-value">${summary.conflicts}</div>
+          <div class="fact-hint">sources disagree</div></div>
+      </div>
+
+      ${evaluation && evaluation.results.length ? `<h3 class="sec">Against your requirements</h3>${renderWhy(evaluation)}` : ''}`;
   }
 
   if (tab === 'Mechanical' || tab === 'Thermal') {

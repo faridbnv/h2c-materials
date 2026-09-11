@@ -18,6 +18,15 @@ export function fmtNumber(v, unit) {
 }
 
 // Wording for the four missing states. They are different engineering answers and stay different.
+// The long form, used wherever there is room and in every tooltip.
+const MISSING_FULL = {
+  'not-published': 'Not published in the sampled sources. Not zero, and not a low value.',
+  'insufficient-comparable': 'Evidence exists but cannot support this comparison.',
+  'not-applicable': 'This property does not apply to this material.',
+  'quarantined': 'Quarantined: an unresolved unit or layout problem in the source.',
+  'not-available-in-market': 'No Canadian price observation in the sampled market.',
+};
+
 const MISSING_LABEL = {
   'not-published': 'Not published',
   'insufficient-comparable': 'Not comparable',
@@ -33,23 +42,32 @@ const MISSING_LABEL = {
  * tensile-strength measurement that never became the headline because the source stated no
  * direction or a different endpoint. A blank cell hid that and implied nothing was known.
  */
-export function renderValue(entry, { showUnit = false } = {}) {
+export function renderValue(entry, { showUnit = false, compact = false } = {}) {
   if (!entry) return `<span class="missing">—</span>`;
   if (!entry.known) {
     const label = esc(MISSING_LABEL[entry.missing] ?? 'Not published');
     const r = entry.related;
-    if (!r) return `<span class="missing" title="${esc(entry.text ?? '')}">${label}</span>`;
+    // In the table a dash, because "Not published" does not fit a numeric column and was being
+    // clipped to "Not publis...". The wording survives in the tooltip, the detail drawer, the
+    // comparison view and every export, so the four missing states stay distinct.
+    if (!r) {
+      return compact
+        ? `<span class="missing dash" title="${esc(MISSING_FULL[entry.missing] ?? 'Not published in the sampled sources')}">—</span>`
+        : `<span class="missing" title="${esc(entry.text ?? '')}">${label}</span>`;
+    }
     const b = r.best;
     const dir = b.direction && b.direction !== 'not-applicable' && b.direction !== 'unknown' ? b.direction : null;
-    const tag = dir ?? (b.direction === 'unknown' ? 'no direction' : b.gradeId);
     const more = r.count - 1;
-    const title = `${label} as a headline. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
-      + ` (${b.property}, ${b.gradeId}${dir ? ', ' + dir : ''}) \u2014 ${b.why}.`
-      + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}; open the material to see them all.` : ''}`
-      + ' Not a headline value and not used by any constraint.';
+    // Quiet by design: a value plus one marker. The earlier version stacked shouty uppercase tags
+    // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
+    const title = `Not published as a headline. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
+      + ` \u2014 ${b.property}, grade ${b.gradeId}${dir ? ', ' + dir + ' direction' : ', direction not stated'}.`
+      + ` Reason it is not the headline: ${b.why}.`
+      + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}.` : ''}`
+      + ' Not used by any filter.';
     return `<span class="related" title="${esc(title)}">`
       + `<span class="rv">${fmtNumber(b.value)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
-      + `<span class="tag">${esc(tag)}</span>`
+      + `<span class="related-mark">*</span></span>`;
       + `${more ? `<span class="tag">+${more}</span>` : ''}</span>`;
   }
   const text = fmtNumber(entry.value, showUnit ? entry.unit : null);

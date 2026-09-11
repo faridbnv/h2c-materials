@@ -4,17 +4,20 @@
 
 import { renderValue, chip, esc, fmtNumber } from './format.js';
 
+// Widths are declared, not left to the browser. Auto layout stretched the numeric columns across
+// the full width, which put each heading at the far left of its column and its value at the far
+// right, so no number lined up with the thing it was under.
 const COLUMNS = [
-  { key: 'name',      label: 'Material',  kind: 'name' },
-  { key: 'family',    label: 'Family',    kind: 'text' },
-  { key: 'verdict',   label: 'State',     kind: 'state' },
-  { key: 'density',           label: 'Density',  unit: 'kg/m³',  kind: 'headline' },
-  { key: 'tensileModulusXY',  label: 'Modulus',  unit: 'GPa',    kind: 'headline' },
-  { key: 'tensileStrengthXY', label: 'Strength', unit: 'MPa',    kind: 'headline' },
-  { key: 'elongationXY',      label: 'Elong.',   unit: '%',      kind: 'headline' },
-  { key: 'hdt045',            label: 'HDT',      unit: '°C',     kind: 'headline' },
-  { key: 'priceCADkg',        label: 'Price',    unit: 'CAD/kg', kind: 'headline' },
-  { key: 'pin',       label: '',          kind: 'pin' },
+  { key: 'name',      label: 'Material',  kind: 'name',  width: '16%' },
+  { key: 'family',    label: 'Family',    kind: 'text',  width: '13%' },
+  { key: 'verdict',   label: 'State',     kind: 'state', width: '11%' },
+  { key: 'density',           label: 'Density',  unit: 'kg/m³',  kind: 'headline', width: '10%' },
+  { key: 'tensileModulusXY',  label: 'Modulus',  unit: 'GPa',    kind: 'headline', width: '9.5%' },
+  { key: 'tensileStrengthXY', label: 'Strength', unit: 'MPa',    kind: 'headline', width: '9.5%' },
+  { key: 'elongationXY',      label: 'Elong.',   unit: '%',      kind: 'headline', width: '9%' },
+  { key: 'hdt045',            label: 'HDT',      unit: '°C',     kind: 'headline', width: '9%' },
+  { key: 'priceCADkg',        label: 'Price',    unit: 'CAD/kg', kind: 'headline', width: '9%' },
+  { key: 'pin',       label: '',          kind: 'pin',   width: '44px' },
 ];
 
 const STATE_ORDER = { PASS: 0, INDETERMINATE: 1, UNKNOWN: 2, FAIL: 3 };
@@ -44,8 +47,9 @@ export function renderTable(host, state, actions) {
 
   const head = COLUMNS.map((c) => {
     const active = sort.key === c.key;
-    const arrow = active ? (sort.dir === 'asc' ? ' ▲' : ' ▼') : '';
-    return `<th data-sort="${c.key}" ${active ? 'aria-sort="' + sort.dir + 'ending"' : ''} tabindex="0">
+    const arrow = active ? (sort.dir === 'asc' ? ' \u25b2' : ' \u25bc') : '';
+    const num = c.kind === 'headline';
+    return `<th data-sort="${c.key}" class="${num ? 'num' : ''}" ${active ? 'aria-sort="' + sort.dir + 'ending"' : ''} tabindex="0">
       ${esc(c.label)}${c.unit ? ` <span class="u">${esc(c.unit)}</span>` : ''}${arrow}</th>`;
   }).join('');
 
@@ -53,9 +57,10 @@ export function renderTable(host, state, actions) {
     const pinned = scenario.shortlist.includes(m.id);
     const cells = COLUMNS.map((c) => {
       if (c.kind === 'name') {
-        const flag = e.needsVerification ? ' <span class="chip chip-UNKNOWN" style="font-size:10px">Needs verification</span>' : '';
-        const asm = m.assumptionDependent ? ' <span class="chip chip-UNKNOWN" style="font-size:10px">Assumption</span>' : '';
-        return `<td class="name">${esc(m.name)}${flag}${asm}</td>`;
+        // No "needs verification" badge here: the State column already says UNKNOWN, and repeating
+        // it under every name doubled the row height for no information.
+        const asm = m.assumptionDependent ? ' <span class="chip chip-UNKNOWN" title="Depends on a scenario assumption">assumed</span>' : '';
+        return `<td class="name">${esc(m.name)}${asm}</td>`;
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') return `<td>${chip(e.verdict)}</td>`;
@@ -63,12 +68,23 @@ export function renderTable(host, state, actions) {
         return `<td><button class="btn btn-sm" data-pin="${esc(m.id)}" aria-pressed="${pinned}"
           title="${pinned ? 'Remove from shortlist' : 'Add to shortlist'}">${pinned ? '★' : '☆'}</button></td>`;
       }
-      return `<td class="num">${renderValue(m.headline[c.key])}</td>`;
+      return `<td class="num">${renderValue(m.headline[c.key], { compact: true })}</td>`;
     }).join('');
     return `<tr data-material="${esc(m.id)}" data-selected="${state.selectedMaterialId === m.id}" tabindex="0">${cells}</tr>`;
   }).join('');
 
-  host.innerHTML = `<table class="grid"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+  const anyRelated = sorted.some(({ material: m }) =>
+    COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known && m.headline[c.key].related));
+
+  host.innerHTML = `<table class="grid">
+      <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
+      <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
+    <p class="table-note"><span class="dash">\u2014</span> means the property was not published in
+      the sampled sources. It is not zero, and not a low value. Hover any dash for which kind of
+      absence it is, or open the material.</p>
+    ${anyRelated ? `<p class="table-note"><span class="related-mark">*</span> the nearest measurement on
+      record for that property, which was never promoted to a headline value. Hover it for the reason,
+      or open the material for the full record. It is not used by any filter.</p>` : ''}`;
 
   host.querySelectorAll('th[data-sort]').forEach((th) => {
     const go = () => actions.sort(th.dataset.sort);

@@ -17,6 +17,7 @@ export function newScenario(meta) {
     shortlist: [],
     plot: { x: 'density', y: 'tensileModulusXY', xLog: false, yLog: false, index: null, showReference: false, comparability: 'strict', pointLevel: 'headline' },
     lens: 'table',
+    openMaterial: null,
     template: null,
   };
 }
@@ -40,7 +41,7 @@ export function deserialize(text, meta) {
 export function toHash(scenario) {
   const compact = {
     c: scenario.constraints, u: scenario.unknownPolicy, s: scenario.shortlist,
-    p: scenario.plot, t: scenario.template, l: scenario.lens,
+    p: scenario.plot, t: scenario.template, l: scenario.lens, m: scenario.openMaterial ?? null,
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -49,7 +50,7 @@ export function fromHash(hash, meta) {
   if (!hash) return null;
   try {
     const c = JSON.parse(decodeURIComponent(hash));
-    return { ...newScenario(meta), constraints: c.c ?? [], unknownPolicy: normalizePolicy(c.u), shortlist: c.s ?? [], plot: { ...newScenario(meta).plot, ...(c.p ?? {}) }, template: c.t ?? null, lens: c.l ?? 'table' };
+    return { ...newScenario(meta), constraints: c.c ?? [], unknownPolicy: normalizePolicy(c.u), shortlist: c.s ?? [], plot: { ...newScenario(meta).plot, ...(c.p ?? {}) }, template: c.t ?? null, lens: c.l ?? 'table', openMaterial: c.m ?? null };
   } catch { return null; }
 }
 

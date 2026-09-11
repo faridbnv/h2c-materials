@@ -15,7 +15,7 @@ import { renderDrawer } from './ui/detail.js';
 import { renderExclusions } from './ui/explain.js';
 import { esc } from './ui/format.js';
 import { TEMPLATES } from './ui/templates.js';
-import { renderStart, wireStart } from './ui/start.js';
+import { renderStart, wireStart, renderActive, wireActive } from './ui/start.js';
 
 /**
  * Which verdicts a policy shows by default. Strict shows what passed; Explore also shows what
@@ -121,9 +121,16 @@ const actions = {
     else return alert('The shortlist holds at most six materials. Remove one first.');
     render(); pushHash();
   },
-  openMaterial(id) { state.selectedMaterialId = id; state.drawerTab = 'Overview'; renderDrawerHost(); },
+  // The open material lives in the URL, so a link can point straight at one.
+  openMaterial(id) {
+    state.selectedMaterialId = id; state.drawerTab = 'Overview';
+    state.scenario.openMaterial = id; renderDrawerHost(); pushHash();
+  },
   setDrawerTab(tab) { state.drawerTab = tab; renderDrawerHost(); },
-  closeDrawer() { state.selectedMaterialId = null; renderDrawerHost(); },
+  closeDrawer() {
+    state.selectedMaterialId = null; state.scenario.openMaterial = null;
+    renderDrawerHost(); pushHash();
+  },
   openMeasurement(id) {
     const m = state.db.measurements.find((x) => x.id === id);
     if (!m) return;
@@ -154,6 +161,12 @@ const actions = {
     state.showStates = defaultShowStates(UNKNOWN_POLICY.STRICT);
     actions.changed();
   },
+  setLens(lens) { setLens(lens); },
+  reset() {
+    state.scenario.constraints = [];
+    state.scenario.template = null;
+    actions.changed();
+  },
   relax(constraint) {
     state.scenario.constraints = state.scenario.constraints.filter((c) => c !== constraint);
     render(); pushHash();
@@ -166,16 +179,15 @@ function renderLens() {
   const host = document.getElementById('lens');
   switch (state.lens) {
     case 'table': {
-      const start = renderStart(state, actions);
-      if (start) {
-        host.innerHTML = start;
-        wireStart(host, actions);
-        const tableHost = document.createElement('div');
-        host.appendChild(tableHost);
-        renderTable(tableHost, state, actions);
-        return;
-      }
-      return renderTable(host, state, actions);
+      // A header is always present: the start panel while nothing is set, and a statement of the
+      // active requirements once something is.
+      const header = renderStart(state, actions) || renderActive(state, actions);
+      host.innerHTML = header;
+      wireStart(host, actions);
+      wireActive(host, state, actions);
+      const tableHost = document.createElement('div');
+      host.appendChild(tableHost);
+      return renderTable(tableHost, state, actions);
     }
     case 'ashby': return renderAshby(host, state, actions);
     case 'parallel': return renderParallel(host, state, actions);
@@ -295,55 +307,77 @@ function setLens(lens) {
 }
 
 function openScenario() {
-  const { db, scenario } = state;
+  const { db, scenario, selection } = state;
   const host = document.getElementById('drawer-host');
+  const hard = scenario.constraints.filter((c) => c.mandatory !== false).length;
+  const soft = scenario.constraints.length - hard;
+
+  // Leads with what you are doing and what you can do with it. The build and snapshot numbers are
+  // real provenance and belong in the file, but nobody opens this panel to read them first.
   host.innerHTML = `<div class="drawer" role="dialog" aria-label="Scenario">
     <div class="drawer-head"><div style="display:flex;gap:10px"><div style="flex:1">
-      <h2>Scenario</h2><div class="sub">Everything needed to reproduce this result</div></div>
-      <button class="icon-btn" id="sc-close" aria-label="Close">✕</button></div></div>
+      <h2>This selection</h2>
+      <div class="sub">Save it, share it, or start from a different kind of part</div></div>
+      <button class="icon-btn" id="sc-close" aria-label="Close">\u2715</button></div></div>
     <div class="drawer-tabs"></div>
     <div class="drawer-body">
-      <dl class="kv">
+
+      <div class="sc-summary">
+        <div class="sc-big">${selection.counts.pass}<span>of ${selection.counts.total} materials pass</span></div>
+        <div class="sc-lines">
+          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} preference${soft === 1 ? '' : 's'}` : ''}</div>
+          <div>${scenario.unknownPolicy === 'strict'
+            ? 'Strict: a criterion that cannot be evaluated holds a material out'
+            : 'Explore: materials with unresolved criteria stay visible'}</div>
+          ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}
+          ${scenario.assumptions.length ? `<div class="warn">${scenario.assumptions.length} assumption${scenario.assumptions.length === 1 ? '' : 's'} in play</div>` : ''}
+        </div>
+      </div>
+
+      <h3 class="sec">Take it with you</h3>
+      <div class="sc-actions">
+        <button class="btn" id="sc-csv"><b>Export the candidates</b><span>CSV, with the four states and what held each one out</span></button>
+        <button class="btn" id="sc-link"><b>Copy a link to this selection</b><span>Reopens the same requirements and view</span></button>
+        <button class="btn" id="sc-json"><b>Save the scenario</b><span>A small JSON file you can reload later</span></button>
+        <button class="btn" id="sc-import"><b>Load a saved scenario</b><span>From a JSON file</span></button>
+      </div>
+
+      <h3 class="sec">Start from a different kind of part</h3>
+      <div class="sc-actions">
+        ${TEMPLATES.map((t, i) => `<button class="btn" data-template="${i}">
+          <b>${esc(t.name)}</b><span>${esc(t.description)}</span></button>`).join('')}
+      </div>
+
+      <h3 class="sec">What this tool is for</h3>
+      <div class="note">Screening, comparison and evidence navigation. Not certified design
+        allowables, not a substitute for reading the exact grade's technical and safety data sheets,
+        and not a guarantee that any third-party filament runs on an H2C. Verify the grade before
+        you buy or print.</div>
+
+      <h3 class="sec">About this build</h3>
+      <dl class="kv small">
         <dt>Database snapshot</dt><dd>${esc(db.meta.snapshot)}</dd>
         <dt>Application build</dt><dd>${esc(db.meta.build)}</dd>
         <dt>Materials</dt><dd>${db.meta.counts.materials} canonical, ${db.meta.counts.h2cRelevant} in H2C scope</dd>
         <dt>Measurements</dt><dd>${db.meta.counts.measurements}, of which ${db.meta.counts.numericMeasurements} numeric</dd>
-        <dt>Constraints</dt><dd>${scenario.constraints.length}</dd>
-        <dt>Unknown-data mode</dt><dd>${esc(scenario.unknownPolicy)}</dd>
-        <dt>Assumptions</dt><dd>${scenario.assumptions.length}</dd>
-        <dt>Shortlist</dt><dd>${scenario.shortlist.length}</dd>
+        <dt>Sources</dt><dd>${db.meta.counts.sources}</dd>
       </dl>
-      <h3 class="sec">Application templates</h3>
-      <p style="font-size:13px;color:var(--ink-2)">A template pre-populates controls and then gets out of the way.
-      Every control it sets stays individually editable.</p>
-      <div style="display:grid;gap:7px">
-        ${TEMPLATES.map((t, i) => `<button class="btn" data-template="${i}" style="text-align:left">
-          <strong>${esc(t.name)}</strong><br><span style="font-size:12px;color:var(--ink-2)">${esc(t.description)}</span></button>`).join('')}
-      </div>
-      <h3 class="sec">Export</h3>
-      <div style="display:flex;gap:7px;flex-wrap:wrap">
-        <button class="btn" id="sc-csv">Candidates as CSV</button>
-        <button class="btn" id="sc-json">Scenario as JSON</button>
-        <button class="btn" id="sc-import">Import scenario</button>
-      </div>
-      <h3 class="sec">Limits of this tool</h3>
-      <div class="note">Decision support, screening and evidence navigation. Not certified design
-      allowables, not a substitute for exact-grade TDS and SDS review, and not a guarantee of H2C
-      compatibility for any third-party formulation. Verify the grade before you buy or print.</div>
     </div></div>`;
 
   host.querySelector('#sc-close').addEventListener('click', () => { host.innerHTML = ''; });
   host.querySelectorAll('[data-template]').forEach((b) => b.addEventListener('click', () => {
-    const t = TEMPLATES[Number(b.dataset.template)];
-    state.scenario.constraints = t.constraints.map((c) => ({ ...c }));
-    state.scenario.template = t.name;
     host.innerHTML = '';
-    actions.changed();
+    actions.applyTemplate(TEMPLATES[Number(b.dataset.template)]);
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
     download(`h2c-candidates-${db.meta.snapshot}.csv`, toCSV(state.rows, db.meta), 'text/csv'));
   host.querySelector('#sc-json').addEventListener('click', () =>
-    download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(state.scenario), 'application/json'));
+    download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(scenario), 'application/json'));
+  host.querySelector('#sc-link').addEventListener('click', async (e) => {
+    const url = `${location.origin}${location.pathname}#${toHash(scenario)}`;
+    try { await navigator.clipboard.writeText(url); e.target.closest('button').querySelector('span').textContent = 'Copied'; }
+    catch { prompt('Copy this link', url); }
+  });
   host.querySelector('#sc-import').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file'; input.accept = '.json,application/json';
@@ -351,9 +385,9 @@ function openScenario() {
       const file = input.files?.[0];
       if (!file) return;
       try {
-        const { scenario, warnings } = deserialize(await file.text(), db.meta);
-        state.scenario = scenario;
-        state.showStates = defaultShowStates(scenario.unknownPolicy);
+        const { scenario: loaded, warnings } = deserialize(await file.text(), db.meta);
+        state.scenario = loaded;
+        state.showStates = defaultShowStates(loaded.unknownPolicy);
         if (warnings.length) alert(warnings.join('\n'));
         host.innerHTML = '';
         actions.changed();
@@ -374,6 +408,7 @@ function openScenario() {
   state.ctx = buildContext(db);
   state.scenario = fromHash(location.hash.slice(1), db.meta) ?? newScenario(db.meta);
   state.showStates = defaultShowStates(state.scenario.unknownPolicy);
+  state.selectedMaterialId = state.scenario.openMaterial ?? null;
 
   document.getElementById('meta').textContent =
     `snapshot ${db.meta.snapshot} · build ${db.meta.build} · ${db.meta.counts.materials} materials · ${db.meta.counts.measurements} measurements`;
