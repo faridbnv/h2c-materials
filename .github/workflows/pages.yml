@@ -36,11 +36,13 @@ jobs:
       - name: Install build dependencies
         run: npm ci --prefix build
 
-      - name: Test
-        run: npm test
-
+      # Build before testing: several tests assert invariants on the compiled database itself,
+      # so dist/db.json has to exist. A test failure still fails the job and blocks the deploy.
       - name: Build the selector
         run: npm run build
+
+      - name: Test
+        run: npm test
 
       - name: Assemble the site
         run: |
