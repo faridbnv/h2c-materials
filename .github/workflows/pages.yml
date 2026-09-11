@@ -1,0 +1,70 @@
+# Build the selector from the frozen workbooks and publish it to GitHub Pages.
+#
+# The distributable HTML is not committed: it is rebuilt here from the workbooks on every push, so
+# the published page can never drift from the source of truth. The build fails on any validation
+# error, which means a database that has drifted stops here and never reaches the site.
+
+name: Publish to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time. Never cancel one in flight, or the site can be left half-published.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: build/package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Test
+        run: npm test
+
+      - name: Build the selector
+        run: npm run build
+
+      - name: Assemble the site
+        run: |
+          mkdir -p _site
+          # The tool is the page: serve it at the root so the domain opens straight into it.
+          cp dist/H2C_Material_Selector_*.html _site/index.html
+          # Keep the snapshot-stamped name too, so a link can pin a specific database snapshot.
+          cp dist/H2C_Material_Selector_*.html _site/
+          # The validation report is a deliverable; publish it alongside.
+          cp build/reports/validation-report.md _site/validation-report.md
+          # Tell GitHub Pages not to run the output through Jekyll.
+          touch _site/.nojekyll
+          ls -la _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
