@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>H2C Material Selector</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <h1>H2C Material Selector</h1>
+    <div class="search">
+      <input type="search" id="search" placeholder="Search materials, grades, families" aria-label="Search materials">
+    </div>
+    <div class="spacer"></div>
+
+    <!-- The most consequential control in the product. Top level, never inside a filter group. -->
+    <span class="segmented-label">Unknown data</span>
+    <div class="segmented" role="group" aria-label="Unknown-data policy">
+      <button id="mode-strict" aria-pressed="true" title="Unknown or non-comparable data does not satisfy a mandatory constraint">Strict</button>
+      <button id="mode-explore" aria-pressed="false" title="Unknown candidates stay visible, flagged Needs verification">Explore</button>
+    </div>
+
+    <button class="btn btn-sm" id="btn-scenario">Scenario</button>
+    <button class="btn btn-sm" id="btn-theme" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    <span class="meta-chip" id="meta"></span>
+  </header>
+
+  <div class="main" id="main">
+    <aside class="rail" id="rail">
+      <div class="rail-head">
+        <h2>Filters</h2>
+        <button class="icon-btn" id="btn-reset" title="Clear all constraints">Reset</button>
+      </div>
+      <div id="filter-groups"></div>
+    </aside>
+
+    <section class="workspace">
+      <div class="lens-bar">
+        <span class="candidate-count" id="count"></span>
+        <div class="spacer"></div>
+        <div class="segmented" role="tablist" aria-label="View">
+          <button data-lens="table"    aria-pressed="true">Table</button>
+          <button data-lens="ashby"    aria-pressed="false">Ashby</button>
+          <button data-lens="parallel" aria-pressed="false">Parallel</button>
+          <button data-lens="coverage" aria-pressed="false">Coverage</button>
+          <button data-lens="compare"  aria-pressed="false">Compare</button>
+        </div>
+      </div>
+      <div class="lens-view" id="lens"></div>
+    </section>
+  </div>
+
+  <footer class="statusbar">
+    <span class="chip chip-PASS"    id="s-pass">PASS 0</span>
+    <span class="chip chip-UNKNOWN" id="s-unknown">UNKNOWN 0</span>
+    <span class="chip chip-FAIL"    id="s-fail">FAIL 0</span>
+    <button class="btn btn-sm" id="btn-explain">Explain exclusions</button>
+    <div class="spacer"></div>
+    <span class="meta-chip" id="policy-note"></span>
+  </footer>
+
+  <div class="tray" id="tray" hidden>
+    <span class="label">Shortlist</span>
+    <div id="pins" style="display:flex;gap:7px;flex-wrap:wrap"></div>
+    <div class="spacer"></div>
+    <button class="btn btn-sm btn-primary" id="btn-compare">Compare</button>
+    <button class="btn btn-sm" id="btn-clear-pins">Clear</button>
+  </div>
+</div>
+
+<div id="drawer-host"></div>
+<script src="js/main.js" type="module"></script>
+</body>
+</html>

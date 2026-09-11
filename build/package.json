@@ -1,0 +1,20 @@
+{
+  "name": "h2c-material-selector-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic build: H2C_FDM_Material_Database.xlsx -> normalized JSON -> self-contained HTML",
+  "scripts": {
+    "build": "node src/index.js",
+    "validate": "node src/index.js --validate-only",
+    "test": "node --test ../test/*.test.js"
+  },
+  "dependencies": {
+    "plotly.js-dist-min": "^4.1.0",
+    "tabulator-tables": "^6.5.2",
+    "xlsx": "0.18.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

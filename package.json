@@ -1,0 +1,12 @@
+{
+  "name": "h2c-fdm-material-selector",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-contained FDM material selection tool for the Bambu Lab H2C",
+  "scripts": {
+    "build": "npm --prefix build run build",
+    "validate": "npm --prefix build run validate",
+    "test": "node --test test/*.test.js"
+  }
+}
