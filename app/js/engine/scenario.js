@@ -25,6 +25,7 @@ export function newScenario(meta) {
     lens: 'table',
     openMaterial: null,
     useEstimates: true,
+    columnSet: 'properties',
     template: null,
   };
 }
@@ -48,7 +49,7 @@ export function deserialize(text, meta) {
 export function toHash(scenario) {
   const compact = {
     c: scenario.constraints, u: scenario.unknownPolicy, s: scenario.shortlist,
-    p: scenario.plot, t: scenario.template, l: scenario.lens, m: scenario.openMaterial ?? null, e: scenario.useEstimates !== false,
+    p: scenario.plot, t: scenario.template, l: scenario.lens, m: scenario.openMaterial ?? null, e: scenario.useEstimates !== false, k: scenario.columnSet ?? 'properties',
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -57,7 +58,7 @@ export function fromHash(hash, meta) {
   if (!hash) return null;
   try {
     const c = JSON.parse(decodeURIComponent(hash));
-    return { ...newScenario(meta), constraints: c.c ?? [], unknownPolicy: normalizePolicy(c.u), shortlist: c.s ?? [], plot: { ...newScenario(meta).plot, ...(c.p ?? {}) }, template: c.t ?? null, lens: c.l ?? 'table', openMaterial: c.m ?? null, useEstimates: c.e !== false };
+    return { ...newScenario(meta), constraints: c.c ?? [], unknownPolicy: normalizePolicy(c.u), shortlist: c.s ?? [], plot: { ...newScenario(meta).plot, ...(c.p ?? {}) }, template: c.t ?? null, lens: c.l ?? 'table', openMaterial: c.m ?? null, useEstimates: c.e !== false, columnSet: c.k ?? 'properties' };
   } catch { return null; }
 }
 

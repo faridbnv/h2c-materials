@@ -1,38 +1,67 @@
 // Table lens. Hand-built rather than a grid library: at 102 rows the virtues of a data grid do not
 // apply, and every cell needs custom rendering anyway for the provenance typography and the
 // four-state chips. Sorting, selection and export are a hundred lines here.
+//
+// Two column sets, because two different questions are asked of the same list. "Properties" answers
+// which material is right; "Printing" answers whether the machine can run it and what to set. The
+// second used to be unreachable: nozzle and bed temperatures sat one tab deep in the drawer, and
+// the 104 purchase links in the data were rendered nowhere at all.
 
 import { renderValue, chip, esc, fmtNumber } from './format.js';
+import { prop } from './labels.js';
 
-// Widths are declared, not left to the browser. Auto layout stretched the numeric columns across
-// the full width, which put each heading at the far left of its column and its value at the far
-// right, so no number lined up with the thing it was under.
-const COLUMNS = [
-  { key: 'name',      label: 'Material',  kind: 'name',  width: '16%' },
-  { key: 'family',    label: 'Family',    kind: 'text',  width: '13%' },
-  { key: 'verdict',   label: 'State',     kind: 'state', width: '11%' },
-  { key: 'density',           label: 'Density',  unit: 'kg/m³',  kind: 'headline', width: '10%' },
-  { key: 'tensileModulusXY',  label: 'Modulus',  unit: 'GPa',    kind: 'headline', width: '9.5%' },
-  { key: 'tensileStrengthXY', label: 'Strength', unit: 'MPa',    kind: 'headline', width: '9.5%' },
-  { key: 'elongationXY',      label: 'Elong.',   unit: '%',      kind: 'headline', width: '9%' },
-  { key: 'hdt045',            label: 'HDT',      unit: '°C',     kind: 'headline', width: '9%' },
-  { key: 'priceCADkg',        label: 'Price',    unit: 'CAD/kg', kind: 'headline', width: '9%' },
-  { key: 'pin',       label: '',          kind: 'pin',   width: '44px' },
-];
+const P = (key, over = {}) => ({ key, kind: 'headline', label: prop(key).short, unit: prop(key).unit, title: `${prop(key).technical} — ${prop(key).hint}`, ...over });
+
+export const COLUMN_SETS = {
+  properties: {
+    label: 'Properties',
+    help: 'What the material is like',
+    columns: [
+      { key: 'name', label: 'Material', kind: 'name', width: '20%' },
+      { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
+      P('density', { width: '11%' }),
+      P('tensileModulusXY', { width: '11%' }),
+      P('tensileStrengthXY', { width: '11%' }),
+      P('elongationXY', { width: '11%' }),
+      P('hdt045', { width: '11%' }),
+      { key: 'priceCADkg', label: 'Price', unit: 'CAD/kg', kind: 'price', width: '12%' },
+      { key: 'pin', label: 'Shortlist', kind: 'pin', width: '72px' },
+    ],
+  },
+  printing: {
+    label: 'Printing',
+    help: 'What your machine needs to do',
+    columns: [
+      { key: 'name', label: 'Material', kind: 'name', width: '22%' },
+      { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
+      { key: 'nozzleC', label: 'Nozzle', unit: '°C', kind: 'print', width: '12%' },
+      { key: 'bedC', label: 'Bed', unit: '°C', kind: 'print', width: '12%' },
+      { key: 'chamberC', label: 'Chamber', unit: '°C', kind: 'print', width: '12%' },
+      { key: 'needs', label: 'Also needs', kind: 'needs', width: '19%' },
+      { key: 'priceCADkg', label: 'Price', unit: 'CAD/kg', kind: 'price', width: '12%' },
+      { key: 'pin', label: 'Shortlist', kind: 'pin', width: '72px' },
+    ],
+  },
+};
 
 const STATE_ORDER = { PASS: 0, INDETERMINATE: 1, UNKNOWN: 2, FAIL: 3 };
 
 function cellValue(row, col) {
-  if (col.kind === 'headline') {
+  if (col.kind === 'headline' || col.kind === 'price') {
     const h = row.material.headline[col.key];
     return h?.known ? h.value : null;
   }
+  if (col.kind === 'print') return row.material.print?.[col.key]?.max ?? null;
+  if (col.kind === 'needs') return (row.material.gates.abrasive === 'requires-hardened' ? 2 : 0)
+    + (row.material.gates.drying === 'required' ? 1 : 0);
   if (col.kind === 'state') return STATE_ORDER[row.evaluation.verdict] ?? 9;
   return row.material[col.key] ?? '';
 }
 
 export function renderTable(host, state, actions) {
   const { rows, sort, scenario } = state;
+  const setKey = COLUMN_SETS[state.columnSet] ? state.columnSet : 'properties';
+  const COLUMNS = COLUMN_SETS[setKey].columns;
 
   const sorted = [...rows].sort((a, b) => {
     const col = COLUMNS.find((c) => c.key === sort.key) ?? COLUMNS[0];
@@ -48,8 +77,9 @@ export function renderTable(host, state, actions) {
   const head = COLUMNS.map((c) => {
     const active = sort.key === c.key;
     const arrow = active ? (sort.dir === 'asc' ? ' \u25b2' : ' \u25bc') : '';
-    const num = c.kind === 'headline';
-    return `<th data-sort="${c.key}" class="${num ? 'num' : ''}" ${active ? 'aria-sort="' + sort.dir + 'ending"' : ''} tabindex="0">
+    const num = c.kind === 'headline' || c.kind === 'price' || c.kind === 'print';
+    return `<th data-sort="${c.key}" class="${num ? 'num' : ''}" ${c.title ? `title="${esc(c.title)}"` : ''}
+      ${active ? 'aria-sort="' + sort.dir + 'ending"' : ''} tabindex="0">
       ${esc(c.label)}${c.unit ? ` <span class="u">${esc(c.unit)}</span>` : ''}${arrow}</th>`;
   }).join('');
 
@@ -57,16 +87,38 @@ export function renderTable(host, state, actions) {
     const pinned = scenario.shortlist.includes(m.id);
     const cells = COLUMNS.map((c) => {
       if (c.kind === 'name') {
-        // No "needs verification" badge here: the State column already says UNKNOWN, and repeating
-        // it under every name doubled the row height for no information.
+        // Family sits under the name rather than in its own column: it repeated the name outright
+        // on 34 of 96 rows and cost 13% of the width to do it.
         const asm = m.assumptionDependent ? ' <span class="chip chip-UNKNOWN" title="Depends on a scenario assumption">assumed</span>' : '';
-        return `<td class="name">${esc(m.name)}${asm}</td>`;
+        const fam = m.family && !m.name.startsWith(m.family) ? `<span class="row-sub">${esc(m.family)}</span>` : '';
+        return `<td class="name">${esc(m.name)}${asm}${fam}</td>`;
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') return `<td>${chip(e.verdict)}</td>`;
       if (c.kind === 'pin') {
         return `<td><button class="btn btn-sm" data-pin="${esc(m.id)}" aria-pressed="${pinned}"
           title="${pinned ? 'Remove from shortlist' : 'Add to shortlist'}">${pinned ? '★' : '☆'}</button></td>`;
+      }
+      if (c.kind === 'print') {
+        const r = m.print?.[c.key];
+        if (!r) return `<td class="num"><span class="missing dash" title="No ${esc(c.label.toLowerCase())} temperature published for this material">\u2014</span></td>`;
+        return `<td class="num">${r.min === r.max ? fmtNumber(r.max) : `${fmtNumber(r.min)}\u2013${fmtNumber(r.max)}`}</td>`;
+      }
+      if (c.kind === 'needs') {
+        const bits = [];
+        if (m.gates.abrasive === 'requires-hardened') bits.push('<span class="need" title="Carbon or glass filled. A brass nozzle will wear out.">hardened nozzle</span>');
+        if (m.gates.drying === 'required') bits.push('<span class="need" title="A drying schedule is published. Open the material for it.">drying</span>');
+        if (!bits.length) return `<td><span class="missing">nothing special published</span></td>`;
+        return `<td>${bits.join(' ')}</td>`;
+      }
+      if (c.kind === 'price') {
+        const h = m.headline.priceCADkg;
+        const inner = renderValue(h, { compact: true, estimates: state.ctx?.useEstimates });
+        if (!m.buy) return `<td class="num">${inner}</td>`;
+        const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${m.buy.accessDate})`;
+        return `<td class="num"><a class="buy" href="${esc(m.buy.url)}" target="_blank" rel="noopener"
+          title="${esc(t)}">${inner}<span class="buy-mark" aria-label="opens the retailer page">\u2197</span></a>
+          ${m.buy.anyInStock ? '' : '<span class="oos" title="No sampled offer was in stock on the snapshot date">out of stock</span>'}</td>`;
       }
       return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.useEstimates })}</td>`;
     }).join('');
@@ -79,19 +131,27 @@ export function renderTable(host, state, actions) {
     COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known
       && !m.headline[c.key].related && m.headline[c.key].estimate));
 
-  host.innerHTML = `<table class="grid">
+  // The legend sits above the table. Both markers first appear in row one and their explanation
+  // used to be after the last row.
+  const legend = [
+    `<span class="lg"><span class="dash">\u2014</span> not published. Not zero, and not a low value.</span>`,
+    anyRelated ? `<span class="lg"><span class="related-mark">*</span> a measurement that was never made the headline. Hover for why.</span>` : '',
+    anyEstimate ? `<span class="lg"><span class="est-mark">\u2020</span> an estimate from similar materials, not a measurement.</span>` : '',
+  ].filter(Boolean).join('');
+
+  host.innerHTML = `
+    <div class="table-bar">
+      <div class="segmented" role="group" aria-label="Which columns to show">
+        ${Object.entries(COLUMN_SETS).map(([k, v]) => `<button data-colset="${k}" aria-pressed="${k === setKey}"
+          title="${esc(v.help)}">${esc(v.label)}</button>`).join('')}
+      </div>
+      <div class="legend-row">${legend}</div>
+    </div>
+    <table class="grid">
       <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
-      <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
-    <p class="table-note"><span class="dash">\u2014</span> means the property was not published in
-      the sampled sources. It is not zero, and not a low value. Hover any dash for which kind of
-      absence it is, or open the material.</p>
-    ${anyEstimate ? `<p class="table-note"><span class="est-mark" style="color:var(--unknown)">\u2020</span>
-      an <b>estimate</b>, not a measurement: the range its closest measured relatives fall in. It rules a
-      material out of a search it clearly cannot meet, and never counts as meeting one. Hover it for
-      which relatives, or turn estimates off in the top bar.</p>` : ''}
-    ${anyRelated ? `<p class="table-note"><span class="related-mark">*</span> the nearest measurement on
-      record for that property, which was never promoted to a headline value. Hover it for the reason,
-      or open the material for the full record. It is not used by any filter.</p>` : ''}`;
+      <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+
+  host.querySelectorAll('[data-colset]').forEach((b) => b.addEventListener('click', () => actions.setColumns(b.dataset.colset)));
 
   host.querySelectorAll('th[data-sort]').forEach((th) => {
     const go = () => actions.sort(th.dataset.sort);
@@ -116,7 +176,8 @@ export function renderTable(host, state, actions) {
 /** Client-side export. No server, and the four states survive into the file. */
 export function toCSV(rows, meta) {
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State',
-    'Density kg/m3', 'Modulus GPa', 'Strength MPa', 'Elongation %', 'HDT C', 'Price CAD/kg',
+    'Density kg/m3', 'Stiffness GPa', 'Strength MPa', 'Stretch %', 'Heat resistance C', 'Price CAD/kg',
+    'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Needs drying', 'Where to buy',
     'HDT load stated', 'Estimated fields', 'Ruled out by estimate', 'Held by'];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
@@ -137,6 +198,12 @@ export function toCSV(rows, meta) {
       m.id, m.name, m.family, m.h2cStatus, e.verdict,
       val(m, 'density'), val(m, 'tensileModulusXY'), val(m, 'tensileStrengthXY'),
       val(m, 'elongationXY'), val(m, 'hdt045'), val(m, 'priceCADkg'),
+      m.print?.nozzleC ? `${m.print.nozzleC.min}-${m.print.nozzleC.max}` : '',
+      m.print?.bedC ? `${m.print.bedC.min}-${m.print.bedC.max}` : '',
+      m.print?.chamberC ? `${m.print.chamberC.min}-${m.print.chamberC.max}` : '',
+      m.gates.abrasive === 'requires-hardened' ? 'yes' : m.gates.abrasive === 'no-special-concern' ? 'no' : '',
+      m.gates.drying === 'required' ? 'yes' : '',
+      m.buy?.url ?? '',
       m.headline.hdt045?.known ? m.headline.hdt045.loadStated : '',
       estimated(m),
       e.ruledOutByEstimate ? 'yes' : '',

@@ -168,6 +168,41 @@ function aggregateGate(profiles, axis) {
   return { verdict: 'unknown', reason: 'No print profile recorded' };
 }
 
+/**
+ * What a printer owner needs before anything else: what to set the machine to, and where to buy it.
+ *
+ * Both already existed in the compiled data and neither reached the interface. The temperatures sat
+ * inside individual print profiles, one tab deep in the material drawer. The purchase links sat on
+ * 104 price observations and were never rendered anywhere at all, so a user who decided on a
+ * material had no route to buying it.
+ */
+function printSummary(profiles) {
+  const pick = (axis) => {
+    const ranges = profiles.map((p) => p[axis]).filter((t) => t.state === 'range' && t.max !== null);
+    if (!ranges.length) return null;
+    // The widest published window across this material's grades, so the table never implies a
+    // tighter requirement than the sources support.
+    const min = Math.min(...ranges.map((r) => r.min ?? r.max));
+    const max = Math.max(...ranges.map((r) => r.max));
+    return { min, max, profiles: ranges.length };
+  };
+  return { nozzleC: pick('nozzle'), bedC: pick('bed'), chamberC: pick('chamber') };
+}
+
+function buySummary(materialId, prices) {
+  const mine = prices.filter((p) => p.materialId === materialId && p.url);
+  if (!mine.length) return null;
+  // Prefer something you can actually buy today at a price the headline was built from.
+  const rank = (p) => (p.stock === 'In stock' ? 4 : 0) + (p.headlineSample ? 2 : 0) + (p.regularPerKg !== null ? 1 : 0);
+  const best = [...mine].sort((a, b) => rank(b) - rank(a) || (a.regularPerKg ?? 1e9) - (b.regularPerKg ?? 1e9))[0];
+  return {
+    url: best.url, retailer: best.retailer, variant: best.variant, packaging: best.packaging,
+    netMassKg: best.netMassKg, perKg: best.regularPerKg, stock: best.stock, accessDate: best.accessDate,
+    offers: mine.length,
+    anyInStock: mine.some((p) => p.stock === 'In stock'),
+  };
+}
+
 // ---------------------------------------------------------------------------- headlines
 
 // headline key -> [Materials column, unit, evidence column, expected property, expected direction]
@@ -474,6 +509,8 @@ export function compile(wb, { snapshot, build }) {
       measurementConditions: mat['Measurement conditions'],
       facets: deriveFacets(mat),
       guidance: { nozzle: mat['Nozzle guidance'], bed: mat['Bed guidance'], chamber: mat['Chamber guidance'] },
+      print: printSummary(mProfiles),
+      buy: buySummary(mat.MaterialID, prices),
       gates: {
         scope: mat.Scope === 'H2C-relevant' ? 'within' : 'excluded',
         nozzle: aggregateGate(mProfiles, 'nozzle'),

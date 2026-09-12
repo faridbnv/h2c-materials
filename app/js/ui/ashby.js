@@ -5,7 +5,7 @@
 //
 // Rules enforced here:
 //  - the axis picker reports the point count BEFORE drawing, because some pairs are genuinely thin;
-//  - Strict comparability is the default, and Broad names exactly what it mixed;
+//  - one control chooses how much evidence to show, because the two that used to do it overlapped;
 //  - reference materials are a drawing layer, never candidates;
 //  - two axes, two categorical encodings, at most one size encoding.
 
@@ -13,8 +13,44 @@ import { INDICES, indexById, indexValue, selectionLine, countAbove } from '../en
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber } from './format.js';
 import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
+import { prop } from './labels.js';
 
 let dragState = null;
+
+/**
+ * How much evidence to draw, as one ordered choice.
+ *
+ * This replaces two switches that overlapped. "Points" chose headline against measurements and
+ * "Comparability" chose strict against broad, which reads as four combinations but is three:
+ * comparability did nothing at all in headline mode, because a headline is a single fixed value
+ * with no conditions left to match. Worse, "Strict" there meant something completely different from
+ * "Strict" in the top bar, which is about missing data rather than measurement conditions.
+ */
+export const DETAIL_LEVELS = [
+  {
+    id: 'material',
+    label: 'One dot per material',
+    help: 'The headline value for each material. Best for choosing.',
+  },
+  {
+    id: 'measured',
+    label: 'Every measurement',
+    help: 'One dot per grade per measurement, so you can see the spread and the difference between print directions.',
+  },
+  {
+    id: 'measured-mixed',
+    label: 'Every measurement, mixed conditions',
+    help: 'Also includes measurements taken a different way, for example a different print direction. Those are drawn hollow.',
+  },
+];
+
+/** Read the current level, migrating scenarios saved under the old two-switch scheme. */
+export function detailLevel(p) {
+  if (p.detail && DETAIL_LEVELS.some((d) => d.id === p.detail)) return p.detail;
+  if (p.pointLevel === 'measurements') return p.comparability === 'broad' ? 'measured-mixed' : 'measured';
+  return 'material';
+}
+
 
 export function renderAshby(host, state, actions) {
   const { db, reference, rows, scenario } = state;
@@ -22,19 +58,24 @@ export function renderAshby(host, state, actions) {
   const xDef = AXIS_DEFS.find((a) => a.key === p.x) ?? AXIS_DEFS[0];
   const yDef = AXIS_DEFS.find((a) => a.key === p.y) ?? AXIS_DEFS[1];
 
-  const measurementMode = p.pointLevel === 'measurements';
+  const level = detailLevel(p);
+  const measurementMode = level !== 'material';
   const { pts, mixed, unavailable } = measurementMode
-    ? measurementPoints(rows, xDef, yDef, p.comparability, state.ctx)
+    ? measurementPoints(rows, xDef, yDef, level === 'measured-mixed' ? 'broad' : 'strict', state.ctx)
     : headlinePoints(rows, xDef, yDef);
 
   const subjects = new Set(pts.map((q) => q.id)).size;
+  // Only for the footer note. drawPlot computes the front it actually draws.
+  const frontSize = paretoFront(pts.filter((q) => q.evaluation.eligible), xDef.better, yDef.better).length;
   const missing = rows.length - subjects;
   const thin = pts.length < 10;
 
+  // "Price — 10" read as ten dollars. Name the property, then say what the number counts.
   const axisSelect = (which, cur) => `<select data-axis="${which}">
     ${AXIS_DEFS.map((a) => {
       const n = rows.filter((r) => r.material.headline[a.key]?.known).length;
-      return `<option value="${a.key}" ${a.key === cur ? 'selected' : ''}>${esc(a.label)} — ${n}</option>`;
+      const P = prop(a.key);
+      return `<option value="${a.key}" ${a.key === cur ? 'selected' : ''}>${esc(P.plain)} (${n} of ${rows.length} have it)</option>`;
     }).join('')}</select>`;
 
   host.innerHTML = `
@@ -45,24 +86,30 @@ export function renderAshby(host, state, actions) {
       <div class="control"><label>Y axis</label>${axisSelect('y', yDef.key)}</div>
       <div class="control"><label>Scale</label>
         <div class="segmented"><button data-log="y" aria-pressed="${!p.yLog}">Linear</button><button data-log="y" data-on="1" aria-pressed="${p.yLog}">Log</button></div></div>
-      <div class="control"><label>Points</label>
-        <div class="segmented"><button data-level="headline" aria-pressed="${p.pointLevel === 'headline'}">Headline</button><button data-level="measurements" aria-pressed="${p.pointLevel === 'measurements'}">Measurements</button></div></div>
-      <div class="control"><label>Comparability</label>
-        <div class="segmented"><button data-comp="strict" aria-pressed="${p.comparability === 'strict'}">Strict</button><button data-comp="broad" aria-pressed="${p.comparability === 'broad'}">Broad</button></div></div>
-      <div class="control"><label>Performance index</label>
+    </div>
+
+    <div class="plot-controls secondary">
+      <div class="control"><label>Show</label>
+        <select data-detail>
+          ${DETAIL_LEVELS.map((d) => `<option value="${d.id}" ${level === d.id ? 'selected' : ''}>${esc(d.label)}</option>`).join('')}
+        </select>
+        <div class="control-help">${esc(DETAIL_LEVELS.find((d) => d.id === level).help)}</div>
+      </div>
+      <div class="control"><label>Best for a given weight</label>
         <select data-index>
-          <option value="">None</option>
+          <option value="">Not shown</option>
           ${INDICES.map((i) => `<option value="${i.id}" ${p.index === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`).join('')}
-        </select></div>
-      <div class="control"><label>Reference</label>
-        <label style="font-weight:400"><input type="checkbox" data-reference ${p.showReference ? 'checked' : ''}> Generic materials</label></div>
+        </select>
+        <div class="control-help">Draws the line engineers use to pick the lightest material that still does the job.</div></div>
+      <div class="control"><label>Compare against</label>
+        <label class="inline-check"><input type="checkbox" data-reference ${p.showReference ? 'checked' : ''}> Steel, aluminium, wood</label>
+        <div class="control-help">Everyday engineering materials, drawn as grey boxes for scale.</div></div>
     </div>
 
     ${unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : ''}
     ${thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : ''}
     ${p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : ''}
-    ${mixed && mixed.length ? `<div class="banner">Broad comparability is mixing conditions: ${esc(mixed.join('; '))}. Each affected point is drawn hollow and names the mismatch on hover.</div>` : ''}
-    ${measurementMode && p.comparability === 'strict' ? `<div class="banner">Strict comparability: only measurements matching the axis definition exactly. Switch to Broad to see what the looser evidence looks like.</div>` : ''}
+    ${mixed && mixed.length ? `<div class="banner">Mixed conditions are included here: ${esc(mixed.join('; '))}. Those points are drawn hollow and name the mismatch when you hover them.</div>` : ''}
 
     <div id="plot"></div>
     <div class="legend-note">
@@ -70,6 +117,8 @@ export function renderAshby(host, state, actions) {
         ? `${pts.length} measurement pair${pts.length === 1 ? '' : 's'} across ${subjects} of ${rows.length} candidates.`
         : `${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.`}
       Colour is polymer family, marker shape is filler class.
+      ${frontSize > 1 ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
+        both axes at once. Anything below and to the right of it is beaten by something on the line.` : ''}
     </div>
     <div id="index-card"></div>`;
 
@@ -127,7 +176,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
       }
     }
   }
-  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement pair satisfies this axis pair under the current comparability. Try Broad, or a different pair.' };
+  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Every measurement, mixed conditions", or a different pair of axes.' };
 }
 
 
@@ -145,11 +194,25 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     groups.get(key).push(q);
   }
 
+  const eligibleForFront = pts.filter((q) => q.evaluation.eligible);
+  const frontNow = paretoFront(eligibleForFront, xDef.better, yDef.better);
+  const labelPoints = pts.length <= 30;
+  const keepLabel = new Set([...frontNow.map((q) => q.id), ...scenario.shortlist]);
+
   const traces = [];
   for (const [key, list] of groups) {
     const [family, filler] = key.split('|');
     traces.push({
-      type: 'scatter', mode: 'markers',
+      type: 'scatter',
+      // Label the points. A chart of anonymous dots cannot be read: the legend maps colour and
+      // shape to family and filler, not to a material, so there is otherwise no way to tell which
+      // dot is which except by hovering every one. Past about 30 the labels themselves become the
+      // clutter, so beyond that only the frontier and the shortlist keep theirs.
+      mode: labelPoints ? 'markers+text' : 'markers',
+      text: list.map((q) => (labelPoints || keepLabel.has(q.id) ? q.label : '')),
+      textposition: 'top center',
+      textfont: { size: 10, color: 'rgba(107,107,99,.95)' },
+      cliponaxis: false,
       name: `${family} · ${FILLER_LABEL[filler] ?? filler}`,
       legendgroup: family,
       x: list.map((q) => q.x), y: list.map((q) => q.y),
@@ -199,7 +262,7 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     annotations.push({
       xref: axis === 'x' ? 'x' : 'paper', yref: axis === 'y' ? 'y' : 'paper',
       x: axis === 'x' ? at : 0.01, y: axis === 'y' ? at : 0.99,
-      text: `${def.label} ${c.operator} ${c.value}`, showarrow: false,
+      text: `${prop(def.key).plain} ${c.operator} ${c.value}`, showarrow: false,
       font: { size: 10, color: '#a32b1f' }, bgcolor: 'rgba(255,255,255,.75)',
     });
   }
@@ -236,8 +299,7 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
   }
 
   // Pareto front over the eligible candidates only.
-  const eligible = pts.filter((q) => q.evaluation.eligible);
-  const front = sortFront(paretoFront(eligible, xDef.better, yDef.better), xDef.better);
+  const front = sortFront(frontNow, xDef.better);
   if (front.length > 1) {
     traces.push({
       type: 'scatter', mode: 'lines', name: 'Pareto front', legendgroup: 'pareto',
@@ -260,7 +322,7 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     });
   }
 
-  // Pinned materials keep permanent labels; nothing else does.
+  // Pinned materials keep a leader line so they stand out among the trace labels.
   for (const q of pts) {
     if (scenario.shortlist.includes(q.id)) {
       const ax = X(q.x), ay = Y(q.y);
@@ -293,9 +355,9 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     margin: { l: 70, r: 20, t: 16, b: 56 },
     paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
     font: { color: ink, family: 'system-ui, sans-serif', size: 12 },
-    xaxis: { title: { text: `${xDef.label} (${xDef.unit})` }, type: p.xLog ? 'log' : 'linear',
+    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit})` }, type: p.xLog ? 'log' : 'linear',
              gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
-    yaxis: { title: { text: `${yDef.label} (${yDef.unit})` }, type: p.yLog ? 'log' : 'linear',
+    yaxis: { title: { text: `${prop(yDef.key).plain} (${yDef.unit})` }, type: p.yLog ? 'log' : 'linear',
              gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
     shapes, annotations,
     showlegend: true,
@@ -400,10 +462,8 @@ function wireControls(host, state, actions) {
     actions.setPlot({ [s.dataset.axis]: s.value, indexM: null })));
   host.querySelectorAll('[data-log]').forEach((b) => b.addEventListener('click', () =>
     actions.setPlot({ [`${b.dataset.log}Log`]: b.dataset.on === '1' })));
-  host.querySelectorAll('[data-level]').forEach((b) => b.addEventListener('click', () =>
-    actions.setPlot({ pointLevel: b.dataset.level })));
-  host.querySelectorAll('[data-comp]').forEach((b) => b.addEventListener('click', () =>
-    actions.setPlot({ comparability: b.dataset.comp })));
+  host.querySelector('[data-detail]')?.addEventListener('change', (e) =>
+    actions.setPlot({ detail: e.target.value }));
   host.querySelector('[data-index]')?.addEventListener('change', (e) =>
     actions.setPlot({ index: e.target.value || null, indexM: null, indexSlider: 50 }));
   host.querySelector('[data-reference]')?.addEventListener('change', (e) =>

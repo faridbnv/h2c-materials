@@ -12,7 +12,7 @@ import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
 import { renderCompare } from './ui/compare.js';
 import { renderDrawer } from './ui/detail.js';
-import { renderExclusions } from './ui/explain.js';
+import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc } from './ui/format.js';
 import { TEMPLATES } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive } from './ui/start.js';
@@ -28,6 +28,7 @@ const defaultShowStates = (policy) =>
 const state = {
   db: null, reference: null, scenario: null, ctx: null,
   lens: 'table', search: '', sort: { key: 'name', dir: 'asc' },
+  columnSet: 'properties',
   // Family estimates are an Explore-mode aid only; Strict never sees them.
   useEstimates: true,
   // Which constraint verdicts the table shows. The status-bar chips toggle these, which is what
@@ -151,6 +152,17 @@ const actions = {
     render(); pushHash();
   },
   toggleEstimates(on) { state.useEstimates = on; state.scenario.useEstimates = on; render(); pushHash(); },
+  setColumns(which) {
+    state.columnSet = which;
+    state.scenario.columnSet = which;
+    // Sorting by a column that no longer exists would silently fall back to the first one.
+    if (!['name', 'verdict', 'priceCADkg'].includes(state.sort.key)) state.sort = { key: 'name', dir: 'asc' };
+    renderLens(); pushHash();
+  },
+  showAllStates() {
+    state.showStates = new Set(['PASS', 'UNKNOWN', 'FAIL']);
+    render();
+  },
   toggleState(verdict) {
     if (state.showStates.has(verdict)) state.showStates.delete(verdict);
     else state.showStates.add(verdict);
@@ -192,6 +204,8 @@ function renderLens() {
       wireActive(host, state, actions);
       const tableHost = document.createElement('div');
       host.appendChild(tableHost);
+      // An empty grid explains nothing. Say why the list is empty and offer the way out.
+      if (!state.rows.length) return renderNoResults(tableHost, state, actions);
       return renderTable(tableHost, state, actions);
     }
     case 'ashby': return renderAshby(host, state, actions);
@@ -199,6 +213,7 @@ function renderLens() {
     case 'coverage': return renderCoverage(host, state, actions);
     case 'compare': return renderCompare(host, state, actions);
     case 'explain': return renderExclusions(host, state, actions);
+    default: return renderTable(host, state, actions);
   }
 }
 
@@ -286,11 +301,9 @@ function wireChrome() {
   document.getElementById('btn-reset').addEventListener('click', () => {
     state.scenario.constraints = []; state.scenario.template = null; actions.changed();
   });
-  document.getElementById('btn-explain').addEventListener('click', () => setLens('explain'));
   for (const [id, verdict] of [['s-pass', 'PASS'], ['s-unknown', 'UNKNOWN'], ['s-fail', 'FAIL']]) {
     document.getElementById(id).addEventListener('click', () => actions.toggleState(verdict));
   }
-  document.getElementById('btn-compare').addEventListener('click', () => setLens('compare'));
   document.getElementById('btn-clear-pins').addEventListener('click', () => {
     state.scenario.shortlist = []; render(); pushHash();
   });
@@ -427,6 +440,7 @@ function openScenario() {
   state.showStates = defaultShowStates(state.scenario.unknownPolicy);
   state.selectedMaterialId = state.scenario.openMaterial ?? null;
   if (typeof state.scenario.useEstimates === 'boolean') state.useEstimates = state.scenario.useEstimates;
+  if (state.scenario.columnSet) state.columnSet = state.scenario.columnSet;
 
   document.getElementById('meta').textContent =
     `snapshot ${db.meta.snapshot} · build ${db.meta.build} · ${db.meta.counts.materials} materials · ${db.meta.counts.measurements} measurements`;

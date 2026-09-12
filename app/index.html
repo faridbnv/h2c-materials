@@ -50,6 +50,7 @@
           <button data-lens="parallel" aria-pressed="false">Parallel</button>
           <button data-lens="coverage" aria-pressed="false">Coverage</button>
           <button data-lens="compare"  aria-pressed="false">Compare</button>
+          <button data-lens="explain"  aria-pressed="false" id="tab-explain">Why excluded</button>
         </div>
       </div>
       <div class="lens-view" id="lens"></div>
@@ -61,7 +62,6 @@
     <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true">PASS 0</button>
     <button type="button" class="chip chip-UNKNOWN" id="s-unknown" aria-pressed="false">UNKNOWN 0</button>
     <button type="button" class="chip chip-FAIL"    id="s-fail"    aria-pressed="false">FAIL 0</button>
-    <button class="btn btn-sm" id="btn-explain">Explain exclusions</button>
     <div class="spacer"></div>
     <span class="meta-chip" id="policy-note"></span>
   </footer>
@@ -70,8 +70,7 @@
     <span class="label">Shortlist</span>
     <div id="pins" style="display:flex;gap:7px;flex-wrap:wrap"></div>
     <div class="spacer"></div>
-    <button class="btn btn-sm btn-primary" id="btn-compare">Compare</button>
-    <button class="btn btn-sm" id="btn-clear-pins">Clear</button>
+    <button class="btn btn-sm" id="btn-clear-pins">Clear all</button>
   </div>
 </div>
 

@@ -6,15 +6,12 @@
 
 import { explainExclusions } from '../engine/constraints.js';
 import { chip, esc } from './format.js';
+import { describeConstraint } from './labels.js';
 
-const nameOf = (c) => {
-  if (c.kind === 'numeric') return `${c.property} ${c.operator} ${c.value}`;
-  if (c.kind === 'gate') return c.gate === 'h2cStatus' ? `H2C status in ${(c.in ?? []).join(', ')}` : c.gate;
-  if (c.kind === 'facet') return `${c.facet} in ${(c.in ?? []).join(', ')}`;
-  if (c.kind === 'environment') return `${c.category} evidence`;
-  if (c.kind === 'evidence') return 'evidence quality';
-  return c.kind;
-};
+// The panel used to print raw internal keys here: "hdt045 >= 100", "tensileModulusXY >= 3",
+// "scope". The requirement pills on the same screen said "HDT at least 100 °C" because they used a
+// different code path. There is now one description, in labels.js, and everything uses it.
+const nameOf = describeConstraint;
 
 export function renderExclusions(host, state, actions) {
   const { db, scenario, ctx } = state;
@@ -60,4 +57,44 @@ export function renderWhy(evaluation) {
         <div class="why">${esc(r.reason)}${r.measurementId ? ` · <span style="font-family:var(--mono)">${esc(r.measurementId)}</span>` : ''}${r.gradeId ? ` · ${esc(r.gradeId)}` : ''}</div>
       </div>
     </div>`).join('');
+}
+
+
+/**
+ * The zero-result screen.
+ *
+ * Over-constraining is the likeliest mistake a first-time user makes, and the result used to be an
+ * empty grid with a column header row and a footnote about em dashes: no explanation, no suggestion,
+ * no way out except guessing which filter to undo.
+ */
+export function renderNoResults(host, state, actions) {
+  const { scenario, selection } = state;
+  const hidden = selection.candidates.length;
+
+  // Nothing passed, but the user has also hidden the states that did match.
+  if (hidden > 0) {
+    host.innerHTML = `<div class="empty">
+      <h3>${hidden} material${hidden === 1 ? '' : 's'} match, but you have hidden them</h3>
+      <p>The buttons at the bottom of the screen choose which results to show. Turn one back on.</p>
+      <button class="btn btn-primary" id="show-all">Show everything that matched</button>
+    </div>`;
+    host.querySelector('#show-all').addEventListener('click', () => actions.showAllStates());
+    return;
+  }
+
+  if (!scenario.constraints.length) {
+    host.innerHTML = `<div class="empty"><h3>Nothing to show</h3>
+      <p>No requirements are set and no materials are listed, which should not happen. Reload the page.</p></div>`;
+    return;
+  }
+
+  host.innerHTML = `
+    <div class="empty" style="max-width:820px">
+      <h3>No material meets all of these requirements</h3>
+      <p>That is a real answer, not an error: nothing in the database does everything you asked.
+         The quickest way forward is to drop whichever requirement is costing you the most.</p>
+    </div>
+    <div id="ranked" style="max-width:820px"></div>`;
+
+  renderExclusions(host.querySelector('#ranked'), state, actions);
 }
