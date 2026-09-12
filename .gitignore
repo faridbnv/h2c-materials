@@ -2,3 +2,7 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# Personal editor state. The workspace file points at a wiki folder outside this
+# repository, so it only resolves on the machine it was written on.
+*.code-workspace

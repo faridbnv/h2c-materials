@@ -33,7 +33,8 @@ code cites it by section, and it is compiled into `db.json` so the application c
 `dist/db.json`. Entities keep their workbook shape; nothing is flattened into one wide table.
 
 ```
-meta         snapshot, build, counts, H2C baseline, coverage summaries
+meta         snapshot, build, counts, H2C baseline, coverage summaries,
+             environment category names and what each can decide
 materials    102   the selection-level object
 grades       136   materials 1 -- N grades
 measurements 1807  materials 1 -- N, grades 1 -- N, sources N -- 1
@@ -54,11 +55,27 @@ method        39   the rules, verbatim
   representativeGrade, gradeIds: [],
   headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
   headlineBasis,                 // the workbook's own statement of what the headline is
+  measurementConditions,         // how the headline numbers were measured
   facets: { reinforcement, esd, flexible, supportMaterial, flameRetardant },
   gates:  { scope, nozzle, bed, chamber, abrasive, drying },
-  profileIds: [], evidenceIds: {...}, printability, identity, bestUses, limitations
+  print:  { nozzleC, bedC, chamberC },   // the widest published window across its profiles
+  buy:    { … } | null,                  // the best sampled Canadian offer
+  profileIds: [], evidenceIds: {...}, printingEvidence, guidance,
+  printability, identity, bestUses, limitations, impactNote, fatigueCreep
 }
 ```
+
+`print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
+every profile that published one, with the count behind it. 88 materials have a nozzle window and
+90 a bed window; the rest published none and render as a dash rather than as zero.
+
+`buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
+in stock first, then the observation behind the headline, then whatever carries a price. 48 of 102
+materials have one and 42 had stock on the snapshot date.
+
+**Neither is evidence about the material.** `print` is a machine setting recovered from free text
+and `buy` is a market observation on a single day. They are shown because they decide whether
+someone can act on a result, and they are never used to rank or to satisfy a property criterion.
 
 `facets` are partly derived. Each carries `origin: 'source' | 'derived'` and, when derived, what it
 was derived from. Flame retardancy is the weakest: there is no such field in the workbook, so it is
@@ -191,6 +208,23 @@ rule: *uncited numeric values are not imported*. So the reference set is a drawi
 excluded from the candidate set, all counts, the results table, Pareto fronts, index tallies, search,
 the shortlist and every export of candidates. On the chart it draws as a ghosted envelope, off by
 default, because these are bulk and molded values while the candidates are printed and anisotropic.
+
+**The familiar baseline is a different thing, and the distinction matters.** PLA, PETG, ABS, ASA and
+PC can each be set as a comparison anchor beside the results. Those are real materials out of
+`db.json`, with their own measured headlines and citations, and they obey the same rules as any
+other number here. What they share with the reference layer is only their treatment: while a
+material is acting as the baseline it is drawn as a reference and excluded from the counts, the
+Pareto front and the shortlist, so it can never be mistaken for a result the filters returned.
+
+## Availability is not a property
+
+A material with no sampled offer reports UNKNOWN, not FAIL. The price sample is three Canadian
+retailers on one day, which is enough to say "here is where to buy this" and not enough to say
+"this cannot be bought". An offer that was sampled and out of stock is different: that is positive
+evidence, and it fails.
+
+In Strict mode both are removed from the results, which is what someone asking to see only what
+they can buy wants. In Explore the unsampled ones stay visible and flagged.
 
 ## Known limits of the snapshot
 

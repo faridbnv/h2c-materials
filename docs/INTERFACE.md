@@ -39,6 +39,15 @@ changes membership. A material highlighted in one is highlighted in all.
 | **Coverage** | What the database knows and does not |
 | **Compare** | Two to six materials side by side, with their measurement conditions |
 
+A sixth tab, **Why excluded**, sits beside them and is not a lens: it explains what is *not* in the
+candidate set, ranked by how many materials each criterion costs. It is a tab rather than a hidden
+mode because it used to be reachable only through a button that left every tab rendering unselected,
+with no way back except guessing.
+
+The table offers two column sets. **Properties** answers which material is right; **Printing**
+answers whether the machine can run it and what to set, with nozzle, bed and chamber windows and
+what else the job needs. The second existed only in the drawer before, one tab deep.
+
 ## The filter rail
 
 Groups are ordered by how often a criterion actually decides something: mechanical and thermal lead,

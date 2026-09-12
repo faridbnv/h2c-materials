@@ -119,6 +119,71 @@ Raw `db.json` is about 3 MB, almost all repeated condition strings; gzipped it i
 inflated at boot with `DecompressionStream`. No schema change, no interning, and the plotting
 library rather than the data becomes what the file weighs.
 
+
+## D17. One vocabulary module, and no second way to name anything
+
+`app/js/ui/labels.js` owns what every property and every criterion is called. Before it, three code
+paths described the same property three ways: the drawer said "Stiffness", the table said "Tensile
+modulus XY", and the explain panel printed `hdt045 >= 100` because it formatted the raw constraint
+object itself.
+
+The leak is the point. A second describe function does not look wrong when you write it; it looks
+wrong three screens away, months later, to a reader who now doubts the number next to it. Anything
+that names a constraint calls `describeConstraint`, and a new constraint kind without a case there
+puts its internal key on screen.
+
+Reversing this reintroduces the class of bug rather than any one instance of it.
+
+## D18. The familiar baseline is a reference, never a candidate
+
+4.43 GPa means nothing to someone who has only printed PLA. PLA, PETG, ABS, ASA and PC can each be
+set as an anchor, drawn as a row in the table, a labelled cross on the chart and a grey bar in
+Compare.
+
+It is off until chosen, and while it is on it is excluded from the counts, the Pareto front, the
+shortlist and the exports. Putting it in the results would mean the filters returned a material
+nobody asked for, which is exactly the trust problem the rest of this document is about. It shares
+that treatment with the generic reference layer (D13) and nothing else: the baseline is real data
+out of `db.json` with its own citations, while the reference layer is uncited bulk values.
+
+## D19. No sampled offer is UNKNOWN, not FAIL
+
+The availability criterion answers "only show me what I can buy". A material that no sampled
+retailer listed reports UNKNOWN; one that was listed and out of stock reports FAIL.
+
+The asymmetry is the same one that governs estimates. Three Canadian retailers on a single day is
+evidence that something *is* purchasable when it appears, and no evidence at all when it does not.
+Failing the unsampled ones would assert a market fact the snapshot cannot support, and would do it
+in the one part of the tool a user is most likely to act on immediately.
+
+Practically this changes little: in Strict mode both are removed, which is what was asked for. In
+Explore the unsampled ones stay visible and flagged, which is the honest reading.
+
+## D20. Category names are authored with the rules that create them
+
+Environment category display names live in `build/mappings/environment-topics.json`, next to the
+topic patterns, and compile into the snapshot in two forms: a heading ("Acid resistance") and a
+sentence noun ("acids").
+
+The app previously built a name by appending "resistance" to the internal key, which produced "water
+solubility resistance". The obvious fix is a lookup table in the interface, and it is the wrong one:
+the engine also names categories in its reason strings, and the engine may not import from `ui/`
+(D14). Authoring the name where the category is defined gives both one source and keeps the layer
+rule intact.
+
+## D21. One control for how much evidence the chart draws
+
+The Ashby lens had two switches, "Points" (headline against measurements) and "Comparability"
+(strict against broad). That reads as four combinations and is three: comparability can do nothing
+in headline mode, because a headline is a single fixed value with no measurement conditions left to
+match. The two duplicate combinations gave no sign they were duplicates.
+
+Worse, its "Strict" meant measurement conditions while the top bar's "Strict" means missing data,
+two unrelated ideas under one word on one screen.
+
+They are now one ordered choice of three, each with a line saying what it does. Nothing was removed:
+every state the old pair could reach is still reachable.
+
 ---
 
 # Bugs worth remembering
@@ -137,3 +202,7 @@ answers rather than failing.
 | Policy drift | An unrecognised policy made verdict and eligibility disagree, so a shared Explore link rendered as Strict | `constraints.test.js` |
 | `text-overflow: ellipsis` on table cells | Clipped the UNKNOWN chip to a stray dot and "Not published" to "Not publis…" | visual |
 | Cross-grade estimate ranges | Turned one PolyMide datasheet into "2.223 to 2.223 GPa" | `database.test.js` |
+| Compare bar fill was a `span` | An empty inline element ignores width and height, so the lens whose entire purpose is aligned bars drew empty tracks for every material, for as long as it existed | visual |
+| Search ran over the filtered set | Setting a heat requirement and searching "PLA" returned nothing, which reads as "PLA is not in this database" | visual |
+| A second path describing a constraint | Printed `hdt045 >= 100` in the explain panel while the pill beside it read "Heat resistance at least 100 °C". Found twice more after the first fix | visual, swept per `PIPELINE.md` |
+| Degree symbols dropped in gate reasons | "Needs up to 290 C" beside every other temperature in the app written "°C" | `normalize.test.js` |

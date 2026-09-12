@@ -84,6 +84,7 @@ plotting library, not the data, is what the file weighs.
 
 | Module | Responsibility |
 |---|---|
+| `labels.js` | The single vocabulary. What every property and every criterion is called, in plain words with the technical name behind it. Nothing else names them. |
 | `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated. |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
 | `table.js` | The results grid and the client-side export. |
@@ -92,7 +93,7 @@ plotting library, not the data, is what the file weighs.
 | `heatmap.js` | The coverage lens. |
 | `compare.js` | Two to six materials side by side, with their measurement conditions. |
 | `detail.js` | One material's complete record. |
-| `explain.js` | Why the list is what it is, ranked by what each criterion costs. |
+| `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen. |
 | `start.js` | The opening panel, and the active-requirements header that replaces it. |
 | `templates.js` | Application templates. They populate controls and then get out of the way. |
 
@@ -107,18 +108,34 @@ plotting library, not the data, is what the file weighs.
 - `showStates` — which verdicts the table shows. Derived from the policy by `defaultShowStates`,
   which exists in exactly one place so the boot path, the mode buttons and scenario import cannot
   drift apart. They did once; a shared Explore link rendered as Strict.
+- `searchExcluded` — search hits that the current requirements removed. Search runs over the whole
+  database, so "no results" never means "not in this database" when the material is simply failing
+  a criterion.
+- `baseline` — the familiar material drawn beside the results. A reference, never a candidate: it
+  is not in `rows`, not in the counts, and not on the Pareto front.
+- `highlightMeasurement` — the measurement the reader clicked through to, so the drawer can scroll
+  it into view and mark it rather than opening a list of twenty-one.
 
 Every lens draws from the same `rows`. Switching lens never changes membership.
 
 ## Adding things
 
-**A new selectable property.** Add it to the headline list in `compile.js`, to `AXIS_DEFS` in
-`ui/axes.js` with its measurement mapping, to the numeric controls in `ui/filters.js`, and to
-`ESTIMATE_KEYS` in `estimates.js` if a family bound makes sense for it. The engine needs no change:
-it works off whatever headline keys exist.
+**A new selectable property.** Add it to the headline list in `compile.js`, to `PROPERTY` in
+`ui/labels.js` with its plain name and unit, to `AXIS_DEFS` in `ui/axes.js` with its measurement
+mapping, to the numeric controls in `ui/filters.js`, and to `ESTIMATE_KEYS` in `estimates.js` if a
+family bound makes sense for it. The engine needs no change: it works off whatever headline keys
+exist.
 
 **A new constraint kind.** Add a branch in `evaluateConstraint` and a matching control. Return the
-same result shape, including `criterion` and `reason`, or the explain panel will have nothing to say.
+same result shape, including `criterion` and `reason`, or the explain panel will have nothing to
+say. Then add a case to `describeConstraint` in `ui/labels.js`: that function is what the pills, the
+explain panel, the why list, the excluded-search group and the CSV export all use, and a missing
+case is how an internal key reaches the screen.
+
+**A new word for something.** It goes in `ui/labels.js` and nowhere else. Environment category names
+are the exception, and only because they belong with the topic rules: they are authored in
+`build/mappings/environment-topics.json` and compiled into the snapshot, so the engine can name a
+category without importing anything from `ui/`.
 
 **A new lens.** Add it to `renderLens` in `main.js` and to the lens bar in `app/index.html`. Read
 `state.rows`; never re-filter.

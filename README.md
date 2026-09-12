@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 54 engine, parser and database tests
+npm test                       # 56 engine, parser and database tests
 npm run validate               # validate only, no bundle
 ```
 
@@ -46,9 +46,9 @@ snapshot-stamped filename and the validation report are published alongside it:
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things |
 | [docs/PIPELINE.md](docs/PIPELINE.md) | What each build stage does, and what it refuses to do |
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The entities, the compiled shape, the three kinds of number |
-| [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the five lenses, the visual vocabulary |
+| [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the lenses, the words, the visual vocabulary |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them |
-| [docs/UX-AUDIT.md](docs/UX-AUDIT.md) | Open findings against a first-time 3D printer user. Nothing here is fixed yet |
+| [docs/UX-AUDIT.md](docs/UX-AUDIT.md) | The audit against a first-time 3D printer user, each finding with its outcome |
 | [docs/background/](docs/background/) | The research inputs this was built from |
 
 ## Layout
@@ -63,9 +63,12 @@ build/reports/                   the validation report, regenerated every build
 
 app/js/engine/                   the selection logic. Pure: no DOM, never imports from ui/
 app/js/ui/                       rendering and interaction
+app/js/ui/labels.js              the one vocabulary: what every property and criterion is called
 app/js/main.js                   the only place that holds state
 
 test/                            engine, parser and compiled-database tests
+scripts/ensure-db.mjs            compiles the database first if a test run needs it
+.github/workflows/pages.yml      build, test, publish
 dist/                            build output, not committed
 docs/                            this documentation
 ```
@@ -92,6 +95,13 @@ preferences: changing one changes what the tool asserts.
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
 11. **A family estimate may rule a material out, never confirm it in.**
+12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
+    excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
+13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot
+    prove a material cannot be bought, so the availability criterion reports UNKNOWN rather than
+    FAIL when nobody listed it.
+14. **One name per thing.** Every property and every criterion is named by `app/js/ui/labels.js`,
+    so no screen can print an internal key while the screen beside it reads plainly.
 
 ## Three kinds of number
 
@@ -108,6 +118,10 @@ mechanical criterion, so PLA Lite survived a search for "elongation at least 100
 elastomers. Knowing that all fourteen measured unreinforced PLA grades fall between 2.8 and 15.3% is
 enough to rule it out, without pretending to know its value. See
 [docs/DATA-MODEL.md](docs/DATA-MODEL.md#three-kinds-of-number).
+
+*Strict and Explore are the names used in the code and in these documents. On screen the control is
+labelled "If a material has no data", and the two buttons read "Leave it out" and "Keep it, flagged",
+because the words Strict and Explore told a first-time reader nothing about what they did.*
 
 ## H2C hardware baseline
 

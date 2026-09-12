@@ -58,10 +58,11 @@ This stage also distinguishes a **requirement** from a **recommendation**. "Reco
 possible" exceeds the H2C's 65 °C chamber but does not make the material unprintable.
 
 **Chemical** (`chemical.js`). 73 environment topics onto canonical categories, via a hand-maintained
-map in `build/mappings/` that is reviewed like code. The sheet runs two overlapping source
-vocabularies for the same chemistry, `Resistance to Acid` alongside `Effect of weak acids`; they
-merge but keep their strength qualifier, because a source that distinguished weak from strong said
-more than one that did not.
+map in `build/mappings/environment-topics.json` that is reviewed like code. That file also carries
+each category's display names, which is why it is the only place a category is named. The sheet runs
+two overlapping source vocabularies for the same chemistry, `Resistance to Acid` alongside `Effect
+of weak acids`; they merge but keep their strength qualifier, because a source that distinguished
+weak from strong said more than one that did not.
 
 ## 3. Compile — `compile.js`
 
@@ -84,6 +85,16 @@ Compile also derives, each tagged with its origin so the interface can tell them
 - **Related evidence** for headlines with no value: one real measurement of the same property that
   was never promoted, with the reason. Never a cross-grade range.
 - **Facets** the Materials sheet does not carry directly, marked `derived`.
+- **A print summary** per material: the widest published nozzle, bed and chamber window across its
+  profiles, with the number of profiles behind each. 88 materials have a nozzle window, 90 a bed
+  window. It answers "what do I set it to", which was otherwise only in free text one tab deep.
+- **A buy summary** per material: one offer chosen from the price observations, ranked by in stock,
+  then the observation behind the headline, then anything with a price. 48 materials have one and
+  42 had stock on the snapshot date. The retailer URLs were in the workbook from the start and were
+  rendered nowhere.
+- **Environment category names**, carried through from the mapping file in a heading form ("Acid
+  resistance") and a sentence form ("acids"), so the engine can name a category in a reason string
+  without importing anything from the interface, and so there is one place to change a name.
 
 ## 4. Estimates — `estimates.js`
 
@@ -118,7 +129,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 54 tests
+npm test                         # 56 tests
 open dist/H2C_Material_Selector_2026-09-10.html
 ```
 
@@ -126,6 +137,12 @@ The end-to-end check is the worked example from the architecture brief: H2C-rele
 100 °C, modulus at least 3 GPa, density at most 1500 kg/m3, Strict mode. It returns nine candidates,
 all reinforced engineering polymers. Every one should explain itself and trace to a MeasurementID, a
 GradeID and a SourceID.
+
+One more check is worth running by hand, because it fails silently rather than loudly. Set several
+criteria of different kinds, open every tab, and read the text. No screen may show an internal key
+such as `hdt045` or `tensileModulusXY`. Those are how a property is stored, never how it is named,
+and every one of them that reached a screen did so because a second code path described a constraint
+instead of calling `describeConstraint` in `app/js/ui/labels.js`.
 
 To prove the offline requirement, open the file with the network disabled. It must work fully. The
 plotting library contains CDN strings for map traces the application never renders, so grepping for
