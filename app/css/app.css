@@ -341,7 +341,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-prop { margin-bottom: 22px; }
 .cmp-prop h4 { margin: 0 0 3px; font-size: 13px; }
 .cmp-prop .unit { color: var(--ink-3); font-weight: 400; font-size: 12px; }
-.cmp-bar { display: grid; grid-template-columns: 168px 1fr 84px; gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
+.cmp-bar { display: grid; grid-template-columns: 168px 1fr 118px; gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
 .cmp-bar .track { background: var(--surface-2); border-radius: 3px; height: 16px; position: relative; }
 /* display:block matters. The fill is a span, and an empty inline element ignores width and height,
    so every bar in the comparison rendered as an empty track. */
@@ -663,3 +663,14 @@ tr.baseline-row .name { color: var(--accent); }
 .start-limits ul { margin: 8px 0; padding-left: 20px; }
 .start-limits li { margin-bottom: 6px; }
 .statusbar-idle { font-size: var(--t-small); color: var(--ink-3); }
+
+/* Estimate spans in Compare. A span, not a bar: there is no value to fill to, and drawing one
+   would invent a number. The hatch says "somewhere in here" the way a solid fill cannot. */
+.cmp-bar .est-span {
+  position: absolute; top: 3px; height: 10px; border-radius: 2px;
+  border: 1px dotted var(--unknown); min-width: 3px;
+  background: repeating-linear-gradient(45deg,
+    var(--unknown-bg) 0 5px, transparent 5px 9px);
+}
+.cmp-bar.estimated .val.est { color: var(--unknown); }
+.cmp-bar.estimated { cursor: help; }

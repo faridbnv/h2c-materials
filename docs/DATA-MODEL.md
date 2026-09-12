@@ -167,6 +167,24 @@ own column so a spreadsheet cannot mistake inference for evidence.
 
 ---
 
+### Where an estimate may and may not appear
+
+An estimate is a range, so it is shown as one everywhere it is shown at all.
+
+| Surface | What it does |
+|---|---|
+| Table cell | `~2.8–15.3†`, with the basis and peer count on hover |
+| Detail drawer | The full record: the span, the basis, every peer behind it |
+| Filter | Can rule a material out. A passing estimate still reports UNKNOWN |
+| Ashby lens | A dotted range, off by default, always counted in the footer |
+| Compare | A hatched span across the bar track, never a filled bar |
+| Parallel | Not drawn. A line commits to a value on every axis it crosses, so the affected materials are named and counted instead |
+| CSV export | Its own column, so a spreadsheet can never mistake inference for evidence |
+| Pareto front, candidate counts, index tallies | Never. Inference cannot dominate evidence |
+
+Strict mode sees none of this. Estimates exist only in Explore, and only while the Estimates toggle
+is on.
+
 ## Missing data is information
 
 Four states, which never collapse into each other and never become zero.

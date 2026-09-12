@@ -3,7 +3,7 @@
 ```
 npm run build          full build, ending in a distributable HTML file
 npm run validate       stops after the report; writes no dist artefacts
-npm test               engine, parser and compiled-database tests
+npm test               engine, parser, search and compiled-database tests
 ```
 
 Everything runs from `build/src/index.js`. The build is deterministic and **fails on any validation
@@ -129,7 +129,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 56 tests
+npm test                         # 62 tests
 open dist/H2C_Material_Selector_2026-09-10.html
 ```
 

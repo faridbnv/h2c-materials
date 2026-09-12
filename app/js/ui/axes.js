@@ -44,33 +44,51 @@ export const axisByKey = (k) => AXIS_DEFS.find((a) => a.key === k) ?? AXIS_DEFS[
  *
  * Broad admits those measurements so the trade space can be seen, and returns the reasons so the
  * chart can say what it mixed.
+ *
+ * Two kinds of remark come back, and keeping them apart matters:
+ *
+ *   `relaxed`  something strict would have rejected and broad let through. These are the points
+ *              drawn hollow, and the only ones the "mixed conditions" banner may name.
+ *   `notes`    context worth showing on hover but not a mismatch. A density figure that names no
+ *              specimen form is the common case, not a relaxation: the axis has no direction
+ *              requirement to violate.
+ *
+ * Collapsing the two made strict mode announce "mixed conditions are included here" and draw
+ * perfectly comparable points hollow, which is precisely the warning a reader should be able to
+ * trust.
  */
 export function measurementMatches(m, axis, mode) {
   if (!axis.measurement || !m.numeric || m.quarantined) return null;
   if (!axis.measurement.properties.includes(m.property)) return null;
 
+  const relaxed = [];
   const notes = [];
   const want = axis.measurement.direction;
   if (want && m.direction !== want) {
     if (mode === 'strict') return null;
-    notes.push(m.direction === 'unknown' ? 'direction not stated' : `${m.direction} direction`);
+    relaxed.push(m.direction === 'unknown' ? 'direction not stated' : `${m.direction} direction`);
   }
   if (axis.measurement.loadMPa != null) {
     const load = m.thermal?.loadMPa ?? null;
     if (load !== axis.measurement.loadMPa) {
       if (mode === 'strict') return null;
-      notes.push(load == null ? 'HDT load not stated' : `HDT at ${load} MPa`);
+      relaxed.push(load == null ? 'HDT load not stated' : `HDT at ${load} MPa`);
     }
   }
-  if (mode === 'strict' && m.specimenType && !m.specimenType.startsWith('Printed specimen')) {
-    // Density rarely names a specimen form; the axis has no direction requirement there either.
-    if (want) return null;
+  const unstatedSpecimen = m.specimenType && !m.specimenType.startsWith('Printed specimen');
+  if (unstatedSpecimen) {
+    // Only a relaxation where the axis actually cares about how the specimen was made.
+    if (want) {
+      if (mode === 'strict') return null;
+      relaxed.push('specimen form not stated');
+    } else {
+      notes.push('specimen form not stated');
+    }
   }
-  if (m.specimenType && !m.specimenType.startsWith('Printed specimen')) {
-    notes.push('specimen form not stated');
+  if (m.property !== axis.measurement.properties[0]) {
+    (mode === 'strict' ? notes : relaxed).push(m.property.toLowerCase());
   }
-  if (m.property !== axis.measurement.properties[0]) notes.push(m.property.toLowerCase());
-  return { measurement: m, notes };
+  return { measurement: m, relaxed, notes: [...relaxed, ...notes] };
 }
 
 /** Two measurements of different properties can share a point only if their conditions agree. */

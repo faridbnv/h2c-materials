@@ -184,6 +184,67 @@ two unrelated ideas under one word on one screen.
 They are now one ordered choice of three, each with a line saying what it does. Nothing was removed:
 every state the old pair could reach is still reachable.
 
+
+## D22. Search matches words, never substrings
+
+A bare substring test for "PLA" matches "Thermoplastic Polyurethane". Searching for the most common
+filament on earth returned every TPU and TPE in the database, and nothing about the result looked
+wrong: it looked like the tool believed TPU was a kind of PLA.
+
+Each field is split into words and a query term has to begin one. Every search a person actually
+types still works — "pa6" finds PA6-CF, "cf" finds the carbon-filled grades, "95" finds TPU 95A,
+"support" finds the support materials via their family — and "PLA" can no longer surface a material
+because the letters sit inside a longer word.
+
+Slashes are separators, so "Support for PLA/PETG" answers to either name, which is right: it is
+genuinely about both.
+
+## D23. An estimate is drawn as a range, never as a point
+
+The chart plotted only measured headlines, so on density against stiffness 25 of the 96 in-scope
+materials simply were not there. The table two tabs away listed them with their estimated span, and
+in Explore an estimate is what rules a material out of a filter, so a reader could see a material
+excluded by an estimate and find no trace of that estimate on the chart.
+
+They are drawn as a dotted range. Not a dot: a dot needs a value, and the midpoint of a family bound
+is a number nobody measured, which is the one thing this tool refuses to put on a chart. Where the
+other axis is measured the range collapses to a whisker, which is the stronger statement and the
+lighter mark.
+
+The layer is off by default because 25 overlapping boxes are less readable than none, but the count
+is in the footer whether the layer is on or off. That is the part that matters: the reader is never
+left to infer that a quarter of the set does not exist.
+
+Estimated materials never join the Pareto front and never count as plotted candidates. Inference
+cannot dominate evidence.
+
+## D24. A relaxed condition and an unstated fact are different things
+
+The measurement plot marked a point hollow, and announced "mixed conditions are included here",
+whenever a measurement carried any remark at all. One of those remarks is that the source did not
+name the specimen form, which on an axis with no direction requirement — density — is the ordinary
+case and not a mismatch with anything.
+
+So strict mode, whose whole purpose is to admit nothing questionable, displayed a warning that it
+had mixed conditions and drew perfectly comparable points as if they were suspect.
+
+`measurementMatches` now returns `relaxed` separately from `notes`. Only a relaxation, something
+strict would have rejected, makes a point hollow or reaches the banner. The rest is context on
+hover. A warning that fires when nothing is wrong is worse than no warning, because it teaches the
+reader to ignore the one that matters.
+
+## D25. In the measurement plot, a dot is a test and must say so
+
+The mode draws one point per grade per measurement, which is the evidence behind the headline and
+the only place anisotropy is visible. It was also unreadable: a field of anonymous dots, each
+labelled with its own grade and direction until the labels covered the data, and no way to tell six
+measurements of one material from six different materials.
+
+Three changes, no loss of information. The dots of one material are joined by a faint line, so a
+cluster reads as one thing measured repeatedly. The name goes on the leftmost dot of each material
+rather than on every dot, with grade and direction on hover. And the footer leads with the sentence
+the mode cannot work without: each dot is one test result, not one material.
+
 ---
 
 # Bugs worth remembering
@@ -206,3 +267,6 @@ answers rather than failing.
 | Search ran over the filtered set | Setting a heat requirement and searching "PLA" returned nothing, which reads as "PLA is not in this database" | visual |
 | A second path describing a constraint | Printed `hdt045 >= 100` in the explain panel while the pill beside it read "Heat resistance at least 100 °C". Found twice more after the first fix | visual, swept per `PIPELINE.md` |
 | Degree symbols dropped in gate reasons | "Needs up to 290 C" beside every other temperature in the app written "°C" | `normalize.test.js` |
+| Substring search | "PLA" matched "thermo**pla**stic", so searching the most common filament returned every TPU and TPE | `search.test.js` |
+| Estimates absent from every chart | A quarter of the in-scope set vanished from the Ashby lens, and Compare printed "Not published" for a value the engine was actively using to exclude the material | visual |
+| Any remark treated as a relaxation | Strict measurement mode warned that it had mixed conditions, and drew comparable points hollow, because the source had not named a specimen form | visual |

@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 56 engine, parser and database tests
+npm test                       # 62 engine, parser, search and database tests
 npm run validate               # validate only, no bundle
 ```
 

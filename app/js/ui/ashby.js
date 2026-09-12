@@ -67,18 +67,27 @@ export function renderAshby(host, state, actions) {
     ? measurementPoints(rows, xDef, yDef, level === 'measured-mixed' ? 'broad' : 'strict', state.ctx)
     : headlinePoints(rows, xDef, yDef);
 
+  // Only in "one dot per material": at measurement level every point is already a real
+  // measurement, and a family bound has nothing to say about an individual grade.
+  const estimated = measurementMode ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.useEstimates);
+  const envelopes = p.showEstimates ? estimated : [];
+
   const subjects = new Set(pts.map((q) => q.id)).size;
   // Only for the footer note. drawPlot computes the front it actually draws.
   const frontSize = paretoFront(pts.filter((q) => q.evaluation.eligible), xDef.better, yDef.better).length;
-  const missing = rows.length - subjects;
+  const missing = rows.length - subjects - estimated.length;
   const thin = pts.length < 10;
 
   // "Price — 10" read as ten dollars. Name the property, then say what the number counts.
   const axisSelect = (which, cur) => `<select data-axis="${which}">
     ${AXIS_DEFS.map((a) => {
       const n = rows.filter((r) => r.material.headline[a.key]?.known).length;
+      const est = state.ctx?.useEstimates
+        ? rows.filter((r) => { const h = r.material.headline[a.key]; return h && !h.known && h.estimate; }).length
+        : 0;
       const P = prop(a.key);
-      return `<option value="${a.key}" ${a.key === cur ? 'selected' : ''}>${esc(P.plain)} (${n} of ${rows.length} have it)</option>`;
+      const count = est ? `${n} measured, ${est} estimated` : `${n} of ${rows.length} have it`;
+      return `<option value="${a.key}" ${a.key === cur ? 'selected' : ''}>${esc(P.plain)} (${count})</option>`;
     }).join('')}</select>`;
 
   host.innerHTML = `
@@ -104,6 +113,16 @@ export function renderAshby(host, state, actions) {
           ${INDICES.map((i) => `<option value="${i.id}" ${p.index === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`).join('')}
         </select>
         <div class="control-help">Draws the line engineers use to pick the lightest material that still does the job.</div></div>
+      <div class="control"><label>Estimated materials</label>
+        ${estimated.length ? `
+          <label class="inline-check"><input type="checkbox" data-show-estimates ${p.showEstimates ? 'checked' : ''}>
+            Show the ${estimated.length} with no measurement here</label>
+          <div class="control-help">Drawn as a dotted range rather than a dot, because the value is
+            the span of their closest relatives and not a position anyone measured.</div>`
+          : `<div class="control-help">${state.ctx?.useEstimates
+              ? 'Every candidate on these axes has a measurement of its own.'
+              : 'Estimates are off. They are available in Explore, where they can rule a material out.'}</div>`}
+      </div>
       <div class="control"><label>Compare against</label>
         <select data-baseline>
           <option value="">Nothing</option>
@@ -117,22 +136,77 @@ export function renderAshby(host, state, actions) {
     ${unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : ''}
     ${thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : ''}
     ${p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : ''}
-    ${mixed && mixed.length ? `<div class="banner">Mixed conditions are included here: ${esc(mixed.join('; '))}. Those points are drawn hollow and name the mismatch when you hover them.</div>` : ''}
+    ${mixed && mixed.length ? `<div class="banner"><b>Some of these were measured a different way</b>
+      from the axis definition: ${esc(mixed.join('; '))}. They are drawn hollow, and hovering one
+      names the mismatch. They are included so the trade space can be seen whole, never merged into
+      a headline.</div>` : ''}
 
     <div id="plot"></div>
     <div class="legend-note">
       ${measurementMode
-        ? `${pts.length} measurement pair${pts.length === 1 ? '' : 's'} across ${subjects} of ${rows.length} candidates.`
+        // What a reader has to be told before this chart means anything: a dot is a test, not a
+        // material. Without that sentence a cluster of six dots reads as six materials, or as noise.
+        ? `<b>Each dot is one test result, not one material.</b> ${pts.length} test${pts.length === 1 ? '' : 's'}
+           across ${subjects} of ${rows.length} candidates. Where a material was measured more than
+           once, its dots are joined by a faint line. That spread is real: the same material measures
+           differently by grade and by print direction, and the wider the spread, the less any single
+           headline number tells you.
+           ${level === 'measured-mixed' ? '<br><b>Hollow dots</b> were measured a different way from the axis definition, for example in another print direction. They are included here so you can see them, and named on hover.' : ''}`
         : `${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.`}
       Colour is polymer family, marker shape is filler class.
+      ${estimated.length && !p.showEstimates
+        // Counted even when not drawn, so they are never silently absent. That silence was the
+        // whole problem: a quarter of the set vanished from the chart while the table listed them.
+        ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
+           ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only the range of
+           ${estimated.length === 1 ? 'its' : 'their'} closest relatives. Not drawn. Tick
+           <b>Estimated materials</b> above to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
+        : ''}
+      ${envelopes.length ? `<br><b>The dotted ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
+        with no measurement of their own on one of these axes. Each spans the values its closest
+        measured relatives take, so the material is somewhere along it. A whisker means the other
+        axis is measured. It is an estimate, not a position: it never joins the frontier and never
+        counts as a plotted candidate.` : ''}
       ${frontSize > 1 ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
         both axes at once. Anything below and to the right of it is beaten by something on the line.` : ''}
     </div>
     <div id="index-card"></div>`;
 
-  drawPlot(host, state, { xDef, yDef, pts, actions });
+  drawPlot(host, state, { xDef, yDef, pts, envelopes, actions });
   renderIndexCard(host.querySelector('#index-card'), state, pts, actions);
   wireControls(host, state, actions);
+}
+
+/**
+ * Materials the chart cannot draw as a point, because at least one axis is a family estimate
+ * rather than a measurement.
+ *
+ * These used to vanish. On density against stiffness that is 25 of the 96 in-scope materials: a
+ * quarter of the set silently absent from the picture the tool exists to draw, while the table two
+ * tabs away listed them with their estimated span. Worse, an estimate is exactly what rules a
+ * material out of a filter in Explore mode, so the reader could see a material excluded by an
+ * estimate and find no trace of that estimate on the chart.
+ *
+ * They are drawn as an envelope rather than a dot. A dot would need a value, and the midpoint of a
+ * family bound is a number nobody measured — the one thing this tool refuses to put on a chart.
+ * The envelope says what is actually known: somewhere in here.
+ */
+function estimateEnvelopes(rows, xDef, yDef, useEstimates) {
+  if (!useEstimates) return [];
+  const span = (h) => {
+    if (h?.known) return { lo: h.value, hi: h.value, measured: true };
+    const e = h && h.estimate;
+    return e ? { lo: e.lo, hi: e.hi, measured: false, basis: e.basis, peers: e.peerCount } : null;
+  };
+  const out = [];
+  for (const { material: m, evaluation: ev } of rows) {
+    const x = span(m.headline[xDef.key]);
+    const y = span(m.headline[yDef.key]);
+    if (!x || !y) continue;
+    if (x.measured && y.measured) continue;   // a real point; drawn by headlinePoints
+    out.push({ id: m.id, name: m.name, family: m.family, material: m, evaluation: ev, x, y });
+  }
+  return out;
 }
 
 /** One point per canonical material, using the same headline logic as the rest of the selector. */
@@ -144,7 +218,7 @@ function headlinePoints(rows, xDef, yDef) {
       x: m.headline[xDef.key]?.known ? m.headline[xDef.key].value : null,
       y: m.headline[yDef.key]?.known ? m.headline[yDef.key].value : null,
       xh: m.headline[xDef.key], yh: m.headline[yDef.key],
-      notes: [],
+      notes: [], relaxed: [],
     }))
     .filter((q) => q.x !== null && q.y !== null);
   return { pts, mixed: [], unavailable: null };
@@ -171,7 +245,10 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
         if (xm.measurement.gradeId !== ym.measurement.gradeId) continue;
         if (!pairable(xm.measurement, ym.measurement, mode)) continue;
         const notes = [...new Set([...xm.notes, ...ym.notes])];
-        notes.forEach((n) => mixed.add(n));
+        // Only a genuine relaxation makes a point hollow or reaches the banner. An unstated
+        // specimen form on an axis with no direction requirement is context, not a mismatch.
+        const relaxed = [...new Set([...xm.relaxed, ...ym.relaxed])];
+        relaxed.forEach((n) => mixed.add(n));
         pts.push({
           id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
           material: m, evaluation: e,
@@ -179,7 +256,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
           x: xm.measurement.value, y: ym.measurement.value,
           xh: { value: xm.measurement.value, unit: xm.measurement.unit, measurementId: xm.measurement.id, gradeId: xm.measurement.gradeId, direction: xm.measurement.direction },
           yh: { value: ym.measurement.value, unit: ym.measurement.unit, measurementId: ym.measurement.id, gradeId: ym.measurement.gradeId, direction: ym.measurement.direction, uncertainty: ym.measurement.uncertainty },
-          notes,
+          notes, relaxed,
         });
       }
     }
@@ -188,7 +265,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
 }
 
 
-function drawPlot(host, state, { xDef, yDef, pts, actions }) {
+function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const { scenario, reference, db } = state;
   const p = scenario.plot;
   const colors = buildFamilyColors(db.materials, p.promotedFamilies ?? []);
@@ -204,8 +281,23 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
 
   const eligibleForFront = pts.filter((q) => q.evaluation.eligible);
   const frontNow = paretoFront(eligibleForFront, xDef.better, yDef.better);
+  const measurementMode = pts.some((q) => q.notes !== undefined && q.xh?.measurementId && q.yh?.measurementId);
   const labelPoints = pts.length <= 30;
   const keepLabel = new Set([...frontNow.map((q) => q.id), ...scenario.shortlist]);
+
+  // One label per material, not one per test.
+  //
+  // At measurement level a material contributes a dot per grade per direction, and labelling every
+  // one stacked "PA6-CF · XY", "PA6-CF · Z", "PA6-CF · G050-01" on top of each other until the
+  // chart was unreadable. The name goes on the leftmost dot of each material; the grade and
+  // direction are on hover, where they belong.
+  const labelled = new Set();
+  const leftmostOf = new Map();
+  for (const q of pts) {
+    const cur = leftmostOf.get(q.id);
+    if (!cur || q.x < cur.x) leftmostOf.set(q.id, q);
+  }
+  for (const q of leftmostOf.values()) labelled.add(q);
 
   const traces = [];
   for (const [key, list] of groups) {
@@ -217,7 +309,13 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
       // dot is which except by hovering every one. Past about 30 the labels themselves become the
       // clutter, so beyond that only the frontier and the shortlist keep theirs.
       mode: labelPoints ? 'markers+text' : 'markers',
-      text: list.map((q) => (labelPoints || keepLabel.has(q.id) ? q.label : '')),
+      text: list.map((q) => {
+        const show = labelPoints || keepLabel.has(q.id);
+        if (!show) return '';
+        // At measurement level only the leftmost dot of a material carries its name.
+        if (measurementMode) return labelled.has(q) ? q.name : '';
+        return q.label;
+      }),
       textposition: 'top center',
       textfont: { size: 10, color: 'rgba(107,107,99,.95)' },
       cliponaxis: false,
@@ -227,7 +325,9 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
       customdata: list.map((q) => [q.id, q.label, q.evaluation.verdict,
         q.xh.measurementId ?? '', q.yh.measurementId ?? '',
         q.yh.direction ?? '', q.yh.gradeId ?? '',
-        q.notes.length ? 'mixed: ' + q.notes.join(', ') : 'conditions match the axis definition']),
+        q.relaxed.length ? 'mixed: ' + q.relaxed.join(', ')
+          : q.notes.length ? q.notes.join(', ')
+          : 'conditions match the axis definition']),
       error_x: errorBars(list, 'xh'),
       error_y: errorBars(list, 'yh'),
       marker: {
@@ -235,13 +335,36 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
         symbol: list.map((q) => FILLER_SYMBOL[q.filler] ?? 'circle'),
         color: colors.color(family),
         // Evidence status in the outline: a held candidate reads hollow.
-        opacity: list.map((q) => (q.notes.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
-        line: { width: list.map((q) => (q.notes.length || q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
+        opacity: list.map((q) => (q.relaxed.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
+        line: { width: list.map((q) => (q.relaxed.length || q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
       },
       hovertemplate:
         `<b>%{customdata[1]}</b><br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}`
         + `<br>Grade %{customdata[6]}<br>Direction %{customdata[5]}<br>%{customdata[7]}<br>%{customdata[2]} against current constraints<extra></extra>`,
     });
+  }
+
+  // Join the tests belonging to one material.
+  //
+  // Without this a reader sees a field of dots and has no way to tell six measurements of one
+  // material from six different materials. The connector says "these are the same thing, measured
+  // more than once", which is the entire message of this mode.
+  if (measurementMode) {
+    const byMaterial = new Map();
+    for (const q of pts) {
+      if (!byMaterial.has(q.id)) byMaterial.set(q.id, []);
+      byMaterial.get(q.id).push(q);
+    }
+    for (const [, list] of byMaterial) {
+      if (list.length < 2) continue;
+      const ordered = [...list].sort((a, b) => a.x - b.x || a.y - b.y);
+      traces.push({
+        type: 'scatter', mode: 'lines',
+        x: ordered.map((q) => q.x), y: ordered.map((q) => q.y),
+        line: { color: colors.color(ordered[0].family), width: 1, dash: 'solid' },
+        opacity: 0.35, hoverinfo: 'skip', showlegend: false,
+      });
+    }
   }
 
   const shapes = [];
@@ -324,6 +447,45 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     });
   }
 
+  // Estimated materials, as envelopes. Where one axis is measured the envelope collapses to a line
+  // on that axis, which is the honest picture: the position is known in one direction and bounded
+  // in the other.
+  //
+  // They are deliberately not points, are never on the Pareto front, and are never counted as
+  // candidates plotted. Inference cannot dominate evidence.
+  // Labels only where they can be read. Twenty-five overlapping names is not information.
+  const labelEnvelopes = envelopes.length <= 8;
+  for (const q of envelopes) {
+    const x0 = X(q.x.lo), x1 = X(q.x.hi), y0 = Y(q.y.lo), y1 = Y(q.y.hi);
+    if (!placeable(x0, x1, y0, y1)) continue;
+    const c = colors.color(q.family);
+    // One axis measured: the range collapses to a whisker, which is the stronger statement and the
+    // lighter mark. Both estimated: a box, drawn fainter still, because it says much less.
+    const flat = x0 === x1 || y0 === y1;
+    shapes.push({
+      type: flat ? 'line' : 'rect',
+      x0, x1, y0, y1, layer: 'below',
+      line: { color: c, width: flat ? 1.5 : 1, dash: 'dot' },
+      fillcolor: flat ? undefined : 'rgba(141,141,132,.04)',
+      opacity: flat ? 0.7 : 0.45,
+    });
+    if (labelEnvelopes || scenario.shortlist.includes(q.id)) {
+      annotations.push({
+        x: (x0 + x1) / 2, y: y1, text: q.name, showarrow: false,
+        xanchor: 'center', yanchor: 'bottom',
+        font: { size: 9, color: c }, opacity: 0.9,
+      });
+    }
+  }
+  // Shapes carry no legend entry, so the key is a trace with no data.
+  if (envelopes.length) {
+    traces.push({
+      type: 'scatter', mode: 'lines', name: 'Estimated range, not measured',
+      x: [null], y: [null], line: { color: 'rgba(120,120,112,.9)', width: 1.5, dash: 'dot' },
+      hoverinfo: 'skip', showlegend: true,
+    });
+  }
+
   // Pareto front over the eligible candidates only.
   const front = sortFront(frontNow, xDef.better);
   if (front.length > 1) {
@@ -367,6 +529,7 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
   // range ourselves from everything we actually drew avoids that and keeps the overlays on screen.
   const xSpan = [], ySpan = [];
   for (const q of pts) { xSpan.push(q.x); ySpan.push(q.y); }
+  for (const q of envelopes) { xSpan.push(q.x.lo, q.x.hi); ySpan.push(q.y.lo, q.y.hi); }
   for (const sh of shapes) {
     // Plotly defaults an unset xref/yref to the axis, so an undefined ref still counts. The
     // reference rectangles rely on that default, and skipping them left the layer drawn off screen.
@@ -497,4 +660,6 @@ function wireControls(host, state, actions) {
   host.querySelector('[data-reference]')?.addEventListener('change', (e) =>
     actions.setPlot({ showReference: e.target.checked }));
   host.querySelector('[data-baseline]')?.addEventListener('change', (e) => actions.setBaseline(e.target.value));
+  host.querySelector('[data-show-estimates]')?.addEventListener('change', (e) =>
+    actions.setPlot({ showEstimates: e.target.checked }));
 }

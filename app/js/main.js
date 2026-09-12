@@ -4,6 +4,7 @@
 // ui/ is imported from there.
 
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
+import { matchesQuery } from './engine/search.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, download } from './ui/table.js';
@@ -105,14 +106,12 @@ function recompute() {
 
   state.selection = runSelection(materials, scenario.constraints, state.ctx);
 
-  const q = state.search.trim().toLowerCase();
+  const q = state.search.trim();
   const byId = new Map(materials.map((m) => [m.id, m]));
-  const matches = (m) => !q || [m.name, m.family, m.fullName, m.basePolymer, m.abbreviation, ...m.gradeIds]
-    .filter(Boolean).some((t) => String(t).toLowerCase().includes(q));
 
   const found = state.selection.evaluations
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
-    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && matches(m));
+    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && matchesQuery(m, q));
 
   state.rows = found.filter(({ evaluation: e }) => state.showStates.has(e.verdict));
 

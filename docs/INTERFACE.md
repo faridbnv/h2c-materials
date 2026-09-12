@@ -120,6 +120,20 @@ specimen, conditioning, standard, grade and source. It opens the Evidence tab, s
 measurement into view and marks it, because PA6-CF has 21 and "one click to the evidence" was
 otherwise one click plus a hunt.
 
+## Search
+
+Matching is by word, not by substring: a query term has to begin a word of the material's name,
+family, full name, abbreviation, base polymer, modifier or one of its grade identifiers. "pa6"
+finds PA6-CF, "cf" finds every carbon-filled grade, "support" finds the support materials through
+their family. Slashes separate, so "Support for PLA/PETG" answers to either name.
+
+A substring test would be simpler and is wrong in a way that is hard to see: "PLA" sits inside
+"thermoplastic", so searching for the most common filament there is returned every TPU and TPE in
+the database, looking for all the world like a deliberate classification.
+
+Search runs over the whole database, never only over what survived the filters. Hits the
+requirements removed are listed separately, each with the criterion that removed it.
+
 ## Words
 
 Property names come from one module, `app/js/ui/labels.js`. The plain name leads and the technical
@@ -152,6 +166,24 @@ single day is not evidence that something cannot be bought.
   grade per compatible pair, so PA6-CF appears twice, at 4.43 GPa in XY and 2.17 in Z, and
   anisotropy becomes visible instead of averaged away. *Every measurement, mixed conditions* also
   admits looser matches, draws them hollow, and names in a banner exactly what it mixed.
+
+  At measurement level a dot is a **test, not a material**, and the chart says so before anything
+  else. The dots belonging to one material are joined by a faint line, so a cluster reads as one
+  thing measured repeatedly rather than as several materials. The name sits on the leftmost dot of
+  each material; grade and direction are on hover. The width of a cluster is the honest answer to
+  "how much should I trust the headline number".
+
+  Hollow means a condition was relaxed, never merely that something went unstated. A source that
+  does not name its specimen form is the ordinary case, and on an axis with no direction
+  requirement it is not a mismatch with anything, so it stays solid and says so on hover. A warning
+  that fires when nothing is wrong teaches the reader to ignore the one that matters.
+
+- **Estimated materials** draws the candidates that have no measurement of their own on one of the
+  chosen axes. They appear as a dotted range rather than a dot, because the value is the span of
+  their closest measured relatives and not a position anyone measured; where the other axis is
+  measured the range collapses to a whisker. Off by default, since twenty-five overlapping ranges
+  are less readable than none, but **the count is in the footer either way**. Nothing that the
+  filters kept is ever silently missing from the picture.
 
   The two switches it replaced were "Points" and "Comparability". That reads as four combinations
   and was three: comparability could do nothing in headline mode, because a headline is one fixed

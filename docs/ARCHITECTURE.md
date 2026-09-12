@@ -79,6 +79,7 @@ plotting library, not the data, is what the file weighs.
 | `pareto.js` | Non-dominated sets over the current candidates and axes. |
 | `coverage.js` | What the database knows and does not, per material and per domain. |
 | `scenario.js` | The user's question, serialised: shareable link, saved file, user assumptions. |
+| `search.js` | Catalogue search. Its own module because the obvious implementation matches "PLA" inside "thermoplastic". |
 
 ### Interface, `app/js/ui/`
 
@@ -119,6 +120,11 @@ plotting library, not the data, is what the file weighs.
 Every lens draws from the same `rows`. Switching lens never changes membership.
 
 ## Adding things
+
+**A new lens that draws numbers.** Decide what it does with an estimate before you write it. Three
+lenses drew only measured headlines and silently dropped a quarter of the candidates; an estimate is
+a range, so it is drawn as a range, counted where it cannot be drawn, and never allowed to dominate
+a measured value.
 
 **A new selectable property.** Add it to the headline list in `compile.js`, to `PROPERTY` in
 `ui/labels.js` with its plain name and unit, to `AXIS_DEFS` in `ui/axes.js` with its measurement

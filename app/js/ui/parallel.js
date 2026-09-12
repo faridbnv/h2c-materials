@@ -30,6 +30,16 @@ export function renderParallel(host, state, actions) {
   }));
   const usable = rows.filter(({ material: m }) => chosen.every((k) => m.headline[k]?.known));
 
+  // Materials held out only because one of the chosen axes is an estimate rather than a
+  // measurement. A line is a position claim on every axis it crosses, so these cannot be drawn as
+  // lines without inventing values. They are counted and named instead, so the reader knows the
+  // difference between "this material is missing" and "this material is only estimated here".
+  const estimateOnly = state.ctx?.useEstimates
+    ? rows.filter(({ material: m }) =>
+        !chosen.every((k) => m.headline[k]?.known)
+        && chosen.every((k) => m.headline[k]?.known || m.headline[k]?.estimate))
+    : [];
+
   host.innerHTML = `
     <div class="pc-axes">
       <div class="pc-axes-head">Axes <span>each one drops the candidates that lack it</span></div>
@@ -60,13 +70,17 @@ export function renderParallel(host, state, actions) {
     body.innerHTML = `<div class="empty"><h3>No candidate has all ${chosen.length} of these properties</h3>
       <p>${esc(chosen.map((k) => AXIS_DEFS.find((a) => a.key === k).label).join(', '))}. A line is only
       drawn where every axis has a value, and nothing is invented to fill a gap. Drop the axis with
-      the lowest count above, or open the Coverage lens to see where the gaps are.</p></div>`;
+      the lowest count above, or open the Coverage lens to see where the gaps are.</p>
+      ${estimateOnly.length ? `<p>${estimateOnly.length} candidate${estimateOnly.length === 1 ? ' has' : 's have'}
+        an estimated range on at least one of these axes rather than nothing at all. A line commits
+        to a value on every axis it crosses, so a range cannot be drawn as one. The Ashby lens can
+        show those spans.</p>` : ''}</div>`;
     return;
   }
-  draw(body, usable, chosen, db, state, actions);
+  draw(body, usable, chosen, db, state, actions, estimateOnly);
 }
 
-function draw(host, usable, chosen, db, state, actions) {
+function draw(host, usable, chosen, db, state, actions, estimateOnly = []) {
   const colors = buildFamilyColors(db.materials);
   const axes = chosen.map((k) => AXIS_DEFS.find((a) => a.key === k));
   const width = Math.max(520, host.clientWidth || 900);
@@ -121,6 +135,10 @@ function draw(host, usable, chosen, db, state, actions) {
       ${lines.length} of ${state.rows.length} candidates have all ${axes.length} properties and are drawn.
       ${state.rows.length - lines.length ? `${state.rows.length - lines.length} do not, and are left out rather than drawn at zero.` : ''}
       Each axis is scaled to its own range across the drawn set. Hover a line to read it, click to open the material.
+      ${estimateOnly.length ? `<br><b>${estimateOnly.length} of those</b> have an estimated range on at
+        least one of these axes rather than a gap: ${esc(estimateOnly.slice(0, 8).map((r) => r.material.name).join(', '))}${estimateOnly.length > 8 ? ` and ${estimateOnly.length - 8} more` : ''}.
+        A line commits to a value on every axis it crosses, so an estimated range cannot be drawn as
+        one. Their spans are on the Ashby lens, and in the table.` : ''}
     </div>`;
 
   host.querySelectorAll('.pc-poly').forEach((el) => {
