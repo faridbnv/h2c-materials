@@ -48,6 +48,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The entities, the compiled shape, the three kinds of number |
 | [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the five lenses, the visual vocabulary |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them |
+| [docs/UX-AUDIT.md](docs/UX-AUDIT.md) | Open findings against a first-time 3D printer user. Nothing here is fixed yet |
 | [docs/background/](docs/background/) | The research inputs this was built from |
 
 ## Layout

@@ -10,6 +10,7 @@ Start with [ARCHITECTURE.md](ARCHITECTURE.md) if you are going to change code, o
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, and how much should I trust it? |
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
+| [UX-AUDIT.md](UX-AUDIT.md) | Where does this fail a 3D printer owner who has never seen it? |
 | [background/](background/) | What was this built from? |
 
 ## Working on it
