@@ -66,14 +66,16 @@ are offered as filters. Six others have records but no reducible verdict among t
 being the sharpest at six records and zero verdicts; offering those as constraints would return
 UNKNOWN for all 102 materials while looking like a working filter.
 
-## Strict and Explore
+## What to do with missing data
 
-The most consequential control, so it sits in the top bar.
+The most consequential control, so it sits in the top bar under its own label, "If a material has
+no data". The two names in the code and in these documents are Strict and Explore; the buttons say
+what each one does, because the words themselves told a first-time reader nothing.
 
-- **Strict** — a criterion that cannot be evaluated holds the material out. Measured evidence only;
-  family estimates are not consulted at all.
-- **Explore** — materials with unresolved criteria stay visible and flagged, and family estimates
-  may rule out ones that clearly cannot qualify.
+- **Leave it out** (Strict) — a criterion that cannot be evaluated holds the material out. Measured
+  evidence only; family estimates are not consulted at all.
+- **Keep it, flagged** (Explore) — materials with unresolved criteria stay visible and flagged, and
+  family estimates may rule out ones that clearly cannot qualify.
 
 Switching resets which verdicts the table shows, so the change is visible in the results rather than
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
@@ -105,18 +107,50 @@ The status bar chips are **buttons**: they choose which verdicts the table shows
 | `—` | Not published. Hover for which kind of absence |
 
 Every measured value carries a small dot: click it to open the measurement, with its direction,
-specimen, conditioning, standard, grade and source. That is one click from anywhere a number
-appears.
+specimen, conditioning, standard, grade and source. It opens the Evidence tab, scrolls that
+measurement into view and marks it, because PA6-CF has 21 and "one click to the evidence" was
+otherwise one click plus a hunt.
+
+## Words
+
+Property names come from one module, `app/js/ui/labels.js`. The plain name leads and the technical
+name is the tooltip: "Stiffness", not "Tensile modulus XY". Constraints are described by one
+function, used by the requirement pills, the explain panel, the per-candidate why list, the
+excluded-search group and the CSV export, so the panel can never print `hdt045 >= 100` while the
+pill beside it says "Heat resistance at least 100 °C".
+
+Environment category names are authored in `build/mappings/environment-topics.json` and compiled
+into the snapshot, in a heading form ("Acid resistance") and a sentence form ("acids"). The engine
+and the interface both read them from there, which is why a category name cannot drift between the
+two, and why nothing builds a name by appending "resistance" to an internal key.
+
+## Buying it
+
+The price cell links to the best sampled offer: in stock first, then the observation behind the
+headline, then whatever has a price. The Price tab lists every observation with retailer, pack
+size, stock and the date it was seen. An optional filter shows only materials a sampled retailer
+listed, and optionally only those in stock.
+
+A material no sampled retailer listed is reported UNKNOWN, not FAIL. Three Canadian retailers on a
+single day is not evidence that something cannot be bought.
 
 ## The Ashby lens
 
 - The axis picker reports the **point count for the chosen pair before drawing**. Some pairs are
   genuinely thin, and below ten points the count becomes a warning.
-- **Points**: Headline draws one point per material. Measurements draws one per grade per compatible
-  pair, so PA6-CF appears twice, at 4.43 GPa in XY and 2.17 in Z. Anisotropy becomes visible instead
-  of averaged away.
-- **Comparability**: Strict admits only measurements matching the axis definition. Broad admits
-  looser ones, draws them hollow, and names in a banner exactly what it mixed.
+- **Show** is one ordered choice of how much evidence to draw, replacing two switches that
+  overlapped. *One dot per material* uses the headline. *Every measurement* draws one point per
+  grade per compatible pair, so PA6-CF appears twice, at 4.43 GPa in XY and 2.17 in Z, and
+  anisotropy becomes visible instead of averaged away. *Every measurement, mixed conditions* also
+  admits looser matches, draws them hollow, and names in a banner exactly what it mixed.
+
+  The two switches it replaced were "Points" and "Comparability". That reads as four combinations
+  and was three: comparability could do nothing in headline mode, because a headline is one fixed
+  value with no measurement conditions left to match. Its "Strict" also meant measurement
+  conditions, an unrelated idea to the "Strict" in the top bar, which is about missing data.
+- **Compare against** adds one familiar filament, PLA by default, as a labelled cross. It is a
+  reference, not a candidate: excluded from the front, from the counts and from the index tally,
+  exactly like the steel and aluminium envelopes.
 - **Encoding**: colour is polymer family, marker shape is filler class, outline carries evidence
   status. There are 19 families, past what a categorical palette can separate, so the eight largest
   get their own hue and the rest group as Other.

@@ -8,7 +8,9 @@ They arrived because they want to know what to print a part from.
 **Method.** Every scenario below was walked through in the built application. Findings are evidence
 based: counts come from the compiled database, layout problems from rendered screens.
 
-**Status.** Nothing here is fixed. This is the list.
+**Status.** 34 of the 35 findings are fixed, in two passes. F1, brand search, was set aside at the
+owner's request. Each finding below carries its outcome; Part 4 records what changed and what the
+audit itself got wrong.
 
 ---
 
@@ -56,6 +58,8 @@ Searching by brand is the single most natural thing a filament buyer does.
 **Fix:** add `manufacturer` and `product` from the grades table to the search index, and show which
 grade matched underneath the material name in the result row.
 
+**Not fixed.** Set aside at the owner's request.
+
 **F2 · Major · Search only looks at rows that already passed the filters**
 Set a heat requirement, then search "PLA". You get nothing, because PLA failed. The honest reading
 is "PLA is not in this database", which is wrong.
@@ -64,6 +68,8 @@ current requirements" group, with the criterion that excluded each one.
 
 ### Getting stuck
 
+**Fixed.** Search now runs over the whole database. Hits the filters removed appear in their own group under the results, each with the criterion that removed it, in plain words.
+
 **F3 · Major · Zero results is a blank table with no guidance**
 Over-constraining is the most likely novice mistake. The result is an empty grid, a column header
 row, and a footnote about what an em dash means. No suggestion, no route out. The design spec called
@@ -71,11 +77,15 @@ for the ranked exclusion panel to open automatically here; it does not.
 **Fix:** when the count reaches zero, replace the table with the ranked exclusion panel, the single
 criterion that costs the most, a one-click relax, and a one-click switch to Explore.
 
+**Fixed.** Zero results replaces the grid with the ranked exclusion panel and a one-click route out.
+
 **F4 · Major · "Explain exclusions" enters a view that is not one of the tabs**
 Clicking it switches to a lens with no corresponding tab, so all five tabs render unselected. There
 is no back button and no breadcrumb. The only way out is to guess that "Table" is where you were.
 **Fix:** make it a panel over the current lens, or a sixth tab, or give it an explicit "Back to
 results". Whichever, the tab bar must never show nothing selected.
+
+**Fixed.** "Why excluded" is a tab of its own, so the tab bar is never blank.
 
 **F5 · Major · Three detail tabs are invisible**
 The drawer is 620 px wide and the nine tabs need about 906 px. Price, Evidence and Coverage overflow
@@ -86,12 +96,16 @@ affordance. Tabs are the primary navigation of that panel and cannot be hidden.
 
 ### Language
 
+**Fixed.** The drawer tabs wrap to two rows. Price, Evidence and Coverage are visible.
+
 **F6 · Blocker for this persona · Every column and filter is materials-science jargon**
 "Tensile modulus XY", "Elongation at break XY", "HDT at 0.45 MPa", "Density kg/m³". The detail
 drawer already solves this, calling them Stiffness, Stretch before breaking and Heat resistance with
 a plain-English hint under each. The table and the filter rail do not.
 **Fix:** use the drawer's plain labels everywhere, with the technical name as a subtitle or tooltip.
 One vocabulary, and let the plain one lead.
+
+**Fixed.** One vocabulary module now names every property. Table, filter rail, Compare, the parallel axes and the explain panel all read "Stiffness" and "Heat resistance", with the technical name on hover.
 
 **F7 · Major · The explain panel prints internal identifiers**
 It shows `hdt045 >= 100`, `tensileModulusXY >= 3` and `scope`. The pills in the header of the same
@@ -100,11 +114,15 @@ describe a constraint and only one is fit to read.
 **Fix:** one shared `describeConstraint()`, used by the pills, the explain panel, the why-panel and
 the CSV export.
 
+**Fixed.** Every criterion goes through one describeConstraint(). A sweep of all six lenses with eight constraints set finds no internal key in visible text.
+
 **F8 · Major · The start panel refers to documents the user has never seen**
 "Mirrors the worked example in the architecture brief." "Pair with the beam or panel index on the
 Ashby lens." These are notes to the author.
 **Fix:** rewrite the six template descriptions in terms of the part being made. "A bracket that
 lives outside and gets warm."
+
+**Fixed.** The six template descriptions now name the part being made.
 
 **F9 · Minor · "Strict" and "Explore" are unlabeled**
 The explanatory label was removed to fit the top bar. The meaning now lives only in a tooltip and in
@@ -112,18 +130,26 @@ a monospace line at the bottom right that reads like a log entry.
 **Fix:** label them in plain words, for example "Missing data: exclude / keep visible", and move the
 explanation next to the control.
 
+**Fixed.** The control is labelled "If a material has no data", and the buttons read "Leave it out" and "Keep it, flagged". The log-like note at the corner of the screen is gone.
+
 **F10 · Minor · Generated category names are ungrammatical**
 "water solubility resistance" comes from appending "resistance" to every environment category.
 **Fix:** store a display label per category rather than building one by concatenation.
+
+**Fixed.** The display label and a sentence-form noun are authored in the topic mapping file and compiled into the snapshot. The engine and the app both read them, so there is one place to change a name.
 
 **F11 · Minor · Developer metadata sits in the most valuable screen position**
 `snapshot 2026-09-10 · build 2026-09-11 · 102 materials · 1807 measurements` in monospace, top
 right. It is provenance, and it matters, but not more than everything else up there.
 **Fix:** move it into the Scenario panel, which already repeats it, and leave a small date.
 
+**Fixed.** The top bar carries the snapshot date. The full build record stays in the Scenario panel.
+
 **F12 · Minor · "PASS" is shown before anything is being tested**
 On first load the count reads "102 shown PASS" with no constraints set.
 **Fix:** suppress the state label until at least one requirement exists.
+
+**Fixed.** Before any requirement is set the count reads "102 materials, no requirements set" and the state chips stand down.
 
 **F13 · Minor · Counting is inconsistent**
 The header says "9 of 102 materials meet these requirements" while the H2C-relevant filter is on and
@@ -141,16 +167,22 @@ Four actions each have two entry points, with different labels and different sty
 | Go to Compare | The Compare tab | The Compare button in the shortlist tray |
 | Apply a template | The six cards on the start panel | The same six as list items in the Scenario panel |
 
+**Fixed.** One denominator: "18 of the 102 materials in this database".
+
 **F14 · Minor.** Two names for one action teaches the user they are two actions.
 **Fix:** pick one name each. Keep Reset in the rail, keep the explain entry in the header where the
 result is, drop the tray Compare button because the tab is right there, and let the Scenario panel
 link to the start panel rather than duplicate it.
+
+**Fixed.** One name per action. Reset in both places, the explain entry in the header where the result is, and the tray Compare button removed.
 
 **F15 · Minor · The theme button is an unlabeled ◐ that cycles three states**
 Dark, light, then follow-the-system, with no indication of which you are in.
 **Fix:** two states with an icon that shows the current one, or a labelled menu.
 
 ### The results table
+
+**Fixed.** Two states, and the button says which one you are in.
 
 **F16 · Major · Nothing a printer owner needs first is in the table**
 All six columns are laboratory properties. Missing: nozzle temperature, bed temperature, whether an
@@ -160,23 +192,33 @@ it. Those are the questions that decide whether someone can print a material at 
 row for hardened-nozzle and must-dry. Consider a column preset switch: "What I print with" against
 "Engineering properties".
 
+**Fixed.** A "Printing" column set with nozzle, bed and chamber windows and what else the job needs.
+
 **F17 · Major · The purchase links are in the data and never shown**
 104 price observations carry a retailer URL. The tool displays a price for 40 materials and no link,
 anywhere, ever. A user who decides on PA6-CF has no path to buying it.
 **Fix:** make the price cell a link to the cheapest in-stock eligible observation, and list retailer,
 pack size, stock and date in the Price tab.
 
+**Fixed.** The price cell links to the best sampled offer, and the Price tab lists retailer, pack size, stock and date.
+
 **F18 · Minor · The Family column mostly repeats the Material column**
 34 of 96 rows read ABS/ABS, ASA/ASA, PLA/PLA. It consumes 13% of the width.
 **Fix:** drop it, or show it only where it differs, or merge it under the material name.
+
+**Fixed.** Family folded under the material name.
 
 **F19 · Minor · The legends for `—` and `*` sit below the table**
 Both markers first appear in row one; their explanation is after the last row.
 **Fix:** move to a single line directly under the header, or attach to the first occurrence.
 
+**Fixed.** The legend sits above the table.
+
 **F20 · Minor · The pin control is an unlabeled star**
 Nothing says it builds a shortlist, and the shortlist tray only appears after the first pin.
 **Fix:** label the column "Shortlist", and show the empty tray with a hint on first load.
+
+**Fixed.** The column is headed "Shortlist".
 
 **F21 · Minor · Filter placeholders look like live values**
 Grey `1400`, `3`, `50`, `5`, `100` sit in the boxes and read as applied settings, especially since
@@ -185,15 +227,21 @@ an applied value looks nearly identical.
 
 ### Detail drawer
 
+**Fixed.** Placeholders removed. The example moved to a helper line, and the comparison reads "at least" rather than "≥".
+
 **F22 · Major · The evidence dot leads to a haystack**
 Clicking the dot next to a number opens the Evidence tab but does not scroll to or highlight that
 measurement. PA6-CF has 21, grouped by source. The claim that provenance is one click away is not
 true; it is one click plus a manual hunt.
 **Fix:** scroll the target into view and highlight it. Ideally open it as a small popover in place.
 
+**Fixed.** The evidence dot scrolls the measurement into view and marks it.
+
 **F23 · Minor · The Overview never states the print temperatures**
 "Can the H2C print it?" answers yes or no but not what to set. The numbers are one tab away.
 **Fix:** put nozzle and bed ranges in that section, since it is the section about printing it.
+
+**Fixed.** The Overview states the nozzle, bed and chamber windows beside each answer.
 
 **F24 · Minor · The AMS note explains a design decision instead of answering the question**
 A grey box says routing and AMS are recorded per grade and are not summarised "because summarising
@@ -201,27 +249,39 @@ them would overstate what is known". The user asked whether they can use the AMS
 **Fix:** answer plainly, "Not established for this material. Bambu has not published AMS
 compatibility for it," and keep the reasoning in the docs.
 
+**Fixed.** It answers the question: "Not established. Bambu has not published AMS compatibility for this material."
+
 **F25 · Minor · "Hardened nozzle" uses the ambiguity chip**
 The half-filled INDETERMINATE marker reads as "we are not sure" when the meaning is "you need one".
 **Fix:** a requirement badge, distinct from the four constraint states.
+
+**Fixed.** A requirement badge, distinct from the four constraint states.
 
 **F26 · Minor · Degree symbols are dropped in gate reasons**
 "Needs up to 290 C, within the 350 C baseline" while every other temperature in the app is °C.
 
 ### Charts
 
+**Fixed.** Degree symbols restored, pinned by a test.
+
 **F27 · Major · Ashby points are anonymous**
 Ten dots, no labels. The legend maps colour and shape to family and filler, not to a material, so a
 user cannot tell which dot is which without hovering each one. Only pinned materials get labels.
 **Fix:** label points when there are few enough, say under 15, and always label the Pareto front.
 
+**Fixed.** Points are labelled under 30, and the frontier and shortlist always.
+
 **F28 · Minor · The axis dropdown reads like a value**
 "Price — 10" is the property and the count of materials that have it. It reads as ten dollars.
 **Fix:** "Price (10 materials have this)" or a separate count chip.
 
+**Fixed.** "Price (10 of 18 have it)".
+
 **F29 · Minor · The Pareto front is drawn without explanation**
 A dotted line appears with a legend entry reading "Pareto front" and nothing else.
 **Fix:** one sentence under the chart: "these are the materials nothing else beats on both axes".
+
+**Fixed.** One sentence under the chart says what the dotted line means.
 
 **F30 · Minor · Expert controls sit at the same level as the axes**
 "Points", "Comparability" and "Performance index" are presented as peers of the X and Y pickers.
@@ -230,6 +290,8 @@ Only the axes matter to most users.
 
 ### Data
 
+**Fixed.** Advanced controls sit on a second tier below the axes.
+
 **F31 · Major · There is no familiar anchor**
 A printer owner judges every material against PLA and PETG. The tool reports 4.43 GPa and 102 MPa
 with nothing to compare them to. The reference layer exists but holds steel, aluminium and CFRP, is
@@ -237,10 +299,14 @@ Ashby-only, and is off by default.
 **Fix:** offer "compare against PLA" as a one-click baseline everywhere numbers appear: a ghost row
 in the table, a reference point on the chart, a column in Compare.
 
+**Fixed.** A baseline picker offers PLA, PETG, ABS, ASA or PC as a reference row in the table, a labelled cross on the chart and a grey bar in Compare. It is never a candidate and never counted.
+
 **F32 · Major · Half the recommendations cannot be bought**
 Of the nine results from the outdoor template, five have no price. Nothing tells the user whether a
 material is purchasable in Canada, and availability data exists per grade.
 **Fix:** an availability indicator in the results, and an optional "only show what I can buy" filter.
+
+**Fixed.** "Only show what I can buy", with an optional "and it was in stock". A material no sampled retailer listed is held as unknown, not failed, because three retailers on one day is not proof of unavailability.
 
 **F33 · Minor · The printer-facing fields are nearly empty and the tool does not say so up front**
 Enclosure is answerable for 14 of 156 profiles, AMS for 5, warping for 6 records in the whole
@@ -249,16 +315,24 @@ database. The filter rail explains this well for the fields it does offer, but a
 **Fix:** a short "what this database does not cover" note on the start panel, naming warping, AMS
 compatibility and enclosure as the main gaps.
 
+**Fixed.** The start panel carries a "What this database does not cover" disclosure naming warping, AMS and enclosure with their record counts.
+
 **F34 · Minor · Names with slashes read as two materials**
 "TPC / TPEE", "PA6/66", "POM / Acetal", "nGen / Amphora", "PEI / ULTEM".
 **Fix:** a primary name plus an "also known as" line.
 
+**Fixed.** A name with spaces around a slash splits into a primary name and an "also called" line. "PA6/66" and "Support for PLA/PETG" have no spaces and are left alone.
+
 **F35 · Minor · Grade colour data is collected and never shown**
 All 136 grades carry a colour caveat. Colour is often the deciding factor in a filament purchase.
+
+**Fixed, and the finding was wrong about the data.** See Part 4.
 
 ---
 
 ## Part 3 — What to do first
+
+*Written before any fix. Kept as the record of the priority call. All five were done.*
 
 If only five things get fixed, these five remove the most damage for this persona.
 
@@ -276,3 +350,57 @@ line under every filter control, the detail drawer's plain-language Key Numbers,
 exclusion panel's ranking, and the estimate layer's asymmetry. Scenario S13, "can I trust this
 number", is served better here than in any commercial filament comparison site. The problems above
 are almost all about the distance between that engine and a printer owner's vocabulary and errands.
+
+---
+
+## Part 4 — What the fixes changed, and what the audit got wrong
+
+Two passes. The first took the blockers and the table; the second took the rest. 34 of 35 are
+fixed. F1, brand search, was set aside by the owner.
+
+### Where the audit was wrong
+
+**F35 was wrong about the data.** The finding assumed the colour field held what colours a grade is
+sold in. It does not. On 132 of 136 grades it is one boilerplate sentence saying properties may
+vary by colour, and on the remaining four it names the colour of the specimen that was tested. So
+there was nothing to surface. The Grades tab now says which colour was tested where that is
+recorded, and says plainly that colour availability is not in this database and belongs to the
+retailer listing. Showing the field as collected would have implied a colour range that does not
+exist.
+
+**The Ashby switches were redundant, not merely unclear.** Raised separately by the owner, not by
+this audit. "Points" chose headline against measurement and "Comparability" chose strict against
+broad. That reads as four combinations and is three: comparability could do nothing in headline
+mode, because a headline is one fixed value with no measurement conditions left to match. Worse,
+"Strict" there meant measurement conditions while "Strict" in the top bar means missing data, two
+unrelated ideas under one word. They are now a single ordered choice of three, each with a line
+saying what it does.
+
+### Bugs the fixes uncovered
+
+**The Compare bars never drew.** The bar fill is a `span`, and an empty inline element ignores width
+and height, so every comparison rendered as a row of empty tracks. The lens that exists to show
+aligned bars had been showing none. Fixed with `display: block`.
+
+**The criterion label leaked in two more places** than the first pass found: the per-candidate
+"Against your requirements" list in the drawer, and the new excluded-search group. Both now go
+through the one description function. A sweep of all six lenses under eight constraints of every
+kind, in Explore mode with a drawer open, now finds no internal key in visible text.
+
+### Where the fix differs from the recommendation
+
+**F32, availability.** The audit asked for an availability indicator and an optional filter. The
+filter exists, but a material that no sampled retailer listed is reported UNKNOWN rather than FAIL.
+Three Canadian retailers on a single day is not evidence that something cannot be bought, and
+failing it would assert more than the data supports. In Strict mode that still removes it from the
+results, which is what the user asked for; in Explore it stays visible and flagged.
+
+**F31, the familiar anchor.** Offered rather than imposed, and never a candidate. The baseline has
+no verdict, no shortlist star, is excluded from the Pareto front and from every count, and is drawn
+in a reference colour in all three lenses. Defaulting it on would have put a material in the
+results that nobody asked for.
+
+**F10, category names.** Rather than a display label in the app, the name is authored in
+`build/mappings/environment-topics.json` alongside the topic rules and compiled into the snapshot.
+Both the engine and the interface read it, so there is one place to change a name and no way for
+the two to disagree.

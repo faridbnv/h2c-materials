@@ -341,9 +341,11 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-prop { margin-bottom: 22px; }
 .cmp-prop h4 { margin: 0 0 3px; font-size: 13px; }
 .cmp-prop .unit { color: var(--ink-3); font-weight: 400; font-size: 12px; }
-.cmp-bar { display: grid; grid-template-columns: 130px 1fr 74px; gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
+.cmp-bar { display: grid; grid-template-columns: 168px 1fr 84px; gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
 .cmp-bar .track { background: var(--surface-2); border-radius: 3px; height: 16px; position: relative; }
-.cmp-bar .fill { background: var(--accent); height: 100%; border-radius: 3px; }
+/* display:block matters. The fill is a span, and an empty inline element ignores width and height,
+   so every bar in the comparison rendered as an empty track. */
+.cmp-bar .fill { display: block; background: var(--accent); height: 100%; border-radius: 3px; min-width: 2px; }
 .cmp-bar .bounds { position: absolute; top: 5px; height: 6px; border-left: 2px solid var(--ink-3); border-right: 2px solid var(--ink-3); }
 .cmp-bar .val { text-align: right; font-family: var(--mono); font-size: 12px; }
 .cmp-cond { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono); padding: 5px 0 0 140px; }
@@ -585,3 +587,79 @@ a.buy { color: inherit; text-decoration: none; }
 a.buy:hover { color: var(--accent); text-decoration: underline; }
 .buy-mark { font-size: 11px; color: var(--accent); margin-left: 3px; }
 .oos { display: block; font-size: var(--t-label); color: var(--ink-3); }
+
+/* ---------------------------------------------------------------- second pass on the audit */
+
+/* The missing-data control carries its own label. Its meaning used to live only in a tooltip and
+   in a monospace line at the far corner of the screen. */
+.mode-group { display: flex; align-items: center; gap: 9px; }
+.mode-label {
+  font-size: var(--t-label); color: var(--ink-3); text-transform: uppercase;
+  letter-spacing: .04em; white-space: nowrap;
+}
+
+/* A requirement is not an ambiguity. "You need a hardened nozzle" used to borrow the
+   half-filled INDETERMINATE marker, which reads as "we are not sure". */
+.chip-need { background: var(--indet-bg); color: var(--indet); }
+.chip-need::before { content: "!"; }
+
+/* Print windows, in the section that asks whether the printer can run the material. */
+.set-to {
+  font-weight: 400; font-size: var(--t-label); color: var(--ink-2);
+  background: var(--surface-2); border-radius: 4px; padding: 1px 7px; white-space: nowrap;
+}
+
+/* Filter rail: plain name leads, the sentence under it says what the property means, and the
+   example lives here rather than as a grey placeholder that read like a set value. */
+.control .sub-label { font-size: var(--t-label); color: var(--ink-3); margin: 2px 0 4px; font-weight: 400; }
+.control .eg { font-size: var(--t-label); color: var(--ink-3); margin-top: 5px; font-style: italic; }
+.control select.op { width: auto; min-width: 92px; }
+.control .sub-check {
+  display: flex; gap: 8px; align-items: center; font-weight: 400; font-size: var(--t-small);
+  margin: 6px 0 0 20px;
+}
+.control .sub-check input:disabled + * { opacity: .5; }
+
+/* The familiar anchor. A reference row, never a candidate. */
+.baseline-pick {
+  display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small); color: var(--ink-2);
+}
+.baseline-pick select {
+  padding: 4px 8px; font-size: var(--t-small); border: 1px solid var(--border-strong);
+  border-radius: var(--radius); background: var(--bg); color: inherit;
+}
+tr.baseline-row { background: var(--surface-2); }
+tr.baseline-row td { border-bottom: 2px solid var(--border-strong); }
+tr.baseline-row .name { color: var(--accent); }
+.cmp-bar.anchor { opacity: .85; }
+.cmp-bar.anchor .fill { background: var(--ink-3); }
+.anchor-tag, .pin.anchor {
+  font-size: var(--t-label); color: var(--accent); font-weight: 400;
+}
+
+/* Search hits the filters removed. "Nothing found" for a material that is in the database and
+   merely failed a requirement is a wrong answer, not an empty one. */
+.excluded-group { margin-top: 28px; border-top: 1px solid var(--border); padding-top: 16px; }
+.excluded-group h3 { font-size: var(--t-body); font-weight: 650; color: var(--ink-2); margin: 0 0 10px; }
+.excluded-group .why-cell { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
+.empty-line { color: var(--ink-3); font-size: var(--t-small); margin: 14px 2px; }
+
+/* The measurement someone clicked through to, marked once they arrive. */
+.evidence-row.target {
+  background: var(--surface-2); border-left: 3px solid var(--accent); padding-left: 10px;
+  animation: target-flash 1.6s ease-out 1;
+}
+@keyframes target-flash {
+  0%, 35% { background: var(--indet-bg); }
+  100% { background: var(--surface-2); }
+}
+
+/* What the database does not cover, said before anyone goes hunting for it. */
+.start-limits { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
+.start-limits summary {
+  cursor: pointer; font-size: var(--t-small); font-weight: 650; color: var(--ink-2);
+}
+.start-limits p, .start-limits li { font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
+.start-limits ul { margin: 8px 0; padding-left: 20px; }
+.start-limits li { margin-bottom: 6px; }
+.statusbar-idle { font-size: var(--t-small); color: var(--ink-3); }

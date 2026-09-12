@@ -79,7 +79,6 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     return `<span class="related" title="${esc(title)}">`
       + `<span class="rv">${fmtNumber(b.value)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span></span>`;
-      + `${more ? `<span class="tag">+${more}</span>` : ''}</span>`;
   }
   const text = fmtNumber(entry.value, showUnit ? entry.unit : null);
   let cls = '';

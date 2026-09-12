@@ -7,7 +7,11 @@
 
 import { renderValue, chip, esc, fmtNumber } from './format.js';
 import { renderWhy } from './explain.js';
+import { materialName } from './labels.js';
 import { evidenceSummary } from '../engine/coverage.js';
+
+/** A temperature window, or nothing if none was published. */
+const range = (r) => (!r ? null : r.min === r.max ? `${fmtNumber(r.max)} °C` : `${fmtNumber(r.min)}–${fmtNumber(r.max)} °C`);
 
 const MECHANICAL = ['Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength',
   'Tensile break strength', 'Elongation at break', 'Elongation at yield', 'Flexural modulus',
@@ -33,7 +37,7 @@ const gapBox = (records, what) => {
   return `<div class="gap">No ${esc(what)} in the sampled sources, and no coverage record explains why.</div>`;
 };
 
-function measurementRow(m) {
+function measurementRow(m, highlight) {
   const cond = [
     m.direction !== 'not-applicable' ? m.direction : null,
     m.specimenType?.startsWith('Not published') ? 'specimen not stated' : m.specimenType,
@@ -45,7 +49,7 @@ function measurementRow(m) {
     ? `${fmtNumber(m.value)}${m.uncertainty ? ' ± ' + fmtNumber(m.uncertainty) : ''} ${esc(m.unit)}`
     : `<span class="missing">${esc(m.dataStatus)}</span>`;
   const op = m.operator === '>' || m.operator === '<' ? esc(m.operator) + ' ' : '';
-  return `<div class="evidence-row">
+  return `<div class="evidence-row${highlight === m.id ? ' target' : ''}" data-mid="${esc(m.id)}">
     <div><strong>${esc(m.property)}</strong> — ${op}${v}
       ${m.corrected ? '<span class="chip chip-neutral" style="font-size:10px">transcription corrected</span>' : ''}
       ${m.quarantined ? '<span class="chip chip-FAIL" style="font-size:10px">quarantined</span>' : ''}</div>
@@ -134,7 +138,8 @@ export function renderDrawer(host, state, actions) {
     <div class="drawer-head">
       <div style="display:flex;align-items:start;gap:10px">
         <div style="flex:1">
-          <h2>${esc(m.name)}</h2>
+          <h2>${esc(materialName(m.name).primary)}</h2>
+          ${materialName(m.name).aka ? `<div class="sub">also called ${esc(materialName(m.name).aka)}</div>` : ''}
           <div class="sub">${esc(m.fullName ?? '')}</div>
           <div class="sub" style="margin-top:5px">
             ${esc(m.family)} · ${esc(m.modifier)} · H2C: ${esc(m.h2cStatus)}
@@ -149,8 +154,15 @@ export function renderDrawer(host, state, actions) {
         <button role="tab" data-tab="${k}" aria-selected="${k === tab}" data-empty="${n === 0}">
           ${k}${n === null ? '' : `<span class="n">${n}</span>`}</button>`).join('')}
     </div>
-    <div class="drawer-body">${tabBody(tab, { m, ms, ev, cov, profiles, grades, prices, evaluation, summary, db })}</div>
+    <div class="drawer-body">${tabBody(tab, { m, ms, ev, cov, profiles, grades, prices, evaluation, summary, db, highlight: state.highlightMeasurement })}</div>
   </div>`;
+
+  // Opening the tab was never enough. PA6-CF has 21 measurements grouped by source, so "one click
+  // to the evidence" was one click plus a hunt. Take the reader to the row and mark it.
+  const target = state.highlightMeasurement && host.querySelector(`[data-mid="${CSS.escape(state.highlightMeasurement)}"]`);
+  if (target) {
+    requestAnimationFrame(() => target.scrollIntoView({ block: 'center', behavior: 'smooth' }));
+  }
 
   host.querySelector('#drawer-close').addEventListener('click', actions.closeDrawer);
   host.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tab)));
@@ -158,7 +170,7 @@ export function renderDrawer(host, state, actions) {
 }
 
 function tabBody(tab, c) {
-  const { m, ms, ev, cov, profiles, grades, prices, evaluation, summary, db } = c;
+  const { m, ms, ev, cov, profiles, grades, prices, evaluation, summary, db, highlight } = c;
   const covFor = (t) => cov.filter((r) => (COVERAGE_FOR_TAB[t] ?? []).includes(r.domain));
 
   if (tab === 'Overview') {
@@ -171,12 +183,15 @@ function tabBody(tab, c) {
       ['Price', 'priceCADkg', 'sampled Canadian retail'],
     ];
 
-    const gateLine = (g, label) => {
+    // The section that answers "can I print this" now also answers "what do I set it to". The
+    // numbers were one tab away, which is one tab too many for the first question anyone asks.
+    const gateLine = (g, label, window) => {
       if (!g) return '';
       const word = { within: 'Yes', exceeds: 'No', 'exceeds-recommended': 'Yes, with a caveat', unknown: 'Not published' }[g.verdict];
       const cls = { within: 'PASS', exceeds: 'FAIL', 'exceeds-recommended': 'INDETERMINATE', unknown: 'UNKNOWN' }[g.verdict];
       return `<div class="fact"><span class="chip chip-${cls}">${esc(word)}</span>
-        <div><b>${esc(label)}</b><br><span class="fact-why">${esc(g.reason)}</span></div></div>`;
+        <div><b>${esc(label)}</b>${window ? ` <span class="set-to">set it to ${esc(window)}</span>` : ''}
+          <br><span class="fact-why">${esc(g.reason)}</span></div></div>`;
     };
 
     const printable = m.excluded
@@ -210,22 +225,32 @@ function tabBody(tab, c) {
 
       <h3 class="sec">Can the H2C print it?</h3>
       <div class="facts-list">
-        ${gateLine(m.gates.nozzle, 'Nozzle temperature')}
-        ${gateLine(m.gates.bed, 'Bed temperature')}
-        ${gateLine(m.gates.chamber, 'Chamber temperature')}
-        <div class="fact"><span class="chip chip-${m.gates.abrasive === 'requires-hardened' ? 'INDETERMINATE' : m.gates.abrasive === 'no-special-concern' ? 'PASS' : 'UNKNOWN'}">
-          ${m.gates.abrasive === 'requires-hardened' ? 'Hardened nozzle' : m.gates.abrasive === 'no-special-concern' ? 'Any nozzle' : 'Not published'}</span>
-          <div><b>Nozzle wear</b><br><span class="fact-why">${m.gates.abrasive === 'requires-hardened'
+        ${gateLine(m.gates.nozzle, 'Nozzle temperature', range(m.print?.nozzleC))}
+        ${gateLine(m.gates.bed, 'Bed temperature', range(m.print?.bedC))}
+        ${gateLine(m.gates.chamber, 'Chamber temperature', range(m.print?.chamberC))}
+        <div class="fact">
+          ${m.gates.abrasive === 'requires-hardened'
+            // A requirement is not an ambiguity. The half-filled marker meant "we are not sure"
+            // while the sentence next to it meant "you need one".
+            ? '<span class="chip chip-need">Required</span>'
+            : m.gates.abrasive === 'no-special-concern' ? '<span class="chip chip-PASS">Any nozzle</span>'
+            : '<span class="chip chip-UNKNOWN">Not published</span>'}
+          <div><b>Hardened nozzle</b><br><span class="fact-why">${m.gates.abrasive === 'requires-hardened'
             ? 'Abrasive. A brass nozzle will wear out.' : m.gates.abrasive === 'no-special-concern'
             ? 'The source states no special nozzle concern.' : 'No abrasion guidance in the sampled sources.'}</span></div></div>
-        <div class="fact"><span class="chip chip-${m.gates.drying === 'required' ? 'INDETERMINATE' : 'UNKNOWN'}">
-          ${m.gates.drying === 'required' ? 'Dry it first' : 'Not published'}</span>
-          <div><b>Drying</b><br><span class="fact-why">${m.gates.drying === 'required'
+        <div class="fact">
+          ${m.gates.drying === 'required'
+            ? '<span class="chip chip-need">Required</span>'
+            : '<span class="chip chip-UNKNOWN">Not published</span>'}
+          <div><b>Drying before printing</b><br><span class="fact-why">${m.gates.drying === 'required'
             ? 'A drying schedule is published; see the Printing tab.' : 'No drying schedule in the sampled sources.'}</span></div></div>
+        <div class="fact">
+          <span class="chip chip-UNKNOWN">Not established</span>
+          <div><b>Can it run through the AMS?</b><br><span class="fact-why">Bambu has not published
+            AMS compatibility for this material. ${profiles.length
+              ? 'Each grade\'s recorded wording is in the Printing tab.'
+              : 'No print profile is on record for it at all.'}</span></div></div>
       </div>
-      <div class="note">Routing between the H2C's two sides, and AMS feeding, are recorded per grade
-        and almost always say "verify the exact grade". They are in the Printing tab rather than
-        summarised here, because summarising them would overstate what is known.</div>
 
       ${m.bestUses && m.bestUses !== 'Not published' ? `<h3 class="sec">Good for</h3><p>${esc(m.bestUses)}</p>` : ''}
       ${m.limitations ? `<h3 class="sec">Watch out for</h3><p>${esc(m.limitations)}</p>` : ''}
@@ -255,7 +280,7 @@ function tabBody(tab, c) {
     const present = new Set(rows.map((r) => r.property));
     const absent = list.filter((p) => !present.has(p));
     return `
-      ${rows.length ? rows.map(measurementRow).join('') : gapBox(covFor(tab), `${tab.toLowerCase()} measurements`)}
+      ${rows.length ? rows.map((r) => measurementRow(r, highlight)).join('') : gapBox(covFor(tab), `${tab.toLowerCase()} measurements`)}
       ${absent.length ? `<h3 class="sec">Not measured for this material</h3>
         <div class="gap">${absent.map(esc).join(' · ')}<br><br>
         Absent from the sampled sources. Not zero, and not a low value.</div>` : ''}
@@ -308,7 +333,19 @@ function tabBody(tab, c) {
 
   if (tab === 'Grades') {
     if (!grades.length) return gapBox(covFor('Grades'), 'commercial grade');
-    return grades.map((g) => `
+    // Colour. The field was collected on every grade and shown nowhere, but it does not hold what
+    // a buyer wants: on 132 of 136 grades it is the same sentence saying properties may vary by
+    // colour, and on the other four it names the colour of the specimen that was tested. So the
+    // honest rendering is the tested colour where one is stated, and a plain warning otherwise.
+    const SPEC_COLOUR = /^(white|black|natural|grey|gray|red|blue|green|yellow|orange|clear|transparent)\b/i;
+    const colourLine = (g) => {
+      const c = g.colourCaveat ?? '';
+      if (SPEC_COLOUR.test(c.trim())) return `Measured on the <b>${esc(c.trim())}</b> version. Other colours may differ.`;
+      return 'Not recorded. This database holds no colour range, and pigment can change strength and stiffness.';
+    };
+    return `<div class="note">Which colours a grade is sold in is not part of this database.
+      Check the retailer listing. The note under each grade says only what colour was tested.</div>`
+      + grades.map((g) => `
       <h3 class="sec">${esc(g.id)}</h3>
       <dl class="kv">
         <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
@@ -316,7 +353,7 @@ function tabBody(tab, c) {
         <dt>Composition</dt><dd>${esc(g.composition ?? '')}</dd>
         <dt>Availability</dt><dd>${esc(g.availability ?? '')}</dd>
         <dt>Certifications</dt><dd>${esc(g.certifications ?? '')}</dd>
-        <dt>Colour caveat</dt><dd>${esc(g.colourCaveat ?? '')}</dd>
+        <dt>Colour</dt><dd>${colourLine(g)}</dd>
         <dt>Why this grade</dt><dd>${esc(g.rationale ?? '')}</dd>
         <dt>Source</dt><dd>${esc(g.sourceId ?? '')}</dd>
       </dl>`).join('');
@@ -349,7 +386,7 @@ function tabBody(tab, c) {
           <dt>Accessed</dt><dd>${esc(s?.accessDate ?? '')}</dd>
           ${s?.url ? `<dt>URL</dt><dd style="word-break:break-all;font-size:11px">${esc(s.url)}</dd>` : ''}
         </dl>
-        ${list.map(measurementRow).join('')}`;
+        ${list.map((r) => measurementRow(r, highlight)).join('')}`;
     }).join('');
   }
 

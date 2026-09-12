@@ -6,6 +6,7 @@
 
 import { TEMPLATES } from './templates.js';
 import { esc } from './format.js';
+import { describeConstraint } from './labels.js';
 
 export function renderStart(state, actions) {
   if (state.scenario.constraints.length) return '';
@@ -39,6 +40,23 @@ export function renderStart(state, actions) {
     </div>
     <p class="start-note">The gaps are the point. Where a property was never published this tool
       shows the gap rather than a guess, so a material is never ranked on a number nobody measured.</p>
+
+    <details class="start-limits">
+      <summary>What this database does not cover</summary>
+      <p>Three things a printer owner often wants are barely recorded anywhere in the sources this
+        was built from, so no filter can answer them. If you came for one of these, this tool will
+        not settle it.</p>
+      <ul>
+        <li><b>Warping and first-layer behaviour.</b> Six records in the entire database. There is
+          no basis for saying which material warps more than another.</li>
+        <li><b>AMS compatibility.</b> Published for 5 of 156 print profiles. Every other profile
+          says to verify the exact grade, so the tool shows that text rather than a yes or no.</li>
+        <li><b>Whether an enclosure is needed.</b> Answerable for 14 of 156 profiles. Chamber
+          temperature is recorded far more often and is the closest usable proxy.</li>
+      </ul>
+      <p>Colour choice, print speed and layer-adhesion tuning are likewise out of scope. This is a
+        materials database, not a profile library.</p>
+    </details>
   </section>`;
 }
 
@@ -48,26 +66,9 @@ export function wireStart(host, actions) {
   }));
 }
 
-const OP_WORD = { '>=': 'at least', '<=': 'at most', '>': 'above', '<': 'below' };
-const PROP_WORD = {
-  density: 'Density', tensileModulusXY: 'Modulus', tensileStrengthXY: 'Strength',
-  elongationXY: 'Elongation', hdt045: 'HDT', priceCADkg: 'Price',
-};
-const UNIT = { density: 'kg/m\u00b3', tensileModulusXY: 'GPa', tensileStrengthXY: 'MPa', elongationXY: '%', hdt045: '\u00b0C', priceCADkg: 'CAD/kg' };
-const GATE_WORD = {
-  scope: 'H2C-relevant only', nozzle: 'Nozzle fits the H2C', bed: 'Bed fits the H2C',
-  chamber: 'Chamber fits the H2C', abrasive: 'Hardened nozzle available',
-  dryingKnown: 'Drying schedule published', h2cStatus: 'H2C status',
-};
-
-function describe(c) {
-  if (c.kind === 'numeric') return `${PROP_WORD[c.property] ?? c.property} ${OP_WORD[c.operator] ?? c.operator} ${c.value} ${UNIT[c.property] ?? ''}`.trim();
-  if (c.kind === 'gate') return c.gate === 'h2cStatus' ? `Status: ${(c.in ?? []).join(', ')}` : (GATE_WORD[c.gate] ?? c.gate);
-  if (c.kind === 'facet') return (c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ');
-  if (c.kind === 'environment') return `${c.category.replace(/-/g, ' ')} resistance`;
-  if (c.kind === 'evidence') return 'Evidence quality';
-  return c.kind;
-}
+// The pills said "Modulus at least 3 GPa" while the explain panel said "tensileModulusXY >= 3" for
+// the same criterion, because each had its own describe(). There is one now, in labels.js.
+const describe = describeConstraint;
 
 /**
  * Once a constraint is set the start panel gives way to this: the same visual language, but now
@@ -91,12 +92,13 @@ export function renderActive(state, actions) {
   <section class="active">
     <div class="active-head">
       <div>
-        <h2>${counts.pass} of ${counts.total} materials meet ${hard.length === 1 ? 'this requirement' : 'these requirements'}</h2>
+        <h2>${counts.pass} of the ${counts.total} materials in this database meet
+          ${hard.length === 1 ? 'this requirement' : 'these requirements'}</h2>
         <p>${scenario.template ? `From the <b>${esc(scenario.template)}</b> template. ` : ''}Click any criterion to drop it.</p>
       </div>
       <div class="active-actions">
         <button class="btn btn-sm" data-act="explain">Why the rest were excluded</button>
-        <button class="btn btn-sm" data-act="reset">Start over</button>
+        <button class="btn btn-sm" data-act="reset">Reset</button>
       </div>
     </div>
     <div class="pills">

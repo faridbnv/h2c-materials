@@ -193,3 +193,23 @@ test('a material that fails on real evidence is not attributed to an estimate', 
   assert.equal(e.ruledOutByEstimate, false);
   assert.equal(e.usesEstimate, false);
 });
+
+// The availability gate. Absence of an offer is not proof a material cannot be bought: the sample
+// is three Canadian retailers on one day. So a material nobody listed is held as UNKNOWN, and only
+// a sampled offer that was out of stock is positive enough evidence to fail.
+test('availability distinguishes "nobody sampled it" from "it was out of stock"', () => {
+  const listed = { id: 'A', gates: {}, buy: { retailer: 'R', perKg: 30, accessDate: '2026-09-10', anyInStock: true } };
+  const sold = { id: 'B', gates: {}, buy: { retailer: 'R', perKg: 30, accessDate: '2026-09-10', anyInStock: false } };
+  const absent = { id: 'C', gates: {}, buy: null };
+
+  const any = { kind: 'gate', gate: 'buyable' };
+  const stocked = { kind: 'gate', gate: 'buyable', inStock: true };
+
+  assert.equal(evaluateConstraint(listed, any).status, STATUS.PASS);
+  assert.equal(evaluateConstraint(sold, any).status, STATUS.PASS);
+  assert.equal(evaluateConstraint(absent, any).status, STATUS.UNKNOWN);
+
+  assert.equal(evaluateConstraint(listed, stocked).status, STATUS.PASS);
+  assert.equal(evaluateConstraint(sold, stocked).status, STATUS.FAIL);
+  assert.equal(evaluateConstraint(absent, stocked).status, STATUS.UNKNOWN);
+});

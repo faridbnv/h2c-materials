@@ -15,6 +15,9 @@ import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber } from '
 import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
 import { prop } from './labels.js';
 
+/** Materials a printer owner already has a feel for, offered as the comparison anchor. */
+const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
+
 let dragState = null;
 
 /**
@@ -102,8 +105,13 @@ export function renderAshby(host, state, actions) {
         </select>
         <div class="control-help">Draws the line engineers use to pick the lightest material that still does the job.</div></div>
       <div class="control"><label>Compare against</label>
-        <label class="inline-check"><input type="checkbox" data-reference ${p.showReference ? 'checked' : ''}> Steel, aluminium, wood</label>
-        <div class="control-help">Everyday engineering materials, drawn as grey boxes for scale.</div></div>
+        <select data-baseline>
+          <option value="">Nothing</option>
+          ${BASELINE_NAMES.map((n) => db.materials.find((q) => q.name === n)).filter(Boolean)
+            .map((q) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>${esc(q.name)}</option>`).join('')}
+        </select>
+        <label class="inline-check"><input type="checkbox" data-reference ${p.showReference ? 'checked' : ''}> Also steel, aluminium, wood</label>
+        <div class="control-help">A filament you already know, drawn as a blue cross. The metals are grey boxes for scale.</div></div>
     </div>
 
     ${unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : ''}
@@ -298,6 +306,24 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     }
   }
 
+  // The familiar anchor, drawn as a single labelled cross. It is a reference, not a candidate: it
+  // is excluded from the Pareto front, from every count, and from the index-line tally, exactly
+  // like the steel and aluminium envelopes.
+  const anchor = state.baseline ? db.materials.find((q) => q.id === state.baseline) : null;
+  const ax = anchor?.headline[xDef.key], ay = anchor?.headline[yDef.key];
+  if (anchor && ax?.known && ay?.known) {
+    traces.push({
+      type: 'scatter', mode: 'markers+text', name: `${anchor.name} (baseline)`,
+      x: [ax.value], y: [ay.value],
+      text: [anchor.name], textposition: 'bottom center',
+      textfont: { size: 11, color: '#1f5f8b' },
+      marker: { size: 15, symbol: 'x-thin-open', color: '#1f5f8b', line: { width: 2.5, color: '#1f5f8b' } },
+      _span: true,
+      hovertemplate: `<b>${esc(anchor.name)}</b> — baseline, not a candidate`
+        + `<br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}<extra></extra>`,
+    });
+  }
+
   // Pareto front over the eligible candidates only.
   const front = sortFront(frontNow, xDef.better);
   if (front.length > 1) {
@@ -348,7 +374,9 @@ function drawPlot(host, state, { xDef, yDef, pts, actions }) {
     if (sh.yref === 'y' || sh.yref === undefined) { ySpan.push(unlog(sh.y0, p.yLog), unlog(sh.y1, p.yLog)); }
   }
   for (const t of traces) {
-    if (t.mode === 'lines') { for (const v of t.x) xSpan.push(v); for (const v of t.y) ySpan.push(v); }
+    // Lines, and the baseline cross, which would otherwise be drawn outside a range computed only
+    // from the candidates.
+    if (t.mode === 'lines' || t._span) { for (const v of t.x) xSpan.push(v); for (const v of t.y) ySpan.push(v); }
   }
 
   const layout = {
@@ -468,4 +496,5 @@ function wireControls(host, state, actions) {
     actions.setPlot({ index: e.target.value || null, indexM: null, indexSlider: 50 }));
   host.querySelector('[data-reference]')?.addEventListener('change', (e) =>
     actions.setPlot({ showReference: e.target.checked }));
+  host.querySelector('[data-baseline]')?.addEventListener('change', (e) => actions.setBaseline(e.target.value));
 }

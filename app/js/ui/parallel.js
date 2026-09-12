@@ -12,6 +12,7 @@
 
 import { AXIS_DEFS } from './axes.js';
 import { buildFamilyColors, esc, fmtNumber } from './format.js';
+import { prop } from './labels.js';
 
 const DEFAULT_AXES = ['density', 'tensileModulusXY', 'elongationXY', 'hdt045'];
 const PAD = { top: 62, right: 62, bottom: 54, left: 62 };
@@ -103,7 +104,7 @@ function draw(host, usable, chosen, db, state, actions) {
       ${axes.map((a, i) => `
         <g class="pc-axis-g">
           <line x1="${xAt(i)}" y1="${PAD.top}" x2="${xAt(i)}" y2="${PAD.top + innerH}" class="pc-line-axis"/>
-          <text x="${xAt(i)}" y="${PAD.top - 38}" class="pc-lbl" text-anchor="${anchor(i)}">${esc(a.label)}</text>
+          <text x="${xAt(i)}" y="${PAD.top - 38}" class="pc-lbl" text-anchor="${anchor(i)}">${esc(prop(a.key).short)}</text>
           <text x="${xAt(i)}" y="${PAD.top - 25}" class="pc-lbl-unit" text-anchor="${anchor(i)}">${esc(a.unit)}</text>
           <text x="${xAt(i)}" y="${PAD.top - 8}" class="pc-tick" text-anchor="${anchor(i)}">${fmtNumber(scales[i].hi)}</text>
           <text x="${xAt(i)}" y="${PAD.top + innerH + 17}" class="pc-tick" text-anchor="${anchor(i)}">${fmtNumber(scales[i].lo)}</text>

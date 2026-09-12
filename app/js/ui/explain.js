@@ -25,7 +25,8 @@ export function renderExclusions(host, state, actions) {
   host.innerHTML = `
     <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
       Ranked by how many candidates each criterion costs. "Removed" failed the test.
-      "Held" could not be evaluated and is excluded only because the mode is Strict.</p>
+      "Held" could not be evaluated, and is out only because missing data is set to
+      "leave it out" in the top bar.</p>
     ${ranked.map((r, i) => `
       <div class="relax">
         <div>
@@ -38,7 +39,7 @@ export function renderExclusions(host, state, actions) {
         <button class="btn btn-sm" data-relax="${i}">Relax</button>
       </div>`).join('')}
     <p style="margin-top:16px">
-      <button class="btn" id="to-explore">Switch to Explore mode and keep unknowns visible</button></p>`;
+      <button class="btn" id="to-explore">Keep materials with missing data visible instead</button></p>`;
 
   host.querySelectorAll('[data-relax]').forEach((b) => b.addEventListener('click', () => {
     actions.relax(ranked[Number(b.dataset.relax)].constraint);
@@ -53,7 +54,7 @@ export function renderWhy(evaluation) {
     <div class="explain-row">
       ${chip(r.status)}
       <div>
-        <div class="crit">${esc(r.criterion)}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">preference only</span>' : ''}</div>
+        <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">preference only</span>' : ''}</div>
         <div class="why">${esc(r.reason)}${r.measurementId ? ` · <span style="font-family:var(--mono)">${esc(r.measurementId)}</span>` : ''}${r.gradeId ? ` · ${esc(r.gradeId)}` : ''}</div>
       </div>
     </div>`).join('');

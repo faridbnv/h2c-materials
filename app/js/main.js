@@ -16,6 +16,7 @@ import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc } from './ui/format.js';
 import { TEMPLATES } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive } from './ui/start.js';
+import { setEnvironmentLabels } from './ui/labels.js';
 
 /**
  * Which verdicts a policy shows by default. Strict shows what passed; Explore also shows what
@@ -35,8 +36,17 @@ const state = {
   // makes them controls rather than decoration, and what makes Strict against Explore visible.
   showStates: new Set(['PASS']),
   selectedMaterialId: null, drawerTab: 'Overview',
-  selection: null, rows: [], subset: null,
+  // A measurement the user asked to see, so the Evidence tab can scroll to it and mark it rather
+  // than dropping them into a list of twenty-one and leaving them to hunt.
+  highlightMeasurement: null,
+  // The familiar anchor. A printer owner judges every number against PLA, and 4.43 GPa means
+  // nothing on its own. Off until chosen, then drawn in the table, the chart and Compare.
+  baseline: null,
+  selection: null, rows: [], subset: null, searchExcluded: [],
 };
+
+/** Materials everyone already has a feel for, offered as the comparison anchor. */
+export const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 
 // ------------------------------------------------------------------ data loading
 
@@ -97,15 +107,21 @@ function recompute() {
 
   const q = state.search.trim().toLowerCase();
   const byId = new Map(materials.map((m) => [m.id, m]));
-  state.rows = state.selection.evaluations
-    .filter((e) => state.showStates.has(e.verdict))
+  const matches = (m) => !q || [m.name, m.family, m.fullName, m.basePolymer, m.abbreviation, ...m.gradeIds]
+    .filter(Boolean).some((t) => String(t).toLowerCase().includes(q));
+
+  const found = state.selection.evaluations
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
-    .filter(({ material: m }) => {
-      if (state.subset && !state.subset.includes(m.id)) return false;
-      if (!q) return true;
-      return [m.name, m.family, m.fullName, m.basePolymer, m.abbreviation, ...m.gradeIds]
-        .filter(Boolean).some((s) => String(s).toLowerCase().includes(q));
-    });
+    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && matches(m));
+
+  state.rows = found.filter(({ evaluation: e }) => state.showStates.has(e.verdict));
+
+  // Search the whole database, not only what survived the filters.
+  //
+  // Setting a heat requirement and then searching "PLA" used to return nothing, which reads as
+  // "PLA is not in this database". It is, and it failed a requirement. The hits the filters
+  // removed are kept here and shown in their own group with the criterion that removed them.
+  state.searchExcluded = q ? found.filter(({ evaluation: e }) => !state.showStates.has(e.verdict)) : [];
 }
 
 // ------------------------------------------------------------------ actions
@@ -131,7 +147,7 @@ const actions = {
     state.selectedMaterialId = id; state.drawerTab = 'Overview';
     state.scenario.openMaterial = id; renderDrawerHost(); pushHash();
   },
-  setDrawerTab(tab) { state.drawerTab = tab; renderDrawerHost(); },
+  setDrawerTab(tab) { state.drawerTab = tab; state.highlightMeasurement = null; renderDrawerHost(); },
   closeDrawer() {
     state.selectedMaterialId = null; state.scenario.openMaterial = null;
     renderDrawerHost(); pushHash();
@@ -141,7 +157,13 @@ const actions = {
     if (!m) return;
     state.selectedMaterialId = m.materialId;
     state.drawerTab = 'Evidence';
+    state.highlightMeasurement = id;
     renderDrawerHost();
+  },
+  setBaseline(id) {
+    state.baseline = id || null;
+    state.scenario.baseline = state.baseline;
+    render(); pushHash();
   },
   setPolicy(p) {
     const policy = normalizePolicy(p);
@@ -204,8 +226,9 @@ function renderLens() {
       wireActive(host, state, actions);
       const tableHost = document.createElement('div');
       host.appendChild(tableHost);
-      // An empty grid explains nothing. Say why the list is empty and offer the way out.
-      if (!state.rows.length) return renderNoResults(tableHost, state, actions);
+      // An empty grid explains nothing. Say why the list is empty and offer the way out. A search
+      // whose only hits were excluded still goes to the table, which now lists them and why.
+      if (!state.rows.length && !state.searchExcluded.length) return renderNoResults(tableHost, state, actions);
       return renderTable(tableHost, state, actions);
     }
     case 'ashby': return renderAshby(host, state, actions);
@@ -221,20 +244,40 @@ function renderDrawerHost() {
   renderDrawer(document.getElementById('drawer-host'), state, actions);
 }
 
-function render() {
-  recompute();
-  const { counts } = state.selection;
+/**
+ * The headline count. One function, because the search handler used to write its own version
+ * straight into the element and undo everything this one says.
+ */
+function renderCount() {
   const c = document.getElementById('count');
   const shown = state.rows.length;
   const eligible = state.selection.candidates.length;
-  const label = [...state.showStates].sort().join(' + ');
-  c.innerHTML = `${shown} shown <small>${esc(label)}${shown !== eligible ? ` · ${eligible} eligible` : ''}</small>`
-    + (state.subset ? ` <small>from a selected region · <a href="#" id="clear-subset">clear</a></small>` : '')
-    + (state.search ? ` <small>matching "${esc(state.search)}"</small>` : '');
+  const tested = state.scenario.constraints.length > 0;
+  // Nothing has been asked yet, so nothing has passed. Reading "102 shown PASS" on a blank screen
+  // implies a test that never ran.
+  const label = tested ? [...state.showStates].sort().join(' + ') : '';
+  const held = state.searchExcluded.length;
+  c.innerHTML = tested
+    ? `${shown} shown <small>${esc(label)}${shown !== eligible ? ` · ${eligible} eligible` : ''}</small>`
+    : `${shown} material${shown === 1 ? '' : 's'} <small>no requirements set</small>`;
+  c.innerHTML += (state.subset ? ` <small>from a selected region · <a href="#" id="clear-subset">clear</a></small>` : '')
+    + (state.search ? ` <small>matching "${esc(state.search)}"${held ? `, plus ${held} listed below that your requirements exclude` : ''}</small>` : '');
   c.querySelector('#clear-subset')?.addEventListener('click', (e) => { e.preventDefault(); state.subset = null; render(); });
+}
 
+function render() {
+  recompute();
+  const { counts } = state.selection;
+  const tested = state.scenario.constraints.length > 0;
+  renderCount();
+
+  // Nothing has been asked, so nothing has passed. A green "PASS 102" on a blank screen asserts a
+  // test that never ran, so the chips stand down until there is something to report.
+  document.getElementById('status-idle').hidden = tested;
+  document.querySelector('.statusbar-label').hidden = !tested;
   for (const [id, verdict, n] of [['s-pass', 'PASS', counts.pass], ['s-unknown', 'UNKNOWN', counts.unknown], ['s-fail', 'FAIL', counts.fail]]) {
     const el = document.getElementById(id);
+    el.hidden = !tested;
     const on = state.showStates.has(verdict);
     el.textContent = `${verdict} ${n}`;
     el.setAttribute('aria-pressed', String(on));
@@ -253,10 +296,6 @@ function render() {
   } else {
     estToggle.dataset.ruled = '';
   }
-
-  document.getElementById('policy-note').textContent = state.scenario.unknownPolicy === 'strict'
-    ? 'Strict: a criterion that cannot be evaluated holds the candidate out'
-    : 'Explore: candidates with unresolved criteria stay visible, flagged';
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));
@@ -293,8 +332,7 @@ function pushHash() {
 
 function wireChrome() {
   document.getElementById('search').addEventListener('input', (e) => {
-    state.search = e.target.value; recompute(); renderLens();
-    document.getElementById('count').textContent = `${state.rows.length} candidate${state.rows.length === 1 ? '' : 's'}`;
+    state.search = e.target.value; recompute(); renderCount(); renderLens();
   });
   document.getElementById('mode-strict').addEventListener('click', () => actions.setPolicy('strict'));
   document.getElementById('mode-explore').addEventListener('click', () => actions.setPolicy('exploration'));
@@ -309,12 +347,13 @@ function wireChrome() {
   });
   document.querySelectorAll('[data-lens]').forEach((b) => b.addEventListener('click', () => setLens(b.dataset.lens)));
 
+  // Two states, and the button says which one you are in. It used to be an unlabelled half-moon
+  // cycling dark, light and follow-the-system with no indication of where in the cycle you were.
   document.getElementById('btn-theme').addEventListener('click', () => {
-    const cur = document.documentElement.dataset.theme;
-    const next = cur === 'dark' ? 'light' : cur === 'light' ? '' : 'dark';
-    if (next) document.documentElement.dataset.theme = next;
-    else delete document.documentElement.dataset.theme;
+    const next = isDark() ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
     try { localStorage.setItem('h2c-theme', next); } catch { /* private mode */ }
+    paintTheme();
     renderLens();
   });
 
@@ -325,6 +364,19 @@ function wireChrome() {
     if (e.key === 'Escape' && state.selectedMaterialId) actions.closeDrawer();
     if (e.key === '/' && e.target.tagName !== 'INPUT') { e.preventDefault(); document.getElementById('search').focus(); }
   });
+}
+
+const isDark = () => {
+  const t = document.documentElement.dataset.theme;
+  return t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches);
+};
+
+function paintTheme() {
+  const b = document.getElementById('btn-theme');
+  const dark = isDark();
+  b.textContent = dark ? '\u263e Dark' : '\u2600 Light';
+  b.title = dark ? 'Switch to the light theme' : 'Switch to the dark theme';
+  b.setAttribute('aria-label', b.title);
 }
 
 function setLens(lens) {
@@ -357,8 +409,8 @@ function openScenario() {
         <div class="sc-lines">
           <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} preference${soft === 1 ? '' : 's'}` : ''}</div>
           <div>${scenario.unknownPolicy === 'strict'
-            ? 'Strict: a criterion that cannot be evaluated holds a material out'
-            : 'Explore: materials with unresolved criteria stay visible'}</div>
+            ? 'Missing data leaves a material out (Strict)'
+            : 'Materials with missing data stay visible, flagged (Explore)'}</div>
           ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}
           ${scenario.assumptions.length ? `<div class="warn">${scenario.assumptions.length} assumption${scenario.assumptions.length === 1 ? '' : 's'} in play</div>` : ''}
         </div>
@@ -436,16 +488,24 @@ function openScenario() {
   state.db = db;
   state.reference = reference;
   state.ctx = buildContext(db);
+  setEnvironmentLabels(db.meta.environmentCategories);
   state.scenario = fromHash(location.hash.slice(1), db.meta) ?? newScenario(db.meta);
   state.showStates = defaultShowStates(state.scenario.unknownPolicy);
   state.selectedMaterialId = state.scenario.openMaterial ?? null;
   if (typeof state.scenario.useEstimates === 'boolean') state.useEstimates = state.scenario.useEstimates;
   if (state.scenario.columnSet) state.columnSet = state.scenario.columnSet;
+  if (state.scenario.baseline) state.baseline = state.scenario.baseline;
 
-  document.getElementById('meta').textContent =
-    `snapshot ${db.meta.snapshot} · build ${db.meta.build} · ${db.meta.counts.materials} materials · ${db.meta.counts.measurements} measurements`;
+  // Provenance matters, but not more than everything else in the top bar. The full record is in
+  // the Scenario panel, which already carried it.
+  const meta = document.getElementById('meta');
+  meta.textContent = `data ${db.meta.snapshot}`;
+  meta.title = `Database snapshot ${db.meta.snapshot}, application build ${db.meta.build}, `
+    + `${db.meta.counts.materials} materials, ${db.meta.counts.measurements} measurements. `
+    + 'Open Scenario for the full record.';
 
   wireChrome();
+  paintTheme();
   render();
   if (state.scenario.lens && state.scenario.lens !== 'table') setLens(state.scenario.lens);
 })().catch((err) => {

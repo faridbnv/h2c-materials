@@ -4,7 +4,7 @@
 export const TEMPLATES = [
   {
     name: 'Outdoor structural part',
-    description: 'Warm outdoor service, stiffness-led. Mirrors the worked example in the architecture brief.',
+    description: 'A bracket that lives outside and gets warm. Stiff, not too heavy, survives a hot day in the sun.',
     constraints: [
       { kind: 'gate', gate: 'scope', __group: 'Compatibility' },
       { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100, mandatory: true, __group: 'Thermal' },
@@ -15,7 +15,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Indoor prototype',
-    description: 'Cheap, easy, no thermal or environmental demand.',
+    description: 'A shape you want to hold in your hand tomorrow. Cheap, easy to print, indoors only.',
     constraints: [
       { kind: 'gate', gate: 'scope', __group: 'Compatibility' },
       { kind: 'gate', gate: 'chamber', __group: 'Compatibility' },
@@ -24,7 +24,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Lightweight structure',
-    description: 'Minimum mass at a stiffness floor. Pair with the beam or panel index on the Ashby lens.',
+    description: 'A drone arm or a moving part. As light as possible while still stiff enough not to flex.',
     constraints: [
       { kind: 'gate', gate: 'scope', __group: 'Compatibility' },
       { kind: 'numeric', property: 'density', operator: '<=', value: 1250, mandatory: true, __group: 'Mechanical' },
@@ -33,7 +33,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Warm environment, no heated chamber',
-    description: 'Thermal capability that the H2C can actually print without a hot chamber.',
+    description: 'A part that sits near a motor or in a car. Takes heat, and prints without a heated chamber.',
     constraints: [
       { kind: 'gate', gate: 'scope', __group: 'Compatibility' },
       { kind: 'gate', gate: 'chamber', __group: 'Compatibility' },
@@ -43,7 +43,7 @@ export const TEMPLATES = [
   },
   {
     name: 'High-stiffness fixture',
-    description: 'Jigs and fixtures: stiffness and heat, mass unimportant.',
+    description: 'A jig or a fixture that must not bend. Weight does not matter, rigidity does.',
     constraints: [
       { kind: 'gate', gate: 'scope', __group: 'Compatibility' },
       { kind: 'numeric', property: 'tensileModulusXY', operator: '>=', value: 5, mandatory: true, __group: 'Mechanical' },
@@ -52,7 +52,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Flexible component',
-    description: 'Elastomers and high-elongation materials.',
+    description: 'A gasket, a strap or a phone case. Bends a long way and springs back.',
     constraints: [
       { kind: 'gate', gate: 'scope', __group: 'Compatibility' },
       { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100, mandatory: true, __group: 'Mechanical' },

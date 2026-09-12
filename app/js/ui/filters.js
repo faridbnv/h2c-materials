@@ -10,14 +10,22 @@
 
 import { availability } from '../engine/coverage.js';
 import { esc } from './format.js';
+import { prop, envLabel, envNoun } from './labels.js';
 
+// Labels come from the one vocabulary. The rail used to speak materials science on its own
+// ("Tensile modulus XY", "HDT at 0.45 MPa") while the detail drawer three clicks away said
+// "Stiffness" and "Heat resistance" for the same number. Plain name leads, technical name follows.
+//
+// No placeholder numbers. Grey 1400 and 100 sitting in the boxes read as applied settings, which
+// they were not, and an applied value looked almost identical. The example lives in the helper
+// line where it cannot be mistaken for a constraint.
 const NUMERIC = [
-  { group: 'Mechanical', key: 'density',           label: 'Density',              unit: 'kg/m³', op: '<=', placeholder: 1400 },
-  { group: 'Mechanical', key: 'tensileModulusXY',  label: 'Tensile modulus XY',   unit: 'GPa',   op: '>=', placeholder: 3 },
-  { group: 'Mechanical', key: 'tensileStrengthXY', label: 'Tensile strength XY',  unit: 'MPa',   op: '>=', placeholder: 50 },
-  { group: 'Mechanical', key: 'elongationXY',      label: 'Elongation at break XY', unit: '%',   op: '>=', placeholder: 5 },
-  { group: 'Thermal',    key: 'hdt045',            label: 'HDT at 0.45 MPa',      unit: '°C',    op: '>=', placeholder: 100 },
-  { group: 'Cost',       key: 'priceCADkg',        label: 'Price',                unit: 'CAD/kg', op: '<=', placeholder: 100 },
+  { group: 'Mechanical', key: 'density',           op: '<=', eg: 'e.g. 1400 for something light' },
+  { group: 'Mechanical', key: 'tensileModulusXY',  op: '>=', eg: 'e.g. 3, about as stiff as unfilled PLA' },
+  { group: 'Mechanical', key: 'tensileStrengthXY', op: '>=', eg: 'e.g. 50 for a load-bearing part' },
+  { group: 'Mechanical', key: 'elongationXY',      op: '>=', eg: 'e.g. 100 or more for anything rubbery' },
+  { group: 'Thermal',    key: 'hdt045',            op: '>=', eg: 'e.g. 100 to survive a hot car' },
+  { group: 'Cost',       key: 'priceCADkg',        op: '<=', eg: 'e.g. 60 per kilogram' },
 ];
 
 // Ordered by how often a criterion actually decides something. Mechanical and thermal properties
@@ -31,6 +39,9 @@ const REINFORCEMENT = [
   ['carbon-fibre', 'Carbon fibre'], ['glass-fibre', 'Glass fibre'], ['unfilled', 'Unfilled'],
   ['esd', 'ESD'], ['foaming', 'Foaming'], ['undisclosed', 'Undisclosed variant'],
 ];
+
+// Plain words for the comparison. "≥" is unambiguous to an engineer and opaque to everyone else.
+const OP_WORD = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
 
 const find = (cs, pred) => cs.find(pred) ?? null;
 
@@ -106,21 +117,43 @@ function body(group, materials, cs, db) {
   for (const f of NUMERIC.filter((x) => x.group === group)) {
     const c = find(cs, (x) => x.property === f.key);
     const a = availability(materials, f.key);
+    const P = prop(f.key);
     const extra = f.key === 'hdt045' && a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
       : f.key === 'priceCADkg' ? 'Three Canadian retailers, sampled 2026-09-10' : null;
     out.push(`<div class="control" data-active="${!!c}">
-      <label>${esc(f.label)}</label>
+      <label title="${esc(P.technical)}">${esc(P.plain)}</label>
+      <div class="sub-label">${esc(P.hint)}</div>
       ${availLine(a, extra)}
       <div class="row">
-        <select class="op" data-op-for="${f.key}">
-          ${['>=', '<=', '>', '<'].map((o) => `<option ${(c?.operator ?? f.op) === o ? 'selected' : ''}>${o}</option>`).join('')}
+        <select class="op" data-op-for="${f.key}" aria-label="${esc(P.plain)} comparison">
+          ${['>=', '<=', '>', '<'].map((o) => `<option value="${o}" ${(c?.operator ?? f.op) === o ? 'selected' : ''}>${esc(OP_WORD[o])}</option>`).join('')}
         </select>
-        <input type="number" step="any" data-value-for="${f.key}" value="${c ? c.value : ''}" placeholder="${f.placeholder}">
-        <span class="unit">${esc(f.unit)}</span>
+        <input type="number" step="any" data-value-for="${f.key}" value="${c ? c.value : ''}"
+          aria-label="${esc(P.plain)} value">
+        <span class="unit">${esc(P.unit)}</span>
         ${c ? `<button class="icon-btn clear" data-clear="${f.key}" title="Clear">✕</button>` : ''}
       </div>
+      ${c ? '' : `<div class="eg">${esc(f.eg)}</div>`}
       ${c ? `<label style="font-weight:400;font-size:12px;margin-top:5px"><input type="checkbox" data-soft="${f.key}" ${c.mandatory === false ? 'checked' : ''}> Preference only, never removes a candidate</label>` : ''}
+    </div>`);
+  }
+
+  // Availability. Half the results from a template have no price and nothing said whether they
+  // could be bought at all, so a recommendation could not be acted on. The data supports this:
+  // 48 materials have at least one sampled Canadian offer and 42 had stock on the snapshot date.
+  if (group === 'Cost') {
+    const buy = find(cs, (c) => c.gate === 'buyable');
+    const withOffer = materials.filter((m) => m.buy).length;
+    const inStock = materials.filter((m) => m.buy?.anyInStock).length;
+    out.push(`<div class="control" data-active="${!!buy}">
+      <label><input type="checkbox" data-buy="any" ${buy ? 'checked' : ''}> Only show what I can buy</label>
+      <div class="avail">${withOffer} of ${materials.length} were listed by a sampled Canadian retailer</div>
+      <label class="sub-check"><input type="checkbox" data-buy="stock" ${buy?.inStock ? 'checked' : ''} ${buy ? '' : 'disabled'}>
+        and it was in stock</label>
+      <div class="avail">${inStock} had stock on the snapshot date</div>
+      <div class="eg">Three retailers, one sampling date. A material with no offer here is not
+        necessarily unavailable, so it is held as unknown rather than failed.</div>
     </div>`);
   }
 
@@ -132,13 +165,13 @@ function body(group, materials, cs, db) {
     for (const [key, v] of verdict.sort((a, b) => b[1].usable - a[1].usable)) {
       const on = !!find(cs, (c) => c.kind === 'environment' && c.category === key);
       out.push(`<div class="control" data-active="${on}">
-        <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> ${esc(key.replace(/-/g, ' '))} resistance</label>
+        <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> Resists ${esc(envNoun(key))}</label>
         <div class="avail">${v.usable} records state a verdict, across ${v.materials} materials</div>
       </div>`);
     }
     if (indicator.length) {
       out.push(`<div class="note"><strong>Evidence only, not filters.</strong>
-        ${indicator.map(([k, v]) => `${esc(k.replace(/-/g, ' '))} (${v.records} records)`).join(', ')}.
+        ${indicator.map(([k, v]) => `${esc(envLabel(k))} (${v.records} records)`).join(', ')}.
         Every record in these categories is narrative text with no reducible verdict, so no material
         could pass or fail such a test. Offering them as constraints would return UNKNOWN for all
         ${db.meta.counts.materials} while looking like a working filter. They are shown in each
@@ -240,6 +273,19 @@ function wire(host, state, actions) {
   host.querySelectorAll('[data-soft]').forEach((el) => el.addEventListener('change', () => upsertNumeric(el.dataset.soft)));
   host.querySelectorAll('[data-clear]').forEach((el) => el.addEventListener('click', () => {
     drop((c) => c.property === el.dataset.clear);
+    actions.changed();
+  }));
+
+  const buyBoxes = [...host.querySelectorAll('[data-buy]')];
+  buyBoxes.forEach((el) => el.addEventListener('change', () => {
+    const any = buyBoxes.find((b) => b.dataset.buy === 'any');
+    const stock = buyBoxes.find((b) => b.dataset.buy === 'stock');
+    drop((c) => c.gate === 'buyable');
+    // "In stock" only means anything once the offer filter itself is on.
+    if (el.dataset.buy === 'stock' && el.checked) any.checked = true;
+    if (any.checked) {
+      scenario.constraints.push({ kind: 'gate', gate: 'buyable', inStock: stock.checked, __group: 'Cost' });
+    }
     actions.changed();
   }));
 

@@ -134,3 +134,12 @@ test('nozzle, drying and abrasion text', () => {
   assert.equal(parseAbrasion('No special concerns').requiresHardened, false);
   assert.equal(parseAbrasion('Not published').requiresHardened, null);
 });
+
+// Every temperature the app shows carries its unit. The gate reasons were the one place that
+// dropped the degree symbol, which read as a different kind of number beside every other one.
+test('gate reasons carry the degree symbol', () => {
+  const within = withinH2C(parseTemperature('220-240 C', { plausible: [0, 500] }), 350);
+  assert.match(within.reason, /°C/);
+  const over = withinH2C(parseTemperature('390-480 C', { plausible: [0, 500] }), 350);
+  assert.match(over.reason, /°C/);
+});

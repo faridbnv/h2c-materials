@@ -118,18 +118,18 @@ export function withinH2C(parsed, limitC) {
     return { verdict: 'unknown', reason: 'No numeric requirement published' };
   }
   if (parsed.max <= limitC) {
-    return { verdict: 'within', reason: `Needs up to ${parsed.max} C, within the ${limitC} C baseline` };
+    return { verdict: 'within', reason: `Needs up to ${parsed.max} \u00b0C, within the H2C's ${limitC} \u00b0C` };
   }
   if (parsed.requirement === REQUIREMENT.RECOMMENDED) {
     return {
       verdict: 'exceeds-recommended',
-      reason: `Recommends up to ${parsed.max} C, above the ${limitC} C baseline, but does not require it`,
+      reason: `Recommends up to ${parsed.max} \u00b0C, above the H2C's ${limitC} \u00b0C, but does not require it`,
       over: parsed.max - limitC,
     };
   }
   return {
     verdict: 'exceeds',
-    reason: `Requires up to ${parsed.max} C, H2C provides ${limitC} C`,
+    reason: `Requires up to ${parsed.max} \u00b0C, the H2C provides ${limitC} \u00b0C`,
     over: parsed.max - limitC,
   };
 }

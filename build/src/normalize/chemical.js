@@ -89,7 +89,12 @@ export function countUsableByCategory(records) {
     c.materials.add(r.MaterialID);
     if (isUsableEvidence({ topic, finding })) c.usable++;
   }
+  // The display label and the sentence-form noun are authored in the mapping file and travel with
+  // the counts. The app used to build a name by appending "resistance" to the key, which produced
+  // "water solubility resistance".
   return Object.fromEntries(Object.entries(out).map(([k, v]) => [k, {
+    label: CATEGORIES[k]?.label ?? k,
+    noun: CATEGORIES[k]?.noun ?? String(k).replace(/-/g, ' '),
     records: v.records,
     usable: v.usable,
     materials: v.materials.size,

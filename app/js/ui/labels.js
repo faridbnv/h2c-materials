@@ -47,6 +47,7 @@ export const GATE = {
   abrasive: { plain: 'I have a hardened nozzle', hint: 'needed for carbon and glass filled filaments' },
   dryingKnown: { plain: 'Drying schedule is published', hint: '' },
   h2cStatus: { plain: 'Bambu support level', hint: '' },
+  buyable: { plain: 'Available from a Canadian retailer', hint: 'sampled from three retailers on the snapshot date' },
 };
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
@@ -66,11 +67,12 @@ export function describeConstraint(c) {
     }
     case 'gate':
       if (c.gate === 'h2cStatus') return `Bambu support level: ${(c.in ?? []).join(', ')}`;
+      if (c.gate === 'buyable') return c.inStock ? 'In stock in Canada' : GATE.buyable.plain;
       return GATE[c.gate]?.plain ?? c.gate;
     case 'facet':
       return `Reinforcement: ${(c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ')}`;
     case 'environment':
-      return `Resists ${String(c.category).replace(/-/g, ' ')}`;
+      return `Resists ${envNoun(c.category)}`;
     case 'evidence': {
       const bits = [];
       if (c.exactGrade) bits.push('has a grade-specific measurement');
@@ -81,11 +83,37 @@ export function describeConstraint(c) {
   }
 }
 
-/** Environment categories, with a display label rather than one built by concatenation. */
-export const ENVIRONMENT = {
-  acid: 'Acids', alkali: 'Alkalis', 'organic-solvent': 'Solvents', 'oil-grease': 'Oils and grease',
-  flammability: 'Fire behaviour', 'water-solubility': 'Water solubility',
-  'uv-outdoor': 'UV and outdoor', moisture: 'Moisture', hydrolysis: 'Hydrolysis',
-  'food-contact': 'Food contact', fatigue: 'Fatigue', creep: 'Creep',
-};
-export const envLabel = (k) => ENVIRONMENT[k] ?? String(k).replace(/-/g, ' ');
+/**
+ * Environment categories.
+ *
+ * The names are authored in build/mappings/environment-topics.json and compiled into the snapshot,
+ * so there is one place to change them and no chance of the app and the build disagreeing. They
+ * are seeded here at boot. The app used to build a name by appending "resistance" to the internal
+ * key, which produced "water solubility resistance".
+ */
+let ENVIRONMENT = {};
+
+/** Called once at boot with db.meta.environmentCategories. */
+export function setEnvironmentLabels(categories) {
+  ENVIRONMENT = categories ?? {};
+}
+
+/** The heading form: "Acid resistance". */
+export const envLabel = (k) => ENVIRONMENT[k]?.label ?? String(k).replace(/-/g, ' ');
+
+/** The sentence form, for "Resists acids". */
+export const envNoun = (k) => ENVIRONMENT[k]?.noun ?? String(k).replace(/-/g, ' ');
+
+/**
+ * A material name, split into what to lead with and what it is also called.
+ *
+ * "TPC / TPEE" and "PEI / ULTEM" read as two separate materials in a list. They are one material
+ * under two names, and the database writes an alias with spaces around the slash. "PA6/66" and
+ * "Support for PLA/PETG" have no spaces, are single names, and are left alone.
+ */
+export function materialName(name) {
+  const s = String(name ?? '');
+  const i = s.indexOf(' / ');
+  if (i < 0) return { primary: s, aka: null };
+  return { primary: s.slice(0, i).trim(), aka: s.slice(i + 3).trim() };
+}

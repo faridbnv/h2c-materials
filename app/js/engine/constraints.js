@@ -181,6 +181,31 @@ function evaluateGate(material, c) {
       : { status: STATUS.FAIL, criterion: 'Hardened nozzle available', reason: 'Requires an abrasion-resistant nozzle' };
   }
 
+  // "Only show what I can buy." Absence of an offer is not proof a material is unavailable, only
+  // that the three sampled Canadian retailers did not list it on the snapshot date, so it returns
+  // UNKNOWN rather than FAIL. An offer that was sampled and is out of stock is positive evidence
+  // and does fail.
+  if (c.gate === 'buyable') {
+    const buy = material.buy;
+    const label = c.inStock ? 'In stock in Canada' : 'Available from a Canadian retailer';
+    if (!buy) {
+      return {
+        status: STATUS.UNKNOWN, criterion: label,
+        reason: 'None of the three sampled Canadian retailers listed this material on the snapshot date',
+      };
+    }
+    if (c.inStock && !buy.anyInStock) {
+      return {
+        status: STATUS.FAIL, criterion: label,
+        reason: `${buy.retailer} lists it, but no sampled offer was in stock on ${buy.accessDate}`,
+      };
+    }
+    return {
+      status: STATUS.PASS, criterion: label,
+      reason: `${buy.retailer}${buy.perKg ? `, about ${buy.perKg} CAD/kg` : ''}, seen ${buy.accessDate}`,
+    };
+  }
+
   if (c.gate === 'dryingKnown') {
     const ok = material.gates.drying === 'required';
     return ok
@@ -223,12 +248,15 @@ function evaluateFacet(material, c) {
  */
 function evaluateEnvironment(material, c, ctx) {
   const meta = ctx?.db?.meta?.environmentCategories?.[c.category];
-  const label = `${c.category} evidence`;
+  // The display name is compiled from the mapping file and travels in the snapshot, so the engine
+  // can name a category without importing anything from the UI.
+  const name = meta?.label ?? String(c.category).replace(/-/g, ' ');
+  const label = `${name} evidence`;
   if (meta && meta.kind === 'indicator') {
     return {
       status: STATUS.UNKNOWN,
       criterion: label,
-      reason: `The ${c.category} records in this snapshot are narrative only; no reducible verdict exists for any material`,
+      reason: `The ${name.toLowerCase()} records in this snapshot are narrative only; no reducible verdict exists for any material`,
       indicatorOnly: true,
     };
   }
