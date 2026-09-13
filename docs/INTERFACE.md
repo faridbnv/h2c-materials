@@ -189,9 +189,34 @@ single day is not evidence that something cannot be bought.
 
 ## The Ashby lens
 
+The controls sit in three tiers, in the order a reader uses them. The previous layout gave four
+option cards equal weight in a row that wrapped, left two identical "Scale" labels floating between
+the axis pickers, and put the index slider below the reading notes, far from the menu that opened
+it; a first-time reader could not tell what belonged to what.
+
+```
+Vertical axis   [Stiffness (70 measured) ▾] [Linear|Log]   ⇄ Swap   Horizontal axis [Density ▾] [Linear|Log]
+─────────────────────────────────────────────────────────────────────────────────────────────────
+POINTS                         COMPARE WITH                    DESIGN GUIDE LINE
+[One dot per material ▾]       [No familiar filament ▾]        [None ▾]
+☐ Also draw the 25 estimated   ☐ Steel, aluminium and wood
+─────────────────────────────────────────────────────────────────────────────────────────────────
+warnings and banners · the chart · the guide-line card · reading this chart
+```
+
+- **What is plotted**: each axis carries its own scale toggle, and Swap exchanges the axes with
+  their scales.
+- **How it is drawn**: three labelled groups, each with one line of help for the current choice.
+  A control that does not apply is disabled with its reason, never replaced by a sentence, so the
+  panel keeps its shape as settings change.
+- **The guide-line card** sits directly under the chart it moves. When the line cannot be drawn it
+  says why and offers the fix as a button: switch both scales to Log, or set Density across and the
+  index's property up. It closes with ×.
+- The lens is rebuilt on every change, and keeps keyboard focus on the control that was used.
+
 - The axis picker reports the **point count for the chosen pair before drawing**. Some pairs are
   genuinely thin, and below ten points the count becomes a warning.
-- **Show** is one ordered choice of how much evidence to draw, replacing two switches that
+- **Points** is one ordered choice of how much evidence to draw, replacing two switches that
   overlapped. *One dot per material* uses the headline. *Every measurement* draws one point per
   grade per compatible pair, so PA6-CF appears twice, at 4.43 GPa in XY and 2.17 in Z, and
   anisotropy becomes visible instead of averaged away. *Every measurement, mixed conditions* also
@@ -209,7 +234,7 @@ single day is not evidence that something cannot be bought.
   requirement it is not a mismatch with anything, so it stays solid and says so on hover. A warning
   that fires when nothing is wrong teaches the reader to ignore the one that matters.
 
-- **Estimated materials** draws the candidates that have no measurement of their own on one of the
+- **Also draw the estimated materials** draws the candidates that have no measurement of their own on one of the
   chosen axes. They appear as a dotted range rather than a dot, because the value is the span of
   their closest measured relatives and not a position anyone measured; where the other axis is
   measured the range collapses to a whisker. Off by default, since twenty-five overlapping ranges
@@ -220,13 +245,14 @@ single day is not evidence that something cannot be bought.
   and was three: comparability could do nothing in headline mode, because a headline is one fixed
   value with no measurement conditions left to match. Its "Strict" also meant measurement
   conditions, an unrelated idea to the "Strict" in the top bar, which is about missing data.
-- **Compare against** adds one familiar filament, PLA by default, as a labelled cross. It is a
+- **Compare with** adds one familiar filament, PLA by default, as a labelled cross. It is a
   reference, not a candidate: excluded from the front, from the counts and from the index tally,
   exactly like the steel and aluminium envelopes.
 - **Encoding**: colour is polymer family, marker shape is filler class, outline carries evidence
   status. There are 19 families, past what a categorical palette can separate, so the eight largest
   get their own hue and the rest group as Other.
-- **Performance indices** ship as named design cases with their formula, log-log slope and caveats.
+- **Performance indices**, chosen under **Design guide line** and grouped by lightest and cheapest part,
+  ship as named design cases with their formula, log-log slope and caveats.
   On log-log axes an index of the form `P^n / rho` is a straight line of slope `1/n`. Two caveats
   ride on every card: the strength indices are derived for the elastic limit while this database
   mostly records an unspecified endpoint, and index theory assumes isotropy while FDM parts are not

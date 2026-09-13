@@ -60,6 +60,7 @@ export function renderAshby(host, state, actions) {
   const p = scenario.plot;
   const xDef = AXIS_DEFS.find((a) => a.key === p.x) ?? AXIS_DEFS[0];
   const yDef = AXIS_DEFS.find((a) => a.key === p.y) ?? AXIS_DEFS[1];
+  const focusKey = host.contains(document.activeElement) ? document.activeElement.dataset?.focus : null;
 
   const level = detailLevel(p);
   const measurementMode = level !== 'material';
@@ -79,7 +80,7 @@ export function renderAshby(host, state, actions) {
   const thin = pts.length < 10;
 
   // "Price — 10" read as ten dollars. Name the property, then say what the number counts.
-  const axisSelect = (which, cur) => `<select data-axis="${which}">
+  const axisSelect = (which, cur) => `<select id="ashby-${which}" data-axis="${which}" data-focus="axis-${which}">
     ${AXIS_DEFS.map((a) => {
       const n = rows.filter((r) => r.material.headline[a.key]?.known).length;
       const est = state.ctx?.useEstimates
@@ -90,63 +91,98 @@ export function renderAshby(host, state, actions) {
       return `<option value="${a.key}" ${a.key === cur ? 'selected' : ''}>${esc(P.plain)} (${count})</option>`;
     }).join('')}</select>`;
 
+  // Each axis owns its scale. Two identical "Scale" labels floating between the axis pickers left
+  // the reader to work out which one belonged to which axis.
+  const axisPicker = (which, def, isLog) => `
+    <div class="axis-pick">
+      <label for="ashby-${which}">${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}</label>
+      <div class="axis-row">
+        ${axisSelect(which, def.key)}
+        <div class="segmented" role="group" aria-label="${which === 'y' ? 'Vertical' : 'Horizontal'} axis scale">
+          <button data-log="${which}" data-focus="log-${which}-lin" aria-pressed="${!isLog}">Linear</button><button data-log="${which}" data-on="1" data-focus="log-${which}-log" aria-pressed="${isLog}">Log</button>
+        </div>
+      </div>
+    </div>`;
+
+  // The estimated-materials switch is always in the same place. It used to be replaced by a
+  // sentence whenever it did not apply, so the panel changed shape as the reader changed settings.
+  const estimateReason = estimated.length ? ''
+    : measurementMode ? 'Not used when every measurement is drawn: an estimate describes a material, not a grade.'
+    : state.ctx?.useEstimates ? 'No candidate on these axes has an estimate to draw.'
+    : state.scenario.unknownPolicy === 'exploration' ? 'Estimates are off. Tick Estimates in the top bar to use them.'
+    : 'Estimates are off. They are available with "Keep it, flagged", where they can rule a material out.';
+
+  const index = indexById(p.index);
+  const cheapest = INDICES.filter((i) => i.costForm), lightest = INDICES.filter((i) => !i.costForm);
+  const indexOption = (i) => `<option value="${i.id}" ${p.index === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`;
+
+  const notices = [
+    unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : '',
+    thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : '',
+    p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : '',
+    mixed && mixed.length ? `<div class="banner"><span><b>Some of these were measured a different way</b>
+      from the axis definition: ${esc(mixed.join('; '))}. They are drawn hollow, and hovering one
+      names the mismatch. They are included so the trade space can be seen whole, never merged into
+      a headline.</span></div>` : '',
+  ].join('').trim();
+
   host.innerHTML = `
-    <div class="plot-controls">
-      <div class="control"><label>X axis</label>${axisSelect('x', xDef.key)}</div>
-      <div class="control"><label>Scale</label>
-        <div class="segmented"><button data-log="x" aria-pressed="${!p.xLog}">Linear</button><button data-log="x" data-on="1" aria-pressed="${p.xLog}">Log</button></div></div>
-      <div class="control"><label>Y axis</label>${axisSelect('y', yDef.key)}</div>
-      <div class="control"><label>Scale</label>
-        <div class="segmented"><button data-log="y" aria-pressed="${!p.yLog}">Linear</button><button data-log="y" data-on="1" aria-pressed="${p.yLog}">Log</button></div></div>
+    <div class="ashby-axes">
+      ${axisPicker('y', yDef, p.yLog)}
+      <button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes">⇄ Swap</button>
+      ${axisPicker('x', xDef, p.xLog)}
     </div>
 
-    <div class="plot-controls secondary">
-      <div class="control"><label>Show</label>
-        <select data-detail>
+    <div class="ashby-options">
+      <div class="opt-group" role="group" aria-labelledby="og-points">
+        <h3 id="og-points">Points</h3>
+        <select data-detail data-focus="detail" aria-label="How much evidence to draw">
           ${DETAIL_LEVELS.map((d) => `<option value="${d.id}" ${level === d.id ? 'selected' : ''}>${esc(d.label)}</option>`).join('')}
         </select>
-        <div class="control-help">${esc(DETAIL_LEVELS.find((d) => d.id === level).help)}</div>
+        <p class="opt-help">${esc(DETAIL_LEVELS.find((d) => d.id === level).help)}</p>
+        <label class="opt-check" ${estimated.length ? '' : `title="${esc(estimateReason)}"`}>
+          <input type="checkbox" data-show-estimates data-focus="estimates" ${p.showEstimates && estimated.length ? 'checked' : ''} ${estimated.length ? '' : 'disabled'}>
+          <span>${estimated.length
+            ? `Also draw the ${estimated.length} estimated material${estimated.length === 1 ? '' : 's'}`
+            : 'Also draw estimated materials'}</span>
+        </label>
+        <p class="opt-help">${estimated.length
+          ? 'As dotted ranges, not dots: the span of their closest measured relatives.'
+          : esc(estimateReason)}</p>
       </div>
-      <div class="control"><label>Best for a given weight</label>
-        <select data-index>
-          <option value="">Not shown</option>
-          ${INDICES.map((i) => `<option value="${i.id}" ${p.index === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`).join('')}
-        </select>
-        <div class="control-help">Draws the line engineers use to pick the lightest material that still does the job.</div></div>
-      <div class="control"><label>Estimated materials</label>
-        ${estimated.length ? `
-          <label class="inline-check"><input type="checkbox" data-show-estimates ${p.showEstimates ? 'checked' : ''}>
-            Show the ${estimated.length} with no measurement here</label>
-          <div class="control-help">Drawn as a dotted range rather than a dot, because the value is
-            the span of their closest relatives and not a position anyone measured.</div>`
-          : `<div class="control-help">${measurementMode
-              ? 'Not used when every measurement is drawn: an estimate describes a material, not a grade.'
-              : state.ctx?.useEstimates
-              ? 'No candidate on these axes has an estimate to draw.'
-              : state.scenario.unknownPolicy === 'exploration'
-              ? 'Estimates are off. Tick Estimates in the top bar to use them.'
-              : 'Estimates are off. They are available in Explore, where they can rule a material out.'}</div>`}
-      </div>
-      <div class="control"><label>Compare against</label>
-        <select data-baseline>
-          <option value="">Nothing</option>
+
+      <div class="opt-group" role="group" aria-labelledby="og-compare">
+        <h3 id="og-compare">Compare with</h3>
+        <select data-baseline data-focus="baseline" aria-label="A familiar filament to draw for comparison">
+          <option value="">No familiar filament</option>
           ${BASELINE_NAMES.map((n) => db.materials.find((q) => q.name === n)).filter(Boolean)
             .map((q) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>${esc(q.name)}</option>`).join('')}
         </select>
-        <label class="inline-check"><input type="checkbox" data-reference ${p.showReference ? 'checked' : ''}> Also steel, aluminium, wood</label>
-        <div class="control-help">A filament you already know, drawn as a blue cross. The metals are grey boxes for scale.</div></div>
+        <p class="opt-help">Drawn as a blue cross. A reference, never a candidate.</p>
+        <label class="opt-check"><input type="checkbox" data-reference data-focus="reference" ${p.showReference ? 'checked' : ''}>
+          <span>Steel, aluminium and wood</span></label>
+        <p class="opt-help">Grey boxes, for a sense of scale.</p>
+      </div>
+
+      <div class="opt-group" role="group" aria-labelledby="og-index">
+        <h3 id="og-index">Design guide line</h3>
+        <select data-index data-focus="index" aria-label="Performance index line">
+          <option value="">None</option>
+          <optgroup label="Lightest part that does the job">${lightest.map(indexOption).join('')}</optgroup>
+          ${cheapest.length ? `<optgroup label="Cheapest part that does the job">${cheapest.map(indexOption).join('')}</optgroup>` : ''}
+        </select>
+        <p class="opt-help">${index
+          ? 'Move the line and read its caveats under the chart.'
+          : 'The line engineers use to find the lightest or cheapest material that still does the job.'}</p>
+      </div>
     </div>
 
-    ${unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : ''}
-    ${thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : ''}
-    ${p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : ''}
-    ${mixed && mixed.length ? `<div class="banner"><b>Some of these were measured a different way</b>
-      from the axis definition: ${esc(mixed.join('; '))}. They are drawn hollow, and hovering one
-      names the mismatch. They are included so the trade space can be seen whole, never merged into
-      a headline.</div>` : ''}
+    ${notices ? `<div class="ashby-notices">${notices}</div>` : ''}
 
     <div id="plot"></div>
+    <div id="index-card"></div>
     <div class="legend-note">
+      <h3>Reading this chart</h3>
       ${measurementMode
         // What a reader has to be told before this chart means anything: a dot is a test, not a
         // material. Without that sentence a cluster of six dots reads as six materials, or as noise.
@@ -168,7 +204,7 @@ export function renderAshby(host, state, actions) {
         ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
            ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only the range of
            ${estimated.length === 1 ? 'its' : 'their'} closest relatives. Not drawn. Tick
-           <b>Estimated materials</b> above to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
+           <b>Also draw the estimated materials</b>, under Points above, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
         : ''}
       ${envelopes.length ? `<br><b>The dotted ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
         with no measurement of their own on one of these axes. Each spans the values its closest
@@ -179,12 +215,15 @@ export function renderAshby(host, state, actions) {
         both axes at once: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
         ${esc(prop(yDef.key).plain.toLowerCase())} ${yDef.better === 'max' ? 'higher' : 'lower'} is better.
         Anything on the ${yDef.better === 'max' ? 'lower' : 'upper'} ${xDef.better === 'max' ? 'left' : 'right'} side of it is beaten by something on the line.` : ''}
-    </div>
-    <div id="index-card"></div>`;
+    </div>`;
 
   drawPlot(host, state, { xDef, yDef, pts, envelopes, actions });
   renderIndexCard(host.querySelector('#index-card'), state, pts, actions);
   wireControls(host, state, actions);
+
+  // The lens is rebuilt on every change, as the filter rail is. Keep the reader's place, so a
+  // keyboard user who changes an axis is not thrown back to the top of the page.
+  if (focusKey) host.querySelector(`[data-focus="${focusKey}"]`)?.focus();
 }
 
 /**
@@ -241,7 +280,7 @@ function headlinePoints(rows, xDef, yDef) {
 function measurementPoints(rows, xDef, yDef, mode, ctx) {
   if (!xDef.measurement || !yDef.measurement) {
     const which = !xDef.measurement ? xDef.label : yDef.label;
-    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Set Show to "One dot per material", or choose another axis.` };
+    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Set Points to "One dot per material", or choose another axis.` };
   }
   const pts = [];
   const mixed = new Set();
@@ -635,22 +674,36 @@ function renderIndexCard(host, state, pts, actions) {
 
   host.innerHTML = `
     <div class="index-card">
-      <h4>${esc(index.designCase)}</h4>
+      <div class="index-head">
+        <h4>${esc(index.designCase)}</h4>
+        <button class="icon-btn" data-index-clear data-focus="index-clear" title="Remove this line" aria-label="Remove the design guide line">×</button>
+      </div>
       <div>Maximise <span class="formula">M = ${esc(index.formula)}</span> ·
         selection line of slope ${index.slope} on log-log axes</div>
       ${index.note ? `<div style="color:var(--ink-2);margin-top:5px">${esc(index.note)}</div>` : ''}
       ${applicable ? `
-        <div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <label style="font-size:12px">Move the line</label>
-          <input type="range" data-index-m min="0" max="100" value="${p.indexSlider ?? 50}" style="flex:1;min-width:160px">
-          <span style="font-family:var(--mono);font-size:12px">M = ${M.toPrecision(3)}</span>
+        <div class="index-move">
+          <label for="index-m">Move the line</label>
+          <input type="range" id="index-m" data-index-m data-focus="index-m" min="0" max="100" value="${p.indexSlider ?? 50}">
+          <span class="formula">M = ${M.toPrecision(3)}</span>
           <strong>${above} material${above === 1 ? '' : 's'} above the line</strong>
-          <span style="color:var(--ink-3);font-size:12px">of ${evaluable} with both headline values${detailLevel(p) === 'material' ? '' : '; counted by material, from headline values, not by dot'}</span>
+          <span class="index-of">of ${evaluable} with both headline values${detailLevel(p) === 'material' ? '' : '; counted by material, from headline values, not by dot'}</span>
         </div>
-        ${!p.xLog || !p.yLog ? `<div class="warn-chip" style="margin-top:8px">The constant-index line is straight only on log-log axes. Switch both scales to Log to read it as a guideline.</div>` : ''}
-      ` : `<div class="warn-chip" style="margin-top:8px">To draw this line, set X to Density and Y to ${esc(prop(index.numerator).plain)}${index.costForm ? '. A cost-form index needs price on an axis, so it is not drawn here.' : '.'}</div>`}
+        ${!p.xLog || !p.yLog ? `<div class="index-fix"><span class="warn-chip">The line is straight only on log-log axes.</span>
+          <button class="btn btn-sm" data-index-loglog data-focus="index-loglog">Switch both axes to Log</button></div>` : ''}
+      ` : index.costForm
+        ? `<div class="index-fix"><span class="warn-chip">A cost-form index needs price combined with density on one axis, so it is not drawn on this chart. The caveats still apply.</span></div>`
+        : `<div class="index-fix"><span class="warn-chip">This line needs Density across and ${esc(prop(index.numerator).plain)} up.</span>
+          <button class="btn btn-sm" data-index-axes data-focus="index-axes">Set those axes, on Log scales</button></div>`}
       <ul>${index.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
     </div>`;
+
+  host.querySelector('[data-index-clear]')?.addEventListener('click', () =>
+    actions.setPlot({ index: null, indexM: null, indexSlider: 50 }));
+  host.querySelector('[data-index-loglog]')?.addEventListener('click', () =>
+    actions.setPlot({ xLog: true, yLog: true }));
+  host.querySelector('[data-index-axes]')?.addEventListener('click', () =>
+    actions.setPlot({ x: 'density', y: index.numerator, xLog: true, yLog: true, indexM: null, indexSlider: 50 }));
 
   host.querySelector('[data-index-m]')?.addEventListener('input', (ev) => {
     const vals = pts.map((q) => indexValue(q.material, index)).filter((v) => v !== null).sort((a, b) => a - b);
@@ -666,6 +719,12 @@ function wireControls(host, state, actions) {
     actions.setPlot({ [s.dataset.axis]: s.value, indexM: null })));
   host.querySelectorAll('[data-log]').forEach((b) => b.addEventListener('click', () =>
     actions.setPlot({ [`${b.dataset.log}Log`]: b.dataset.on === '1' })));
+  host.querySelector('[data-swap]')?.addEventListener('click', () => {
+    const p = state.scenario.plot;
+    const x = AXIS_DEFS.find((a) => a.key === p.x) ?? AXIS_DEFS[0];
+    const y = AXIS_DEFS.find((a) => a.key === p.y) ?? AXIS_DEFS[1];
+    actions.setPlot({ x: y.key, y: x.key, xLog: !!p.yLog, yLog: !!p.xLog, indexM: null });
+  });
   host.querySelector('[data-detail]')?.addEventListener('change', (e) =>
     actions.setPlot({ detail: e.target.value }));
   host.querySelector('[data-index]')?.addEventListener('change', (e) =>

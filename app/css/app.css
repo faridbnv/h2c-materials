@@ -318,21 +318,64 @@ h3.sec:first-child { margin-top: 0; }
 }
 .banner.assumption { background: var(--unknown-bg); color: var(--unknown); border-color: var(--unknown); }
 
-/* ---------------------------------------------------------------- plot controls */
-.plot-controls { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 10px; }
-.plot-controls .control { min-width: 0; }
-.plot-controls label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+/* ---------------------------------------------------------------- Ashby workspace
+   Three tiers, in the order a reader uses them: what is plotted (the axes, each with its own
+   scale), how it is drawn (points, comparisons, guide line, as three labelled groups of equal
+   weight), then the chart with its guide-line card and reading notes directly beneath it. */
+.ashby-axes {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px;
+  padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.axis-pick { flex: 1 1 400px; min-width: 0; }
+.axis-pick label { display: block; font-size: var(--t-small); font-weight: 600; color: var(--ink-2); margin-bottom: 5px; }
+.axis-row { display: flex; gap: 8px; align-items: stretch; }
+.axis-row select { flex: 1 1 auto; }
+.axis-row .segmented { flex: 0 0 auto; }
+.axis-swap { flex: 0 0 auto; margin-bottom: 1px; padding-block: 7px; }
+
+.ashby-axes select, .ashby-options select {
+  padding: 7px 9px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--bg); color: var(--ink); min-width: 0; width: 100%;
+}
+
+.ashby-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-bottom: 14px; }
+.opt-group {
+  display: flex; flex-direction: column; gap: 6px; min-width: 0;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 10px 12px 12px;
+}
+.opt-group h3 {
+  margin: 0 0 2px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3);
+}
+.opt-help { margin: 0; font-size: var(--t-label); color: var(--ink-3); line-height: 1.45; }
+.opt-check { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: var(--t-small); color: var(--ink); cursor: pointer; }
+.opt-check input { margin: 0; }
+.opt-check:has(input:disabled) { color: var(--ink-3); cursor: default; }
+
+.ashby-notices { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ashby-notices:empty { display: none; }
+.ashby-notices .banner { margin-bottom: 0; }
+.ashby-notices + #plot { margin-top: 8px; }
+
 #plot { width: 100%; height: 560px; }
 
 .legend-note { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
+.legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+#index-card + .legend-note { margin-top: 12px; line-height: 1.55; }
 
 .index-card {
   border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px;
   background: var(--surface); font-size: 13px; margin-top: 12px;
 }
+.index-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .index-card h4 { margin: 0 0 4px; font-size: 13px; }
 .index-card .formula { font-family: var(--mono); font-size: 13px; color: var(--accent); }
 .index-card ul { margin: 8px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 12.5px; }
+.index-move { margin-top: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.index-move label { font-size: 12px; font-weight: 600; }
+.index-move input[type="range"] { flex: 1; min-width: 160px; }
+.index-move .formula { font-size: 12px; }
+.index-of { color: var(--ink-3); font-size: 12px; }
+.index-fix { margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 /* ---------------------------------------------------------------- coverage lens */
 table.cov { border-collapse: collapse; font-size: 12px; }
@@ -592,17 +635,6 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .est-card .est-span { font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; margin: 4px 0; }
 .est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
 .est-card .est-peers { font-size: var(--t-label); color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
-
-/* ---------------------------------------------------------------- plot controls, two tiers */
-.plot-controls.secondary {
-  border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px;
-  align-items: flex-start;
-}
-.plot-controls.secondary { gap: 26px; }
-.plot-controls.secondary .control { width: 300px; flex: 0 0 auto; }
-.plot-controls.secondary select { width: 100%; }
-.control-help { font-size: var(--t-label); color: var(--ink-3); line-height: 1.45; margin-top: 6px; }
-.plot-controls .inline-check { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: var(--t-small); color: var(--ink); }
 
 /* ---------------------------------------------------------------- table bar and new cells */
 .table-bar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 12px; }
