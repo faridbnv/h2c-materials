@@ -48,29 +48,32 @@ snapshot-stamped filename and the validation report are published alongside it:
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The entities, the compiled shape, the three kinds of number |
 | [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the lenses, the words, the visual vocabulary |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them |
-| [docs/UX-AUDIT.md](docs/UX-AUDIT.md) | The audit against a first-time 3D printer user, each finding with its outcome |
+| [docs/audits/](docs/audits/) | Every audit of the tool and the database, each with its report and what was done about it |
 | [docs/background/](docs/background/) | The research inputs this was built from |
 
 ## Layout
 
 ```
-H2C_FDM_Material_Database.xlsx   the frozen authoring source of truth; never written by the build
-generic_materials.xlsx           generic engineering materials, an Ashby baseline only
+data/H2C_FDM_Material_Database.xlsx     the frozen authoring source of truth; never written by the build
+data/Generic_Materials_Reference.xlsx   generic engineering materials, an Ashby baseline only
 
-build/src/                       extract -> normalize -> compile -> validate -> bundle
-build/mappings/                  hand-maintained vocabulary maps, reviewed like code
-build/reports/                   the validation report, regenerated every build
+build/src/                              extract -> normalize -> compile -> validate -> bundle
+build/mappings/                         hand-maintained vocabulary maps, reviewed like code
+build/reports/                          the validation report, regenerated every build
 
-app/js/engine/                   the selection logic. Pure: no DOM, never imports from ui/
-app/js/ui/                       rendering and interaction
-app/js/ui/labels.js              the one vocabulary: what every property and criterion is called
-app/js/main.js                   the only place that holds state
+app/js/engine/                          the selection logic. Pure: no DOM, never imports from ui/
+app/js/ui/                              rendering and interaction
+app/js/ui/labels.js                     the one vocabulary: what every property and criterion is called
+app/js/main.js                          the only place that holds state
 
-test/                            engine, parser and compiled-database tests
-scripts/ensure-db.mjs            compiles the database first if a test run needs it
-.github/workflows/pages.yml      build, test, publish
-dist/                            build output, not committed
-docs/                            this documentation
+test/                                   engine, scenario, template, parser and compiled-database tests
+scripts/ensure-db.mjs                   compiles the database first if a test run needs it
+.github/workflows/pages.yml             build, test, publish
+dist/                                   build output, not committed
+
+docs/                                   how it works and why
+docs/background/                        the research inputs it was built from
+docs/audits/<date>-<subject>/           one folder per audit: the report as delivered, and what was done
 ```
 
 ## What the code enforces

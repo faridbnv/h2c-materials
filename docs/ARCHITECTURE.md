@@ -5,8 +5,8 @@
 Three layers, separated on purpose, each with a rule about what it may not do.
 
 ```
-  H2C_FDM_Material_Database.xlsx        the frozen authoring source of truth
-  generic_materials.xlsx                an Ashby baseline, never a candidate
+  data/H2C_FDM_Material_Database.xlsx     the frozen authoring source of truth
+  data/Generic_Materials_Reference.xlsx   an Ashby baseline, never a candidate
             |
             |   BUILD   node, runs once, deterministic, fails loudly
             |           build/src/

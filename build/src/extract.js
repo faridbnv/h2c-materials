@@ -19,7 +19,7 @@ export const SHEET_HEADER_ROW = {
 
 // Expected row counts for the current snapshot. A drift here means the frozen source moved, and the
 // build refuses to continue until someone confirms the move was intended and updates these. Last
-// moved by the 2026-09-13 manufacturer audit (docs/research/2026-09-13-manufacturer-audit/), which
+// moved by the 2026-09-13 manufacturer audit (docs/audits/2026-09-13-manufacturer-evidence/), which
 // added 4 grades, 4 profiles, 92 properties, 18 use records, 10 sources, 10 coverage rows and 3
 // method rows.
 export const EXPECTED_ROWS = {
@@ -108,7 +108,7 @@ export function extractReference(path) {
       if (line[c] != null && String(line[c]).trim().toLowerCase() === 'name') { nameCol = c; headerRow = r; break; }
     }
   }
-  if (nameCol < 0) throw new Error('generic_materials.xlsx: could not locate the "Name" header cell');
+  if (nameCol < 0) throw new Error('Generic_Materials_Reference.xlsx: could not locate the "Name" header cell');
 
   const categoryCol = nameCol - 2;
   const rows = [];

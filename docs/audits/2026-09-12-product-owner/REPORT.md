@@ -4,7 +4,7 @@ Date: 12 September 2026. Repository commit reviewed: `cd2eabb365118ea87e5cea8696
 
 **Assessment: useful research and comparison foundation, but not ready to be treated as a dependable first-time-user material recommendation flow.** The largest problems are promises that exceed the filters, misleading recovery and status messages, loss of decision context between views, and evidence that becomes less qualified as it moves toward a buying or printing decision.
 
-This is an audit and recommended backlog. **No application, workbook, or existing documentation was changed.** The earlier `docs/UX-AUDIT.md` is historical input, not proof that an issue is fixed.
+This is an audit and recommended backlog. **No application, workbook, or existing documentation was changed.** The earlier `docs/UX-AUDIT.md` (now [docs/audits/2026-09-11-first-time-user/REPORT.md](../2026-09-11-first-time-user/REPORT.md)) is historical input, not proof that an issue is fixed.
 
 ## Reading this report
 
@@ -701,21 +701,21 @@ Paths below are relative to this report. Finding locations use function/section 
 
 | Area | Source |
 |---|---|
-| State, actions, import, share, chrome | [main.js](../../app/js/main.js) |
-| Shell and persistent controls | [index.html](../../app/index.html) |
-| Templates and active query | [templates.js](../../app/js/ui/templates.js), [start.js](../../app/js/ui/start.js) |
-| Filter rendering and handlers | [filters.js](../../app/js/ui/filters.js) |
-| Table, sorting and export | [table.js](../../app/js/ui/table.js) |
-| Shared numbers and labels | [format.js](../../app/js/ui/format.js), [labels.js](../../app/js/ui/labels.js) |
-| Detail tabs and evidence | [detail.js](../../app/js/ui/detail.js) |
-| Compare | [compare.js](../../app/js/ui/compare.js) |
-| Ashby, axis matching and Parallel | [ashby.js](../../app/js/ui/ashby.js), [axes.js](../../app/js/ui/axes.js), [parallel.js](../../app/js/ui/parallel.js) |
-| Coverage and exclusion UI | [heatmap.js](../../app/js/ui/heatmap.js), [explain.js](../../app/js/ui/explain.js) |
-| Evaluation and scenario serialization | [constraints.js](../../app/js/engine/constraints.js), [scenario.js](../../app/js/engine/scenario.js) |
-| Index and coverage calculations | [indices.js](../../app/js/engine/indices.js), [coverage.js](../../app/js/engine/coverage.js) |
-| Data compilation | [compile.js](../../build/src/compile.js) |
-| Responsive layout and print rules | [app.css](../../app/css/app.css) |
-| Historical audit, independently rechecked | [earlier audit](../UX-AUDIT.md) |
+| State, actions, import, share, chrome | [main.js](../../../app/js/main.js) |
+| Shell and persistent controls | [index.html](../../../app/index.html) |
+| Templates and active query | [templates.js](../../../app/js/ui/templates.js), [start.js](../../../app/js/ui/start.js) |
+| Filter rendering and handlers | [filters.js](../../../app/js/ui/filters.js) |
+| Table, sorting and export | [table.js](../../../app/js/ui/table.js) |
+| Shared numbers and labels | [format.js](../../../app/js/ui/format.js), [labels.js](../../../app/js/ui/labels.js) |
+| Detail tabs and evidence | [detail.js](../../../app/js/ui/detail.js) |
+| Compare | [compare.js](../../../app/js/ui/compare.js) |
+| Ashby, axis matching and Parallel | [ashby.js](../../../app/js/ui/ashby.js), [axes.js](../../../app/js/ui/axes.js), [parallel.js](../../../app/js/ui/parallel.js) |
+| Coverage and exclusion UI | [heatmap.js](../../../app/js/ui/heatmap.js), [explain.js](../../../app/js/ui/explain.js) |
+| Evaluation and scenario serialization | [constraints.js](../../../app/js/engine/constraints.js), [scenario.js](../../../app/js/engine/scenario.js) |
+| Index and coverage calculations | [indices.js](../../../app/js/engine/indices.js), [coverage.js](../../../app/js/engine/coverage.js) |
+| Data compilation | [compile.js](../../../build/src/compile.js) |
+| Responsive layout and print rules | [app.css](../../../app/css/app.css) |
+| Historical audit, independently rechecked | [earlier audit](../2026-09-11-first-time-user/REPORT.md) |
 | Template candidate sets and suspicious records | [data-probes.json](data-probes.json) |
 | Fresh in-memory compilation check | [validation-check.json](validation-check.json) |
 | Synthetic failure export for inspection | [sample-export.csv](sample-export.csv) |

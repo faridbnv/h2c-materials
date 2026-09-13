@@ -2,7 +2,7 @@
 
 ## The source workbook
 
-`H2C_FDM_Material_Database.xlsx` is relational, not a flat table, and the tool preserves that. Nine
+`data/H2C_FDM_Material_Database.xlsx` is relational, not a flat table, and the tool preserves that. Nine
 sheets, each an Excel table with declared columns.
 
 | Sheet | Rows | What it holds |

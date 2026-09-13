@@ -33,7 +33,7 @@ export const AXIS_EQUIVALENCE = {
 export function compileReference(path, issues) {
   const rows = extractReference(path);
   const missing = DEFAULT_SELECTION.filter((n) => !rows.some((r) => r.name === n));
-  if (missing.length) issues.push({ level: 'error', where: 'generic_materials.xlsx', message: `Default reference materials not found: ${missing.join(', ')}` });
+  if (missing.length) issues.push({ level: 'error', where: 'Generic_Materials_Reference.xlsx', message: `Default reference materials not found: ${missing.join(', ')}` });
 
   return {
     meta: {

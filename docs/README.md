@@ -10,7 +10,7 @@ Start with [ARCHITECTURE.md](ARCHITECTURE.md) if you are going to change code, o
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, and how much should I trust it? |
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
-| [UX-AUDIT.md](UX-AUDIT.md) | Where did this fail a 3D printer owner who had never seen it, and what happened to each finding? |
+| [audits/](audits/) | Where did this fail its users or its evidence, and what happened to each finding? |
 | [background/](background/) | What was this built from? |
 
 ## Tracing why something is the way it is
@@ -21,8 +21,8 @@ Three places, in the order to try them.
    errors, so the reason usually sits directly above the code.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D31, each saying what would break if it were
    reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[UX-AUDIT.md](UX-AUDIT.md).** 35 findings against a first-time user, each carrying its outcome,
-   and a closing part recording what the audit itself got wrong.
+3. **[audits/](audits/).** Three audits so far, each in its own dated folder: the report as it was
+   delivered, and the outcome of every finding.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
 is the way it is because of what the data can and cannot support, DECISIONS says so. If neither

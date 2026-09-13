@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Deterministic build: H2C_FDM_Material_Database.xlsx -> normalized JSON -> self-contained HTML",
+  "description": "Deterministic build: data/H2C_FDM_Material_Database.xlsx -> normalized JSON -> self-contained HTML",
   "scripts": {
     "build": "node src/index.js",
     "validate": "node src/index.js --validate-only",

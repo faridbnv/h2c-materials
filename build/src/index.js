@@ -32,7 +32,7 @@ const validateOnly = process.argv.includes('--validate-only');
 async function main() {
   const issues = [];
 
-  const wb = extractWorkbook(join(projectRoot, 'H2C_FDM_Material_Database.xlsx'));
+  const wb = extractWorkbook(join(projectRoot, 'data/H2C_FDM_Material_Database.xlsx'));
   const SNAPSHOT = snapshotDate(wb.Method.rows);
   for (const [sheet, expected] of Object.entries(EXPECTED_ROWS)) {
     const got = wb[sheet].rows.length;
@@ -44,7 +44,7 @@ async function main() {
   const { db, issues: compileIssues } = compile(wb, { snapshot: SNAPSHOT, build: BUILD });
   issues.push(...compileIssues);
 
-  const reference = compileReference(join(projectRoot, 'generic_materials.xlsx'), issues);
+  const reference = compileReference(join(projectRoot, 'data/Generic_Materials_Reference.xlsx'), issues);
   issues.push(...validate(db, wb));
 
   const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD });
