@@ -181,14 +181,51 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   L.push('');
   L.push(`Baseline ${db.meta.h2cBaseline.nozzleC} C nozzle, ${db.meta.h2cBaseline.bedC} C bed, ${db.meta.h2cBaseline.chamberC} C chamber.`);
   L.push('');
-  L.push('| Axis | within | exceeds | exceeds (recommendation only) | unknown |');
-  L.push('|---|---:|---:|---:|---:|');
+  L.push('| Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |');
+  L.push('|---|---:|---:|---:|---:|---:|');
   for (const axis of ['nozzle', 'bed', 'chamber']) {
-    const t = { within: 0, exceeds: 0, 'exceeds-recommended': 0, unknown: 0 };
+    const t = { within: 0, partial: 0, exceeds: 0, 'exceeds-recommended': 0, unknown: 0 };
     for (const m of db.materials) t[m.gates[axis].verdict] = (t[m.gates[axis].verdict] ?? 0) + 1;
-    L.push(`| ${axis} | ${t.within} | ${t.exceeds} | ${t['exceeds-recommended']} | ${t.unknown} |`);
+    L.push(`| ${axis} | ${t.within} | ${axis === 'chamber' ? t.partial : 'n/a'} | ${t.exceeds} | ${t['exceeds-recommended']} | ${t.unknown} |`);
   }
   L.push('');
+  L.push('A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.');
+  L.push('Nozzle and bed are read by the upper end of the window.');
+  L.push('');
+
+  // What the chamber evidence is made of. A temperature, a statement in words and an estimate are
+  // three different kinds of answer, and a count that mixed them would overstate what is known.
+  const inScope = db.materials.filter((m) => !m.excluded);
+  const kinds = { numeric: 0, 'not-required': 0, recommended: 0, 'no-setpoint': 0, nothing: 0 };
+  let withEstimate = 0;
+  for (const m of inScope) {
+    const g = m.print?.chamberGuidance?.state;
+    if (m.print?.chamberC) kinds.numeric++;
+    else if (g) kinds[g]++;
+    else kinds.nothing++;
+    if (m.print?.chamberEstimate) withEstimate++;
+  }
+  L.push('## Chamber evidence');
+  L.push('');
+  L.push(`What the ${inScope.length} in-scope materials publish about the chamber, strongest kind first. A statement`);
+  L.push('in words is manufacturer evidence but never a temperature. An estimated band is inference from');
+  L.push('build/mappings/chamber-estimates.json; it is shown beside the chamber question and changes no verdict.');
+  L.push('');
+  L.push('| Kind | Materials |');
+  L.push('|---|---:|');
+  L.push(`| Published temperature window | ${kinds.numeric} |`);
+  L.push(`| No heated chamber needed, in words | ${kinds['not-required']} |`);
+  L.push(`| Chamber recommended, no temperature | ${kinds.recommended} |`);
+  L.push(`| Data sheet lists no setpoint | ${kinds['no-setpoint']} |`);
+  L.push(`| Nothing published | ${kinds.nothing} |`);
+  L.push(`| Carrying an estimated band (any of the last three) | ${withEstimate} |`);
+  L.push('');
+  const sup = db.meta.chamberEstimates?.superseded ?? [];
+  if (sup.length) {
+    L.push(`${sup.length} research bands are superseded by evidence and not used: `
+      + sup.map((x) => `${x.material} (${x.band}; ${x.reason})`).join(', ') + '.');
+    L.push('');
+  }
 
   L.push('## Environment evidence');
   L.push('');

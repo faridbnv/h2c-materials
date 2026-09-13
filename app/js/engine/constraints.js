@@ -240,6 +240,9 @@ function evaluateGate(material, c) {
     case 'exceeds': return { status: STATUS.FAIL, criterion: label, reason: g.reason };
     // A recommendation is not a requirement, so it never removes a candidate on its own.
     case 'exceeds-recommended': return { status: STATUS.INDETERMINATE, criterion: label, reason: g.reason };
+    // Part of a published chamber window is reachable and part is not. The source cannot settle
+    // whether the reachable part is enough, which is exactly what INDETERMINATE means.
+    case 'partial': return { status: STATUS.INDETERMINATE, criterion: label, reason: g.reason };
     default: return { status: STATUS.UNKNOWN, criterion: label, reason: g.reason };
   }
 }

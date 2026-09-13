@@ -14,7 +14,7 @@ by anything here.
 ## D2. Headline values are verified, never recomputed
 
 The Materials sheet already cites the MeasurementID behind each headline. The build checks the
-number equals its citation rather than deriving a headline itself. All 349 reconcile. A price
+number equals its citation rather than deriving a headline itself. All 369 reconcile. A price
 headline must also cite only the observations its median was built from.
 
 This converts a class of judgement calls into build errors. Corrupting one density cell produces a
@@ -35,7 +35,8 @@ measured this", which sends the reader looking for the wrong thing.
 ## D5. Evidence outranks silence in gate aggregation
 
 A material's process gate aggregates across its profiles with precedence
-`within > exceeds-recommended > exceeds > unknown`.
+`within > partial > exceeds-recommended > exceeds > unknown`. `partial` exists for the chamber only
+(D32).
 
 PEEK publishes two profiles demanding 390–430 and 400–480 °C against the printer's 350 °C, plus one
 that publishes nothing. Letting the silent profile decide reported PEEK as "unknown" and discarded
@@ -52,8 +53,8 @@ it would hide a real caveat. It returns `exceeds-recommended`, which warns witho
 ## D7. Only gates that can discriminate become filters
 
 Section 8.2A of the brief lists eleven process gates and says they should come first. The Print setup
-sheet does not support that: routing and AMS read "verify the exact grade" on 133 of 160 profiles,
-enclosure is unpublished on 146, difficulty on all 160.
+sheet does not support that: routing and AMS read "verify the exact grade" on 140 of 167 profiles,
+enclosure is unpublished on 148, difficulty on all 167.
 
 Five gates ship: scope, H2C status, the three parsed temperatures against the baseline, plus
 abrasion and drying. The rest appear as evidence in a material's Printing tab. A filter that passes
@@ -313,6 +314,62 @@ A price headline must cite only observations in its headline sample. When CA0069
 ABS median moved to 25.99, but the Materials row still cited CA0069 and still said "2 observations",
 and the build did not notice because it checked only the value. It checks the citation now.
 
+## D32. A chamber window the printer only partly reaches is partial, and only the chamber has one
+
+A process window was read by its upper end, because the question is whether a material needs more
+than the printer gives. For a chamber that failed materials whose own window starts below 65 °C:
+ABS-CF publishes 50–70 °C, 50–65 °C of it is reachable, and it failed the chamber criterion outright.
+Bambu PPS-CF publishes 60–90 °C and would have failed the same way once its window was recovered.
+
+Such a window is now `partial`, which the engine reports as INDETERMINATE. It is not `within`: most of
+the window is out of reach, and Bambu says the upper part improves Z strength. It is not a failure
+either, because a setting inside the manufacturer's own window is available.
+
+Nozzle and bed keep the upper-end rule. There the bottom of a window sits at the hardware's rated
+maximum, 350 °C or 120 °C, which is not a margin anyone should run at by default, and the six
+out-of-scope materials trip the gate on exactly those rows: PEKK's nozzle is 345–375 °C, PSU's
+350–380 °C. Applying `partial` everywhere would turn three of those exclusions into caveats.
+
+## D33. "Enclosure not needed" clears the chamber; "enclosure recommended" does not
+
+Five Spectrum data sheets answer the chamber question only in their enclosure row. A material that
+does not need to be enclosed does not need a heated chamber, so "not necessary" clears the chamber
+gate, and the Printing tab says the answer was read from the enclosure row.
+
+The reverse inference is not made. An enclosure being recommended says nothing about whether 65 °C is
+enough, and an enclosure is not an actively heated chamber, so it leaves the chamber unknown. The same
+goes for "Recommended" with no number in the chamber row, and for a data sheet that prints "-", which
+is its own state: not zero, and not "not required".
+
+## D34. An estimated chamber band decides nothing
+
+The 2026-09-13 research proposed chamber bands for materials that publish no chamber temperature.
+They are kept, in `build/mappings/chamber-estimates.json`, and shown marked †, but unlike a family
+estimate (D10) a band cannot even rule a material out.
+
+A family estimate is a span of verified measurements of the same property. A chamber band is a
+researcher's judgement of a plausible setpoint, and a setpoint is at most a recommendation, which
+never removes a candidate (D6). The evidence agrees: of the bands that met a real value, Support for
+PA/PET publishes 45–60 °C against a band of 20–45, and PPA-CF 50–80 °C against 80–120. A band that
+excluded PPA-CF would have excluded a material whose own data sheet says it partly fits.
+
+A band is attached only where no source publishes a window and none says no heated chamber is needed.
+The superseded bands are listed in the validation report, so a reader can see which inferences the
+evidence has already overtaken.
+
+## D35. A research report is re-read against its sources, never transcribed
+
+The 2026-09-13 research was careful, and still wrong in four places that mattered: it said the Bambu
+PPA-CF data sheet had no chamber range (it has 50–80 °C), that PET-GF15 recommends a chamber (its data
+sheet says room temperature), that PLA-Lite's HDT was at 0.45 MPa (no load is stated), and it did not
+mention that the PET-GF15 mechanical specimens were annealed. It also missed that the three chamber
+windows it recovered were three of fourteen, all dropped at the same page break.
+
+So nothing enters the workbook from a report. Each value is re-read from its source, each fetched
+file's SHA-256 is recorded, and a source that cannot be retrieved contributes nothing, however
+plausible the value attributed to it. The edit is a script with a changelog, and it refuses to run on
+any workbook but the one it was written against.
+
 ---
 
 # Bugs worth remembering
@@ -343,4 +400,6 @@ answers rather than failing.
 | Invalid scenario committed before rendering | `{"constraints":null}` replaced the session and then threw | `scenario.test.js` |
 | `location.origin` on a file | Is the string "null", so every link copied from a local file was unusable | visual |
 | Compare evidence dots | Rendered by the shared value renderer and never wired, so the dot did nothing exactly where a difference needed checking | visual |
+| Chamber rows dropped at a page break | Fourteen Bambu data sheets carry a chamber window as the first row of page 2, and none was transcribed, so PC FR, PAHT-CF and every Bambu PLA and PETG reported "no chamber requirement published" | `database.test.js` |
+| A chamber window read by its upper end | ABS-CF's 50–70 °C failed the chamber criterion, though 50–65 °C is reachable | `normalize.test.js` |
 | Hardcoded rail counts | "45 of 102 state an abrasion requirement" counted profiles, not materials; the true figure is 27 | derived from data now |

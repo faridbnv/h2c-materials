@@ -38,7 +38,7 @@ const MISSING_LABEL = {
 /**
  * Render a headline entry with its provenance and an evidence affordance.
  *
- * Where there is no headline but related measurements exist, show them. 30 materials have a
+ * Where there is no headline but related measurements exist, show them. 31 materials have a
  * tensile-strength measurement that never became the headline because the source stated no
  * direction or a different endpoint. A blank cell hid that and implied nothing was known.
  */

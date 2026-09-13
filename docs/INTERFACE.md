@@ -6,7 +6,7 @@ Two readers share one screen: someone who wants a shortlist, and an engineer who
 behind it. Progressive disclosure answers that.
 
 This dataset adds a harder problem. It is sparse, and deliberately honest about being sparse.
-Tensile strength exists for 52 of 102 materials, price for 40, and most process fields for almost
+Tensile strength exists for 57 of 102 materials, price for 40, and most process fields for almost
 none. A conventional filter interface renders that as a tool that looks broken. **Making absence
 legible and useful, rather than invisible, is the design problem.** Most of what follows is
 downstream of it.
@@ -54,6 +54,22 @@ The table offers two column sets. **Properties** answers which material is right
 answers whether the machine can run it and what to set, with nozzle, bed and chamber windows and
 what else the job needs. The second existed only in the drawer before, one tab deep.
 
+The Chamber column has more kinds of answer than the other two, and shows each as what it is:
+
+| Cell | Means |
+|---|---|
+| `45–60` | A published window |
+| `not required` | A source says no heated chamber is needed, in the chamber row or by saying an enclosure is not necessary |
+| `recommended` | A source recommends a heated chamber and gives no temperature |
+| `no setpoint` | The data sheet prints "-". Not zero, and not "not required" |
+| `~80–120†` | The 2026-09-13 research's estimated band, shown while estimates are on. Not a setting, and it changes no result |
+| `—` | Nothing published |
+
+A word never becomes a number, and a band never sits beside a published window. In the drawer the
+same answers appear under "Can the H2C print it?": a window the chamber only partly reaches reads
+**Partly** and says which part is reachable, a statement in words is quoted, and a band gets its own
+card with the basis and caution the research wrote.
+
 ## The filter rail
 
 Groups are ordered by how often a criterion actually decides something: mechanical and thermal lead,
@@ -63,16 +79,16 @@ first made the whole rail look like it did nothing.
 **Every numeric control states its own data availability before it is touched.**
 
 ```
-HDT at 0.45 MPa                          66 of 102 have data
+HDT at 0.45 MPa                          69 of 102 have data
 [>=] [ 100 ] °C
-     24 of those 66 cite a source that states the standard but not the load
+     25 of those 69 cite a source that states the standard but not the load
 ```
 
 This single pattern does most of the work. It says what a criterion can and cannot decide before
 anyone relies on it, and it turns the build's audit findings into everyday guidance.
 
 **A field that cannot discriminate is not built as a filter.** H2C routing and AMS read "verify the
-exact grade" on 133 of 160 profiles, and printing difficulty is unpublished on all 160. They appear
+exact grade" on 140 of 167 profiles, and printing difficulty is unpublished on all 167. They appear
 in a material's Printing tab as evidence. A filter that passes everything teaches the reader to
 trust something that checked nothing.
 
@@ -84,6 +100,10 @@ The nozzle question is asked as the hardware you lack, **"I don't have a hardene
 one removes nothing, so there is nothing to ask. The criterion fails materials a source says need a
 hardened nozzle, holds fibre-filled materials with no guidance as unresolved, and passes the rest
 with a reason that says no requirement was recorded, which is not proof of being safe for brass.
+
+The chamber check counts its two kinds of answer apart: how many materials publish a chamber
+temperature, how many more say no heated chamber is needed, and, as a caveat, how many publish a
+window the H2C only partly reaches, which stay unresolved rather than passing.
 
 **In the H2C research scope** is what the pinned checkbox says, because that is all it reads. It
 used to say "Printable on an H2C", a promise about temperatures and feed paths it never tested.

@@ -6,7 +6,7 @@
 // is pinned here with a comment explaining the failure it prevents.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseTemperature, withinH2C, parseNozzleDiameters, parseDrying, parseAbrasion, REQUIREMENT, PROCESS_STATE, H2C_BASELINE }
+import { parseTemperature, withinH2C, parseNozzleDiameters, parseDrying, parseAbrasion, parseEnclosure, REQUIREMENT, PROCESS_STATE, H2C_BASELINE }
   from '../build/src/normalize/process.js';
 import { parseHdtStandard } from '../build/src/normalize/thermal.js';
 import { normalizeDirection, DIRECTION, directionsComparable } from '../build/src/normalize/direction.js';
@@ -45,6 +45,40 @@ test('a recommendation is not a requirement', () => {
   const req = parseTemperature('90- 150 °C', { plausible: [0, 200] });
   assert.equal(req.requirement, REQUIREMENT.REQUIRED);
   assert.equal(withinH2C(req, 65).verdict, 'exceeds');
+});
+
+// Regression: read by its upper end alone, a chamber window that starts below 65 °C failed outright.
+// Only the chamber gets a partial verdict; nozzle and bed keep the upper-end rule.
+test('a chamber window the printer partly reaches is partial, only when asked for', () => {
+  const w = parseTemperature('60 - 90 °C', { plausible: [0, 200] });
+  const partial = withinH2C(w, 65, { partialWindow: true });
+  assert.equal(partial.verdict, 'partial');
+  assert.deepEqual(partial.reachable, { min: 60, max: 65 });
+  assert.equal(withinH2C(w, 65).verdict, 'exceeds');
+  assert.equal(withinH2C(parseTemperature('70-140C', { plausible: [0, 200] }), 65, { partialWindow: true }).verdict, 'exceeds');
+  const rec = withinH2C(parseTemperature('Recommended, up to 50-90°C if available', { plausible: [0, 200] }), 65, { partialWindow: true });
+  assert.equal(rec.verdict, 'partial');
+  assert.match(rec.reason, /^Recommends/);
+});
+
+test('"no setpoint" and "recommended" are statements, not temperatures', () => {
+  const none = parseTemperature("No setpoint published ('-' in TDS)", { plausible: [0, 200] });
+  assert.equal(none.state, PROCESS_STATE.NO_SETPOINT);
+  assert.equal(none.max, null);
+  assert.equal(withinH2C(none, 65).verdict, 'unknown');
+  assert.ok(!none.unparsed);
+  assert.equal(withinH2C(parseTemperature('Recommended', { plausible: [0, 200] }), 65).verdict, 'unknown');
+  assert.equal(withinH2C(parseTemperature('Not required (enclosure not needed)', { plausible: [0, 200] }), 65).verdict, 'within');
+});
+
+test('enclosure wording separates "not needed" from "recommended"', () => {
+  for (const t of ['not necessary', 'for printing not necessary', 'Not needed', 'No enclosure needed']) {
+    assert.equal(parseEnclosure(t).state, 'not-needed', t);
+  }
+  for (const t of ['recommended for larger prints', 'recommended', 'Yes', 'active heated (60-80°C)']) {
+    assert.equal(parseEnclosure(t).state, 'recommended', t);
+  }
+  assert.equal(parseEnclosure('Not published').state, 'unknown');
 });
 
 test('ambient as the lower end of a stated range, and "up to"', () => {

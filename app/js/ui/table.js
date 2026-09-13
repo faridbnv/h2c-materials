@@ -8,7 +8,7 @@
 // the 104 purchase links in the data were rendered nowhere at all.
 
 import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
-import { prop, materialName, describeConstraint } from './labels.js';
+import { prop, materialName, describeConstraint, CHAMBER_GUIDANCE } from './labels.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -132,6 +132,16 @@ export function renderTable(host, state, actions) {
       }
       if (c.kind === 'print') {
         const r = m.print?.[c.key];
+        // The chamber is often answered in words: "not required", "recommended", or a data sheet's
+        // "-". Those are evidence and are shown as words, never as a number. An estimated band, where
+        // one exists, is marked the way every other estimate is and only while estimates are on.
+        if (!r && c.key === 'chamberC' && (m.print?.chamberGuidance || m.print?.chamberEstimate)) {
+          const g = m.print.chamberGuidance && CHAMBER_GUIDANCE[m.print.chamberGuidance.state];
+          const e = state.ctx?.useEstimates ? m.print.chamberEstimate : null;
+          const word = g ? `<span class="missing" title="${esc(g.title)}">${esc(g.word)}</span>` : '';
+          const band = e ? `<span class="est" title="${esc(`Estimated, not published: ${e.basis}. Not a print setting, and it changes no result.`)}">~${fmtNumber(e.lo)}\u2013${fmtNumber(e.hi)}<span class="est-mark">\u2020</span></span>` : '';
+          if (word || band) return `<td class="num">${word}${word && band ? '<br>' : ''}${band}</td>`;
+        }
         if (!r) return `<td class="num"><span class="missing dash" title="No ${esc(c.label.toLowerCase())} temperature published for this material">\u2014</span></td>`;
         // A range across every recorded profile, not one setting to dial in. The drawer's Printing
         // tab has each profile on its own.
@@ -307,10 +317,11 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     return out;
   }).join(' | ');
   const ids = (m) => KEYS.map((k) => m.headline[k]?.measurementId).filter(Boolean).join(' ');
-  const estimated = (m) => Object.entries(m.headline)
+  const estimated = (m) => [...Object.entries(m.headline)
     .filter(([, h]) => h && !h.known && h.estimate)
-    .map(([k, h]) => `${k} ~${h.estimate.lo}-${h.estimate.hi} (${h.estimate.basis}, n=${h.estimate.peerCount})`)
-    .join(' | ');
+    .map(([k, h]) => `${k} ~${h.estimate.lo}-${h.estimate.hi} (${h.estimate.basis}, n=${h.estimate.peerCount})`),
+    ...(m.print?.chamberEstimate ? [`chamber ~${m.print.chamberEstimate.lo}-${m.print.chamberEstimate.hi} C (research band: ${m.print.chamberEstimate.basis}; decides nothing)`] : []),
+  ].join(' | ');
   const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}`).join(' | ');
   const range = (r) => (r ? `${r.min}-${r.max}` : '');
 
@@ -335,7 +346,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
       why(e.failed), why(e.unresolved),
       ...KEYS.map((k) => val(m, k)),
       qualifiers(m), ids(m),
-      range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC),
+      range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC) || (m.print?.chamberGuidance ? CHAMBER_GUIDANCE[m.print.chamberGuidance.state]?.word ?? '' : ''),
       m.gates.abrasive === 'requires-hardened' ? 'required' : m.gates.abrasive === 'no-special-concern' ? 'not needed' : 'not recorded',
       m.gates.drying === 'required' ? 'published' : 'not recorded',
       m.buy?.url ?? '',

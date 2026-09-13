@@ -73,6 +73,13 @@ test('a chamber recommendation does not fail a candidate', () => {
   assert.equal(evaluateConstraint(recommended, { kind: 'gate', gate: 'chamber' }).status, STATUS.INDETERMINATE);
 });
 
+// A window the chamber only partly reaches is not a failure and not a pass: the source cannot say
+// whether the reachable part is enough.
+test('a partly reachable chamber window is unresolved', () => {
+  const partial = { id: 'C', gates: { chamber: { verdict: 'partial', reason: 'r' } } };
+  assert.equal(evaluateConstraint(partial, { kind: 'gate', gate: 'chamber' }).status, STATUS.INDETERMINATE);
+});
+
 test('an indicator environment category never manufactures a PASS', () => {
   const ctx = { db: { meta: { environmentCategories: { 'uv-outdoor': { kind: 'indicator', usable: 0 } } } } };
   const r = evaluateConstraint({ id: 'M1' }, { kind: 'environment', category: 'uv-outdoor' }, ctx);

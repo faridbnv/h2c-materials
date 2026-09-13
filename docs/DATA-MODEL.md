@@ -8,17 +8,18 @@ sheets, each an Excel table with declared columns.
 | Sheet | Rows | What it holds |
 |---|---:|---|
 | Materials | 102 | Canonical identities and headline observations |
-| Grades | 140 | Exact commercial formulations, tied to materials |
-| Print setup | 160 | Processing guidance and H2C routing, per grade |
-| Properties | 1,899 | Individual property measurements, the unit of quantitative evidence |
+| Grades | 144 | Exact commercial formulations, tied to materials |
+| Print setup | 167 | Processing guidance and H2C routing, per grade |
+| Properties | 1,966 | Individual property measurements, the unit of quantitative evidence |
 | Use & durability | 380 | Chemical, environmental and application evidence |
 | Prices CA | 104 | Canadian price observations |
-| Sources | 224 | The source register, with access dates and hashes |
-| Coverage | 1,116 | Gaps, conflicts and unresolved items |
-| Method | 42 | The rules the database was built under |
+| Sources | 235 | The source register, with access dates and hashes |
+| Coverage | 1,146 | Gaps, conflicts and unresolved items |
+| Method | 44 | The rules the database was built under |
 
 Counts are for snapshot 2026-09-13, after the manufacturer evidence audit in
-[audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/). The build
+[audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/) and the
+missing-data research in [audits/2026-09-13-missing-data-research/](audits/2026-09-13-missing-data-research/). The build
 holds these numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
 changed workbook is always a deliberate, reviewed change to the tool.
 
@@ -40,16 +41,17 @@ code cites it by section, and it is compiled into `db.json` so the application c
 
 ```
 meta         snapshot, build, price sampling date, counts, H2C baseline, coverage
-             summaries, environment category names and what each can decide
+             summaries, environment category names and what each can decide,
+             which chamber bands were used and which the evidence superseded
 materials    102   the selection-level object
-grades       140   materials 1 -- N grades
-measurements 1899  materials 1 -- N, grades 1 -- N, sources N -- 1
-profiles     160   print setup, with parsed temperatures and gate verdicts
+grades       144   materials 1 -- N grades
+measurements 1966  materials 1 -- N, grades 1 -- N, sources N -- 1
+profiles     167   print setup, with parsed temperatures, enclosure wording and gate verdicts
 evidence     380   use and durability, classified
 prices       104   quarantined observations kept as an audit trail, backing nothing
-sources      224
-coverage     1116  terminal: reports gaps, never feeds selection
-method        42   the rules, verbatim
+sources      235
+coverage     1146  terminal: reports gaps, never feeds selection
+method        44   the rules, verbatim
 ```
 
 ### A material
@@ -64,7 +66,9 @@ method        42   the rules, verbatim
   measurementConditions,         // how the headline numbers were measured
   facets: { reinforcement, esd, flexible, supportMaterial, flameRetardant },
   gates:  { scope, nozzle, bed, chamber, abrasive, drying },
-  print:  { nozzleC, bedC, chamberC },   // the widest published window across its profiles
+  print:  { nozzleC, bedC, chamberC,     // the widest published window across its profiles
+            chamberGuidance,             // what a source says about the chamber in words, or null
+            chamberEstimate },           // a research band where nothing better exists; decides nothing
   buy:    { … } | null,                  // the best sampled Canadian offer
   profileIds: [], evidenceIds: {...}, printingEvidence, guidance,
   printability, identity, bestUses, limitations, impactNote, fatigueCreep
@@ -72,8 +76,9 @@ method        42   the rules, verbatim
 ```
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
-every profile that published one, with the count behind it. 88 materials have a nozzle window and
-90 a bed window; the rest published none and render as a dash rather than as zero.
+every profile that published one, with the count behind it. 95 materials have a nozzle window, 96 a
+bed window and 59 a chamber window; the rest published none and render as a dash rather than as zero,
+except where a source answered the chamber question in words (below).
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
 in stock first, then the observation behind the headline, then whatever carries a price. 48 of 102
@@ -131,7 +136,7 @@ and only the first is evidence.
 
 ### Related evidence
 
-29 materials have a tensile-strength measurement on record that never became the headline, because
+31 materials have a tensile-strength measurement on record that never became the headline, because
 the source stated no direction, or measured a different endpoint. A blank cell hid that and implied
 nothing was known.
 
@@ -139,6 +144,9 @@ It reports **one** measurement, never a range across grades. The Method sheet's 
 Materials sheet shows labelled single-grade observations and not cross-grade family ranges. PEBA is
 the case that forced it: its three grades measure 7.5, 25 and 30 MPa, and "7.5 to 30" reads as one
 material's uncertainty rather than three different products.
+
+A value the source itself marks as raw-material supplier data, such as nGen's density and HDT,
+is related evidence and says so. It is not a printed or product specimen, whatever its standard.
 
 There is deliberately **no cross-property fallback**. An earlier version fell back to Vicat or glass
 transition when a material had no HDT, which surfaced TPE's glass transition of −35 °C in a column
@@ -192,6 +200,36 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 
 Strict mode sees none of this. Estimates exist only in Explore, and only while the Estimates toggle
 is on.
+
+A chamber band is marked the same way, `~80–120†` in the Printing table while estimates are on and as
+a card in the drawer's chamber line, but it has no row in the Filter line above: it rules nothing out
+and nothing in. It appears in the CSV's estimated-fields column with "decides nothing" beside it.
+
+## Chamber evidence
+
+The chamber question has three kinds of answer, and only the first is a temperature.
+
+| Kind | Example | Compiled as | Chamber gate |
+|---|---|---|---|
+| A published window | Bambu PC FR, 45–60 °C | `print.chamberC` | within, **partial** where only the bottom of the window is reachable, or exceeds |
+| A statement in words | "Not required", "enclosure not necessary", "Recommended", a data sheet's "-" | `print.chamberGuidance`: `not-required`, `recommended` or `no-setpoint` | within for `not-required`; unknown for the other two |
+| An estimated band | PPA, ~80–120 °C† | `print.chamberEstimate` | **none**: a band changes no verdict |
+
+Of the 96 in-scope materials, 55 publish a window, 20 say no heated chamber is needed, 3 recommend
+one without a temperature, 1 lists no setpoint and 17 publish nothing. 20 carry a band.
+
+A **partial** window (DECISIONS D32) is chamber-only. PPS-CF publishes 60–90 °C; the H2C reaches 60–65 °C
+of it, which is neither within nor a failure, so a chamber requirement reports INDETERMINATE.
+
+"Enclosure not necessary" counts as not required, because a material that need not be enclosed needs
+no heated chamber. "Enclosure recommended" does not count as anything (D33). A data sheet's "-" is its
+own state: not zero, and not "not required".
+
+**Bands** come from the 2026-09-13 research, authored in `build/mappings/chamber-estimates.json` with
+the basis and caution the research wrote. A band is attached only where no window is published and
+no source says no heated chamber is needed; the validation report lists the 22 the evidence
+superseded. Unlike a family estimate a band cannot rule a material out either (D34): it describes a
+plausible setpoint, and a setpoint is a recommendation at most.
 
 ## Missing data is information
 
@@ -256,11 +294,14 @@ they can buy wants. In Explore the unsampled ones stay visible and flagged.
 
 Carried as warnings in `build/reports/validation-report.md`, and surfaced in the interface:
 
-- 24 of 66 HDT headlines cite a source naming the standard but not the load.
-- 8 impact measurements are in J/m and cannot share an axis with the kJ/m² rows without specimen
+- 25 of 69 HDT headlines cite a source naming the standard but not the load.
+- 9 impact measurements are in J/m and cannot share an axis with the kJ/m² rows without specimen
   geometry the sources never published.
-- 11 materials have no property measurements at all. Support for PLA left that list when the
-  manufacturer audit recorded its density.
+- 5 materials have no property measurements at all: PA66, PA66-CF, PA612, PA612-GF and POM. None has
+  a defensible exact commercial grade. PLA Lite, PLA Silk, PET-GF, CPE, CoPE and nGen left the list
+  with the missing-data research.
+- PLA Lite and PLA Silk carry third-party technical grade samples, not the original products their
+  entries were opened for. Their grade rationale says so.
 - A property the source states in words, such as "No break" for a Charpy test, has the data status
   "Published qualitative result". It is shown in its own words and is never a number.
 - UV and outdoor evidence is seven records across six materials, none reducible to a verdict, so it is

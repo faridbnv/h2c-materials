@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 77 engine, parser, search, scenario, template and database tests
+npm test                       # 96 engine, parser, search, scenario, template and database tests
 npm run validate               # validate only, no bundle
 ```
 
@@ -78,11 +78,11 @@ docs/audits/<date>-<subject>/           one folder per audit: the report as deli
 
 ## What the code enforces
 
-These come from the workbook's own Method sheet and the architecture brief. They are not stylistic
+These come from the workbook's own Method sheet, the architecture brief and the audits. They are not stylistic
 preferences: changing one changes what the tool asserts.
 
 1. **Headline values are verified, never recomputed.** The workbook already cites the measurement
-   behind each headline; the build checks the number matches. All 349 reconcile, and a mismatch
+   behind each headline; the build checks the number matches. All 369 reconcile, and a mismatch
    fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
@@ -93,7 +93,7 @@ preferences: changing one changes what the tool asserts.
 5. **XY and Z never merge**, and an unstated direction is not XY.
 6. **Impact in J/m is never converted to kJ/m²** without specimen geometry.
 7. **Quarantined measurements stay out of every numeric summary.**
-8. **A load that was never stated is never assumed.** 24 of 66 HDT headlines are in that position
+8. **A load that was never stated is never assumed.** 25 of 69 HDT headlines are in that position
    and say so.
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
@@ -106,6 +106,13 @@ preferences: changing one changes what the tool asserts.
     FAIL when nobody listed it.
 14. **One name per thing.** Every property and every criterion is named by `app/js/ui/labels.js`,
     so no screen can print an internal key while the screen beside it reads plainly.
+15. **A chamber answered in words stays words.** "Not required", "recommended" and a data sheet's "-"
+    are manufacturer evidence and never become a temperature. A chamber window the H2C only partly
+    reaches is partial, never within.
+16. **An estimated chamber band decides nothing.** The research's bands are shown, marked, only where
+    no source says anything better, and they can neither clear nor fail a material.
+17. **Nothing enters the workbook from a report.** Every value is re-read from its source and the
+    source's SHA-256 recorded; a source that cannot be retrieved contributes nothing.
 
 ## Three kinds of number
 
@@ -120,7 +127,8 @@ Only the first is evidence. The interface renders them differently on purpose.
 Estimates exist because in Explore mode a material with no mechanical data answered UNKNOWN to every
 mechanical criterion, so PLA Lite survived a search for "elongation at least 100%" and sat among the
 elastomers. Knowing that all fourteen measured unreinforced PLA grades fall between 2.8 and 15.3% is
-enough to rule it out, without pretending to know its value. See
+enough to rule it out, without pretending to know its value. (PLA Lite has since been measured, at
+3.89%.) See
 [docs/DATA-MODEL.md](docs/DATA-MODEL.md#three-kinds-of-number).
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
@@ -132,6 +140,8 @@ because the words Strict and Explore told a first-time reader nothing about what
 350 °C nozzle, 120 °C bed, 65 °C active chamber, from the Method sheet. The build parses each
 profile's published requirement and compares it against this envelope. All six materials the
 database marks as out of scope trip that gate independently, on their own published requirements.
+A chamber window that starts inside the envelope and ends above it, such as Bambu PPS-CF's 60–90 °C,
+is reported as partly reachable rather than as a failure.
 
 ## The validation report
 

@@ -7,7 +7,7 @@
 
 import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { renderWhy } from './explain.js';
-import { materialName } from './labels.js';
+import { materialName, gateVerdict, CHAMBER_GUIDANCE } from './labels.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
 /** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
@@ -208,14 +208,25 @@ function tabBody(tab, c) {
 
     // The section that answers "can I print this" now also answers "what do I set it to". The
     // numbers were one tab away, which is one tab too many for the first question anyone asks.
-    const gateLine = (g, label, window) => {
+    const gateLine = (g, label, window, extra = '') => {
       if (!g) return '';
-      const word = { within: 'Yes', exceeds: 'No', 'exceeds-recommended': 'Yes, with a caveat', unknown: 'Not recorded' }[g.verdict];
-      const cls = { within: 'PASS', exceeds: 'FAIL', 'exceeds-recommended': 'INDETERMINATE', unknown: 'UNKNOWN' }[g.verdict];
-      return `<div class="fact"><span class="chip chip-${cls}">${esc(word)}</span>
+      const { state, word } = gateVerdict(g.verdict);
+      return `<div class="fact"><span class="chip chip-${state}">${esc(word)}</span>
         <div><b>${esc(label)}</b>${window ? ` <span class="set-to" title="Across the recorded profiles. The Printing tab has each one.">recorded ${esc(window)}</span>` : ''}
-          <br><span class="fact-why">${esc(g.reason)}</span></div></div>`;
+          <br><span class="fact-why">${esc(g.reason)}</span>${extra}</div></div>`;
     };
+    // The chamber can be answered three ways: a temperature, a statement in words, or neither. An
+    // estimated band is shown only in the third and second cases, and never changes the verdict.
+    const guidance = m.print?.chamberGuidance;
+    const est = m.print?.chamberEstimate;
+    const chamberExtra = `${!m.print?.chamberC && guidance
+        ? `<br><span class="fact-why">In words: ${esc(CHAMBER_GUIDANCE[guidance.state]?.title ?? guidance.label)}</span>` : ''}${est
+        ? `<div class="est-card"><h4>Chamber: estimated, not published</h4>
+            <div class="est-span">${fmtNumber(est.lo)} \u2013 ${fmtNumber(est.hi)} ${esc(est.unit)}</div>
+            <div class="est-basis">No source publishes a chamber temperature for this material. The 2026-09-13
+              research places it in this band, based on ${esc(est.basis)}. It is not a print setting, and it
+              changes no result: a band can neither clear nor fail the chamber question.${est.caution ? ` ${esc(est.caution)}` : ''}</div>
+          </div>` : ''}`;
 
     const printable = m.excluded
       ? `<div class="callout bad"><b>Outside the printer's envelope.</b> This material is in the
@@ -250,7 +261,7 @@ function tabBody(tab, c) {
       <div class="facts-list">
         ${gateLine(m.gates.nozzle, 'Nozzle temperature', range(m.print?.nozzleC))}
         ${gateLine(m.gates.bed, 'Bed temperature', range(m.print?.bedC))}
-        ${gateLine(m.gates.chamber, 'Chamber temperature', range(m.print?.chamberC))}
+        ${gateLine(m.gates.chamber, 'Chamber temperature', range(m.print?.chamberC), chamberExtra)}
         <div class="fact">
           ${m.gates.abrasive === 'requires-hardened'
             // A requirement is not an ambiguity. The half-filled marker meant "we are not sure"
@@ -319,6 +330,7 @@ function tabBody(tab, c) {
         <dt>Nozzle</dt><dd>${esc(p.nozzle.text)} ${gateChip(p.gates.nozzle)}</dd>
         <dt>Bed</dt><dd>${esc(p.bed.text)} ${gateChip(p.gates.bed)}</dd>
         <dt>Chamber</dt><dd>${esc(p.chamber.text)} ${gateChip(p.gates.chamber)}
+          ${p.chamber.fromEnclosure ? `<br><span class="missing" style="font-size:11px">Read from the enclosure row: "${esc(p.enclosure)}". Not needing an enclosure means not needing a heated chamber.</span>` : ''}
           ${p.chamber.strippedTail ? `<br><span class="missing" style="font-size:11px">Trailing text not read as a chamber requirement: ${esc(p.chamber.strippedTail)}</span>` : ''}</dd>
         <dt>Nozzle material</dt><dd>${esc(p.nozzleMaterial ?? '')}</dd>
         <dt>Nozzle diameter</dt><dd>${esc(p.nozzleDiameter.text)}</dd>
@@ -358,7 +370,7 @@ function tabBody(tab, c) {
   if (tab === 'Grades') {
     if (!grades.length) return gapBox(covFor('Grades'), 'commercial grade');
     // Colour. The field was collected on every grade and shown nowhere, but it does not hold what
-    // a buyer wants: on 132 of 140 grades it is the same sentence saying properties may vary by
+    // a buyer wants: on 132 of 144 grades it is the same sentence saying properties may vary by
     // colour, and on the other four it names the colour of the specimen that was tested. So the
     // honest rendering is the tested colour where one is stated, and a plain warning otherwise.
     const SPEC_COLOUR = /^(white|black|natural|grey|gray|red|blue|green|yellow|orange|clear|transparent)\b/i;
@@ -432,6 +444,5 @@ const statusToState = (s) =>
 
 const gateChip = (g) => {
   if (!g) return '';
-  const map = { within: 'PASS', exceeds: 'FAIL', 'exceeds-recommended': 'INDETERMINATE', unknown: 'UNKNOWN' };
-  return `<span class="chip chip-${map[g.verdict]}" style="font-size:10px" title="${esc(g.reason)}">${esc(g.verdict)}</span>`;
+  return `<span class="chip chip-${gateVerdict(g.verdict).state}" style="font-size:10px" title="${esc(g.reason)}">${esc(gateVerdict(g.verdict).short)}</span>`;
 };

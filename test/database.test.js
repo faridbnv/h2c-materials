@@ -38,8 +38,9 @@ test('every numeric headline equals the measurement it cites', () => {
       checked++;
     }
   }
-  // 349 since the 2026-09-13 manufacturer audit gave Support for PLA its first measured density.
-  assert.equal(checked, 349);
+  // 369 since the 2026-09-13 missing-data research: PLA Lite 4, PLA Silk 3, CoPE 3, PET-GF 5, CPE 2
+  // and nGen 3 on top of the manufacturer audit's 349.
+  assert.equal(checked, 369);
 });
 
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a
@@ -228,4 +229,107 @@ test('the snapshot comes from the Method sheet', () => {
   const row = db.method.find((r) => r.section === 'Scope' && r.topic === 'Snapshot');
   assert.ok(row, 'Method has a Scope / Snapshot row');
   assert.ok(row.rule.startsWith(db.meta.snapshot));
+});
+
+// --- 2026-09-13 missing-data research -----------------------------------------------------------
+// docs/audits/2026-09-13-missing-data-research/. Each test pins one decision from RESPONSE.md.
+
+// The chamber row in every Bambu data sheet is the first row after a page break, and none was
+// transcribed. The re-fetched files match the recorded SHA-256, so these are omissions, not new
+// evidence. PC FR and PAHT-CF reach their whole window.
+test('chamber windows recovered from the cited Bambu data sheets are compiled', () => {
+  const byName = (n) => db.materials.find((m) => m.name === n);
+  for (const [name, min, max] of [['PLA Basic', 25, 45], ['PETG HF', 35, 50], ['PC FR', 45, 60], ['PAHT-CF', 45, 60], ['Support for PA/PET', 45, 60]]) {
+    assert.deepEqual([byName(name).print.chamberC?.min, byName(name).print.chamberC?.max], [min, max], name);
+    assert.equal(byName(name).gates.chamber.verdict, 'within', name);
+  }
+});
+
+// Regression: a 60-90 °C chamber window was read by its upper end alone, so a material whose own
+// window starts below the H2C's 65 °C failed outright. ABS-CF (50-70 °C) did, before this research.
+test('a chamber window the H2C only partly reaches is partial, never within and never a failure', () => {
+  for (const name of ['PPS-CF', 'PPA-CF', 'ABS-CF']) {
+    const g = db.materials.find((m) => m.name === name).gates.chamber;
+    assert.equal(g.verdict, 'partial', name);
+    assert.match(g.reason, /reaches only/, name);
+  }
+});
+
+test('a "-" in a data sheet is no setpoint, not zero and not "not required"', () => {
+  const tpc = db.materials.find((m) => m.name === 'TPC / TPEE');
+  assert.equal(tpc.gates.chamber.verdict, 'unknown');
+  assert.equal(tpc.print.chamberGuidance.state, 'no-setpoint');
+  assert.equal(tpc.print.chamberC, null);
+});
+
+// A source that says an enclosure is not necessary has said no heated chamber is needed. One that
+// recommends an enclosure has said nothing about 65 °C.
+test('enclosure guidance clears the chamber only when it says an enclosure is not needed', () => {
+  for (const p of db.profiles.filter((x) => x.chamber.fromEnclosure)) {
+    assert.equal(p.enclosureState, 'not-needed', p.id);
+    assert.equal(p.gates.chamber.verdict, 'within', p.id);
+  }
+  for (const p of db.profiles.filter((x) => x.enclosureState === 'recommended' && x.chamber.state === 'unknown')) {
+    assert.equal(p.gates.chamber.verdict, 'unknown', p.id);
+  }
+});
+
+test('CoPE is its own grade, no longer a copy of CPE', () => {
+  const cope = db.materials.find((m) => m.name === 'CoPE');
+  const cpe = db.materials.find((m) => m.name === 'CPE');
+  assert.equal(cope.representativeGrade, 'G091-02');
+  for (const key of ['density', 'tensileModulusXY', 'tensileStrengthXY']) {
+    assert.equal(cope.headline[key].gradeId, 'G091-02', key);
+  }
+  assert.notEqual(cope.headline.density.gradeId, cpe.headline.density.gradeId);
+});
+
+// The Fiberon page headlines 133.7 °C. That figure is annealed; as printed it is 81.6 °C. Both are
+// on record and the headline is the one a printed part has.
+test('PET-GF15 keeps its as-printed and annealed HDT apart, and headlines the as-printed one', () => {
+  const petgf = db.materials.find((m) => m.name === 'PET-GF');
+  assert.equal(petgf.representativeGrade, 'G068-02');
+  assert.equal(petgf.headline.hdt045.value, 81.6);
+  const hdt = db.measurements.filter((m) => m.gradeId === 'G068-02' && m.property === 'HDT' && m.thermal.loadMPa === 0.45);
+  assert.deepEqual(hdt.map((m) => [m.value, m.postProcessing.split(' ')[0]]).sort(), [[133.7, 'Annealed'], [81.6, 'As']]);
+});
+
+// The nGen TDS footnotes its density and HDT as raw-material supplier data. The printed XY values
+// are headlines; the supplier values are related evidence and say why.
+test('raw-material supplier values never become headlines', () => {
+  const ngen = db.materials.find((m) => m.name === 'nGen / Amphora');
+  assert.equal(ngen.headline.tensileModulusXY.value, 1.7);
+  for (const key of ['density', 'hdt045']) {
+    assert.equal(ngen.headline[key].known, false, key);
+    assert.match(ngen.headline[key].related.best.why, /raw-material/, key);
+  }
+  for (const mat of db.materials) {
+    for (const [key, h] of Object.entries(mat.headline)) {
+      if (h?.known && h.specimenType) assert.ok(!h.specimenType.startsWith('Raw material'), `${mat.name} ${key}`);
+    }
+  }
+});
+
+// Flexural is not tensile: PLA Lite publishes a flexural modulus and no tensile one.
+test('a flexural modulus never fills the stiffness headline', () => {
+  const lite = db.materials.find((m) => m.name === 'PLA Lite');
+  assert.equal(lite.headline.tensileModulusXY.known, false);
+  assert.ok(db.measurements.some((m) => m.materialId === lite.id && m.property === 'Flexural modulus'));
+});
+
+// A research band is inference about a setpoint. It is shown only where no source says anything
+// better, and it changes no verdict.
+test('an estimated chamber band never sits beside published evidence and never decides a gate', () => {
+  for (const m of db.materials) {
+    const e = m.print?.chamberEstimate;
+    if (!e) continue;
+    assert.equal(m.print.chamberC, null, m.name);
+    assert.notEqual(m.print.chamberGuidance?.state, 'not-required', m.name);
+    assert.ok(!m.excluded, m.name);
+    assert.ok(e.lo < e.hi && e.basis, m.name);
+    assert.ok(['unknown'].includes(m.gates.chamber.verdict), `${m.name}: a band sits on a material whose gate says ${m.gates.chamber.verdict}`);
+  }
+  const ppa = db.materials.find((m) => m.name === 'PPA');
+  assert.equal(ppa.print.chamberEstimate.lo, 80);
+  assert.equal(ppa.gates.chamber.verdict, 'unknown');
 });

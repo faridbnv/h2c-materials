@@ -60,11 +60,12 @@ plotting library, not the data, is what the file weighs.
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
 | `normalize/direction.js` | The nine spellings of build direction, and which may be compared with which. |
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text. |
-| `normalize/process.js` | Nozzle, bed and chamber temperatures, nozzle diameters, drying, abrasion. |
+| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window and its answers in words. |
 | `normalize/chemical.js` | 73 environment topics onto canonical categories; findings onto verdicts. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database and verify every headline against its own citation. |
 | `estimates.js` | Family bounds for materials with no measurement of their own. |
+| `chamber-estimates.js` | The research's chamber bands, from `build/mappings/chamber-estimates.json`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
 | `bundle.js` | One HTML file. |
@@ -85,7 +86,7 @@ plotting library, not the data, is what the file weighs.
 
 | Module | Responsibility |
 |---|---|
-| `labels.js` | The single vocabulary. What every property and every criterion is called, in plain words with the technical name behind it. Nothing else names them. |
+| `labels.js` | The single vocabulary. What every property, criterion, gate verdict and chamber statement is called, in plain words with the technical name behind it. Nothing else names them. |
 | `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated. |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
 | `table.js` | The results grid and the client-side export. |
@@ -137,6 +138,11 @@ same result shape, including `criterion` and `reason`, or the explain panel will
 say. Then add a case to `describeConstraint` in `ui/labels.js`: that function is what the pills, the
 explain panel, the why list, the excluded-search group and the CSV export all use, and a missing
 case is how an internal key reaches the screen.
+
+**A new gate verdict.** Add it to `GATE_PRECEDENCE` in `build/src/compile.js`, to the switch in
+`evaluateGate` in `app/js/engine/constraints.js`, and to `GATE_VERDICT` in `ui/labels.js`, which is
+where the table, drawer and Compare read its chip and its words. `partial` was the last one added, and
+three screens each had their own copy of that table until then.
 
 **A new word for something.** It goes in `ui/labels.js` and nowhere else. Environment category names
 are the exception, and only because they belong with the topic rules: they are authored in

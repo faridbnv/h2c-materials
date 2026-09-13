@@ -5,7 +5,7 @@
 
 import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, chip, wireEvidence } from './format.js';
-import { prop, describeConstraint } from './labels.js';
+import { prop, describeConstraint, gateVerdict } from './labels.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 
@@ -196,8 +196,4 @@ const MISSING_WORD = {
 };
 const missingWord = (h) => MISSING_WORD[h?.missing] ?? 'Not published';
 
-const verdictChip = (v) => {
-  const map = { within: 'PASS', exceeds: 'FAIL', 'exceeds-recommended': 'INDETERMINATE', unknown: 'UNKNOWN' };
-  const word = { within: 'yes', exceeds: 'no', 'exceeds-recommended': 'recommended higher', unknown: 'not recorded' };
-  return v ? chip(map[v] ?? 'UNKNOWN', word[v] ?? v) : '';
-};
+const verdictChip = (v) => (v ? chip(gateVerdict(v).state, gateVerdict(v).short) : '');

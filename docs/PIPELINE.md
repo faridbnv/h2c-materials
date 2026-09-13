@@ -42,7 +42,7 @@ own words rather than a confirmed build orientation, so `Horizontal (source labe
 value and never merges into XY. The Method sheet's rule: an unknown direction is not XY.
 
 **Thermal** (`thermal.js`). About twenty spellings of HDT standard and load, including full-width
-commas from Chinese-language datasheets. A load that was never stated stays unstated; 24 of 66 HDT
+commas from Chinese-language datasheets. A load that was never stated stays unstated; 25 of 69 HDT
 headlines are in that position and carry `loadStated: false`.
 
 **Process** (`process.js`). Temperatures, nozzle diameters, drying schedules, abrasion. Two bugs
@@ -56,6 +56,15 @@ here shipped and are now pinned by tests:
 
 This stage also distinguishes a **requirement** from a **recommendation**. "Recommended 70-140C if
 possible" exceeds the H2C's 65 °C chamber but does not make the material unprintable.
+
+The chamber has two more answers the other axes do not (DECISIONS D32, D33):
+
+- A window the chamber only partly reaches, such as 60–90 °C, is `partial`, not `exceeds`. Nozzle and
+  bed keep the upper-end reading.
+- A chamber answered in words stays words. "Not required" and room temperature are `not-required`;
+  "Recommended" with no number is `recommended`; a data sheet's "-" is `no-setpoint`. The Enclosure
+  column is parsed too, and "not necessary" there means no heated chamber is needed. An enclosure
+  being recommended means nothing about 65 °C.
 
 **Chemical** (`chemical.js`). 73 environment topics onto canonical categories, via a hand-maintained
 map in `build/mappings/environment-topics.json` that is reviewed like code. That file also carries
@@ -72,22 +81,25 @@ Assembles the relational runtime database, and does the one thing that matters m
 
 The Materials sheet already carries the MeasurementID behind each headline, the PriceIDs behind each
 price, and a ProfileID for printing. The build checks that the number equals the measurement it
-cites. All 349 reconcile, and all 40 price headlines equal the median of their flagged observations
+cites. All 369 reconcile, and all 40 price headlines equal the median of their flagged observations
 and cite only those observations. A mismatch is a build error, not a judgement call.
 
 Compile also derives, each tagged with its origin so the interface can tell them apart:
 
 - **Process gates** per material, aggregated across its profiles. Precedence is
-  `within > exceeds-recommended > exceeds > unknown`. A known exceedance outranks an unknown,
-  because silence is not counter-evidence. PEEK publishes two profiles demanding 390–480 °C against
-  the printer's 350 °C plus one that publishes nothing; letting the silent profile decide would have
-  reported PEEK as "unknown".
+  `within > partial > exceeds-recommended > exceeds > unknown`. A known exceedance outranks an
+  unknown, because silence is not counter-evidence. PEEK publishes two profiles demanding 390–480 °C
+  against the printer's 350 °C plus one that publishes nothing; letting the silent profile decide
+  would have reported PEEK as "unknown". Among unknowns, a profile that said something in words
+  supplies the reason.
 - **Related evidence** for headlines with no value: one real measurement of the same property that
   was never promoted, with the reason. Never a cross-grade range.
 - **Facets** the Materials sheet does not carry directly, marked `derived`.
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
-  profiles, with the number of profiles behind each. 88 materials have a nozzle window, 90 a bed
-  window. It answers "what do I set it to", which was otherwise only in free text one tab deep.
+  profiles, with the number of profiles behind each. 95 materials have a nozzle window, 96 a bed
+  window and 59 a chamber window. It answers "what do I set it to", which was otherwise only in free
+  text one tab deep. Where the chamber is answered in words, the strongest statement across the
+  profiles is kept as `chamberGuidance`: not required, then recommended, then no setpoint.
 - **A buy summary** per material: one offer chosen from the price observations, ranked by in stock,
   then the observation behind the headline, then anything with a price. 48 materials have one and
   42 had stock on the price sampling date. Quarantined observations are skipped. The retailer URLs were in the workbook from the start and were
@@ -96,9 +108,16 @@ Compile also derives, each tagged with its origin so the interface can tell them
   resistance") and a sentence form ("acids"), so the engine can name a category in a reason string
   without importing anything from the interface, and so there is one place to change a name.
 
-## 4. Estimates — `estimates.js`
+## 4. Estimates — `estimates.js` and `chamber-estimates.js`
 
-Runs after every headline is known. Covered in `docs/DATA-MODEL.md` under "Three kinds of number".
+Runs after every headline is known. Family estimates are covered in `docs/DATA-MODEL.md` under
+"Three kinds of number".
+
+Chamber bands are not computed. They are read from `build/mappings/chamber-estimates.json`, where
+the 2026-09-13 research's bands are authored with its basis and caution, and attached only to a
+material with no published window and no statement that no heated chamber is needed. Every name is
+checked against the snapshot, and a name that is not there stops the build. They change no verdict;
+see `docs/DATA-MODEL.md` under "Chamber evidence".
 
 ## 5. Validate — `validate.js`
 
@@ -109,8 +128,13 @@ Checked: identifier uniqueness; referential integrity across every sheet; quaran
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
 kJ/m² without specimen geometry; the six excluded materials tripping the envelope gate on their own
 evidence; HDT loads either stated at 0.45 MPa or flagged; every family estimate citing a basis, at
-least two independent peers and a real range; and every free-text value that failed to parse,
-reported by value and count so the mapping files can absorb it deliberately.
+least two independent peers and a real range; every chamber band naming a real, in-scope material
+once, with a basis and a real range; and every free-text value that failed to parse, including
+enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
+
+The report counts the chamber gate with its partial-window column, and breaks chamber evidence down
+by kind: a published window, a statement in words, no setpoint, nothing, and how many materials carry
+a band. It lists every band the evidence superseded.
 
 `build/reports/validation-report.md` is regenerated every build and is a deliverable in its own
 right. It tells you what the tool cannot yet see.
@@ -129,7 +153,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 77 tests
+npm test                         # 96 tests
 open dist/H2C_Material_Selector_2026-09-13.html
 ```
 

@@ -1,0 +1,65 @@
+{
+  "_comment": [
+    "Estimated chamber bands from docs/audits/2026-09-13-missing-data-research/REPORT.md, section 1,",
+    "'Estimated chamber bands for the remaining gaps'. The research derived them from the closest",
+    "manufacturer profiles; they are inference, and they live here rather than in the workbook because",
+    "the workbook holds only what a source published.",
+    "",
+    "What the build does with them (build/src/chamber-estimates.js):",
+    "- attaches a band only to a material with no published numeric chamber window and no statement",
+    "  that no heated chamber is needed. Where a source publishes either, the band is superseded and",
+    "  the validation report lists it.",
+    "- never lets a band change a gate verdict. A band is a plausible setpoint, which is a",
+    "  recommendation at most, and a recommendation never removes a candidate (docs/DECISIONS.md, D6, D34).",
+    "",
+    "Names must match the Materials sheet exactly; an unknown name stops the build."
+  ],
+  "source": "docs/audits/2026-09-13-missing-data-research/REPORT.md",
+  "bands": [
+    {
+      "lo": 20, "hi": 45,
+      "basis": "low-temperature, open-printer peer profiles",
+      "caution": "Support products are not structural peers.",
+      "materials": ["PLA Basic", "PLA Matte", "PLA Lite", "PLA Metal", "PLA Marble", "PLA Sparkle", "PLA Galaxy", "PLA Silk", "BVOH", "Support for PA/PET"]
+    },
+    {
+      "lo": 20, "hi": 50,
+      "basis": "a broad envelope of low-warping peers",
+      "caution": "Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.",
+      "materials": ["PETG Basic", "PETG HF", "PETG-CF", "PETG-GF", "PEBA", "TPC / TPEE", "PP", "PP-GF", "PE", "OBC", "CPE", "CPE-CF", "CoPE", "nGen / Amphora", "PVB"]
+    },
+    {
+      "lo": 45, "hi": 70,
+      "basis": "engineering-polymer peers that print enclosed",
+      "caution": "Where a grade publishes its own window, that window is used instead.",
+      "materials": ["ABS-ESD", "ASA-GF", "PC FR", "PC-CF", "PAHT-CF", "PA6", "PET", "PET-GF"]
+    },
+    {
+      "lo": 40, "hi": 70,
+      "basis": "the plausible range for nylons",
+      "caution": "These entries have no exact commercial grade, so this band is especially weak.",
+      "materials": ["PA66", "PA66-CF", "PA612", "PA612-GF"]
+    },
+    {
+      "lo": 60, "hi": 90,
+      "basis": "the Bambu PPS-CF product window",
+      "caution": "Superseded wherever the exact grade publishes its window.",
+      "materials": ["PPS-CF"]
+    },
+    {
+      "lo": 80, "hi": 120,
+      "basis": "the plausible range for high-temperature aromatic nylons",
+      "caution": "A reseller's 100-120 °C figure for Bambu PPA-CF is secondary and unconfirmed. Exact-grade primary evidence is required before any exclusion.",
+      "materials": ["PPA", "PPA-CF", "PPA-GF"]
+    },
+    {
+      "lo": 45, "hi": 80,
+      "basis": "the polyacetal family",
+      "caution": "The exact purefil product publishes a 120-150 °C bed and no chamber temperature. A chamber temperature is not inferred from a bed temperature.",
+      "materials": ["POM / Acetal"]
+    }
+  ],
+  "noBand": {
+    "PVDF": "The exact product recommends a heated chamber and publishes no window. PVDF processing cannot inherit a generic rigid-polymer band."
+  }
+}

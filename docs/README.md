@@ -19,9 +19,9 @@ Three places, in the order to try them.
 
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
-2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D31, each saying what would break if it were
+2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D35, each saying what would break if it were
    reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[audits/](audits/).** Three audits so far, each in its own dated folder: the report as it was
+3. **[audits/](audits/).** Four audits so far, each in its own dated folder: the report as it was
    delivered, and the outcome of every finding.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
@@ -40,7 +40,7 @@ A comment saying a parser cannot accept a leading minus is worth more than the r
 **A bug in a parser gets a test with the failure in the comment.** See `test/normalize.test.js`.
 Those tests read oddly without the context, which is exactly why the context is in them.
 
-**If you weaken a rule in the list in the README, say so in DECISIONS.md.** Those fourteen rules are
+**If you weaken a rule in the list in the README, say so in DECISIONS.md.** Those seventeen rules are
 what the tool asserts about its own trustworthiness.
 
 **Names live in one place.** `app/js/ui/labels.js` for properties and criteria,

@@ -1,0 +1,277 @@
+sheet,record,cell,action,field,before,after
+Sources,R-ESUN-PLA-LITE-PAGE,A228:L228,Added,,,
+Sources,R-POLYMAKER-SILK-PLA-PAGE,A229:L229,Added,,,
+Sources,R-POLYMAKER-PANCHROMA-TDS-V2-1,A230:L230,Added,,,
+Sources,R-POLYMAKER-WIKI-PANCHROMA-COPE,A231:L231,Added,,,
+Sources,R-POLYMAKER-COPE-TDS-V5-4,A232:L232,Added,,,
+Sources,R-FIBERON-PETGF15-TDS,A233:L233,Added,,,
+Sources,R-FIBERON-PETGF15-PAGE,A234:L234,Added,,,
+Sources,R-FILLAMENTUM-CPE-HG100-TDS,A235:L235,Added,,,
+Sources,R-FILLAMENTUM-CPE-HG100-GUIDE,A236:L236,Added,,,
+Sources,R-FILLAMENTUM-CPE-CF112-GUIDE,A237:L237,Added,,,
+Sources,R-COLORFABB-NGEN-TDS-V2,A238:L238,Added,,,
+Grades,G004-01,A144:M144,Added,,,
+Grades,G008-01,A145:M145,Added,,,
+Grades,G068-02,A146:M146,Added,,,
+Grades,G091-02,A147:M147,Added,,,
+Grades,G091-01,J118,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Superseded 2026-09-13. This row duplicates Fillamentum CPE HG100, the CPE grade G089-01, and is not a CoPE identity. Retained as an audit trail; G091-02 is the representative CoPE grade"
+Print setup,P0161,A164:AL164,Added,,,
+Print setup,P0162,A165:AL165,Added,,,
+Print setup,P0163,A166:AL166,Added,,,
+Print setup,P0164,A167:AL167,Added,,,
+Print setup,P0165,A168:AL168,Added,,,
+Print setup,P0166,A169:AL169,Added,,,
+Print setup,P0167,A170:AL170,Added,,,
+Print setup,P0004,G7,Edited,Chamber °C,Not published,25 - 45 °C
+Print setup,P0005,G8,Edited,Chamber °C,Not published,25 - 45 °C
+Print setup,P0011,G14,Edited,Chamber °C,Not published,25 - 45 °C
+Print setup,P0012,G15,Edited,Chamber °C,Not published,25 - 45 °C
+Print setup,P0013,G16,Edited,Chamber °C,Not published,25-45 °C
+Print setup,P0015,G18,Edited,Chamber °C,Not published,25 - 45 °C
+Print setup,P0024,G27,Edited,Chamber °C,Not published,35 - 50 °C
+Print setup,P0025,G28,Edited,Chamber °C,Not published,35 - 50 °C
+Print setup,P0027,G30,Edited,Chamber °C,Not published,35 - 50 °C
+Print setup,P0044,G47,Edited,Chamber °C,Not published,45 - 60 °C
+Print setup,P0063,G66,Edited,Chamber °C,Not published,45 - 60 °C
+Print setup,P0089,G92,Edited,Chamber °C,Not published,50 - 80 °C
+Print setup,P0093,G96,Edited,Chamber °C,Not published,60 - 90 °C
+Print setup,P0100,G103,Edited,Chamber °C,Not published,45-60 °C
+Print setup,P0002,G5,Edited,Chamber °C,Not published,Not required (Closure Chamber: No needed)
+Print setup,P0055,G58,Edited,Chamber °C,Not published,No setpoint published ('-' in TDS)
+Print setup,P0059,G62,Edited,Chamber °C,Not published,No setpoint published ('-' in TDS)
+Print setup,P0092,G95,Edited,Chamber °C,Not published,Active heated 60-80 °C (Closed chamber row)
+Properties,V001900,A1903:AG1903,Added,,,
+Properties,V001901,A1904:AG1904,Added,,,
+Properties,V001902,A1905:AG1905,Added,,,
+Properties,V001903,A1906:AG1906,Added,,,
+Properties,V001904,A1907:AG1907,Added,,,
+Properties,V001905,A1908:AG1908,Added,,,
+Properties,V001906,A1909:AG1909,Added,,,
+Properties,V001907,A1910:AG1910,Added,,,
+Properties,V001908,A1911:AG1911,Added,,,
+Properties,V001909,A1912:AG1912,Added,,,
+Properties,V001910,A1913:AG1913,Added,,,
+Properties,V001911,A1914:AG1914,Added,,,
+Properties,V001912,A1915:AG1915,Added,,,
+Properties,V001913,A1916:AG1916,Added,,,
+Properties,V001914,A1917:AG1917,Added,,,
+Properties,V001915,A1918:AG1918,Added,,,
+Properties,V001916,A1919:AG1919,Added,,,
+Properties,V001917,A1920:AG1920,Added,,,
+Properties,V001918,A1921:AG1921,Added,,,
+Properties,V001919,A1922:AG1922,Added,,,
+Properties,V001920,A1923:AG1923,Added,,,
+Properties,V001921,A1924:AG1924,Added,,,
+Properties,V001922,A1925:AG1925,Added,,,
+Properties,V001923,A1926:AG1926,Added,,,
+Properties,V001924,A1927:AG1927,Added,,,
+Properties,V001925,A1928:AG1928,Added,,,
+Properties,V001926,A1929:AG1929,Added,,,
+Properties,V001927,A1930:AG1930,Added,,,
+Properties,V001928,A1931:AG1931,Added,,,
+Properties,V001929,A1932:AG1932,Added,,,
+Properties,V001930,A1933:AG1933,Added,,,
+Properties,V001931,A1934:AG1934,Added,,,
+Properties,V001932,A1935:AG1935,Added,,,
+Properties,V001933,A1936:AG1936,Added,,,
+Properties,V001934,A1937:AG1937,Added,,,
+Properties,V001935,A1938:AG1938,Added,,,
+Properties,V001936,A1939:AG1939,Added,,,
+Properties,V001937,A1940:AG1940,Added,,,
+Properties,V001938,A1941:AG1941,Added,,,
+Properties,V001939,A1942:AG1942,Added,,,
+Properties,V001940,A1943:AG1943,Added,,,
+Properties,V001941,A1944:AG1944,Added,,,
+Properties,V001942,A1945:AG1945,Added,,,
+Properties,V001943,A1946:AG1946,Added,,,
+Properties,V001944,A1947:AG1947,Added,,,
+Properties,V001945,A1948:AG1948,Added,,,
+Properties,V001946,A1949:AG1949,Added,,,
+Properties,V001947,A1950:AG1950,Added,,,
+Properties,V001948,A1951:AG1951,Added,,,
+Properties,V001949,A1952:AG1952,Added,,,
+Properties,V001950,A1953:AG1953,Added,,,
+Properties,V001951,A1954:AG1954,Added,,,
+Properties,V001952,A1955:AG1955,Added,,,
+Properties,V001953,A1956:AG1956,Added,,,
+Properties,V001954,A1957:AG1957,Added,,,
+Properties,V001955,A1958:AG1958,Added,,,
+Properties,V001956,A1959:AG1959,Added,,,
+Properties,V001957,A1960:AG1960,Added,,,
+Properties,V001958,A1961:AG1961,Added,,,
+Properties,V001959,A1962:AG1962,Added,,,
+Properties,V001960,A1963:AG1963,Added,,,
+Properties,V001961,A1964:AG1964,Added,,,
+Properties,V001962,A1965:AG1965,Added,,,
+Properties,V001963,A1966:AG1966,Added,,,
+Properties,V001964,A1967:AG1967,Added,,,
+Properties,V001965,A1968:AG1968,Added,,,
+Properties,V001966,A1969:AG1969,Added,,,
+Materials,M004,E10,Edited,Representative grade,Not published,G004-01
+Materials,M004,AH10,Edited,GradeIDs,Not published,G004-01
+Materials,M004,I10,Edited,Printing evidence,Not applicable,P0161
+Materials,M004,F10,Edited,Nozzle guidance,Not published,190-230 °C
+Materials,M004,G10,Edited,Bed guidance,Not published,45-60 °C
+Materials,M004,H10,Edited,Chamber guidance,Not published,Not required (no enclosure needed)
+Materials,M004,J10,Edited,Density kg/m³,Not published,1230
+Materials,M004,L10,Edited,Tensile strength XY MPa,Not published,53.05
+Materials,M004,M10,Edited,Elongation at break XY %,Not published,3.89
+Materials,M004,N10,Edited,Mechanical evidence,Not applicable,V001900; V001903; V001905
+Materials,M004,O10,Edited,Measurement conditions,Not published,Manufacturer product page; XY direction stated; specimen preparation and test standards not published
+Materials,M004,P10,Edited,HDT 0.45 MPa °C,Not published,53
+Materials,M004,Q10,Edited,Thermal evidence,Not applicable,V001902
+Materials,M004,AI10,Edited,Headline basis,Insufficient comparable data,Single-grade observations; not a polymer-family range
+Materials,M004,AG10,Edited,Identity notes,Exact official TDS not located. Search lead PLA Pure is a different product and was rejected.,eSUN PLA-Lite recorded 2026-09-13 as a technical grade sample for this generic entry. The earlier PLA Pure lead remains rejected; no Bambu product is implied.
+Materials,M008,E14,Edited,Representative grade,Not published,G008-01
+Materials,M008,AH14,Edited,GradeIDs,Not published,G008-01
+Materials,M008,I14,Edited,Printing evidence,Not applicable,P0162
+Materials,M008,F14,Edited,Nozzle guidance,Not published,190-230 °C
+Materials,M008,G14,Edited,Bed guidance,Not published,25-60 °C
+Materials,M008,H14,Edited,Chamber guidance,Not published,Not required (enclosure not needed)
+Materials,M008,J14,Edited,Density kg/m³,Not published,1240
+Materials,M008,K14,Edited,Tensile modulus XY GPa,Not published,2.403
+Materials,M008,L14,Edited,Tensile strength XY MPa,Not published,41.1
+Materials,M008,N14,Edited,Mechanical evidence,Not applicable,V001913; V001915; V001916
+Materials,M008,O14,Edited,Measurement conditions,Not published,"Printed ISO 527 specimens, 230 °C nozzle, 100% infill; elongation and HDT not published"
+Materials,M008,Q14,Edited,Thermal evidence,Not applicable,V001914
+Materials,M008,AI14,Edited,Headline basis,Insufficient comparable data,Single-grade observations; not a polymer-family range
+Materials,M008,AG14,Edited,Identity notes,Original product retained; current Silk+ is not substituted.,"Polymaker Panchroma Silk PLA recorded 2026-09-13 as a technical grade sample of a silk-effect PLA. It is not the original product, and Bambu PLA Silk+ is still not substituted."
+Materials,M091,E97,Edited,Representative grade,G091-01,G091-02
+Materials,M091,AH97,Edited,GradeIDs,G091-01,G091-01; G091-02
+Materials,M091,I97,Edited,Printing evidence,P0115,P0163
+Materials,M091,F97,Edited,Nozzle guidance,Not published,190-230 °C
+Materials,M091,G97,Edited,Bed guidance,Not published,25-60 °C
+Materials,M091,H97,Edited,Chamber guidance,Not published,Not required (closure chamber not needed)
+Materials,M091,J97,Edited,Density kg/m³,Not published,1300
+Materials,M091,K97,Edited,Tensile modulus XY GPa,Not published,2.515
+Materials,M091,L97,Edited,Tensile strength XY MPa,Not published,51.6
+Materials,M091,N97,Edited,Mechanical evidence,Not applicable,V001919; V001921; V001922
+Materials,M091,O97,Edited,Measurement conditions,Not published,"Printed ISO 527 specimens, 230 °C nozzle, 100% infill; elongation and HDT not verified"
+Materials,M091,Q97,Edited,Thermal evidence,Not applicable,V001920
+Materials,M091,AG97,Edited,Identity notes,Same broad term as CPE; separate original scope row.,"Until 2026-09-13 this row pointed at Fillamentum CPE HG100 (G091-01), the same grade as CPE. Polymaker Panchroma CoPE (G091-02) is now the exact CoPE identity and representative grade; G091-01 is kept as an audit trail."
+Materials,M068,E74,Edited,Representative grade,G068-01,G068-02
+Materials,M068,AH74,Edited,GradeIDs,G068-01,G068-01; G068-02
+Materials,M068,I74,Edited,Printing evidence,P0087,P0164
+Materials,M068,F74,Edited,Nozzle guidance,260–290°C,280-310 °C
+Materials,M068,G74,Edited,Bed guidance,70–100°C,70-80 °C
+Materials,M068,H74,Edited,Chamber guidance,Not published,Room temp.
+Materials,M068,J74,Edited,Density kg/m³,Not published,1430
+Materials,M068,K74,Edited,Tensile modulus XY GPa,Not published,4.1442
+Materials,M068,L74,Edited,Tensile strength XY MPa,Not published,59.9
+Materials,M068,M74,Edited,Elongation at break XY %,Not published,4
+Materials,M068,N74,Edited,Mechanical evidence,Not applicable,V001925; V001934; V001936; V001938
+Materials,M068,O74,Edited,Measurement conditions,Not published,"Printed specimens (300 °C nozzle, 100% infill), annealed 120 °C for 16 h before mechanical tests; HDT as printed"
+Materials,M068,P74,Edited,HDT 0.45 MPa °C,Not published,81.6
+Materials,M068,Q74,Edited,Thermal evidence,Not applicable,V001931
+Materials,M068,AG74,Edited,Identity notes,Not applicable,"Representative grade changed 2026-09-13 from Flashforge PET-GF (G068-01, no published properties) to Fiberon PET-GF15 (G068-02), which publishes printed test data. Flashforge was not overwritten. The annealed HDT of 133.7 °C is on record and is not the headline."
+Materials,M089,I95,Edited,Printing evidence,P0112,P0165
+Materials,M089,F95,Edited,Nozzle guidance,Not published,255-275 °C
+Materials,M089,G95,Edited,Bed guidance,Not published,70-85 °C
+Materials,M089,H95,Edited,Chamber guidance,Not published,Not required (heated chamber / enclosure not needed)
+Materials,M089,J95,Edited,Density kg/m³,Not published,1250
+Materials,M089,N95,Edited,Mechanical evidence,Not applicable,V001947
+Materials,M089,O95,Edited,Measurement conditions,Not published,"Manufacturer TDS; specimen form and orientation not published, so tensile values are related evidence, not headlines"
+Materials,M089,P95,Edited,HDT 0.45 MPa °C,Not published,80
+Materials,M089,Q95,Edited,Thermal evidence,Not applicable,V001954
+Materials,M092,I98,Edited,Printing evidence,P0116,P0167
+Materials,M092,F98,Edited,Nozzle guidance,Not published,220-240 °C
+Materials,M092,G98,Edited,Bed guidance,Not published,75-85 °C
+Materials,M092,K98,Edited,Tensile modulus XY GPa,Not published,1.7
+Materials,M092,L98,Edited,Tensile strength XY MPa,Not published,54
+Materials,M092,M98,Edited,Elongation at break XY %,Not published,11
+Materials,M092,N98,Edited,Mechanical evidence,Not applicable,V001956; V001957; V001958
+Materials,M092,O98,Edited,Measurement conditions,Not published,"Printed in the XY plane, ISO 527-1A, 100% infill, 230 °C nozzle, 80 °C bed. Density and HDT in the TDS are raw-material supplier values and are not headlines"
+Materials,M092,Q98,Edited,Thermal evidence,Not applicable,V001965
+Materials,M092,AG98,Edited,Identity notes,nGen uses Eastman Amphora AM3300. Not synonymous with all Amphora formulations.,nGen uses Eastman Amphora AM3300 per the original record. Not synonymous with all Amphora formulations. The current colorFabb TDS v2.0 names Amphora HT3300; recorded as an open identity conflict 2026-09-13.
+Materials,M002,H8,Edited,Chamber guidance,Not published,25 - 45 °C
+Materials,M003,H9,Edited,Chamber guidance,Not published,25 - 45 °C
+Materials,M011,H17,Edited,Chamber guidance,Not published,25 - 45 °C
+Materials,M012,H18,Edited,Chamber guidance,Not published,25 - 45 °C
+Materials,M013,H19,Edited,Chamber guidance,Not published,25-45 °C
+Materials,M015,H21,Edited,Chamber guidance,Not published,25 - 45 °C
+Materials,M021,H27,Edited,Chamber guidance,Not published,35 - 50 °C
+Materials,M022,H28,Edited,Chamber guidance,Not published,35 - 50 °C
+Materials,M024,H30,Edited,Chamber guidance,Not published,35 - 50 °C
+Materials,M036,H42,Edited,Chamber guidance,Not published,45 - 60 °C
+Materials,M048,H54,Edited,Chamber guidance,Not published,45 - 60 °C
+Materials,M070,H76,Edited,Chamber guidance,Not published,50 - 80 °C
+Materials,M073,H79,Edited,Chamber guidance,Not published,60 - 90 °C
+Materials,M080,H86,Edited,Chamber guidance,Not published,45-60 °C
+Materials,M044,H50,Edited,Chamber guidance,Not published,No setpoint published ('-' in TDS)
+Materials,M046,H52,Edited,Chamber guidance,Not published,No setpoint published ('-' in TDS)
+Coverage,C00001,D4,Edited,Status,Gap,Resolved
+Coverage,C00001,E4,Edited,Finding,"No exact, verified commercial-grade technical profile obtained. Identity preserved; adjacent materials not substituted.","eSUN PLA-Lite recorded 2026-09-13 as G004-01, a technical grade sample for this generic entry. The earlier PLA Pure lead remains rejected; no Bambu product is implied."
+Coverage,C00097,D100,Edited,Status,Gap,Evidence recorded
+Coverage,C00097,E100,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,eSUN PLA-Lite printing parameters recorded as P0161; no enclosure needed.
+Coverage,C00098,D101,Edited,Status,Gap,Evidence recorded
+Coverage,C00098,E101,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"eSUN PLA-Lite XY and Z tensile strength, elongation, flexural and Izod values recorded. Tensile modulus is not published; 3114.92 MPa is flexural and is not substituted."
+Coverage,C00099,D102,Edited,Status,Gap,Partially resolved
+Coverage,C00099,E102,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"HDT 53 °C recorded; the page states neither the standard nor the load, so it carries the load-not-stated caveat."
+Coverage,C00002,D5,Edited,Status,Gap,Resolved
+Coverage,C00002,E5,Edited,Finding,"No exact, verified commercial-grade technical profile obtained. Identity preserved; adjacent materials not substituted.","Polymaker Panchroma Silk PLA recorded 2026-09-13 as G008-01, a technical grade sample of a silk-effect PLA. The original product and Bambu PLA Silk+ are not substituted."
+Coverage,C00136,D139,Edited,Status,Gap,Evidence recorded
+Coverage,C00136,E139,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Panchroma Silk PLA printing guidance recorded as P0162; enclosure not needed.
+Coverage,C00137,D140,Edited,Status,Gap,Partially resolved
+Coverage,C00137,E140,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Printed XY modulus and strength, Z strength and notched Charpy recorded from the Panchroma TDS V2.1. Elongation at break is not published."
+Coverage,C00138,D141,Edited,Status,Gap,Partially resolved
+Coverage,C00138,E141,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Vicat 64.7 °C recorded. HDT is not published, and Vicat is not substituted for it."
+Coverage,C00045,D48,Edited,Status,Gap,Resolved
+Coverage,C00045,E48,Edited,Finding,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.",Panchroma CoPE (G091-02) recorded 2026-09-13 as the exact CoPE identity and representative grade. G091-01 duplicated Fillamentum CPE HG100 and is retained only as an audit trail.
+Coverage,C00969,D972,Edited,Status,Gap,Evidence recorded
+Coverage,C00969,E972,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Panchroma CoPE printing guidance recorded as P0163; closure chamber not needed.
+Coverage,C00970,D973,Edited,Status,Gap,Partially resolved
+Coverage,C00970,E973,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Printed XY modulus and strength, Z strength and notched Charpy recorded from the Panchroma TDS V2.1. The elongation of 10.5 ± 3.8% cited from the CoPE TDS V5.4 could not be retrieved (HTTP 404) and was not entered."
+Coverage,C00971,D974,Edited,Status,Gap,Partially resolved
+Coverage,C00971,E974,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Vicat 66 °C recorded. HDT is not published, and Vicat is not substituted for it."
+Coverage,C00028,D31,Edited,Status,Gap,Gap
+Coverage,C00028,E31,Edited,Finding,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.",2 distinct manufacturers documented against target 3 after adding Fiberon PET-GF15 (G068-02) on 2026-09-13.
+Coverage,C00735,D738,Edited,Status,Gap,Evidence recorded
+Coverage,C00735,E738,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Fiberon PET-GF15 printed XY and Z tensile, flexural and Charpy values recorded; all specimens annealed 120 °C for 16 h before testing."
+Coverage,C00736,D739,Edited,Status,Gap,Evidence recorded
+Coverage,C00736,E739,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Fiberon PET-GF15 HDT at 0.45 MPa is published as printed (81.6 °C) and annealed (133.7 °C); recorded as separate measurements, and the headline is the as-printed value."
+Coverage,C00950,D953,Edited,Status,Gap,Evidence recorded
+Coverage,C00950,E953,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Fillamentum CPE HG100 printing guide recorded as P0165; heated chamber / enclosure not needed.
+Coverage,C00951,D954,Edited,Status,Gap,Limited comparability
+Coverage,C00951,E954,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"CPE HG100 TDS values recorded 2026-09-13. Specimen form and orientation are not published, so tensile values are related evidence only; density is the only mechanical headline."
+Coverage,C00952,D955,Edited,Status,Gap,Evidence recorded
+Coverage,C00952,E955,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"HDT 80 °C at 0.455 MPa (ASTM D648) recorded as the headline. The TDS labels 90 °C a glass transition under ASTM D1525, the Vicat method; kept under its own label."
+Coverage,C00978,D981,Edited,Status,Gap,Evidence recorded
+Coverage,C00978,E981,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,colorFabb nGen TDS v2.0 print guideline recorded as P0167.
+Coverage,C00979,D982,Edited,Status,Gap,Evidence recorded
+Coverage,C00979,E982,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Printed XY modulus, strength, elongation and notched Charpy from TDS v2.0 are headlines. Injection-moulded raw-material values are recorded separately and never headlines."
+Coverage,C00980,D983,Edited,Status,Gap,Limited comparability
+Coverage,C00980,E983,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,HDT 71 °C at 0.455 MPa is raw-material supplier data per the TDS footnote and is not a headline.
+Coverage,C01117,A1120:E1120,Added,,,
+Coverage,C01118,A1121:E1121,Added,,,
+Coverage,C01119,A1122:E1122,Added,,,
+Coverage,C01120,A1123:E1123,Added,,,
+Coverage,C01121,A1124:E1124,Added,,,
+Coverage,C01122,A1125:E1125,Added,,,
+Coverage,C01123,A1126:E1126,Added,,,
+Coverage,C01124,A1127:E1127,Added,,,
+Coverage,C01125,A1128:E1128,Added,,,
+Coverage,C01126,A1129:E1129,Added,,,
+Coverage,C01127,A1130:E1130,Added,,,
+Coverage,C01128,A1131:E1131,Added,,,
+Coverage,C01129,A1132:E1132,Added,,,
+Coverage,C01130,A1133:E1133,Added,,,
+Coverage,C01131,A1134:E1134,Added,,,
+Coverage,C01132,A1135:E1135,Added,,,
+Coverage,C01133,A1136:E1136,Added,,,
+Coverage,C01134,A1137:E1137,Added,,,
+Coverage,C01135,A1138:E1138,Added,,,
+Coverage,C01136,A1139:E1139,Added,,,
+Coverage,C01137,A1140:E1140,Added,,,
+Coverage,C01138,A1141:E1141,Added,,,
+Coverage,C01139,A1142:E1142,Added,,,
+Coverage,C01140,A1143:E1143,Added,,,
+Coverage,C01141,A1144:E1144,Added,,,
+Coverage,C01142,A1145:E1145,Added,,,
+Coverage,C01143,A1146:E1146,Added,,,
+Coverage,C01144,A1147:E1147,Added,,,
+Coverage,C01145,A1148:E1148,Added,,,
+Coverage,C01146,A1149:E1149,Added,,,
+Method,Scope / Snapshot,C4,Edited,Definition / rule,2026-09-13. Exactly 96 H2C-relevant and six excluded canonical entries. Manufacturer source audit refreshed; no ranking or weighted selection score.,2026-09-13. Exactly 96 H2C-relevant and six excluded canonical entries. Manufacturer source audit and missing-data research implemented; no ranking or weighted selection score.
+Method,Verification / Research limitations,C38,Edited,Definition / rule,"Rare PA66, PA66-CF, unfilled PA612 and PA612-GF lack verified exact-grade technical profiles in this sample. Legacy PLA Lite, PLA Silk and Support for PLA remain unresolved rather than being replaced. Full H2C routing/AMS validation is not established for every third-party grade.","Rare PA66, PA66-CF, unfilled PA612 and PA612-GF lack verified exact-grade technical profiles in this sample; POM has an exact product page but no mechanical, HDT or chamber values. PLA Lite and PLA Silk carry third-party technical grade samples (eSUN PLA-Lite, Panchroma Silk PLA), not the original products. Full H2C routing/AMS validation is not established for every third-party grade."
+Method,H2C,A46:C46,Added,,,
+Method,Evidence,A47:C47,Added,,,

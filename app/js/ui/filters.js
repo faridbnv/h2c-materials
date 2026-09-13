@@ -4,7 +4,7 @@
 // It tells the user what a criterion can and cannot decide, and turns the build's audit findings
 // into everyday guidance instead of a footnote.
 //
-// A field that cannot discriminate is not built as a filter. Most print profiles (133 of 160) say
+// A field that cannot discriminate is not built as a filter. Most print profiles (140 of 167) say
 // "Verify exact grade" for H2C routing, so routing appears in the detail drawer as evidence, never
 // here. A filter that passes everything teaches the user to trust something that checked nothing.
 
@@ -121,9 +121,19 @@ function body(group, materials, cs, db) {
     for (const [gate, label, limit] of [['nozzle', 'Nozzle', 350], ['bed', 'Bed', 120], ['chamber', 'Chamber', 65]]) {
       const on = !!find(cs, (c) => c.gate === gate);
       const known = materials.filter((m) => m.gates[gate]?.verdict !== 'unknown').length;
+      // The chamber is answered by a temperature or in words, and the two are counted apart: "no
+      // heated chamber needed" settles the question without being a number.
+      const avail = gate === 'chamber'
+        ? (() => {
+          const numeric = materials.filter((m) => m.print?.chamberC).length;
+          const words = materials.filter((m) => !m.print?.chamberC && m.print?.chamberGuidance?.state === 'not-required').length;
+          const partial = materials.filter((m) => m.gates.chamber?.verdict === 'partial').length;
+          return `${numeric} of ${materials.length} publish a chamber temperature and ${words} more say no heated chamber is needed<span class="caveat">${partial} publish a window the H2C only partly reaches; those stay unresolved, not passed</span>`;
+        })()
+        : `${known} of ${materials.length} publish a ${label.toLowerCase()} requirement`;
       out.push(`<div class="control" data-active="${on}">
         <label><input type="checkbox" data-gate="${gate}" ${on ? 'checked' : ''}> ${label} within ${limit} °C baseline</label>
-        <div class="avail">${known} of ${materials.length} publish a ${label.toLowerCase()} requirement</div>
+        <div class="avail">${avail}</div>
       </div>`);
     }
 

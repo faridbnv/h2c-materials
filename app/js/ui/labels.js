@@ -52,6 +52,29 @@ export const GATE = {
   buyable: { plain: 'Listed in the Canadian price sample', hint: 'three retailers, sampled on the snapshot date; not live stock' },
 };
 
+/**
+ * A process gate's verdict, as a state chip and in words. Three screens used to carry their own copy
+ * of this table, which is how a new verdict reaches one screen and not the next.
+ */
+export const GATE_VERDICT = {
+  within: { state: 'PASS', word: 'Yes', short: 'yes' },
+  partial: { state: 'INDETERMINATE', word: 'Partly', short: 'part of the window' },
+  'exceeds-recommended': { state: 'INDETERMINATE', word: 'Yes, with a caveat', short: 'recommended higher' },
+  exceeds: { state: 'FAIL', word: 'No', short: 'no' },
+  unknown: { state: 'UNKNOWN', word: 'Not recorded', short: 'not recorded' },
+};
+export const gateVerdict = (v) => GATE_VERDICT[v] ?? GATE_VERDICT.unknown;
+
+/**
+ * Chamber guidance given in words. Each is manufacturer evidence and none is a temperature, so the
+ * wording never carries a number.
+ */
+export const CHAMBER_GUIDANCE = {
+  'not-required': { word: 'not required', title: 'A source says no heated chamber is needed. No temperature is implied.' },
+  recommended: { word: 'recommended', title: 'A source recommends a heated chamber but publishes no temperature. That is not proof 65 °C is enough.' },
+  'no-setpoint': { word: 'no setpoint', title: 'The data sheet lists no chamber setpoint ("-"). Not zero, and not the same as not required.' },
+};
+
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
 
 /** Format a number without trailing noise. */

@@ -9,12 +9,13 @@ import { parseValue, parseOperator, parseBoolean, toInterval, MISSING, DATA_STAT
 import { normalizeDirection, DIRECTION } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
 import {
-  parseTemperature, withinH2C, parseNozzleDiameters, parseAbrasion, parseDrying,
+  parseTemperature, withinH2C, parseNozzleDiameters, parseAbrasion, parseDrying, parseEnclosure,
   H2C_BASELINE, PROCESS_STATE, REQUIREMENT,
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { buildEstimates, summariseEstimates } from './estimates.js';
+import { attachChamberEstimates } from './chamber-estimates.js';
 
 // Identifier lists are semicolon separated. Seven materials have no grades at all and say so in
 // words, so an explicit missing state must not become an identifier.
@@ -100,8 +101,16 @@ function compileProfiles(rows, issues) {
   return rows.map((r) => {
     const nozzle = parseTemperature(r['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle });
     const bed = parseTemperature(r['Bed °C'], { plausible: TEMP_WINDOW.bed });
-    const chamber = parseTemperature(r['Chamber °C'], { plausible: TEMP_WINDOW.chamber });
-    for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber]]) {
+    const enclosure = parseEnclosure(r.Enclosure);
+    let chamber = parseTemperature(r['Chamber °C'], { plausible: TEMP_WINDOW.chamber });
+    // Five Spectrum data sheets say only that a closed chamber is "not necessary". A material that
+    // does not need enclosing does not need a heated chamber, so that clears the chamber question
+    // without inventing a temperature. The reverse does not hold: an enclosure being recommended
+    // says nothing about whether 65 C is enough, so it leaves the chamber unknown.
+    if (chamber.state === PROCESS_STATE.UNKNOWN && !chamber.unparsed && enclosure.state === 'not-needed') {
+      chamber = { ...chamber, state: PROCESS_STATE.NOT_REQUIRED, requirement: REQUIREMENT.NONE, fromEnclosure: true };
+    }
+    for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber], ['Enclosure', enclosure]]) {
       if (p.unparsed) issues.push({ level: 'warn', where: `Print setup row ${r.__row}`, message: `${name} text not parsed: "${p.text}"` });
     }
     return {
@@ -113,9 +122,10 @@ function compileProfiles(rows, issues) {
       gates: {
         nozzle: withinH2C(nozzle, H2C_BASELINE.nozzleC),
         bed: withinH2C(bed, H2C_BASELINE.bedC),
-        chamber: withinH2C(chamber, H2C_BASELINE.chamberC),
+        chamber: withinH2C(chamber, H2C_BASELINE.chamberC, { partialWindow: true }),
       },
       enclosure: r.Enclosure,
+      enclosureState: enclosure.state,
       plate: r.Plate,
       nozzleMaterial: r['Nozzle material'],
       nozzleDiameter: parseNozzleDiameters(r['Nozzle diameter']),
@@ -137,15 +147,18 @@ function compileProfiles(rows, issues) {
 /**
  * Material-level gate across a material's print profiles.
  *
- * Precedence: within > exceeds-recommended > exceeds > unknown.
+ * Precedence: within > partial > exceeds-recommended > exceeds > unknown.
  *
  * "within" wins because a printable grade existing is what the question asks. The part that needs
  * care is that a known exceedance must outrank an unknown: PEEK carries two profiles demanding a
  * 390-430 and a 400-480 C nozzle against the H2C's 350 C, plus one profile that publishes nothing.
  * Letting the silent profile decide would report PEEK as "unknown" and throw away the evidence that
  * it is out of envelope. Silence is not counter-evidence.
+ *
+ * "partial" (chamber only) sits just below "within": part of a published window is reachable,
+ * which is better than a window the printer misses entirely.
  */
-const GATE_PRECEDENCE = ['within', 'exceeds-recommended', 'exceeds', 'unknown'];
+const GATE_PRECEDENCE = ['within', 'partial', 'exceeds-recommended', 'exceeds', 'unknown'];
 
 function aggregateGate(profiles, axis) {
   if (!profiles.length) return { verdict: 'unknown', reason: 'No print profile recorded' };
@@ -155,8 +168,11 @@ function aggregateGate(profiles, axis) {
     const matches = vs.filter((v) => v.verdict === verdict);
     if (!matches.length) continue;
     // Among several exceedances, report the smallest overshoot: it is the closest to printable.
-    const chosen = verdict === 'exceeds'
+    // Among unknowns, a source that said something in words ("recommended", "-") explains more
+    // than one that said nothing, so it supplies the reason.
+    const chosen = verdict === 'exceeds' || verdict === 'partial'
       ? matches.reduce((a, b) => ((a.over ?? Infinity) <= (b.over ?? Infinity) ? a : b))
+      : verdict === 'unknown' ? (matches.find((v) => v.categorical) ?? matches[0])
       : matches[0];
     const silent = vs.filter((v) => v.verdict === 'unknown').length;
     return {
@@ -187,7 +203,33 @@ function printSummary(profiles) {
     const max = Math.max(...ranges.map((r) => r.max));
     return { min, max, profiles: ranges.length };
   };
-  return { nozzleC: pick('nozzle'), bedC: pick('bed'), chamberC: pick('chamber') };
+  return { nozzleC: pick('nozzle'), bedC: pick('bed'), chamberC: pick('chamber'), chamberGuidance: chamberGuidance(profiles) };
+}
+
+/**
+ * What the sources say about the chamber when they say it in words.
+ *
+ * "Recommended", "not required" and a data sheet's "-" are manufacturer evidence and deserve to be
+ * seen, but none is a temperature, and none may become one. This keeps the strongest statement
+ * across a material's profiles: a source saying no heated chamber is needed outranks one
+ * recommending a chamber without a number, which outranks one listing no setpoint.
+ */
+const GUIDANCE_ORDER = ['not-required', 'recommended', 'no-setpoint'];
+function chamberGuidance(profiles) {
+  const found = profiles.map((p) => p.chamber).map((c) => {
+    if (c.state === PROCESS_STATE.NOT_REQUIRED || c.state === PROCESS_STATE.AMBIENT) {
+      return { state: 'not-required', label: c.state === PROCESS_STATE.AMBIENT ? 'Room temperature' : 'Not required', fromEnclosure: !!c.fromEnclosure };
+    }
+    if (c.state === PROCESS_STATE.RECOMMENDED) return { state: 'recommended', label: 'Recommended' };
+    if (c.state === PROCESS_STATE.NO_SETPOINT) return { state: 'no-setpoint', label: 'No setpoint' };
+    return null;
+  }).filter(Boolean);
+  if (!found.length) return null;
+  for (const state of GUIDANCE_ORDER) {
+    const hits = found.filter((f) => f.state === state);
+    if (hits.length) return { ...hits.find((h) => !h.fromEnclosure) ?? hits[0], profiles: hits.length };
+  }
+  return null;
 }
 
 function buySummary(materialId, prices) {
@@ -280,7 +322,7 @@ function compileHeadlines(mat, measurementsById, measurementsByMaterial, issues)
 /**
  * Related evidence for a headline that has no value.
  *
- * 49 materials have no tensile-strength XY headline, yet 29 of them do have a tensile-strength
+ * 45 materials have no tensile-strength XY headline, yet 31 of them do have a tensile-strength
  * measurement on record. It was not promoted to the headline because the source never stated a
  * direction, or because it measures a different endpoint. Showing a blank cell hides real evidence
  * and invites the reader to assume nothing is known.
@@ -320,7 +362,7 @@ const DIRECTION_NOTE = {
 /**
  * Related evidence for a headline that has no value.
  *
- * 30 materials have a tensile-strength measurement on record that never became the headline,
+ * 31 materials have a tensile-strength measurement on record that never became the headline,
  * because the source stated no direction or measured a different endpoint. A blank cell hid that
  * and implied nothing was known.
  *
@@ -346,7 +388,8 @@ function relatedEvidence(mat, key, measurementsByMaterial) {
       direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
       loadMPa: m.thermal?.loadMPa ?? null,
       printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
-      why: DIRECTION_NOTE[m.direction]
+      why: (m.specimenType?.startsWith('Raw material') ? 'raw-material supplier value, not a printed or product specimen' : null)
+        || DIRECTION_NOTE[m.direction]
         || (key === 'hdt045' && m.thermal && m.thermal.loadMPa !== 0.45
             ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not 0.45 MPa` : 'load not stated by the source')
             : null)
@@ -555,6 +598,8 @@ export function compile(wb, { snapshot, build }) {
   // Family estimates are attached last, once every headline is known, and only to headlines that
   // have no value of their own.
   buildEstimates(materials, grades);
+  const chamberEstimates = attachChamberEstimates(materials);
+  issues.push(...chamberEstimates.issues);
 
   const environmentCategories = countUsableByCategory(wb['Use & durability'].rows);
 
@@ -578,6 +623,7 @@ export function compile(wb, { snapshot, build }) {
         },
         environmentCategories,
         estimateCoverage: summariseEstimates(materials),
+        chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },
         headlineCoverage: Object.fromEntries(
           [...HEADLINES.map(([k]) => k), 'priceCADkg'].map((k) => [k, materials.filter((m) => m.headline[k]?.known).length]),
         ),

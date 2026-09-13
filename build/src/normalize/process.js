@@ -11,6 +11,9 @@ export const PROCESS_STATE = {
   NOT_REQUIRED: 'not-required',
   RECOMMENDED: 'recommended',
   AMBIENT: 'ambient',
+  // A data sheet that prints "-" in the chamber row. It is a statement that no setpoint is given,
+  // which is neither zero nor "not required", so it must not read as either.
+  NO_SETPOINT: 'no-setpoint',
   UNKNOWN: 'unknown',
 };
 
@@ -41,6 +44,7 @@ export const REQUIREMENT = {
 
 const NOT_REQUIRED_RE = /^(not\s+required|not\s+necessary|for printing not necessary)\b/i;
 const RECOMMENDED_RE = /^recommended\b/i;
+const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
@@ -57,6 +61,9 @@ export function parseTemperature(raw, opts = {}) {
   let s = clean(text);
   if (/^not published$/i.test(s)) {
     return { text, state: PROCESS_STATE.UNKNOWN, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
+  }
+  if (NO_SETPOINT_RE.test(s)) {
+    return { text, state: PROCESS_STATE.NO_SETPOINT, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
   }
 
   // Cut trailing clauses that are not about this process parameter.
@@ -107,18 +114,43 @@ export function parseTemperature(raw, opts = {}) {
  * A recommendation is not a requirement. "Recommended 70-140C if possible" exceeds the 65 C
  * chamber but does not make the material unprintable, so it returns a warning the UI can show
  * rather than a verdict that removes the candidate.
+ *
+ * `partialWindow` is passed for the chamber only. A chamber window of 60-90 C against a 65 C
+ * chamber is not a requirement the printer fails: 60-65 C is inside the manufacturer's own window.
+ * It is not "within" either, because most of the window cannot be reached, and Bambu says the
+ * upper part improves Z strength. So it is its own verdict. Read by the upper end alone it was a
+ * hard "exceeds", which failed ABS-CF (50-70 C) outright. Nozzle and bed keep the upper-end rule:
+ * there the bottom of a window sits at the hardware's rated maximum, and the six out-of-scope
+ * materials trip the gate on exactly those rows (docs/DECISIONS.md, D32).
  */
-export function withinH2C(parsed, limitC) {
+export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
   if (!parsed) return { verdict: 'unknown', reason: 'No requirement published' };
 
   if (parsed.state === PROCESS_STATE.NOT_REQUIRED || parsed.state === PROCESS_STATE.AMBIENT) {
-    return { verdict: 'within', reason: 'No heated requirement stated' };
+    return { verdict: 'within', reason: parsed.fromEnclosure
+      ? 'The source says an enclosure is not needed, so no heated chamber is required'
+      : 'No heated requirement stated' };
+  }
+  if (parsed.state === PROCESS_STATE.NO_SETPOINT) {
+    return { verdict: 'unknown', categorical: true, reason: 'The source lists no setpoint ("-"), which is not the same as not required' };
+  }
+  if (parsed.state === PROCESS_STATE.RECOMMENDED) {
+    return { verdict: 'unknown', categorical: true, reason: 'Recommended, but no temperature published. A heated chamber is not proof that 65 \u00b0C is enough' };
   }
   if (parsed.state !== PROCESS_STATE.RANGE) {
     return { verdict: 'unknown', reason: 'No numeric requirement published' };
   }
   if (parsed.max <= limitC) {
     return { verdict: 'within', reason: `Needs up to ${parsed.max} \u00b0C, within the H2C's ${limitC} \u00b0C` };
+  }
+  if (partialWindow && parsed.min !== null && parsed.min <= limitC) {
+    const verb = parsed.requirement === REQUIREMENT.RECOMMENDED ? 'Recommends' : 'Publishes';
+    return {
+      verdict: 'partial',
+      reason: `${verb} ${parsed.min}\u2013${parsed.max} \u00b0C; the H2C reaches only ${parsed.min}\u2013${limitC} \u00b0C of that window`,
+      reachable: { min: parsed.min, max: limitC },
+      over: parsed.max - limitC,
+    };
   }
   if (parsed.requirement === REQUIREMENT.RECOMMENDED) {
     return {
@@ -132,6 +164,21 @@ export function withinH2C(parsed, limitC) {
     reason: `Requires up to ${parsed.max} \u00b0C, the H2C provides ${limitC} \u00b0C`,
     over: parsed.max - limitC,
   };
+}
+
+/**
+ * The Enclosure column: whether a source says the part needs to be enclosed.
+ *
+ * An enclosure is not an actively heated chamber, so "recommended" says nothing about 65 C and
+ * stays unknown. "Not necessary" is different: a material that does not need to be enclosed does
+ * not need a heated chamber, which is the only thing the chamber gate asks.
+ */
+export function parseEnclosure(raw) {
+  const text = raw == null ? '' : String(raw).trim();
+  if (!text || /^not published$/i.test(text)) return { text, state: 'unknown' };
+  if (/\bnot\s+(necessary|needed|required)\b|^no\s+enclosure\b/i.test(text)) return { text, state: 'not-needed' };
+  if (/\b(recommended|yes|active\s+heated|required)\b/i.test(text)) return { text, state: 'recommended' };
+  return { text, state: 'unknown', unparsed: true };
 }
 
 /** Nozzle diameters: "0.4, 0.6, 0.8 mm", "0.2, 0.4,0.6, 0.8mm", ">=0.4 mm". */
