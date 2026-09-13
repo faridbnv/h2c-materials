@@ -72,7 +72,7 @@ An earlier version fell back to Vicat or glass transition where a material had n
 put a glass transition of −35 °C in a column headed "HDT at 0.45 MPa" — a different physical
 quantity, and actively dangerous for anyone screening on heat resistance. Same-property only.
 
-## D10. A family estimate may rule out, never rule in
+## D10. A family estimate may rule out, never rule in (superseded by D40)
 
 The asymmetry is the whole design. Knowing every measured unreinforced PLA falls between 2.8 and
 15.3% elongation is enough to say PLA Lite is not an elastomer. It is not enough to certify PLA Lite
@@ -83,7 +83,7 @@ estimates, a search for elongation at least 100% returned 35 materials including
 nylons; it now returns 14, of which 8 are genuine elastomers and 6 are supports that honestly have
 no peers.
 
-## D11. Estimates never pool across behaviour classes
+## D11. Estimates never pool across behaviour classes (narrowed by D40)
 
 "All unreinforced materials" spanned TPU at 0.0053 GPa and PLA at 2.88 GPa. Three orders of
 magnitude rules nothing out and implies a support material might be as stiff as a structural one.
@@ -448,3 +448,22 @@ answers rather than failing.
 | Environmental evidence copied from family notes | 31 materials appeared to own another material's exposure evidence, while some exact-grade records were omitted | `database.test.js`, `validate.js` |
 | Coverage contradicted the records | Rows said `Gap` beside measured/profile data or `Evidence recorded` with no record owned by the material | `database.test.js`, `coverage-rules.js` |
 | Existence-only referential checks | A valid measurement and a valid grade could be joined under the wrong material without an error | mutation tests in `database.test.js` |
+
+## D40. Peer observations are context, not exclusion bounds
+
+The systematic data audit found OBC borrowing PP and reinforced PP mechanical spans, flexible
+families pooling TPU with PEBA/TPC, and HDT estimates borrowing unstated loads. Even within a
+correct family, the observed extremes of a small sample do not bound an unmeasured formulation.
+Peer estimates now require the same base polymer and modifier, preserve intervals, and never
+determine eligibility. This supersedes D10 and the exclusion claims in historical audits.
+
+## D41. Raw values, endpoints and archived identities are enforced
+
+Four decimal-comma values were truncated; two maximum-force strain observations were mislabelled
+as break strain; a qualitative No Break result carried numeric status. Raw-to-normalized checks
+now stop the build on these inconsistencies. Headline matches must agree in property and unit as
+well as value and ownership. Explicitly retired grade mappings are archival, never active procurement.
+Tests rebuild the inputs every time; the audit command independently checks the HTML payload.
+
+See [systematic data audit](audits/2026-09-13-systematic-data/REPORT.md) for all findings, cell edits,
+source checksums, before/after compiled changes, every filament and every family.

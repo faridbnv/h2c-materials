@@ -168,3 +168,8 @@ category without importing anything from `ui/`.
 - `docs/DATA-MODEL.md` — the entities, the compiled shape, the three kinds of number
 - `docs/INTERFACE.md` — the workflow, the lenses, the visual vocabulary
 - `docs/DECISIONS.md` — the decisions that are not obvious, and the bugs that forced them
+
+The systematic audit uses `build/src/measurement-rules.js` for independent raw-value and headline
+semantics checks and `scripts/audit-data.mjs` for reproducible source-to-HTML verification and record
+inventories. Both reuse the established pipeline. Retirement is an explicit source status, not a
+hardcoded grade exclusion. Peer estimates now provide context only (D40).

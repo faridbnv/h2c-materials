@@ -177,3 +177,18 @@ test('gate reasons carry the degree symbol', () => {
   const over = withinH2C(parseTemperature('390-480 C', { plausible: [0, 500] }), 350);
   assert.match(over.reason, /°C/);
 });
+
+// SD-04: a tolerance's delta is neither a range endpoint nor a second setting.
+test('process tolerances retain both ends around the nominal temperature', () => {
+  for (const [text, min, max] of [['180 ±20°C',160,200], ['215 ±10°C',205,225], ['75 ±5°C',70,80], ['215 +/- 10°C',205,225]]) {
+    const p = parseTemperature(text);
+    assert.equal(p.min,min,text); assert.equal(p.max,max,text);
+  }
+  assert.ok(parseTemperature('490 ±20°C', {plausible:[100,500]}).unparsed);
+});
+
+test('limonene support cannot back water-solubility evidence', () => {
+  const topic = classifyTopic('Limonene support');
+  assert.equal(topic.category,'organic-solvent');
+  assert.equal(topic.agent,'d-Limonene');
+});

@@ -59,7 +59,7 @@ export function evidenceSummary(material, { measurements, evidence, coverage, gr
     measurements: ms.length,
     numericMeasurements: ms.filter((m) => m.numeric).length,
     quarantined: ms.filter((m) => m.quarantined).length,
-    grades: mine(grades).length,
+    grades: mine(grades).filter((g) => !g.retired).length,
     exactGradeEvidence: ms.some((m) => m.gradeId && m.gradeId !== 'Not applicable'),
     evidenceRecords: mine(evidence).length,
     gaps: cov.filter((c) => c.status === 'Gap').length,

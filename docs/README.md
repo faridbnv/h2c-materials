@@ -40,10 +40,12 @@ A comment saying a parser cannot accept a leading minus is worth more than the r
 **A bug in a parser gets a test with the failure in the comment.** See `test/normalize.test.js`.
 Those tests read oddly without the context, which is exactly why the context is in them.
 
-**If you weaken a rule in the list in the README, say so in DECISIONS.md.** Those seventeen rules are
+**If you weaken a rule in the list in the README, say so in DECISIONS.md.** Those rules are
 what the tool asserts about its own trustworthiness.
 
 **Names live in one place.** `app/js/ui/labels.js` for properties and criteria,
 `build/mappings/environment-topics.json` for environment categories. A second way to name something
 does not look wrong where you write it; it looks wrong three screens away, to a reader who now
 doubts the number beside it.
+
+The [systematic data audit](audits/2026-09-13-systematic-data/REPORT.md) includes every filament and family, all source/record locators and reproducible validation. D40 supersedes the old peer-exclusion rule.

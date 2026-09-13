@@ -78,6 +78,15 @@ export function parseTemperature(raw, opts = {}) {
   const ambient = AMBIENT_RE.test(s);
   const [lo, hi] = opts.plausible || [0, 500];
 
+  // A tolerance is centred on the nominal setting; its second number is not an endpoint.
+  const tolerance = s.match(/(\d+(?:\.\d+)?)\s*(?:±|\+\/-)\s*(\d+(?:\.\d+)?)/);
+  if (tolerance) {
+    const centre = Number(tolerance[1]), delta = Number(tolerance[2]);
+    const min = centre - delta, max = centre + delta;
+    if (min < lo || max > hi) return { text, state: PROCESS_STATE.UNKNOWN, requirement, min: null, max: null, unparsed: true };
+    return { text, state: PROCESS_STATE.RANGE, requirement, min, max, tolerance: delta };
+  }
+
   // No leading minus in the pattern. These temperatures are never negative, and accepting one
   // makes the range dash in "255-275C" read as the sign of -275, which then fails the plausibility
   // window and silently collapses the range to its lower end.

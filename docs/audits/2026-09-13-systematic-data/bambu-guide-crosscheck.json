@@ -1,0 +1,748 @@
+{
+  "sourceId": "R-BAMBU-GUIDE-202609",
+  "sha256": "048fb9a65547b5107fc935812ab5c81a78f70ff9d979797be897a8d47d19dc41",
+  "scope": "13 exact named Bambu entries; 39 flexural/HDT cells. Generic PLA and N/A TPU cells not mapped. Numerical agreement does not establish identical specimen preparation or resolve unstated TDS loads.",
+  "checked": [
+    {
+      "name": "PETG HF",
+      "materialId": "M022",
+      "property": "Flexural strength",
+      "guideValue": 64,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000459"
+      ],
+      "observed": [
+        {
+          "id": "V000459",
+          "value": 64
+        }
+      ]
+    },
+    {
+      "name": "PETG HF",
+      "materialId": "M022",
+      "property": "Flexural modulus",
+      "guideValue": 2.05,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000457"
+      ],
+      "observed": [
+        {
+          "id": "V000457",
+          "value": 2.05
+        }
+      ]
+    },
+    {
+      "name": "PETG HF",
+      "materialId": "M022",
+      "property": "HDT",
+      "guideValue": 69,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000449"
+      ],
+      "observed": [
+        {
+          "id": "V000448",
+          "value": 62,
+          "load": 1.8
+        },
+        {
+          "id": "V000449",
+          "value": 69,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "ABS",
+      "materialId": "M027",
+      "property": "Flexural strength",
+      "guideValue": 62,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000562"
+      ],
+      "observed": [
+        {
+          "id": "V000562",
+          "value": 62
+        }
+      ]
+    },
+    {
+      "name": "ABS",
+      "materialId": "M027",
+      "property": "Flexural modulus",
+      "guideValue": 1.88,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000560"
+      ],
+      "observed": [
+        {
+          "id": "V000560",
+          "value": 1.88
+        }
+      ]
+    },
+    {
+      "name": "ABS",
+      "materialId": "M027",
+      "property": "HDT",
+      "guideValue": 87,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000552"
+      ],
+      "observed": [
+        {
+          "id": "V000551",
+          "value": 84,
+          "load": 1.8
+        },
+        {
+          "id": "V000552",
+          "value": 87,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "ABS-GF",
+      "materialId": "M028",
+      "property": "Flexural strength",
+      "guideValue": 68,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000583"
+      ],
+      "observed": [
+        {
+          "id": "V000583",
+          "value": 68
+        }
+      ]
+    },
+    {
+      "name": "ABS-GF",
+      "materialId": "M028",
+      "property": "Flexural modulus",
+      "guideValue": 2.86,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000581"
+      ],
+      "observed": [
+        {
+          "id": "V000581",
+          "value": 2.86
+        }
+      ]
+    },
+    {
+      "name": "ABS-GF",
+      "materialId": "M028",
+      "property": "HDT",
+      "guideValue": 99,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000573"
+      ],
+      "observed": [
+        {
+          "id": "V000572",
+          "value": 88,
+          "load": 1.8
+        },
+        {
+          "id": "V000573",
+          "value": 99,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "ASA",
+      "materialId": "M031",
+      "property": "Flexural strength",
+      "guideValue": 65,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000628"
+      ],
+      "observed": [
+        {
+          "id": "V000628",
+          "value": 65
+        }
+      ]
+    },
+    {
+      "name": "ASA",
+      "materialId": "M031",
+      "property": "Flexural modulus",
+      "guideValue": 1.92,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000626"
+      ],
+      "observed": [
+        {
+          "id": "V000626",
+          "value": 1.92
+        }
+      ]
+    },
+    {
+      "name": "ASA",
+      "materialId": "M031",
+      "property": "HDT",
+      "guideValue": 100,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000618"
+      ],
+      "observed": [
+        {
+          "id": "V000617",
+          "value": 92,
+          "load": 1.8
+        },
+        {
+          "id": "V000618",
+          "value": 100,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PC",
+      "materialId": "M035",
+      "property": "Flexural strength",
+      "guideValue": 108,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000693"
+      ],
+      "observed": [
+        {
+          "id": "V000693",
+          "value": 108
+        }
+      ]
+    },
+    {
+      "name": "PC",
+      "materialId": "M035",
+      "property": "Flexural modulus",
+      "guideValue": 2.31,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000691"
+      ],
+      "observed": [
+        {
+          "id": "V000691",
+          "value": 2.31
+        }
+      ]
+    },
+    {
+      "name": "PC",
+      "materialId": "M035",
+      "property": "HDT",
+      "guideValue": 117,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000682"
+      ],
+      "observed": [
+        {
+          "id": "V000682",
+          "value": 117,
+          "load": 1.8
+        },
+        {
+          "id": "V000683",
+          "value": 112,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PLA-CF",
+      "materialId": "M018",
+      "property": "Flexural strength",
+      "guideValue": 89,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000339"
+      ],
+      "observed": [
+        {
+          "id": "V000339",
+          "value": 89
+        }
+      ]
+    },
+    {
+      "name": "PLA-CF",
+      "materialId": "M018",
+      "property": "Flexural modulus",
+      "guideValue": 3.95,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000337"
+      ],
+      "observed": [
+        {
+          "id": "V000337",
+          "value": 3.95
+        }
+      ]
+    },
+    {
+      "name": "PLA-CF",
+      "materialId": "M018",
+      "property": "HDT",
+      "guideValue": 55,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000329"
+      ],
+      "observed": [
+        {
+          "id": "V000328",
+          "value": 54,
+          "load": 1.8
+        },
+        {
+          "id": "V000329",
+          "value": 55,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PETG-CF",
+      "materialId": "M024",
+      "property": "Flexural strength",
+      "guideValue": 70,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000500"
+      ],
+      "observed": [
+        {
+          "id": "V000500",
+          "value": 70
+        }
+      ]
+    },
+    {
+      "name": "PETG-CF",
+      "materialId": "M024",
+      "property": "Flexural modulus",
+      "guideValue": 2.91,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000498"
+      ],
+      "observed": [
+        {
+          "id": "V000498",
+          "value": 2.91
+        }
+      ]
+    },
+    {
+      "name": "PETG-CF",
+      "materialId": "M024",
+      "property": "HDT",
+      "guideValue": 74,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000490"
+      ],
+      "observed": [
+        {
+          "id": "V000489",
+          "value": 68,
+          "load": 1.8
+        },
+        {
+          "id": "V000490",
+          "value": 74,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PET-CF",
+      "materialId": "M067",
+      "property": "Flexural strength",
+      "guideValue": 131,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001280"
+      ],
+      "observed": [
+        {
+          "id": "V001280",
+          "value": 131
+        }
+      ]
+    },
+    {
+      "name": "PET-CF",
+      "materialId": "M067",
+      "property": "Flexural modulus",
+      "guideValue": 5.32,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001278"
+      ],
+      "observed": [
+        {
+          "id": "V001278",
+          "value": 5.32
+        }
+      ]
+    },
+    {
+      "name": "PET-CF",
+      "materialId": "M067",
+      "property": "HDT",
+      "guideValue": 205,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001270"
+      ],
+      "observed": [
+        {
+          "id": "V001269",
+          "value": 182,
+          "load": 1.8
+        },
+        {
+          "id": "V001270",
+          "value": 205,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PAHT-CF",
+      "materialId": "M048",
+      "property": "Flexural strength",
+      "guideValue": 125,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000912"
+      ],
+      "observed": [
+        {
+          "id": "V000912",
+          "value": 125
+        }
+      ]
+    },
+    {
+      "name": "PAHT-CF",
+      "materialId": "M048",
+      "property": "Flexural modulus",
+      "guideValue": 4.23,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000910"
+      ],
+      "observed": [
+        {
+          "id": "V000910",
+          "value": 4.23
+        }
+      ]
+    },
+    {
+      "name": "PAHT-CF",
+      "materialId": "M048",
+      "property": "HDT",
+      "guideValue": 194,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000902"
+      ],
+      "observed": [
+        {
+          "id": "V000901",
+          "value": 170,
+          "load": 1.8
+        },
+        {
+          "id": "V000902",
+          "value": 194,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PA6-CF",
+      "materialId": "M050",
+      "property": "Flexural strength",
+      "guideValue": 151,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000938"
+      ],
+      "observed": [
+        {
+          "id": "V000938",
+          "value": 151
+        }
+      ]
+    },
+    {
+      "name": "PA6-CF",
+      "materialId": "M050",
+      "property": "Flexural modulus",
+      "guideValue": 5.46,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000936"
+      ],
+      "observed": [
+        {
+          "id": "V000936",
+          "value": 5.46
+        }
+      ]
+    },
+    {
+      "name": "PA6-CF",
+      "materialId": "M050",
+      "property": "HDT",
+      "guideValue": 186,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000928"
+      ],
+      "observed": [
+        {
+          "id": "V000927",
+          "value": 164,
+          "load": 1.8
+        },
+        {
+          "id": "V000928",
+          "value": 186,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PA6-GF",
+      "materialId": "M051",
+      "property": "Flexural strength",
+      "guideValue": 120,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000959"
+      ],
+      "observed": [
+        {
+          "id": "V000959",
+          "value": 120
+        }
+      ]
+    },
+    {
+      "name": "PA6-GF",
+      "materialId": "M051",
+      "property": "Flexural modulus",
+      "guideValue": 3.67,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000957"
+      ],
+      "observed": [
+        {
+          "id": "V000957",
+          "value": 3.67
+        }
+      ]
+    },
+    {
+      "name": "PA6-GF",
+      "materialId": "M051",
+      "property": "HDT",
+      "guideValue": 182,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V000949"
+      ],
+      "observed": [
+        {
+          "id": "V000948",
+          "value": 158,
+          "load": 1.8
+        },
+        {
+          "id": "V000949",
+          "value": 182,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PPA-CF",
+      "materialId": "M070",
+      "property": "Flexural strength",
+      "guideValue": 208,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001318"
+      ],
+      "observed": [
+        {
+          "id": "V001318",
+          "value": 208
+        }
+      ]
+    },
+    {
+      "name": "PPA-CF",
+      "materialId": "M070",
+      "property": "Flexural modulus",
+      "guideValue": 9.86,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001316"
+      ],
+      "observed": [
+        {
+          "id": "V001316",
+          "value": 9.86
+        }
+      ]
+    },
+    {
+      "name": "PPA-CF",
+      "materialId": "M070",
+      "property": "HDT",
+      "guideValue": 227,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001308"
+      ],
+      "observed": [
+        {
+          "id": "V001307",
+          "value": 196,
+          "load": 1.8
+        },
+        {
+          "id": "V001308",
+          "value": 227,
+          "load": 0.45
+        }
+      ]
+    },
+    {
+      "name": "PPS-CF",
+      "materialId": "M073",
+      "property": "Flexural strength",
+      "guideValue": 142,
+      "unit": "MPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001369"
+      ],
+      "observed": [
+        {
+          "id": "V001369",
+          "value": 142
+        }
+      ]
+    },
+    {
+      "name": "PPS-CF",
+      "materialId": "M073",
+      "property": "Flexural modulus",
+      "guideValue": 7.16,
+      "unit": "GPa",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001367"
+      ],
+      "observed": [
+        {
+          "id": "V001367",
+          "value": 7.16
+        }
+      ]
+    },
+    {
+      "name": "PPS-CF",
+      "materialId": "M073",
+      "property": "HDT",
+      "guideValue": 264,
+      "unit": "°C",
+      "status": "Numerical corroboration only; retain TDS conditions",
+      "measurementIds": [
+        "V001359"
+      ],
+      "observed": [
+        {
+          "id": "V001358",
+          "value": 235,
+          "load": 1.8
+        },
+        {
+          "id": "V001359",
+          "value": 264,
+          "load": 0.45
+        }
+      ]
+    }
+  ]
+}

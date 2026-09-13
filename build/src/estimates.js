@@ -1,76 +1,17 @@
-// Family estimates: plausibility bounds for materials with no measurement of their own.
-//
-// Why this exists. In Explore mode a material with no mechanical data at all answered UNKNOWN to
-// every mechanical criterion, so PLA Lite survived a search for "elongation at least 100%" and sat
-// among the elastomers. Nobody familiar with PLA would put it there. A bound that says "every PLA
-// in this database measures between 1.2 and 25% elongation" rules it out without pretending to
-// know its exact value.
-//
-// What this is NOT. It is not a measurement, not a headline, and not usable as evidence. The
-// architecture brief forbids inferring a property from a family average and then presenting it as
-// data; it allows the inference only when it is explicitly separated and labelled, which is what
-// the `estimate` object and the UI treatment do. Strict mode never sees these at all, and even in
-// Explore an estimate can only rule a material OUT, never confirm it in. See applyEstimate in
-// app/js/engine/constraints.js.
-//
-// Sources are the compiled headline values only: each is already verified against its own citation,
-// measured in XY where direction applies, and drawn from a single grade. Pooling raw measurements
-// would mix directions and specimen types and produce a bound that means nothing.
-
+// Peer spans are contextual observations only. They never determine eligibility.
 export const ESTIMATE_KEYS = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'];
 
-/** Reinforcement classes that may share an envelope. Carbon and glass are never pooled with unfilled. */
-function reinforcementClass(m) {
-  switch (m.facets.reinforcement.value) {
-    case 'carbon-fibre': return 'cf';
-    case 'glass-fibre': return 'gf';
-    case 'esd': return 'esd';
-    case 'foaming': return 'foam';
-    // An undisclosed commercial variant of PLA is still PLA. Grouping it with the unfilled grades
-    // is a judgement, and it is recorded in the basis string the UI shows.
-    default: return 'unreinforced';
-  }
-}
+// Display families can contain different polymers (PP/PE/OBC, TPU/PEBA/TPC, PPA/PPS).
+// They are navigation groups, not transferable material-property populations.
+export const peerGroup = (m) => [m.family,
+  m.family === 'Polymer Blends' ? m.normalizedName : m.basePolymer,
+  m.modifier, m.role].join('|');
 
-/**
- * A coarse behaviour class, used only by the widest tier.
- *
- * Without it "all unreinforced materials" pooled TPU at 0.0053 GPa with PLA at 2.88 and produced a
- * bound spanning three orders of magnitude, which rules nothing out and invites the reader to think
- * a support material might be as stiff as a structural one. Elastomers, supports and rigid
- * thermoplastics are different populations and are never pooled.
- */
-function behaviourClass(m) {
-  if (m.family === 'Flexible Elastomers') return 'elastomer';
-  if (m.role === 'Support/interface' || /^Support/.test(m.family)) return 'support';
-  return 'rigid';
-}
-
-// Most specific first. Each tier says what it pools and the minimum number of measured peers.
-const TIERS = [
-  {
-    id: 'family+filler',
-    minPeers: 2,
-    label: (m) => `${m.family}, ${reinforcementClass(m) === 'unreinforced' ? 'unreinforced' : reinforcementClass(m).toUpperCase()} grades`,
-    key: (m) => `${m.family}|${reinforcementClass(m)}`,
-  },
-  {
-    id: 'family',
-    minPeers: 2,
-    label: (m) => `${m.family}, all grades including reinforced ones`,
-    key: (m) => `${m.family}|*`,
-  },
-  {
-    id: 'filler',
-    minPeers: 3,
-    label: (m) => {
-      const r = reinforcementClass(m) === 'unreinforced' ? 'unreinforced' : `${reinforcementClass(m).toUpperCase()}-filled`;
-      const b = { elastomer: 'elastomers', support: 'support materials', rigid: 'rigid thermoplastics' }[behaviourClass(m)];
-      return `all ${r} ${b} in this database`;
-    },
-    key: (m) => `${behaviourClass(m)}|${reinforcementClass(m)}`,
-  },
-];
+const TIERS = [{
+  id: 'polymer+modifier', minPeers: 2,
+  key: peerGroup,
+  label: (m) => `${m.basePolymer}, ${m.modifier}; sampled peer observations only`,
+}];
 
 /**
  * Independent-observation key.
@@ -96,10 +37,11 @@ export function buildEstimates(materials, gradeList = []) {
       const map = new Map();
       for (const m of pool) {
         const h = m.headline[key];
-        if (!h?.known) continue;
+        if (!h?.known || (key === 'hdt045' && (!h.loadStated || h.loadMPa !== 0.45))) continue;
+        if (h.interval?.lo == null || h.interval?.hi == null) continue;
         const k = t.key(m);
         if (!map.has(k)) map.set(k, []);
-        map.get(k).push({ id: m.id, name: m.name, value: h.value, unit: h.unit, obs: observationKey(grades, h) });
+        map.get(k).push({ id: m.id, name: m.name, value: h.value, lo: h.interval.lo, hi: h.interval.hi, unit: h.unit, obs: observationKey(grades, h) });
       }
       return map;
     });
@@ -121,16 +63,19 @@ export function buildEstimates(materials, gradeList = []) {
         if (independent.length < tier.minPeers) continue;
 
         const peers = independent;
-        const vs = peers.map((p) => p.value);
+        if (new Set(peers.map((p) => p.unit)).size !== 1) continue;
+        const lo = Math.min(...peers.map((p) => p.lo));
+        const hi = Math.max(...peers.map((p) => p.hi));
+        if (lo === hi) continue;
         h.estimate = {
-          lo: Math.min(...vs),
-          hi: Math.max(...vs),
+          lo,
+          hi,
           unit: peers[0].unit,
           tier: tier.id,
           basis: tier.label(m),
           peerCount: peers.length,
           sharedSourceDropped: shared || undefined,
-          peers: peers.sort((a, b) => a.value - b.value).map((p) => ({ id: p.id, name: p.name, value: p.value })),
+          peers: peers.sort((a, b) => a.value - b.value).map((p) => ({ id: p.id, name: p.name, value: p.value, lo: p.lo, hi: p.hi })),
         };
         report.push({ material: m.name, key, tier: tier.id, n: peers.length, lo: h.estimate.lo, hi: h.estimate.hi });
         break;

@@ -187,3 +187,16 @@ instead of calling `describeConstraint` in `app/js/ui/labels.js`.
 To prove the offline requirement, open the file with the network disabled. It must work fully. The
 plotting library contains CDN strings for map traces the application never renders, so grepping for
 URLs is not a substitute for actually running it without a network.
+
+## Systematic data audit
+
+`npm test` always builds current inputs before the database tests. `npm run audit:data` also builds,
+then reuses the production extractor/compiler/validator and writes `build/reports/data-audit/`.
+Pass an output directory to archive a review. The audit independently reconciles numeric raw values,
+checks explicit source-grade scope, regenerates both workbook payloads, and decompresses the HTML
+to prove it embeds those exact payloads. It produces a full record index and 102-filament / 19-family
+matrix. It does not assert that all external documents were re-read; live checks belong in the
+review's source log. `measurement-rules.js` adds build-stopping numeric and endpoint checks.
+
+The Pages workflow runs the data audit after tests. Exact native conversion-factor values are retained
+by extraction for formula checks; formatted display strings alone can round small factors.

@@ -68,7 +68,7 @@
 
     "Solubility":                     { "category": "water-solubility" },
     "Water removal":                  { "category": "water-solubility" },
-    "Limonene support":               { "category": "water-solubility" },
+    "Limonene support":               { "category": "organic-solvent", "strength": "specific", "agent": "d-Limonene" },
     "Water solubility":               { "category": "water-solubility" },
 
     "UV":                             { "category": "uv-outdoor" },

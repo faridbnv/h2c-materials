@@ -110,7 +110,7 @@ export function renderAshby(host, state, actions) {
     : measurementMode ? 'Not used when every measurement is drawn: an estimate describes a material, not a grade.'
     : state.ctx?.useEstimates ? 'No candidate on these axes has an estimate to draw.'
     : state.scenario.unknownPolicy === 'exploration' ? 'Estimates are off. Tick Estimates in the top bar to use them.'
-    : 'Estimates are off. They are available with "Keep it, flagged", where they can rule a material out.';
+    : 'Estimates are off. They are available with "Keep it, flagged", where they provide context only.';
 
   const index = indexById(p.index);
   const cheapest = INDICES.filter((i) => i.costForm), lightest = INDICES.filter((i) => !i.costForm);

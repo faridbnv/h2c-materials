@@ -3,6 +3,8 @@
 
 import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
+import { measurementIssues } from './measurement-rules.js';
+import { peerGroup } from './estimates.js';
 import {
   ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
 } from './coverage-rules.js';
@@ -11,7 +13,7 @@ const err = (where, message) => ({ level: 'error', where, message });
 const warn = (where, message) => ({ level: 'warn', where, message });
 
 export function validate(db, wb) {
-  const issues = [];
+  const issues = measurementIssues(db, wb);
 
   // -- identifiers are unique -------------------------------------------------
   for (const [name, rows] of [
@@ -63,6 +65,8 @@ export function validate(db, wb) {
     for (const r of rows) {
       const g = gradeById.get(r.gradeId);
       if (g && g.materialId !== r.materialId) issues.push(err(`${name} ${r.id}`, `Filed under ${r.materialId} but its grade ${r.gradeId} belongs to ${g.materialId}`));
+      if (g?.retired && name !== 'profiles' && !r.quarantined) issues.push(err(`${name} ${r.id}`, `Active record uses retired grade ${r.gradeId}`));
+      if (g?.retired && name === 'profiles' && !r.retired) issues.push(err(`${name} ${r.id}`, `Active profile uses retired grade ${r.gradeId}`));
     }
   }
 
@@ -75,9 +79,10 @@ export function validate(db, wb) {
 
     // Grades. Study grades (an R suffix) are not procurement grades and are not listed.
     for (const g of grades) {
-      if (!isStudyGrade(g.id) && !mat.gradeIds.includes(g.id)) issues.push(err(where, `Grade ${g.id} belongs to this material but GradeIDs does not list it`));
+      if (!g.retired && !isStudyGrade(g.id) && !mat.gradeIds.includes(g.id)) issues.push(err(where, `Grade ${g.id} belongs to this material but GradeIDs does not list it`));
     }
     for (const id of mat.gradeIds) {
+      if (gradeById.get(id)?.retired) issues.push(err(where, `GradeIDs lists retired mapping ${id}`));
       if (gradeById.get(id) && gradeById.get(id).materialId !== mat.id) issues.push(err(where, `GradeIDs lists ${id}, a grade of ${gradeById.get(id).materialId}`));
     }
     const rep = mat.representativeGrade;
@@ -90,6 +95,8 @@ export function validate(db, wb) {
     for (const [key, h] of Object.entries(mat.headline)) {
       if (!h?.known || !h.measurementId) continue;
       const m = measurementById.get(h.measurementId);
+      if (!m) { issues.push(err(where, `Headline ${key} cites missing measurement ${h.measurementId}`)); continue; }
+      if (gradeById.get(m.gradeId)?.retired) issues.push(err(where, `Headline ${key} cites retired grade ${m.gradeId}`));
       if (m.materialId !== mat.id) issues.push(err(where, `Headline ${key} cites ${m.id}, a measurement of ${m.materialId}`));
       else if (hasRep && m.gradeId !== rep) issues.push(err(where, `Headline ${key} cites ${m.id} on grade ${m.gradeId}, not the representative grade ${rep}`));
       citationsChecked++;
@@ -205,6 +212,11 @@ export function validate(db, wb) {
       if (!h?.estimate) continue;
       estimates++;
       const e = h.estimate;
+      for (const p of e.peers ?? []) {
+        const peer = db.materials.find((m) => m.id === p.id);
+        if (!peer || peerGroup(peer) !== peerGroup(mat)) issues.push(err(`materials ${mat.id}`, `Estimate ${key} borrows from a different polymer/modifier group: ${p.id}`));
+        if (key === 'hdt045' && (!peer?.headline[key].loadStated || peer?.headline[key].loadMPa !== 0.45)) issues.push(err(`materials ${mat.id}`, `HDT estimate borrows an unstated or different test load from ${p.id}`));
+      }
       if (h.known) issues.push(err(`materials ${mat.id}`, `Headline ${key} has a measured value AND a family estimate`));
       if (mat.excluded) issues.push(err(`materials ${mat.id}`, `Excluded material carries a family estimate for ${key}`));
       if (!e.peers?.length || e.peerCount < 2) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} cites fewer than two independent peers`));
@@ -214,7 +226,7 @@ export function validate(db, wb) {
     }
   }
   if (estimates) {
-    issues.push(warn('materials', `${estimates} family estimates were derived for headlines with no measurement. They are inference, not evidence: Strict mode never sees them, and in Explore they can only rule a material out of a requirement it clearly cannot meet.`));
+    issues.push(warn('materials', `${estimates} peer spans were derived for missing headlines. Same polymer and modifier only; these observations never confirm or exclude a material.`));
   }
 
   // -- unparsed free text -----------------------------------------------------
@@ -335,14 +347,14 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
 
   L.push('## Family estimates');
   L.push('');
-  L.push('Where a material has no measurement of its own, the span of its closest measured relatives');
-  L.push('is recorded as a bound. Peers sharing one commercial source count once. These never appear');
-  L.push('in Strict mode, and can only exclude, never confirm.');
+  L.push('Missing headlines may carry a sample span from the same polymer and modifier. Peer intervals');
+  L.push('are preserved, unknown HDT loads are excluded, and repeated formulation keys count once.');
+  L.push('Peer context never confirms or excludes a material.');
   L.push('');
-  L.push('| Headline | Missing | From family and filler | From family | From behaviour and filler | No peers |');
-  L.push('|---|---:|---:|---:|---:|---:|');
+  L.push('| Headline | Missing | Same polymer and modifier | No comparable peer span |');
+  L.push('|---|---:|---:|---:|');
   for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
-    L.push(`| ${k} | ${v.missing} | ${v['family+filler'] ?? 0} | ${v.family ?? 0} | ${v.filler ?? 0} | ${v.none ?? 0} |`);
+    L.push(`| ${k} | ${v.missing} | ${v['polymer+modifier'] ?? 0} | ${v.none ?? 0} |`);
   }
   L.push('');
 

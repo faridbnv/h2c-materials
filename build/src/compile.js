@@ -273,7 +273,10 @@ function compileHeadlines(mat, measurementsById, measurementsByMaterial, issues)
       continue;
     }
 
-    const match = cited.find((m) => m.value === parsed.value && (!property || m.property === property));
+    const match = cited.find((m) => m.value === parsed.value && m.unit === unit
+      && m.materialId === mat.MaterialID && m.gradeId === mat['Representative grade']
+      && (property ? m.property === property : RELATED.tensileStrengthXY.includes(m.property))
+      && (!direction || m.direction === direction));
     if (!match) {
       issues.push({
         level: 'error',
@@ -489,14 +492,18 @@ export function compile(wb, { snapshot, build }) {
     colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
     rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
     diameters: r['Diameter compatibility'],
+    retired: r.Availability === 'Retired mapping; audit trail only',
   }));
 
   const measurements = compileMeasurements(wb.Properties.rows, issues);
   const measurementsById = new Map(measurements.map((m) => [m.id, m]));
 
   const profiles = compileProfiles(wb['Print setup'].rows, issues);
+  const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));
+  for (const p of profiles) p.retired = retiredGrades.has(p.gradeId);
   const profilesByMaterial = new Map();
   for (const p of profiles) {
+    if (p.retired) continue;
     if (!profilesByMaterial.has(p.materialId)) profilesByMaterial.set(p.materialId, []);
     profilesByMaterial.get(p.materialId).push(p);
   }

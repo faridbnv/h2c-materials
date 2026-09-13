@@ -65,6 +65,13 @@ function sheetToRows(ws, headerRowIndex) {
     }
     if (any) {
       rec.__row = r + 1; // 1-based spreadsheet row, for error messages
+      // Display formatting can round a conversion factor (0.0000980665 displays as 0.0001).
+      // Retain native numeric cells for validation without changing the source-text interface.
+      rec.__numbers = {};
+      for (let c = 0; c < header.length; c++) {
+        const cell = ws[XLSX.utils.encode_cell({ r, c })];
+        if (cell?.t === 'n' && typeof cell.v === 'number') rec.__numbers[header[c]] = cell.v;
+      }
       rows.push(rec);
     }
   }

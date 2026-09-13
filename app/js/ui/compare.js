@@ -106,7 +106,7 @@ export function renderCompare(host, state, actions) {
           const w = Math.max(((e.hi - e.lo) / max) * 100, 1.5);
           const title = `Estimated, not measured. The ${e.peerCount} measured peers in ${e.basis} `
             + `fall between ${fmtNumber(e.lo)} and ${fmtNumber(e.hi)} ${e.unit}. `
-            + 'Used only to rule a material out, never to confirm one in.';
+            + 'Peer context only; does not decide eligibility.';
           return `<div class="cmp-bar estimated${isAnchor(m) ? ' anchor' : ''}" title="${esc(title)}">
             <span>${who}</span>
             <span class="track"><span class="est-span" style="left:${left}%;width:${w}%"></span></span>
@@ -180,7 +180,7 @@ export function renderCompare(host, state, actions) {
       }).join('')}</tbody></table>
     ${picked.some((m) => AXIS_DEFS.some((a) => estimateOf(m, a.key)))
       ? `<p class="fine">A \u2020 span is the range of a material's closest measured relatives, not a
-         measurement of the material itself. It can rule one out of a requirement, never satisfy one.</p>`
+         measurement of the material itself. It never confirms or excludes a material.</p>`
       : ''}`;
 
   host.querySelector('#cmp-print')?.addEventListener('click', () => window.print());

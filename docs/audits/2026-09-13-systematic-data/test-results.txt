@@ -1,0 +1,151 @@
+
+> h2c-fdm-material-selector@1.0.0 pretest
+> node scripts/ensure-db.mjs
+
+Building the current workbook and code before database tests.
+
+
+> h2c-fdm-material-selector@1.0.0 build
+> npm --prefix build run build
+
+
+> h2c-material-selector-build@1.0.0 build
+> node src/index.js
+
+
+materials 102  measurements 1966  profiles 167  reference 114
+errors 0   warnings 4
+  warn   measurements: Impact data uses two incompatible units. 9 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
+  warn   materials: 25 of 69 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
+  warn   materials: 3 peer spans were derived for missing headlines. Same polymer and modifier only; these observations never confirm or exclude a material.
+  warn   materials: 5 materials have no property measurements at all: PA66, PA66-CF, PA612, PA612-GF, POM / Acetal
+
+report -> build/reports/validation-report.md
+db.json -> 3.39 MB
+reference.json -> 64 KB
+
+H2C_Material_Selector_2026-09-13.html -> 4.56 MB self-contained
+
+> h2c-fdm-material-selector@1.0.0 test
+> node --test test/*.test.js
+
+✔ range against a threshold: pass, fail, indeterminate (1.001458ms)
+✔ a threshold exactly on a boundary (0.177833ms)
+✔ bounded measurements: ">650 %" and "<0.8 %" (0.153ms)
+✔ uncertainty that straddles the threshold is indeterminate, not a pass (0.46775ms)
+✔ missing data is UNKNOWN and never zero (0.187584ms)
+✔ an HDT headline with an unstated load cannot assert a load-specific pass (0.171375ms)
+✔ a chamber recommendation does not fail a candidate (0.242084ms)
+✔ a partly reachable chamber window is unresolved (0.130333ms)
+✔ an indicator environment category never manufactures a PASS (0.497542ms)
+✔ strict mode holds unknowns out, exploration keeps them flagged (1.512084ms)
+✔ a soft preference never removes a candidate (0.211541ms)
+✔ exclusions are ranked by how many candidates each criterion actually costs (1.409541ms)
+✔ an unrecognised unknown-data policy falls back to strict, consistently (0.194291ms)
+✔ peer extrema never rule out an unmeasured material (0.16225ms)
+✔ an estimate never confirms a requirement, even when every peer would meet it (0.076625ms)
+✔ a straddling estimate holds rather than deciding (0.071959ms)
+✔ estimates are invisible unless explicitly enabled, so Strict never sees them (0.097541ms)
+✔ an estimate leaves an exploration candidate unresolved (0.090625ms)
+✔ a material that fails on real evidence is not attributed to an estimate (0.101166ms)
+✔ availability distinguishes "nobody sampled it" from "it was out of stock" (0.108042ms)
+✔ strict mode reports unchecked materials as UNKNOWN, not FAIL (0.206916ms)
+✔ owning a hardened nozzle never removes a material (0.191709ms)
+✔ without a hardened nozzle, a recorded requirement fails and a fibre filler stays unresolved (0.18575ms)
+✔ limited resistance does not pass a resistance requirement (0.500208ms)
+✔ an insoluble record satisfies the water criterion (0.153625ms)
+✔ a build-material screen removes support materials (0.187583ms)
+✔ unstated HDT load cannot confirm either a pass or a failure (0.287417ms)
+✔ strict published bounds are evaluated correctly at the endpoint (0.18925ms)
+✔ every numeric headline equals the measurement it cites (4.429667ms)
+✔ related evidence is always the same property as its column (0.402ms)
+✔ no related evidence carries a negative value into a positive-only column (0.231ms)
+✔ related evidence reports one measurement, never a cross-grade range (0.233625ms)
+✔ related evidence never appears where a headline exists (0.248958ms)
+✔ quarantined measurements stay out of headlines and related evidence (3.612917ms)
+✔ the six excluded materials trip the envelope gate on their own evidence (0.1815ms)
+✔ a material with one fitting grade is printable even when another grade is not (0.1265ms)
+✔ every HDT headline is either a stated 0.45 MPa or flagged as unstated (0.191125ms)
+✔ estimates never sit on a headline that has its own measurement (0.299542ms)
+✔ estimates are a real range, never a single value repeated (0.268833ms)
+✔ every estimate names its basis and its peers, and excludes the material itself (0.275792ms)
+✔ excluded materials get no estimates (0.091125ms)
+✔ the widest tier never pools elastomers with rigid thermoplastics (0.090542ms)
+✔ the four audited grades, their profiles and their properties are compiled (0.359875ms)
+✔ a quarantined price observation backs no headline, buy link or stock claim (0.50825ms)
+✔ a qualitative result is evidence, never a number (0.224375ms)
+✔ the corrected Bambu notch records carry their corrected state (0.241791ms)
+✔ an over-temperature audited profile exceeds the nozzle gate on its own (0.066542ms)
+✔ the snapshot comes from the Method sheet (0.06375ms)
+✔ chamber windows recovered from the cited Bambu data sheets are compiled (0.681375ms)
+✔ a chamber window the H2C only partly reaches is partial, never within and never a failure (0.102791ms)
+✔ a "-" in a data sheet is no setpoint, not zero and not "not required" (0.058959ms)
+✔ enclosure guidance clears the chamber only when it says an enclosure is not needed (0.125583ms)
+✔ CoPE is its own grade, no longer a copy of CPE (0.096084ms)
+✔ PET-GF15 keeps its as-printed and annealed HDT apart, and headlines the as-printed one (0.255625ms)
+✔ raw-material supplier values never become headlines (0.365542ms)
+✔ a flexural modulus never fills the stiffness headline (0.164625ms)
+✔ an estimated chamber band never sits beside published evidence and never decides a gate (0.173208ms)
+✔ the consolidated snapshot passes every consistency check (40.344791ms)
+✔ a headline citing another material, or another grade, is an error (78.632084ms)
+✔ a record filed under the wrong material is an error (37.065833ms)
+✔ a procurement grade missing from GradeIDs is an error; a study grade is not (38.058583ms)
+✔ guidance that does not quote its printing evidence is an error (37.920958ms)
+✔ environmental evidence and coverage describe only the material's own records (113.079625ms)
+✔ recovered Bambu chemical records keep each data sheet's own verdict (1.244125ms)
+✔ raw values reconcile, including decimal commas and grouped cycle counts (364.915625ms)
+✔ corrected source endpoints and qualitative outcomes stay distinct (35.739875ms)
+✔ retired CoPE identity is archival, never active procurement or printing evidence (35.678667ms)
+✔ a headline cannot borrow another property simply because its value matches (68.519375ms)
+✔ peer spans never cross polymer and modifier groups or drop peer intervals (35.897167ms)
+✔ every selection line has the slope the index declares (1.931292ms)
+✔ the classic three stiffness indices have slopes 1, 2 and 3 (0.208167ms)
+✔ index value is computed, and is null when any input is missing (0.212667ms)
+✔ a cost index needs a price and returns null without one (0.112667ms)
+✔ a material on the line counts as above it (0.239792ms)
+✔ a material missing an input is ranked nowhere rather than ranked last (0.185875ms)
+✔ pareto front for light and stiff: minimise x, maximise y (1.053792ms)
+✔ points missing either coordinate are excluded from the front, not treated as zero (0.142833ms)
+✔ the front sorts for drawing (0.189917ms)
+✔ a range dash is not read as a minus sign (1.980375ms)
+✔ annealing text after a room-temperature declaration is not a chamber requirement (0.568958ms)
+✔ a recommendation is not a requirement (0.139708ms)
+✔ a chamber window the printer partly reaches is partial, only when asked for (0.691791ms)
+✔ "no setpoint" and "recommended" are statements, not temperatures (0.169625ms)
+✔ enclosure wording separates "not needed" from "recommended" (0.364667ms)
+✔ ambient as the lower end of a stated range, and "up to" (0.15125ms)
+✔ HDT load is recovered across every spelling, and never invented (0.620625ms)
+✔ a source label is never promoted to a build orientation (0.147625ms)
+✔ missing states stay distinct and never become zero (0.295667ms)
+✔ Excel booleans are read in both spellings (0.127334ms)
+✔ unbounded interval ends are null, because JSON has no Infinity (0.156667ms)
+✔ the two chemical vocabularies merge but keep their strength qualifier (0.102709ms)
+✔ specimen preparation is not environment evidence (0.057458ms)
+✔ qualified findings read as limited, not as a clean verdict (0.357209ms)
+✔ nozzle, drying and abrasion text (1.991542ms)
+✔ gate reasons carry the degree symbol (0.196209ms)
+✔ process tolerances retain both ends around the nominal temperature (0.199583ms)
+✔ limonene support cannot back water-solubility evidence (0.134625ms)
+✔ a structurally invalid scenario is refused before anything is committed (3.822625ms)
+✔ unknown materials are dropped with a warning and the shortlist is capped (0.237292ms)
+✔ a saved file round-trips every committed setting (0.742916ms)
+✔ a link carries assumptions and warns about a different snapshot (0.434792ms)
+✔ an old link that accepted limited resistance is not carried forward (0.14675ms)
+✔ a term inside a longer word is not a match (1.255709ms)
+✔ a term may begin a word, because that is how people abbreviate (0.196291ms)
+✔ a slash separates names rather than joining them (2.668208ms)
+✔ every term must match, so another word narrows (0.205084ms)
+✔ an empty query matches everything (0.119834ms)
+✔ punctuation is a separator, never part of a word (0.90225ms)
+✔ no template recommends a support or interface material (5.071833ms)
+✔ the indoor prototype template includes ordinary PLA (0.358542ms)
+✔ every template names what it does not check, and survives validation (2.422292ms)
+✔ the CSV says why each row failed and what was asked (1.114583ms)
+ℹ tests 112
+ℹ suites 0
+ℹ pass 112
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1116.116959

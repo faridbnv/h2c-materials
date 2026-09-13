@@ -125,13 +125,13 @@ what each one does, because the words themselves told a first-time reader nothin
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
 - **Keep it, flagged** (Explore) — materials with unresolved criteria stay visible and flagged, and
-  family estimates may rule out ones that clearly cannot qualify.
+  peer spans provide context without deciding eligibility.
 
 Switching resets which verdicts the table shows, so the change is visible in the results rather than
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
-The **Estimates** toggle appears in Explore only, and reports how many materials it ruled out.
+The **Estimates** toggle appears in Explore only, and shows peer context without changing eligibility.
 
 ## The four states
 
@@ -157,7 +157,7 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 |---|---|
 | `4.43` | A measured, verified headline |
 | `46*` | A real measurement never promoted to a headline. Hover for why |
-| `~2.8–15.3†` | An estimate from relatives. Rules out, never rules in |
+| `~2.8–15.3†` | An estimate from relatives. Context only; never decides eligibility |
 | `80?` | A heat value whose source states the standard but not the load. It cannot pass a heat requirement outright |
 | `—` | Not published. Hover for which kind of absence |
 
@@ -289,7 +289,7 @@ and fails outright on plenty of real machines.
   axis is meaningless. Aligned bars instead.
 - **No universal material score.** Scores are scenario preferences applied after hard constraints,
   never a quality ranking.
-- **No imputation presented as data.** Estimates exist, are labelled, and can only exclude.
+- **No imputation presented as data.** Estimates exist, are labelled, and never decide eligibility.
 
 ## Accessibility and output
 

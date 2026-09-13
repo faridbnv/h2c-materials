@@ -74,9 +74,9 @@ among them, so it can only show evidence and must never be offered as a hard con
 |---|---|---:|---:|---:|
 | alkali | verdict | 67 | 65 | 54 |
 | acid | verdict | 71 | 63 | 55 |
-| organic-solvent | verdict | 64 | 47 | 56 |
+| organic-solvent | verdict | 65 | 47 | 57 |
 | oil-grease | verdict | 59 | 47 | 56 |
-| water-solubility | verdict | 43 | 41 | 42 |
+| water-solubility | verdict | 42 | 41 | 41 |
 | flammability | verdict | 41 | 36 | 41 |
 | food-contact | indicator | 2 | 0 | 2 |
 | uv-outdoor | indicator | 7 | 0 | 6 |
@@ -87,17 +87,17 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 ## Family estimates
 
-Where a material has no measurement of its own, the span of its closest measured relatives
-is recorded as a bound. Peers sharing one commercial source count once. These never appear
-in Strict mode, and can only exclude, never confirm.
+Missing headlines may carry a sample span from the same polymer and modifier. Peer intervals
+are preserved, unknown HDT loads are excluded, and repeated formulation keys count once.
+Peer context never confirms or excludes a material.
 
-| Headline | Missing | From family and filler | From family | From behaviour and filler | No peers |
-|---|---:|---:|---:|---:|---:|
-| density | 8 | 6 | 1 | 1 | 0 |
-| tensileModulusXY | 27 | 7 | 12 | 2 | 6 |
-| tensileStrengthXY | 44 | 11 | 17 | 10 | 6 |
-| elongationXY | 26 | 7 | 11 | 2 | 6 |
-| hdt045 | 32 | 5 | 12 | 1 | 14 |
+| Headline | Missing | Same polymer and modifier | No comparable peer span |
+|---|---:|---:|---:|
+| density | 8 | 0 | 8 |
+| tensileModulusXY | 27 | 1 | 26 |
+| tensileStrengthXY | 44 | 0 | 44 |
+| elongationXY | 26 | 1 | 25 |
+| hdt045 | 32 | 1 | 31 |
 
 ## Consistency
 
@@ -122,5 +122,5 @@ interface can say so rather than implying a certainty it does not have.
 
 - **measurements** — Impact data uses two incompatible units. 9 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
 - **materials** — 25 of 69 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
-- **materials** — 105 family estimates were derived for headlines with no measurement. They are inference, not evidence: Strict mode never sees them, and in Explore they can only rule a material out of a requirement it clearly cannot meet.
+- **materials** — 3 peer spans were derived for missing headlines. Same polymer and modifier only; these observations never confirm or exclude a material.
 - **materials** — 5 materials have no property measurements at all: PA66, PA66-CF, PA612, PA612-GF, POM / Acetal

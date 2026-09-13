@@ -160,7 +160,7 @@ test('every estimate names its basis and its peers, and excludes the material it
       assert.ok(!h.estimate.peers.some((p) => p.id === m.id), `${m.name} ${k} includes itself`);
     }
   }
-  assert.ok(n > 50, `expected a meaningful number of estimates, got ${n}`);
+  assert.ok(n > 0, `expected peer context where comparable peers exist, got ${n}`);
 });
 
 test('excluded materials get no estimates', () => {
@@ -365,7 +365,7 @@ test('a record filed under the wrong material is an error', () => {
 });
 
 test('a procurement grade missing from GradeIDs is an error; a study grade is not', () => {
-  assert.ok(errorsFor((c) => { mat(c, 'CoPE').gradeIds = ['G091-02']; }).some((e) => /G091-01 belongs to this material/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'CoPE').gradeIds = []; }).some((e) => /G091-02 belongs to this material/.test(e)));
   assert.ok(!db.materials.find((m) => m.name === 'PA12').gradeIds.some((g) => /-R\d+$/.test(g)));
 });
 
@@ -393,4 +393,61 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
   assert.equal(finding('PPS-CF', 'Resistance to Organic Solvent'), 'Resistant');
   assert.equal(finding('PVA', 'Solubility'), 'Soluble in water');
   assert.equal(finding('PLA Tough+', 'Resistance to Alkali'), 'Not resistant');
+});
+
+// Systematic data audit: use the actual workbook, then introduce independent corruption.
+import { extractWorkbook } from '../build/src/extract.js';
+import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js';
+import { peerGroup } from '../build/src/estimates.js';
+
+test('raw values reconcile, including decimal commas and grouped cycle counts', () => {
+  const wb=extractWorkbook(join(root,'data/H2C_FDM_Material_Database.xlsx'));
+  assert.deepEqual(measurementIssues(db,wb),[]);
+  assert.equal(rawNumber('4,30%'),4.3);
+  assert.equal(rawNumber('123,460'),123460);
+  assert.equal(rawNumber('24 000 kg/cm2'),24000);
+  wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Normalized value']='4';
+  assert.ok(measurementIssues(db,wb).some(e=>e.where.includes('V000539')));
+  wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Normalized value']='4.3';
+  wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Raw numeric']='4';
+  assert.ok(measurementIssues(db,wb).some(e=>/cached normalized formula/.test(e.message)));
+});
+
+test('corrected source endpoints and qualitative outcomes stay distinct', () => {
+  for(const id of ['V000894','V000920']){
+    const m=db.measurements.find(m=>m.id===id);
+    assert.equal(m.property,'Tensile strain at strength'); assert.equal(m.value,4.4);
+    assert.ok(!db.materials.flatMap(m=>m.headline.elongationXY.related?.items??[]).some(i=>i.measurementId===id));
+  }
+  assert.equal(db.measurements.find(m=>m.id==='V001349').value,1.3);
+  assert.equal(db.measurements.find(m=>m.id==='V000419').qualitative,true);
+  assert.ok(errorsFor(c=>{c.measurements.find(m=>m.id==='V000894').property='Elongation at break';}).some(e=>/endpoint/.test(e)));
+});
+
+test('retired CoPE identity is archival, never active procurement or printing evidence', () => {
+  const m=mat(db,'CoPE');
+  assert.deepEqual(m.gradeIds,['G091-02']);
+  assert.ok(!m.profileIds.includes('P0115'));
+  assert.equal(db.grades.find(g=>g.id==='G091-01').retired,true);
+  assert.equal(db.profiles.find(p=>p.id==='P0115').retired,true);
+  assert.ok(errorsFor(c=>{mat(c,'CoPE').gradeIds.push('G091-01');}).some(e=>/retired mapping/.test(e)));
+});
+
+test('a headline cannot borrow another property simply because its value matches', () => {
+  assert.ok(errorsFor(c=>{const h=mat(c,'PLA Basic').headline.tensileStrengthXY;c.measurements.find(m=>m.id===h.measurementId).property='Flexural strength';}).some(e=>/inconsistent property/.test(e)));
+  assert.ok(errorsFor(c=>{const h=mat(c,'PLA Basic').headline.tensileStrengthXY;c.measurements.find(m=>m.id===h.measurementId).unit='GPa';}).some(e=>/inconsistent property/.test(e)));
+});
+
+test('peer spans never cross polymer and modifier groups or drop peer intervals', () => {
+  for(const m of db.materials)for(const [key,h] of Object.entries(m.headline))if(h.estimate){
+    for(const p of h.estimate.peers){
+      const peer=db.materials.find(x=>x.id===p.id);
+      assert.equal(peerGroup(peer),peerGroup(m));
+      assert.ok(h.estimate.lo<=peer.headline[key].interval.lo);
+      assert.ok(h.estimate.hi>=peer.headline[key].interval.hi);
+      if(key==='hdt045')assert.equal(peer.headline[key].loadMPa,.45);
+    }
+  }
+  assert.ok(Object.values(mat(db,'OBC').headline).every(h=>!h.estimate));
+  assert.ok(errorsFor(c=>{mat(c,'PLA Lite').headline.tensileModulusXY.estimate.peers[0].id='M039';}).some(e=>/different polymer/.test(e)));
 });

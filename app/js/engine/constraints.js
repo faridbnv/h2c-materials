@@ -44,27 +44,24 @@ export function compareInterval(interval, operator, threshold) {
   if (!interval) return STATUS.UNKNOWN;
   const { lo, hi, openLow, openHigh } = interval;
 
-  const geLo = (a, b) => (openLow ? a > b : a >= b);
-  const leHi = (a, b) => (openHigh ? a < b : a <= b);
-
   switch (operator) {
     case '>=': {
-      if (lo !== null && geLo(lo, threshold)) return STATUS.PASS;
-      if (hi !== null && hi < threshold) return STATUS.FAIL;
+      if (lo !== null && lo >= threshold) return STATUS.PASS;
+      if (hi !== null && (hi < threshold || (hi === threshold && openHigh))) return STATUS.FAIL;
       return STATUS.INDETERMINATE;
     }
     case '>': {
-      if (lo !== null && lo > threshold) return STATUS.PASS;
+      if (lo !== null && (lo > threshold || (lo === threshold && openLow))) return STATUS.PASS;
       if (hi !== null && hi <= threshold) return STATUS.FAIL;
       return STATUS.INDETERMINATE;
     }
     case '<=': {
-      if (hi !== null && leHi(hi, threshold)) return STATUS.PASS;
-      if (lo !== null && lo > threshold) return STATUS.FAIL;
+      if (hi !== null && hi <= threshold) return STATUS.PASS;
+      if (lo !== null && (lo > threshold || (lo === threshold && openLow))) return STATUS.FAIL;
       return STATUS.INDETERMINATE;
     }
     case '<': {
-      if (hi !== null && hi < threshold) return STATUS.PASS;
+      if (hi !== null && (hi < threshold || (hi === threshold && openHigh))) return STATUS.PASS;
       if (lo !== null && lo >= threshold) return STATUS.FAIL;
       return STATUS.INDETERMINATE;
     }
@@ -80,33 +77,19 @@ function evaluateNumeric(material, c, ctx = {}) {
   const label = `${c.property} ${c.operator} ${fmt(c.value)}`;
 
   if (!h || !h.known) {
-    // A family estimate may rule a material OUT, never confirm it in.
-    //
-    // The asymmetry is the whole point. Knowing that every unreinforced PLA in the database
-    // measures between 2.8 and 15.3% elongation is enough to say PLA Lite is not a 100%-elongation
-    // elastomer. It is not enough to certify that it meets a 5% floor, because the bound is drawn
-    // from its relatives and not from the material itself. So a failing estimate fails, and a
-    // passing one still reports UNKNOWN with the estimate attached.
+    // Observed peer minima/maxima do not bound an unmeasured formulation. Keep context,
+    // but neither an apparent pass nor an apparent failure can decide this material.
     if (ctx.useEstimates && h?.estimate) {
       const est = h.estimate;
       const verdict = compareInterval({ lo: est.lo, hi: est.hi, kind: 'range' }, c.operator, c.value);
       const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
-      if (verdict === STATUS.FAIL) {
-        return {
-          status: STATUS.FAIL,
-          estimated: true,
-          estimate: est,
-          criterion: label,
-          reason: `No measurement of its own. Every one of the ${est.peerCount} measured peers in ${est.basis} falls in ${span}, which cannot meet this requirement`,
-        };
-      }
       return {
         status: STATUS.UNKNOWN,
         estimated: true,
         estimate: est,
         plausible: verdict,
         criterion: label,
-        reason: `Not published. ${est.peerCount} measured peers in ${est.basis} fall in ${span}, so this is ${verdict === STATUS.PASS ? 'plausible' : 'possible'}, but the material itself was never measured`,
+        reason: `Not published. ${est.peerCount} measured peers in ${est.basis} fall in ${span}, but this sample does not establish this material's value; verify its exact grade`,
         missing: h?.missing ?? 'not-published',
       };
     }
@@ -135,7 +118,7 @@ function evaluateNumeric(material, c, ctx = {}) {
   // A headline whose load was never stated cannot back a load-specific thermal claim outright.
   if (c.property === 'hdt045' && h.loadStated === false) {
     return {
-      status: status === STATUS.PASS ? STATUS.INDETERMINATE : status,
+      status: STATUS.INDETERMINATE,
       reason: `${reason}, but the source states the standard without the load`,
       criterion: label, observed: h.value, unit: h.unit,
       measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,

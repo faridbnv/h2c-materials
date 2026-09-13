@@ -1,0 +1,28 @@
+sheet,record,cell,action,field,before,after
+Properties,V000539,G542,Edited,Raw numeric,4,4.3
+Properties,V000539,L542,Recalculated cache,Normalized value,4,4.3
+Properties,V000539,P542,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V000539,AA542,Edited,Notes,Not applicable,Decimal comma preserved from the cited manufacturer PDF; re-read and source SHA256 matched 2026-09-13. Systematic audit SD-01.
+Properties,V000894,G897,Edited,Raw numeric,4,4.4
+Properties,V000894,L897,Recalculated cache,Normalized value,4,4.4
+Properties,V000894,P897,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V000894,AA897,Edited,Notes,Not applicable,Decimal comma preserved from the cited manufacturer PDF; re-read and source SHA256 matched 2026-09-13. Systematic audit SD-01.
+Properties,V000920,G923,Edited,Raw numeric,4,4.4
+Properties,V000920,L923,Recalculated cache,Normalized value,4,4.4
+Properties,V000920,P923,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V000920,AA923,Edited,Notes,Not applicable,Decimal comma preserved from the cited manufacturer PDF; re-read and source SHA256 matched 2026-09-13. Systematic audit SD-01.
+Properties,V001349,G1352,Edited,Raw numeric,1,1.3
+Properties,V001349,L1352,Recalculated cache,Normalized value,1,1.3
+Properties,V001349,P1352,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V001349,AA1352,Edited,Notes,Not applicable,Decimal comma preserved from the cited manufacturer PDF; re-read and source SHA256 matched 2026-09-13. Systematic audit SD-01.
+Properties,V000894,D897,Edited,Property,Elongation at break,Tensile strain at strength
+Properties,V000894,AA897,Edited,Notes,Decimal comma preserved from the cited manufacturer PDF; re-read and source SHA256 matched 2026-09-13. Systematic audit SD-01.,"Source says elongation at maximum force, not at break; 4,40% = 4.4%. Dry, 50 mm/min; table heading 23 C / 50% RH. Source SHA256 matched 2026-09-13. SD-01 / SD-02."
+Properties,V000894,S897,Edited,Moisture condition,Not published,Dry (source row); table heading 50% RH
+Properties,V000894,U897,Edited,Test temperature,Not published,23°C
+Properties,V000920,D923,Edited,Property,Elongation at break,Tensile strain at strength
+Properties,V000920,AA923,Edited,Notes,Decimal comma preserved from the cited manufacturer PDF; re-read and source SHA256 matched 2026-09-13. Systematic audit SD-01.,"Source says elongation at maximum force, not at break; 4,40% = 4.4%. Dry, 50 mm/min; table heading 23 C / 50% RH. Source SHA256 matched 2026-09-13. SD-01 / SD-02."
+Properties,V000920,S923,Edited,Moisture condition,Not published,Dry (source row); table heading 50% RH
+Properties,V000920,U923,Edited,Test temperature,Not published,23°C
+Properties,V000419,P422,Edited,Data status,Published value (transcription corrected),Published qualitative result
+Grades,G091-01,H118,Edited,Availability,Not published,Retired mapping; audit trail only
+Materials,M091,AH97,Edited,GradeIDs,G091-01; G091-02,G091-02

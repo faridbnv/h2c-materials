@@ -8,6 +8,8 @@
     "build": "npm --prefix build run build",
     "validate": "npm --prefix build run validate",
     "test": "node --test test/*.test.js",
-    "pretest": "node scripts/ensure-db.mjs"
+    "pretest": "node scripts/ensure-db.mjs",
+    "preaudit:data": "npm run build",
+    "audit:data": "node scripts/audit-data.mjs"
   }
 }

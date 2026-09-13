@@ -44,6 +44,9 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Audit workbook and embedded data
+        run: node scripts/audit-data.mjs
+
       - name: Assemble the site
         run: |
           mkdir -p _site

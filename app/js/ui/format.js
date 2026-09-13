@@ -55,7 +55,7 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
       const title = `Estimated, not measured. This material has no ${''}published value. The `
         + `${e.peerCount} measured peers in ${e.basis} fall between ${fmtNumber(e.lo)} and ${fmtNumber(e.hi)} ${e.unit}`
         + `${e.sharedSourceDropped ? ` (${e.sharedSourceDropped} further entries share one commercial source and were counted once)` : ''}.`
-        + ' Used only to rule a material out, never to confirm one in.';
+        + ' Peer context only; does not decide eligibility.';
       return `<span class="est" title="${esc(title)}">~${span}<span class="est-mark">†</span></span>`;
     }
     // In the table a dash, because "Not published" does not fit a numeric column and was being

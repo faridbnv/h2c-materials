@@ -1,0 +1,78 @@
+[
+  {
+    "sourceId": "S-SPECTRUM-en-tds-spectrum-petg-esd",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2025/11/en_tds_spectrum_petg_esd.pdf",
+    "accessDate": "2026-09-13",
+    "status": "Downloaded and re-read",
+    "sha256": "98da8269b06df68ecf6c84e60cf792306e82a47282d2b6088d09ed41a72e85ab",
+    "matchesRecordedSha256": true,
+    "checked": "p.1: elongation at yield 4,30%"
+  },
+  {
+    "sourceId": "S-SPECTRUM-en-tds-spectrum-pa6-neat-bk",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pa6_neat_bk.pdf",
+    "accessDate": "2026-09-13",
+    "status": "Downloaded and re-read",
+    "sha256": "9f5bfbb42ac4e83215da49c4d4747cdd96902e17fd688b7e95f86c3426488b4a",
+    "matchesRecordedSha256": true,
+    "checked": "p.1: elongation at maximum force 4,40%; dry; 23 C table heading"
+  },
+  {
+    "sourceId": "S-SPECTRUM-en-tds-spectrum-pps-am230",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_pps_am230.pdf",
+    "accessDate": "2026-09-13",
+    "status": "Downloaded and re-read",
+    "sha256": "19c8753c06673ab9b12a20205fa8bd3445832502ce665ce04ba2de9826f03190",
+    "matchesRecordedSha256": true,
+    "checked": "p.1: notched Charpy 1,3 kJ/m2"
+  },
+  {
+    "sourceId": "I-PETG-TDS",
+    "url": "https://www.isanmate.com/wp-content/uploads/2025/08/PETG_TDS.pdf",
+    "accessDate": "2026-09-13",
+    "status": "Downloaded and re-read",
+    "sha256": "f24f7e065c99fb348844ec58a80f3f5195853a620d567bc0857019c3837ed337",
+    "matchesRecordedSha256": true,
+    "checked": "p.2: unnotched Izod, ISO 180, No Break, 23 C / 50% RH"
+  },
+  {
+    "sourceId": "R-BAMBU-GUIDE-202609",
+    "url": "https://cdn1.bambulab.com/filament/filament-guide/wksdyyzd8n9/filament-guide-en.pdf",
+    "accessDate": "2026-09-13",
+    "status": "Downloaded and re-read",
+    "sha256": "048fb9a65547b5107fc935812ab5c81a78f70ff9d979797be897a8d47d19dc41",
+    "matchesRecordedSha256": true,
+    "checked": "39 numerical comparisons over 13 exact names; see bambu-guide-crosscheck.json"
+  },
+  {
+    "sourceId": "S-PVB-PVB-Prusament-TDS-2021-10-EN",
+    "url": "https://prusament.com/wp-content/uploads/2022/10/PVB_Prusament_TDS_2021_10_EN.pdf",
+    "status": "Re-read with web PDF reader; no new binary checksum",
+    "checked": "p.1 nozzle 215 +/-10 C; bed 75 +/-5 C"
+  },
+  {
+    "sourceId": "PR-hips",
+    "url": "https://help.prusa3d.com/article/hips_167118",
+    "status": "Re-read manufacturer page",
+    "checked": "Description and limonene support/removal sections; organic-solvent guidance, not water solubility"
+  },
+  {
+    "sourceId": "X-EVOLV3D-OBC-TDS",
+    "url": "https://www.matterhackers.com/r/40oXzl",
+    "status": "Manufacturer-authored Dow TDS located through web index; original Shopify URL unavailable to web reader; no checksum match claimed",
+    "checked": "Nozzle 180 +/-20 C and break elongation >700%, ASTM D1708; corroborates existing raw transcription only"
+  },
+  {
+    "sourceId": null,
+    "url": "https://wiki.bambulab.com/en/filament-acc",
+    "status": "User-supplied index retrieved with curl after web-reader failure",
+    "sha256": "0873a8a253a67aef2c5024b5d7548b3fb405fa52b136d6972df24e70adca564d",
+    "checked": "Selection/adaptation categories; grade-specific usage links; separate compatibility, storage, drying and model-specific TPU instructions"
+  },
+  {
+    "sourceId": null,
+    "url": "https://bambulab.com/en-us/filament/guide",
+    "status": "User-supplied interactive page blocked: web-reader 402; direct HTTP 403",
+    "checked": "No interactive-page values imported. Used separately retrieved, checksum-matched Bambu PDF already in Sources; do not claim it is the latest interactive revision."
+  }
+]

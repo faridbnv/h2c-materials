@@ -42,7 +42,7 @@ export function domainData(db, material) {
   return {
     Mechanical: measured.filter((m) => MECHANICAL_PROPERTIES.has(m.property)).map((m) => m.id),
     Thermal: measured.filter((m) => THERMAL_PROPERTIES.has(m.property)).map((m) => m.id),
-    'Print setup': own(db.profiles)
+    'Print setup': own(db.profiles).filter((p) => !p.retired)
       .filter((p) => ['nozzle', 'bed', 'chamber'].some((a) => p[a].state !== 'unknown') || p.drying.state === 'stated')
       .map((p) => p.id),
     'Moisture / environmental': own(db.evidence).filter((e) => ENVIRONMENT_CATEGORIES.has(e.category)).map((e) => e.id),
@@ -52,5 +52,5 @@ export function domainData(db, material) {
 
 /** Distinct manufacturers across a material's procurement grades, the figure a Grades row quotes. */
 export function manufacturerCount(db, material) {
-  return new Set(db.grades.filter((g) => g.materialId === material.id && !isStudyGrade(g.id)).map((g) => g.manufacturer)).size;
+  return new Set(db.grades.filter((g) => g.materialId === material.id && !g.retired && !isStudyGrade(g.id)).map((g) => g.manufacturer)).size;
 }

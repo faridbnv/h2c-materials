@@ -2,7 +2,7 @@
 //
 // These cover the rules that decide what a user sees: the four constraint states, how a range that
 // straddles a threshold is reported, what Strict and Explore each do with an unresolved criterion,
-// and the asymmetry that lets a family estimate rule a material out but never rule one in.
+// and the rule that peer context never determines an unmeasured material's eligibility.
 //
 // Several are marked as regressions. Those encode a bug that shipped, and the comment says what
 // went wrong, because the behaviour looks arbitrary without it.
@@ -144,7 +144,7 @@ test('an unrecognised unknown-data policy falls back to strict, consistently', (
 
 // --- family estimates -------------------------------------------------------
 // An estimate is inference drawn from a material's relatives. It exists to stop a material falling
-// into a category it clearly does not belong to, and for nothing else.
+// context without claiming the sample bounds an unmeasured formulation.
 
 const estimated = (lo, hi) => ({
   id: 'M1', excluded: false, gates: {},
@@ -152,11 +152,11 @@ const estimated = (lo, hi) => ({
     estimate: { lo, hi, unit: '%', peerCount: 14, basis: 'PLA, unreinforced grades', peers: [] } } },
 });
 
-test('an estimate can rule a material out of a requirement its relatives cannot meet', () => {
+test('peer extrema never rule out an unmeasured material', () => {
   const m = estimated(2.8, 15.3);
   const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 };
   const r = evaluateConstraint(m, c, { useEstimates: true });
-  assert.equal(r.status, STATUS.FAIL);
+  assert.equal(r.status, STATUS.UNKNOWN);
   assert.ok(r.estimated);
   assert.match(r.reason, /measured peers/);
 });
@@ -185,13 +185,13 @@ test('estimates are invisible unless explicitly enabled, so Strict never sees th
   assert.match(off.reason, /Not published/);
 });
 
-test('a material ruled out only by an estimate says so', () => {
+test('an estimate leaves an exploration candidate unresolved', () => {
   const m = estimated(2.8, 15.3);
   const e = evaluateMaterial(m, [{ kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 }],
     { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.EXPLORATION });
-  assert.equal(e.verdict, STATUS.FAIL);
-  assert.equal(e.eligible, false);
-  assert.ok(e.ruledOutByEstimate);
+  assert.equal(e.verdict, STATUS.UNKNOWN);
+  assert.equal(e.eligible, true);
+  assert.equal(e.ruledOutByEstimate, false);
   assert.ok(e.usesEstimate);
 });
 
@@ -289,4 +289,18 @@ test('a build-material screen removes support materials', () => {
   const c = { kind: 'facet', facet: 'supportMaterial', equals: false };
   assert.equal(evaluateConstraint({ facets: { supportMaterial: { value: true } } }, c).status, STATUS.FAIL);
   assert.equal(evaluateConstraint({ facets: { supportMaterial: { value: false } } }, c).status, STATUS.PASS);
+});
+
+// SD-08: an unstated test load cannot determine a result at a specific load in either direction.
+test('unstated HDT load cannot confirm either a pass or a failure', () => {
+  const material={headline:{hdt045:{known:true,value:60,unit:'°C',loadStated:false}}};
+  for(const value of [50,100]) assert.equal(evaluateConstraint(material,{kind:'numeric',property:'hdt045',operator:'>=',value}).status,STATUS.INDETERMINATE);
+});
+
+test('strict published bounds are evaluated correctly at the endpoint', () => {
+  const lower={lo:650,hi:null,openLow:true}, upper={lo:null,hi:.8,openHigh:true};
+  for(const op of ['>','>=']) assert.equal(compareInterval(lower,op,650),STATUS.PASS);
+  for(const op of ['<','<=']) assert.equal(compareInterval(lower,op,650),STATUS.FAIL);
+  for(const op of ['<','<=']) assert.equal(compareInterval(upper,op,.8),STATUS.PASS);
+  for(const op of ['>','>=']) assert.equal(compareInterval(upper,op,.8),STATUS.FAIL);
 });

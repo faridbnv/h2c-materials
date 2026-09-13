@@ -134,7 +134,7 @@ and only the first is evidence.
 |---|---|---|---|
 | **Measured** | A verified headline, traceable to one measurement, grade and source | `4.43` | yes |
 | **Related** | A real measurement of the same property that was never promoted to a headline | `46*` | no |
-| **Estimated** | The span of the material's closest measured relatives | `~2.8–15.3†` | **no, but it may rule one out** |
+| **Estimated** | The span of the material's closest measured relatives | `~2.8–15.3†` | **no; never excludes either** |
 
 ### Related evidence
 
@@ -156,32 +156,25 @@ headed "HDT at 0.45 MPa". The Method sheet keeps those quantities distinct.
 
 ### Family estimates
 
-Where a material has no measurement at all, the span of its closest measured relatives is recorded
-as a plausibility bound.
-
-**The rule is asymmetric: a failing estimate fails; a passing one still reports UNKNOWN.** Knowing
-that all fourteen measured unreinforced PLA grades fall between 2.8 and 15.3% elongation is enough
-to say PLA Lite is not a 100%-elongation elastomer. It is not enough to certify it clears a 5%
-floor, because the bound comes from its relatives and not from the material.
+Where a headline is missing, a span of comparable peer observations may be shown as context.
+**An observed sample minimum/maximum is not a bound on an unmeasured formulation. Neither a
+passing nor a failing peer span determines eligibility.** This replaces the earlier exclusion rule
+(D10), following the systematic audit (D40).
 
 Construction:
 
-- Built from compiled **headline values only**, so every contributing number is already verified,
-  measured in XY where direction applies, and drawn from a single grade. Pooling raw measurements
-  would mix directions and specimen types and produce a bound that means nothing.
-- Tiered, most specific first, each needing at least two independent observations: family and filler
-  class, then family, then behaviour class and filler class.
-- **Elastomers, support materials and rigid thermoplastics are never pooled.** Without that split,
-  "all unreinforced materials" spanned TPU at 0.0053 GPa and PLA at 2.88, a bound that rules nothing
-  out and invites the reader to think a support material might be as stiff as a structural one.
-- **Peers sharing one commercial formulation key count once.** PA, PA6/66 and CoPA all draw their
-  headline from a single PolyMide datasheet; counting them separately produced an "estimate" of
-  2.223 to 2.223 GPa, a precise value dressed as a range. The Method sheet calls shared formulation
-  keys repeated commercial evidence, not independent tests.
+- Use verified headline observations, preserving finite interval endpoints and uncertainty.
+- Require the same family, base polymer, modifier and role. Polymer blends also require the same
+  normalized identity. Display families such as Polyolefins and Flexible Elastomers are not pools
+  of interchangeable polymers. There is no wider fallback.
+- Keep undisclosed commercial modifiers separate from explicitly unfilled materials; do not claim
+  that an undisclosed formulation is unreinforced.
+- Exclude unbounded observations and HDT with unstated or non-0.45 MPa loads.
+- Require two distinct formulation keys and a nonzero span. Shared keys count once.
 
-Every estimate carries `tier`, `basis`, `peerCount`, the peers with their values, and how many
-shared-source entries were collapsed. Strict mode never sees them. The CSV export puts them in their
-own column so a spreadsheet cannot mistake inference for evidence.
+Every span carries its basis, peers and their intervals. Three spans remain in this snapshot,
+compared with 105 before the systematic audit. Strict mode does not consult them. Explore may show
+them, but always leaves the missing property unresolved. CSV keeps them separate from measurements.
 
 ---
 
@@ -193,7 +186,7 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 |---|---|
 | Table cell | `~2.8–15.3†`, with the basis and peer count on hover |
 | Detail drawer | The full record: the span, the basis, every peer behind it |
-| Filter | Can rule a material out. A passing estimate still reports UNKNOWN |
+| Filter | Context only; always UNKNOWN |
 | Ashby lens | A dotted range, off by default, always counted in the footer |
 | Compare | A hatched span across the bar track, never a filled bar |
 | Parallel | Not drawn. A line commits to a value on every axis it crosses, so the affected materials are named and counted instead |
@@ -230,7 +223,7 @@ own state: not zero, and not "not required".
 **Bands** come from the 2026-09-13 research, authored in `build/mappings/chamber-estimates.json` with
 the basis and caution the research wrote. A band is attached only where no window is published and
 no source says no heated chamber is needed; the validation report lists the 22 the evidence
-superseded. Unlike a family estimate a band cannot rule a material out either (D34): it describes a
+superseded. Like a peer estimate, a band cannot rule a material out (D34, D40): it describes a
 plausible setpoint, and a setpoint is a recommendation at most.
 
 ## Evidence ownership and coverage
@@ -357,3 +350,18 @@ Carried as warnings in `build/reports/validation-report.md`, and surfaced in the
   "Published qualitative result". It is shown in its own words and is never a number.
 - UV and outdoor evidence is seven records across six materials, none reducible to a verdict, so it is
   an evidence indicator and never a filter.
+
+## Retired identity mappings
+
+`Grades.Availability = Retired mapping; audit trail only` compiles to `retired: true`.
+The grade and its profiles remain identifiable in the archival data, but cannot appear in active
+`GradeIDs`, print summaries/gates, the Grades or Printing drawer, or procurement counts.
+G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only G091-02.
+
+## Raw-value reconciliation
+
+`build/src/measurement-rules.js` independently checks all 1,806 numeric observations against raw
+values and unit conversions. Decimal commas are retained, thousands-separated cycle counts remain
+integers, and qualitative outcomes use their own status. Headline verification also enforces property,
+unit, value, direction and representative-grade ownership. An unstated HDT load is indeterminate
+for both apparent passes and apparent failures of a load-specific criterion.

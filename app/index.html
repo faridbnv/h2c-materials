@@ -24,12 +24,12 @@
       <span class="mode-label">If a material has no data</span>
       <div class="segmented" role="group" aria-label="How to treat data that is missing">
         <button id="mode-strict" aria-pressed="true" title="Strict: a criterion that cannot be evaluated holds the material out of the results.">Leave it out</button>
-        <button id="mode-explore" aria-pressed="false" title="Explore: materials with unresolved criteria stay visible and flagged, and family estimates may rule out implausible ones.">Keep it, flagged</button>
+        <button id="mode-explore" aria-pressed="false" title="Explore: materials with unresolved criteria stay visible and flagged. Peer estimates provide context only.">Keep it, flagged</button>
       </div>
     </div>
 
     <label class="est-toggle" id="est-toggle" hidden
-      title="Use the measured range of a material's closest relatives to rule out implausible matches. An estimate can only rule a material out, never confirm it in.">
+      title="Show observations from peers with the same base polymer and modifier. These do not decide eligibility.">
       <input type="checkbox" id="use-estimates"><span>Estimates</span></label>
 
     <button class="btn btn-sm" id="btn-scenario" title="Export, save, load or share this selection">Save / share</button>

@@ -121,7 +121,7 @@ function estimateBlock(h, label) {
       ${e.peerCount} measured peers in <b>${esc(e.basis)}</b>${e.sharedSourceDropped
         ? `, after collapsing ${e.sharedSourceDropped} further entr${e.sharedSourceDropped === 1 ? 'y that shares' : 'ies that share'} one commercial source`
         : ''}.
-      It can rule this material out of a requirement it clearly cannot meet. It can never satisfy one.</div>
+      This peer sample cannot establish a value for this material and does not decide eligibility.</div>
     <div class="est-peers">${e.peers.map((p) => `${esc(p.name)} ${fmtNumber(p.value)}`).join(' \u00b7 ')}</div>
   </div>`;
 }
@@ -134,9 +134,9 @@ export function renderDrawer(host, state, actions) {
   const ms = ctx.measurementsByMaterial.get(m.id) ?? [];
   const ev = ctx.evidenceByMaterial.get(m.id) ?? [];
   const cov = ctx.coverageByMaterial.get(m.id) ?? [];
-  const profiles = db.profiles.filter((p) => p.materialId === m.id);
-  const grades = db.grades.filter((g) => g.materialId === m.id);
-  const prices = db.prices.filter((p) => p.materialId === m.id);
+  const profiles = db.profiles.filter((p) => p.materialId === m.id && !p.retired);
+  const grades = db.grades.filter((g) => g.materialId === m.id && !g.retired);
+  const prices = db.prices.filter((p) => p.materialId === m.id && !p.retired);
   const evaluation = selection.evaluations.find((e) => e.materialId === m.id);
   const summary = evidenceSummary(m, db);
 
@@ -325,7 +325,7 @@ function tabBody(tab, c) {
   if (tab === 'Printing') {
     if (!profiles.length) return gapBox(covFor('Printing'), 'print profile');
     return profiles.map((p) => `
-      <h3 class="sec">${esc(p.id)} · ${esc(p.profile ?? '')}</h3>
+      <h3 class="sec">${esc(p.id)} · ${esc(p.gradeId)} · ${esc(p.profile ?? '')}</h3>
       <dl class="kv">
         <dt>Nozzle</dt><dd>${esc(p.nozzle.text)} ${gateChip(p.gates.nozzle)}</dd>
         <dt>Bed</dt><dd>${esc(p.bed.text)} ${gateChip(p.gates.bed)}</dd>
@@ -363,7 +363,7 @@ function tabBody(tab, c) {
       ${list.map((e) => `<div class="evidence-row">
         <div><strong>${esc(e.topic)}</strong>${e.agent ? ` · ${esc(e.agent)}` : ''}${e.strength && e.strength !== 'unspecified' ? ` · ${esc(e.strength)}` : ''}</div>
         <div>${esc(e.finding)}</div>
-        <div class="cond">${esc(e.evidenceType)} · ${esc(e.sourceId)}${e.exposure ? ' · ' + esc(e.exposure) : ''}</div>
+        <div class="cond">${esc(e.id)} · ${esc(e.gradeId)} · ${esc(e.evidenceType)} · ${esc(e.sourceId)}${e.locator ? ' · ' + esc(e.locator) : ''}${e.exposure ? ' · ' + esc(e.exposure) : ''}</div>
       </div>`).join('')}`).join('');
   }
 

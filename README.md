@@ -17,8 +17,9 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 103 engine, parser, search, scenario, template and database tests
+npm test                       # 112 engine, parser, search, scenario, template and database tests
 npm run validate               # validate only, no bundle
+npm run audit:data             # fresh build, raw-value reconciliation, filament/family matrices and HTML parity
 ```
 
 Open the file in `dist/` in any current browser. Nothing else is required.
@@ -68,7 +69,8 @@ app/js/ui/labels.js                     the one vocabulary: what every property 
 app/js/main.js                          the only place that holds state
 
 test/                                   engine, scenario, template, parser and compiled-database tests
-scripts/ensure-db.mjs                   compiles the database first if a test run needs it
+scripts/ensure-db.mjs                   rebuilds current inputs before every test run
+scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
 scripts/workbook_xml.py                 shared, reviewable XML editor for audited workbook changes
 .github/workflows/pages.yml             build, test, publish
 dist/                                   build output, not committed
@@ -100,7 +102,7 @@ preferences: changing one changes what the tool asserts.
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
-11. **A family estimate may rule a material out, never confirm it in.**
+11. **Peer estimates never decide eligibility.** Same-polymer, same-modifier sample spans are context, not bounds on an unmeasured grade.
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
 13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot
@@ -129,12 +131,11 @@ Only the first is evidence. The interface renders them differently on purpose.
 | **Related** | A real measurement of the same property, never promoted to a headline | `46*` |
 | **Estimated** | The span of the material's closest measured relatives. Inference, not evidence | `~2.8–15.3†` |
 
-Estimates exist because in Explore mode a material with no mechanical data answered UNKNOWN to every
-mechanical criterion, so PLA Lite survived a search for "elongation at least 100%" and sat among the
-elastomers. Knowing that all fourteen measured unreinforced PLA grades fall between 2.8 and 15.3% is
-enough to rule it out, without pretending to know its value. (PLA Lite has since been measured, at
-3.89%.) See
-[docs/DATA-MODEL.md](docs/DATA-MODEL.md#three-kinds-of-number).
+Peer spans are contextual observations from the same base polymer and modifier, preserving reported
+intervals. They do not establish bounds for an unmeasured grade and never confirm or reject a candidate.
+The systematic data audit removed broad family/filler fallbacks and excluded unknown-load HDT peers.
+See [the audit](docs/audits/2026-09-13-systematic-data/REPORT.md) and
+[the data model](docs/DATA-MODEL.md#family-estimates).
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
 labelled "If a material has no data", and the two buttons read "Leave it out" and "Keep it, flagged",
