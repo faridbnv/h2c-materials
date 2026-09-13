@@ -8,14 +8,19 @@ sheets, each an Excel table with declared columns.
 | Sheet | Rows | What it holds |
 |---|---:|---|
 | Materials | 102 | Canonical identities and headline observations |
-| Grades | 136 | Exact commercial formulations, tied to materials |
-| Print setup | 156 | Processing guidance and H2C routing, per grade |
-| Properties | 1,807 | Individual property measurements, the unit of quantitative evidence |
-| Use & durability | 362 | Chemical, environmental and application evidence |
+| Grades | 140 | Exact commercial formulations, tied to materials |
+| Print setup | 160 | Processing guidance and H2C routing, per grade |
+| Properties | 1,899 | Individual property measurements, the unit of quantitative evidence |
+| Use & durability | 380 | Chemical, environmental and application evidence |
 | Prices CA | 104 | Canadian price observations |
-| Sources | 214 | The source register, with access dates and hashes |
-| Coverage | 1,106 | Gaps, conflicts and unresolved items |
-| Method | 39 | The rules the database was built under |
+| Sources | 224 | The source register, with access dates and hashes |
+| Coverage | 1,116 | Gaps, conflicts and unresolved items |
+| Method | 42 | The rules the database was built under |
+
+Counts are for snapshot 2026-09-13, after the manufacturer evidence audit in
+[audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/). The build
+holds these numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
+changed workbook is always a deliberate, reviewed change to the tool.
 
 Referential integrity across all of it is perfect: sixteen cross-sheet checks over MaterialID,
 GradeID and SourceID return zero unknown references. That is why the validator spends its effort on
@@ -23,7 +28,8 @@ text normalization instead.
 
 ### The Method sheet is executable
 
-It is not prose. It defines the H2C hardware baseline (350 °C nozzle, 120 °C bed, 65 °C chamber),
+It is not prose. Its Scope / Snapshot row dates the database, and the build reads the date from
+there for every label and filename. It defines the H2C hardware baseline (350 °C nozzle, 120 °C bed, 65 °C chamber),
 the unit conversions, the quarantine rule, the price median rule, the direction rule, and the
 distinction between shared commercial evidence and independent tests. The build implements it, the
 code cites it by section, and it is compiled into `db.json` so the application can quote it.
@@ -33,17 +39,17 @@ code cites it by section, and it is compiled into `db.json` so the application c
 `dist/db.json`. Entities keep their workbook shape; nothing is flattened into one wide table.
 
 ```
-meta         snapshot, build, counts, H2C baseline, coverage summaries,
-             environment category names and what each can decide
+meta         snapshot, build, price sampling date, counts, H2C baseline, coverage
+             summaries, environment category names and what each can decide
 materials    102   the selection-level object
-grades       136   materials 1 -- N grades
-measurements 1807  materials 1 -- N, grades 1 -- N, sources N -- 1
-profiles     156   print setup, with parsed temperatures and gate verdicts
-evidence     362   use and durability, classified
-prices       104
-sources      214
-coverage     1106  terminal: reports gaps, never feeds selection
-method        39   the rules, verbatim
+grades       140   materials 1 -- N grades
+measurements 1899  materials 1 -- N, grades 1 -- N, sources N -- 1
+profiles     160   print setup, with parsed temperatures and gate verdicts
+evidence     380   use and durability, classified
+prices       104   quarantined observations kept as an audit trail, backing nothing
+sources      224
+coverage     1116  terminal: reports gaps, never feeds selection
+method        42   the rules, verbatim
 ```
 
 ### A material
@@ -71,7 +77,9 @@ every profile that published one, with the count behind it. 88 materials have a 
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
 in stock first, then the observation behind the headline, then whatever carries a price. 48 of 102
-materials have one and 42 had stock on the snapshot date.
+materials have one and 42 had stock on the price sampling date, 2026-09-10. A quarantined observation,
+such as CA0069 (a PLA Pure listing once filed under ABS), is never the buy link or the evidence of
+stock.
 
 **Neither is evidence about the material.** `print` is a machine setting recovered from free text
 and `buy` is a market observation on a single day. They are shown because they decide whether
@@ -251,6 +259,9 @@ Carried as warnings in `build/reports/validation-report.md`, and surfaced in the
 - 24 of 66 HDT headlines cite a source naming the standard but not the load.
 - 8 impact measurements are in J/m and cannot share an axis with the kJ/m² rows without specimen
   geometry the sources never published.
-- 12 materials have no property measurements at all.
-- UV and outdoor evidence is six records across six materials, none reducible to a verdict, so it is
+- 11 materials have no property measurements at all. Support for PLA left that list when the
+  manufacturer audit recorded its density.
+- A property the source states in words, such as "No break" for a Charpy test, has the data status
+  "Published qualitative result". It is shown in its own words and is never a number.
+- UV and outdoor evidence is seven records across six materials, none reducible to a verdict, so it is
   an evidence indicator and never a filter.

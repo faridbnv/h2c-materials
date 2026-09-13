@@ -61,6 +61,7 @@ function compileMeasurements(rows, issues) {
       operator,
       dataStatus: r['Data status'],
       corrected: !!status?.corrected,
+      qualitative: !!status?.qualitative,
       quarantined,
       numeric,
       specimenType: r['Specimen type'],
@@ -121,7 +122,7 @@ function compileProfiles(rows, issues) {
       abrasion: parseAbrasion(r['Abrasion / clogging']),
       drying: parseDrying(r.Drying),
       storageHumidity: r['Storage humidity'],
-      // Routing and AMS fields are carried verbatim. 133 of 156 say "Verify exact grade", so they
+      // Routing and AMS fields are carried verbatim. 133 of 160 say "Verify exact grade", so they
       // are evidence chips in the detail view, never filters. See the plan, section 5.4.
       routing: { left: r['H2C left'], right: r['H2C right'], ams2Pro: r['AMS 2 Pro'], amsHT: r['AMS HT'], amsPublished: r['AMS published'] },
       supportPairing: r['Support pairing'],
@@ -190,7 +191,9 @@ function printSummary(profiles) {
 }
 
 function buySummary(materialId, prices) {
-  const mine = prices.filter((p) => p.materialId === materialId && p.url);
+  // A quarantined observation is a different product. It can be neither the buy link nor the
+  // evidence that a material is in stock.
+  const mine = prices.filter((p) => p.materialId === materialId && p.url && !p.quarantined);
   if (!mine.length) return null;
   // Prefer something you can actually buy today at a price the headline was built from.
   const rank = (p) => (p.stock === 'In stock' ? 4 : 0) + (p.headlineSample ? 2 : 0) + (p.regularPerKg !== null ? 1 : 0);
@@ -387,9 +390,20 @@ function compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) {
       message: `Price headline ${parsed.value} does not equal the median of its headline-sample observations (${expected})`,
     });
   }
+  // A headline may only cite observations it was built from. When CA0069 was quarantined (a PLA Pure
+  // listing filed under ABS) the median moved, but the Materials row still cited it and still said
+  // "2 observations", and nothing noticed because only the value was checked.
+  const stray = cited.filter((p) => !p.headlineSample || p.regularPerKg === null);
+  if (stray.length) {
+    issues.push({
+      level: 'error',
+      where: `Materials ${mat.MaterialID}`,
+      message: `Price headline cites ${stray.map((p) => p.id).join(', ')}, which ${stray.length === 1 ? 'is' : 'are'} not in the headline sample`,
+    });
+  }
   return {
-    known: true, value: parsed.value, unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: agrees,
-    priceIds: cited.map((p) => p.id), observations: sample.length, basis: mat['Price basis'],
+    known: true, value: parsed.value, unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: agrees && !stray.length,
+    priceIds: cited.filter((p) => !stray.includes(p)).map((p) => p.id), observations: sample.length, basis: mat['Price basis'],
   };
 }
 
@@ -454,6 +468,9 @@ export function compile(wb, { snapshot, build }) {
     displayedPrice: num(r['Displayed price CAD']), currency: r.Currency, market: r.Market,
     taxShipping: r['Tax / shipping'], basis: r['Regular price basis'], url: r.URL,
     sourceId: r.SourceID, accessDate: r['Access date'], notes: r.Notes,
+    // The workbook marks a wrong-product listing by writing "Quarantined" into its price basis
+    // (CA0069, a PLA Pure spool filed under ABS). It stays as an audit trail and nothing else.
+    quarantined: /^quarantined\b/i.test(String(r['Regular price basis'] ?? '')),
   }));
   const pricesById = new Map(prices.map((p) => [p.id, p]));
   const pricesByMaterial = new Map();
@@ -545,6 +562,9 @@ export function compile(wb, { snapshot, build }) {
     db: {
       meta: {
         snapshot, build,
+        // Prices are sampled on their own date, which need not be the database snapshot: the
+        // 2026-09-13 manufacturer audit moved the snapshot and re-sampled no prices.
+        pricesSampled: prices.map((p) => p.accessDate).filter(Boolean).sort().at(-1) ?? null,
         h2cBaseline: H2C_BASELINE,
         counts: {
           materials: materials.length,

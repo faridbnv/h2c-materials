@@ -38,7 +38,8 @@ test('every numeric headline equals the measurement it cites', () => {
       checked++;
     }
   }
-  assert.equal(checked, 348);
+  // 349 since the 2026-09-13 manufacturer audit gave Support for PLA its first measured density.
+  assert.equal(checked, 349);
 });
 
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a
@@ -175,4 +176,56 @@ test('the widest tier never pools elastomers with rigid thermoplastics', () => {
     const e = m.headline.tensileModulusXY?.estimate;
     if (e) assert.ok(e.lo < 2, `${m.name} borrowed a rigid-thermoplastic bound: ${e.lo} to ${e.hi}`);
   }
+});
+
+// --- 2026-09-13 manufacturer audit --------------------------------------------------------------
+// docs/audits/2026-09-13-manufacturer-evidence/. Each test pins one change from its CHANGELOG.csv, so
+// a later workbook edit that silently undoes one fails here rather than in front of a user.
+
+test('the four audited grades, their profiles and their properties are compiled', () => {
+  for (const [grade, material, profile] of [['G077-01', 'M077', 'P0157'], ['G038-02', 'M038', 'P0158'], ['G045-03', 'M045', 'P0159'], ['G073-02', 'M073', 'P0160']]) {
+    assert.equal(db.grades.find((g) => g.id === grade)?.materialId, material, grade);
+    assert.equal(db.profiles.find((p) => p.id === profile)?.gradeId, grade, profile);
+  }
+  const added = db.measurements.filter((m) => m.id >= 'V001808' && m.id <= 'V001899');
+  assert.equal(added.length, 92);
+});
+
+// Regression: the quarantine moved the ABS median but the row still cited CA0069, and a wrong-product
+// listing could still have been the buy link or the proof that ABS was in stock.
+test('a quarantined price observation backs no headline, buy link or stock claim', () => {
+  const q = db.prices.find((p) => p.id === 'CA0069');
+  assert.ok(q.quarantined);
+  const abs = db.materials.find((m) => m.id === q.materialId);
+  assert.ok(!abs.headline.priceCADkg.priceIds.includes('CA0069'));
+  assert.equal(abs.headline.priceCADkg.value, 25.99);
+  for (const m of db.materials) {
+    if (m.buy) assert.ok(!db.prices.some((p) => p.quarantined && p.url === m.buy.url && p.materialId === m.id), m.name);
+  }
+});
+
+test('a qualitative result is evidence, never a number', () => {
+  const noBreak = db.measurements.find((m) => m.id === 'V001899');
+  assert.equal(noBreak.qualitative, true);
+  assert.equal(noBreak.numeric, false);
+  assert.equal(noBreak.value, null);
+});
+
+test('the corrected Bambu notch records carry their corrected state', () => {
+  const byId = (id) => db.measurements.find((m) => m.id === id);
+  assert.equal(byId('V000342').notch, 'Notched');
+  assert.equal(byId('V000343').notch, 'Not published');
+  assert.match(byId('V000717').locator, /notched/i);
+});
+
+// The Essentium profile needs 400 °C. The material stays printable through its other grade, but the
+// profile itself must say it exceeds the printer rather than borrow the material's verdict.
+test('an over-temperature audited profile exceeds the nozzle gate on its own', () => {
+  assert.equal(db.profiles.find((p) => p.id === 'P0160').gates.nozzle.verdict, 'exceeds');
+});
+
+test('the snapshot comes from the Method sheet', () => {
+  const row = db.method.find((r) => r.section === 'Scope' && r.topic === 'Snapshot');
+  assert.ok(row, 'Method has a Scope / Snapshot row');
+  assert.ok(row.rule.startsWith(db.meta.snapshot));
 });

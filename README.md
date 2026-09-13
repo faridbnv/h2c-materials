@@ -36,7 +36,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | Address | What |
 |---|---|
 | [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool |
-| `/h2c-materials/H2C_Material_Selector_2026-09-10.html` | The same build, pinned to its database snapshot |
+| `/h2c-materials/H2C_Material_Selector_2026-09-13.html` | The same build, pinned to its database snapshot |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
 
 ## Documentation
@@ -79,7 +79,7 @@ These come from the workbook's own Method sheet and the architecture brief. They
 preferences: changing one changes what the tool asserts.
 
 1. **Headline values are verified, never recomputed.** The workbook already cites the measurement
-   behind each headline; the build checks the number matches. All 348 reconcile, and a mismatch
+   behind each headline; the build checks the number matches. All 349 reconcile, and a mismatch
    fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.

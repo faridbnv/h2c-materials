@@ -1,4 +1,4 @@
-// Use & durability holds 362 evidence records across two overlapping source vocabularies.
+// Use & durability holds 380 evidence records across two overlapping source vocabularies.
 // The Rating column is unpublished on 352 of them, so an environment criterion has to be built
 // from the Finding text, not from a score. Method sheet, Evidence / Claims: a product description
 // is a manufacturer claim, not independent validation, so a verdict always travels with its
@@ -70,7 +70,7 @@ export function isUsableEvidence(rec) {
  * "Not resistant", "Slight resistant") to answer a PASS/FAIL question.
  *
  * An indicator category has records but no classifiable verdicts among them: every Finding is a
- * paragraph. UV and outdoor is the sharpest case, with six records across six materials and not
+ * paragraph. UV and outdoor is the sharpest case, with seven records across six materials and not
  * one reducible verdict. Offering "outdoor evidence required" as a hard constraint would return
  * UNKNOWN for all 102 materials while looking like a working filter, so the UI must present these
  * as evidence-presence indicators that open the narrative instead.

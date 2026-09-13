@@ -14,7 +14,8 @@ by anything here.
 ## D2. Headline values are verified, never recomputed
 
 The Materials sheet already cites the MeasurementID behind each headline. The build checks the
-number equals its citation rather than deriving a headline itself. All 348 reconcile.
+number equals its citation rather than deriving a headline itself. All 349 reconcile. A price
+headline must also cite only the observations its median was built from.
 
 This converts a class of judgement calls into build errors. Corrupting one density cell produces a
 named error and no output.
@@ -51,8 +52,8 @@ it would hide a real caveat. It returns `exceeds-recommended`, which warns witho
 ## D7. Only gates that can discriminate become filters
 
 Section 8.2A of the brief lists eleven process gates and says they should come first. The Print setup
-sheet does not support that: routing and AMS read "verify the exact grade" on 133 of 156 profiles,
-enclosure is unpublished on 142, difficulty on all 156.
+sheet does not support that: routing and AMS read "verify the exact grade" on 133 of 160 profiles,
+enclosure is unpublished on 146, difficulty on all 160.
 
 Five gates ship: scope, H2C status, the three parsed temperatures against the baseline, plus
 abrasion and drying. The rest appear as evidence in a material's Printing tab. A filter that passes
@@ -291,6 +292,26 @@ sun", "springs back", "prints without a heated chamber". The last was simply fal
 gate compares against the H2C's own actively heated 65 °C. The indoor template also dropped its
 chamber gate, which tested nothing about ease of printing and held out PLA Basic for not publishing
 a chamber temperature.
+
+## D30. The snapshot date comes from the workbook
+
+The build used to carry the snapshot date as a constant. The 2026-09-13 manufacturer audit moved the
+Method sheet to a new snapshot, and every filename, "data" label and export would have kept naming
+the old one. The date is now read from the Method sheet's Scope / Snapshot row, and the build stops
+if that row does not start with a date.
+
+Prices keep their own date. The audit re-sampled no prices, so "sampled 2026-09-10" beside a price
+is true and "2026-09-13" would not be. `meta.pricesSampled` carries it.
+
+## D31. A quarantined observation backs nothing
+
+The workbook marks a wrong-product price listing by starting its price basis with "Quarantined" and
+clearing its CAD/kg. The build keeps the row, so the audit trail survives, and excludes it from the
+buy link and from the evidence that a material is in stock. The Price tab shows it struck through.
+
+A price headline must cite only observations in its headline sample. When CA0069 was quarantined the
+ABS median moved to 25.99, but the Materials row still cited CA0069 and still said "2 observations",
+and the build did not notice because it checked only the value. It checks the citation now.
 
 ---
 

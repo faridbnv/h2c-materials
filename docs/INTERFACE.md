@@ -72,7 +72,7 @@ This single pattern does most of the work. It says what a criterion can and cann
 anyone relies on it, and it turns the build's audit findings into everyday guidance.
 
 **A field that cannot discriminate is not built as a filter.** H2C routing and AMS read "verify the
-exact grade" on 133 of 156 profiles, and printing difficulty is unpublished on all 156. They appear
+exact grade" on 133 of 160 profiles, and printing difficulty is unpublished on all 160. They appear
 in a material's Printing tab as evidence. A filter that passes everything teaches the reader to
 trust something that checked nothing.
 
@@ -90,7 +90,7 @@ used to say "Printable on an H2C", a promise about temperatures and feed paths i
 
 Environment criteria split by what the data can answer. Six categories carry reducible verdicts and
 are offered as filters. Six others have records but no reducible verdict among them, UV and outdoor
-being the sharpest at six records and zero verdicts; offering those as constraints would return
+being the sharpest at seven records and zero verdicts; offering those as constraints would return
 UNKNOWN for all 102 materials while looking like a working filter. Among the six that are offered,
 only an unqualified record passes: "limited resistance" is unresolved, never a PASS.
 

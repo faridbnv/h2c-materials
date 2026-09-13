@@ -1,0 +1,69 @@
+{
+  "audit_date": "2026-09-13",
+  "status": "RESEARCHED_WORKBOOK_UPDATED_APP_NOT_CHANGED",
+  "scope": {
+    "manufacturers": [
+      "Bambu Lab",
+      "eSUN",
+      "Fillamentum",
+      "BASF Forward AM",
+      "Stratasys",
+      "3DXTECH",
+      "Markforged",
+      "Essentium/Nexa3D",
+      "Polymaker",
+      "Prusa Research",
+      "Kimya/Airtech Europe"
+    ],
+    "duplicate_names_in_request_deduplicated": true,
+    "exact_grade_identity_required": true,
+    "tool_implementation_performed": false
+  },
+  "existing_source_verification": {
+    "target_manufacturer_source_records_fetched": 86,
+    "sources_with_extracted_pdf_text": 85,
+    "recorded_sha256_values_verified": 84,
+    "recorded_sha256_mismatches": 0,
+    "source_rows_without_recorded_hash": 2,
+    "numeric_property_rows_checked_against_current_pdf_text": 1333,
+    "numeric_token_misses": 0,
+    "qualification": "Token presence and hash checks detect stale files and many transcription defects but do not prove every semantic label is correct. Semantic exceptions were reviewed separately."
+  },
+  "workbook_changes": {
+    "grades_added": 4,
+    "profiles_added": 4,
+    "properties_added": 92,
+    "use_and_durability_added": 18,
+    "sources_added": 10,
+    "coverage_rows_added": 10,
+    "existing_property_rows_corrected": ["V000342", "V000343", "V000717"],
+    "price_rows_quarantined": ["CA0069"],
+    "new_grades": ["G077-01", "G038-02", "G045-03", "G073-02"]
+  },
+  "final_counts": {
+    "Materials": 102,
+    "Grades": 140,
+    "Print setup": 160,
+    "Properties": 1899,
+    "Use & durability": 380,
+    "Prices CA": 104,
+    "Sources": 224,
+    "Coverage": 1116,
+    "Method": 42
+  },
+  "validation": {
+    "duplicate_identifier_errors": 0,
+    "referential_integrity_errors": 0,
+    "spreadsheet_formula_errors": 0,
+    "excel_tables_expanded": true,
+    "source_and_delivery_worksheet_data_identical": true,
+    "source_workbook_sha256": "3a4a04ea6e70e136387fe5aef5cfbf0d44e15ec911a79e1cb480274f3eec590a",
+    "delivery_workbook_sha256": "d9c3c45fa01e8637df7582a6ba5472752993f31bb2866243b7166b62dcd8572e"
+  },
+  "known_limitations": [
+    "The Kimya PEBA-S manufacturer TDS was available to the search index, but direct retrieval returned a site block page; no SHA-256 is claimed.",
+    "Markforged continuous-fibre data were not treated as ordinary chopped-fibre filament properties.",
+    "The existing application/build was not updated and still contains frozen pre-audit row-count expectations.",
+    "No missing property was filled from an adjacent grade or generic family range."
+  ]
+}

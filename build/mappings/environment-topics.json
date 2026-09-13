@@ -1,6 +1,6 @@
 {
   "_comment": [
-    "Maps the Use & durability sheet's 73 Topic values onto canonical categories.",
+    "Maps the Use & durability sheet's Topic values onto canonical categories.",
     "The sheet carries two overlapping source vocabularies for the same chemistry:",
     "'Resistance to Acid' from one family of TDS documents and 'Effect of weak acids' /",
     "'Effect of strong acids' from another. They merge to one category but keep their strength",
@@ -35,6 +35,7 @@
     "Resistance to Acid":             { "category": "acid", "strength": "unspecified" },
     "Effect of weak acids":           { "category": "acid", "strength": "weak" },
     "Effect of strong acids":         { "category": "acid", "strength": "strong" },
+    "Acid resistance":                { "category": "acid", "strength": "unspecified" },
     "Acetic acid80%":                 { "category": "acid", "strength": "specific", "agent": "Acetic acid 80%" },
     "Nitric acid10%":                 { "category": "acid", "strength": "specific", "agent": "Nitric acid 10%" },
     "Phosphoric acid40%":             { "category": "acid", "strength": "specific", "agent": "Phosphoric acid 40%" },
@@ -43,6 +44,7 @@
     "Resistance to Alkali":           { "category": "alkali", "strength": "unspecified" },
     "Effect of weak alkalis":         { "category": "alkali", "strength": "weak" },
     "Effect of strong alkalis":       { "category": "alkali", "strength": "strong" },
+    "Alkali resistance":              { "category": "alkali", "strength": "unspecified" },
 
     "Resistance to Organic Solvent":  { "category": "organic-solvent", "strength": "unspecified" },
     "Effect of organic solvent":      { "category": "organic-solvent", "strength": "unspecified" },
@@ -55,23 +57,29 @@
     "Methyl ethyl ketone":            { "category": "organic-solvent", "strength": "specific", "agent": "Methyl ethyl ketone" },
     "Propylene glycol":               { "category": "organic-solvent", "strength": "specific", "agent": "Propylene glycol" },
     "Chemical exposure":              { "category": "organic-solvent", "strength": "unspecified" },
+    "Organic-solvent resistance":     { "category": "organic-solvent", "strength": "unspecified" },
+    "Chemical and solvent resistance": { "category": "organic-solvent", "strength": "unspecified" },
 
     "Resistance to Oil and Grease":   { "category": "oil-grease", "strength": "unspecified" },
     "Effect of oils and grease":      { "category": "oil-grease", "strength": "unspecified" },
+    "Oil and grease resistance":      { "category": "oil-grease", "strength": "unspecified" },
     "Petroleum":                      { "category": "oil-grease", "strength": "specific", "agent": "Petroleum" },
     "Mineral oil and cyclic loading": { "category": "oil-grease", "strength": "specific", "agent": "Mineral oil under cyclic load", "alsoFatigue": true },
 
     "Solubility":                     { "category": "water-solubility" },
     "Water removal":                  { "category": "water-solubility" },
     "Limonene support":               { "category": "water-solubility" },
+    "Water solubility":               { "category": "water-solubility" },
 
     "UV":                             { "category": "uv-outdoor" },
     "UV / heat":                      { "category": "uv-outdoor" },
     "UV / weather":                   { "category": "uv-outdoor" },
     "Environmental":                  { "category": "uv-outdoor" },
+    "UV resistance":                  { "category": "uv-outdoor" },
 
     "Moisture":                       { "category": "moisture" },
     "Moisture / dimensions":          { "category": "moisture" },
+    "Moisture handling":              { "category": "moisture" },
     "Hydrolysis / dimensional stability": { "category": "hydrolysis" },
 
     "Flammability":                   { "category": "flammability" },
@@ -86,6 +94,9 @@
     "Application":      { "category": "application" },
     "Industrial use":   { "category": "application" },
     "Industrial uses":  { "category": "application" },
+    "Intended role":    { "category": "application" },
+    "Published applications": { "category": "application" },
+    "Elasticity":       { "category": "application" },
 
     "Test specimen preparation": { "category": "specimen-prep" },
 
@@ -102,6 +113,7 @@
     "Warping / adhesion":  { "category": "print-quality" },
     "Feed / overhangs":    { "category": "print-quality" },
     "Bed":                 { "category": "print-quality" },
+    "Layer adhesion":      { "category": "print-quality" },
 
     "Sanding / bonding":      { "category": "post-processing" },
     "Support / adhesion":     { "category": "post-processing" },
@@ -112,12 +124,15 @@
     "Post-processing":        { "category": "post-processing" },
 
     "Shared emissions precaution": { "category": "safety" },
+    "Processing ventilation":      { "category": "safety" },
+    "Chemical stability":          { "category": "safety" },
     "Disposal":                    { "category": "circularity" },
 
     "Avoid when":        { "category": "limitations" },
     "Grade distinction": { "category": "limitations" },
     "Filled grades":     { "category": "limitations" },
     "Support conflict":  { "category": "limitations" },
-    "Contamination":     { "category": "limitations" }
+    "Contamination":     { "category": "limitations" },
+    "Abrasive wear":     { "category": "limitations" }
   }
 }

@@ -1,0 +1,22 @@
+ChangeID,Table,Record or scope,Action,Before,After,Primary source,Implementation note
+CHG-001,Grades,G077-01,Added,No exact grade,Support for PLA (New Version),R-BAMBU-SUPPORT-PLA-NEW-TDS,New exact Bambu support identity
+CHG-002,Print setup,P0157,Added,No grade profile,Full published support profile,R-BAMBU-SUPPORT-PLA-NEW-TDS,Do not infer H2C left/right route
+CHG-003,Properties,V001808:V001828,Added,No exact-grade rows,21 physical/mechanical rows including explicit N/A,R-BAMBU-SUPPORT-PLA-NEW-TDS,Explicit N/A remains missing
+CHG-004,Use & durability,Q00363:Q00370,Added,No exact-grade rows,8 purpose/chemical records,R-BAMBU-SUPPORT-PLA-NEW-TDS,Qualitative evidence only
+CHG-005,Grades,G038-02,Added,One PC-GF manufacturer,Ultrafuse PC GF30 exact grade,R-BASF-PCGF30-TDS,Second independent PC-GF manufacturer
+CHG-006,Print setup,P0158,Added,No BASF profile,280-330 C nozzle and 80-100 C bed,R-BASF-PCGF30-TDS,Within thermal envelope but not H2C approval
+CHG-007,Properties,V001829:V001861,Added,No BASF PC-GF rows,33 orientation/load/notch-specific rows,R-BASF-PCGF30-TDS,Keep XY/XZ/ZX separate
+CHG-008,Grades,G045-03,Added,Two PEBA manufacturers,Kimya PEBA-S exact grade,R-KIMYA-PEBA-S-TDS,Third independent PEBA formulation
+CHG-009,Print setup,P0159,Added,No Kimya profile,235-245 C nozzle and 80-90 C bed,R-KIMYA-PEBA-S-TDS,Flexible-feed route still unverified
+CHG-010,Properties,V001887:V001899,Added,No Kimya PEBA-S rows,13 exact TDS rows,R-KIMYA-PEBA-S-TDS,Direct PDF blocked; indexed content status retained
+CHG-011,Grades,G073-02,Added,One PPS-CF manufacturer,Essentium PPS-CF exact grade,R-ESSENTIUM-PPSCF-TDS,Independent comparison grade
+CHG-012,Print setup,P0160,Added,No Essentium profile,330-400 C nozzle range,R-ESSENTIUM-PPSCF-TDS,Published maximum exceeds H2C 350 C
+CHG-013,Properties,V001862:V001886,Added,No Essentium PPS-CF rows,25 direction/condition-specific rows,R-ESSENTIUM-PPSCF-TDS,Raw-material qualifiers retained
+CHG-014,Properties,V000342,Corrected,Notch=Unnotched,Notch=Notched,B-pla-cf-TDS,Explicit notched text in TDS
+CHG-015,Properties,V000343,Corrected,Notch=Notched,Notch=Not published,B-pla-cf-TDS,Ambiguous source row; no inference
+CHG-016,Properties,V000717,Corrected,Locator said notch unspecified,Locator says notched,B-pc-fr-TDS,Numeric value unchanged
+CHG-017,Prices CA,CA0069,Quarantined,Eligible ABS price,Excluded with CAD/kg removed,CA-3DPC1,Source title identifies PLA Pure not ABS
+CHG-018,Sources,10 records,Added,214 sources,224 sources,Official manufacturer evidence,Includes URLs access status and hashes where retrievable
+CHG-019,Coverage,10 records,Added or updated,Previous gaps/current ambiguities,Resolved/gap/conflict/quarantine decisions,Audit evidence,Preserves unresolved conditions
+CHG-020,Method,3 records plus snapshot,Updated,2026-09-10 snapshot,2026-09-13 manufacturer audit snapshot,Audit protocol,Application code intentionally unchanged
+

@@ -27,6 +27,9 @@ export const DATA_STATUS = {
   'Published value (transcription corrected)': { numeric: true, corrected: true },
   'Not published': { numeric: false, missing: MISSING.NOT_PUBLISHED },
   'Unresolved unit / layout': { numeric: false, missing: MISSING.QUARANTINED, quarantined: true },
+  // A result the source states in words, such as "No break" for a Charpy test on PEBA-S. It is
+  // evidence, and it is not a number: it never becomes zero, a headline or a chart point.
+  'Published qualitative result': { numeric: false, missing: MISSING.NOT_COMPARABLE, qualitative: true },
 };
 
 const NUMERIC_RE = /^-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$/;

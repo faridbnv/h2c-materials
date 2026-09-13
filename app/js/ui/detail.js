@@ -61,9 +61,12 @@ function measurementRow(m, highlight) {
     ['Post-processing', m.postProcessing], ['Test temperature', m.testTemperature],
     ['Print parameters', m.printParameters], ['Notes', m.notes],
   ].filter(([, v]) => stated(v));
+  // A qualitative result ("No break") is what the source said, so it is shown in its own words.
   const v = m.numeric
     ? `${fmtNumber(m.value)}${m.uncertainty ? ' ± ' + fmtNumber(m.uncertainty) : ''} ${esc(m.unit)}`
-    : `<span class="missing">${esc(m.dataStatus)}</span>`;
+    : m.qualitative && m.raw?.value
+      ? `${esc(m.raw.value)} <span class="missing">(stated in words, not a number)</span>`
+      : `<span class="missing">${esc(m.dataStatus)}</span>`;
   const op = m.operator === '>' || m.operator === '<' ? esc(m.operator) + ' ' : '';
   return `<div class="evidence-row${highlight === m.id ? ' target' : ''}" data-mid="${esc(m.id)}">
     <div><strong>${esc(m.property)}</strong> — ${op}${v}
@@ -355,7 +358,7 @@ function tabBody(tab, c) {
   if (tab === 'Grades') {
     if (!grades.length) return gapBox(covFor('Grades'), 'commercial grade');
     // Colour. The field was collected on every grade and shown nowhere, but it does not hold what
-    // a buyer wants: on 132 of 136 grades it is the same sentence saying properties may vary by
+    // a buyer wants: on 132 of 140 grades it is the same sentence saying properties may vary by
     // colour, and on the other four it names the colour of the specimen that was tested. So the
     // honest rendering is the tested colour where one is stated, and a plain warning otherwise.
     const SPEC_COLOUR = /^(white|black|natural|grey|gray|red|blue|green|yellow|orange|clear|transparent)\b/i;
@@ -383,11 +386,11 @@ function tabBody(tab, c) {
   if (tab === 'Price') {
     if (!prices.length) return gapBox(covFor('Price'), 'Canadian price observation');
     return `<div class="note">Headline is the median of observations flagged for the headline sample.
-      Snapshot ${esc(db.meta.snapshot)}; prices are not live.</div>
+      Prices sampled ${esc(db.meta.pricesSampled ?? db.meta.snapshot)}; they are not live. A struck-through row is quarantined: the listing is a different product and backs nothing.</div>
       <table class="grid" style="margin-top:10px"><thead><tr>
       <th>ID</th><th>Retailer</th><th>Variant</th><th>kg</th><th>CAD/kg</th><th>Stock</th><th>In sample</th></tr></thead>
-      <tbody>${prices.map((p) => `<tr>
-        <td>${esc(p.id)}</td><td>${esc(p.retailer)}</td><td>${esc(p.variant ?? '')}</td>
+      <tbody>${prices.map((p) => `<tr${p.quarantined ? ` class="quarantined" title="${esc(p.notes ?? p.basis ?? '')}"` : ''}>
+        <td>${esc(p.id)}${p.quarantined ? ' <span class="chip chip-FAIL" style="font-size:10px">quarantined</span>' : ''}</td><td>${esc(p.retailer)}</td><td>${esc(p.variant ?? '')}</td>
         <td class="num">${fmtNumber(p.netMassKg)}</td>
         <td class="num">${p.regularPerKg === null ? '<span class="missing">n/a</span>' : fmtNumber(p.regularPerKg)}</td>
         <td>${esc(p.stock)}</td><td>${p.headlineSample ? 'Yes' : 'No'}</td></tr>`).join('')}</tbody></table>`;

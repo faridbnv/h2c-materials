@@ -15,7 +15,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { extractWorkbook, EXPECTED_ROWS } from './extract.js';
+import { extractWorkbook, EXPECTED_ROWS, snapshotDate } from './extract.js';
 import { compile } from './compile.js';
 import { compileReference } from './reference.js';
 import { validate, formatReport } from './validate.js';
@@ -25,7 +25,6 @@ const here = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(here, '../..');
 const buildRoot = resolve(here, '..');
 
-const SNAPSHOT = '2026-09-10';                 // Method sheet, Scope / Snapshot
 const BUILD = new Date().toISOString().slice(0, 10);
 
 const validateOnly = process.argv.includes('--validate-only');
@@ -34,6 +33,7 @@ async function main() {
   const issues = [];
 
   const wb = extractWorkbook(join(projectRoot, 'H2C_FDM_Material_Database.xlsx'));
+  const SNAPSHOT = snapshotDate(wb.Method.rows);
   for (const [sheet, expected] of Object.entries(EXPECTED_ROWS)) {
     const got = wb[sheet].rows.length;
     if (got !== expected) {

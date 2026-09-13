@@ -41,7 +41,7 @@ export function renderStart(state, actions) {
     <p class="start-note">The gaps are the point. Where a property was never published this tool
       shows the gap rather than a guess, so a material is never ranked on a number nobody measured.</p>
 
-    ${limits()}
+    ${limits(db)}
   </section>`;
 }
 
@@ -50,18 +50,24 @@ export function renderStart(state, actions) {
  * moment a requirement was set, which is exactly when someone substitutes a nearby metric for the
  * one they wanted.
  */
-function limits() {
+function limits(db) {
+  // Counted from the snapshot, not typed in: each new manufacturer audit moves them.
+  const profiles = db.profiles.length;
+  const stated = (v) => v && !/^not published$/i.test(String(v).trim());
+  const ams = db.profiles.filter((p) => stated(p.routing.amsPublished)).length;
+  const enclosure = db.profiles.filter((p) => stated(p.enclosure)).length;
+  const warping = db.evidence.filter((e) => /warp/i.test(e.topic ?? '')).length;
   return `
     <details class="start-limits">
       <summary>What this database cannot answer</summary>
       <p>Some things a printer owner often wants are barely recorded in the sources this was built
         from, so no filter can answer them. If you came for one of these, this tool will not settle it.</p>
       <ul>
-        <li><b>Warping and first-layer behaviour.</b> Six records in the entire database. There is
+        <li><b>Warping and first-layer behaviour.</b> ${warping} records in the entire database. There is
           no basis for saying which material warps more than another.</li>
-        <li><b>AMS compatibility.</b> Published for 5 of 156 print profiles. Every other profile
+        <li><b>AMS compatibility.</b> Published for ${ams} of ${profiles} print profiles. Every other profile
           says to verify the exact grade, so the tool shows that text rather than a yes or no.</li>
-        <li><b>Whether an enclosure is needed.</b> Answerable for 14 of 156 profiles. Chamber
+        <li><b>Whether an enclosure is needed.</b> Answerable for ${enclosure} of ${profiles} profiles. Chamber
           temperature is recorded far more often and is the closest usable proxy.</li>
         <li><b>UV and outdoor life, food contact, creep, fatigue.</b> Narrative notes only, never a
           verdict. Read them in a material's Environment tab.</li>
@@ -123,7 +129,7 @@ export function renderActive(state, actions) {
       ${hard.map((c) => pill(c, cs.indexOf(c))).join('')}
       ${soft.length ? `<span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}` : ''}
     </div>
-    ${limits()}
+    ${limits(state.db)}
   </section>`;
 }
 

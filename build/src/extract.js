@@ -17,18 +17,34 @@ export const SHEET_HEADER_ROW = {
   'Method': 2,
 };
 
-// Expected row counts from the audit. A drift here means the frozen source moved.
+// Expected row counts for the current snapshot. A drift here means the frozen source moved, and the
+// build refuses to continue until someone confirms the move was intended and updates these. Last
+// moved by the 2026-09-13 manufacturer audit (docs/research/2026-09-13-manufacturer-audit/), which
+// added 4 grades, 4 profiles, 92 properties, 18 use records, 10 sources, 10 coverage rows and 3
+// method rows.
 export const EXPECTED_ROWS = {
   'Materials': 102,
-  'Grades': 136,
-  'Print setup': 156,
-  'Properties': 1807,
-  'Use & durability': 362,
+  'Grades': 140,
+  'Print setup': 160,
+  'Properties': 1899,
+  'Use & durability': 380,
   'Prices CA': 104,
-  'Sources': 214,
-  'Coverage': 1106,
-  'Method': 39,
+  'Sources': 224,
+  'Coverage': 1116,
+  'Method': 42,
 };
+
+/**
+ * The snapshot date, read from the Method sheet's Scope / Snapshot row rather than typed into the
+ * build. It was a constant, so the workbook could move to a new snapshot while every file, filename
+ * and "data" label still named the old one.
+ */
+export function snapshotDate(methodRows) {
+  const row = methodRows.find((r) => r.Section === 'Scope' && r.Topic === 'Snapshot');
+  const date = String(row?.['Definition / rule'] ?? '').match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+  if (!date) throw new Error('The Method sheet has no Scope / Snapshot row starting with a YYYY-MM-DD date');
+  return date;
+}
 
 function sheetToRows(ws, headerRowIndex) {
   // raw:false keeps the displayed text; we do our own numeric parsing so that

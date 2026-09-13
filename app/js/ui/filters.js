@@ -4,7 +4,7 @@
 // It tells the user what a criterion can and cannot decide, and turns the build's audit findings
 // into everyday guidance instead of a footnote.
 //
-// A field that cannot discriminate is not built as a filter. 133 of 156 print profiles say
+// A field that cannot discriminate is not built as a filter. Most print profiles (133 of 160) say
 // "Verify exact grade" for H2C routing, so routing appears in the detail drawer as evidence, never
 // here. A filter that passes everything teaches the user to trust something that checked nothing.
 
@@ -139,8 +139,9 @@ function body(group, materials, cs, db) {
         With a hardened nozzle, leave this off: it prints everything here.</div>
     </div>`);
 
+    const verifyGrade = db.profiles.filter((p) => /verify exact grade/i.test(`${p.routing.left} ${p.routing.right}`)).length;
     out.push(`<div class="note"><strong>Not offered as filters.</strong> H2C left/right routing, AMS 2 Pro and
-      AMS HT read "verify exact grade, no blanket approval" on 133 of 156 profiles, and printing
+      AMS HT read "verify exact grade, no blanket approval" on ${verifyGrade} of ${db.profiles.length} profiles, and printing
       difficulty is unpublished on all of them. They appear in each material's Printing tab as
       evidence rather than as filters that would pass everything.</div>`);
   }
@@ -151,7 +152,7 @@ function body(group, materials, cs, db) {
     const P = prop(f.key);
     const extra = f.key === 'hdt045' && a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
-      : f.key === 'priceCADkg' ? `Three Canadian retailers, sampled ${db.meta.snapshot}` : null;
+      : f.key === 'priceCADkg' ? `Three Canadian retailers, sampled ${db.meta.pricesSampled ?? db.meta.snapshot}` : null;
     out.push(`<div class="control" data-active="${!!c}">
       <label title="${esc(P.technical)}">${esc(P.plain)}</label>
       <div class="sub-label">${esc(P.hint)}</div>
@@ -174,7 +175,7 @@ function body(group, materials, cs, db) {
 
   // Availability. Half the results from a template have no price and nothing said whether they
   // could be bought at all, so a recommendation could not be acted on. The data supports this:
-  // 48 materials have at least one sampled Canadian offer and 42 had stock on the snapshot date.
+  // 48 materials have at least one sampled Canadian offer and 42 had stock on the sampling date.
   if (group === 'Cost') {
     const buy = find(cs, (c) => c.gate === 'buyable');
     const withOffer = materials.filter((m) => m.buy).length;
@@ -184,7 +185,7 @@ function body(group, materials, cs, db) {
       <div class="avail">${withOffer} of ${materials.length} were listed by a sampled Canadian retailer</div>
       <label class="sub-check"><input type="checkbox" data-buy="stock" ${buy?.inStock ? 'checked' : ''} ${buy ? '' : 'disabled'}>
         and it was in stock when sampled</label>
-      <div class="avail">${inStock} had stock on ${esc(db.meta.snapshot)}. Not live stock.</div>
+      <div class="avail">${inStock} had stock on ${esc(db.meta.pricesSampled ?? db.meta.snapshot)}. Not live stock.</div>
       <div class="eg">Three retailers, one sampling date. A material with no offer here is not
         necessarily unavailable, so it is held as unknown rather than failed.</div>
     </div>`);

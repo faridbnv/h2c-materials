@@ -72,8 +72,8 @@ Assembles the relational runtime database, and does the one thing that matters m
 
 The Materials sheet already carries the MeasurementID behind each headline, the PriceIDs behind each
 price, and a ProfileID for printing. The build checks that the number equals the measurement it
-cites. All 348 reconcile, and all 40 price headlines equal the median of their flagged observations.
-A mismatch is a build error, not a judgement call.
+cites. All 349 reconcile, and all 40 price headlines equal the median of their flagged observations
+and cite only those observations. A mismatch is a build error, not a judgement call.
 
 Compile also derives, each tagged with its origin so the interface can tell them apart:
 
@@ -90,7 +90,7 @@ Compile also derives, each tagged with its origin so the interface can tell them
   window. It answers "what do I set it to", which was otherwise only in free text one tab deep.
 - **A buy summary** per material: one offer chosen from the price observations, ranked by in stock,
   then the observation behind the headline, then anything with a price. 48 materials have one and
-  42 had stock on the snapshot date. The retailer URLs were in the workbook from the start and were
+  42 had stock on the price sampling date. Quarantined observations are skipped. The retailer URLs were in the workbook from the start and were
   rendered nowhere.
 - **Environment category names**, carried through from the mapping file in a heading form ("Acid
   resistance") and a sentence form ("acids"), so the engine can name a category in a reason string
@@ -130,7 +130,7 @@ asserts that no source path survived into the output, which is how that failure 
 ```bash
 npm run build                    # must report 0 errors
 npm test                         # 77 tests
-open dist/H2C_Material_Selector_2026-09-10.html
+open dist/H2C_Material_Selector_2026-09-13.html
 ```
 
 The end-to-end check is the worked example from the architecture brief: H2C-relevant, HDT at least
