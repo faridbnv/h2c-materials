@@ -50,7 +50,8 @@ export function renderCoverage(host, state, actions) {
 
   host.innerHTML = `
     <p class="lens-intro">What this database can and cannot support for the ${n} candidate${n === 1 ? '' : 's'}
-      on screen. Coverage reports gaps; it never changes a selection result.</p>
+      on screen. Coverage reports gaps; it never changes a selection result, and "recorded" means
+      evidence exists, not that it is good or that it settles your question. Click a cell to read it.</p>
 
     <div class="cov-summary">
       ${totals.map((t) => `
@@ -83,8 +84,9 @@ export function renderCoverage(host, state, actions) {
             <td class="mat"><button class="linkish" data-open="${esc(m.materialId)}">${esc(m.name)}</button></td>
             ${m.cells.map((c, i) => {
               const st = STATE[c.status] ?? 'none';
-              const finding = c.records[0]?.finding ?? '';
-              return `<td><button class="cov-cell ${st}" data-open="${esc(m.materialId)}"
+              // Explain the record that decided the cell, not whichever came first.
+              const finding = (c.records.find((r) => r.status === c.status) ?? c.records[0])?.finding ?? '';
+              return `<td><button class="cov-cell ${st}" data-open="${esc(m.materialId)}" data-domain="${esc(COVERAGE_DOMAINS[i])}"
                 title="${esc(`${m.name} — ${COVERAGE_DOMAINS[i]}: ${c.status ?? 'no record'}${finding ? '. ' + finding.slice(0, 260) : ''}`)}"
                 aria-label="${esc(`${COVERAGE_DOMAINS[i]}: ${WORD[st] ?? 'no record'}`)}">${MARK[st] ?? ''}</button></td>`;
             }).join('')}
@@ -94,5 +96,8 @@ export function renderCoverage(host, state, actions) {
       </table>
     </div>`;
 
-  host.querySelectorAll('[data-open]').forEach((e) => e.addEventListener('click', () => actions.openMaterial(e.dataset.open)));
+  // A cell opens the material at its Coverage tab, where the record behind the mark is; the name
+  // opens the Overview.
+  host.querySelectorAll('[data-open]').forEach((e) => e.addEventListener('click', () =>
+    actions.openMaterial(e.dataset.open, e.dataset.domain ? 'Coverage' : 'Overview')));
 }

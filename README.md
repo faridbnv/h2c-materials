@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 62 engine, parser, search and database tests
+npm test                       # 77 engine, parser, search, scenario, template and database tests
 npm run validate               # validate only, no bundle
 ```
 
@@ -84,8 +84,9 @@ preferences: changing one changes what the tool asserts.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
 3. **Four constraint states.** A range straddling a threshold is INDETERMINATE, not a lucky PASS.
-4. **Hard constraints decide eligibility; preferences only rank.** A soft criterion never removes a
-   candidate.
+4. **Hard constraints decide eligibility; a preference never removes a candidate.** It is reported
+   on each material as "tracked only". It does not reorder the list yet, and the interface does not
+   claim it does.
 5. **XY and Z never merge**, and an unstated direction is not XY.
 6. **Impact in J/m is never converted to kJ/m²** without specimen geometry.
 7. **Quarantined measurements stay out of every numeric summary.**

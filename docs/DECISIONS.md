@@ -243,7 +243,54 @@ measurements of one material from six different materials.
 Three changes, no loss of information. The dots of one material are joined by a faint line, so a
 cluster reads as one thing measured repeatedly. The name goes on the leftmost dot of each material
 rather than on every dot, with grade and direction on hover. And the footer leads with the sentence
-the mode cannot work without: each dot is one test result, not one material.
+the mode cannot work without: a dot is not a material.
+
+The footer first said each dot was "one test result". It is a pair of measurements of one grade under
+compatible conditions, which the source rarely ties to a single specimen, so the sentence now says
+that. The index card counts materials, not dots, for the same reason.
+
+## D26. The verdict describes the evidence; the policy decides eligibility
+
+A material whose requirement cannot be checked is UNKNOWN in both modes. Strict holds it out of the
+results and Explore keeps it flagged, but neither changes what the verdict says.
+
+Strict used to turn "could not be checked" into FAIL. The FAIL count then mixed materials that failed
+a test with materials nobody had measured, the excluded list and the export said "does not work" for
+both, and the four-state vocabulary the rest of this document defends collapsed into three at the
+one level a user reads. Reversing this makes a missing measurement look like a bad material again.
+
+## D27. The nozzle question asks what the user lacks
+
+"I have a hardened nozzle" removed materials: 75 have no abrasion guidance, and Strict held them all
+out. More hardware can never make fewer materials printable. The criterion is now "I don't have a
+hardened nozzle". It fails a recorded requirement, holds a fibre-filled material with no guidance as
+UNKNOWN because the filler is the known cause, and passes the rest with a reason saying no
+requirement was recorded. A `hardenedAvailable: true` constraint from an old link passes everything.
+
+This is a deliberate exception to "absence is not evidence", made visible in its wording: the
+criterion screens on a recorded requirement, and the rail says a missing record is not proof a
+filament is safe for brass. Treating every unrecorded material as UNKNOWN would leave Strict with no
+material at all, because no source in the snapshot states "no special nozzle concern".
+
+## D28. Limited resistance is not resistance
+
+An environment criterion passes only on an unqualified positive record: "resistant", or "insoluble"
+for water. "Limited" is INDETERMINATE on its own and alongside a positive record. The rail used to
+request `['resistant', 'limited']`, which passed PLA on a solvent screen because one record said its
+resistance was limited; and "insoluble" was never accepted, so the water criterion could not pass at
+all. Old links carrying the `require` override have it removed on load.
+
+A pass still means resistance to the exposures a source tested, not to every chemical in the class,
+and the reason says so. Choosing the exact agent first needs data most records do not carry.
+
+## D29. A template names what it cannot check
+
+Each template carries `notChecked`, shown beside the result count, and screens out support
+materials. The descriptions used to promise outcomes no criterion tested: "survives a hot day in the
+sun", "springs back", "prints without a heated chamber". The last was simply false, since the chamber
+gate compares against the H2C's own actively heated 65 °C. The indoor template also dropped its
+chamber gate, which tested nothing about ease of printing and held out PLA Basic for not publishing
+a chamber temperature.
 
 ---
 
@@ -270,3 +317,9 @@ answers rather than failing.
 | Substring search | "PLA" matched "thermo**pla**stic", so searching the most common filament returned every TPU and TPE | `search.test.js` |
 | Estimates absent from every chart | A quarter of the in-scope set vanished from the Ashby lens, and Compare printed "Not published" for a value the engine was actively using to exclude the material | visual |
 | Any remark treated as a relaxation | Strict measurement mode warned that it had mixed conditions, and drew comparable points hollow, because the source had not named a specimen form | visual |
+| Unmatched search diagnosed as hidden results | Searching a name the database does not hold reported "102 materials match, but you have hidden them" and offered a button that changed nothing | visual |
+| Scenario import skipped half the state | Loading a file set the requirements but not the lens, columns, baseline or estimates switch, so the screen and the file disagreed | `scenario.test.js` |
+| Invalid scenario committed before rendering | `{"constraints":null}` replaced the session and then threw | `scenario.test.js` |
+| `location.origin` on a file | Is the string "null", so every link copied from a local file was unusable | visual |
+| Compare evidence dots | Rendered by the shared value renderer and never wired, so the dot did nothing exactly where a difference needed checking | visual |
+| Hardcoded rail counts | "45 of 102 state an abrasion requirement" counted profiles, not materials; the true figure is 27 | derived from data now |

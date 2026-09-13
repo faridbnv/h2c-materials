@@ -45,6 +45,17 @@ const OP_WORD = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'les
 
 const find = (cs, pred) => cs.find(pred) ?? null;
 
+// Properties that cannot be negative. A negative density or price was accepted as a real
+// requirement and silently emptied the list.
+const NON_NEGATIVE = new Set(['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'priceCADkg']);
+
+// Interface state that must survive a re-render. The rail is rebuilt from the scenario on every
+// change, which used to snap every group back to its default and drop keyboard focus, and an
+// operator chosen before a number was typed was thrown away because no constraint held it yet.
+const openGroups = new Map();
+const draftOps = new Map();
+const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'env', 'buy', 'evidence', 'buildMaterial', 'clear'];
+
 function availLine(a, extra) {
   let s = `<div class="avail">${a.withData} of ${a.total} have data`;
   if (extra) s += `<span class="caveat">${esc(extra)}</span>`;
@@ -56,27 +67,41 @@ export function renderFilters(host, state, actions) {
   const materials = db.materials;
   const cs = scenario.constraints;
 
+  const focused = host.contains(document.activeElement) ? document.activeElement : null;
+  const focusKey = focused && FOCUS_KEYS.find((k) => focused.dataset?.[k] !== undefined);
+  const focusValue = focusKey ? focused.dataset[focusKey] : null;
+
   const activeIn = (group) => cs.filter((c) => c.__group === group).length;
   const parts = [];
 
   // One always-visible control above the groups: it is the only compatibility filter that
   // changes the candidate set for most sessions.
   const scopeOn = !!find(cs, (c) => c.gate === 'scope');
+  const outOfScope = materials.filter((m) => m.excluded).length;
   parts.push(`<div class="rail-pinned">
     <label class="toggle"><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}>
-      <span>H2C-relevant only</span></label>
-    <div class="avail">Hides the 6 materials outside the printer's envelope</div>
+      <span>In the H2C research scope only</span></label>
+    <div class="avail">Hides the ${outOfScope} materials the database places outside the printer's envelope.
+      It does not check print settings; those are under Compatibility.</div>
   </div>`);
 
   for (const group of GROUPS) {
     const n = activeIn(group);
-    parts.push(`<details class="group" data-group="${group}" ${OPEN_BY_DEFAULT.has(group) || n ? 'open' : ''}>
+    const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
+    parts.push(`<details class="group" data-group="${group}" ${open ? 'open' : ''}>
       <summary>${group}<span class="count" data-zero="${n === 0}">${n}</span></summary>
       <div class="group-body">${body(group, materials, cs, db)}</div>
     </details>`);
   }
   host.innerHTML = parts.join('');
+  host.querySelectorAll('details.group').forEach((d) => d.addEventListener('toggle', () => openGroups.set(d.dataset.group, d.open)));
   wire(host, state, actions);
+
+  if (focusKey) {
+    // A cleared criterion loses its clear button; its number box is the natural place to land.
+    const attr = focusKey === 'clear' ? 'data-value-for' : `data-${focusKey.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}`;
+    host.querySelector(`[${attr}="${CSS.escape(focusValue)}"]`)?.focus();
+  }
 }
 
 function body(group, materials, cs, db) {
@@ -102,10 +127,16 @@ function body(group, materials, cs, db) {
       </div>`);
     }
 
-    const abr = find(cs, (c) => c.gate === 'abrasive');
+    // Asked as the hardware you lack. Owning a hardened nozzle removes nothing, so there is nothing
+    // to ask about it.
+    const abr = find(cs, (c) => c.gate === 'abrasive' && !c.hardenedAvailable);
+    const needsHardened = materials.filter((m) => m.gates.abrasive === 'requires-hardened').length;
     out.push(`<div class="control" data-active="${!!abr}">
-      <label><input type="checkbox" data-gate="abrasive" ${abr ? 'checked' : ''}> I have a hardened nozzle</label>
-      <div class="avail">45 of ${materials.length} state an abrasion requirement</div>
+      <label><input type="checkbox" data-gate="abrasive" ${abr ? 'checked' : ''}> I don't have a hardened nozzle</label>
+      <div class="avail">${needsHardened} of ${materials.length} are recorded as needing one, and those are hidden</div>
+      <div class="eg">No record is not proof a filament is safe for brass. Fibre-filled materials
+        without guidance stay unresolved; glow, metal, wood and marble fills are worth checking.
+        With a hardened nozzle, leave this off: it prints everything here.</div>
     </div>`);
 
     out.push(`<div class="note"><strong>Not offered as filters.</strong> H2C left/right routing, AMS 2 Pro and
@@ -120,22 +151,24 @@ function body(group, materials, cs, db) {
     const P = prop(f.key);
     const extra = f.key === 'hdt045' && a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
-      : f.key === 'priceCADkg' ? 'Three Canadian retailers, sampled 2026-09-10' : null;
+      : f.key === 'priceCADkg' ? `Three Canadian retailers, sampled ${db.meta.snapshot}` : null;
     out.push(`<div class="control" data-active="${!!c}">
       <label title="${esc(P.technical)}">${esc(P.plain)}</label>
       <div class="sub-label">${esc(P.hint)}</div>
       ${availLine(a, extra)}
       <div class="row">
         <select class="op" data-op-for="${f.key}" aria-label="${esc(P.plain)} comparison">
-          ${['>=', '<=', '>', '<'].map((o) => `<option value="${o}" ${(c?.operator ?? f.op) === o ? 'selected' : ''}>${esc(OP_WORD[o])}</option>`).join('')}
+          ${['>=', '<=', '>', '<'].map((o) => `<option value="${o}" ${(c?.operator ?? draftOps.get(f.key) ?? f.op) === o ? 'selected' : ''}>${esc(OP_WORD[o])}</option>`).join('')}
         </select>
         <input type="number" step="any" data-value-for="${f.key}" value="${c ? c.value : ''}"
-          aria-label="${esc(P.plain)} value">
+          ${NON_NEGATIVE.has(f.key) ? 'min="0"' : ''} aria-label="${esc(P.plain)} value"
+          aria-describedby="err-${f.key}">
         <span class="unit">${esc(P.unit)}</span>
-        ${c ? `<button class="icon-btn clear" data-clear="${f.key}" title="Clear">✕</button>` : ''}
+        ${c ? `<button class="icon-btn clear" data-clear="${f.key}" title="Remove the ${esc(P.plain.toLowerCase())} requirement" aria-label="Remove the ${esc(P.plain.toLowerCase())} requirement">✕</button>` : ''}
       </div>
-      ${c ? '' : `<div class="eg">${esc(f.eg)}</div>`}
-      ${c ? `<label style="font-weight:400;font-size:12px;margin-top:5px"><input type="checkbox" data-soft="${f.key}" ${c.mandatory === false ? 'checked' : ''}> Preference only, never removes a candidate</label>` : ''}
+      <div class="field-error" id="err-${f.key}" role="alert" hidden></div>
+      ${c ? '' : `<div class="eg">${esc(f.eg)}. Applies when you press Enter or leave the box.</div>`}
+      ${c ? `<label style="font-weight:400;font-size:12px;margin-top:5px"><input type="checkbox" data-soft="${f.key}" ${c.mandatory === false ? 'checked' : ''}> Track only: reported on each material, never removes or reorders one</label>` : ''}
     </div>`);
   }
 
@@ -147,11 +180,11 @@ function body(group, materials, cs, db) {
     const withOffer = materials.filter((m) => m.buy).length;
     const inStock = materials.filter((m) => m.buy?.anyInStock).length;
     out.push(`<div class="control" data-active="${!!buy}">
-      <label><input type="checkbox" data-buy="any" ${buy ? 'checked' : ''}> Only show what I can buy</label>
+      <label><input type="checkbox" data-buy="any" ${buy ? 'checked' : ''}> Listed in the Canadian price sample</label>
       <div class="avail">${withOffer} of ${materials.length} were listed by a sampled Canadian retailer</div>
       <label class="sub-check"><input type="checkbox" data-buy="stock" ${buy?.inStock ? 'checked' : ''} ${buy ? '' : 'disabled'}>
-        and it was in stock</label>
-      <div class="avail">${inStock} had stock on the snapshot date</div>
+        and it was in stock when sampled</label>
+      <div class="avail">${inStock} had stock on ${esc(db.meta.snapshot)}. Not live stock.</div>
       <div class="eg">Three retailers, one sampling date. A material with no offer here is not
         necessarily unavailable, so it is held as unknown rather than failed.</div>
     </div>`);
@@ -168,6 +201,11 @@ function body(group, materials, cs, db) {
         <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> Resists ${esc(envNoun(key))}</label>
         <div class="avail">${v.usable} records state a verdict, across ${v.materials} materials</div>
       </div>`);
+    }
+    if (verdict.length) {
+      out.push(`<div class="eg">A pass means a source reported resistance to the exposures it tested,
+        not to every chemical in the class. "Limited resistance" counts as unresolved. Open the
+        material's Environment tab for the exact agent and conditions.</div>`);
     }
     if (indicator.length) {
       out.push(`<div class="note"><strong>Evidence only, not filters.</strong>
@@ -191,21 +229,32 @@ function body(group, materials, cs, db) {
         ${esc(l)}<span class="n">${counts[k] ?? 0}</span></label>`).join('')}</div>
     </div>`);
     const dry = find(cs, (c) => c.gate === 'dryingKnown');
+    const dryingProfiles = db.profiles.filter((p) => p.drying?.state === 'stated').length;
     out.push(`<div class="control" data-active="${!!dry}">
-      <label><input type="checkbox" data-gate="dryingKnown" ${dry ? 'checked' : ''}> Drying schedule published</label>
-      <div class="avail">73 of 156 profiles publish one</div>
+      <label><input type="checkbox" data-gate="dryingKnown" ${dry ? 'checked' : ''}> Drying guidance published</label>
+      <div class="avail">${dryingProfiles} of ${db.profiles.length} print profiles publish one</div>
+    </div>`);
+    const build = find(cs, (c) => c.facet === 'supportMaterial');
+    const supports = materials.filter((m) => m.facets.supportMaterial?.value).length;
+    out.push(`<div class="control" data-active="${!!build}">
+      <label><input type="checkbox" data-build-material ${build ? 'checked' : ''}> Build materials only</label>
+      <div class="avail">Hides the ${supports} support and interface materials</div>
     </div>`);
   }
 
   if (group === 'Evidence') {
     const g = find(cs, (c) => c.kind === 'evidence');
-    out.push(`<div class="control" data-active="${!!g}">
-      <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Exact-grade measurement exists</label>
-      <div class="avail">12 of ${materials.length} materials have no property measurements at all</div>
+    const measured = new Set(db.measurements.map((m) => m.materialId));
+    const unmeasured = materials.filter((m) => !measured.has(m.id)).length;
+    const conflicts = db.coverage.filter((r) => r.status === 'Conflict' || r.status === 'Quarantined').length;
+    const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+    out.push(`<div class="control" data-active="${!!g?.exactGrade}">
+      <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Has a grade-specific measurement</label>
+      <div class="avail">Any numeric property on any recorded grade. ${unmeasured} of ${materials.length} materials have no property measurements at all</div>
     </div>`);
     out.push(`<div class="control" data-active="${!!g?.noConflicts}">
       <label><input type="checkbox" data-evidence="noConflicts" ${g?.noConflicts ? 'checked' : ''}> Exclude unresolved conflicts</label>
-      <div class="avail">1 open conflict and 1 quarantined measurement in this snapshot</div>
+      <div class="avail">${plural(conflicts, 'coverage record')} flagged as a conflict or quarantined in this snapshot</div>
     </div>`);
   }
 
@@ -222,7 +271,7 @@ function wire(host, state, actions) {
     drop((c) => c.gate === gate);
     if (el.checked) {
       const group = gate === 'dryingKnown' ? 'Manufacturing' : 'Compatibility';
-      scenario.constraints.push({ kind: 'gate', gate, __group: group, ...(gate === 'abrasive' ? { hardenedAvailable: true } : {}) });
+      scenario.constraints.push({ kind: 'gate', gate, __group: group, ...(gate === 'abrasive' ? { hardenedAvailable: false } : {}) });
     }
     actions.changed();
   }));
@@ -246,17 +295,41 @@ function wire(host, state, actions) {
   host.querySelectorAll('[data-env]').forEach((el) => el.addEventListener('change', () => {
     const cat = el.dataset.env;
     drop((c) => c.kind === 'environment' && c.category === cat);
-    if (el.checked) scenario.constraints.push({ kind: 'environment', category: cat, require: ['resistant', 'limited'], __group: 'Environment' });
+    if (el.checked) scenario.constraints.push({ kind: 'environment', category: cat, __group: 'Environment' });
     actions.changed();
   }));
+
+  host.querySelector('[data-build-material]')?.addEventListener('change', (e) => {
+    drop((c) => c.facet === 'supportMaterial');
+    if (e.target.checked) scenario.constraints.push({ kind: 'facet', facet: 'supportMaterial', equals: false, __group: 'Manufacturing' });
+    actions.changed();
+  });
 
   const upsertNumeric = (key) => {
     const opEl = host.querySelector(`[data-op-for="${key}"]`);
     const vEl = host.querySelector(`[data-value-for="${key}"]`);
+    const errEl = host.querySelector(`#err-${key}`);
     const def = NUMERIC.find((f) => f.key === key);
     const raw = vEl.value.trim();
+    const existing = find(cs(), (c) => c.property === key);
+    draftOps.set(key, opEl.value);
+
+    // Say what is wrong and leave the entry and the applied criterion alone, rather than dropping
+    // the requirement because the box could not be read.
+    const problem = vEl.validity.badInput ? 'Enter a number.'
+      : raw !== '' && !Number.isFinite(Number(raw)) ? 'Enter a number.'
+      : raw !== '' && NON_NEGATIVE.has(key) && Number(raw) < 0 ? `${prop(key).plain} cannot be negative.`
+      : null;
+    errEl.hidden = !problem;
+    errEl.textContent = problem ?? '';
+    vEl.setAttribute('aria-invalid', String(!!problem));
+    if (problem) return;
+
+    // An operator picked before any number is typed is a draft, not a change.
+    if (raw === '' && !existing) return;
+
     drop((c) => c.property === key);
-    if (raw !== '' && Number.isFinite(Number(raw))) {
+    if (raw !== '') {
       const existingSoft = host.querySelector(`[data-soft="${key}"]`)?.checked ?? false;
       scenario.constraints.push({
         kind: 'numeric', property: key, operator: opEl.value, value: Number(raw),
@@ -299,7 +372,7 @@ function wire(host, state, actions) {
   }));
 }
 
-/** Relax one criterion from the ranked exclusion panel. */
+/** Remove one criterion from the ranked exclusion panel. */
 export function removeConstraint(scenario, constraint) {
   scenario.constraints = scenario.constraints.filter((c) => c !== constraint);
 }

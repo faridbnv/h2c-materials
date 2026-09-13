@@ -125,8 +125,10 @@ test('an unrecognised unknown-data policy falls back to strict, consistently', (
   const cs = [{ kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 }];
   for (const bogus of ['explore', 'Exploration', '', undefined, null, 'loose']) {
     const e = evaluateMaterial(m, cs, { unknownPolicy: bogus });
-    assert.equal(e.verdict, STATUS.FAIL, String(bogus));
+    assert.equal(e.verdict, STATUS.UNKNOWN, String(bogus));
     assert.equal(e.eligible, false, String(bogus));
+    assert.equal(e.needsVerification, false, `${bogus}: held out, so not flagged as a candidate to verify`);
+    assert.equal(e.heldBy.length, 1, String(bogus));
   }
   const good = evaluateMaterial(m, cs, { unknownPolicy: 'exploration' });
   assert.equal(good.verdict, STATUS.UNKNOWN);
@@ -212,4 +214,72 @@ test('availability distinguishes "nobody sampled it" from "it was out of stock"'
   assert.equal(evaluateConstraint(listed, stocked).status, STATUS.PASS);
   assert.equal(evaluateConstraint(sold, stocked).status, STATUS.FAIL);
   assert.equal(evaluateConstraint(absent, stocked).status, STATUS.UNKNOWN);
+});
+
+// Regression: Strict turned "could not be checked" into FAIL, so the FAIL count and every export
+// mixed materials that failed a test with materials nobody had measured. The verdict now describes
+// the evidence; the policy only decides eligibility.
+test('strict mode reports unchecked materials as UNKNOWN, not FAIL', () => {
+  const measured = { id: 'A', gates: {}, headline: { hdt045: { known: true, value: 60, unit: '°C', interval: point(60) } } };
+  const unmeasured = { id: 'B', gates: {}, headline: { hdt045: { known: false, missing: 'not-published' } } };
+  const cs = [{ kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 }];
+  const s = runSelection([measured, unmeasured], cs, { unknownPolicy: UNKNOWN_POLICY.STRICT });
+  assert.deepEqual(s.counts, { pass: 0, fail: 1, unknown: 1, total: 2 });
+  assert.equal(s.candidates.length, 0);
+  const [a, b] = s.evaluations;
+  assert.deepEqual(a.failedBy, ['hdt045 >= 100']);
+  assert.deepEqual(b.failedBy, []);
+});
+
+// --- hardware ---------------------------------------------------------------
+
+const abrasive = (gate, filler) => ({ id: 'M', gates: { abrasive: gate }, facets: { reinforcement: { value: filler } }, headline: {} });
+
+// Regression: "I have a hardened nozzle" removed the 75 materials with no abrasion guidance. More
+// hardware can never make fewer materials printable.
+test('owning a hardened nozzle never removes a material', () => {
+  const c = { kind: 'gate', gate: 'abrasive', hardenedAvailable: true };
+  for (const m of [abrasive('requires-hardened', 'carbon-fibre'), abrasive('unknown', 'undisclosed'), abrasive('unknown', 'unfilled')]) {
+    assert.equal(evaluateConstraint(m, c).status, STATUS.PASS);
+  }
+});
+
+test('without a hardened nozzle, a recorded requirement fails and a fibre filler stays unresolved', () => {
+  const c = { kind: 'gate', gate: 'abrasive', hardenedAvailable: false };
+  assert.equal(evaluateConstraint(abrasive('requires-hardened', 'glass-fibre'), c).status, STATUS.FAIL);
+  assert.equal(evaluateConstraint(abrasive('unknown', 'carbon-fibre'), c).status, STATUS.UNKNOWN);
+  assert.equal(evaluateConstraint(abrasive('unknown', 'unfilled'), c).status, STATUS.PASS);
+  const undisclosed = evaluateConstraint(abrasive('unknown', 'undisclosed'), c);
+  assert.equal(undisclosed.status, STATUS.PASS);
+  assert.match(undisclosed.reason, /check the grade/);
+});
+
+// --- environment ------------------------------------------------------------
+
+const envCtx = (records) => ({
+  db: { meta: { environmentCategories: { 'organic-solvent': { kind: 'verdict', label: 'Organic solvent resistance' }, 'water-solubility': { kind: 'verdict', label: 'Water solubility' } } } },
+  evidenceByMaterial: new Map([['M', records.map((r, i) => ({ id: `E${i}`, materialId: 'M', ...r }))]]),
+});
+
+// Regression: the rail asked for ['resistant', 'limited'], so PLA passed "resists solvents" on a
+// single record that said its resistance was limited.
+test('limited resistance does not pass a resistance requirement', () => {
+  const c = { kind: 'environment', category: 'organic-solvent' };
+  const m = { id: 'M' };
+  assert.equal(evaluateConstraint(m, c, envCtx([{ category: 'organic-solvent', verdict: 'limited' }])).status, STATUS.INDETERMINATE);
+  assert.equal(evaluateConstraint(m, c, envCtx([{ category: 'organic-solvent', verdict: 'resistant' }, { category: 'organic-solvent', verdict: 'limited' }])).status, STATUS.INDETERMINATE);
+  assert.equal(evaluateConstraint(m, c, envCtx([{ category: 'organic-solvent', verdict: 'resistant' }])).status, STATUS.PASS);
+  assert.equal(evaluateConstraint(m, c, envCtx([{ category: 'organic-solvent', verdict: 'not-resistant' }, { category: 'organic-solvent', verdict: 'limited' }])).status, STATUS.FAIL);
+});
+
+// Regression: "insoluble" was never an accepted verdict, so the water criterion could not pass.
+test('an insoluble record satisfies the water criterion', () => {
+  const c = { kind: 'environment', category: 'water-solubility' };
+  assert.equal(evaluateConstraint({ id: 'M' }, c, envCtx([{ category: 'water-solubility', verdict: 'insoluble' }])).status, STATUS.PASS);
+});
+
+test('a build-material screen removes support materials', () => {
+  const c = { kind: 'facet', facet: 'supportMaterial', equals: false };
+  assert.equal(evaluateConstraint({ facets: { supportMaterial: { value: true } } }, c).status, STATUS.FAIL);
+  assert.equal(evaluateConstraint({ facets: { supportMaterial: { value: false } } }, c).status, STATUS.PASS);
 });

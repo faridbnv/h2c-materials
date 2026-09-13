@@ -19,7 +19,7 @@ Three places, in the order to try them.
 
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
-2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D21, each saying what would break if it were
+2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D29, each saying what would break if it were
    reversed, followed by a table of bugs that shipped and what pins each one now.
 3. **[UX-AUDIT.md](UX-AUDIT.md).** 35 findings against a first-time user, each carrying its outcome,
    and a closing part recording what the audit itself got wrong.

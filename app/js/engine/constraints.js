@@ -2,6 +2,8 @@
 //
 // Two rules from the brief shape everything here.
 //   "Hard constraints determine eligibility. Soft preferences rank eligible candidates."
+//   (The second half is not built. A preference is evaluated and reported beside each candidate,
+//   but it does not reorder anything, and the interface says so rather than implying a ranking.)
 //   Missing data is information: PASS, FAIL, UNKNOWN and INDETERMINATE are four different answers.
 //
 // INDETERMINATE is not a synonym for UNKNOWN. UNKNOWN means no comparable evidence exists.
@@ -172,13 +174,30 @@ function evaluateGate(material, c) {
       reason: `Recorded status is "${material.h2cStatus}"`,
     };
   }
+  // The nozzle question is about hardware the user lacks, not hardware they have. A hardened
+  // nozzle prints abrasive and non-abrasive filament alike, so owning one can never remove a
+  // material; the old checkbox did exactly that, holding out the 75 materials with no abrasion
+  // guidance. The criterion now screens on a *recorded* requirement: a source that says a hardened
+  // nozzle is needed fails it, and a fibre-filled material with no guidance stays unresolved,
+  // because the filler is the known cause even where no source wrote it down.
   if (c.gate === 'abrasive') {
+    const criterion = 'No hardened nozzle';
+    if (c.hardenedAvailable) {
+      return { status: STATUS.PASS, criterion: 'Hardened nozzle available', reason: 'A hardened nozzle prints abrasive and non-abrasive filament' };
+    }
     const g = material.gates.abrasive;
-    if (g === 'unknown') return { status: STATUS.UNKNOWN, criterion: 'Hardened nozzle available', reason: 'Abrasion behaviour not published' };
-    if (g === 'no-special-concern') return { status: STATUS.PASS, criterion: 'Hardened nozzle available', reason: 'Source states no special nozzle concerns' };
-    return c.hardenedAvailable
-      ? { status: STATUS.PASS, criterion: 'Hardened nozzle available', reason: 'Abrasive, and a hardened nozzle is available' }
-      : { status: STATUS.FAIL, criterion: 'Hardened nozzle available', reason: 'Requires an abrasion-resistant nozzle' };
+    if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reason: 'A source states it needs an abrasion-resistant nozzle' };
+    if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: 'A source states no special nozzle concern' };
+    const filler = material.facets?.reinforcement?.value;
+    if (filler === 'carbon-fibre' || filler === 'glass-fibre') {
+      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, but no abrasion guidance was recorded. Treat as abrasive until the grade says otherwise' };
+    }
+    return {
+      status: STATUS.PASS, criterion,
+      reason: filler === 'unfilled'
+        ? 'No hardened-nozzle requirement recorded'
+        : 'No hardened-nozzle requirement recorded. The filler is not disclosed, so check the grade: glow, metal, wood and marble fills can wear brass',
+    };
   }
 
   // "Only show what I can buy." Absence of an offer is not proof a material is unavailable, only
@@ -229,6 +248,14 @@ function evaluateGate(material, c) {
 
 function evaluateFacet(material, c) {
   const f = material.facets?.[c.facet];
+  if (c.facet === 'supportMaterial' && f) {
+    const ok = f.value === c.equals;
+    return {
+      status: ok ? STATUS.PASS : STATUS.FAIL,
+      criterion: c.equals === false ? 'Build material' : 'Support material',
+      reason: f.value ? 'Recorded as a support or interface material' : 'Recorded as a build material',
+    };
+  }
   const label = `${c.facet} in ${(c.in ?? [String(c.equals)]).join(', ')}`;
   if (!f) return { status: STATUS.UNKNOWN, criterion: label, reason: 'Facet not recorded' };
   const value = f.value;
@@ -246,6 +273,9 @@ function evaluateFacet(material, c) {
  * For an indicator category the honest answer is UNKNOWN with a pointer to the narrative,
  * never a manufactured PASS.
  */
+/** Verdicts that answer "does it resist" with an unqualified yes. Water solubility says "insoluble". */
+export const POSITIVE_VERDICTS = ['resistant', 'insoluble'];
+
 function evaluateEnvironment(material, c, ctx) {
   const meta = ctx?.db?.meta?.environmentCategories?.[c.category];
   // The display name is compiled from the mapping file and travels in the snapshot, so the engine
@@ -263,19 +293,31 @@ function evaluateEnvironment(material, c, ctx) {
   const records = (ctx?.evidenceByMaterial?.get(material.id) ?? []).filter((e) => e.category === c.category);
   if (!records.length) return { status: STATUS.UNKNOWN, criterion: label, reason: 'No evidence record for this material' };
 
-  const accept = c.require ?? ['resistant'];
+  // Only an unqualified positive record satisfies "resists". A source that reports *limited*
+  // resistance has said something weaker than the checkbox asks, and the old default accepted it
+  // as a clean PASS, so PLA passed a solvent screen on one "limited" record. Limited is now
+  // unresolved, which Strict leaves out and Explore keeps flagged.
+  const accept = c.require ?? POSITIVE_VERDICTS;
   const matching = records.filter((e) => accept.includes(e.verdict));
+  const limited = records.filter((e) => e.verdict === 'limited' && !accept.includes('limited'));
   const contrary = records.filter((e) => ['not-resistant', 'soluble', 'flammable'].includes(e.verdict));
-  if (matching.length && !contrary.length) {
-    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}`, evidenceIds: matching.map((e) => e.id) };
-  }
+  const ids = (list) => list.map((e) => e.id);
   if (contrary.length && !matching.length) {
-    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} record(s) report ${contrary[0].verdict}`, evidenceIds: contrary.map((e) => e.id) };
+    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} record(s) report ${contrary[0].verdict}`, evidenceIds: ids(contrary) };
   }
   if (matching.length && contrary.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: 'Evidence is mixed across exposures or grades', evidenceIds: records.map((e) => e.id) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: 'Evidence is mixed across exposures or grades', evidenceIds: ids(records) };
   }
-  return { status: STATUS.UNKNOWN, criterion: label, reason: 'Records exist but none state a verdict', evidenceIds: records.map((e) => e.id) };
+  if (matching.length && limited.length) {
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}, ${limited.length} only limited resistance. Check which exposure matters to you`, evidenceIds: ids(records) };
+  }
+  if (matching.length) {
+    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}. Resistance applies to the recorded exposures, not every chemical in the class`, evidenceIds: ids(matching) };
+  }
+  if (limited.length) {
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} record(s) report only limited resistance`, evidenceIds: ids(limited) };
+  }
+  return { status: STATUS.UNKNOWN, criterion: label, reason: 'Records exist but none state a verdict', evidenceIds: ids(records) };
 }
 
 // ---------------------------------------------------------------- public API
@@ -328,16 +370,19 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
   const failed = mandatory.filter((r) => r.status === STATUS.FAIL);
   const unresolved = mandatory.filter((r) => r.status === STATUS.UNKNOWN || r.status === STATUS.INDETERMINATE);
 
+  // The verdict describes the evidence and the policy decides eligibility. They used to be merged:
+  // Strict turned "could not be checked" into FAIL, so the FAIL count mixed materials that failed a
+  // test with materials nobody had measured, and an export read "does not work" for both.
   let verdict;
   if (failed.length) verdict = STATUS.FAIL;
   else if (!unresolved.length) verdict = STATUS.PASS;
-  else verdict = policy === UNKNOWN_POLICY.STRICT ? STATUS.FAIL : STATUS.UNKNOWN;
+  else verdict = STATUS.UNKNOWN;
 
   return {
     materialId: material.id,
     verdict,
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN),
-    needsVerification: verdict === STATUS.UNKNOWN,
+    needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION,
     // True when the material survives or falls only because of a family estimate, which the UI
     // must show rather than let the reader assume a measurement was involved.
     usesEstimate: results.some((r) => r.estimated),
@@ -347,6 +392,9 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
     unresolved,
     // Why a strict-mode candidate disappeared: the reason is the unresolved criteria, not a failure.
     heldBy: policy === UNKNOWN_POLICY.STRICT && !failed.length ? unresolved.map((r) => r.criterion) : [],
+    // Why a material failed, for the export and the excluded list. heldBy only ever named the
+    // unresolved criteria, so a genuine failure exported with an empty reason.
+    failedBy: failed.map((r) => r.criterion),
   };
 }
 

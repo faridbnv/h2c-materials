@@ -20,7 +20,9 @@ const HEIGHT = 460;
 
 export function renderParallel(host, state, actions) {
   const { rows, db, scenario } = state;
-  const chosen = (scenario.plot.parallelAxes?.length ? scenario.plot.parallelAxes : DEFAULT_AXES)
+  // An empty choice is a choice. Unticking every axis used to bring the four defaults straight back,
+  // so the checkboxes appeared to reverse themselves.
+  const chosen = (Array.isArray(scenario.plot.parallelAxes) ? scenario.plot.parallelAxes : DEFAULT_AXES)
     .filter((k) => AXIS_DEFS.some((a) => a.key === k));
 
   const cost = AXIS_DEFS.map((a) => ({
@@ -47,7 +49,7 @@ export function renderParallel(host, state, actions) {
         ${cost.map(({ axis, withAxis, on }) => `
           <label class="pc-axis${on ? ' on' : ''}">
             <input type="checkbox" data-pc-axis="${axis.key}" ${on ? 'checked' : ''}>
-            <span class="pc-name">${esc(axis.label)}</span>
+            <span class="pc-name" title="${esc(prop(axis.key).technical)}">${esc(prop(axis.key).plain)}</span>
             <span class="pc-n">${withAxis}/${rows.length}</span>
           </label>`).join('')}
       </div>
@@ -66,9 +68,18 @@ export function renderParallel(host, state, actions) {
       two or more.</p></div>`;
     return;
   }
+  if (usable.length === 1) {
+    const only = usable[0].material;
+    body.innerHTML = `<div class="empty"><h3>Only ${esc(only.name)} has all ${chosen.length} of these properties</h3>
+      <p>Parallel lines compare candidates against each other, and one line has nothing to compare
+        with. Drop an axis to bring more candidates in, or open ${esc(only.name)} to read its values.</p>
+      <button class="btn" id="pc-open-only">Open ${esc(only.name)}</button></div>`;
+    body.querySelector('#pc-open-only').addEventListener('click', () => actions.openMaterial(only.id));
+    return;
+  }
   if (usable.length < 2) {
     body.innerHTML = `<div class="empty"><h3>No candidate has all ${chosen.length} of these properties</h3>
-      <p>${esc(chosen.map((k) => AXIS_DEFS.find((a) => a.key === k).label).join(', '))}. A line is only
+      <p>${esc(chosen.map((k) => prop(k).plain).join(', '))}. A line is only
       drawn where every axis has a value, and nothing is invented to fill a gap. Drop the axis with
       the lowest count above, or open the Coverage lens to see where the gaps are.</p>
       ${estimateOnly.length ? `<p>${estimateOnly.length} candidate${estimateOnly.length === 1 ? ' has' : 's have'}

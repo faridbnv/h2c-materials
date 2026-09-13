@@ -5,13 +5,23 @@
 // toughness at zero records and compression and CTE at one each, a fixed skeleton would produce
 // mostly empty pages. Showing the gap turns that into information.
 
-import { renderValue, chip, esc, fmtNumber } from './format.js';
+import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { renderWhy } from './explain.js';
 import { materialName } from './labels.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
-/** A temperature window, or nothing if none was published. */
-const range = (r) => (!r ? null : r.min === r.max ? `${fmtNumber(r.max)} °C` : `${fmtNumber(r.min)}–${fmtNumber(r.max)} °C`);
+/** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
+const range = (r) => (!r ? null
+  : r.min === r.max ? `${fmtNumber(r.max)} °C`
+  : r.min === 0 ? `up to ${fmtNumber(r.max)} °C`
+  : `${fmtNumber(r.min)}–${fmtNumber(r.max)} °C`);
+
+const stated = (v) => v && !/^(not published|not applicable|not stated|n\/a)\b/i.test(String(v).trim());
+
+/** A source URL as something you can open, with the reminder that it needs a connection. */
+const sourceLink = (url) => /^https?:\/\//i.test(url ?? '')
+  ? `<a href="${esc(url)}" target="_blank" rel="noopener" title="Opens the original source in a new tab. Needs an internet connection.">${esc(url)}</a>`
+  : esc(url ?? '');
 
 const MECHANICAL = ['Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength',
   'Tensile break strength', 'Elongation at break', 'Elongation at yield', 'Flexural modulus',
@@ -45,6 +55,12 @@ function measurementRow(m, highlight) {
     m.moisture && m.moisture !== 'Not published' ? m.moisture : null,
     m.notch === 'Notched' || m.notch === 'Unnotched' ? m.notch : null,
   ].filter(Boolean).join(' · ');
+  // The conditions that decide whether a number applies to your part: annealed or as printed, at
+  // what temperature, printed how. They were in the database and missing from the evidence view.
+  const more = [
+    ['Post-processing', m.postProcessing], ['Test temperature', m.testTemperature],
+    ['Print parameters', m.printParameters], ['Notes', m.notes],
+  ].filter(([, v]) => stated(v));
   const v = m.numeric
     ? `${fmtNumber(m.value)}${m.uncertainty ? ' ± ' + fmtNumber(m.uncertainty) : ''} ${esc(m.unit)}`
     : `<span class="missing">${esc(m.dataStatus)}</span>`;
@@ -54,6 +70,7 @@ function measurementRow(m, highlight) {
       ${m.corrected ? '<span class="chip chip-neutral" style="font-size:10px">transcription corrected</span>' : ''}
       ${m.quarantined ? '<span class="chip chip-FAIL" style="font-size:10px">quarantined</span>' : ''}</div>
     <div class="cond">${esc(cond)}</div>
+    ${more.length ? `<dl class="kv small cond-more">${more.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : ''}
     <div class="cond">${esc(m.id)} · ${esc(m.gradeId)} · ${esc(m.sourceId)}${m.locator ? ' · ' + esc(m.locator) : ''}</div>
   </div>`;
 }
@@ -132,6 +149,7 @@ export function renderDrawer(host, state, actions) {
     Coverage: cov.length,
   };
   const tab = drawerTab in counts ? drawerTab : 'Overview';
+  const pinned = state.scenario.shortlist.includes(m.id);
 
   host.innerHTML = `
   <div class="drawer" role="dialog" aria-label="${esc(m.name)} detail">
@@ -146,6 +164,7 @@ export function renderDrawer(host, state, actions) {
             ${m.excluded ? ' ' + chip('FAIL', 'Excluded from H2C scope') : ''}
           </div>
         </div>
+        <button class="btn btn-sm" id="drawer-pin" aria-pressed="${pinned}">${pinned ? '★ On the shortlist' : '☆ Add to shortlist'}</button>
         <button class="icon-btn" id="drawer-close" aria-label="Close">✕</button>
       </div>
     </div>
@@ -165,8 +184,9 @@ export function renderDrawer(host, state, actions) {
   }
 
   host.querySelector('#drawer-close').addEventListener('click', actions.closeDrawer);
+  host.querySelector('#drawer-pin').addEventListener('click', () => actions.togglePin(m.id));
   host.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tab)));
-  host.querySelectorAll('[data-measurement]').forEach((d) => d.addEventListener('click', () => actions.openMeasurement(d.dataset.measurement)));
+  wireEvidence(host, actions);
 }
 
 function tabBody(tab, c) {
@@ -187,10 +207,10 @@ function tabBody(tab, c) {
     // numbers were one tab away, which is one tab too many for the first question anyone asks.
     const gateLine = (g, label, window) => {
       if (!g) return '';
-      const word = { within: 'Yes', exceeds: 'No', 'exceeds-recommended': 'Yes, with a caveat', unknown: 'Not published' }[g.verdict];
+      const word = { within: 'Yes', exceeds: 'No', 'exceeds-recommended': 'Yes, with a caveat', unknown: 'Not recorded' }[g.verdict];
       const cls = { within: 'PASS', exceeds: 'FAIL', 'exceeds-recommended': 'INDETERMINATE', unknown: 'UNKNOWN' }[g.verdict];
       return `<div class="fact"><span class="chip chip-${cls}">${esc(word)}</span>
-        <div><b>${esc(label)}</b>${window ? ` <span class="set-to">set it to ${esc(window)}</span>` : ''}
+        <div><b>${esc(label)}</b>${window ? ` <span class="set-to" title="Across the recorded profiles. The Printing tab has each one.">recorded ${esc(window)}</span>` : ''}
           <br><span class="fact-why">${esc(g.reason)}</span></div></div>`;
     };
 
@@ -234,16 +254,17 @@ function tabBody(tab, c) {
             // while the sentence next to it meant "you need one".
             ? '<span class="chip chip-need">Required</span>'
             : m.gates.abrasive === 'no-special-concern' ? '<span class="chip chip-PASS">Any nozzle</span>'
-            : '<span class="chip chip-UNKNOWN">Not published</span>'}
+            : '<span class="chip chip-UNKNOWN">Not recorded</span>'}
           <div><b>Hardened nozzle</b><br><span class="fact-why">${m.gates.abrasive === 'requires-hardened'
             ? 'Abrasive. A brass nozzle will wear out.' : m.gates.abrasive === 'no-special-concern'
             ? 'The source states no special nozzle concern.' : 'No abrasion guidance in the sampled sources.'}</span></div></div>
         <div class="fact">
           ${m.gates.drying === 'required'
-            ? '<span class="chip chip-need">Required</span>'
-            : '<span class="chip chip-UNKNOWN">Not published</span>'}
+            ? '<span class="chip chip-neutral">Guidance published</span>'
+            : '<span class="chip chip-UNKNOWN">Not recorded</span>'}
           <div><b>Drying before printing</b><br><span class="fact-why">${m.gates.drying === 'required'
-            ? 'A drying schedule is published; see the Printing tab.' : 'No drying schedule in the sampled sources.'}</span></div></div>
+            ? 'A source gives a drying schedule; see the Printing tab for its wording and whether it is a requirement or a recommendation.'
+            : 'No drying guidance in the sampled sources. That is not the same as not needing it.'}</span></div></div>
         <div class="fact">
           <span class="chip chip-UNKNOWN">Not established</span>
           <div><b>Can it run through the AMS?</b><br><span class="fact-why">Bambu has not published
@@ -362,7 +383,7 @@ function tabBody(tab, c) {
   if (tab === 'Price') {
     if (!prices.length) return gapBox(covFor('Price'), 'Canadian price observation');
     return `<div class="note">Headline is the median of observations flagged for the headline sample.
-      Snapshot 2026-09-10; prices are not live.</div>
+      Snapshot ${esc(db.meta.snapshot)}; prices are not live.</div>
       <table class="grid" style="margin-top:10px"><thead><tr>
       <th>ID</th><th>Retailer</th><th>Variant</th><th>kg</th><th>CAD/kg</th><th>Stock</th><th>In sample</th></tr></thead>
       <tbody>${prices.map((p) => `<tr>
@@ -384,7 +405,7 @@ function tabBody(tab, c) {
           <dt>Title</dt><dd>${esc(s?.title ?? '')}</dd>
           <dt>Class</dt><dd>${esc(s?.sourceClass ?? '')}</dd>
           <dt>Accessed</dt><dd>${esc(s?.accessDate ?? '')}</dd>
-          ${s?.url ? `<dt>URL</dt><dd style="word-break:break-all;font-size:11px">${esc(s.url)}</dd>` : ''}
+          ${s?.url ? `<dt>Original</dt><dd style="word-break:break-all;font-size:11px">${sourceLink(s.url)}</dd>` : ''}
         </dl>
         ${list.map((r) => measurementRow(r, highlight)).join('')}`;
     }).join('');

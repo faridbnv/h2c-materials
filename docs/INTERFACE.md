@@ -20,7 +20,13 @@ downstream of it.
 Named on the opening panel, because opening on 102 rows of everything gave no entry point.
 
 The panel offers six application templates. A template **populates controls and then gets out of the
-way**: every value it sets stays editable, and the header afterwards says which template was used.
+way**: every value it sets stays editable, and the header afterwards says which template was used and
+whether it has since been changed.
+
+A template is a starting screen, not a recommendation. Its description names what it tests, and the
+results header repeats, beside the count, what it **does not check**: UV for the outdoor part,
+spring-back for the flexible one, printing without active chamber heat for the warm one. Every
+template is for a part you build, so every one screens out support and interface materials.
 
 Once a requirement is set, the panel gives way to a statement of what is being asked, as pills that
 drop a criterion on click. The previous build simply removed the panel, so using the tool left a
@@ -37,7 +43,7 @@ changes membership. A material highlighted in one is highlighted in all.
 | **Ashby** | The trade space: two properties, constraint overlays, Pareto front, performance indices |
 | **Parallel** | Several properties at once across a narrowed set |
 | **Coverage** | What the database knows and does not |
-| **Compare** | Two to six materials side by side, with their measurement conditions |
+| **Compare** | Up to six shortlisted materials side by side, or one against a familiar baseline, with their measurement conditions and each one's current result |
 
 A sixth tab, **Why excluded**, sits beside them and is not a lens: it explains what is *not* in the
 candidate set, ranked by how many materials each criterion costs. It is a tab rather than a hidden
@@ -70,10 +76,23 @@ exact grade" on 133 of 156 profiles, and printing difficulty is unpublished on a
 in a material's Printing tab as evidence. A filter that passes everything teaches the reader to
 trust something that checked nothing.
 
+The rail is rebuilt on every change, and keeps what the user was doing: which groups are open,
+which control has focus, and an operator chosen before a number was typed. A number the property
+cannot take, such as a negative density, is refused inline and the applied requirement is left alone.
+
+The nozzle question is asked as the hardware you lack, **"I don't have a hardened nozzle"**. Owning
+one removes nothing, so there is nothing to ask. The criterion fails materials a source says need a
+hardened nozzle, holds fibre-filled materials with no guidance as unresolved, and passes the rest
+with a reason that says no requirement was recorded, which is not proof of being safe for brass.
+
+**In the H2C research scope** is what the pinned checkbox says, because that is all it reads. It
+used to say "Printable on an H2C", a promise about temperatures and feed paths it never tested.
+
 Environment criteria split by what the data can answer. Six categories carry reducible verdicts and
 are offered as filters. Six others have records but no reducible verdict among them, UV and outdoor
 being the sharpest at six records and zero verdicts; offering those as constraints would return
-UNKNOWN for all 102 materials while looking like a working filter.
+UNKNOWN for all 102 materials while looking like a working filter. Among the six that are offered,
+only an unqualified record passes: "limited resistance" is unresolved, never a PASS.
 
 ## What to do with missing data
 
@@ -82,7 +101,9 @@ no data". The two names in the code and in these documents are Strict and Explor
 what each one does, because the words themselves told a first-time reader nothing.
 
 - **Leave it out** (Strict) — a criterion that cannot be evaluated holds the material out. Measured
-  evidence only; family estimates are not consulted at all.
+  evidence only; family estimates are not consulted at all. The material's result is still UNKNOWN,
+  not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
+  FAIL count only ever counts materials that failed something.
 - **Keep it, flagged** (Explore) — materials with unresolved criteria stay visible and flagged, and
   family estimates may rule out ones that clearly cannot qualify.
 
@@ -104,7 +125,11 @@ exports. Always icon plus text, never colour alone.
 | UNKNOWN | question | No comparable evidence |
 | INDETERMINATE | half circle | A range straddles the threshold |
 
-The status bar chips are **buttons**: they choose which verdicts the table shows.
+The status bar chips are **buttons**: they choose which verdicts the table shows. The last one
+switched on stays on, and says so.
+
+Before any requirement is set nothing has been tested, so rows read **not tested** and the chips
+stand down. A green PASS on a blank screen asserted a test that never ran.
 
 ## Reading a number
 
@@ -113,10 +138,13 @@ The status bar chips are **buttons**: they choose which verdicts the table shows
 | `4.43` | A measured, verified headline |
 | `46*` | A real measurement never promoted to a headline. Hover for why |
 | `~2.8–15.3†` | An estimate from relatives. Rules out, never rules in |
+| `80?` | A heat value whose source states the standard but not the load. It cannot pass a heat requirement outright |
 | `—` | Not published. Hover for which kind of absence |
 
-Every measured value carries a small dot: click it to open the measurement, with its direction,
-specimen, conditioning, standard, grade and source. It opens the Evidence tab, scrolls that
+Every measured value carries a small dot, a real button reachable by keyboard: it opens the
+measurement with its direction, specimen, conditioning, standard, post-processing, test temperature,
+print parameters, notes, grade and source, and the source's original is a link. The dot works in
+the table, the Overview and Compare. It opens the Evidence tab, scrolls that
 measurement into view and marks it, because PA6-CF has 21 and "one click to the evidence" was
 otherwise one click plus a hunt.
 
@@ -132,7 +160,9 @@ A substring test would be simpler and is wrong in a way that is hard to see: "PL
 the database, looking for all the world like a deliberate classification.
 
 Search runs over the whole database, never only over what survived the filters. Hits the
-requirements removed are listed separately, each with the criterion that removed it.
+requirements removed are listed separately, each with the criterion that removed it. A search that
+matches nothing says so and offers **Clear the search**; brand and product names are not indexed,
+and the empty screen says that too.
 
 ## Words
 
@@ -167,8 +197,9 @@ single day is not evidence that something cannot be bought.
   anisotropy becomes visible instead of averaged away. *Every measurement, mixed conditions* also
   admits looser matches, draws them hollow, and names in a banner exactly what it mixed.
 
-  At measurement level a dot is a **test, not a material**, and the chart says so before anything
-  else. The dots belonging to one material are joined by a faint line, so a cluster reads as one
+  At measurement level a dot is **a pair of measurements of one grade, not a material**, and the
+  chart says so before anything else. The two values were recorded under compatible conditions, not
+  necessarily on the same specimen, so the chart does not call a dot a test. The dots belonging to one material are joined by a faint line, so a cluster reads as one
   thing measured repeatedly rather than as several materials. The name sits on the leftmost dot of
   each material; grade and direction are on hover. The width of a cluster is the honest answer to
   "how much should I trust the headline number".
@@ -216,12 +247,27 @@ and fails outright on plenty of real machines.
 
 ## Accessibility and output
 
-Full keyboard path through filter, result, pin and compare. Colour never the sole carrier of
-meaning. A print stylesheet produces a clean comparison summary with the scenario header intact.
-Client-side CSV export carries the four states, which criteria held each candidate out, and any
-estimates in their own column.
+Full keyboard path through filter, result, pin, evidence and compare. Enter on a row opens it; Enter
+on the star or link inside the row does only that. Both drawers take focus when they open, close on
+Escape and return focus to what opened them. Below 1100 CSS pixels, including at high zoom, the
+filter rail is a drawer opened from **Filters**. Colour never the sole carrier of meaning.
+
+Compare leads with the requirements, missing-data rule and snapshot, on screen and in the print
+stylesheet, so a printed comparison says which question it answers.
+
+The CSV export lists the rows in the table's order, with the requirements and policy in its header,
+each row's result, whether it is in the results, every failed and unchecked criterion with its
+reason, value qualifiers and measurement IDs. Estimates get their own columns only when they were in
+use.
 
 ## State in the URL
 
-The scenario lives in the URL hash: constraints, policy, shortlist, plot settings, current lens, the
-open material and whether estimates are on. A link reopens the same question.
+The scenario lives in the URL hash: constraints, policy, shortlist, assumptions, plot settings,
+current lens, the open material, whether estimates are on and the database snapshot. A link reopens
+the same question and warns when the snapshot differs. Search text and a lasso selection are not
+carried. A copied link from a local file only works on that computer, and the panel says so.
+
+A saved file and a link are both validated completely before anything changes. A damaged one is
+refused with a reason and the running session is left as it was. Loading a file restores the lens,
+columns, baseline and estimates switch as well as the requirements, through the same function the
+page uses at startup.

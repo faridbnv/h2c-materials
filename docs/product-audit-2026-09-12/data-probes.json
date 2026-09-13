@@ -1,0 +1,2164 @@
+{
+  "meta": {
+    "snapshot": "2026-09-10",
+    "build": "2026-09-12",
+    "h2cBaseline": {
+      "nozzleC": 350,
+      "bedC": 120,
+      "chamberC": 65
+    },
+    "counts": {
+      "materials": 102,
+      "h2cRelevant": 96,
+      "excluded": 6,
+      "grades": 136,
+      "measurements": 1807,
+      "numericMeasurements": 1668,
+      "quarantined": 2,
+      "profiles": 156,
+      "evidence": 362,
+      "prices": 104,
+      "sources": 214,
+      "coverage": 1106
+    },
+    "environmentCategories": {
+      "acid": {
+        "label": "Acid resistance",
+        "noun": "acids",
+        "records": 51,
+        "usable": 43,
+        "materials": 35,
+        "kind": "verdict"
+      },
+      "alkali": {
+        "label": "Alkali resistance",
+        "noun": "alkalis",
+        "records": 47,
+        "usable": 45,
+        "materials": 34,
+        "kind": "verdict"
+      },
+      "organic-solvent": {
+        "label": "Organic solvent resistance",
+        "noun": "solvents",
+        "records": 43,
+        "usable": 27,
+        "materials": 36,
+        "kind": "verdict"
+      },
+      "oil-grease": {
+        "label": "Oil and grease resistance",
+        "noun": "oils and grease",
+        "records": 39,
+        "usable": 27,
+        "materials": 36,
+        "kind": "verdict"
+      },
+      "water-solubility": {
+        "label": "Water solubility",
+        "noun": "water",
+        "records": 24,
+        "usable": 22,
+        "materials": 24,
+        "kind": "verdict"
+      },
+      "flammability": {
+        "label": "Flammability",
+        "noun": "fire",
+        "records": 36,
+        "usable": 34,
+        "materials": 36,
+        "kind": "verdict"
+      },
+      "food-contact": {
+        "label": "Food contact claims",
+        "noun": "food contact",
+        "records": 2,
+        "usable": 0,
+        "materials": 2,
+        "kind": "indicator"
+      },
+      "uv-outdoor": {
+        "label": "UV and outdoor",
+        "noun": "sunlight and weather",
+        "records": 6,
+        "usable": 0,
+        "materials": 6,
+        "kind": "indicator"
+      },
+      "moisture": {
+        "label": "Moisture sensitivity",
+        "noun": "moisture",
+        "records": 6,
+        "usable": 0,
+        "materials": 6,
+        "kind": "indicator"
+      },
+      "creep": {
+        "label": "Creep evidence",
+        "noun": "sustained load",
+        "records": 2,
+        "usable": 0,
+        "materials": 2,
+        "kind": "indicator"
+      },
+      "fatigue": {
+        "label": "Fatigue evidence",
+        "noun": "repeated loading",
+        "records": 5,
+        "usable": 0,
+        "materials": 5,
+        "kind": "indicator"
+      },
+      "hydrolysis": {
+        "label": "Hydrolytic stability",
+        "noun": "hot water and steam",
+        "records": 4,
+        "usable": 0,
+        "materials": 4,
+        "kind": "indicator"
+      }
+    },
+    "estimateCoverage": {
+      "density": {
+        "missing": 14,
+        "family+filler": 8,
+        "family": 5,
+        "filler": 1
+      },
+      "tensileModulusXY": {
+        "missing": 31,
+        "family+filler": 7,
+        "family": 10,
+        "filler": 8,
+        "none": 6
+      },
+      "tensileStrengthXY": {
+        "missing": 49,
+        "family+filler": 11,
+        "family": 15,
+        "filler": 17,
+        "none": 6
+      },
+      "elongationXY": {
+        "missing": 29,
+        "family+filler": 6,
+        "family": 9,
+        "filler": 8,
+        "none": 6
+      },
+      "hdt045": {
+        "missing": 35,
+        "family+filler": 4,
+        "family": 10,
+        "none": 14,
+        "filler": 7
+      }
+    },
+    "headlineCoverage": {
+      "density": 88,
+      "tensileModulusXY": 70,
+      "tensileStrengthXY": 52,
+      "elongationXY": 72,
+      "hdt045": 66,
+      "priceCADkg": 40
+    }
+  },
+  "templates": [
+    {
+      "name": "Outdoor structural part",
+      "counts": {
+        "pass": 9,
+        "fail": 93,
+        "unknown": 0,
+        "total": 102
+      },
+      "candidates": [
+        {
+          "id": "M033",
+          "name": "ASA-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M048",
+          "name": "PAHT-CF",
+          "chamber": null,
+          "price": 124.48
+        },
+        {
+          "id": "M050",
+          "name": "PA6-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 109.98
+        },
+        {
+          "id": "M059",
+          "name": "PA612-CF",
+          "chamber": null
+        },
+        {
+          "id": "M067",
+          "name": "PET-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 115.98
+        },
+        {
+          "id": "M070",
+          "name": "PPA-CF",
+          "chamber": null,
+          "price": 254.65
+        },
+        {
+          "id": "M071",
+          "name": "PPA-GF",
+          "chamber": null
+        },
+        {
+          "id": "M073",
+          "name": "PPS-CF",
+          "chamber": null,
+          "price": 221.32
+        },
+        {
+          "id": "M074",
+          "name": "PPS-GF",
+          "chamber": {
+            "min": 60,
+            "max": 120,
+            "profiles": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Indoor prototype",
+      "counts": {
+        "pass": 13,
+        "fail": 89,
+        "unknown": 0,
+        "total": 102
+      },
+      "candidates": [
+        {
+          "id": "M006",
+          "name": "PLA Tough+",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 26.99
+        },
+        {
+          "id": "M007",
+          "name": "PLA Translucent",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 29.99
+        },
+        {
+          "id": "M009",
+          "name": "PLA Silk+",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 30.99
+        },
+        {
+          "id": "M010",
+          "name": "PLA Silk Dual Color",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 31.99
+        },
+        {
+          "id": "M014",
+          "name": "PLA Wood",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 31.99
+        },
+        {
+          "id": "M016",
+          "name": "PLA Glow",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 31.99
+        },
+        {
+          "id": "M018",
+          "name": "PLA-CF",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 40.99
+        },
+        {
+          "id": "M023",
+          "name": "PETG Translucent",
+          "chamber": {
+            "min": 35,
+            "max": 50,
+            "profiles": 1
+          },
+          "price": 25.99
+        },
+        {
+          "id": "M027",
+          "name": "ABS",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 29.99
+        },
+        {
+          "id": "M028",
+          "name": "ABS-GF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 38.99
+        },
+        {
+          "id": "M031",
+          "name": "ASA",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 38.99
+        },
+        {
+          "id": "M079",
+          "name": "Support for ABS",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 39.98
+        },
+        {
+          "id": "M081",
+          "name": "HIPS",
+          "chamber": null,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "name": "Lightweight structure",
+      "counts": {
+        "pass": 19,
+        "fail": 83,
+        "unknown": 0,
+        "total": 102
+      },
+      "candidates": [
+        {
+          "id": "M001",
+          "name": "PLA",
+          "chamber": {
+            "min": 0,
+            "max": 40,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M007",
+          "name": "PLA Translucent",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 29.99
+        },
+        {
+          "id": "M018",
+          "name": "PLA-CF",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 40.99
+        },
+        {
+          "id": "M021",
+          "name": "PETG Basic",
+          "chamber": null,
+          "price": 24.99
+        },
+        {
+          "id": "M028",
+          "name": "ABS-GF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 38.99
+        },
+        {
+          "id": "M029",
+          "name": "ABS-CF",
+          "chamber": {
+            "min": 50,
+            "max": 70,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M033",
+          "name": "ASA-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M048",
+          "name": "PAHT-CF",
+          "chamber": null,
+          "price": 124.48
+        },
+        {
+          "id": "M050",
+          "name": "PA6-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 109.98
+        },
+        {
+          "id": "M051",
+          "name": "PA6-GF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 76.99
+        },
+        {
+          "id": "M053",
+          "name": "PA12-CF",
+          "chamber": null
+        },
+        {
+          "id": "M054",
+          "name": "PA12-GF",
+          "chamber": {
+            "min": 120,
+            "max": 120,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M059",
+          "name": "PA612-CF",
+          "chamber": null
+        },
+        {
+          "id": "M062",
+          "name": "PA-CF",
+          "chamber": null
+        },
+        {
+          "id": "M065",
+          "name": "PA612-ESD",
+          "chamber": null
+        },
+        {
+          "id": "M069",
+          "name": "PPA",
+          "chamber": null
+        },
+        {
+          "id": "M070",
+          "name": "PPA-CF",
+          "chamber": null,
+          "price": 254.65
+        },
+        {
+          "id": "M083",
+          "name": "PP-CF",
+          "chamber": null
+        },
+        {
+          "id": "M084",
+          "name": "PP-GF",
+          "chamber": null
+        }
+      ]
+    },
+    {
+      "name": "Warm environment, no heated chamber",
+      "counts": {
+        "pass": 14,
+        "fail": 88,
+        "unknown": 0,
+        "total": 102
+      },
+      "candidates": [
+        {
+          "id": "M027",
+          "name": "ABS",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 29.99
+        },
+        {
+          "id": "M028",
+          "name": "ABS-GF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 38.99
+        },
+        {
+          "id": "M031",
+          "name": "ASA",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 38.99
+        },
+        {
+          "id": "M032",
+          "name": "ASA Aero",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 63.99
+        },
+        {
+          "id": "M033",
+          "name": "ASA-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M035",
+          "name": "PC",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 50.99
+        },
+        {
+          "id": "M047",
+          "name": "PA",
+          "chamber": {
+            "min": 40,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 162.65
+        },
+        {
+          "id": "M050",
+          "name": "PA6-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 109.98
+        },
+        {
+          "id": "M051",
+          "name": "PA6-GF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 76.99
+        },
+        {
+          "id": "M057",
+          "name": "PA6/66",
+          "chamber": {
+            "min": 40,
+            "max": 60,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M059",
+          "name": "PA612-CF",
+          "chamber": null
+        },
+        {
+          "id": "M061",
+          "name": "CoPA",
+          "chamber": {
+            "min": 40,
+            "max": 60,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M067",
+          "name": "PET-CF",
+          "chamber": {
+            "min": 45,
+            "max": 60,
+            "profiles": 1
+          },
+          "price": 115.98
+        },
+        {
+          "id": "M074",
+          "name": "PPS-GF",
+          "chamber": {
+            "min": 60,
+            "max": 120,
+            "profiles": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "High-stiffness fixture",
+      "counts": {
+        "pass": 11,
+        "fail": 91,
+        "unknown": 0,
+        "total": 102
+      },
+      "candidates": [
+        {
+          "id": "M029",
+          "name": "ABS-CF",
+          "chamber": {
+            "min": 50,
+            "max": 70,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M037",
+          "name": "PC-CF",
+          "chamber": null
+        },
+        {
+          "id": "M053",
+          "name": "PA12-CF",
+          "chamber": null
+        },
+        {
+          "id": "M054",
+          "name": "PA12-GF",
+          "chamber": {
+            "min": 120,
+            "max": 120,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M062",
+          "name": "PA-CF",
+          "chamber": null
+        },
+        {
+          "id": "M070",
+          "name": "PPA-CF",
+          "chamber": null,
+          "price": 254.65
+        },
+        {
+          "id": "M071",
+          "name": "PPA-GF",
+          "chamber": null
+        },
+        {
+          "id": "M073",
+          "name": "PPS-CF",
+          "chamber": null,
+          "price": 221.32
+        },
+        {
+          "id": "M074",
+          "name": "PPS-GF",
+          "chamber": {
+            "min": 60,
+            "max": 120,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M083",
+          "name": "PP-CF",
+          "chamber": null
+        },
+        {
+          "id": "M084",
+          "name": "PP-GF",
+          "chamber": null
+        }
+      ]
+    },
+    {
+      "name": "Flexible component",
+      "counts": {
+        "pass": 6,
+        "fail": 96,
+        "unknown": 0,
+        "total": 102
+      },
+      "candidates": [
+        {
+          "id": "M039",
+          "name": "TPU",
+          "chamber": {
+            "min": 0,
+            "max": 50,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M040",
+          "name": "TPU for AMS",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 47.49
+        },
+        {
+          "id": "M041",
+          "name": "TPU 95A HF",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 53.99
+        },
+        {
+          "id": "M042",
+          "name": "TPU 90A",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          },
+          "price": 53.99
+        },
+        {
+          "id": "M043",
+          "name": "TPU 85A",
+          "chamber": {
+            "min": 25,
+            "max": 45,
+            "profiles": 1
+          }
+        },
+        {
+          "id": "M045",
+          "name": "PEBA",
+          "chamber": null
+        }
+      ]
+    }
+  ],
+  "priceLinkMismatches": [
+    {
+      "name": "PLA Basic",
+      "headline": 27.99,
+      "linked": 25.99
+    },
+    {
+      "name": "PLA Matte",
+      "headline": 27.99,
+      "linked": 25.99
+    },
+    {
+      "name": "PLA Silk+",
+      "headline": 30.99,
+      "linked": 29.99
+    },
+    {
+      "name": "ABS",
+      "headline": 29.99,
+      "linked": 25.99
+    },
+    {
+      "name": "TPU for AMS",
+      "headline": 47.49,
+      "linked": 44.99
+    },
+    {
+      "name": "PAHT-CF",
+      "headline": 124.48,
+      "linked": 120.99
+    }
+  ],
+  "ams": [
+    {
+      "materialId": "M041",
+      "routing": {
+        "left": "Not supported at baseline; 90A/95A HF future firmware noted",
+        "right": "Right only",
+        "ams2Pro": "Not compatible",
+        "amsHT": "External spool; do not infer AMS feeding from drying support",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M042",
+      "routing": {
+        "left": "Not supported at baseline; 90A/95A HF future firmware noted",
+        "right": "Right only",
+        "ams2Pro": "Not compatible",
+        "amsHT": "External spool; do not infer AMS feeding from drying support",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M043",
+      "routing": {
+        "left": "Not supported at baseline; 90A/95A HF future firmware noted",
+        "right": "Right only",
+        "ams2Pro": "Not compatible",
+        "amsHT": "External spool; do not infer AMS feeding from drying support",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M067",
+      "routing": {
+        "left": "Left only per H2C guide",
+        "right": "Not supported: brittle feeding path",
+        "ams2Pro": "Check exact grade and spool; Bambu route required",
+        "amsHT": "Check exact grade and spool; Bambu route required",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M070",
+      "routing": {
+        "left": "Left only per H2C guide",
+        "right": "Not supported: brittle feeding path",
+        "ams2Pro": "Check exact grade and spool; Bambu route required",
+        "amsHT": "Check exact grade and spool; Bambu route required",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M073",
+      "routing": {
+        "left": "Left only per H2C guide",
+        "right": "Not supported: brittle feeding path",
+        "ams2Pro": "Check exact grade and spool; Bambu route required",
+        "amsHT": "Check exact grade and spool; Bambu route required",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M075",
+      "routing": {
+        "left": "Supported; no 0.2 mm nozzle",
+        "right": "Supported; no 0.2 mm nozzle",
+        "ams2Pro": "Dry material required; grade verification",
+        "amsHT": "Dry material required; grade verification",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M097",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M097",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M098",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M098",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M099",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M099",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M100",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M101",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M102",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M102",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M097",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M098",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M099",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M100",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M101",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    },
+    {
+      "materialId": "M102",
+      "routing": {
+        "left": "Excluded",
+        "right": "Excluded",
+        "ams2Pro": "Not applicable — excluded",
+        "amsHT": "Not applicable — excluded",
+        "amsPublished": "Not published"
+      }
+    }
+  ],
+  "limitedPasses": [
+    {
+      "material": "PLA Basic",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Matte",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Basic Gradient",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Metal",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Marble",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Wood",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Glow",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA-CF",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PETG Basic",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PETG Translucent",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PETG-CF",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ABS",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ASA",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ASA Aero",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ASA-CF",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PC",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "TPU 95A HF",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PAHT-CF",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PA6-CF",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "Support for ABS",
+      "category": "organic-solvent",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Basic",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Matte",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Basic Gradient",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Metal",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Marble",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Wood",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA Glow",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PLA-CF",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PETG Basic",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PETG Translucent",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PETG-CF",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ABS",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ASA",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ASA Aero",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "ASA-CF",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PC",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "TPU 95A HF",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PAHT-CF",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "PA6-CF",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    },
+    {
+      "material": "Support for ABS",
+      "category": "oil-grease",
+      "reason": "1 record(s) report limited"
+    }
+  ],
+  "pla": {
+    "id": "M001",
+    "name": "PLA",
+    "normalizedName": "PLA",
+    "abbreviation": "PLA",
+    "fullName": "Polylactic Acid",
+    "family": "PLA",
+    "basePolymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "role": "Structural / functional / appearance",
+    "scope": "H2C-relevant",
+    "h2cStatus": "Officially listed family",
+    "excluded": false,
+    "representativeGrade": "G001-01",
+    "gradeIds": [
+      "G001-01",
+      "G001-02",
+      "G001-03"
+    ],
+    "headline": {
+      "density": {
+        "known": true,
+        "value": 1240,
+        "unit": "kg/m³",
+        "origin": "source",
+        "verified": true,
+        "measurementId": "V000001",
+        "gradeId": "G001-01",
+        "sourceId": "X-ECOMAX-PLA-TDS-v3",
+        "direction": "not-applicable",
+        "specimenType": "Not published (density specimen form not explicitly established)",
+        "moisture": "Not published",
+        "interval": {
+          "lo": 1240,
+          "hi": 1240,
+          "kind": "point"
+        },
+        "uncertainty": null
+      },
+      "tensileModulusXY": {
+        "known": true,
+        "value": 2.865,
+        "unit": "GPa",
+        "origin": "source",
+        "verified": true,
+        "measurementId": "V000003",
+        "gradeId": "G001-01",
+        "sourceId": "X-ECOMAX-PLA-TDS-v3",
+        "direction": "XY",
+        "specimenType": "Printed specimen",
+        "moisture": "Not published",
+        "interval": {
+          "lo": 2.865,
+          "hi": 2.865,
+          "kind": "point"
+        },
+        "uncertainty": null
+      },
+      "tensileStrengthXY": {
+        "known": false,
+        "missing": "not-published",
+        "text": "Not published",
+        "unit": "MPa",
+        "related": {
+          "count": 6,
+          "best": {
+            "measurementId": "V000002",
+            "gradeId": "G001-01",
+            "sourceId": "X-ECOMAX-PLA-TDS-v3",
+            "property": "Tensile break strength",
+            "value": 56,
+            "unit": "MPa",
+            "direction": "XY",
+            "specimenType": "Printed specimen",
+            "standard": "ISO 527",
+            "loadMPa": null,
+            "printed": true,
+            "why": "break strength endpoint, not the headline endpoint"
+          },
+          "grades": 3,
+          "unit": "MPa",
+          "items": [
+            {
+              "measurementId": "V000002",
+              "gradeId": "G001-01",
+              "sourceId": "X-ECOMAX-PLA-TDS-v3",
+              "property": "Tensile break strength",
+              "value": 56,
+              "unit": "MPa",
+              "direction": "XY",
+              "specimenType": "Printed specimen",
+              "standard": "ISO 527",
+              "loadMPa": null,
+              "printed": true,
+              "why": "break strength endpoint, not the headline endpoint"
+            },
+            {
+              "measurementId": "V000019",
+              "gradeId": "G001-02",
+              "sourceId": "S-POLYCN-PolySonic-PLA-EN-V5-3-TDS",
+              "property": "Tensile strength (endpoint unspecified)",
+              "value": 46,
+              "unit": "MPa",
+              "direction": "XY",
+              "specimenType": "Printed specimen",
+              "standard": "ISO 527, GB/T 1040",
+              "loadMPa": null,
+              "printed": true,
+              "why": "on record but not selected as the headline observation"
+            },
+            {
+              "measurementId": "V000031",
+              "gradeId": "G001-02",
+              "sourceId": "S-POLYCN-PolySonic-PLA-EN-V5-3-TDS",
+              "property": "Tensile strength (endpoint unspecified)",
+              "value": 43.9,
+              "unit": "MPa",
+              "direction": "XY",
+              "specimenType": "Printed specimen",
+              "standard": "ISO 527, GB/T 1040",
+              "loadMPa": null,
+              "printed": true,
+              "why": "on record but not selected as the headline observation"
+            },
+            {
+              "measurementId": "V000020",
+              "gradeId": "G001-02",
+              "sourceId": "S-POLYCN-PolySonic-PLA-EN-V5-3-TDS",
+              "property": "Tensile strength (endpoint unspecified)",
+              "value": 37.3,
+              "unit": "MPa",
+              "direction": "Z",
+              "specimenType": "Printed specimen",
+              "standard": "ISO 527, GB/T 1040",
+              "loadMPa": null,
+              "printed": true,
+              "why": "Z direction, the weak axis for a printed part"
+            },
+            {
+              "measurementId": "V000032",
+              "gradeId": "G001-02",
+              "sourceId": "S-POLYCN-PolySonic-PLA-EN-V5-3-TDS",
+              "property": "Tensile strength (endpoint unspecified)",
+              "value": 32.4,
+              "unit": "MPa",
+              "direction": "Z",
+              "specimenType": "Printed specimen",
+              "standard": "ISO 527, GB/T 1040",
+              "loadMPa": null,
+              "printed": true,
+              "why": "Z direction, the weak axis for a printed part"
+            },
+            {
+              "measurementId": "V000039",
+              "gradeId": "G001-03",
+              "sourceId": "I-PLA-TDS",
+              "property": "Tensile strength (endpoint unspecified)",
+              "value": 3,
+              "unit": "MPa",
+              "direction": "unknown",
+              "specimenType": "Not published (do not assume printed)",
+              "standard": "ASTM D882 110,",
+              "loadMPa": null,
+              "printed": false,
+              "why": "direction not stated by the source, so it cannot be read as XY"
+            }
+          ]
+        },
+        "estimate": {
+          "lo": 26,
+          "hi": 55.4,
+          "unit": "MPa",
+          "tier": "family+filler",
+          "basis": "PLA, unreinforced grades",
+          "peerCount": 13,
+          "peers": [
+            {
+              "id": "M014",
+              "name": "PLA Wood",
+              "value": 26
+            },
+            {
+              "id": "M015",
+              "name": "PLA Galaxy",
+              "value": 26
+            },
+            {
+              "id": "M010",
+              "name": "PLA Silk Dual Color",
+              "value": 27
+            },
+            {
+              "id": "M003",
+              "name": "PLA Matte",
+              "value": 30
+            },
+            {
+              "id": "M016",
+              "name": "PLA Glow",
+              "value": 32
+            },
+            {
+              "id": "M009",
+              "name": "PLA Silk+",
+              "value": 33
+            },
+            {
+              "id": "M012",
+              "name": "PLA Marble",
+              "value": 33
+            },
+            {
+              "id": "M011",
+              "name": "PLA Metal",
+              "value": 34
+            },
+            {
+              "id": "M006",
+              "name": "PLA Tough+",
+              "value": 34.9
+            },
+            {
+              "id": "M002",
+              "name": "PLA Basic",
+              "value": 35
+            },
+            {
+              "id": "M005",
+              "name": "PLA Basic Gradient",
+              "value": 36
+            },
+            {
+              "id": "M013",
+              "name": "PLA Sparkle",
+              "value": 39
+            },
+            {
+              "id": "M007",
+              "name": "PLA Translucent",
+              "value": 55.4
+            }
+          ]
+        }
+      },
+      "elongationXY": {
+        "known": true,
+        "value": 8,
+        "unit": "%",
+        "origin": "source",
+        "verified": true,
+        "measurementId": "V000004",
+        "gradeId": "G001-01",
+        "sourceId": "X-ECOMAX-PLA-TDS-v3",
+        "direction": "XY",
+        "specimenType": "Printed specimen",
+        "moisture": "Not published",
+        "interval": {
+          "lo": 8,
+          "hi": 8,
+          "kind": "point"
+        },
+        "uncertainty": null
+      },
+      "hdt045": {
+        "known": true,
+        "value": 80,
+        "unit": "°C",
+        "origin": "source",
+        "verified": true,
+        "measurementId": "V000008",
+        "gradeId": "G001-01",
+        "sourceId": "X-ECOMAX-PLA-TDS-v3",
+        "direction": "not-applicable",
+        "specimenType": "Printed specimen",
+        "moisture": "Not published",
+        "interval": {
+          "lo": 80,
+          "hi": 80,
+          "kind": "point"
+        },
+        "uncertainty": null,
+        "loadStated": false,
+        "loadMPa": null,
+        "standard": "ISO 75",
+        "caveat": "load-not-stated",
+        "caveatText": "Source states the standard but not the load"
+      },
+      "priceCADkg": {
+        "known": false,
+        "missing": "not-available-in-market",
+        "text": "Not available in sampled Canadian market",
+        "unit": "CAD/kg"
+      }
+    },
+    "headlineBasis": "Single-grade observations; not a polymer-family range",
+    "measurementConditions": "Not published / Not published",
+    "facets": {
+      "reinforcement": {
+        "value": "unfilled",
+        "origin": "source"
+      },
+      "esd": {
+        "value": false,
+        "origin": "derived",
+        "from": "Modifier / filler and name"
+      },
+      "flexible": {
+        "value": false,
+        "origin": "derived",
+        "from": "Family"
+      },
+      "supportMaterial": {
+        "value": false,
+        "origin": "source"
+      },
+      "flameRetardant": {
+        "value": false,
+        "origin": "derived",
+        "from": "name only; no flame-retardancy field exists"
+      }
+    },
+    "guidance": {
+      "nozzle": "190-220C",
+      "bed": "23-60C",
+      "chamber": "Not required"
+    },
+    "print": {
+      "nozzleC": {
+        "min": 190,
+        "max": 220,
+        "profiles": 3
+      },
+      "bedC": {
+        "min": 0,
+        "max": 60,
+        "profiles": 3
+      },
+      "chamberC": {
+        "min": 0,
+        "max": 40,
+        "profiles": 1
+      }
+    },
+    "buy": null,
+    "gates": {
+      "scope": "within",
+      "nozzle": {
+        "verdict": "within",
+        "reason": "Needs up to 210 °C, within the H2C's 350 °C",
+        "profiles": 4,
+        "basis": "3 of 4 profiles",
+        "unpublishedProfiles": 1
+      },
+      "bed": {
+        "verdict": "within",
+        "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+        "profiles": 4,
+        "basis": "3 of 4 profiles",
+        "unpublishedProfiles": 1
+      },
+      "chamber": {
+        "verdict": "within",
+        "reason": "Needs up to 40 °C, within the H2C's 65 °C",
+        "profiles": 4,
+        "basis": "2 of 4 profiles",
+        "unpublishedProfiles": 2
+      },
+      "abrasive": "unknown",
+      "drying": "required"
+    },
+    "profileIds": [
+      "P0001",
+      "P0002",
+      "P0003",
+      "P0133"
+    ],
+    "printingEvidence": [
+      "P0133",
+      "Q00353"
+    ],
+    "bestUses": "Detailed display models and early prototypes; low-load indoor parts.",
+    "limitations": "No transferable long-term allowable. Verify grade, conditioning and geometry.",
+    "impactNote": "Not published",
+    "fatigueCreep": "Not published for selected grade in sampled sources",
+    "printability": {
+      "rating": 1,
+      "rubric": "R-PRINT"
+    },
+    "identity": {
+      "source": "LOCAL-CANON",
+      "notes": "Not applicable",
+      "h2cEvidence": [
+        "H2C-WIKI",
+        "H2C-MANUAL"
+      ]
+    },
+    "evidenceIds": {
+      "use": [
+        "Q00271",
+        "Q00272",
+        "Q00274"
+      ],
+      "environmental": [
+        "Q00001",
+        "Q00002",
+        "Q00003",
+        "Q00004",
+        "Q00005",
+        "Q00006",
+        "Q00275",
+        "Q00352"
+      ],
+      "durability": [
+        "Q00318"
+      ],
+      "safety": [
+        "Q00320"
+      ]
+    }
+  },
+  "plaMeasurements": [
+    {
+      "id": "V000008",
+      "materialId": "M001",
+      "gradeId": "G001-01",
+      "property": "HDT",
+      "value": 80,
+      "unit": "°C",
+      "interval": {
+        "lo": 80,
+        "hi": 80,
+        "kind": "point"
+      },
+      "uncertainty": null,
+      "operator": "=",
+      "dataStatus": "Published value",
+      "corrected": false,
+      "quarantined": false,
+      "numeric": true,
+      "specimenType": "Printed specimen",
+      "direction": "not-applicable",
+      "directionText": "Not applicable",
+      "moisture": "Not published",
+      "postProcessing": "Not published",
+      "testTemperature": "Not published",
+      "standardText": "ISO 75",
+      "notch": "Not applicable",
+      "printParameters": "Printed Specimen Conditions Printer: Open Source FDM/FFF Nozzle: 0.4mm Layer Height: 0.25mm Infill: 100%, +/- 45° Extrusion Temp: 210°C Bed Temp: 23°C Specimen Orientation: XY Flat",
+      "sourceId": "X-ECOMAX-PLA-TDS-v3",
+      "locator": "p. 1: Deflection Temperature at 0.45",
+      "notes": "Not applicable",
+      "raw": {
+        "value": "80",
+        "unit": "°C"
+      },
+      "thermal": {
+        "standard": "ISO 75",
+        "loadMPa": null,
+        "loadStated": false,
+        "label": "load not stated",
+        "origin": "parsed"
+      }
+    },
+    {
+      "id": "V000014",
+      "materialId": "M001",
+      "gradeId": "G001-02",
+      "property": "HDT",
+      "value": 52,
+      "unit": "°C",
+      "interval": {
+        "lo": 52,
+        "hi": 52,
+        "kind": "point"
+      },
+      "uncertainty": null,
+      "operator": "=",
+      "dataStatus": "Published value",
+      "corrected": false,
+      "quarantined": false,
+      "numeric": true,
+      "specimenType": "Printed specimen",
+      "direction": "not-applicable",
+      "directionText": "Not applicable",
+      "moisture": "Not published",
+      "postProcessing": "Not published",
+      "testTemperature": "Not published",
+      "standardText": "ISO 75 1.8MPa",
+      "notch": "Not applicable",
+      "printParameters": "printing temperature = 210 °C Young’s modulus (X -Y) ISO 527, GB/T 1040 2878.3 ± 74.3 MPa Young’s modulus (Z) 2689.8 ± 92.0 MPa Tensile strength (X-Y) ISO 527, GB/T 1040 46.0 ± 0.5 MPa Tensile strength (Z) 37.3 ± 0.7 MPa Elongation at break (X-Y) ISO 527, GB/T 1040 21.5 ± 5.02 % Elongation at break (Z) 4.2 ± 2.0 % Bend",
+      "sourceId": "S-POLYCN-PolySonic-PLA-EN-V5-3-TDS",
+      "locator": "p. 3: Heat deflection temperature",
+      "notes": "Not applicable",
+      "raw": {
+        "value": "52 °C",
+        "unit": "°C"
+      },
+      "thermal": {
+        "standard": "ISO 75",
+        "loadMPa": 1.8,
+        "loadStated": true,
+        "label": "1.8 MPa",
+        "origin": "parsed"
+      }
+    },
+    {
+      "id": "V000015",
+      "materialId": "M001",
+      "gradeId": "G001-02",
+      "property": "HDT",
+      "value": 53,
+      "unit": "°C",
+      "interval": {
+        "lo": 53,
+        "hi": 53,
+        "kind": "point"
+      },
+      "uncertainty": null,
+      "operator": "=",
+      "dataStatus": "Published value",
+      "corrected": false,
+      "quarantined": false,
+      "numeric": true,
+      "specimenType": "Printed specimen",
+      "direction": "not-applicable",
+      "directionText": "Not applicable",
+      "moisture": "Not published",
+      "postProcessing": "Not published",
+      "testTemperature": "Not published",
+      "standardText": "ISO 75 0.45MPa",
+      "notch": "Not applicable",
+      "printParameters": "printing temperature = 210 °C Young’s modulus (X -Y) ISO 527, GB/T 1040 2878.3 ± 74.3 MPa Young’s modulus (Z) 2689.8 ± 92.0 MPa Tensile strength (X-Y) ISO 527, GB/T 1040 46.0 ± 0.5 MPa Tensile strength (Z) 37.3 ± 0.7 MPa Elongation at break (X-Y) ISO 527, GB/T 1040 21.5 ± 5.02 % Elongation at break (Z) 4.2 ± 2.0 % Bend",
+      "sourceId": "S-POLYCN-PolySonic-PLA-EN-V5-3-TDS",
+      "locator": "p. 3: Heat deflection temperature",
+      "notes": "Not applicable",
+      "raw": {
+        "value": "53 °C",
+        "unit": "°C"
+      },
+      "thermal": {
+        "standard": "ISO 75",
+        "loadMPa": 0.45,
+        "loadStated": true,
+        "label": "0.45 MPa",
+        "origin": "parsed"
+      }
+    }
+  ],
+  "hardened": {
+    "pass": 27,
+    "fail": 75,
+    "unknown": 0,
+    "total": 102
+  },
+  "absPrices": [
+    {
+      "id": "CA0037",
+      "materialId": "M027",
+      "gradeId": "G027-01",
+      "retailer": "Bambu Lab Canada",
+      "variant": "ABS - Black (40101) / Refill / 1kg",
+      "packaging": "Refill",
+      "netMassKg": 1,
+      "listPrice": 25.99,
+      "salePrice": null,
+      "regularPerKg": 25.99,
+      "stock": "In stock",
+      "eligibleForMedian": true,
+      "headlineSample": true,
+      "displayedPrice": 25.99,
+      "currency": "CAD",
+      "market": "Canadian storefront",
+      "taxShipping": "Excluded; shipping calculated at checkout",
+      "basis": "MSRP in current page matches variant offer",
+      "url": "https://ca.store.bambulab.com/products/abs-filament?id=43115678859504",
+      "sourceId": "B-abs-filament",
+      "accessDate": "2026-09-10",
+      "notes": "Mass is filament only, not shipping/spool weight."
+    },
+    {
+      "id": "CA0038",
+      "materialId": "M027",
+      "gradeId": "G027-01",
+      "retailer": "Bambu Lab Canada",
+      "variant": "ABS - Silver (40102) / Filament with spool / 1kg",
+      "packaging": "Spool",
+      "netMassKg": 1,
+      "listPrice": null,
+      "salePrice": null,
+      "regularPerKg": null,
+      "stock": "In stock",
+      "eligibleForMedian": false,
+      "headlineSample": false,
+      "displayedPrice": 29.99,
+      "currency": "CAD",
+      "market": "Canadian storefront",
+      "taxShipping": "Excluded; shipping calculated at checkout",
+      "basis": "Current offer; variant-specific regular price not independently resolved",
+      "url": "https://ca.store.bambulab.com/products/abs-filament?id=44118341681392",
+      "sourceId": "B-abs-filament",
+      "accessDate": "2026-09-10",
+      "notes": "Mass is filament only, not shipping/spool weight. Bulk or unresolved regular price excluded."
+    },
+    {
+      "id": "CA0039",
+      "materialId": "M027",
+      "gradeId": "G027-01",
+      "retailer": "Bambu Lab Canada",
+      "variant": "ABS - Black (40101) / Filament with spool / 1kg",
+      "packaging": "Spool",
+      "netMassKg": 1,
+      "listPrice": null,
+      "salePrice": null,
+      "regularPerKg": null,
+      "stock": "Out of stock",
+      "eligibleForMedian": false,
+      "headlineSample": false,
+      "displayedPrice": 29.99,
+      "currency": "CAD",
+      "market": "Canadian storefront",
+      "taxShipping": "Excluded; shipping calculated at checkout",
+      "basis": "Current offer; variant-specific regular price not independently resolved",
+      "url": "https://ca.store.bambulab.com/products/abs-filament?id=44183939580144",
+      "sourceId": "B-abs-filament",
+      "accessDate": "2026-09-10",
+      "notes": "Mass is filament only, not shipping/spool weight. Bulk or unresolved regular price excluded."
+    },
+    {
+      "id": "CA0069",
+      "materialId": "M027",
+      "gradeId": "G027-01",
+      "retailer": "3D Printing Canada",
+      "variant": "Absolute Black - Bambu Lab PLA PURE Filament with Spool - 1.75mm, 1kg / Default Title",
+      "packaging": "Spool",
+      "netMassKg": 1,
+      "listPrice": 33.99,
+      "salePrice": null,
+      "regularPerKg": 33.99,
+      "stock": "In stock",
+      "eligibleForMedian": true,
+      "headlineSample": true,
+      "displayedPrice": 33.99,
+      "currency": "CAD",
+      "market": "Canadian storefront",
+      "taxShipping": "Excluded; shipping calculated at checkout",
+      "basis": "Single-unit catalogue price; no higher compare-at price",
+      "url": "https://3dprintingcanada.com/products/absolute-black-bambu-lab-pla-pure-1-75mm-1kg?variant=45180368748613",
+      "sourceId": "CA-3DPC1",
+      "accessDate": "2026-09-10",
+      "notes": "Mass is filament only, not shipping/spool weight."
+    },
+    {
+      "id": "CA0091",
+      "materialId": "M027",
+      "gradeId": "G027-01",
+      "retailer": "3D Printing Canada",
+      "variant": "White - Bambu Lab ABS Filament - 1.75mm, 1kg / Filament with spool",
+      "packaging": "Spool",
+      "netMassKg": 1,
+      "listPrice": 29.99,
+      "salePrice": null,
+      "regularPerKg": 29.99,
+      "stock": "In stock",
+      "eligibleForMedian": true,
+      "headlineSample": false,
+      "displayedPrice": 29.99,
+      "currency": "CAD",
+      "market": "Canadian storefront",
+      "taxShipping": "Excluded; shipping calculated at checkout",
+      "basis": "Single-unit catalogue price; no higher compare-at price",
+      "url": "https://3dprintingcanada.com/products/white-bambu-lab-abs-filament-175mm-1kg?variant=42126978744389",
+      "sourceId": "CA-3DPC4",
+      "accessDate": "2026-09-10",
+      "notes": "Mass is filament only, not shipping/spool weight."
+    },
+    {
+      "id": "CA0092",
+      "materialId": "M027",
+      "gradeId": "G027-01",
+      "retailer": "3D Printing Canada",
+      "variant": "Black - Bambu Lab ABS Filament - 1.75mm, 1kg / Refill",
+      "packaging": "Refill",
+      "netMassKg": 1,
+      "listPrice": 25.99,
+      "salePrice": null,
+      "regularPerKg": 25.99,
+      "stock": "In stock",
+      "eligibleForMedian": true,
+      "headlineSample": false,
+      "displayedPrice": 25.99,
+      "currency": "CAD",
+      "market": "Canadian storefront",
+      "taxShipping": "Excluded; shipping calculated at checkout",
+      "basis": "Single-unit catalogue price; no higher compare-at price",
+      "url": "https://3dprintingcanada.com/products/black-bambu-lab-abs-filament-175mm-1kg?variant=44538967556165",
+      "sourceId": "CA-3DPC4",
+      "accessDate": "2026-09-10",
+      "notes": "Mass is filament only, not shipping/spool weight."
+    }
+  ],
+  "ambiguousHdtLocators": [
+    {
+      "id": "V000008",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000389",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000517",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000594",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000603",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000726",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000890",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V000971",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001014",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001051",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001117",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001125",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001170",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001207",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001346",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001477",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001496",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001508",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001515",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001531",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001554",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001610",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001618",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001626",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001634",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001642",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001650",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    },
+    {
+      "id": "V001666",
+      "locator": "p. 1: Deflection Temperature at 0.45"
+    }
+  ],
+  "invalidScenarioAccepted": true,
+  "hashDropsAssumptions": true,
+  "failExportExample": {
+    "materialId": "M001",
+    "verdict": "FAIL",
+    "eligible": false,
+    "needsVerification": false,
+    "usesEstimate": false,
+    "ruledOutByEstimate": false,
+    "results": [
+      {
+        "status": "FAIL",
+        "reason": "Published 1240 kg/m³",
+        "criterion": "density < 0",
+        "observed": 1240,
+        "unit": "kg/m³",
+        "interval": {
+          "lo": 1240,
+          "hi": 1240,
+          "kind": "point"
+        },
+        "measurementId": "V000001",
+        "gradeId": "G001-01",
+        "sourceId": "X-ECOMAX-PLA-TDS-v3",
+        "direction": "not-applicable",
+        "constraint": {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<",
+          "value": 0
+        }
+      }
+    ],
+    "failed": [
+      {
+        "status": "FAIL",
+        "reason": "Published 1240 kg/m³",
+        "criterion": "density < 0",
+        "observed": 1240,
+        "unit": "kg/m³",
+        "interval": {
+          "lo": 1240,
+          "hi": 1240,
+          "kind": "point"
+        },
+        "measurementId": "V000001",
+        "gradeId": "G001-01",
+        "sourceId": "X-ECOMAX-PLA-TDS-v3",
+        "direction": "not-applicable",
+        "constraint": {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<",
+          "value": 0
+        }
+      }
+    ],
+    "unresolved": [],
+    "heldBy": []
+  },
+  "unknownAbrasion": 75,
+  "negativeZeroChambers": [
+    "PLA",
+    "TPU"
+  ]
+}

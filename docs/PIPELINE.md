@@ -129,7 +129,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 62 tests
+npm test                         # 77 tests
 open dist/H2C_Material_Selector_2026-09-10.html
 ```
 

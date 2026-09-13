@@ -95,10 +95,26 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     cls = 'v-derived';
     title = `Derived${entry.from ? ' from ' + entry.from : ''}`;
   }
+  // A real button with a name. It was a five-pixel span with a click listener: unreachable by
+  // keyboard, unnamed for a screen reader and a hard target for anyone.
   const dot = entry.measurementId
-    ? `<span class="evidence-dot" data-measurement="${esc(entry.measurementId)}" title="Open the measurement behind this value"></span>`
+    ? `<button type="button" class="evidence-dot" data-measurement="${esc(entry.measurementId)}"
+        title="Open the measurement behind this value" aria-label="Open the measurement behind ${esc(text)}"></button>`
     : '';
-  return `<span class="${cls}"${title ? ` title="${esc(title)}"` : ''}>${text}</span>${dot}`;
+  // The qualification has to sit beside the number, not only in a hover: a heat value whose test
+  // load was never stated looks exactly like one that was, and cannot pass a heat requirement.
+  const load = entry.loadStated === false
+    ? `<span class="load-mark" title="The source states the test standard but not the load">?</span>`
+    : '';
+  return `<span class="${cls}"${title ? ` title="${esc(title)}"` : ''}>${text}</span>${load}${dot}`;
+}
+
+/** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */
+export function wireEvidence(host, actions) {
+  host.querySelectorAll('[data-measurement]').forEach((d) => d.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    actions.openMeasurement(d.dataset.measurement);
+  }));
 }
 
 export const chip = (status, label) =>

@@ -24,25 +24,27 @@ export function renderExclusions(host, state, actions) {
 
   host.innerHTML = `
     <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
-      Ranked by how many candidates each criterion costs. "Removed" failed the test.
-      "Held" could not be evaluated, and is out only because missing data is set to
-      "leave it out" in the top bar.</p>
+      Ranked by how many candidates each requirement costs. "Failed" means the evidence does not
+      meet it. "Could not check" means the data is missing${state.scenario.unknownPolicy === 'exploration'
+        ? ', and those stay listed and flagged because missing data is set to "keep it"'
+        : ', and those are out only because missing data is set to "leave it out" in the top bar'}.
+      "Removing it" counts the materials that would come back with that one requirement gone.</p>
     ${ranked.map((r, i) => `
       <div class="relax">
         <div>
           <div class="crit">${esc(nameOf(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">preference</span>' : ''}</div>
           <div class="why" style="font-size:12px;color:var(--ink-2)">
-            removed ${r.removed} · held ${r.held} · dropping it would return ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
+            failed ${r.removed} · could not check ${r.held} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
           <div class="bar" style="width:${(r.removed / max) * 100}%"></div>
           <div class="held" style="width:${(r.held / max) * 100}%"></div>
         </div>
-        <button class="btn btn-sm" data-relax="${i}">Relax</button>
+        <button class="btn btn-sm" data-relax="${i}" aria-label="Remove the requirement: ${esc(nameOf(r.constraint))}">Remove</button>
       </div>`).join('')}
-    <p style="margin-top:16px">
-      <button class="btn" id="to-explore">Keep materials with missing data visible instead</button></p>`;
+    ${state.scenario.unknownPolicy === 'exploration' ? '' : `<p style="margin-top:16px">
+      <button class="btn" id="to-explore">Keep materials with missing data visible instead</button></p>`}`;
 
   host.querySelectorAll('[data-relax]').forEach((b) => b.addEventListener('click', () => {
-    actions.relax(ranked[Number(b.dataset.relax)].constraint);
+    actions.removeConstraint(ranked[Number(b.dataset.relax)].constraint);
   }));
   host.querySelector('#to-explore')?.addEventListener('click', () => actions.setPolicy('exploration'));
 }
@@ -70,14 +72,34 @@ export function renderWhy(evaluation) {
  */
 export function renderNoResults(host, state, actions) {
   const { scenario, selection } = state;
-  const hidden = selection.candidates.length;
+  const q = state.search.trim();
 
-  // Nothing passed, but the user has also hidden the states that did match.
+  // Four different empty screens, because they have four different ways out. A search for a name
+  // the database does not hold used to report "102 materials match, but you have hidden them" and
+  // offer a button that changed nothing.
+  if (state.subset) {
+    host.innerHTML = `<div class="empty"><h3>Nothing in the region you selected on the chart matches</h3>
+      <p>The selection from the chart is still narrowing the list${q ? `, together with the search "${esc(q)}"` : ''}.</p>
+      <button class="btn btn-primary" id="clear-region">Clear the chart selection</button></div>`;
+    host.querySelector('#clear-region').addEventListener('click', () => actions.selectSubset(null));
+    return;
+  }
+  if (q) {
+    host.innerHTML = `<div class="empty"><h3>No material is called anything like "${esc(q)}"</h3>
+      <p>Search looks at material names, families, fillers and grade IDs. Brand and product names are
+        not searched; try the polymer instead, such as PLA, PETG or PA6-CF.</p>
+      <button class="btn btn-primary" id="clear-search">Clear the search</button></div>`;
+    host.querySelector('#clear-search').addEventListener('click', () => actions.clearSearch());
+    return;
+  }
+
+  const hidden = selection.candidates.length;
+  // Nothing is shown, but candidates exist under result types the user switched off.
   if (hidden > 0) {
     host.innerHTML = `<div class="empty">
-      <h3>${hidden} material${hidden === 1 ? '' : 's'} match, but you have hidden them</h3>
-      <p>The buttons at the bottom of the screen choose which results to show. Turn one back on.</p>
-      <button class="btn btn-primary" id="show-all">Show everything that matched</button>
+      <h3>${hidden} material${hidden === 1 ? '' : 's'} meet${hidden === 1 ? 's' : ''} your requirements, but the result filters hide ${hidden === 1 ? 'it' : 'them'}</h3>
+      <p>The buttons at the bottom of the screen choose which kinds of result to show.</p>
+      <button class="btn btn-primary" id="show-all">Show the candidates again</button>
     </div>`;
     host.querySelector('#show-all').addEventListener('click', () => actions.showAllStates());
     return;

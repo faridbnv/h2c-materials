@@ -7,7 +7,7 @@
 // second used to be unreachable: nozzle and bed temperatures sat one tab deep in the drawer, and
 // the 104 purchase links in the data were rendered nowhere at all.
 
-import { renderValue, chip, esc, fmtNumber } from './format.js';
+import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { prop, materialName, describeConstraint } from './labels.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
@@ -61,13 +61,12 @@ function cellValue(row, col) {
   return row.material[col.key] ?? '';
 }
 
-export function renderTable(host, state, actions) {
-  const { rows, sort, scenario } = state;
-  const setKey = COLUMN_SETS[state.columnSet] ? state.columnSet : 'properties';
-  const COLUMNS = COLUMN_SETS[setKey].columns;
-
-  const sorted = [...rows].sort((a, b) => {
-    const col = COLUMNS.find((c) => c.key === sort.key) ?? COLUMNS[0];
+/** The rows in the order the table shows them, so an export matches what was on screen. */
+export function sortRows(rows, state) {
+  const { sort } = state;
+  const COLUMNS = COLUMN_SETS[state.columnSet]?.columns ?? COLUMN_SETS.properties.columns;
+  const col = COLUMNS.find((c) => c.key === sort.key) ?? COLUMNS[0];
+  return [...rows].sort((a, b) => {
     const av = cellValue(a, col), bv = cellValue(b, col);
     // Missing values sort last in both directions rather than reading as zero.
     if (av === null && bv === null) return 0;
@@ -76,8 +75,27 @@ export function renderTable(host, state, actions) {
     const d = typeof av === 'string' ? av.localeCompare(bv) : av - bv;
     return sort.dir === 'desc' ? -d : d;
   });
+}
+
+/** Display form of a print window. A zero lower bound is how the build records "ambient". */
+export const printRange = (r) => (!r ? null
+  : r.min === r.max ? fmtNumber(r.max)
+  : r.min === 0 ? `up to ${fmtNumber(r.max)}`
+  : `${fmtNumber(r.min)}\u2013${fmtNumber(r.max)}`);
+
+export function renderTable(host, state, actions) {
+  const { rows, sort, scenario } = state;
+  const setKey = COLUMN_SETS[state.columnSet] ? state.columnSet : 'properties';
+  const COLUMNS = COLUMN_SETS[setKey].columns;
+  // Nothing has been asked, so nothing has passed. A green PASS on every row of a blank screen
+  // asserted a test that never ran, including on the materials outside the printer's scope.
+  const tested = scenario.constraints.length > 0;
+
+  const sorted = sortRows(rows, state);
 
   const head = COLUMNS.map((c) => {
+    // The shortlist column has nothing meaningful to sort by, so it does not pretend to.
+    if (c.kind === 'pin') return `<th>${esc(c.label)}</th>`;
     const active = sort.key === c.key;
     const arrow = active ? (sort.dir === 'asc' ? ' \u25b2' : ' \u25bc') : '';
     const num = c.kind === 'headline' || c.kind === 'price' || c.kind === 'print';
@@ -103,24 +121,28 @@ export function renderTable(host, state, actions) {
       if (c.kind === 'state') {
         return ghost
           ? `<td><span class="chip chip-neutral">baseline</span></td>`
-          : `<td>${chip(e.verdict)}</td>`;
+          : tested ? `<td>${chip(e.verdict)}</td>`
+          : `<td><span class="chip chip-neutral" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
         if (ghost) return `<td></td>`;
         const pinned = scenario.shortlist.includes(m.id);
         return `<td><button class="btn btn-sm" data-pin="${esc(m.id)}" aria-pressed="${pinned}"
-          title="${pinned ? 'Remove from shortlist' : 'Add to shortlist'}">${pinned ? '★' : '☆'}</button></td>`;
+          title="${pinned ? 'Remove from shortlist' : 'Add to shortlist'}" aria-label="${pinned ? 'Remove' : 'Add'} ${esc(m.name)} ${pinned ? 'from' : 'to'} the shortlist">${pinned ? '★' : '☆'}</button></td>`;
       }
       if (c.kind === 'print') {
         const r = m.print?.[c.key];
         if (!r) return `<td class="num"><span class="missing dash" title="No ${esc(c.label.toLowerCase())} temperature published for this material">\u2014</span></td>`;
-        return `<td class="num">${r.min === r.max ? fmtNumber(r.max) : `${fmtNumber(r.min)}\u2013${fmtNumber(r.max)}`}</td>`;
+        // A range across every recorded profile, not one setting to dial in. The drawer's Printing
+        // tab has each profile on its own.
+        const t = r.profiles > 1 ? `Range across ${r.profiles} recorded profiles, not one recipe. Open the material's Printing tab for each.` : 'From one recorded profile';
+        return `<td class="num" title="${esc(t)}">${printRange(r)}</td>`;
       }
       if (c.kind === 'needs') {
         const bits = [];
         if (m.gates.abrasive === 'requires-hardened') bits.push('<span class="need" title="Carbon or glass filled. A brass nozzle will wear out.">hardened nozzle</span>');
-        if (m.gates.drying === 'required') bits.push('<span class="need" title="A drying schedule is published. Open the material for it.">drying</span>');
-        if (!bits.length) return `<td><span class="missing">nothing special published</span></td>`;
+        if (m.gates.drying === 'required') bits.push('<span class="need" title="Drying guidance is published. Open the material for it.">drying guidance</span>');
+        if (!bits.length) return `<td><span class="missing" title="No source in the snapshot states a hardened-nozzle or drying requirement. That is not the same as needing nothing.">none recorded</span></td>`;
         return `<td>${bits.join(' ')}</td>`;
       }
       if (c.kind === 'price') {
@@ -148,6 +170,8 @@ export function renderTable(host, state, actions) {
         title="Reference only. Not a candidate and not counted.">${cells(baseline, null, { ghost: true })}</tr>`
     : '';
 
+  const anyLoad = COLUMNS.some((c) => c.key === 'hdt045')
+    && sorted.some(({ material: m }) => m.headline.hdt045?.known && m.headline.hdt045.loadStated === false);
   const anyRelated = sorted.some(({ material: m }) =>
     COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known && m.headline[c.key].related));
   const anyEstimate = state.ctx?.useEstimates && sorted.some(({ material: m }) =>
@@ -160,15 +184,19 @@ export function renderTable(host, state, actions) {
     `<span class="lg"><span class="dash">\u2014</span> not published. Not zero, and not a low value.</span>`,
     anyRelated ? `<span class="lg"><span class="related-mark">*</span> a measurement that was never made the headline. Hover for why.</span>` : '',
     anyEstimate ? `<span class="lg"><span class="est-mark">\u2020</span> an estimate from similar materials, not a measurement.</span>` : '',
+    anyLoad ? `<span class="lg"><span class="load-mark">?</span> heat test load not stated, so it cannot pass a heat requirement outright.</span>` : '',
   ].filter(Boolean).join('');
 
   // Hits the filters removed. A search that finds nothing because the requirements already
   // excluded the match reads as "this material is not in the database", which is false.
   const excluded = state.searchExcluded ?? [];
+  const hiddenOnly = excluded.filter(({ evaluation: e }) => !e.failed.length && !e.heldBy.length).length;
   const excludedBlock = excluded.length ? `
     <div class="excluded-group">
       <h3>${excluded.length} more match${excluded.length === 1 ? 'es' : ''} "${esc(state.search)}"
-        but ${excluded.length === 1 ? 'does' : 'do'} not meet your requirements</h3>
+        but ${excluded.length === 1 ? 'is' : 'are'} not in the results${hiddenOnly === excluded.length
+          ? ', because the result filters at the bottom hide them'
+          : hiddenOnly ? '' : `: ${excluded.length === 1 ? 'it does' : 'they do'} not meet your requirements`}</h3>
       <table class="grid">
         <colgroup><col style="width:26%"><col style="width:14%"><col><col style="width:80px"></colgroup>
         <thead><tr><th>Material</th><th>Result</th><th>What ruled it out</th><th>Shortlist</th></tr></thead>
@@ -178,13 +206,13 @@ export function renderTable(host, state, actions) {
             ? e.failed.map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
             : e.heldBy.length
               ? `Could not be checked against ${esc(e.unresolved.map((r) => describeConstraint(r.constraint)).join(', '))}.`
-                + ' It is held out because missing data is set to "leave it out".'
+                + ' Not a failure: it is left out because missing data is set to "leave it out".'
               : 'Hidden by the result filters at the bottom of the screen.';
           return `<tr data-material="${esc(m.id)}" tabindex="0">
             <td class="name">${esc(primary)}${aka ? `<span class="row-sub">also called ${esc(aka)}</span>` : ''}</td>
             <td>${chip(e.verdict)}</td>
             <td class="why-cell">${why}</td>
-            <td><button class="btn btn-sm" data-pin="${esc(m.id)}"
+            <td><button class="btn btn-sm" data-pin="${esc(m.id)}" aria-label="Shortlist ${esc(m.name)}"
               aria-pressed="${scenario.shortlist.includes(m.id)}">${scenario.shortlist.includes(m.id) ? '★' : '☆'}</button></td>
           </tr>`;
         }).join('')}</tbody>
@@ -229,52 +257,89 @@ export function renderTable(host, state, actions) {
     ev.stopPropagation();
     actions.togglePin(b.dataset.pin);
   }));
-  host.querySelectorAll('[data-measurement]').forEach((d) => d.addEventListener('click', (ev) => {
-    ev.stopPropagation();
-    actions.openMeasurement(d.dataset.measurement);
-  }));
+  wireEvidence(host, actions);
   host.querySelectorAll('tr[data-material]').forEach((tr) => {
     const open = () => actions.openMaterial(tr.dataset.material);
-    tr.addEventListener('click', open);
-    tr.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') open(); });
+    tr.addEventListener('click', (ev) => { if (!ev.target.closest('a, button')) open(); });
+    // Only the row itself. Enter on the star or the buy link inside it used to bubble up here and
+    // open the drawer as well as doing its own job.
+    tr.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && ev.target === tr) open(); });
   });
 }
 
-/** Client-side export. No server, and the four states survive into the file. */
-export function toCSV(rows, meta) {
-  const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State',
+/**
+ * Client-side export. No server, and the four states survive into the file.
+ *
+ * The file has to explain itself to someone who never saw the screen: which question was asked,
+ * under which missing-data rule, and for each row why it failed or could not be checked. The first
+ * version exported only the unresolved criteria, so every genuine failure had an empty reason.
+ */
+export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
+  const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State', 'In results',
+    'Failed', 'Could not be checked',
     'Density kg/m3', 'Stiffness GPa', 'Strength MPa', 'Stretch %', 'Heat resistance C', 'Price CAD/kg',
-    'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Needs drying', 'Where to buy',
-    'HDT load stated', 'Estimated fields', 'Ruled out by estimate', 'Held by'];
+    'Value qualifiers', 'Measurement IDs',
+    'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
+    ...(useEstimates ? ['Estimated fields', 'Ruled out by estimate'] : [])];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
-  // An exported number is always a measurement. An estimated bound travels in its own column so a
-  // spreadsheet can never mistake inference for evidence.
-  const val = (m, k) => (m.headline[k]?.known ? m.headline[k].value : m.headline[k]?.missing ?? '');
+  const KEYS = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045', 'priceCADkg'];
+  // An exported number is always a measurement or an observed price. An estimated bound travels in
+  // its own column so a spreadsheet can never mistake inference for evidence, and a scenario
+  // assumption is named rather than exported as if it were measured.
+  const val = (m, k) => {
+    const h = m.headline[k];
+    if (h?.assumption) return '';
+    return h?.known ? h.value : h?.missing ?? '';
+  };
+  const qualifiers = (m) => KEYS.flatMap((k) => {
+    const h = m.headline[k];
+    if (!h?.known) return [];
+    const out = [];
+    if (h.assumption) out.push(`${k}: scenario assumption ${h.value}`);
+    const i = h.interval;
+    if (i && i.kind !== 'point') {
+      out.push(`${k}: ${i.lo ?? 'unbounded'} to ${i.hi ?? 'unbounded'}${h.uncertainty ? ` (± ${h.uncertainty})` : ''}`);
+    }
+    if (k === 'hdt045' && h.loadStated === false) out.push('hdt045: test load not stated');
+    return out;
+  }).join(' | ');
+  const ids = (m) => KEYS.map((k) => m.headline[k]?.measurementId).filter(Boolean).join(' ');
   const estimated = (m) => Object.entries(m.headline)
     .filter(([, h]) => h && !h.known && h.estimate)
     .map(([k, h]) => `${k} ~${h.estimate.lo}-${h.estimate.hi} (${h.estimate.basis}, n=${h.estimate.peerCount})`)
     .join(' | ');
-  const lines = [
-    `# H2C Material Selector export`,
+  const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}`).join(' | ');
+  const range = (r) => (r ? `${r.min}-${r.max}` : '');
+
+  const header = [
+    '# H2C Material Selector export',
     `# database snapshot ${meta.snapshot}, application build ${meta.build}`,
+  ];
+  if (scenario) {
+    header.push(`# missing data: ${scenario.unknownPolicy === 'exploration' ? 'kept, flagged (Explore)' : 'left out (Strict)'}; family estimates ${useEstimates ? 'on' : 'off'}`);
+    if (scenario.template) header.push(`# template: ${scenario.template}`);
+    if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
+    for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
+    for (const a of scenario.assumptions ?? []) header.push(`# assumption: ${a.materialId} ${a.property} = ${a.value} ${a.unit ?? ''}`.trim());
+  }
+  const tested = !scenario || scenario.constraints.length > 0;
+
+  const lines = [
+    ...header,
     cols.join(','),
     ...rows.map(({ material: m, evaluation: e }) => [
-      m.id, m.name, m.family, m.h2cStatus, e.verdict,
-      val(m, 'density'), val(m, 'tensileModulusXY'), val(m, 'tensileStrengthXY'),
-      val(m, 'elongationXY'), val(m, 'hdt045'), val(m, 'priceCADkg'),
-      m.print?.nozzleC ? `${m.print.nozzleC.min}-${m.print.nozzleC.max}` : '',
-      m.print?.bedC ? `${m.print.bedC.min}-${m.print.bedC.max}` : '',
-      m.print?.chamberC ? `${m.print.chamberC.min}-${m.print.chamberC.max}` : '',
-      m.gates.abrasive === 'requires-hardened' ? 'yes' : m.gates.abrasive === 'no-special-concern' ? 'no' : '',
-      m.gates.drying === 'required' ? 'yes' : '',
+      m.id, m.name, m.family, m.h2cStatus, tested ? e.verdict : 'NOT TESTED', e.eligible ? 'yes' : 'no',
+      why(e.failed), why(e.unresolved),
+      ...KEYS.map((k) => val(m, k)),
+      qualifiers(m), ids(m),
+      range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC),
+      m.gates.abrasive === 'requires-hardened' ? 'required' : m.gates.abrasive === 'no-special-concern' ? 'not needed' : 'not recorded',
+      m.gates.drying === 'required' ? 'published' : 'not recorded',
       m.buy?.url ?? '',
-      m.headline.hdt045?.known ? m.headline.hdt045.loadStated : '',
-      estimated(m),
-      e.ruledOutByEstimate ? 'yes' : '',
-      e.heldBy.join(' | '),
+      ...(useEstimates ? [estimated(m), e.ruledOutByEstimate ? 'yes' : ''] : []),
     ].map(q).join(',')),
   ];
   return lines.join('\n');

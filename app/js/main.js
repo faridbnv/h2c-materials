@@ -5,9 +5,9 @@
 
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
 import { matchesQuery } from './engine/search.js';
-import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions } from './engine/scenario.js';
+import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
-import { renderTable, toCSV, download } from './ui/table.js';
+import { renderTable, toCSV, download, sortRows } from './ui/table.js';
 import { renderAshby } from './ui/ashby.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
@@ -37,6 +37,12 @@ const state = {
   // makes them controls rather than decoration, and what makes Strict against Explore visible.
   showStates: new Set(['PASS']),
   selectedMaterialId: null, drawerTab: 'Overview',
+  // Which panel occupies the drawer: a material, or the save-and-share panel. One slot, so Escape,
+  // focus and re-rendering treat both the same way; the Scenario panel used to be written straight
+  // into the host, ignored Escape, and was wiped by the next render.
+  panel: null,
+  // Where keyboard focus returns when a panel closes.
+  returnFocus: null,
   // A measurement the user asked to see, so the Evidence tab can scroll to it and mark it rather
   // than dropping them into a list of twenty-one and leaving them to hunt.
   highlightMeasurement: null,
@@ -74,6 +80,30 @@ async function loadData() {
   ]);
   return { db, reference };
 }
+
+// ------------------------------------------------------------------ scenario hydration
+
+/**
+ * Make a validated scenario the running state. One function for startup, file import and anything
+ * else that replaces the question, because import used to set the scenario and forget the lens, the
+ * baseline, the columns, the estimates switch and the open material, so the screen and the saved
+ * file disagreed until the next reload.
+ */
+function hydrate(scenario) {
+  state.scenario = scenario;
+  state.showStates = defaultShowStates(scenario.unknownPolicy);
+  state.selectedMaterialId = scenario.openMaterial ?? null;
+  state.panel = state.selectedMaterialId ? 'material' : null;
+  state.drawerTab = 'Overview';
+  state.highlightMeasurement = null;
+  state.useEstimates = scenario.useEstimates !== false;
+  state.columnSet = scenario.columnSet ?? 'properties';
+  state.baseline = scenario.baseline ?? null;
+  state.subset = null;
+  state.lens = scenario.lens ?? 'table';
+}
+
+const materialIds = () => new Set(state.db.materials.map((m) => m.id));
 
 // ------------------------------------------------------------------ derived state
 
@@ -137,26 +167,40 @@ const actions = {
     const s = state.scenario.shortlist;
     const i = s.indexOf(id);
     if (i >= 0) s.splice(i, 1);
-    else if (s.length < 6) s.push(id);
-    else return alert('The shortlist holds at most six materials. Remove one first.');
+    else if (s.length < SHORTLIST_MAX) s.push(id);
+    else return alert(`The shortlist is full at ${SHORTLIST_MAX}. Remove one from the tray at the bottom first.`);
     render(); pushHash();
   },
-  // The open material lives in the URL, so a link can point straight at one.
-  openMaterial(id) {
-    state.selectedMaterialId = id; state.drawerTab = 'Overview';
+  // The open material lives in the URL, so a link can point straight at one. A tab can be named,
+  // so a Coverage cell lands on the evidence it describes rather than on the Overview.
+  openMaterial(id, tab = 'Overview') {
+    if (!state.panel) state.returnFocus = document.activeElement;
+    state.selectedMaterialId = id; state.drawerTab = tab; state.panel = 'material';
+    state.highlightMeasurement = null;
     state.scenario.openMaterial = id; renderDrawerHost(); pushHash();
   },
   setDrawerTab(tab) { state.drawerTab = tab; state.highlightMeasurement = null; renderDrawerHost(); },
   closeDrawer() {
-    state.selectedMaterialId = null; state.scenario.openMaterial = null;
+    state.selectedMaterialId = null; state.scenario.openMaterial = null; state.panel = null;
     renderDrawerHost(); pushHash();
+    const back = state.returnFocus;
+    state.returnFocus = null;
+    if (back?.isConnected) back.focus();
   },
   openMeasurement(id) {
     const m = state.db.measurements.find((x) => x.id === id);
     if (!m) return;
+    if (!state.panel) state.returnFocus = document.activeElement;
     state.selectedMaterialId = m.materialId;
+    state.scenario.openMaterial = m.materialId;
+    state.panel = 'material';
     state.drawerTab = 'Evidence';
     state.highlightMeasurement = id;
+    renderDrawerHost(); pushHash();
+  },
+  openScenario() {
+    if (!state.panel) state.returnFocus = document.activeElement;
+    state.panel = 'scenario';
     renderDrawerHost();
   },
   setBaseline(id) {
@@ -180,24 +224,39 @@ const actions = {
     if (!['name', 'verdict', 'priceCADkg'].includes(state.sort.key)) state.sort = { key: 'name', dir: 'asc' };
     renderLens(); pushHash();
   },
+  // Back to the results the policy counts as candidates. This used to switch on FAIL as well, so
+  // "show everything that matched" filled the table with materials that had failed.
   showAllStates() {
-    state.showStates = new Set(['PASS', 'UNKNOWN', 'FAIL']);
+    state.showStates = defaultShowStates(state.scenario.unknownPolicy);
     render();
   },
   toggleState(verdict) {
-    if (state.showStates.has(verdict)) state.showStates.delete(verdict);
-    else state.showStates.add(verdict);
-    if (!state.showStates.size) state.showStates.add('PASS');
+    if (state.showStates.has(verdict)) {
+      // The last visible kind stays on. Its chip is disabled and says so; removing it and adding it
+      // straight back made the button look broken.
+      if (state.showStates.size === 1) return;
+      state.showStates.delete(verdict);
+    } else state.showStates.add(verdict);
+    render();
+  },
+  clearSearch() {
+    state.search = '';
+    document.getElementById('search').value = '';
     render();
   },
   setPlot(patch) { Object.assign(state.scenario.plot, patch); renderLens(); pushHash(); },
   selectSubset(ids) { state.subset = ids; render(); },
+  // A template's result is read in the table, which is the only lens with the requirements
+  // header. Applied from Compare or a chart it used to change nothing visible.
   applyTemplate(t) {
     state.scenario.constraints = t.constraints.map((c) => ({ ...c }));
     state.scenario.template = t.name;
     state.scenario.unknownPolicy = UNKNOWN_POLICY.STRICT;
     state.showStates = defaultShowStates(UNKNOWN_POLICY.STRICT);
-    actions.changed();
+    if (state.panel === 'scenario') { state.panel = null; renderDrawerHost(); }
+    state.subset = null;
+    setLens('table');
+    render(); pushHash();
   },
   setLens(lens) { setLens(lens); },
   reset() {
@@ -205,7 +264,8 @@ const actions = {
     state.scenario.template = null;
     actions.changed();
   },
-  relax(constraint) {
+  // Removes the whole criterion. It was labelled "Relax", which suggests loosening a threshold.
+  removeConstraint(constraint) {
     state.scenario.constraints = state.scenario.constraints.filter((c) => c !== constraint);
     render(); pushHash();
   },
@@ -240,7 +300,32 @@ function renderLens() {
 }
 
 function renderDrawerHost() {
-  renderDrawer(document.getElementById('drawer-host'), state, actions);
+  const host = document.getElementById('drawer-host');
+  const wasOpen = host.childElementCount > 0;
+  preservingFocus(host, () => {
+    if (state.panel === 'scenario') renderScenario(host);
+    else renderDrawer(host, state, actions);
+  });
+  // A panel that has just opened takes focus, so a keyboard user is not left behind it.
+  if (!wasOpen && host.childElementCount) host.querySelector('.drawer-head .icon-btn')?.focus();
+}
+
+/**
+ * Re-render a region without throwing away the user's place in it. Focus is matched by id or by the
+ * first data attribute, which is how every control in this interface is addressed.
+ */
+function preservingFocus(host, draw) {
+  const active = document.activeElement;
+  let selector = null;
+  if (active && host.contains(active)) {
+    if (active.id) selector = `#${CSS.escape(active.id)}`;
+    else {
+      const attr = [...active.attributes].find((a) => a.name.startsWith('data-'));
+      if (attr) selector = `[${attr.name}="${CSS.escape(attr.value)}"]`;
+    }
+  }
+  draw();
+  if (selector) host.querySelector(selector)?.focus();
 }
 
 /**
@@ -280,10 +365,13 @@ function render() {
     const on = state.showStates.has(verdict);
     el.textContent = `${verdict} ${n}`;
     el.setAttribute('aria-pressed', String(on));
-    el.disabled = n === 0;
-    el.title = n === 0 ? `No candidate is ${verdict} under the current constraints`
-      : on ? `Showing the ${n} ${verdict} candidates. Click to hide them.`
-           : `Click to show the ${n} ${verdict} candidates.`;
+    const last = on && state.showStates.size === 1;
+    el.disabled = n === 0 || last;
+    const what = { PASS: 'that meet every requirement', UNKNOWN: 'that could not be checked for missing data', FAIL: 'that fail a requirement' }[verdict];
+    el.title = n === 0 ? `No material is ${verdict} under the current requirements`
+      : last ? `Showing the ${n} ${what}. At least one kind of result stays shown.`
+      : on ? `Showing the ${n} ${what}. Click to hide them.`
+           : `Click to show the ${n} ${what}.`;
   }
   const explore = state.scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION;
   const estToggle = document.getElementById('est-toggle');
@@ -309,6 +397,7 @@ function renderTray() {
   const tray = document.getElementById('tray');
   const list = state.scenario.shortlist;
   tray.hidden = list.length === 0;
+  tray.querySelector('.label').textContent = `Shortlist ${list.length} of ${SHORTLIST_MAX}`;
   document.getElementById('pins').innerHTML = list.map((id) => {
     const m = state.db.materials.find((x) => x.id === id);
     return `<span class="pin">${esc(m?.name ?? id)}<button data-unpin="${esc(id)}" aria-label="Remove ${esc(m?.name ?? id)}">✕</button></span>`;
@@ -335,15 +424,27 @@ function wireChrome() {
   });
   document.getElementById('mode-strict').addEventListener('click', () => actions.setPolicy('strict'));
   document.getElementById('mode-explore').addEventListener('click', () => actions.setPolicy('exploration'));
-  document.getElementById('btn-reset').addEventListener('click', () => {
-    state.scenario.constraints = []; state.scenario.template = null; actions.changed();
-  });
+  document.getElementById('btn-reset').addEventListener('click', () => actions.reset());
   for (const [id, verdict] of [['s-pass', 'PASS'], ['s-unknown', 'UNKNOWN'], ['s-fail', 'FAIL']]) {
     document.getElementById(id).addEventListener('click', () => actions.toggleState(verdict));
   }
   document.getElementById('btn-clear-pins').addEventListener('click', () => {
     state.scenario.shortlist = []; render(); pushHash();
   });
+
+  // The filter rail becomes a drawer on a narrow window or at high zoom. It used to become a fixed
+  // overlay with no way to close it, covering the results it was meant to filter.
+  const main = document.getElementById('main');
+  const railButton = document.getElementById('btn-filters');
+  const setRail = (open) => {
+    main.dataset.railOpen = String(open);
+    railButton.setAttribute('aria-expanded', String(open));
+    if (open) document.querySelector('#rail .rail-head button')?.focus();
+    else railButton.focus();
+  };
+  railButton.addEventListener('click', () => setRail(main.dataset.railOpen !== 'true'));
+  document.getElementById('btn-rail-close').addEventListener('click', () => setRail(false));
+  document.getElementById('rail-backdrop').addEventListener('click', () => setRail(false));
   document.querySelectorAll('[data-lens]').forEach((b) => b.addEventListener('click', () => setLens(b.dataset.lens)));
 
   // Two states, and the button says which one you are in. It used to be an unlabelled half-moon
@@ -357,11 +458,15 @@ function wireChrome() {
   });
 
   document.getElementById('use-estimates').addEventListener('change', (e) => actions.toggleEstimates(e.target.checked));
-  document.getElementById('btn-scenario').addEventListener('click', openScenario);
+  document.getElementById('btn-scenario').addEventListener('click', () => actions.openScenario());
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && state.selectedMaterialId) actions.closeDrawer();
-    if (e.key === '/' && e.target.tagName !== 'INPUT') { e.preventDefault(); document.getElementById('search').focus(); }
+    if (e.key === 'Escape') {
+      if (state.panel) { actions.closeDrawer(); return; }
+      if (main.dataset.railOpen === 'true') { setRail(false); return; }
+    }
+    const typing = e.target.closest?.('input, select, textarea, [contenteditable="true"]');
+    if (e.key === '/' && !typing) { e.preventDefault(); document.getElementById('search').focus(); }
   });
 }
 
@@ -387,15 +492,16 @@ function setLens(lens) {
   renderLens();
 }
 
-function openScenario() {
+function renderScenario(host) {
   const { db, scenario, selection } = state;
-  const host = document.getElementById('drawer-host');
   const hard = scenario.constraints.filter((c) => c.mandatory !== false).length;
   const soft = scenario.constraints.length - hard;
+  const tested = scenario.constraints.length > 0;
+  const localFile = location.protocol === 'file:';
 
   // Leads with what you are doing and what you can do with it. The build and snapshot numbers are
   // real provenance and belong in the file, but nobody opens this panel to read them first.
-  host.innerHTML = `<div class="drawer" role="dialog" aria-label="Scenario">
+  host.innerHTML = `<div class="drawer" role="dialog" aria-label="Save or share this selection">
     <div class="drawer-head"><div style="display:flex;gap:10px"><div style="flex:1">
       <h2>This selection</h2>
       <div class="sub">Save it, share it, or start from a different kind of part</div></div>
@@ -404,9 +510,11 @@ function openScenario() {
     <div class="drawer-body">
 
       <div class="sc-summary">
-        <div class="sc-big">${selection.counts.pass}<span>of ${selection.counts.total} materials pass</span></div>
+        ${tested
+          ? `<div class="sc-big">${selection.counts.pass}<span>of ${selection.counts.total} materials pass</span></div>`
+          : `<div class="sc-big">${selection.counts.total}<span>materials, nothing tested yet</span></div>`}
         <div class="sc-lines">
-          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} preference${soft === 1 ? '' : 's'}` : ''}</div>
+          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} tracked only` : ''}</div>
           <div>${scenario.unknownPolicy === 'strict'
             ? 'Missing data leaves a material out (Strict)'
             : 'Materials with missing data stay visible, flagged (Explore)'}</div>
@@ -417,10 +525,12 @@ function openScenario() {
 
       <h3 class="sec">Take it with you</h3>
       <div class="sc-actions">
-        <button class="btn" id="sc-csv"><b>Export the candidates</b><span>CSV, with the four states and what held each one out</span></button>
-        <button class="btn" id="sc-link"><b>Copy a link to this selection</b><span>Reopens the same requirements and view</span></button>
-        <button class="btn" id="sc-json"><b>Save the scenario</b><span>A small JSON file you can reload later</span></button>
-        <button class="btn" id="sc-import"><b>Load a saved scenario</b><span>From a JSON file</span></button>
+        <button class="btn" id="sc-csv"><b>Export the rows on screen</b><span>CSV in the table's order, with the requirements, each row's result and the reasons for it</span></button>
+        <button class="btn" id="sc-link"><b>Copy a link to this selection</b><span>${localFile
+          ? 'Reopens the requirements, shortlist and view on this computer. The page is a local file, so the link will not work for anyone else: send them the saved scenario instead.'
+          : 'Reopens the requirements, shortlist, assumptions and view. Search text and a lasso selection are not included.'}</span></button>
+        <button class="btn" id="sc-json"><b>Save the scenario</b><span>A small file anyone with this tool can load</span></button>
+        <button class="btn" id="sc-import"><b>Load a saved scenario</b><span>Replaces the current selection. A damaged file is refused and nothing changes.</span></button>
       </div>
 
       <h3 class="sec">Start from a different kind of part</h3>
@@ -445,17 +555,18 @@ function openScenario() {
       </dl>
     </div></div>`;
 
-  host.querySelector('#sc-close').addEventListener('click', () => { host.innerHTML = ''; });
+  host.querySelector('#sc-close').addEventListener('click', () => actions.closeDrawer());
   host.querySelectorAll('[data-template]').forEach((b) => b.addEventListener('click', () => {
-    host.innerHTML = '';
     actions.applyTemplate(TEMPLATES[Number(b.dataset.template)]);
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
-    download(`h2c-candidates-${db.meta.snapshot}.csv`, toCSV(state.rows, db.meta), 'text/csv'));
+    download(`h2c-candidates-${db.meta.snapshot}.csv`,
+      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.useEstimates }), 'text/csv'));
   host.querySelector('#sc-json').addEventListener('click', () =>
     download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(scenario), 'application/json'));
   host.querySelector('#sc-link').addEventListener('click', async (e) => {
-    const url = `${location.origin}${location.pathname}#${toHash(scenario)}`;
+    // location.origin is the string "null" for a file, which made every local link unusable.
+    const url = `${location.href.split('#')[0]}#${toHash(scenario)}`;
     try { await navigator.clipboard.writeText(url); e.target.closest('button').querySelector('span').textContent = 'Copied'; }
     catch { prompt('Copy this link', url); }
   });
@@ -465,14 +576,19 @@ function openScenario() {
     input.addEventListener('change', async () => {
       const file = input.files?.[0];
       if (!file) return;
+      // Validate completely before committing anything, so a bad file leaves the session intact.
+      let loaded;
       try {
-        const { scenario: loaded, warnings } = deserialize(await file.text(), db.meta);
-        state.scenario = loaded;
-        state.showStates = defaultShowStates(loaded.unknownPolicy);
-        if (warnings.length) alert(warnings.join('\n'));
-        host.innerHTML = '';
-        actions.changed();
-      } catch (err) { alert(`Could not read that scenario: ${err.message}`); }
+        loaded = deserialize(await file.text(), db.meta, { materialIds: materialIds() });
+      } catch (err) {
+        alert(`Could not load that scenario, and nothing was changed.\n\n${err.message}`);
+        return;
+      }
+      hydrate(loaded.scenario);
+      document.querySelectorAll('[data-lens]').forEach((b) =>
+        b.setAttribute('aria-pressed', String(b.dataset.lens === state.lens)));
+      render(); pushHash();
+      if (loaded.warnings.length) alert(loaded.warnings.join('\n'));
     });
     input.click();
   });
@@ -488,12 +604,14 @@ function openScenario() {
   state.reference = reference;
   state.ctx = buildContext(db);
   setEnvironmentLabels(db.meta.environmentCategories);
-  state.scenario = fromHash(location.hash.slice(1), db.meta) ?? newScenario(db.meta);
-  state.showStates = defaultShowStates(state.scenario.unknownPolicy);
-  state.selectedMaterialId = state.scenario.openMaterial ?? null;
-  if (typeof state.scenario.useEstimates === 'boolean') state.useEstimates = state.scenario.useEstimates;
-  if (state.scenario.columnSet) state.columnSet = state.scenario.columnSet;
-  if (state.scenario.baseline) state.baseline = state.scenario.baseline;
+  let linkProblem = null;
+  let fromLink = null;
+  try {
+    fromLink = fromHash(location.hash.slice(1), db.meta, { materialIds: materialIds() });
+  } catch (err) {
+    linkProblem = err.message;
+  }
+  hydrate(fromLink?.scenario ?? newScenario(db.meta));
 
   // Provenance matters, but not more than everything else in the top bar. The full record is in
   // the Scenario panel, which already carried it.
@@ -501,12 +619,17 @@ function openScenario() {
   meta.textContent = `data ${db.meta.snapshot}`;
   meta.title = `Database snapshot ${db.meta.snapshot}, application build ${db.meta.build}, `
     + `${db.meta.counts.materials} materials, ${db.meta.counts.measurements} measurements. `
-    + 'Open Scenario for the full record.';
+    + 'Open Save / share for the full record.';
 
   wireChrome();
   paintTheme();
   render();
-  if (state.scenario.lens && state.scenario.lens !== 'table') setLens(state.scenario.lens);
+  if (state.lens !== 'table') setLens(state.lens);
+  const notices = [
+    ...(linkProblem ? [`This link could not be read, so the selector opened with nothing set. ${linkProblem}`] : []),
+    ...(fromLink?.warnings ?? []),
+  ];
+  if (notices.length) setTimeout(() => alert(notices.join('\n\n')), 0);
 })().catch((err) => {
   document.getElementById('lens').innerHTML =
     `<div class="empty"><h3>Could not start</h3><p>${esc(err.message)}</p></div>`;

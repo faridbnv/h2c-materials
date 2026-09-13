@@ -119,8 +119,12 @@ export function renderAshby(host, state, actions) {
             Show the ${estimated.length} with no measurement here</label>
           <div class="control-help">Drawn as a dotted range rather than a dot, because the value is
             the span of their closest relatives and not a position anyone measured.</div>`
-          : `<div class="control-help">${state.ctx?.useEstimates
-              ? 'Every candidate on these axes has a measurement of its own.'
+          : `<div class="control-help">${measurementMode
+              ? 'Not used when every measurement is drawn: an estimate describes a material, not a grade.'
+              : state.ctx?.useEstimates
+              ? 'No candidate on these axes has an estimate to draw.'
+              : state.scenario.unknownPolicy === 'exploration'
+              ? 'Estimates are off. Tick Estimates in the top bar to use them.'
               : 'Estimates are off. They are available in Explore, where they can rule a material out.'}</div>`}
       </div>
       <div class="control"><label>Compare against</label>
@@ -146,8 +150,12 @@ export function renderAshby(host, state, actions) {
       ${measurementMode
         // What a reader has to be told before this chart means anything: a dot is a test, not a
         // material. Without that sentence a cluster of six dots reads as six materials, or as noise.
-        ? `<b>Each dot is one test result, not one material.</b> ${pts.length} test${pts.length === 1 ? '' : 's'}
-           across ${subjects} of ${rows.length} candidates. Where a material was measured more than
+        // A dot pairs two recorded measurements of the same grade taken under compatible conditions.
+        // The source rarely says both came from one specimen, so a dot is not claimed to be one test.
+        ? `<b>Each dot pairs two measurements of one grade, not one material.</b> ${pts.length} pair${pts.length === 1 ? '' : 's'}
+           across ${subjects} of ${rows.length} candidates. The two values were recorded for the same
+           grade under compatible conditions, not necessarily on the same specimen, so dots are not
+           independent tests. Where a material has more than one pair
            once, its dots are joined by a faint line. That spread is real: the same material measures
            differently by grade and by print direction, and the wider the spread, the less any single
            headline number tells you.
@@ -168,7 +176,9 @@ export function renderAshby(host, state, actions) {
         axis is measured. It is an estimate, not a position: it never joins the frontier and never
         counts as a plotted candidate.` : ''}
       ${frontSize > 1 ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
-        both axes at once. Anything below and to the right of it is beaten by something on the line.` : ''}
+        both axes at once: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
+        ${esc(prop(yDef.key).plain.toLowerCase())} ${yDef.better === 'max' ? 'higher' : 'lower'} is better.
+        Anything on the ${yDef.better === 'max' ? 'lower' : 'upper'} ${xDef.better === 'max' ? 'left' : 'right'} side of it is beaten by something on the line.` : ''}
     </div>
     <div id="index-card"></div>`;
 
@@ -231,7 +241,7 @@ function headlinePoints(rows, xDef, yDef) {
 function measurementPoints(rows, xDef, yDef, mode, ctx) {
   if (!xDef.measurement || !yDef.measurement) {
     const which = !xDef.measurement ? xDef.label : yDef.label;
-    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Switch Points back to Headline, or choose another axis.` };
+    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Set Show to "One dot per material", or choose another axis.` };
   }
   const pts = [];
   const mixed = new Set();
@@ -617,8 +627,11 @@ function renderIndexCard(host, state, pts, actions) {
   const yDef = AXIS_DEFS.find((a) => a.key === p.y);
   const applicable = index.numerator === yDef?.key && p.x === 'density' && !index.costForm;
   const M = p.indexM ?? defaultM(pts, index);
-  const above = countAbove(pts.map((q) => q.material), index, M);
-  const evaluable = pts.filter((q) => indexValue(q.material, index) !== null).length;
+  // The index is a property of a material's headline values, so it counts materials. In the
+  // measurement modes one material has several dots, and counting dots counted it several times.
+  const unique = [...new Map(pts.map((q) => [q.id, q.material])).values()];
+  const above = countAbove(unique, index, M);
+  const evaluable = unique.filter((m) => indexValue(m, index) !== null).length;
 
   host.innerHTML = `
     <div class="index-card">
@@ -631,11 +644,11 @@ function renderIndexCard(host, state, pts, actions) {
           <label style="font-size:12px">Move the line</label>
           <input type="range" data-index-m min="0" max="100" value="${p.indexSlider ?? 50}" style="flex:1;min-width:160px">
           <span style="font-family:var(--mono);font-size:12px">M = ${M.toPrecision(3)}</span>
-          <strong>${above} above the line</strong>
-          <span style="color:var(--ink-3);font-size:12px">of ${evaluable} evaluable</span>
+          <strong>${above} material${above === 1 ? '' : 's'} above the line</strong>
+          <span style="color:var(--ink-3);font-size:12px">of ${evaluable} with both headline values${detailLevel(p) === 'material' ? '' : '; counted by material, from headline values, not by dot'}</span>
         </div>
         ${!p.xLog || !p.yLog ? `<div class="warn-chip" style="margin-top:8px">The constant-index line is straight only on log-log axes. Switch both scales to Log to read it as a guideline.</div>` : ''}
-      ` : `<div class="warn-chip" style="margin-top:8px">To draw this line, set X to Density and Y to ${esc(index.numerator === 'tensileModulusXY' ? 'Tensile modulus XY' : 'Tensile strength XY')}${index.costForm ? '. Cost-form indices are ranked in the table rather than drawn.' : '.'}</div>`}
+      ` : `<div class="warn-chip" style="margin-top:8px">To draw this line, set X to Density and Y to ${esc(prop(index.numerator).plain)}${index.costForm ? '. A cost-form index needs price on an axis, so it is not drawn here.' : '.'}</div>`}
       <ul>${index.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
     </div>`;
 

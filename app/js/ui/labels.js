@@ -24,7 +24,7 @@ export const PROPERTY = {
   },
   elongationXY: {
     short: 'Stretch', plain: 'Stretch before breaking', technical: 'Elongation at break, XY direction', unit: '%',
-    hint: 'high means tough and bendy, low means brittle', better: 'max',
+    hint: 'how far it stretches before it snaps; not the same as springing back or toughness', better: 'max',
   },
   hdt045: {
     short: 'Heat', plain: 'Heat resistance', technical: 'HDT at 0.45 MPa', unit: '°C',
@@ -40,14 +40,16 @@ export const prop = (key) => PROPERTY[key] ?? { short: key, plain: key, technica
 
 // Process gates, in the words of someone standing at the printer.
 export const GATE = {
-  scope: { plain: 'Printable on an H2C', hint: 'excludes the 6 materials outside the printer\'s envelope' },
+  // "Printable on an H2C" was a promise this criterion never tested: it only reads the research
+  // scope list, not temperatures, nozzles or feed paths.
+  scope: { plain: 'In the H2C research scope', hint: 'leaves out materials the database places outside the printer\'s envelope; it does not check print settings' },
   nozzle: { plain: 'Nozzle temperature is within range', hint: 'the H2C reaches 350 °C' },
   bed: { plain: 'Bed temperature is within range', hint: 'the H2C reaches 120 °C' },
   chamber: { plain: 'Chamber temperature is within range', hint: 'the H2C reaches 65 °C' },
-  abrasive: { plain: 'I have a hardened nozzle', hint: 'needed for carbon and glass filled filaments' },
-  dryingKnown: { plain: 'Drying schedule is published', hint: '' },
+  abrasive: { plain: 'No hardened nozzle', hint: 'hides filaments a source says need one' },
+  dryingKnown: { plain: 'Drying guidance is published', hint: '' },
   h2cStatus: { plain: 'Bambu support level', hint: '' },
-  buyable: { plain: 'Available from a Canadian retailer', hint: 'sampled from three retailers on the snapshot date' },
+  buyable: { plain: 'Listed in the Canadian price sample', hint: 'three retailers, sampled on the snapshot date; not live stock' },
 };
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
@@ -67,9 +69,11 @@ export function describeConstraint(c) {
     }
     case 'gate':
       if (c.gate === 'h2cStatus') return `Bambu support level: ${(c.in ?? []).join(', ')}`;
-      if (c.gate === 'buyable') return c.inStock ? 'In stock in Canada' : GATE.buyable.plain;
+      if (c.gate === 'buyable') return c.inStock ? 'In stock when sampled in Canada' : GATE.buyable.plain;
+      if (c.gate === 'abrasive' && c.hardenedAvailable) return 'Hardened nozzle available';
       return GATE[c.gate]?.plain ?? c.gate;
     case 'facet':
+      if (c.facet === 'supportMaterial') return c.equals === false ? 'A build material, not a support' : 'Support or interface material';
       return `Reinforcement: ${(c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ')}`;
     case 'environment':
       return `Resists ${envNoun(c.category)}`;

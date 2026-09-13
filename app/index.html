@@ -10,6 +10,7 @@
 <div class="app">
 
   <header class="topbar">
+    <button class="btn btn-sm" id="btn-filters" aria-controls="rail" aria-expanded="false">Filters</button>
     <h1>H2C Material Selector</h1>
     <div class="search">
       <input type="search" id="search" placeholder="Search materials, grades, families" aria-label="Search materials">
@@ -31,16 +32,18 @@
       title="Use the measured range of a material's closest relatives to rule out implausible matches. An estimate can only rule a material out, never confirm it in.">
       <input type="checkbox" id="use-estimates"><span>Estimates</span></label>
 
-    <button class="btn btn-sm" id="btn-scenario">Scenario</button>
+    <button class="btn btn-sm" id="btn-scenario" title="Export, save, load or share this selection">Save / share</button>
     <button class="btn btn-sm" id="btn-theme"></button>
     <span class="meta-chip" id="meta"></span>
   </header>
 
   <div class="main" id="main">
-    <aside class="rail" id="rail">
+    <div class="rail-backdrop" id="rail-backdrop"></div>
+    <aside class="rail" id="rail" aria-label="Filters">
       <div class="rail-head">
         <h2>Filters</h2>
-        <button class="icon-btn" id="btn-reset" title="Clear all constraints">Reset</button>
+        <button class="icon-btn" id="btn-reset" title="Removes every requirement. Search, shortlist and view stay as they are.">Clear requirements</button>
+        <button class="icon-btn" id="btn-rail-close" aria-label="Close filters">✕</button>
       </div>
       <div id="filter-groups"></div>
     </aside>
@@ -50,12 +53,12 @@
         <span class="candidate-count" id="count"></span>
         <div class="spacer"></div>
         <div class="segmented" role="tablist" aria-label="View">
-          <button data-lens="table"    aria-pressed="true">Table</button>
-          <button data-lens="ashby"    aria-pressed="false">Ashby</button>
-          <button data-lens="parallel" aria-pressed="false">Parallel</button>
-          <button data-lens="coverage" aria-pressed="false">Coverage</button>
-          <button data-lens="compare"  aria-pressed="false">Compare</button>
-          <button data-lens="explain"  aria-pressed="false" id="tab-explain">Why excluded</button>
+          <button data-lens="table"    aria-pressed="true"  title="The candidates as a sortable list">Table</button>
+          <button data-lens="ashby"    aria-pressed="false" title="Ashby chart: two properties plotted against each other, to see trade-offs">Ashby</button>
+          <button data-lens="parallel" aria-pressed="false" title="Parallel lines: each candidate across several properties at once">Parallel</button>
+          <button data-lens="coverage" aria-pressed="false" title="How much evidence the database holds for each candidate">Coverage</button>
+          <button data-lens="compare"  aria-pressed="false" title="Your shortlist, property by property">Compare</button>
+          <button data-lens="explain"  aria-pressed="false" id="tab-explain" title="Which requirement removed how many materials">Why excluded</button>
         </div>
       </div>
       <div class="lens-view" id="lens"></div>

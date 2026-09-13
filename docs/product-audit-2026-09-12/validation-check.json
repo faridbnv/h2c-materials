@@ -1,0 +1,37 @@
+{
+  "workbookSheets": {
+    "Materials": 102,
+    "Grades": 136,
+    "Print setup": 156,
+    "Properties": 1807,
+    "Use & durability": 362,
+    "Prices CA": 104,
+    "Sources": 214,
+    "Coverage": 1106,
+    "Method": 39
+  },
+  "errors": [],
+  "warnings": [
+    {
+      "level": "warn",
+      "where": "measurements",
+      "message": "Impact data uses two incompatible units. 8 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis."
+    },
+    {
+      "level": "warn",
+      "where": "materials",
+      "message": "24 of 66 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values."
+    },
+    {
+      "level": "warn",
+      "where": "materials",
+      "message": "126 family estimates were derived for headlines with no measurement. They are inference, not evidence: Strict mode never sees them, and in Explore they can only rule a material out of a requirement it clearly cannot meet."
+    },
+    {
+      "level": "warn",
+      "where": "materials",
+      "message": "12 materials have no property measurements at all: PLA Lite, PLA Silk, PA66, PA66-CF, PA612, PA612-GF, PET-GF, Support for PLA, POM / Acetal, CPE, CoPE, nGen / Amphora"
+    }
+  ],
+  "compiledMatchesExisting": true
+}
