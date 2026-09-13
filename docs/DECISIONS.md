@@ -370,6 +370,47 @@ file's SHA-256 is recorded, and a source that cannot be retrieved contributes no
 plausible the value attributed to it. The edit is a script with a changelog, and it refuses to run on
 any workbook but the one it was written against.
 
+## D36. Referential integrity includes ownership, not just existence
+
+A `MaterialID`, `GradeID` and `SourceID` can each exist and still describe the wrong relationship.
+A measurement filed under PC FR while naming a PLA grade passes three ordinary foreign-key checks
+and then puts PLA data on a PC screen.
+
+The validator therefore checks every measurement, profile, price and use record against the
+material that owns its grade. It also checks every cited record belongs to the material presenting
+it. Mutation tests deliberately create valid-but-wrong relationships and require named errors.
+
+## D37. A headline belongs to the representative grade; study grades are not procurement grades
+
+The Materials row is a labelled single-grade observation. If density comes from one grade and
+strength from another, the row looks like a property set for a formulation that does not exist.
+Every measured headline must therefore cite the representative grade.
+
+`GradeIDs` lists commercial grades that can be selected or procured. Supplemental research grades
+carry an `-R#` suffix and stay outside it. PA12's fatigue study grade is useful context, but it does
+not make a PA12 product available and cannot become the representative grade.
+
+## D38. Environmental evidence is owned by the material; family evidence stays context
+
+The Environmental evidence column had become a copy of family application notes for 31 materials.
+That made PC FR look chemically evidenced by records written for another polycarbonate material,
+while other materials omitted records from their own data sheets.
+
+Environmental evidence now means exactly the material's own exposure, solubility and moisture
+records. Use, durability and safety may still cite explicitly labelled family context, because those
+fields are narrative and the relationship is visible. Family context cannot settle a grade-level
+environment criterion.
+
+## D39. Coverage is terminal, but it must agree with the records
+
+Coverage never feeds selection, so an inconsistency cannot change the candidate list. It can still
+send the next researcher in the wrong direction: PC-GF said Print setup was a gap beside two
+profiles, while several environmental rows claimed evidence that belonged only to their family.
+
+`coverage-rules.js` defines “own data” once for mechanical, thermal, print, environmental and price
+domains. The audit planner and validator both use it. A `Gap` beside data, an evidence claim without
+own records, or an incorrect procurement-manufacturer count now stops the build.
+
 ---
 
 # Bugs worth remembering
@@ -403,3 +444,7 @@ answers rather than failing.
 | Chamber rows dropped at a page break | Fourteen Bambu data sheets carry a chamber window as the first row of page 2, and none was transcribed, so PC FR, PAHT-CF and every Bambu PLA and PETG reported "no chamber requirement published" | `database.test.js` |
 | A chamber window read by its upper end | ABS-CF's 50–70 °C failed the chamber criterion, though 50–65 °C is reachable | `normalize.test.js` |
 | Hardcoded rail counts | "45 of 102 state an abrasion requirement" counted profiles, not materials; the true figure is 27 | derived from data now |
+| Bambu chemical table rows omitted | The shared “Other Physical and Chemical Properties” table disappeared for 19 exact grades, leaving 98 source-backed findings out of the database | `database.test.js`, coverage-consolidation plan |
+| Environmental evidence copied from family notes | 31 materials appeared to own another material's exposure evidence, while some exact-grade records were omitted | `database.test.js`, `validate.js` |
+| Coverage contradicted the records | Rows said `Gap` beside measured/profile data or `Evidence recorded` with no record owned by the material | `database.test.js`, `coverage-rules.js` |
+| Existence-only referential checks | A valid measurement and a valid grade could be joined under the wrong material without an error | mutation tests in `database.test.js` |

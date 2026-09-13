@@ -132,6 +132,22 @@ least two independent peers and a real range; every chamber band naming a real, 
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
 
+It also checks **cross-record consistency**, not just whether referenced identifiers exist:
+
+- every measurement, profile, price and use record is filed under the material its grade belongs to;
+- `GradeIDs` contains every procurement grade, while supplemental study grades with an `-R#` suffix
+  remain outside that procurement list;
+- every measured headline belongs to its material and its representative grade;
+- each cited record exists and belongs to the material, except deliberately labelled family context
+  in use, durability and safety notes;
+- nozzle, bed and chamber guidance quotes the cited print profile;
+- `Environmental evidence` is exactly the material's own exposure, solubility and moisture records;
+- coverage does not claim absence beside the material's own records or claim evidence it does not
+  have, and each Grades coverage row states the true procurement-manufacturer count.
+
+These checks use `coverage-rules.js`, the same domain definitions used by the coverage-consolidation
+planner. A correction and its future validator therefore cannot disagree about what “has data” means.
+
 The report counts the chamber gate with its partial-window column, and breaks chamber evidence down
 by kind: a published window, a statement in words, no setpoint, nothing, and how many materials carry
 a band. It lists every band the evidence superseded.
@@ -153,7 +169,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 96 tests
+npm test                         # 103 tests
 open dist/H2C_Material_Selector_2026-09-13.html
 ```
 

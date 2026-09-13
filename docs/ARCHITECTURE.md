@@ -64,12 +64,22 @@ plotting library, not the data, is what the file weighs.
 | `normalize/chemical.js` | 73 environment topics onto canonical categories; findings onto verdicts. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database and verify every headline against its own citation. |
+| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
 | `estimates.js` | Family bounds for materials with no measurement of their own. |
 | `chamber-estimates.js` | The research's chamber bands, from `build/mappings/chamber-estimates.json`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
 | `bundle.js` | One HTML file. |
 | `index.js` | Runs the stages and decides whether the build may proceed. |
+
+### Audited workbook edits, `scripts/`
+
+The build never writes the workbook. When an audit deliberately changes it, the audit owns a plan,
+an apply script and a changelog. Those apply scripts use `scripts/workbook_xml.py`, a small shared
+editor that changes the relevant worksheet XML directly, preserves existing cell styles, extends an
+Excel table when a row is appended, and records every touched cell. An audit script must verify the
+input workbook SHA-256 before it writes. This keeps a workbook edit reviewable without turning the
+normal build into an authoring tool.
 
 ### Engine, `app/js/engine/`
 

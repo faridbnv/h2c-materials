@@ -19,9 +19,9 @@ Three places, in the order to try them.
 
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
-2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D35, each saying what would break if it were
+2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D39, each saying what would break if it were
    reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[audits/](audits/).** Four audits so far, each in its own dated folder: the report as it was
+3. **[audits/](audits/).** Five audit passes so far, each in its own dated folder: the report as it was
    delivered, and the outcome of every finding.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it

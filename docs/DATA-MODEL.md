@@ -11,7 +11,7 @@ sheets, each an Excel table with declared columns.
 | Grades | 144 | Exact commercial formulations, tied to materials |
 | Print setup | 167 | Processing guidance and H2C routing, per grade |
 | Properties | 1,966 | Individual property measurements, the unit of quantitative evidence |
-| Use & durability | 380 | Chemical, environmental and application evidence |
+| Use & durability | 478 | Chemical, environmental and application evidence |
 | Prices CA | 104 | Canadian price observations |
 | Sources | 235 | The source register, with access dates and hashes |
 | Coverage | 1,146 | Gaps, conflicts and unresolved items |
@@ -19,13 +19,15 @@ sheets, each an Excel table with declared columns.
 
 Counts are for snapshot 2026-09-13, after the manufacturer evidence audit in
 [audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/) and the
-missing-data research in [audits/2026-09-13-missing-data-research/](audits/2026-09-13-missing-data-research/). The build
-holds these numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
+missing-data research in [audits/2026-09-13-missing-data-research/](audits/2026-09-13-missing-data-research/),
+then the [coverage consolidation](audits/2026-09-13-coverage-consolidation/). The build holds these
+numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
 changed workbook is always a deliberate, reviewed change to the tool.
 
-Referential integrity across all of it is perfect: sixteen cross-sheet checks over MaterialID,
-GradeID and SourceID return zero unknown references. That is why the validator spends its effort on
-text normalization instead.
+The validator checks both ordinary referential integrity and ownership. A `MaterialID`, `GradeID`
+or `SourceID` must exist, and the grade named by a measurement, profile, price or use record must
+belong to that same material. This second check matters because valid identifiers can still be
+combined into a valid-looking but wrong record.
 
 ### The Method sheet is executable
 
@@ -47,7 +49,7 @@ materials    102   the selection-level object
 grades       144   materials 1 -- N grades
 measurements 1966  materials 1 -- N, grades 1 -- N, sources N -- 1
 profiles     167   print setup, with parsed temperatures, enclosure wording and gate verdicts
-evidence     380   use and durability, classified
+evidence     478   use and durability, classified
 prices       104   quarantined observations kept as an audit trail, backing nothing
 sources      235
 coverage     1146  terminal: reports gaps, never feeds selection
@@ -230,6 +232,55 @@ the basis and caution the research wrote. A band is attached only where no windo
 no source says no heated chamber is needed; the validation report lists the 22 the evidence
 superseded. Unlike a family estimate a band cannot rule a material out either (D34): it describes a
 plausible setpoint, and a setpoint is a recommendation at most.
+
+## Evidence ownership and coverage
+
+A valid identifier is not enough to establish ownership. Every measurement, print profile, price
+observation and use record names both a `MaterialID` and a `GradeID`; the grade must belong to that
+same material. Every measured headline must cite its material's **representative grade**, because a
+single Materials row cannot present several formulations' values as if they described one product.
+
+`GradeIDs` is the procurement list. It contains every commercial grade belonging to the material.
+Supplemental study grades use an `-R#` suffix and deliberately stay outside that list: they can
+provide clearly labelled context, but they are not products a reader can procure or use as the
+representative grade.
+
+The four evidence columns do not have identical ownership rules:
+
+| Column | What it may cite |
+|---|---|
+| `Use evidence` | The material's records and explicitly labelled family context |
+| `Environmental evidence` | Exactly this material's own exposure, solubility and moisture records |
+| `Durability evidence` | The material's records and explicitly labelled family context |
+| `Safety evidence` | The material's records and explicitly labelled family context |
+
+Family context is useful background, but it cannot make a grade appear chemically tested. The
+validator derives the expected Environmental evidence list from the material's own records and
+fails if the authored list differs.
+
+Coverage is terminal: it reports gaps and never feeds candidate selection. It still must describe
+the records truthfully. `build/src/coverage-rules.js` defines what counts as own data for Mechanical,
+Thermal, Print setup, Moisture / environmental and Canadian price coverage. The same definitions
+drive both audit planning and validation, so a row cannot say `Gap` beside its own data, claim
+`Evidence recorded` on another material's family notes, or quote the wrong manufacturer count.
+
+The environment-category subset of the 478 use-and-durability records currently resolves to the
+following counts. Application, safety and other non-environment records are outside this table.
+
+| Category | Kind | Records | With a verdict | Materials |
+|---|---|---:|---:|---:|
+| Alkali | verdict | 67 | 65 | 54 |
+| Acid | verdict | 71 | 63 | 55 |
+| Organic solvent | verdict | 64 | 47 | 56 |
+| Oil and grease | verdict | 59 | 47 | 56 |
+| Water solubility | verdict | 43 | 41 | 42 |
+| Flammability | verdict | 41 | 36 | 41 |
+| Food contact | indicator | 2 | 0 | 2 |
+| UV / outdoor | indicator | 7 | 0 | 6 |
+| Moisture | indicator | 7 | 0 | 7 |
+| Creep | indicator | 2 | 0 | 2 |
+| Fatigue | indicator | 5 | 0 | 5 |
+| Hydrolysis | indicator | 4 | 0 | 4 |
 
 ## Missing data is information
 

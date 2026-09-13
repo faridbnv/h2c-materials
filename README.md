@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 96 engine, parser, search, scenario, template and database tests
+npm test                       # 103 engine, parser, search, scenario, template and database tests
 npm run validate               # validate only, no bundle
 ```
 
@@ -58,6 +58,7 @@ data/H2C_FDM_Material_Database.xlsx     the frozen authoring source of truth; ne
 data/Generic_Materials_Reference.xlsx   generic engineering materials, an Ashby baseline only
 
 build/src/                              extract -> normalize -> compile -> validate -> bundle
+build/src/coverage-rules.js             one definition of what counts as a material's own data
 build/mappings/                         hand-maintained vocabulary maps, reviewed like code
 build/reports/                          the validation report, regenerated every build
 
@@ -68,6 +69,7 @@ app/js/main.js                          the only place that holds state
 
 test/                                   engine, scenario, template, parser and compiled-database tests
 scripts/ensure-db.mjs                   compiles the database first if a test run needs it
+scripts/workbook_xml.py                 shared, reviewable XML editor for audited workbook changes
 .github/workflows/pages.yml             build, test, publish
 dist/                                   build output, not committed
 
@@ -113,6 +115,9 @@ preferences: changing one changes what the tool asserts.
     no source says anything better, and they can neither clear nor fail a material.
 17. **Nothing enters the workbook from a report.** Every value is re-read from its source and the
     source's SHA-256 recorded; a source that cannot be retrieved contributes nothing.
+18. **Coverage is terminal, but it must be true.** A coverage row cannot say `Gap` beside the
+    material's own data or claim evidence that belongs only to another material. Family citations
+    may remain as context in use, durability and safety notes; they are not grade evidence.
 
 ## Three kinds of number
 
