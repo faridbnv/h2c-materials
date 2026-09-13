@@ -1,0 +1,2243 @@
+{
+  "workbookSha256": "31a1e17d394ad3552a035e80994decae2d4301d6b19a4ce2c7c9f8b0352dbe52",
+  "newEvidence": [
+    {
+      "EvidenceID": "Q00381",
+      "MaterialID": "M006",
+      "GradeID": "G006-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-tough-upgrade-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00382",
+      "MaterialID": "M006",
+      "GradeID": "G006-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-tough-upgrade-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00383",
+      "MaterialID": "M006",
+      "GradeID": "G006-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-tough-upgrade-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00384",
+      "MaterialID": "M006",
+      "GradeID": "G006-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-tough-upgrade-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00385",
+      "MaterialID": "M006",
+      "GradeID": "G006-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-tough-upgrade-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00386",
+      "MaterialID": "M007",
+      "GradeID": "G007-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-translucent-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00387",
+      "MaterialID": "M007",
+      "GradeID": "G007-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-translucent-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00388",
+      "MaterialID": "M007",
+      "GradeID": "G007-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-translucent-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00389",
+      "MaterialID": "M007",
+      "GradeID": "G007-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-translucent-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00390",
+      "MaterialID": "M007",
+      "GradeID": "G007-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-translucent-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00391",
+      "MaterialID": "M009",
+      "GradeID": "G009-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-upgrade-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00392",
+      "MaterialID": "M009",
+      "GradeID": "G009-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-upgrade-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00393",
+      "MaterialID": "M009",
+      "GradeID": "G009-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-upgrade-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00394",
+      "MaterialID": "M009",
+      "GradeID": "G009-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-upgrade-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00395",
+      "MaterialID": "M009",
+      "GradeID": "G009-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-upgrade-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00396",
+      "MaterialID": "M010",
+      "GradeID": "G010-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-dual-color-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00397",
+      "MaterialID": "M010",
+      "GradeID": "G010-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-dual-color-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00398",
+      "MaterialID": "M010",
+      "GradeID": "G010-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-dual-color-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00399",
+      "MaterialID": "M010",
+      "GradeID": "G010-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-dual-color-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00400",
+      "MaterialID": "M010",
+      "GradeID": "G010-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-silk-dual-color-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00401",
+      "MaterialID": "M013",
+      "GradeID": "G013-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-sparkle-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00402",
+      "MaterialID": "M013",
+      "GradeID": "G013-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-sparkle-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00403",
+      "MaterialID": "M013",
+      "GradeID": "G013-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-sparkle-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00404",
+      "MaterialID": "M013",
+      "GradeID": "G013-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-sparkle-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00405",
+      "MaterialID": "M013",
+      "GradeID": "G013-01",
+      "Domain": "Flammability",
+      "Topic": "Flammability",
+      "Finding": "Flammable and self-extinguishing in the air",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-sparkle-TDS",
+      "Locator": "Flammability"
+    },
+    {
+      "EvidenceID": "Q00406",
+      "MaterialID": "M015",
+      "GradeID": "G015-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-galaxy-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00407",
+      "MaterialID": "M015",
+      "GradeID": "G015-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-galaxy-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00408",
+      "MaterialID": "M015",
+      "GradeID": "G015-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-galaxy-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00409",
+      "MaterialID": "M015",
+      "GradeID": "G015-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-galaxy-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00410",
+      "MaterialID": "M015",
+      "GradeID": "G015-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-galaxy-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00411",
+      "MaterialID": "M017",
+      "GradeID": "G017-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-aero-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00412",
+      "MaterialID": "M017",
+      "GradeID": "G017-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-aero-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00413",
+      "MaterialID": "M017",
+      "GradeID": "G017-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-aero-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00414",
+      "MaterialID": "M017",
+      "GradeID": "G017-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-aero-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00415",
+      "MaterialID": "M017",
+      "GradeID": "G017-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pla-aero-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00416",
+      "MaterialID": "M022",
+      "GradeID": "G022-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-petg-hf-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00417",
+      "MaterialID": "M022",
+      "GradeID": "G022-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-petg-hf-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00418",
+      "MaterialID": "M022",
+      "GradeID": "G022-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-petg-hf-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00419",
+      "MaterialID": "M022",
+      "GradeID": "G022-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-petg-hf-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00420",
+      "MaterialID": "M022",
+      "GradeID": "G022-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-petg-hf-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00421",
+      "MaterialID": "M028",
+      "GradeID": "G028-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-abs-gf-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00422",
+      "MaterialID": "M028",
+      "GradeID": "G028-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-abs-gf-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00423",
+      "MaterialID": "M028",
+      "GradeID": "G028-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-abs-gf-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00424",
+      "MaterialID": "M028",
+      "GradeID": "G028-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-abs-gf-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00425",
+      "MaterialID": "M028",
+      "GradeID": "G028-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Not resistant to some kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-abs-gf-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00426",
+      "MaterialID": "M036",
+      "GradeID": "G036-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pc-fr-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00427",
+      "MaterialID": "M036",
+      "GradeID": "G036-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pc-fr-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00428",
+      "MaterialID": "M036",
+      "GradeID": "G036-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pc-fr-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00429",
+      "MaterialID": "M036",
+      "GradeID": "G036-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pc-fr-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00430",
+      "MaterialID": "M036",
+      "GradeID": "G036-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pc-fr-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00431",
+      "MaterialID": "M036",
+      "GradeID": "G036-01",
+      "Domain": "Flammability",
+      "Topic": "Flammability",
+      "Finding": "Flame retardant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pc-fr-TDS",
+      "Locator": "Flammability"
+    },
+    {
+      "EvidenceID": "Q00432",
+      "MaterialID": "M040",
+      "GradeID": "G040-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-tpu-for-ams-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00433",
+      "MaterialID": "M040",
+      "GradeID": "G040-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-tpu-for-ams-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00434",
+      "MaterialID": "M040",
+      "GradeID": "G040-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-tpu-for-ams-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00435",
+      "MaterialID": "M040",
+      "GradeID": "G040-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-tpu-for-ams-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00436",
+      "MaterialID": "M040",
+      "GradeID": "G040-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-tpu-for-ams-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00437",
+      "MaterialID": "M042",
+      "GradeID": "G042-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-4",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00438",
+      "MaterialID": "M042",
+      "GradeID": "G042-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-4",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00439",
+      "MaterialID": "M042",
+      "GradeID": "G042-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-4",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00440",
+      "MaterialID": "M042",
+      "GradeID": "G042-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-4",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00441",
+      "MaterialID": "M042",
+      "GradeID": "G042-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-4",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00442",
+      "MaterialID": "M043",
+      "GradeID": "G043-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-5",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00443",
+      "MaterialID": "M043",
+      "GradeID": "G043-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-5",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00444",
+      "MaterialID": "M043",
+      "GradeID": "G043-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-5",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00445",
+      "MaterialID": "M043",
+      "GradeID": "G043-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-5",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00446",
+      "MaterialID": "M043",
+      "GradeID": "G043-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-TPU-SOFT-TDS-5",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00447",
+      "MaterialID": "M051",
+      "GradeID": "G051-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pa6-gf-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00448",
+      "MaterialID": "M051",
+      "GradeID": "G051-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pa6-gf-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00449",
+      "MaterialID": "M051",
+      "GradeID": "G051-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pa6-gf-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00450",
+      "MaterialID": "M051",
+      "GradeID": "G051-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pa6-gf-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00451",
+      "MaterialID": "M051",
+      "GradeID": "G051-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pa6-gf-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00452",
+      "MaterialID": "M067",
+      "GradeID": "G067-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pet-cf-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00453",
+      "MaterialID": "M067",
+      "GradeID": "G067-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pet-cf-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00454",
+      "MaterialID": "M067",
+      "GradeID": "G067-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pet-cf-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00455",
+      "MaterialID": "M067",
+      "GradeID": "G067-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pet-cf-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00456",
+      "MaterialID": "M067",
+      "GradeID": "G067-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pet-cf-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00457",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pps-cf-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00458",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pps-cf-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00459",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pps-cf-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00460",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pps-cf-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00461",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pps-cf-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00462",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Domain": "Flammability",
+      "Topic": "Flammability",
+      "Finding": "Self-extinguishing when away from fire; flame-retardant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pps-cf-TDS",
+      "Locator": "Flammability"
+    },
+    {
+      "EvidenceID": "Q00463",
+      "MaterialID": "M075",
+      "GradeID": "G075-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Soluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pva-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00464",
+      "MaterialID": "M075",
+      "GradeID": "G075-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pva-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00465",
+      "MaterialID": "M075",
+      "GradeID": "G075-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pva-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00466",
+      "MaterialID": "M075",
+      "GradeID": "G075-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pva-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00467",
+      "MaterialID": "M075",
+      "GradeID": "G075-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-pva-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00468",
+      "MaterialID": "M078",
+      "GradeID": "G078-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pla-petg-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00469",
+      "MaterialID": "M078",
+      "GradeID": "G078-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pla-petg-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00470",
+      "MaterialID": "M078",
+      "GradeID": "G078-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pla-petg-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00471",
+      "MaterialID": "M078",
+      "GradeID": "G078-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pla-petg-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00472",
+      "MaterialID": "M078",
+      "GradeID": "G078-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 3; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pla-petg-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00473",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Domain": "Support / solubility",
+      "Topic": "Solubility",
+      "Finding": "Insoluble in water",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pa-pet-TDS",
+      "Locator": "Solubility"
+    },
+    {
+      "EvidenceID": "Q00474",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Acid",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pa-pet-TDS",
+      "Locator": "Resistance to Acid"
+    },
+    {
+      "EvidenceID": "Q00475",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Alkali",
+      "Finding": "Not resistant",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pa-pet-TDS",
+      "Locator": "Resistance to Alkali"
+    },
+    {
+      "EvidenceID": "Q00476",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Organic Solvent",
+      "Finding": "Not resistant to some organic solvents",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pa-pet-TDS",
+      "Locator": "Resistance to Organic Solvent"
+    },
+    {
+      "EvidenceID": "Q00477",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Domain": "Chemical exposure",
+      "Topic": "Resistance to Oil and Grease",
+      "Finding": "Resistant to most kinds of oil and grease",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pa-pet-TDS",
+      "Locator": "Resistance to Oil and Grease"
+    },
+    {
+      "EvidenceID": "Q00478",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Domain": "Flammability",
+      "Topic": "Flammability",
+      "Finding": "Flammable and self-extinguishing in the air",
+      "Exposure / conditions": "p. 2; concentration, duration and temperature not specified unless stated. Not a chemical design limit.",
+      "Rating 1–5": "Not published",
+      "RubricID": "Not applicable",
+      "Evidence type": "Manufacturer statement",
+      "SourceID": "B-support-for-pa-pet-TDS",
+      "Locator": "Flammability"
+    }
+  ],
+  "materialEdits": [
+    {
+      "MaterialID": "M002",
+      "name": "PLA Basic",
+      "column": "Environmental evidence",
+      "before": "Q00008; Q00009; Q00010; Q00011",
+      "after": "Q00007; Q00008; Q00009; Q00010; Q00011"
+    },
+    {
+      "MaterialID": "M003",
+      "name": "PLA Matte",
+      "column": "Environmental evidence",
+      "before": "Q00015; Q00016; Q00017; Q00018",
+      "after": "Q00014; Q00015; Q00016; Q00017; Q00018"
+    },
+    {
+      "MaterialID": "M004",
+      "name": "PLA Lite",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M005",
+      "name": "PLA Basic Gradient",
+      "column": "Environmental evidence",
+      "before": "Q00022; Q00023; Q00024; Q00025",
+      "after": "Q00021; Q00022; Q00023; Q00024; Q00025"
+    },
+    {
+      "MaterialID": "M006",
+      "name": "PLA Tough+",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00381; Q00382; Q00383; Q00384; Q00385"
+    },
+    {
+      "MaterialID": "M007",
+      "name": "PLA Translucent",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00386; Q00387; Q00388; Q00389; Q00390"
+    },
+    {
+      "MaterialID": "M008",
+      "name": "PLA Silk",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M009",
+      "name": "PLA Silk+",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00391; Q00392; Q00393; Q00394; Q00395"
+    },
+    {
+      "MaterialID": "M010",
+      "name": "PLA Silk Dual Color",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00396; Q00397; Q00398; Q00399; Q00400"
+    },
+    {
+      "MaterialID": "M011",
+      "name": "PLA Metal",
+      "column": "Environmental evidence",
+      "before": "Q00035; Q00036; Q00037; Q00038",
+      "after": "Q00034; Q00035; Q00036; Q00037; Q00038"
+    },
+    {
+      "MaterialID": "M012",
+      "name": "PLA Marble",
+      "column": "Environmental evidence",
+      "before": "Q00042; Q00043; Q00044; Q00045",
+      "after": "Q00041; Q00042; Q00043; Q00044; Q00045"
+    },
+    {
+      "MaterialID": "M013",
+      "name": "PLA Sparkle",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00048; Q00401; Q00402; Q00403; Q00404"
+    },
+    {
+      "MaterialID": "M014",
+      "name": "PLA Wood",
+      "column": "Environmental evidence",
+      "before": "Q00050; Q00051; Q00052; Q00053",
+      "after": "Q00049; Q00050; Q00051; Q00052; Q00053"
+    },
+    {
+      "MaterialID": "M015",
+      "name": "PLA Galaxy",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00406; Q00407; Q00408; Q00409; Q00410"
+    },
+    {
+      "MaterialID": "M016",
+      "name": "PLA Glow",
+      "column": "Environmental evidence",
+      "before": "Q00059; Q00060; Q00061; Q00062",
+      "after": "Q00058; Q00059; Q00060; Q00061; Q00062"
+    },
+    {
+      "MaterialID": "M017",
+      "name": "PLA Aero",
+      "column": "Environmental evidence",
+      "before": "Q00271; Q00272; Q00273; Q00274; Q00275; Q00276; Q00277",
+      "after": "Q00411; Q00412; Q00413; Q00414; Q00415"
+    },
+    {
+      "MaterialID": "M018",
+      "name": "PLA-CF",
+      "column": "Environmental evidence",
+      "before": "Q00068; Q00069; Q00070; Q00071",
+      "after": "Q00067; Q00068; Q00069; Q00070; Q00071"
+    },
+    {
+      "MaterialID": "M021",
+      "name": "PETG Basic",
+      "column": "Environmental evidence",
+      "before": "Q00086; Q00087; Q00088; Q00089",
+      "after": "Q00085; Q00086; Q00087; Q00088; Q00089"
+    },
+    {
+      "MaterialID": "M022",
+      "name": "PETG HF",
+      "column": "Environmental evidence",
+      "before": "Q00278; Q00279; Q00280; Q00281",
+      "after": "Q00416; Q00417; Q00418; Q00419; Q00420"
+    },
+    {
+      "MaterialID": "M023",
+      "name": "PETG Translucent",
+      "column": "Environmental evidence",
+      "before": "Q00094; Q00095; Q00096; Q00097",
+      "after": "Q00093; Q00094; Q00095; Q00096; Q00097"
+    },
+    {
+      "MaterialID": "M024",
+      "name": "PETG-CF",
+      "column": "Environmental evidence",
+      "before": "Q00101; Q00102; Q00103; Q00104",
+      "after": "Q00100; Q00101; Q00102; Q00103; Q00104"
+    },
+    {
+      "MaterialID": "M025",
+      "name": "PETG-GF",
+      "column": "Environmental evidence",
+      "before": "Q00278; Q00279; Q00280; Q00281",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M027",
+      "name": "ABS",
+      "column": "Environmental evidence",
+      "before": "Q00113; Q00114; Q00115; Q00116; Q00283; Q00349",
+      "after": "Q00112; Q00113; Q00114; Q00115; Q00116; Q00283; Q00349"
+    },
+    {
+      "MaterialID": "M028",
+      "name": "ABS-GF",
+      "column": "Environmental evidence",
+      "before": "Q00282; Q00283; Q00284; Q00285",
+      "after": "Q00421; Q00422; Q00423; Q00424; Q00425"
+    },
+    {
+      "MaterialID": "M029",
+      "name": "ABS-CF",
+      "column": "Environmental evidence",
+      "before": "Q00282; Q00283; Q00284; Q00285",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M030",
+      "name": "ABS-ESD",
+      "column": "Environmental evidence",
+      "before": "Q00282; Q00283; Q00284; Q00285",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M031",
+      "name": "ASA",
+      "column": "Environmental evidence",
+      "before": "Q00122; Q00123; Q00124; Q00125; Q00287; Q00350",
+      "after": "Q00121; Q00122; Q00123; Q00124; Q00125; Q00287; Q00350"
+    },
+    {
+      "MaterialID": "M032",
+      "name": "ASA Aero",
+      "column": "Environmental evidence",
+      "before": "Q00129; Q00130; Q00131; Q00132",
+      "after": "Q00128; Q00129; Q00130; Q00131; Q00132"
+    },
+    {
+      "MaterialID": "M033",
+      "name": "ASA-CF",
+      "column": "Environmental evidence",
+      "before": "Q00136; Q00137; Q00138; Q00139",
+      "after": "Q00135; Q00136; Q00137; Q00138; Q00139"
+    },
+    {
+      "MaterialID": "M034",
+      "name": "ASA-GF",
+      "column": "Environmental evidence",
+      "before": "Q00286; Q00287; Q00288; Q00289",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M035",
+      "name": "PC",
+      "column": "Environmental evidence",
+      "before": "Q00143; Q00144; Q00145; Q00146; Q00291",
+      "after": "Q00142; Q00143; Q00144; Q00145; Q00146; Q00291"
+    },
+    {
+      "MaterialID": "M036",
+      "name": "PC FR",
+      "column": "Environmental evidence",
+      "before": "Q00290; Q00291; Q00292; Q00293",
+      "after": "Q00426; Q00427; Q00428; Q00429; Q00430"
+    },
+    {
+      "MaterialID": "M037",
+      "name": "PC-CF",
+      "column": "Environmental evidence",
+      "before": "Q00290; Q00291; Q00292; Q00293",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M038",
+      "name": "PC-GF",
+      "column": "Environmental evidence",
+      "before": "Q00331",
+      "after": "Q00331; Q00372"
+    },
+    {
+      "MaterialID": "M040",
+      "name": "TPU for AMS",
+      "column": "Environmental evidence",
+      "before": "Q00294; Q00295; Q00296; Q00297",
+      "after": "Q00432; Q00433; Q00434; Q00435; Q00436"
+    },
+    {
+      "MaterialID": "M041",
+      "name": "TPU 95A HF",
+      "column": "Environmental evidence",
+      "before": "Q00157; Q00158; Q00159; Q00160",
+      "after": "Q00156; Q00157; Q00158; Q00159; Q00160"
+    },
+    {
+      "MaterialID": "M042",
+      "name": "TPU 90A",
+      "column": "Environmental evidence",
+      "before": "Q00294; Q00295; Q00296; Q00297",
+      "after": "Q00437; Q00438; Q00439; Q00440; Q00441"
+    },
+    {
+      "MaterialID": "M043",
+      "name": "TPU 85A",
+      "column": "Environmental evidence",
+      "before": "Q00294; Q00295; Q00296; Q00297",
+      "after": "Q00442; Q00443; Q00444; Q00445; Q00446"
+    },
+    {
+      "MaterialID": "M045",
+      "name": "PEBA",
+      "column": "Environmental evidence",
+      "before": "Q00294; Q00295; Q00296; Q00297",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M046",
+      "name": "TPC / TPEE",
+      "column": "Environmental evidence",
+      "before": "Q00294; Q00295; Q00296; Q00297",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M048",
+      "name": "PAHT-CF",
+      "column": "Environmental evidence",
+      "before": "Q00179; Q00180; Q00181; Q00182",
+      "after": "Q00178; Q00179; Q00180; Q00181; Q00182"
+    },
+    {
+      "MaterialID": "M050",
+      "name": "PA6-CF",
+      "column": "Environmental evidence",
+      "before": "Q00186; Q00187; Q00188; Q00189",
+      "after": "Q00185; Q00186; Q00187; Q00188; Q00189"
+    },
+    {
+      "MaterialID": "M051",
+      "name": "PA6-GF",
+      "column": "Environmental evidence",
+      "before": "Not published",
+      "after": "Q00447; Q00448; Q00449; Q00450; Q00451"
+    },
+    {
+      "MaterialID": "M062",
+      "name": "PA-CF",
+      "column": "Environmental evidence",
+      "before": "Q00298; Q00299; Q00300",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M064",
+      "name": "PA-ESD",
+      "column": "Environmental evidence",
+      "before": "Q00298; Q00299; Q00300",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M067",
+      "name": "PET-CF",
+      "column": "Environmental evidence",
+      "before": "Not published",
+      "after": "Q00452; Q00453; Q00454; Q00455; Q00456"
+    },
+    {
+      "MaterialID": "M070",
+      "name": "PPA-CF",
+      "column": "Environmental evidence",
+      "before": "Q00227; Q00228; Q00229; Q00230",
+      "after": "Q00226; Q00227; Q00228; Q00229; Q00230"
+    },
+    {
+      "MaterialID": "M073",
+      "name": "PPS-CF",
+      "column": "Environmental evidence",
+      "before": "Not published",
+      "after": "Q00379; Q00380; Q00457; Q00458; Q00459; Q00460; Q00461"
+    },
+    {
+      "MaterialID": "M075",
+      "name": "PVA",
+      "column": "Environmental evidence",
+      "before": "Q00311",
+      "after": "Q00310; Q00311; Q00463; Q00464; Q00465; Q00466; Q00467"
+    },
+    {
+      "MaterialID": "M076",
+      "name": "BVOH",
+      "column": "Environmental evidence",
+      "before": "Q00310; Q00311; Q00312",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M077",
+      "name": "Support for PLA",
+      "column": "Environmental evidence",
+      "before": "Q00364; Q00365; Q00366; Q00367; Q00368; Q00369",
+      "after": "Q00365; Q00366; Q00367; Q00368; Q00369"
+    },
+    {
+      "MaterialID": "M078",
+      "name": "Support for PLA/PETG",
+      "column": "Environmental evidence",
+      "before": "Not published",
+      "after": "Q00468; Q00469; Q00470; Q00471; Q00472"
+    },
+    {
+      "MaterialID": "M079",
+      "name": "Support for ABS",
+      "column": "Environmental evidence",
+      "before": "Q00237; Q00238; Q00239; Q00240",
+      "after": "Q00236; Q00237; Q00238; Q00239; Q00240"
+    },
+    {
+      "MaterialID": "M080",
+      "name": "Support for PA/PET",
+      "column": "Environmental evidence",
+      "before": "Not published",
+      "after": "Q00473; Q00474; Q00475; Q00476; Q00477"
+    },
+    {
+      "MaterialID": "M081",
+      "name": "HIPS",
+      "column": "Environmental evidence",
+      "before": "Q00351",
+      "after": "Q00307; Q00351"
+    },
+    {
+      "MaterialID": "M082",
+      "name": "PP",
+      "column": "Environmental evidence",
+      "before": "Q00304; Q00305; Q00306",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M083",
+      "name": "PP-CF",
+      "column": "Environmental evidence",
+      "before": "Q00304; Q00305; Q00306",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M084",
+      "name": "PP-GF",
+      "column": "Environmental evidence",
+      "before": "Q00304; Q00305; Q00306",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M091",
+      "name": "CoPE",
+      "column": "Environmental evidence",
+      "before": "Q00301; Q00302; Q00303",
+      "after": "Not published"
+    },
+    {
+      "MaterialID": "M092",
+      "name": "nGen / Amphora",
+      "column": "Environmental evidence",
+      "before": "Q00316; Q00317",
+      "after": "Not published"
+    }
+  ],
+  "coverageEdits": [
+    {
+      "CoverageID": "C00119",
+      "name": "PLA Tough+",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00129",
+      "name": "PLA Translucent",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00148",
+      "name": "PLA Silk+",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00158",
+      "name": "PLA Silk Dual Color",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00188",
+      "name": "PLA Sparkle",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00208",
+      "name": "PLA Galaxy",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00228",
+      "name": "PLA Aero",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00278",
+      "name": "PETG HF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00306",
+      "name": "PETG-GF",
+      "domain": "Mechanical",
+      "before": [
+        "Gap",
+        "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+      ],
+      "after": [
+        "Limited comparability",
+        "Elongation at break 98% (V000508) is recorded with no stated direction, so it cannot be an XY headline. No other mechanical value is published."
+      ]
+    },
+    {
+      "CoverageID": "C00308",
+      "name": "PETG-GF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C00338",
+      "name": "ABS-GF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00418",
+      "name": "PC FR",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00428",
+      "name": "PC-CF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C00435",
+      "name": "PC-GF",
+      "domain": "Print setup",
+      "before": [
+        "Gap",
+        "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+      ],
+      "after": [
+        "Evidence recorded",
+        "BASF Ultrafuse PC GF30 profile P0158 publishes nozzle, bed and drying; P0048 publishes a bed temperature only."
+      ]
+    },
+    {
+      "CoverageID": "C00447",
+      "name": "TPU",
+      "domain": "Thermal",
+      "before": [
+        "Gap",
+        "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+      ],
+      "after": [
+        "Evidence recorded",
+        "HDT 74 °C and 49 °C (V000765, V000766, transcription corrected) are recorded for grade G039-02. It is not the representative grade, so neither is the headline."
+      ]
+    },
+    {
+      "CoverageID": "C00458",
+      "name": "TPU for AMS",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00478",
+      "name": "TPU 90A",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00488",
+      "name": "TPU 85A",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00548",
+      "name": "PA6",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C00568",
+      "name": "PA6-GF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00576",
+      "name": "PA12",
+      "domain": "Mechanical",
+      "before": [
+        "Gap",
+        "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+      ],
+      "after": [
+        "Limited comparability",
+        "The only mechanical records are 12 fatigue results for the study grade G052-R1, which is not a procurement grade. No tensile, flexural or impact value is published for a PA12 grade."
+      ]
+    },
+    {
+      "CoverageID": "C00677",
+      "name": "PA-CF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C00706",
+      "name": "PA612-ESD",
+      "domain": "Thermal",
+      "before": [
+        "Gap",
+        "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+      ],
+      "after": [
+        "Partially resolved",
+        "Only a crystallization temperature (180.3 °C, V001237) is published. No HDT, glass transition, Vicat or melting value."
+      ]
+    },
+    {
+      "CoverageID": "C00727",
+      "name": "PET-CF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00746",
+      "name": "PPA",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C01144",
+      "name": "PPA",
+      "domain": "Print setup",
+      "before": [
+        "Gap",
+        "The cited IPCON TDS was re-read 2026-09-13 (SHA-256 matches) and publishes no chamber temperature."
+      ],
+      "after": [
+        "Reviewed with limitations",
+        "The cited IPCON TDS was re-read 2026-09-13 (SHA-256 matches): nozzle and bed are published, the chamber temperature is not."
+      ]
+    },
+    {
+      "CoverageID": "C00767",
+      "name": "PPA-GF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C01145",
+      "name": "PPA-GF",
+      "domain": "Print setup",
+      "before": [
+        "Gap",
+        "The cited IPCON TDS was re-read 2026-09-13 (SHA-256 matches) and publishes no chamber temperature."
+      ],
+      "after": [
+        "Reviewed with limitations",
+        "The cited IPCON TDS was re-read 2026-09-13 (SHA-256 matches): nozzle and bed are published, the chamber temperature is not."
+      ]
+    },
+    {
+      "CoverageID": "C00787",
+      "name": "PPS-CF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "7 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00797",
+      "name": "PPS-GF",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Gap",
+        "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+      ]
+    },
+    {
+      "CoverageID": "C00807",
+      "name": "PVA",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "7 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00839",
+      "name": "Support for PLA/PETG",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00861",
+      "name": "Support for PA/PET",
+      "domain": "Moisture / environmental",
+      "before": [
+        "Evidence recorded",
+        "Some exposure or moisture evidence recorded; chemical conditions may remain unspecified."
+      ],
+      "after": [
+        "Evidence recorded",
+        "5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+      ]
+    },
+    {
+      "CoverageID": "C00879",
+      "name": "PP",
+      "domain": "Print setup",
+      "before": [
+        "Gap",
+        "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+      ],
+      "after": [
+        "Partially resolved",
+        "Only a bed temperature (40-60 °C, P0104) is published. Nozzle and chamber temperatures are not."
+      ]
+    }
+  ]
+}
