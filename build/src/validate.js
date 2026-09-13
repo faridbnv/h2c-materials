@@ -3,6 +3,9 @@
 
 import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
+import {
+  ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
+} from './coverage-rules.js';
 
 const err = (where, message) => ({ level: 'error', where, message });
 const warn = (where, message) => ({ level: 'warn', where, message });
@@ -47,6 +50,96 @@ export function validate(db, wb) {
   for (const m of db.materials) {
     for (const g of m.gradeIds) if (!G.has(g)) issues.push(err(`materials ${m.id}`, `GradeIDs lists unknown grade "${g}"`));
   }
+
+  // -- every record points at the right material --------------------------------
+  // Referential integrity above proves an identifier exists. It does not prove it is the right one:
+  // a measurement filed under one material against another material's grade, or a headline citing a
+  // measurement of a different material, passes every existence check and shows wrong data.
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
+  const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
+  const profileById = new Map(db.profiles.map((p) => [p.id, p]));
+  const evidenceById = new Map(db.evidence.map((e) => [e.id, e]));
+  for (const [rows, name] of [[db.measurements, 'measurements'], [db.profiles, 'profiles'], [db.prices, 'prices'], [db.evidence, 'evidence']]) {
+    for (const r of rows) {
+      const g = gradeById.get(r.gradeId);
+      if (g && g.materialId !== r.materialId) issues.push(err(`${name} ${r.id}`, `Filed under ${r.materialId} but its grade ${r.gradeId} belongs to ${g.materialId}`));
+    }
+  }
+
+  const guidanceText = (t) => String(t ?? '').replace(/\s+/g, '').replace(/[–—]/g, '-').toLowerCase();
+  const isMissingText = (t) => /^(not published|not applicable)$/i.test(String(t ?? '').trim());
+  let citationsChecked = 0;
+  for (const mat of db.materials) {
+    const where = `materials ${mat.id} (${mat.name})`;
+    const grades = db.grades.filter((g) => g.materialId === mat.id);
+
+    // Grades. Study grades (an R suffix) are not procurement grades and are not listed.
+    for (const g of grades) {
+      if (!isStudyGrade(g.id) && !mat.gradeIds.includes(g.id)) issues.push(err(where, `Grade ${g.id} belongs to this material but GradeIDs does not list it`));
+    }
+    for (const id of mat.gradeIds) {
+      if (gradeById.get(id) && gradeById.get(id).materialId !== mat.id) issues.push(err(where, `GradeIDs lists ${id}, a grade of ${gradeById.get(id).materialId}`));
+    }
+    const rep = mat.representativeGrade;
+    const hasRep = rep && !isMissingText(rep) && !/^insufficient/i.test(rep);
+    if (hasRep && !grades.some((g) => g.id === rep)) issues.push(err(where, `Representative grade ${rep} is not one of its grades`));
+
+    // Headlines. Method, Comparison / Headlines: labelled single-grade observations, which in this
+    // workbook means the representative grade. A headline from another grade would put two
+    // formulations' numbers side by side in one row as if they were one product.
+    for (const [key, h] of Object.entries(mat.headline)) {
+      if (!h?.known || !h.measurementId) continue;
+      const m = measurementById.get(h.measurementId);
+      if (m.materialId !== mat.id) issues.push(err(where, `Headline ${key} cites ${m.id}, a measurement of ${m.materialId}`));
+      else if (hasRep && m.gradeId !== rep) issues.push(err(where, `Headline ${key} cites ${m.id} on grade ${m.gradeId}, not the representative grade ${rep}`));
+      citationsChecked++;
+    }
+    for (const id of [...mat.headlineEvidence.mechanical, ...mat.headlineEvidence.thermal]) {
+      const m = measurementById.get(id);
+      if (!m) issues.push(err(where, `Headline evidence cites ${id}, which does not exist`));
+      else if (m.materialId !== mat.id) issues.push(err(where, `Headline evidence cites ${id}, a measurement of ${m.materialId}`));
+    }
+
+    // Printing. The guidance cells quote the first profile the row cites.
+    const cited = mat.printingEvidence.map((id) => profileById.get(id)).filter(Boolean);
+    for (const id of mat.printingEvidence) {
+      const p = profileById.get(id), e = evidenceById.get(id);
+      if (!p && !e) issues.push(err(where, `Printing evidence cites ${id}, which does not exist`));
+      else if ((p ?? e).materialId !== mat.id) issues.push(err(where, `Printing evidence cites ${id} of ${(p ?? e).materialId}`));
+    }
+    if (cited.length) {
+      for (const axis of ['nozzle', 'bed', 'chamber']) {
+        const g = mat.guidance[axis], t = cited[0][axis].text;
+        if (guidanceText(g) !== guidanceText(t) && !(isMissingText(g) && isMissingText(t))) {
+          issues.push(err(where, `${axis} guidance "${g}" is not what its printing evidence ${cited[0].id} says ("${t}")`));
+        }
+      }
+    }
+
+    // Use and durability. Use, durability and safety may cite family context from another material;
+    // the environmental column may cite only this material's own exposure, solubility and moisture
+    // records, because it is the one a reader takes as evidence about this grade.
+    for (const [kind, list] of Object.entries(mat.evidenceIds)) {
+      for (const id of list) if (!evidenceById.get(id)) issues.push(err(where, `${kind} evidence cites ${id}, which does not exist`));
+    }
+    const ownEnvironment = db.evidence.filter((e) => e.materialId === mat.id && ENVIRONMENT_CATEGORIES.has(e.category)).map((e) => e.id).sort().join('; ');
+    if ([...mat.evidenceIds.environmental].sort().join('; ') !== ownEnvironment) {
+      issues.push(err(where, `Environmental evidence cites "${mat.evidenceIds.environmental.join('; ') || 'nothing'}"; its own exposure records are "${ownEnvironment || 'none'}"`));
+    }
+
+    // Coverage. Terminal, but it has to be true: no Gap beside data, no claimed evidence without it.
+    const data = domainData(db, mat);
+    for (const c of db.coverage.filter((x) => x.materialId === mat.id)) {
+      if (data[c.domain] !== undefined) {
+        const has = data[c.domain].length > 0;
+        if (has && CLAIMS_ABSENCE.has(c.status)) issues.push(err(`coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" beside ${data[c.domain].length} record(s) of its own, e.g. ${data[c.domain][0]}`));
+        if (!has && CLAIMS_EVIDENCE.has(c.status)) issues.push(err(`coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" but it has no record of its own in that domain`));
+      }
+      const n = c.domain === 'Grades' && c.finding?.match(/^(\d+) distinct manufacturer\(s\)/);
+      if (n && Number(n[1]) !== manufacturerCount(db, mat)) issues.push(err(`coverage ${c.id}`, `${mat.name} Grades quotes ${n[1]} manufacturers; its procurement grades name ${manufacturerCount(db, mat)}`));
+    }
+  }
+  db.meta.consistency = { materials: db.materials.length, headlineCitations: citationsChecked };
 
   // -- quarantined rows never enter numeric summaries -------------------------
   // Method sheet, Normalization / Uncertainty: values with unresolved units are quarantined and
@@ -251,6 +344,19 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
     L.push(`| ${k} | ${v.missing} | ${v['family+filler'] ?? 0} | ${v.family ?? 0} | ${v.filler ?? 0} | ${v.none ?? 0} |`);
   }
+  L.push('');
+
+  L.push('## Consistency');
+  L.push('');
+  L.push(`Every one of the ${db.materials.length} materials was checked, and any failure below stops the build:`);
+  L.push('');
+  L.push('- each measurement, profile, price and use record sits under the material its grade belongs to;');
+  L.push('- GradeIDs lists every procurement grade, and the representative grade is one of them;');
+  L.push(`- every headline cites a measurement of its own material and of the representative grade (${db.meta.consistency?.headlineCitations ?? 0} checked);`);
+  L.push('- every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;');
+  L.push('- nozzle, bed and chamber guidance quote the profile the row cites;');
+  L.push('- Environmental evidence cites exactly the material\'s own exposure, solubility and moisture records;');
+  L.push('- no coverage row says Gap beside the material\'s own data or claims evidence it does not have, for mechanical, thermal, print setup, environmental and price, and a Grades row quotes the true manufacturer count.');
   L.push('');
 
   L.push('## Reference layer');

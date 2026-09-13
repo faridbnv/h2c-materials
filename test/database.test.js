@@ -8,6 +8,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { validate } from '../build/src/validate.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
@@ -332,4 +333,64 @@ test('an estimated chamber band never sits beside published evidence and never d
   const ppa = db.materials.find((m) => m.name === 'PPA');
   assert.equal(ppa.print.chamberEstimate.lo, 80);
   assert.equal(ppa.gates.chamber.verdict, 'unknown');
+});
+
+// --- 2026-09-13 coverage consolidation ----------------------------------------------------------
+// docs/audits/2026-09-13-coverage-consolidation/. The validator now checks that every record points
+// at the right material. Each test below breaks a copy of the snapshot in one way and requires the
+// validator to name it, so a check that silently stopped firing would fail here.
+
+
+const errorsFor = (mutate) => {
+  const copy = structuredClone(db);
+  mutate(copy);
+  return validate(copy).filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`);
+};
+const mat = (copy, name) => copy.materials.find((m) => m.name === name);
+
+test('the consolidated snapshot passes every consistency check', () => {
+  assert.deepEqual(errorsFor(() => {}), []);
+});
+
+test('a headline citing another material, or another grade, is an error', () => {
+  assert.ok(errorsFor((c) => { mat(c, 'PC FR').headline.density.measurementId = mat(c, 'PLA Basic').headline.density.measurementId; })
+    .some((e) => /Headline density cites .* a measurement of/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'PET-GF').representativeGrade = 'G068-01'; })
+    .some((e) => /not the representative grade G068-01/.test(e)));
+});
+
+test('a record filed under the wrong material is an error', () => {
+  assert.ok(errorsFor((c) => { c.measurements.find((m) => m.gradeId === 'G036-01').materialId = 'M035'; })
+    .some((e) => /its grade G036-01 belongs to M036/.test(e)));
+});
+
+test('a procurement grade missing from GradeIDs is an error; a study grade is not', () => {
+  assert.ok(errorsFor((c) => { mat(c, 'CoPE').gradeIds = ['G091-02']; }).some((e) => /G091-01 belongs to this material/.test(e)));
+  assert.ok(!db.materials.find((m) => m.name === 'PA12').gradeIds.some((g) => /-R\d+$/.test(g)));
+});
+
+test('guidance that does not quote its printing evidence is an error', () => {
+  assert.ok(errorsFor((c) => { mat(c, 'PC FR').guidance.chamber = 'Not published'; })
+    .some((e) => /chamber guidance "Not published" is not what its printing evidence P0044 says/.test(e)));
+});
+
+// Regression: the Environmental evidence column held a copy of family application notes for 31
+// materials, and PC FR's coverage said "Evidence recorded" on the strength of polycarbonate's notes.
+test('environmental evidence and coverage describe only the material\'s own records', () => {
+  const pcfr = db.materials.find((m) => m.name === 'PC FR');
+  const own = db.evidence.filter((e) => e.materialId === pcfr.id);
+  assert.deepEqual(own.filter((e) => e.category === 'acid').map((e) => e.finding), ['Not resistant']);
+  assert.ok(pcfr.evidenceIds.environmental.every((id) => own.some((e) => e.id === id)));
+  assert.ok(errorsFor((c) => { mat(c, 'PC FR').evidenceIds.environmental = ['Q00290']; }).some((e) => /Environmental evidence cites "Q00290"/.test(e)));
+  assert.ok(errorsFor((c) => { c.coverage.find((x) => x.id === 'C00435').status = 'Gap'; }).some((e) => /C00435.*Print setup says "Gap" beside/.test(e)));
+  assert.ok(errorsFor((c) => { c.coverage.find((x) => x.id === 'C00428').status = 'Evidence recorded'; }).some((e) => /C00428.*has no record of its own/.test(e)));
+});
+
+// The recovered chemical rows differ by material; a family default would have been wrong for these.
+test('recovered Bambu chemical records keep each data sheet\'s own verdict', () => {
+  const finding = (name, topic) => db.evidence.find((e) => e.materialId === db.materials.find((m) => m.name === name).id && e.topic === topic)?.finding;
+  assert.equal(finding('ABS-GF', 'Resistance to Acid'), 'Resistant');
+  assert.equal(finding('PPS-CF', 'Resistance to Organic Solvent'), 'Resistant');
+  assert.equal(finding('PVA', 'Solubility'), 'Soluble in water');
+  assert.equal(finding('PLA Tough+', 'Resistance to Alkali'), 'Not resistant');
 });

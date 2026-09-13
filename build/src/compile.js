@@ -582,6 +582,9 @@ export function compile(wb, { snapshot, build }) {
       },
       profileIds: mProfiles.map((p) => p.id),
       printingEvidence: ids(mat['Printing evidence']),
+      // What the Materials row cites for its headlines, kept so the validator can check that every
+      // citation exists and belongs to this material, not only the ones a headline value matched.
+      headlineEvidence: { mechanical: ids(mat['Mechanical evidence']), thermal: ids(mat['Thermal evidence']) },
       bestUses: mat['Best uses'],
       limitations: mat.Limitations,
       impactNote: mat['Impact / toughness'],

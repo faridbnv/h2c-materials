@@ -16,7 +16,7 @@ Database snapshot 2026-09-13 · build 2026-09-13
 | numericMeasurements | 1806 |
 | quarantined | 2 |
 | profiles | 167 |
-| evidence | 380 |
+| evidence | 478 |
 | prices | 104 |
 | sources | 235 |
 | coverage | 1146 |
@@ -72,12 +72,12 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials |
 |---|---|---:|---:|---:|
-| alkali | verdict | 48 | 46 | 35 |
-| acid | verdict | 52 | 44 | 36 |
-| flammability | verdict | 37 | 35 | 37 |
-| organic-solvent | verdict | 45 | 28 | 38 |
-| oil-grease | verdict | 40 | 28 | 37 |
-| water-solubility | verdict | 25 | 23 | 25 |
+| alkali | verdict | 67 | 65 | 54 |
+| acid | verdict | 71 | 63 | 55 |
+| organic-solvent | verdict | 64 | 47 | 56 |
+| oil-grease | verdict | 59 | 47 | 56 |
+| water-solubility | verdict | 43 | 41 | 42 |
+| flammability | verdict | 41 | 36 | 41 |
 | food-contact | indicator | 2 | 0 | 2 |
 | uv-outdoor | indicator | 7 | 0 | 6 |
 | moisture | indicator | 7 | 0 | 7 |
@@ -98,6 +98,18 @@ in Strict mode, and can only exclude, never confirm.
 | tensileStrengthXY | 44 | 11 | 17 | 10 | 6 |
 | elongationXY | 26 | 7 | 11 | 2 | 6 |
 | hdt045 | 32 | 5 | 12 | 1 | 14 |
+
+## Consistency
+
+Every one of the 102 materials was checked, and any failure below stops the build:
+
+- each measurement, profile, price and use record sits under the material its grade belongs to;
+- GradeIDs lists every procurement grade, and the representative grade is one of them;
+- every headline cites a measurement of its own material and of the representative grade (369 checked);
+- every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
+- nozzle, bed and chamber guidance quote the profile the row cites;
+- Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
+- no coverage row says Gap beside the material's own data or claims evidence it does not have, for mechanical, thermal, print setup, environmental and price, and a Grades row quotes the true manufacturer count.
 
 ## Reference layer
 
