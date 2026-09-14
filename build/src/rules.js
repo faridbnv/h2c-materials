@@ -79,6 +79,8 @@ export const RULES = {
   'EST-INVALID': r('error', 'estimates', 'An estimate is malformed: beside a value, out of scope, unknown kind, strength or precision, no basis, ranges not nested, or evidence misattributed.', 'Fix the estimate model or its inputs; estimates are never authored.'),
   'EST-CALIBRATION': r('error', 'estimates', 'An estimate model\'s likely or plausible range no longer holds hidden headlines as often as it claims.', 'Review recent data and conversions; the model must stay calibrated (D43).'),
   'EST-MODEL-REFERENCE': r('error', 'estimates', 'The estimate model configuration names a material or grade that does not exist.', 'Update build/mappings/estimate-model.json to the current name or ID.'),
+  'EST-WIDE': r('warn', 'estimates', 'Estimates too imprecise to guide a choice (their likely range is poor precision).', 'Find a published value for the material or a close sibling; accept with the reason if none exists.'),
+  'EST-FAMILY-ORDER': r('warn', 'estimates', 'A reinforced material sits below its unfilled sibling where reinforcement raises the property (stiffness; heat deflection of a semicrystalline matrix).', 'Check both values and grades; accept with the reason if the sources genuinely differ.'),
   'EST-CALIBRATION-FEW': r('warn', 'estimates', 'Too few measured headlines to calibrate a model; it uses a default scale.', 'Informational; grows with data.'),
   'EST-SUMMARY': r('warn', 'estimates', 'How missing headlines are covered by estimates.', 'Informational.'),
   'EST-REJECTED': r('warn', 'estimates', 'Physically impossible observations kept out of the estimate model.', 'Re-read the source; correct or quarantine the measurement.'),

@@ -620,3 +620,23 @@ test('the validator rejects a blank headline, a range that does not nest, and ev
   assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.evidence[0].items[0].measurementId = foreign; }).some((e) => /neither this material/.test(e)));
   assert.ok(errorsFor((c) => { c.meta.estimateModel.properties.density.calibration.likelyCoverage = 0.5; }).some((e) => /likely range contains 50%/.test(e)));
 });
+
+// 2026-09-14 transfer verification: estimates may not reach physically impossible values (a heat
+// deflection below room temperature, a property beyond its physical limits), and calibration must hold.
+test('no estimate reaches past a physical limit, and calibration still holds', () => {
+  const model = JSON.parse(readFileSync(join(root, 'build/mappings/estimate-model.json'), 'utf8'));
+  const floor = model.bounds.hdtFloor.value - 2 * model.bounds.hdtFloor.sd;
+  for (const m of db.materials) {
+    for (const [key, p] of Object.entries(model.properties)) {
+      const e = m.headline[key]?.estimate;
+      if (!e) continue;
+      const [lo, hi] = p.plausibleValues;
+      assert.ok(e.plausible.lo >= lo && e.plausible.hi <= hi * 1.5, `${m.name} ${key} ${e.plausible.lo}-${e.plausible.hi}`);
+      if (key === 'hdt045') assert.ok(e.plausible.lo >= floor, `${m.name} HDT plausible from ${e.plausible.lo} °C`);
+    }
+  }
+  for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
+    assert.ok(Math.abs(p.calibration.likelyCoverage - 0.8) <= 0.1, `${key} likely coverage ${p.calibration.likelyCoverage}`);
+    assert.ok(p.calibration.plausibleCoverage >= 0.9, `${key} plausible coverage ${p.calibration.plausibleCoverage}`);
+  }
+});

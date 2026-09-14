@@ -625,6 +625,17 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       p.mu += tmMean(subject);
 
       const bounds = [];
+      // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer
+      // plausibleValues, and for heat deflection a floor near room temperature. They are published with the
+      // estimate only where they move its plausible range, so a reader sees a limit when it matters.
+      const [plo, phi] = model.properties[key].plausibleValues;
+      const toModel = transform(key, model);
+      const outerSd = model.properties[key].scale === 'log' ? model.bounds.plausibleValuesSd.log : model.bounds.plausibleValuesSd.linear;
+      const physical = [
+        { side: 'lower', value: toModel(plo), sd: outerSd, why: `physical lower limit ${plo} ${h.unit}: ${model.bounds.plausibleValuesSd.why}` },
+        { side: 'upper', value: toModel(phi), sd: outerSd, why: `physical upper limit ${phi} ${h.unit}: ${model.bounds.plausibleValuesSd.why}` },
+        ...(key === 'hdt045' ? [{ side: 'lower', value: model.bounds.hdtFloor.value, sd: model.bounds.hdtFloor.sd, why: `${model.bounds.hdtFloor.value} °C floor: ${model.bounds.hdtFloor.why}` }] : []),
+      ];
       if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
         bounds.push({ side: 'upper', value: S.tmOf(m), sd: model.bounds.meltingSd, why: `melting point ${S.tmOf(m)} °C: ${model.bounds.hdtAboveMelting}` });
       }
@@ -632,7 +643,20 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
         const lift = S.fibre(m) ? model.bounds.amorphousAboveTg.fibre : model.bounds.amorphousAboveTg.unfilled;
         bounds.push({ side: 'upper', value: S.tgOf(m) + lift, sd: model.bounds.amorphousAboveTg.sd, why: `glass transition ${S.tgOf(m)} °C + ${lift} °C: ${model.bounds.amorphousAboveTg.why}` });
       }
-      const q = (pr, cal) => inv(boundedQuantile(p.mu, p.sd * cal, bounds, pr));
+      const qWith = (list) => (pr, cal) => inv(boundedQuantile(p.mu, p.sd * cal, list, pr));
+      // A physical limit takes part only where it can reach the distribution; far limits would change
+      // nothing but the numerical method. It is published only if it moves the plausible range itself.
+      const reach = 6 * p.sd * Math.max(calLikely, calPlausible);
+      const active = physical.filter((b) => (b.side === 'lower' ? b.value + 4 * b.sd > p.mu - reach : b.value - 4 * b.sd < p.mu + reach));
+      const semantic = [...bounds];
+      const all = qWith([...semantic, ...active]);
+      for (const b of active) {
+        const pr = b.side === 'lower' ? 0.5 - plausible / 2 : 0.5 + plausible / 2;
+        const without = qWith([...semantic, ...active.filter((x) => x !== b)])(pr, calPlausible);
+        const withIt = all(pr, calPlausible);
+        if (Math.abs(without - withIt) > Math.abs(withIt) * 0.01 + 1e-9) bounds.push(b);
+      }
+      const q = qWith(bounds);
       const centre = q(0.5, calLikely);
       const range = [q(0.5 - likely / 2, calLikely), q(0.5 + likely / 2, calLikely)];
       const wide = [q(0.5 - plausible / 2, calPlausible), q(0.5 + plausible / 2, calPlausible)];

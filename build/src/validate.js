@@ -204,7 +204,7 @@ export function validate(db, wb) {
   const impactUnits = new Set(impact.map((m) => m.unit));
   if (impactUnits.has('J/m') && impactUnits.has('kJ/m²')) {
     const n = impact.filter((m) => m.unit === 'J/m').length;
-    issues.push(warn('IMPACT-UNITS', 'measurements', `Impact data uses two incompatible units. ${n} rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.`));
+    issues.push(warn('IMPACT-UNITS', 'measurements', `Impact data uses two incompatible units. ${n} rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.`, { records: impact.filter((m) => m.unit === 'J/m').map((m) => m.id) }));
   }
 
   // -- excluded materials stay out of the default candidate set ---------------
@@ -225,7 +225,7 @@ export function validate(db, wb) {
     issues.push(err('HDT-LOAD-WRONG', `materials ${m.id}`, `Column is HDT at 0.45 MPa but the cited source states ${m.headline.hdt045.loadMPa} MPa`));
   }
   if (unstated.length) {
-    issues.push(warn('HDT-LOAD-UNSTATED', 'materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`));
+    issues.push(warn('HDT-LOAD-UNSTATED', 'materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`, { records: unstated.map((m) => `${m.id} hdt045`) }));
   }
 
   // -- estimates ---------------------------------------------------------------
@@ -288,11 +288,35 @@ export function validate(db, wb) {
   db.meta.estimateTally = tally;
   issues.push(warn('EST-SUMMARY', 'materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));
   if (model.rejected.length) {
-    issues.push(warn('EST-REJECTED', 'measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`));
+    issues.push(warn('EST-REJECTED', 'measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`, { records: model.rejected.map((r) => r.measurementId) }));
   }
   if (model.outliers.length) {
-    issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`));
+    issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`, { records: model.outliers.map((o) => `${o.materialId} ${o.key}`) }));
   }
+
+  // -- estimates a reader should not lean on, and family order ---------------------------------------------
+  // Each is listed by record so an accepted case can be baselined and a new one noticed.
+  const wide = [];
+  for (const mat of db.materials) for (const key of estimateKeys(db.registry)) {
+    const e = mat.headline[key]?.estimate;
+    if (e?.precision === 'poor') wide.push({ record: `${mat.id} ${key}`, text: `${mat.name} ${key} ${e.lo}-${e.hi} ${e.unit} (plausible ${e.plausible.lo}-${e.plausible.hi}, ${e.strength})` });
+  }
+  if (wide.length) issues.push(warn('EST-WIDE', 'materials', `${wide.length} estimates are too imprecise to guide a choice: ${wide.map((w) => w.text).join('; ')}`, { records: wide.map((w) => w.record) }));
+
+  const valueOf = (m, key) => (m.headline[key]?.known ? m.headline[key].value : m.headline[key]?.estimate?.centre ?? null);
+  const morphologyOf = (m) => ESTIMATE_MODEL.identities[identityOf(m)]?.morphology;
+  const order = [];
+  const inScope = db.materials.filter((m) => !m.excluded && !m.familyEntry);
+  for (const r of inScope.filter((m) => /fibre/i.test(m.modifier))) {
+    for (const u of inScope.filter((m) => m.basePolymer === r.basePolymer && m.modifier === 'Unfilled / unspecified' && m.id !== r.id)) {
+      for (const key of ['tensileModulusXY', 'hdt045']) {
+        if (key === 'hdt045' && morphologyOf(r) !== 'semicrystalline') continue;
+        const vr = valueOf(r, key), vu = u.headline[key]?.known ? u.headline[key].value : null;
+        if (vr != null && vu != null && vr < vu) order.push({ record: `${r.id} ${key}`, text: `${r.name} ${key} ${vr}${r.headline[key].known ? '' : ' (estimate)'} < ${u.name} ${vu}` });
+      }
+    }
+  }
+  if (order.length) issues.push(warn('EST-FAMILY-ORDER', 'materials', `${order.length} reinforced materials sit below their unfilled sibling: ${order.map((o) => o.text).join('; ')}`, { records: order.map((o) => o.record) }));
 
   // -- unparsed free text -----------------------------------------------------
   const unparsedProcess = [];
@@ -302,7 +326,7 @@ export function validate(db, wb) {
     }
   }
   if (unparsedProcess.length) {
-    issues.push(warn('PARSE-UNREAD', 'profiles', `${unparsedProcess.length} process temperature cells were not parsed: ${unparsedProcess.slice(0, 10).join(' | ')}`));
+    issues.push(warn('PARSE-UNREAD', 'profiles', `${unparsedProcess.length} process temperature cells were not parsed: ${unparsedProcess.slice(0, 10).join(' | ')}`, { records: unparsedProcess.map((u) => u.split(':')[0]) }));
   }
   const unmappedTopics = [...new Set(db.evidence.filter((e) => !e.category).map((e) => e.topic))];
   if (unmappedTopics.length) {
@@ -313,10 +337,10 @@ export function validate(db, wb) {
   const noMeasurements = db.materials.filter((m) => !m.familyEntry && !db.measurements.some((x) => x.materialId === m.id));
   const families = db.materials.filter((m) => m.familyEntry);
   if (families.length) {
-    issues.push(warn('FAMILY-ENTRIES', 'materials', `${families.length} canonical names are family entries with no product of their own and are not candidates: ${families.map((m) => `${m.name} (${m.familyEntry.members.map((x) => x.name).join(', ')})`).join('; ')}`));
+    issues.push(warn('FAMILY-ENTRIES', 'materials', `${families.length} canonical names are family entries with no product of their own and are not candidates: ${families.map((m) => `${m.name} (${m.familyEntry.members.map((x) => x.name).join(', ')})`).join('; ')}`, { records: families.map((m) => m.id) }));
   }
   if (noMeasurements.length) {
-    issues.push(warn('NO-MEASUREMENTS', 'materials', `${noMeasurements.length} materials have no property measurements at all: ${noMeasurements.map((m) => m.name).join(', ')}`));
+    issues.push(warn('NO-MEASUREMENTS', 'materials', `${noMeasurements.length} materials have no property measurements at all: ${noMeasurements.map((m) => m.name).join(', ')}`, { records: noMeasurements.map((m) => m.id) }));
   }
 
   return issues;

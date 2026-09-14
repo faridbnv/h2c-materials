@@ -112,6 +112,8 @@ what it means and how to fix it.
 | `EST-INVALID` | error | An estimate is malformed: beside a value, out of scope, unknown kind, strength or precision, no basis, ranges not nested, or evidence misattributed. | Fix the estimate model or its inputs; estimates are never authored. |
 | `EST-CALIBRATION` | error | An estimate model's likely or plausible range no longer holds hidden headlines as often as it claims. | Review recent data and conversions; the model must stay calibrated (D43). |
 | `EST-MODEL-REFERENCE` | error | The estimate model configuration names a material or grade that does not exist. | Update build/mappings/estimate-model.json to the current name or ID. |
+| `EST-WIDE` | warn | Estimates too imprecise to guide a choice (their likely range is poor precision). | Find a published value for the material or a close sibling; accept with the reason if none exists. |
+| `EST-FAMILY-ORDER` | warn | A reinforced material sits below its unfilled sibling where reinforcement raises the property (stiffness; heat deflection of a semicrystalline matrix). | Check both values and grades; accept with the reason if the sources genuinely differ. |
 | `EST-CALIBRATION-FEW` | warn | Too few measured headlines to calibrate a model; it uses a default scale. | Informational; grows with data. |
 | `EST-SUMMARY` | warn | How missing headlines are covered by estimates. | Informational. |
 | `EST-REJECTED` | warn | Physically impossible observations kept out of the estimate model. | Re-read the source; correct or quarantine the measurement. |

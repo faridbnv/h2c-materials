@@ -49,7 +49,7 @@ test('a real build raises only catalogued codes at their catalogued level', () =
     assert.ok(RULES[i.code], `${i.where}: no code for "${i.message}"`);
     assert.equal(i.level, RULES[i.code].level, `${i.code} level`);
   }
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-OUTLIER', 'EST-SUMMARY', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-SUMMARY', 'EST-WIDE', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {
