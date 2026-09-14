@@ -38,7 +38,7 @@ export function migrate(t) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const t = openTables();
+  const t = openTables(undefined, { allowMissing: true });
   migrate(t);
   const changes = t.save();
   const byColumn = new Map();

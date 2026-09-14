@@ -1,9 +1,9 @@
-// Compile: turn extracted rows into the normalized runtime database.
+// Compile: turn the data tables into the normalized runtime database.
 //
-// The one rule that shapes this file: headline values are VERIFIED against the measurements the
-// workbook already cites, never recomputed. The Materials sheet carries MeasurementIDs in
-// "Mechanical evidence" and "Thermal evidence", PriceIDs in "Price evidence" and a ProfileID in
-// "Printing evidence". A headline that does not match its own citation is a build error.
+// The one rule that shapes this file: a headline is a measurement selected in headlines.csv, never a
+// number typed a second time. Its value is read from that measurement, and the selection is checked:
+// the measurement must be the material's own, on its representative grade, with the headline's
+// property, unit and direction. A selection that fails any of these is a build error.
 
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -258,67 +258,72 @@ function buySummary(materialId, prices) {
 
 // ---------------------------------------------------------------------------- headlines
 
-// headline key -> [Materials column, unit, evidence column, expected property, expected direction]
+// headline key -> [unit, evidence group, expected property, expected direction]
 const HEADLINES = [
-  ['density',          'Density kg/m³',            'kg/m³', 'Mechanical evidence', 'Density',            null],
-  ['tensileModulusXY', 'Tensile modulus XY GPa',   'GPa',   'Mechanical evidence', 'Tensile modulus',    DIRECTION.XY],
-  ['tensileStrengthXY','Tensile strength XY MPa',  'MPa',   'Mechanical evidence', null,                 DIRECTION.XY],
-  ['elongationXY',     'Elongation at break XY %', '%',     'Mechanical evidence', 'Elongation at break',DIRECTION.XY],
-  ['hdt045',           'HDT 0.45 MPa °C',          '°C',    'Thermal evidence',    'HDT',                null],
+  ['density',           'kg/m³', 'mechanical', 'Density',            null],
+  ['tensileModulusXY',  'GPa',   'mechanical', 'Tensile modulus',    DIRECTION.XY],
+  ['tensileStrengthXY', 'MPa',   'mechanical', null,                 DIRECTION.XY],
+  ['elongationXY',      '%',     'mechanical', 'Elongation at break',DIRECTION.XY],
+  ['hdt045',            '°C',    'thermal',    'HDT',                null],
 ];
+const HEADLINE_KEYS = new Set(HEADLINES.map(([k]) => k));
+const NOT_PUBLISHED = parseValue('Not published');
 
-function compileHeadlines(mat, measurementsById, measurementsByMaterial, issues) {
+function compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues) {
   const headline = {};
-  for (const [key, column, unit, evidenceColumn, property, direction] of HEADLINES) {
-    const parsed = parseValue(mat[column]);
-    const cited = ids(mat[evidenceColumn]).map((id) => measurementsById.get(id)).filter(Boolean);
+  const where = `headlines ${mat.MaterialID} (${mat['Original name']})`;
+  for (const s of selections) {
+    if (!HEADLINE_KEYS.has(s.HeadlineKey)) issues.push({ level: 'error', where, message: `Unknown headline key "${s.HeadlineKey}"` });
+  }
+  for (const [key, unit, , property, direction] of HEADLINES) {
+    const values = selections.filter((s) => s.HeadlineKey === key && s.Use === 'value');
+    if (values.length > 1) issues.push({ level: 'error', where, message: `${key} selects ${values.length} values (${values.map((s) => s.MeasurementID).join(', ')}); a headline shows one measurement` });
 
-    if (!parsed.known) {
+    if (!values.length) {
       headline[key] = {
-        known: false, missing: parsed.missing, text: parsed.text, unit,
+        known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
         related: relatedEvidence(mat, key, measurementsByMaterial),
       };
       continue;
     }
 
-    const match = cited.find((m) => m.value === parsed.value && m.unit === unit
-      && m.materialId === mat.MaterialID && m.gradeId === mat['Representative grade']
-      && (property ? m.property === property : RELATED.tensileStrengthXY.includes(m.property))
-      && (!direction || m.direction === direction));
-    if (!match) {
-      issues.push({
-        level: 'error',
-        where: `Materials ${mat.MaterialID} (${mat['Original name']})`,
-        message: `Headline ${key} = ${parsed.value} is not equal to any measurement cited in "${evidenceColumn}"`,
-      });
-      headline[key] = { known: true, value: parsed.value, unit, origin: ORIGIN.SOURCE, verified: false };
+    const id = values[0].MeasurementID;
+    const m = measurementsById.get(id);
+    const problem = !m ? `${id} is not an active measurement (missing or a retired duplicate)`
+      : !m.numeric ? `${id} has no usable numeric value (${m.dataStatus})`
+      : m.materialId !== mat.MaterialID ? `${id} is a measurement of ${m.materialId}`
+      : m.gradeId !== mat['Representative grade'] ? `${id} is on grade ${m.gradeId}, not the representative grade ${mat['Representative grade']}`
+      : !(property ? m.property === property : RELATED.tensileStrengthXY.includes(m.property)) ? `${id} measures ${m.property}`
+      : m.unit !== unit ? `${id} is in ${m.unit}, not ${unit}`
+      : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
+      : null;
+    if (problem) {
+      issues.push({ level: 'error', where, message: `Headline ${key} cannot show ${problem}` });
+      headline[key] = { known: true, value: m?.value ?? null, unit, origin: ORIGIN.SOURCE, verified: false };
       continue;
     }
 
     const entry = {
       known: true,
-      value: parsed.value,
+      value: m.value,
       unit,
       origin: ORIGIN.SOURCE,
       verified: true,
-      measurementId: match.id,
-      gradeId: match.gradeId,
-      sourceId: match.sourceId,
-      direction: match.direction,
-      specimenType: match.specimenType,
-      moisture: match.moisture,
-      interval: match.interval,
-      uncertainty: match.uncertainty,
+      measurementId: m.id,
+      gradeId: m.gradeId,
+      sourceId: m.sourceId,
+      direction: m.direction,
+      specimenType: m.specimenType,
+      moisture: m.moisture,
+      interval: m.interval,
+      uncertainty: m.uncertainty,
     };
-    if (direction && match.direction !== direction) {
-      issues.push({ level: 'error', where: `Materials ${mat.MaterialID}`, message: `Headline ${key} cites a ${match.direction} measurement but the column is ${direction}` });
-    }
-    // The column is labelled 0.45 MPa. Where the cited source never stated a load, say so rather
-    // than letting the column heading assert it.
+    // The key is labelled 0.45 MPa. Where the cited source never stated a load, say so rather
+    // than letting the label assert it.
     if (key === 'hdt045') {
-      entry.loadStated = match.thermal?.loadStated ?? false;
-      entry.loadMPa = match.thermal?.loadMPa ?? null;
-      entry.standard = match.thermal?.standard ?? null;
+      entry.loadStated = m.thermal?.loadStated ?? false;
+      entry.loadMPa = m.thermal?.loadMPa ?? null;
+      entry.standard = m.thermal?.standard ?? null;
       // A stable code, not prose. The engine branches on this, and the UI supplies the wording.
       if (!entry.loadStated) {
         entry.caveat = 'load-not-stated';
@@ -328,6 +333,15 @@ function compileHeadlines(mat, measurementsById, measurementsByMaterial, issues)
     headline[key] = entry;
   }
   return headline;
+}
+
+/** Every measurement a material cites for its headlines, values and context, grouped as the app shows them. */
+function headlineEvidence(selections) {
+  const group = Object.fromEntries(HEADLINES.map(([k, , g]) => [k, g]));
+  return {
+    mechanical: selections.filter((s) => group[s.HeadlineKey] === 'mechanical').map((s) => s.MeasurementID),
+    thermal: selections.filter((s) => group[s.HeadlineKey] === 'thermal').map((s) => s.MeasurementID),
+  };
 }
 
 /**
@@ -604,6 +618,12 @@ export function compile(wb, { snapshot, build }) {
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
 
+  const headlineSelections = new Map();
+  for (const r of wb.Headlines.rows) {
+    if (!headlineSelections.has(r.MaterialID)) headlineSelections.set(r.MaterialID, []);
+    headlineSelections.get(r.MaterialID).push(r);
+  }
+
   const measurementsByMaterial = new Map();
   for (const m of measurements) {
     if (!measurementsByMaterial.has(m.materialId)) measurementsByMaterial.set(m.materialId, []);
@@ -612,6 +632,7 @@ export function compile(wb, { snapshot, build }) {
 
   const materials = wb.Materials.rows.map((mat) => {
     const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
+    const selections = headlineSelections.get(mat.MaterialID) || [];
     return {
       id: mat.MaterialID,
       name: mat['Original name'],
@@ -630,7 +651,7 @@ export function compile(wb, { snapshot, build }) {
       familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(mat['Original name']) : null,
       representativeGrade: mat['Representative grade'],
       gradeIds: ids(mat.GradeIDs),
-      headline: { ...compileHeadlines(mat, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) },
+      headline: { ...compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) },
       headlineBasis: mat['Headline basis'],
       measurementConditions: mat['Measurement conditions'],
       facets: deriveFacets(mat),
@@ -648,9 +669,9 @@ export function compile(wb, { snapshot, build }) {
       },
       profileIds: mProfiles.map((p) => p.id),
       printingEvidence: ids(mat['Printing evidence']),
-      // What the Materials row cites for its headlines, kept so the validator can check that every
-      // citation exists and belongs to this material, not only the ones a headline value matched.
-      headlineEvidence: { mechanical: ids(mat['Mechanical evidence']), thermal: ids(mat['Thermal evidence']) },
+      // Everything headlines.csv cites for this material, kept so the validator can check that every
+      // citation exists and belongs to it, not only the ones selected as values.
+      headlineEvidence: headlineEvidence(selections),
       bestUses: mat['Best uses'],
       limitations: mat.Limitations,
       impactNote: mat['Impact / toughness'],

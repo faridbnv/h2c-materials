@@ -1,7 +1,7 @@
 {
   "$comment": "Contract for data/tables/materials.csv. Checked by build/src/schema.js.",
   "title": "Materials",
-  "description": "One row per selection identity: a filament material, a family entry, or an excluded material. Headline columns are the values the selector shows; each must equal the measurement it cites.",
+  "description": "One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite.",
   "primaryKey": "MaterialID",
   "fields": [
     {
@@ -115,110 +115,10 @@
       }
     },
     {
-      "name": "Density kg/m³",
-      "type": "number",
-      "role": "derived",
-      "description": "Headline density; equals the cited measurement.",
-      "missing": [
-        "Not published"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Tensile modulus XY GPa",
-      "type": "number",
-      "role": "derived",
-      "description": "Headline in-plane tensile modulus; equals the cited measurement.",
-      "missing": [
-        "Not published"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Tensile strength XY MPa",
-      "type": "number",
-      "role": "derived",
-      "description": "Headline in-plane tensile strength; equals the cited measurement.",
-      "missing": [
-        "Not published"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Elongation at break XY %",
-      "type": "number",
-      "role": "derived",
-      "description": "Headline in-plane elongation at break; equals the cited measurement.",
-      "missing": [
-        "Not published"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Mechanical evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Measurements cited for the mechanical headlines (density included).",
-      "missing": [
-        "Not applicable"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^V\\d{6}$",
-        "reference": {
-          "table": "measurements",
-          "field": "MeasurementID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Measurement conditions",
       "type": "string",
       "role": "prose",
       "description": "Moisture and post-processing conditions behind the headlines.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "HDT 0.45 MPa °C",
-      "type": "number",
-      "role": "derived",
-      "description": "Headline heat deflection temperature at 0.45 MPa; equals the cited measurement.",
-      "missing": [
-        "Not published"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Thermal evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Measurement cited for the HDT headline.",
-      "missing": [
-        "Not applicable"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^V\\d{6}$",
-        "reference": {
-          "table": "measurements",
-          "field": "MeasurementID"
-        }
-      },
       "constraints": {
         "required": true
       }

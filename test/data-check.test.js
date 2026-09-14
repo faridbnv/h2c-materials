@@ -44,8 +44,8 @@ test('a broken reference names the file, line, record and field', () => {
 });
 
 test('a broken item inside a list is caught', () => {
-  const m = seeded((t) => t.set('materials', 'M020', 'Mechanical evidence', 'V000382; V999999'));
-  assert.deepEqual(m.map((x) => x.replace(/:\d+/, ':N')), ['data/tables/materials.csv:N  M020 Mechanical evidence item "V999999" is not a MeasurementID in measurements.csv']);
+  const m = seeded((t) => t.set('profiles', 'P0001', 'H2C SourceID', 'H2C-WIKI; NO-SUCH-SOURCE'));
+  assert.deepEqual(m.map((x) => x.replace(/:\d+/, ':N')), ['data/tables/profiles.csv:N  P0001 H2C SourceID item "NO-SUCH-SOURCE" is not a SourceID in sources.csv']);
 });
 
 test('a repeated primary key is caught', () => {

@@ -15,13 +15,14 @@ export function diffTables(schemas, readVersion) {
   const log = [];
   for (const [name, schema] of Object.entries(schemas)) {
     const a = rowsOf(readVersion('from', name)), b = rowsOf(readVersion('to', name));
-    const pk = schema.primaryKey;
+    // A link table has no single key; its first unique key identifies a row.
+    const keyOf = schema.primaryKey ? (r) => r[schema.primaryKey] : (r) => (schema.uniqueKeys?.[0] ?? a.header).map((f) => r[f]).join(' | ');
     if (a.header.length && b.header.length) {
       for (const h of b.header.filter((h) => !a.header.includes(h))) log.push({ table: name, record: '(column)', action: 'Added', field: h, before: null, after: null });
       for (const h of a.header.filter((h) => !b.header.includes(h))) log.push({ table: name, record: '(column)', action: 'Removed', field: h, before: null, after: null });
     }
-    const before = new Map(a.rows.map((r) => [r[pk], r]));
-    const after = new Map(b.rows.map((r) => [r[pk], r]));
+    const before = new Map(a.rows.map((r) => [keyOf(r), r]));
+    const after = new Map(b.rows.map((r) => [keyOf(r), r]));
     for (const [id, r] of after) {
       const old = before.get(id);
       if (!old) { log.push({ table: name, record: id, action: 'Added', field: null, before: null, after: null }); continue; }

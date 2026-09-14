@@ -1,9 +1,13 @@
 {
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
+    "headlines": {
+      "rows": 365,
+      "sha256": "a1b6618836fe400e197b5df68265ac636498eabc14a50785190e86af1fd8414a"
+    },
     "materials": {
       "rows": 102,
-      "sha256": "0afb640aa81a63430a7dad9a43a354fbdadb9ee59df3578492ab8e3eb028ad23"
+      "sha256": "5f0ce31330e13c50b43076dbae012a17629e9f04f62c731ac1dfa6f967b94e49"
     },
     "grades": {
       "rows": 155,

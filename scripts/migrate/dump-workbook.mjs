@@ -30,6 +30,7 @@ export function dumpWorkbook({ xlsx = join(root, 'data/H2C_FDM_Material_Database
   const counts = {};
 
   for (const { file, sheet } of TABLES) {
+    if (!wb[sheet]) continue; // a table the migrations create, not a workbook sheet
     const { header, rows } = wb[sheet];
     const out = rows.map((r) => {
       const o = {};

@@ -1,0 +1,13 @@
+{
+  "$comment": "Contract for data/tables/headlines.csv. Checked by build/src/schema.js.",
+  "title": "Headlines",
+  "description": "Which measurement each material's headline shows. One row per citation: Use value selects the measurement whose value is the headline; Use context keeps a measurement cited for that headline without being its value. No value row means the headline is Not published. The number lives only in the measurement.",
+  "primaryKey": null,
+  "uniqueKeys": [["MaterialID", "HeadlineKey", "MeasurementID"]],
+  "fields": [
+    { "name": "MaterialID", "type": "string", "role": "editorial", "description": "Material whose headline this is.", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true } },
+    { "name": "HeadlineKey", "type": "string", "role": "editorial", "description": "Headline the measurement serves.", "vocabulary": "headline-keys", "constraints": { "required": true } },
+    { "name": "MeasurementID", "type": "string", "role": "editorial", "description": "The cited measurement. It must be this material's, on its representative grade for a value row, with the headline's property, unit and direction (checked by the build).", "reference": { "table": "measurements", "field": "MeasurementID" }, "constraints": { "required": true, "pattern": "^V\\d{6}$" } },
+    { "name": "Use", "type": "string", "role": "editorial", "description": "value: this measurement is the headline. context: cited for the headline, not its value.", "constraints": { "required": true, "enum": ["value", "context"] } }
+  ]
+}
