@@ -32,18 +32,18 @@ let dragState = null;
 export const DETAIL_LEVELS = [
   {
     id: 'material',
-    label: 'Material summary',
-    help: 'One point per material, using its selected headline values. Best for choosing.',
+    label: 'One material',
+    help: 'Best for comparing and choosing materials.',
   },
   {
     id: 'measured',
-    label: 'Comparable measurements',
-    help: 'Measurement pairs from the same grade under matching conditions. Shows the spread behind each material.',
+    label: 'One matched measurement pair',
+    help: 'Pairs recorded for the same grade under matching conditions.',
   },
   {
     id: 'measured-mixed',
-    label: 'Mixed-condition measurements',
-    help: 'Also includes pairs with different directions, test loads or specimen conditions. Hollow points need caution.',
+    label: 'One mixed-condition pair',
+    help: 'Adds different directions, loads or specimens. Hollow points need caution.',
   },
 ];
 
@@ -104,13 +104,21 @@ export function renderAshby(host, state, actions) {
       </div>
     </div>`;
 
-  // The estimated-materials switch is always in the same place. It used to be replaced by a
-  // sentence whenever it did not apply, so the panel changed shape as the reader changed settings.
-  const estimateReason = estimated.length ? ''
-    : measurementMode ? 'Not used in measurement views: an estimate describes a material, not a grade.'
-    : state.ctx?.showEstimates ? 'No candidate on these axes has an estimate to draw.'
-    : state.scenario.unknownPolicy === 'exploration' ? 'Estimates are off. Tick Estimates in the top bar to use them.'
-    : 'Estimates are off. They are available with "Include uncertain", where they can screen a material out but never pass one.';
+  // State the chart's current capability instead of presenting an unexplained disabled checkbox.
+  // The range overlay is relevant only when one mark represents one material.
+  const estimateControl = measurementMode
+    ? '<div class="plot-data-state">Measured data only</div>'
+    : estimated.length
+      ? `<label class="opt-check">
+          <input type="checkbox" data-show-estimates data-focus="estimates" ${p.showEstimates ? 'checked' : ''}>
+          <span>Show estimated ranges (${estimated.length})</span>
+        </label>
+        <p class="opt-help">Thin dotted outlines use each material family's colour.</p>`
+      : state.ctx?.showEstimates
+        ? '<div class="plot-data-state">No estimated ranges for these axes</div>'
+        : state.scenario.unknownPolicy === 'exploration'
+          ? '<div class="plot-data-state">Turn on Use estimates above to show ranges</div>'
+          : '<div class="plot-data-state">Estimated ranges require Include uncertain</div>';
 
   const index = indexById(p.index);
   const cheapest = INDICES.filter((i) => i.costForm), lightest = INDICES.filter((i) => !i.costForm);
@@ -135,20 +143,12 @@ export function renderAshby(host, state, actions) {
 
     <div class="ashby-options">
       <div class="opt-group" role="group" aria-labelledby="og-points">
-        <h3 id="og-points">Data detail</h3>
-        <select data-detail data-focus="detail" aria-label="How much evidence to draw">
+        <h3 id="og-points">Each point shows</h3>
+        <select data-detail data-focus="detail" aria-label="What each chart point represents">
           ${DETAIL_LEVELS.map((d) => `<option value="${d.id}" ${level === d.id ? 'selected' : ''}>${esc(d.label)}</option>`).join('')}
         </select>
         <p class="opt-help">${esc(DETAIL_LEVELS.find((d) => d.id === level).help)}</p>
-        <label class="opt-check" ${estimated.length ? '' : `title="${esc(estimateReason)}"`}>
-          <input type="checkbox" data-show-estimates data-focus="estimates" ${p.showEstimates && estimated.length ? 'checked' : ''} ${estimated.length ? '' : 'disabled'}>
-          <span>${estimated.length
-            ? `Also draw the ${estimated.length} estimated material${estimated.length === 1 ? '' : 's'}`
-            : 'Also draw estimated materials'}</span>
-        </label>
-        <p class="opt-help">${estimated.length
-          ? 'As dotted ranges, not dots: the span of their closest measured relatives.'
-          : esc(estimateReason)}</p>
+        ${estimateControl}
       </div>
 
       <div class="opt-group" role="group" aria-labelledby="og-compare">
@@ -203,9 +203,9 @@ export function renderAshby(host, state, actions) {
         // whole problem: a quarter of the set vanished from the chart while the table listed them.
         ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
            ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only an estimated range. Not drawn. Tick
-           <b>Also draw the estimated materials</b>, under Data detail above, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
+           <b>Show estimated ranges</b>, under Each point shows above, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
         : ''}
-      ${envelopes.length ? `<br><b>The dotted ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
+      ${envelopes.length ? `<br><b>The outlined ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
         with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
         built from the material's own related measurements and its polymer family, so the material is probably
         somewhere along it.
@@ -280,7 +280,7 @@ function headlinePoints(rows, xDef, yDef) {
 function measurementPoints(rows, xDef, yDef, mode, ctx) {
   if (!xDef.measurement || !yDef.measurement) {
     const which = !xDef.measurement ? xDef.label : yDef.label;
-    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Set Data detail to "Material summary", or choose another axis.` };
+    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Choose "One material" under Each point shows, or choose another axis.` };
   }
   const pts = [];
   const mixed = new Set();
@@ -310,7 +310,67 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
       }
     }
   }
-  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Mixed-condition measurements", or a different pair of axes.' };
+  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "One mixed-condition pair", or a different pair of axes.' };
+}
+
+/**
+ * A material-level estimate is a range, never a point. Scatter traces keep the range in ordinary
+ * data coordinates, so Plotly applies linear and logarithmic transforms consistently. Layout
+ * shapes require special log-axis coordinates and previously made the same estimate look or land
+ * differently as the reader changed scale.
+ */
+export function estimateTrace(q, xDef, yDef, { color = '#8d8d84', fill = 'rgba(141,141,132,.025)', label = false } = {}) {
+  const xEstimated = !q.x.measured;
+  const yEstimated = !q.y.measured;
+  const rangeText = (span, def) => span.measured
+    ? `${fmtNumber(span.lo)} ${def.unit} (measured)`
+    : `${fmtNumber(span.lo)}–${fmtNumber(span.hi)} ${def.unit} (estimated)`;
+  const estimatedBy = [...new Set([q.x, q.y]
+    .filter((span) => !span.measured)
+    .map((span) => `${span.precision ?? 'unrated'} precision${span.basis ? `; ${span.basis}` : ''}`))];
+  const hovertemplate = `<b>${esc(q.name)}</b><br><b>Estimated material range</b>`
+    + `<br>${esc(yDef.label)}: ${esc(rangeText(q.y, yDef))}`
+    + `<br>${esc(xDef.label)}: ${esc(rangeText(q.x, xDef))}`
+    + `${estimatedBy.length ? `<br>${esc(estimatedBy.join(' · '))}` : ''}`
+    + '<br><i>Not a measured point</i><extra></extra>';
+
+  let x, y, mode, marker, fillMode, hoveron, textposition, labelAt;
+  if (xEstimated && yEstimated) {
+    x = [q.x.lo, q.x.hi, q.x.hi, q.x.lo, q.x.lo];
+    y = [q.y.lo, q.y.lo, q.y.hi, q.y.hi, q.y.lo];
+    mode = label ? 'lines+text' : 'lines';
+    fillMode = 'toself';
+    // Keep the nearly transparent interior from taking hover focus away from measured points.
+    hoveron = 'points';
+    textposition = 'top right';
+    labelAt = 2;
+  } else {
+    const horizontal = xEstimated;
+    x = horizontal ? [q.x.lo, q.x.hi] : [q.x.lo, q.x.lo];
+    y = horizontal ? [q.y.lo, q.y.lo] : [q.y.lo, q.y.hi];
+    mode = label ? 'lines+markers+text' : 'lines+markers';
+    marker = {
+      size: 7, symbol: horizontal ? 'line-ns-open' : 'line-ew-open',
+      color, line: { color, width: 1.5 },
+    };
+    textposition = horizontal ? 'middle right' : 'top center';
+    labelAt = 1;
+  }
+
+  const text = x.map(() => '');
+  if (label) text[labelAt] = q.name;
+  return {
+    type: 'scatter', mode, x, y, text, textposition, cliponaxis: false,
+    textfont: { size: 9, color },
+    line: { color, width: xEstimated && yEstimated ? 1.5 : 2.5, dash: 'dot' },
+    // Plotly's data cleanup checks nested keys when marker is present. Omit unused
+    // options entirely: marker: undefined makes range boxes abort the whole plot.
+    ...(marker ? { marker } : {}),
+    ...(fillMode ? { fill: fillMode, fillcolor: fill, hoveron } : {}),
+    opacity: 0.82,
+    name: q.name, legendgroup: q.family, showlegend: false,
+    customdata: x.map(() => [q.id]), hovertemplate,
+  };
 }
 
 
@@ -349,6 +409,26 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   for (const q of leftmostOf.values()) labelled.add(q);
 
   const traces = [];
+
+  // Put range traces behind measured points. Unlike layout shapes, scatter traces stay in ordinary
+  // data coordinates on linear, semi-log and log-log charts and provide a real hover target.
+  const labelEstimates = envelopes.length <= 5;
+  for (const q of envelopes) {
+    const familyColor = colors.color(q.family);
+    traces.push(estimateTrace(q, xDef, yDef, {
+      color: familyColor,
+      fill: hexToRgba(familyColor, 0.025),
+      label: labelEstimates || scenario.shortlist.includes(q.id),
+    }));
+  }
+  if (envelopes.length) {
+    traces.push({
+      type: 'scatter', mode: 'lines', name: 'Estimated range · family colour',
+      x: [null], y: [null], line: { color: '#8d8d84', width: 2, dash: 'dot' },
+      hoverinfo: 'skip', showlegend: true, legendgroup: 'estimate-key', legendrank: 1200,
+    });
+  }
+
   for (const [key, list] of groups) {
     const [family, filler] = key.split('|');
     traces.push({
@@ -496,45 +576,6 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     });
   }
 
-  // Estimated materials, as envelopes. Where one axis is measured the envelope collapses to a line
-  // on that axis, which is the honest picture: the position is known in one direction and bounded
-  // in the other.
-  //
-  // They are deliberately not points, are never on the Pareto front, and are never counted as
-  // candidates plotted. Inference cannot dominate evidence.
-  // Labels only where they can be read. Twenty-five overlapping names is not information.
-  const labelEnvelopes = envelopes.length <= 8;
-  for (const q of envelopes) {
-    const x0 = X(q.x.lo), x1 = X(q.x.hi), y0 = Y(q.y.lo), y1 = Y(q.y.hi);
-    if (!placeable(x0, x1, y0, y1)) continue;
-    const c = colors.color(q.family);
-    // One axis measured: the range collapses to a whisker, which is the stronger statement and the
-    // lighter mark. Both estimated: a box, drawn fainter still, because it says much less.
-    const flat = x0 === x1 || y0 === y1;
-    shapes.push({
-      type: flat ? 'line' : 'rect',
-      x0, x1, y0, y1, layer: 'below',
-      line: { color: c, width: flat ? 1.5 : 1, dash: 'dot' },
-      fillcolor: flat ? undefined : 'rgba(141,141,132,.04)',
-      opacity: flat ? 0.7 : 0.45,
-    });
-    if (labelEnvelopes || scenario.shortlist.includes(q.id)) {
-      annotations.push({
-        x: (x0 + x1) / 2, y: y1, text: q.name, showarrow: false,
-        xanchor: 'center', yanchor: 'bottom',
-        font: { size: 9, color: c }, opacity: 0.9,
-      });
-    }
-  }
-  // Shapes carry no legend entry, so the key is a trace with no data.
-  if (envelopes.length) {
-    traces.push({
-      type: 'scatter', mode: 'lines', name: 'Estimated range, not measured',
-      x: [null], y: [null], line: { color: 'rgba(120,120,112,.9)', width: 1.5, dash: 'dot' },
-      hoverinfo: 'skip', showlegend: true,
-    });
-  }
-
   // Pareto front over the eligible candidates only.
   const front = sortFront(frontNow, xDef.better);
   if (front.length > 1) {
@@ -623,6 +664,12 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     if (!ev?.points?.length) return;
     actions.selectSubset(ev.points.map((pt) => pt.customdata?.[0]).filter(Boolean));
   });
+}
+
+/** Give a family colour a nearly transparent fill without changing its outline colour. */
+function hexToRgba(hex, alpha) {
+  const m = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex);
+  return m ? `rgba(${parseInt(m[1], 16)},${parseInt(m[2], 16)},${parseInt(m[3], 16)},${alpha})` : hex;
 }
 
 /** Shape coordinates are stored in log space on a log axis; recover the data value. */

@@ -125,7 +125,7 @@ set in plain language.
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
 - **Include uncertain** (Explore) — materials with unresolved criteria stay visible and flagged. With
-  **Estimates** on, a material whose estimate clearly cannot meet a requirement is screened out.
+  **Use estimates** on, a material whose estimate clearly cannot meet a requirement is screened out.
 
 An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
 only when its wider plausible (95%) range wholly fails the requirement, only when it rests on the
@@ -149,7 +149,7 @@ Switching resets which verdicts the table shows, so the change is visible in the
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
-The **Estimates** toggle appears in Explore only, and says how many materials it screened.
+The **Use estimates** toggle appears in Explore only, and says how many materials it screened.
 
 ## The four states
 
@@ -239,9 +239,9 @@ it; a first-time reader could not tell what belonged to what.
 ```
 Vertical axis   [Stiffness (70 measured) ▾] [Linear|Log]   ⇄ Swap   Horizontal axis [Density ▾] [Linear|Log]
 ─────────────────────────────────────────────────────────────────────────────────────────────────
-DATA DETAIL                    COMPARE WITH                    DESIGN GUIDE LINE
-[Material summary ▾]           [No familiar filament ▾]        [None ▾]
-☐ Also draw the 25 estimated   ☐ Steel, aluminium and wood
+EACH POINT SHOWS               COMPARE WITH                    DESIGN GUIDE LINE
+[One material ▾]               [No familiar filament ▾]        [None ▾]
+☐ Show estimated ranges (25)   ☐ Steel, aluminium and wood
 ─────────────────────────────────────────────────────────────────────────────────────────────────
 warnings and banners · the chart · the guide-line card · reading this chart
 ```
@@ -258,9 +258,9 @@ warnings and banners · the chart · the guide-line card · reading this chart
 
 - The axis picker reports the **point count for the chosen pair before drawing**. Some pairs are
   genuinely thin, and below ten points the count becomes a warning.
-- **Data detail** is one ordered choice of how much evidence to draw, replacing two switches that
-  overlapped. *Material summary* uses one headline point per material. *Comparable measurements*
-  draws one point per grade per compatible pair. *Mixed-condition measurements* also admits looser
+- **Each point shows** is one ordered choice of what a mark means, replacing two switches that
+  overlapped. *One material* uses one headline point per material. *One matched measurement pair*
+  draws one point per grade per compatible pair. *One mixed-condition pair* also admits looser
   matches, draws them hollow, and names in a banner exactly what it mixed.
 
   At measurement level a dot is **a pair of measurements of one grade, not a material**, and the
@@ -275,12 +275,13 @@ warnings and banners · the chart · the guide-line card · reading this chart
   requirement it is not a mismatch with anything, so it stays solid and says so on hover. A warning
   that fires when nothing is wrong teaches the reader to ignore the one that matters.
 
-- **Also draw the estimated materials** draws the candidates that have no measurement of their own on one of the
-  chosen axes. They appear as a dotted range rather than a dot, because the value is a 95% interval
-  and not a position anyone measured; where the other axis is measured the range collapses to a
-  whisker. An open-ended estimate is not drawn. Off by default, since overlapping ranges are less
-  readable than none, but **the count is in the footer either way**. Nothing that the
-  filters kept is ever silently missing from the picture.
+- **Show estimated ranges** draws candidates that have no measurement of their own on one of the
+  chosen axes. A thin capped line means one axis is estimated; a lightly outlined box means both
+  are. The outline uses the same family colour as measured points, and measured points render above
+  it. Hovering identifies the material and reports both ranges. These are Plotly data traces rather than layout
+  shapes, so the same values transform consistently on linear, semi-log and log-log axes. An
+  open-ended estimate is not drawn. Off by default, but **the count is in the footer either way**.
+  In either measurement view the checkbox is replaced by the direct state **Measured data only**.
 
   The two switches it replaced were "Points" and "Comparability". That reads as four combinations
   and was three: comparability could do nothing in headline mode, because a headline is one fixed

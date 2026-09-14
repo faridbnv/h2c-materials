@@ -258,7 +258,7 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 | CSV export | Its own column with both ranges, strength and precision, so a spreadsheet can never mistake inference for evidence |
 | Pareto front, candidate counts, index tallies | Never. Inference cannot dominate evidence |
 
-Strict mode sees none of this. Estimates exist only in Explore, and only while the Estimates toggle
+Strict mode sees none of this. Estimates exist only in Explore, and only while the Use estimates toggle
 is on. `n/a` is a statement, not inference, and shows in both modes.
 
 A chamber band is marked the same way, `~80–120†` in the Printing table while estimates are on and as

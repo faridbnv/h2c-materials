@@ -208,10 +208,12 @@ materials simply were not there. The table two tabs away listed them with their 
 in Explore an estimate can screen a material out of a filter (D43), so a reader could see a material
 screened by an estimate and find no trace of that estimate on the chart.
 
-They are drawn as a dotted range. Not a dot: a dot needs a value, and the centre of an estimate
+They are drawn as a lightly outlined range. Not a dot: a dot needs a value, and the centre of an estimate
 is a number nobody measured, which is the one thing this tool refuses to put on a chart. Where the
-other axis is measured the range collapses to a whisker, which is the stronger statement and the
-lighter mark.
+other axis is measured the range collapses to a thin capped line; when both axes are estimated it is
+an almost transparent outlined box. Its outline follows the material family's colour, and measured
+points render above it. Each range remains in ordinary data coordinates, so Plotly applies linear
+and logarithmic scales consistently.
 
 The layer is off by default because 25 overlapping boxes are less readable than none, but the count
 is in the footer whether the layer is on or off. That is the part that matters: the reader is never
@@ -588,4 +590,3 @@ has an identical twin, so the workbook keeps its audit trail and nothing is lost
 
 Reversing it brings back double counting, which is worse than a gap because it looks like evidence
 agreeing with itself. See [the duplicate-products audit](audits/2026-09-13-duplicate-products/REPORT.md).
-
