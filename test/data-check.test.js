@@ -136,3 +136,8 @@ test('the changelog matches records by key: edits, additions and deletions', () 
     { table: 'coverage', record: 'C2', action: 'Removed', field: null, before: null, after: null },
   ]);
 });
+
+test('an identifier mentioned in prose must exist', () => {
+  const m = seeded((t) => t.set('sources', 'H2C-WIKI', 'Applicable grades', 'Family guidance; see G020-01 and G999-01'));
+  assert.deepEqual(m.map((x) => x.replace(/:\d+/, ':N')), ['data/tables/sources.csv:N  H2C-WIKI Applicable grades mentions "G999-01", which is not a GradeID in grades.csv']);
+});

@@ -94,10 +94,17 @@
       "name": "Applicable grades",
       "type": "string",
       "role": "editorial",
-      "description": "Grades or scope the source applies to.",
+      "description": "Grades or scope the source applies to, in words. Every grade ID it mentions must exist.",
       "constraints": {
         "required": true
-      }
+      },
+      "embeddedReferences": [
+        {
+          "pattern": "\\bG\\d{3}-(?:\\d{2}|R\\d+)\\b",
+          "table": "grades",
+          "field": "GradeID"
+        }
+      ]
     },
     {
       "name": "Access status",
