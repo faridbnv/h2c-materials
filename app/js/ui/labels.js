@@ -102,7 +102,7 @@ export function estimateTitle(e, fmt) {
   return `Estimated, not measured: likely ${fmt(e.lo)} to ${fmt(e.hi)} ${e.unit ?? ''} (${percent(levels.likely)} of hidden measured values fell inside ranges like this), centred on ${fmt(e.centre)}.${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its representative product is also recorded under ${e.sharedWith.name}.` : ''}`
     + ` Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`
-    + ` Never enough to pass a requirement. ${e.canScreen ? 'In Explore it screens this material out when its plausible range wholly fails.' : `It cannot screen: ${e.screenLimit}.`}`;
+    + ` Never enough to pass a requirement. ${e.canScreen ? 'With "Include uncertain", it screens this material out when its plausible range wholly fails.' : `It cannot screen: ${e.screenLimit}.`}`;
 }
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };

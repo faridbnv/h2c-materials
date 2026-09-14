@@ -32,18 +32,18 @@ let dragState = null;
 export const DETAIL_LEVELS = [
   {
     id: 'material',
-    label: 'One dot per material',
-    help: 'The headline value for each material. Best for choosing.',
+    label: 'Material summary',
+    help: 'One point per material, using its selected headline values. Best for choosing.',
   },
   {
     id: 'measured',
-    label: 'Every measurement',
-    help: 'One dot per grade per measurement, so you can see the spread and the difference between print directions.',
+    label: 'Comparable measurements',
+    help: 'Measurement pairs from the same grade under matching conditions. Shows the spread behind each material.',
   },
   {
     id: 'measured-mixed',
-    label: 'Every measurement, mixed conditions',
-    help: 'Also includes measurements taken a different way, for example a different print direction. Those are drawn hollow.',
+    label: 'Mixed-condition measurements',
+    help: 'Also includes pairs with different directions, test loads or specimen conditions. Hollow points need caution.',
   },
 ];
 
@@ -107,10 +107,10 @@ export function renderAshby(host, state, actions) {
   // The estimated-materials switch is always in the same place. It used to be replaced by a
   // sentence whenever it did not apply, so the panel changed shape as the reader changed settings.
   const estimateReason = estimated.length ? ''
-    : measurementMode ? 'Not used when every measurement is drawn: an estimate describes a material, not a grade.'
+    : measurementMode ? 'Not used in measurement views: an estimate describes a material, not a grade.'
     : state.ctx?.showEstimates ? 'No candidate on these axes has an estimate to draw.'
     : state.scenario.unknownPolicy === 'exploration' ? 'Estimates are off. Tick Estimates in the top bar to use them.'
-    : 'Estimates are off. They are available with "Keep it, flagged", where they can screen a material out but never pass one.';
+    : 'Estimates are off. They are available with "Include uncertain", where they can screen a material out but never pass one.';
 
   const index = indexById(p.index);
   const cheapest = INDICES.filter((i) => i.costForm), lightest = INDICES.filter((i) => !i.costForm);
@@ -135,7 +135,7 @@ export function renderAshby(host, state, actions) {
 
     <div class="ashby-options">
       <div class="opt-group" role="group" aria-labelledby="og-points">
-        <h3 id="og-points">Points</h3>
+        <h3 id="og-points">Data detail</h3>
         <select data-detail data-focus="detail" aria-label="How much evidence to draw">
           ${DETAIL_LEVELS.map((d) => `<option value="${d.id}" ${level === d.id ? 'selected' : ''}>${esc(d.label)}</option>`).join('')}
         </select>
@@ -203,7 +203,7 @@ export function renderAshby(host, state, actions) {
         // whole problem: a quarter of the set vanished from the chart while the table listed them.
         ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
            ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only an estimated range. Not drawn. Tick
-           <b>Also draw the estimated materials</b>, under Points above, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
+           <b>Also draw the estimated materials</b>, under Data detail above, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
         : ''}
       ${envelopes.length ? `<br><b>The dotted ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
         with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
@@ -280,7 +280,7 @@ function headlinePoints(rows, xDef, yDef) {
 function measurementPoints(rows, xDef, yDef, mode, ctx) {
   if (!xDef.measurement || !yDef.measurement) {
     const which = !xDef.measurement ? xDef.label : yDef.label;
-    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Set Points to "One dot per material", or choose another axis.` };
+    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Set Data detail to "Material summary", or choose another axis.` };
   }
   const pts = [];
   const mixed = new Set();
@@ -310,7 +310,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
       }
     }
   }
-  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Every measurement, mixed conditions", or a different pair of axes.' };
+  return { pts, mixed: [...mixed], unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Mixed-condition measurements", or a different pair of axes.' };
 }
 
 

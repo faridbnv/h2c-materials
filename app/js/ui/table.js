@@ -351,7 +351,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     `# database snapshot ${meta.snapshot}, application build ${meta.build}`,
   ];
   if (scenario) {
-    header.push(`# missing data: ${scenario.unknownPolicy === 'exploration' ? 'kept, flagged (Explore)' : 'left out (Strict)'}; estimates ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
+    header.push(`# candidate confidence: ${scenario.unknownPolicy === 'exploration' ? 'include uncertain' : 'confirmed only'}; estimates ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
     if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);

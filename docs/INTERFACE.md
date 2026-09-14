@@ -116,15 +116,15 @@ only an unqualified record passes: "limited resistance" is unresolved, never a P
 
 ## What to do with missing data
 
-The most consequential control, so it sits in the top bar under its own label, "If a material has
-no data". The two names in the code and in these documents are Strict and Explore; the buttons say
-what each one does, because the words themselves told a first-time reader nothing.
+The most consequential control, so it sits in the top bar under its own label, "Candidate
+confidence". The internal policy names remain Strict and Explore; the buttons describe the result
+set in plain language.
 
-- **Leave it out** (Strict) — a criterion that cannot be evaluated holds the material out. Measured
+- **Confirmed only** (Strict) — a criterion that cannot be evaluated holds the material out. Measured
   evidence only; estimates are not consulted at all. The material's result is still UNKNOWN,
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
-- **Keep it, flagged** (Explore) — materials with unresolved criteria stay visible and flagged. With
+- **Include uncertain** (Explore) — materials with unresolved criteria stay visible and flagged. With
   **Estimates** on, a material whose estimate clearly cannot meet a requirement is screened out.
 
 An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
@@ -239,8 +239,8 @@ it; a first-time reader could not tell what belonged to what.
 ```
 Vertical axis   [Stiffness (70 measured) ▾] [Linear|Log]   ⇄ Swap   Horizontal axis [Density ▾] [Linear|Log]
 ─────────────────────────────────────────────────────────────────────────────────────────────────
-POINTS                         COMPARE WITH                    DESIGN GUIDE LINE
-[One dot per material ▾]       [No familiar filament ▾]        [None ▾]
+DATA DETAIL                    COMPARE WITH                    DESIGN GUIDE LINE
+[Material summary ▾]           [No familiar filament ▾]        [None ▾]
 ☐ Also draw the 25 estimated   ☐ Steel, aluminium and wood
 ─────────────────────────────────────────────────────────────────────────────────────────────────
 warnings and banners · the chart · the guide-line card · reading this chart
@@ -258,11 +258,10 @@ warnings and banners · the chart · the guide-line card · reading this chart
 
 - The axis picker reports the **point count for the chosen pair before drawing**. Some pairs are
   genuinely thin, and below ten points the count becomes a warning.
-- **Points** is one ordered choice of how much evidence to draw, replacing two switches that
-  overlapped. *One dot per material* uses the headline. *Every measurement* draws one point per
-  grade per compatible pair, so PA6-CF appears twice, at 4.43 GPa in XY and 2.17 in Z, and
-  anisotropy becomes visible instead of averaged away. *Every measurement, mixed conditions* also
-  admits looser matches, draws them hollow, and names in a banner exactly what it mixed.
+- **Data detail** is one ordered choice of how much evidence to draw, replacing two switches that
+  overlapped. *Material summary* uses one headline point per material. *Comparable measurements*
+  draws one point per grade per compatible pair. *Mixed-condition measurements* also admits looser
+  matches, draws them hollow, and names in a banner exactly what it mixed.
 
   At measurement level a dot is **a pair of measurements of one grade, not a material**, and the
   chart says so before anything else. The two values were recorded under compatible conditions, not

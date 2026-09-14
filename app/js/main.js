@@ -538,8 +538,8 @@ function renderScenario(host) {
         <div class="sc-lines">
           <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} tracked only` : ''}</div>
           <div>${scenario.unknownPolicy === 'strict'
-            ? 'Missing data leaves a material out (Strict)'
-            : 'Materials with missing data stay visible, flagged (Explore)'}</div>
+            ? 'Candidate confidence: Confirmed only'
+            : 'Candidate confidence: Include uncertain'}</div>
           ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}
           ${scenario.assumptions.length ? `<div class="warn">${scenario.assumptions.length} assumption${scenario.assumptions.length === 1 ? '' : 's'} in play</div>` : ''}
         </div>

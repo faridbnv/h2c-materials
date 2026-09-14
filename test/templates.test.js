@@ -62,7 +62,7 @@ test('the CSV says why each row failed and what was asked', () => {
   const rows = sel.evaluations.slice(0, 5).map((e) => ({ material: byId.get(e.materialId), evaluation: e }));
   const csv = toCSV(rows, db.meta, { scenario, useEstimates: false });
   assert.match(csv, /# required: Density at most 1 kg\/m³/);
-  assert.match(csv, /# missing data: left out \(Strict\)/);
+  assert.match(csv, /# candidate confidence: confirmed only/);
   const failing = rows.find((r) => r.evaluation.verdict === 'FAIL');
   const line = csv.split('\n').find((l) => l.startsWith(failing.material.id + ','));
   assert.match(line, /Density at most 1 kg\/m³: Published/);

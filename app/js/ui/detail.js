@@ -137,7 +137,7 @@ function estimateBlock(h, label) {
       ${e.sharedWith ? `Its representative product is also recorded under ${esc(e.sharedWith.name)}, so both show the same estimate.` : ''}
       The ranges are calibrated: when each measured value in the database is hidden and predicted from the rest, ranges like these contain it that often.
       It is never enough to pass a requirement. ${e.canScreen
-        ? 'In "Keep it, flagged" with Estimates on, it screens this material out of a requirement its plausible range wholly fails, unless one of the material\'s own measurements could meet it.'
+        ? 'With "Include uncertain" and Estimates on, it screens this material out of a requirement its plausible range wholly fails, unless one of the material\'s own measurements could meet it.'
         : `It cannot screen this material out: ${esc(e.screenLimit)}.`}</div>
     ${evidence}
   </div>`;
