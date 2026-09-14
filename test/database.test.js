@@ -334,7 +334,7 @@ test('resin references are study grades whose moulded values never become headli
 
 // --- 2026-09-13 manufacturer audit --------------------------------------------------------------
 // docs/audits/2026-09-13-manufacturer-evidence/. Each test pins one change from its CHANGELOG.csv, so
-// a later workbook edit that silently undoes one fails here rather than in front of a user.
+// a later data edit that silently undoes one fails here rather than in front of a user.
 
 test('the four audited grades, their profiles and their properties are compiled', () => {
   for (const [grade, material, profile] of [['G077-01', 'M077', 'P0157'], ['G038-02', 'M038', 'P0158'], ['G045-03', 'M045', 'P0159'], ['G073-02', 'M073', 'P0160']]) {

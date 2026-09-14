@@ -490,14 +490,14 @@ function familyEntryFor(name) {
 
 /**
  * Resolve each family entry's member names to materials, and refuse any disagreement: a family entry
- * the mapping does not describe, a mapping entry the workbook does not mark, a member that is not an
+ * the mapping does not describe, a mapping entry the materials table does not mark, a member that is not an
  * in-scope material, or a family entry that still owns an active grade (the duplication this replaced).
  */
 function resolveFamilyEntries(materials, grades, issues) {
   const byName = new Map(materials.map((m) => [m.name, m]));
   const where = 'family-entries.json';
   for (const m of materials.filter((x) => x.familyEntry)) {
-    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', where, message: `${m.name} is a family entry in the workbook but is not described here` });
+    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', where, message: `${m.name} is a family entry in materials.csv but is not described here` });
     for (const member of m.familyEntry.members) {
       const target = byName.get(member.name);
       if (!target || target.excluded || target.familyEntry) issues.push({ level: 'error', where, message: `${m.name} lists "${member.name}", which is not an in-scope material` });
@@ -507,7 +507,7 @@ function resolveFamilyEntries(materials, grades, issues) {
     if (owned.length) issues.push({ level: 'error', where: `materials ${m.id}`, message: `Family entry ${m.name} owns active grade${owned.length === 1 ? '' : 's'} ${owned.map((g) => g.id).join(', ')}; a product belongs to the material it is` });
   }
   for (const name of Object.keys(FAMILY_ENTRIES)) {
-    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', where, message: `${name} is described here but the workbook does not mark it a family entry` });
+    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', where, message: `${name} is described here but materials.csv does not mark it a family entry` });
   }
 }
 
@@ -547,7 +547,7 @@ export function compile(wb, { snapshot, build }) {
     }
   }
 
-  // A retired duplicate stays in the workbook as an audit trail and never reaches the database: its
+  // A retired duplicate stays in the tables as an audit trail and never reaches the database: its
   // identical twin under the grade that keeps the product is the record (Method, Identity / Family entries).
   const isRetiredDuplicate = (status) => !!DATA_STATUS[status]?.retiredDuplicate;
   const retiredDuplicates = {
@@ -584,7 +584,7 @@ export function compile(wb, { snapshot, build }) {
     displayedPrice: num(r['Displayed price CAD']), currency: r.Currency, market: r.Market,
     taxShipping: r['Tax / shipping'], basis: r['Regular price basis'], url: r.URL,
     sourceId: r.SourceID, accessDate: r['Access date'], notes: r.Notes,
-    // The workbook marks a wrong-product listing by writing "Quarantined" into its price basis
+    // The data marks a wrong-product listing by writing "Quarantined" into its price basis
     // (CA0069, a PLA Pure spool filed under ABS). It stays as an audit trail and nothing else.
     quarantined: /^quarantined\b/i.test(String(r['Regular price basis'] ?? '')),
     };

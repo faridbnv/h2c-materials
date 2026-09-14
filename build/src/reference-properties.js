@@ -1,5 +1,5 @@
-// The generic reference workbook's properties: key, unit, and the column offset from its Name column
-// (the offset is used only by the legacy workbook extractor).
+// The generic reference envelopes' properties: key and unit (data/tables/reference.csv has a min and max
+// column for each), and the column offset the retired reference workbook used (legacy extractor only).
 export const REFERENCE_PROPERTIES = [
   { key: 'density',            unit: 'kg/m3',     offset: 1 },
   { key: 'tensileModulus',     unit: 'GPa',       offset: 3 },

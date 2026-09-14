@@ -16,18 +16,22 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 
 ```bash
 npm install --prefix build     # once
-npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 131 engine, parser, search, scenario, template and database tests
-npm run validate               # validate only, no bundle
-npm run audit:data             # fresh build, raw-value reconciliation, filament/family matrices and HTML parity
+npm run hooks                  # once per clone: the pre-commit data check
+npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
+npm run verify                 # everything a commit needs: format, schema, build, 169 tests, audit
+npm run data:check             # the schema gate alone, under a second
+npm run trace -- PETG          # any headline back to its measurement, grade and source
+npm run data:export-xlsx       # read-only review workbook in dist/review/
 ```
+
+Changing data? Read [AGENTS.md](AGENTS.md) first.
 
 Open the file in `dist/` in any current browser. Nothing else is required.
 
 ## Publishing
 
-`.github/workflows/pages.yml` rebuilds the selector from the workbooks on every push to `main` and
-publishes it to GitHub Pages. The distributable HTML is **not committed**, so the published page
+`.github/workflows/pages.yml` runs `npm run verify` and rebuilds the selector from `data/tables` on every
+push to `main`, then publishes it to GitHub Pages. `verify.yml` runs the same gate on every branch. The distributable HTML is **not committed**, so the published page
 cannot drift from the source of truth, and a database that fails validation stops in CI and never
 reaches the site.
 
@@ -39,6 +43,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool |
 | `/h2c-materials/H2C_Material_Selector_2026-09-13.html` | The same build, pinned to its database snapshot |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
+| `/h2c-materials/manifest.json` | The commit, input hashes and output hashes the page was built from |
 
 ## Documentation
 
@@ -46,7 +51,8 @@ snapshot-stamped filename and the validation report are published alongside it:
 |---|---|
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things |
 | [docs/PIPELINE.md](docs/PIPELINE.md) | What each build stage does, and what it refuses to do |
-| [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The entities, the compiled shape, the three kinds of number |
+| [AGENTS.md](AGENTS.md) | How to change data, for people and AI agents alike |
+| [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The tables, the registry, the compiled shape, the three kinds of number |
 | [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the lenses, the words, the visual vocabulary |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them |
 | [docs/audits/](docs/audits/) | Every audit of the tool and the database, each with its report and what was done about it |
@@ -55,24 +61,30 @@ snapshot-stamped filename and the validation report are published alongside it:
 ## Layout
 
 ```
-data/H2C_FDM_Material_Database.xlsx     the frozen authoring source of truth; never written by the build
-data/Generic_Materials_Reference.xlsx   generic engineering materials, an Ashby baseline only
+data/tables/                            the source of truth: one CSV per table, canonical form
+data/tables/properties.csv              the property registry; headline_definitions.csv the headlines
+data/manifest.json                      row count and SHA-256 of every table
+schema/tables/  schema/vocab/           the declared contract for every table, and its vocabularies
+schema/db.schema.json                   the contract for the compiled database
 
-build/src/                              extract -> normalize -> compile -> validate -> bundle
+build/src/                              check -> load -> normalize -> compile -> validate -> contract -> bundle
 build/src/coverage-rules.js             one definition of what counts as a material's own data
 build/mappings/                         hand-maintained vocabulary maps, reviewed like code
 build/reports/                          the validation report, regenerated every build
 
 app/js/engine/                          the selection logic. Pure: no DOM, never imports from ui/
 app/js/ui/                              rendering and interaction
-app/js/ui/labels.js                     the one vocabulary: what every property and criterion is called
+app/js/ui/registry.js                   labels, filters, axes, columns and export, built from the registry
+app/js/ui/labels.js                     the one vocabulary: what every criterion and verdict is called
 app/js/main.js                          the only place that holds state
 
-test/                                   engine, scenario, template, parser and compiled-database tests
-scripts/ensure-db.mjs                   rebuilds current inputs before every test run
+test/                                   engine, data gate, registry, contract, scale and database tests
+scripts/data/                           fmt, check, new-id, diff, the edit API, review workbook, scale data
+scripts/trace.mjs                       a headline back to its source
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
-scripts/workbook_xml.py                 shared, reviewable XML editor for audited workbook changes
-.github/workflows/pages.yml             build, test, publish
+scripts/migrate/                        the 2026-09-14 conversion from the retired workbooks, replayable
+.githooks/pre-commit                    format, schema and no-deletion check on data commits
+.github/workflows/                      verify on every push; build, verify, publish on main
 dist/                                   build output, not committed
 
 docs/                                   how it works and why
@@ -82,11 +94,11 @@ docs/audits/<date>-<subject>/           one folder per audit: the report as deli
 
 ## What the code enforces
 
-These come from the workbook's own Method sheet, the architecture brief and the audits. They are not stylistic
+These come from the database's own Method table, the architecture brief and the audits. They are not stylistic
 preferences: changing one changes what the tool asserts.
 
-1. **Headline values are verified, never recomputed.** The workbook already cites the measurement
-   behind each headline; the build checks the number matches. All 361 reconcile, and a mismatch
+1. **A headline is a selected measurement, never a copied number.** `headlines.csv` names the measurement
+   behind each headline and the value is read from it; the build checks the selection, and a bad one
    fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
@@ -118,7 +130,7 @@ preferences: changing one changes what the tool asserts.
     reaches is partial, never within.
 16. **An estimated chamber band decides nothing.** The research's bands are shown, marked, only where
     no source says anything better, and they can neither clear nor fail a material.
-17. **Nothing enters the workbook from a report.** Every value is re-read from its source and the
+17. **Nothing enters the data from a report.** Every value is re-read from its source and the
     source's SHA-256 recorded; a source that cannot be retrieved contributes nothing.
 18. **Coverage is terminal, but it must be true.** A coverage row cannot say `Gap` beside the
     material's own data or claim evidence that belongs only to another material. Family citations
@@ -154,7 +166,7 @@ because the words Strict and Explore told a first-time reader nothing about what
 
 ## H2C hardware baseline
 
-350 °C nozzle, 120 °C bed, 65 °C active chamber, from the Method sheet. The build parses each
+350 °C nozzle, 120 °C bed, 65 °C active chamber, from the Method table. The build parses each
 profile's published requirement and compares it against this envelope. All six materials the
 database marks as out of scope trip that gate independently, on their own published requirements.
 A chamber window that starts inside the envelope and ends above it, such as Bambu PPS-CF's 60–90 °C,

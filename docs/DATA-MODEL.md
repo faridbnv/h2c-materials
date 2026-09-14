@@ -1,37 +1,93 @@
 # The data model
 
-## The source workbook
+## The source tables
 
-`data/H2C_FDM_Material_Database.xlsx` is relational, not a flat table, and the tool preserves that. Nine
-sheets, each an Excel table with declared columns.
+The database is relational, not a flat table, and the tool preserves that. It is kept as CSV tables in
+`data/tables/`, each declared by a schema in `schema/tables/` (DECISIONS D45). Until 2026-09-14 the
+same records lived in an Excel workbook; the conversion and its proof are in
+[audits/2026-09-14-csv-source-migration/](audits/2026-09-14-csv-source-migration/REPORT.md).
 
-| Sheet | Rows | What it holds |
+**Records**
+
+| Table | Rows | What it holds |
 |---|---:|---|
-| Materials | 102 | Canonical identities and headline observations |
-| Grades | 155 | Exact commercial formulations, tied to materials |
-| Print setup | 171 | Processing guidance and H2C routing, per grade |
-| Properties | 2,049 | Individual property measurements, the unit of quantitative evidence |
-| Use & durability | 478 | Chemical, environmental and application evidence |
-| Prices CA | 104 | Canadian price observations |
-| Sources | 243 | The source register, with access dates and hashes |
-| Coverage | 1,188 | Gaps, conflicts and unresolved items |
-| Method | 48 | The rules the database was built under |
+| `materials.csv` | 102 | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
+| `grades.csv` | 155 | Exact commercial, study and resin-reference grades, each with a Role and a Status |
+| `profiles.csv` | 171 | Processing guidance and H2C routing, per grade |
+| `measurements.csv` | 2,049 | Individual property measurements, the unit of quantitative evidence |
+| `evidence.csv` | 478 | Chemical, environmental and application evidence |
+| `prices.csv` | 104 | Canadian price observations |
+| `sources.csv` | 243 | The source register, with access dates and hashes |
+| `coverage.csv` | 1,188 | Gaps, conflicts and unresolved items |
+| `method.csv` | 48 | The rules the database was built under |
+| `reference.csv` | 114 | Generic reference envelopes, a drawing layer only |
 
-Counts are for snapshot 2026-09-13, after the manufacturer evidence audit in
-[audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/) and the
-missing-data research in [audits/2026-09-13-missing-data-research/](audits/2026-09-13-missing-data-research/),
-then the [coverage consolidation](audits/2026-09-13-coverage-consolidation/) and the
-[estimate evidence research](audits/2026-09-13-estimate-evidence/) and the
-[duplicate-products fix](audits/2026-09-13-duplicate-products/). The build holds these
-numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
-changed workbook is always a deliberate, reviewed change to the tool.
+**Selections and citations**
+
+| Table | Rows | What it holds |
+|---|---:|---|
+| `headlines.csv` | 365 | Which measurement each headline shows (Use `value`), and measurements cited for a headline without being its value (Use `context`) |
+| `material_links.csv` | 702 | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
+
+**Registry**
+
+| Table | Rows | What it holds |
+|---|---:|---|
+| `properties.csv` | 32 | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
+| `headline_definitions.csv` | 6 | Every headline: kind, unit, value and related properties, direction, test load, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
+
+Counts are for snapshot 2026-09-13; `data/manifest.json` holds the current count and SHA-256 of every
+table, and the build refuses to run when a table and the manifest disagree, so a count change is
+always visible in the commit that makes it.
+
+### One fact, one home
+
+Nothing a table can derive is stored. A headline value lives only in its measurement; the price
+headline is the median of the flagged observations; per-kg prices are list price over net mass; a
+material's grade list is its active procurement grades; its environmental evidence is its own
+exposure records; its nozzle, bed and chamber guidance is its first cited profile. No table holds a
+list of identifiers inside a cell, except a profile's `H2C SourceID`, whose items are checked like
+any reference; `sources.csv` "Applicable grades" is prose, and every grade ID it mentions is checked.
+
+### The schema is the contract
+
+Every column is declared with a type, a **role** and a meaning:
+
+| Role | Meaning |
+|---|---|
+| `key` | A stable identifier. Never reused; a retired record keeps it. |
+| `raw` | Exactly what the source published. |
+| `canonical` | The reviewed, typed interpretation the build relies on. |
+| `editorial` | A choice made by the curator: a selection, a citation, a rating. |
+| `derived` | Calculated; kept only where the build checks it against what it summarises. |
+| `prose` | Words for a reader. |
+
+A field also names the explicit missing states it accepts ("Not published", "Not applicable" and the
+others in `schema/vocab/missing-states.csv`), so a blank cell is never a value: nothing becomes zero,
+and nothing is silently empty.
+
+### Properties that apply to some filaments only
+
+"Applies to" in `properties.csv` or `headline_definitions.csv` limits a property to some materials,
+tested on Family, Base polymer, Modifier / filler, Role, Scope or H2C status:
+
+```
+Family: Flexible Elastomers
+Modifier / filler: Carbon fibre | Glass fibre; Role: Structural / functional / appearance
+```
+
+Clauses separated by `;` must all hold; values separated by `|` are alternatives. The rule is checked
+against the values materials actually have, and needs a Not applicable reason. Outside it, a headline
+is `not-applicable` with that reason (not a gap), the drawer does not list the property as unmeasured,
+the filter rail counts availability only against the materials it applies to, and a measurement
+recorded against another material stops the build.
 
 The validator checks both ordinary referential integrity and ownership. A `MaterialID`, `GradeID`
 or `SourceID` must exist, and the grade named by a measurement, profile, price or use record must
 belong to that same material. This second check matters because valid identifiers can still be
 combined into a valid-looking but wrong record.
 
-### The Method sheet is executable
+### The Method table is executable
 
 It is not prose. Its Scope / Snapshot row dates the database, and the build reads the date from
 there for every label and filename. It defines the H2C hardware baseline (350 °C nozzle, 120 °C bed, 65 °C chamber),
@@ -41,21 +97,23 @@ code cites it by section, and it is compiled into `db.json` so the application c
 
 ## The compiled database
 
-`dist/db.json`. Entities keep their workbook shape; nothing is flattened into one wide table.
+`dist/db.json`, checked against `schema/db.schema.json` on every build. Entities keep their relational
+shape; nothing is flattened into one wide table.
 
 ```
 meta         snapshot, build, price sampling date, counts, H2C baseline, coverage
              summaries, environment category names and what each can decide,
              which chamber bands were used and which the evidence superseded
 materials    102   the selection-level object
-grades       144   materials 1 -- N grades
-measurements 1966  materials 1 -- N, grades 1 -- N, sources N -- 1
-profiles     167   print setup, with parsed temperatures, enclosure wording and gate verdicts
-evidence     478   use and durability, classified
+grades       155   materials 1 -- N grades
+measurements 1902  materials 1 -- N, grades 1 -- N, sources N -- 1 (147 retired duplicates excluded)
+profiles     171   print setup, with parsed temperatures, enclosure wording and gate verdicts
+evidence     462   use and durability, classified (16 retired duplicates excluded)
 prices       104   quarantined observations kept as an audit trail, backing nothing
-sources      235
-coverage     1146  terminal: reports gaps, never feeds selection
-method        44   the rules, verbatim
+sources      243
+coverage     1188  terminal: reports gaps, never feeds selection
+method        48   the rules, verbatim
+registry           { properties, headlines }: what every property and headline means
 ```
 
 ### A material
@@ -67,7 +125,7 @@ method        44   the rules, verbatim
   familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
   representativeGrade, gradeIds: [],
   headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
-  headlineBasis,                 // the workbook's own statement of what the headline is
+  headlineBasis,                 // the data's own statement of what the headline is
   measurementConditions,         // how the headline numbers were measured
   facets: { reinforcement, esd, flexible, supportMaterial, flameRetardant },
   gates:  { scope, nozzle, bed, chamber, abrasive, drying },
@@ -98,7 +156,7 @@ and `buy` is a market observation on a single day. They are shown because they d
 someone can act on a result, and they are never used to rank or to satisfy a property criterion.
 
 `facets` are partly derived. Each carries `origin: 'source' | 'derived'` and, when derived, what it
-was derived from. Flame retardancy is the weakest: there is no such field in the workbook, so it is
+was derived from. Flame retardancy is the weakest: there is no such field in the data, so it is
 inferred from the name and marked accordingly.
 
 ### A headline value
@@ -148,8 +206,8 @@ and only the first is evidence.
 the source stated no direction, or measured a different endpoint. A blank cell hid that and implied
 nothing was known.
 
-It reports **one** measurement, never a range across grades. The Method sheet's rule is that the
-Materials sheet shows labelled single-grade observations and not cross-grade family ranges. PEBA is
+It reports **one** measurement, never a range across grades. The Method table's rule is that a
+material's headlines are labelled single-grade observations and not cross-grade family ranges. PEBA is
 the case that forced it: its three grades measure 7.5, 25 and 30 MPa, and "7.5 to 30" reads as one
 material's uncertainty rather than three different products.
 
@@ -158,7 +216,7 @@ is related evidence and says so. It is not a printed or product specimen, whatev
 
 There is deliberately **no cross-property fallback**. An earlier version fell back to Vicat or glass
 transition when a material had no HDT, which surfaced TPE's glass transition of −35 °C in a column
-headed "HDT at 0.45 MPa". The Method sheet keeps those quantities distinct.
+headed "HDT at 0.45 MPa". The Method table keeps those quantities distinct.
 
 ### Estimates
 
@@ -243,7 +301,7 @@ nor uses estimates. The earlier models are recorded in D10, D11, D40 and D42.
 ### Resin references
 
 Three identities have no filament source that characterises them: PA66, PA612 and, until Tarfuse POM,
-POM. A resin supplier data sheet is recorded for each as a study grade with an `R` suffix (G055-R1
+POM. A resin supplier data sheet is recorded for each as a reference grade (Role `reference`) with an `R` suffix (G055-R1
 Zytel 101L, G058-R1 Zytel 151L, G087-R1 Delrin 100P). Its values are `Raw material value`, never a
 headline or a procurement grade, and exist only to anchor estimates through the moulded conversion.
 
@@ -306,7 +364,7 @@ plausible setpoint, and a setpoint is a recommendation at most.
 
 Every commercial product is recorded once, under the most specific material it is. Five canonical names
 are not materials: PA, PA-CF, PA-GF and TPE are families, and CoPA is another name for PA6/66. Their
-workbook Scope is `Family entry`, their members are in `build/mappings/family-entries.json`, and they
+Scope is `Family entry`, their members are in `build/mappings/family-entries.json`, and they
 carry no grade, value, estimate or print window. They are never candidates. Searching a family's name
 lists its members and says what the family is; its drawer links them.
 
@@ -314,10 +372,10 @@ Until 2026-09-13 these rows held other rows' products: one PolyMide CoPA data sh
 PA6/66 and CoPA with the same numbers three times, and PA-CF's headline was PA12-CF's. The fix retired
 each duplicate grade with the retirement marker and marked its measurements and evidence `Retired
 duplicate record`, after proving each has an identical twin under the grade that keeps the product.
-Those records stay in the workbook as an audit trail and never reach `db.json`. Products filed under a
+Those records stay in the tables as an audit trail and never reach `db.json`. Products filed under a
 generic row but belonging to a specific one moved there with every record (PA6-CF, PA6-GF, TPU).
 
-The build fails if a family entry owns an active grade, if the mapping and the workbook disagree, or
+The build fails if a family entry owns an active grade, if the mapping and the materials table disagree, or
 if a member is not an in-scope material; a test fails if any data sheet is filed under two materials.
 
 ## Evidence ownership and coverage
@@ -327,23 +385,22 @@ observation and use record names both a `MaterialID` and a `GradeID`; the grade 
 same material. Every measured headline must cite its material's **representative grade**, because a
 single Materials row cannot present several formulations' values as if they described one product.
 
-`GradeIDs` is the procurement list. It contains every commercial grade belonging to the material.
-Supplemental study grades use an `-R#` suffix and deliberately stay outside that list: they can
-provide clearly labelled context, but they are not products a reader can procure or use as the
-representative grade.
+A material's grade list (`gradeIds`) is its procurement list: every grade with Role `procurement` and
+Status `active`. Study and resin-reference grades (Role `study` or `reference`, and an `-R#` ID suffix
+the build keeps in agreement with the role) deliberately stay outside it: they can provide clearly
+labelled context, but they are not products a reader can procure or use as the representative grade.
 
-The four evidence columns do not have identical ownership rules:
+The evidence lists do not have identical ownership rules:
 
-| Column | What it may cite |
-|---|---|
-| `Use evidence` | The material's records and explicitly labelled family context |
-| `Environmental evidence` | Exactly this material's own exposure, solubility and moisture records |
-| `Durability evidence` | The material's records and explicitly labelled family context |
-| `Safety evidence` | The material's records and explicitly labelled family context |
+| List | Where it comes from | What it may cite |
+|---|---|---|
+| use | `material_links.csv`, Link `use` | The material's records and explicitly labelled family context |
+| environmental | derived | Exactly this material's own exposure, solubility and moisture records |
+| durability | `material_links.csv`, Link `durability` | The material's records and explicitly labelled family context |
+| safety | `material_links.csv`, Link `safety` | The material's records and explicitly labelled family context |
 
-Family context is useful background, but it cannot make a grade appear chemically tested. The
-validator derives the expected Environmental evidence list from the material's own records and
-fails if the authored list differs.
+Family context is useful background, but it cannot make a grade appear chemically tested, which is why
+environmental evidence is never authored: it is always the material's own records.
 
 Coverage is terminal: it reports gaps and never feeds candidate selection. It still must describe
 the records truthfully. `build/src/coverage-rules.js` defines what counts as own data for Mechanical,
@@ -405,7 +462,7 @@ So is a value of 2.98 ± 0.09 GPa against a 3 GPa floor.
 `dist/reference.json` is separate from `db.json` and must stay that way. 114 generic engineering
 materials as uncited min/max envelopes, ten shown by default.
 
-The Method sheet's Legacy crosswalk maps column for column onto that workbook and sets the governing
+The Method table's Legacy crosswalk maps column for column onto the original reference and sets the governing
 rule: *uncited numeric values are not imported*. So the reference set is a drawing layer. It is
 excluded from the candidate set, all counts, the results table, Pareto fronts, index tallies, search,
 the shortlist and every export of candidates. On the chart it draws as a ghosted envelope, off by
@@ -447,9 +504,10 @@ Carried as warnings in `build/reports/validation-report.md`, and surfaced in the
 
 ## Retired identity mappings
 
-`Grades.Availability = Retired mapping; audit trail only` compiles to `retired: true`.
+A grade with Status `retired` compiles to `retired: true`; its Availability reads "Retired mapping; audit
+trail only", and the build flags a retirement finished on one field and not the other.
 The grade and its profiles remain identifiable in the archival data, but cannot appear in active
-`GradeIDs`, print summaries/gates, the Grades or Printing drawer, or procurement counts.
+a material's grade list, print summaries/gates, the Grades or Printing drawer, or procurement counts.
 G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only G091-02.
 
 ## Raw-value reconciliation

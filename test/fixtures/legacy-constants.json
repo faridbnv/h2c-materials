@@ -1,5 +1,5 @@
 {
-  "note": "Property and headline constants as they were hardcoded before the registry (commit d8d1e6c), copied verbatim. test/registry.test.js requires the registry to reproduce them, except where DECISIONS D45 records a deliberate correction.",
+  "note": "Property and headline constants as they were hardcoded before the registry (commit d8d1e6c), copied verbatim. test/registry.test.js requires the registry to reproduce them, except where DECISIONS D46 records a deliberate correction.",
   "build": {
     "HEADLINES": [
       [

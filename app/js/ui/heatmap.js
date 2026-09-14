@@ -10,7 +10,7 @@
 import { coverageMatrix, COVERAGE_DOMAINS } from '../engine/coverage.js';
 import { esc } from './format.js';
 
-// Four readable states, collapsed from the eight the workbook records.
+// Four readable states, collapsed from the eight the coverage table records.
 const STATE = {
   'Evidence recorded': 'ok', 'Resolved': 'ok',
   'Partially resolved': 'partial', 'Reviewed with limitations': 'partial', 'Limited comparability': 'partial',

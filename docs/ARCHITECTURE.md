@@ -5,11 +5,11 @@
 Three layers, separated on purpose, each with a rule about what it may not do.
 
 ```
-  data/H2C_FDM_Material_Database.xlsx     the frozen authoring source of truth
-  data/Generic_Materials_Reference.xlsx   an Ashby baseline, never a candidate
+  data/tables/*.csv          the source of truth: reviewed, diffable, one fact in one place
+  schema/                    the declared contract for every table, and for the compiled output
             |
-            |   BUILD   node, runs once, deterministic, fails loudly
-            |           build/src/
+            |   CHECK   every table against its schema, before anything is compiled
+            |   BUILD   node, deterministic, fails loudly           build/src/
             v
   dist/db.json  +  dist/reference.json  the compiled runtime representation
             |
@@ -30,15 +30,28 @@ Inside the application, the same separation again:
 browser, and it is why `test/constraints.test.js` can assert what a user will see without rendering
 anything. If you find yourself wanting a DOM in the engine, the thing you want belongs in `ui/`.
 
-## Why a build step, rather than reading the workbook in the browser
+## Why CSV tables and a schema, rather than a workbook or a database
 
-A browser can parse XLSX. Doing so would couple the interface to the workbook's layout, push
-validation failures into the user's session, and make the output non-deterministic. Excel is an
-authoring format; JSON is the compiled runtime representation. The workbook is never written by
-anything in this repository.
+Until 2026-09-14 the source was an Excel workbook. Git saw it as one binary blob, relationships lived
+as semicolon lists inside cells, headline values were typed twice, and every row added needed an XML
+patch script and a hand-edited row count. The tables under `data/tables/` hold the same records with
+none of that: each change is a readable row diff, each fact has one home, and `schema/tables/`
+declares every column, type, missing state, vocabulary and reference so a mistake is reported at
+its file, line and field in under a second (DECISIONS D45).
+
+No database server or SQLite file sits in the build path. For one person and two agents editing a few
+thousand rows, text files under a schema give the same integrity checks with none of the operations,
+and the build is where those checks run anyway.
+
+## Why a build step, rather than reading the tables in the browser
+
+Reading the tables in the browser would couple the interface to their layout, push validation
+failures into the user's session, and make the output non-deterministic. The tables are the authoring
+format; JSON is the compiled runtime representation, checked against `schema/db.schema.json`.
 
 The build is also where the project's discipline lives. It fails on any validation error, so a
-database that has drifted cannot reach a distributable file at all.
+database that has drifted cannot reach a distributable file at all. It is reproducible: the same
+commit builds the same bytes, and `dist/manifest.json` records what went in and what came out.
 
 ## Why one self-contained HTML file
 
@@ -56,31 +69,47 @@ plotting library, not the data, is what the file weighs.
 
 | Module | Responsibility |
 |---|---|
-| `extract.js` | Read both workbooks into raw row objects. No interpretation. |
+| `csv.js` | The canonical CSV format: parse, and write in the one form every table is kept in. |
+| `schema.js` | Check every table against `schema/tables/`: columns, types, missing states, patterns, vocabularies, uniqueness, references (including IDs inside lists and prose), canonical format and `data/manifest.json`. |
+| `load.js` / `source.js` | Read the tables into raw row objects. No interpretation. |
+| `registry.js` | The property registry: what each property and headline means, and which materials it applies to (`properties.csv`, `headline_definitions.csv`). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
 | `normalize/direction.js` | The nine spellings of build direction, and which may be compared with which. |
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text. |
 | `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window and its answers in words. |
 | `normalize/chemical.js` | 73 environment topics onto canonical categories; findings onto verdicts. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
-| `compile.js` | Assemble the relational runtime database and verify every headline against its own citation. |
+| `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
 | `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43). |
 | `print-estimates.js` | Nozzle and bed windows inferred from peers where no source publishes one. They decide nothing. |
 | `chamber-estimates.js` | The research's chamber bands, from `build/mappings/chamber-estimates.json`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
+| `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
+| `review-workbook.js` | The generated, read-only Excel review workbook (`npm run data:export-xlsx`). |
+| `legacy/extract-workbook.js` | The retired workbook reader, kept only so the conversion can be replayed (`npm run migration:verify`). |
 | `bundle.js` | One HTML file. |
-| `index.js` | Runs the stages and decides whether the build may proceed. |
+| `index.js` | Runs the stages, decides whether the build may proceed, and writes the release manifest. |
 
-### Audited workbook edits, `scripts/`
+### Data tooling, `scripts/`
 
-The build never writes the workbook. When an audit deliberately changes it, the audit owns a plan,
-an apply script and a changelog. Those apply scripts use `scripts/workbook_xml.py`, a small shared
-editor that changes the relevant worksheet XML directly, preserves existing cell styles, extends an
-Excel table when a row is appended, and records every touched cell. An audit script must verify the
-input workbook SHA-256 before it writes. This keeps a workbook edit reviewable without turning the
-normal build into an authoring tool.
+| Script | Responsibility |
+|---|---|
+| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), append, add or drop a column, save in canonical form with a fresh manifest. Nothing is deleted. |
+| `data/fmt.mjs` | `npm run data:fmt`: rewrite tables and vocabularies canonically and refresh `data/manifest.json`; `--check` changes nothing. |
+| `data/check.mjs` | `npm run data:check`: the schema gate on its own, in under a second. |
+| `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
+| `data/diff.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses deletions. It replaces hand-written audit changelogs. |
+| `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line. |
+| `data/synthesize.mjs` | A multiple of today's data under new IDs, for the scale test. |
+| `data/export-xlsx.mjs` | The read-only review workbook. |
+| `migrate/` | The one-time conversion from the workbooks (dump, then m01..m06) and its historical check. |
+| `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories. |
+
+`npm run verify` runs them in the order a commit needs: format, schema, build, tests, audit. The
+pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
+`schema/`, and CI runs `verify` on every push. `AGENTS.md` is the editing guide.
 
 ### Engine, `app/js/engine/`
 
@@ -97,6 +126,7 @@ normal build into an authoring tool.
 
 | Module | Responsibility |
 |---|---|
+| `registry.js` | Builds the interface's property definitions from the database's registry at start-up: labels, filters, axes, table columns, export headers and the drawer's property tabs. |
 | `labels.js` | The single vocabulary. What every property, criterion, gate verdict and chamber statement is called, in plain words with the technical name behind it. Nothing else names them. |
 | `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated. |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
@@ -138,13 +168,18 @@ lenses drew only measured headlines and silently dropped a quarter of the candid
 a range, so it is drawn as a range, counted where it cannot be drawn, and never allowed to dominate
 a measured value.
 
-**A new selectable property.** Add it to the headline list in `compile.js`, to `PROPERTY` in
-`ui/labels.js` with its plain name and unit, to `AXIS_DEFS` in `ui/axes.js` with its measurement
-mapping, to the numeric controls in `ui/filters.js`, and, if an estimate makes sense for it, to
-`ESTIMATE_KEYS`, `HEAD` and `kindOf` in `estimates.js`, with its scale, floors, precision thresholds
-and conversions in `build/mappings/estimate-model.json`. The calibration check will say at once
-whether the model holds for it. The engine needs no change: it works off whatever headline keys
-exist.
+**A new measured property.** A row in `data/tables/properties.csv` (domain, units, and "Applies to"
+if it only means something for some filaments), then its measurements. It appears in the drawer's
+tab for its domain, counts as coverage evidence, and is checked for unit and applicability. No code.
+
+**A new selectable property (headline).** A row in `data/tables/headline_definitions.csv`, then a
+value row in `headlines.csv` for each material that has one. The filter rail, charts, table, export,
+drawer and engine pick it up from the registry; materials outside "Applies to" show it as not
+applicable with the reason. `test/new-property.test.js` does exactly this for an elastomer-only
+Shore A hardness. Only estimation needs code: mark it Estimated only after adding `HEAD` and `kindOf`
+cases in `estimates.js` and its scale, floors, precision thresholds and conversions in
+`build/mappings/estimate-model.json`; the build refuses the flag otherwise, and the calibration check
+says at once whether the model holds.
 
 **A new constraint kind.** Add a branch in `evaluateConstraint` and a matching control. Return the
 same result shape, including `criterion` and `reason`, or the explain panel will have nothing to
@@ -168,11 +203,12 @@ category without importing anything from `ui/`.
 ## Further reading
 
 - `docs/PIPELINE.md` — what each build stage does and what it refuses to do
-- `docs/DATA-MODEL.md` — the entities, the compiled shape, the three kinds of number
+- `docs/DATA-MODEL.md` — the tables, the registry, the compiled shape, the three kinds of number
+- `AGENTS.md` — how to change data: the rules for people and agents
 - `docs/INTERFACE.md` — the workflow, the lenses, the visual vocabulary
 - `docs/DECISIONS.md` — the decisions that are not obvious, and the bugs that forced them
 
-The systematic audit uses `build/src/measurement-rules.js` for independent raw-value and headline
-semantics checks and `scripts/audit-data.mjs` for reproducible source-to-HTML verification and record
-inventories. Both reuse the established pipeline. Retirement is an explicit source status, not a
-hardcoded grade exclusion; the Method sheet names the exact marker. Estimates may screen but never pass (D42).
+The systematic audit uses `build/src/measurement-rules.js` for independent raw-value, unit,
+applicability and headline checks and `scripts/audit-data.mjs` for reproducible source-to-HTML
+verification and record inventories. Both reuse the established pipeline. Retirement is an explicit
+grade Status, never a hardcoded exclusion. Estimates may screen but never pass (D43).

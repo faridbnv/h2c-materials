@@ -1,6 +1,6 @@
 // The interface builds its property definitions from the database's registry. They must reproduce the
 // lists that were hardcoded in labels.js, axes.js, filters.js, table.js and detail.js, except for the
-// corrections DECISIONS D45 records, and a new registry row must reach every view with no code change.
+// corrections DECISIONS D46 records, and a new registry row must reach every view with no code change.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -27,7 +27,7 @@ test('labels, axes, filters, table columns and export headers reproduce the hard
   assert.deepEqual(exportHeadlines().map((h) => h.key), legacy.CSV_KEYS);
 });
 
-test('the drawer uses the shared labels and the shared property domains (D45 corrections)', () => {
+test('the drawer uses the shared labels and the shared property domains (D46 corrections)', () => {
   useRegistry(db.registry);
   // Overview key numbers now read the same hint as the filter rail. The drawer had said elongation
   // "high means tough", which the shared label exists to contradict.

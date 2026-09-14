@@ -5,11 +5,14 @@ break if it were reversed, because that is the part that gets lost.
 
 ---
 
-## D1. Excel is the authoring format; JSON is the runtime
+## D1. Excel is the authoring format; JSON is the runtime (authoring superseded by D45)
 
 A browser can parse XLSX, but doing so couples the interface to workbook layout, pushes validation
 failures into the user's session, and makes output non-deterministic. The workbook is never written
 by anything here.
+
+Since 2026-09-14 the authoring format is CSV tables under a declared schema (D45). The second half
+stands: JSON is the runtime, and the build is the only thing that produces it.
 
 ## D2. Headline values are verified, never recomputed
 
@@ -19,6 +22,9 @@ headline must also cite only the observations its median was built from.
 
 This converts a class of judgement calls into build errors. Corrupting one density cell produces a
 named error and no output.
+
+Amended by D47: the number is no longer typed twice. `headlines.csv` selects the measurement and the
+value is read from it, so there is nothing left to reconcile; the build checks the selection instead.
 
 ## D3. Missing data is four states, never zero
 
@@ -296,7 +302,7 @@ gate compares against the H2C's own actively heated 65 °C. The indoor template 
 chamber gate, which tested nothing about ease of printing and held out PLA Basic for not publishing
 a chamber temperature.
 
-## D30. The snapshot date comes from the workbook
+## D30. The snapshot date comes from the workbook (now `data/tables/method.csv`)
 
 The build used to carry the snapshot date as a constant. The 2026-09-13 manufacturer audit moved the
 Method sheet to a new snapshot, and every filename, "data" label and export would have kept naming
@@ -371,6 +377,10 @@ So nothing enters the workbook from a report. Each value is re-read from its sou
 file's SHA-256 is recorded, and a source that cannot be retrieved contributes nothing, however
 plausible the value attributed to it. The edit is a script with a changelog, and it refuses to run on
 any workbook but the one it was written against.
+
+Since D45 the same rule holds for the tables. A scripted edit goes through `scripts/data/table-io.mjs`
+and states the value it expects to replace, so it refuses to run on data that has moved;
+`npm run data:diff` produces the record-level changelog from the commit itself.
 
 ## D36. Referential integrity includes ownership, not just existence
 
@@ -588,7 +598,77 @@ A product is now recorded once, under the most specific material it is. A family
 Scope `Family entry`, owns nothing, carries no value and is never a candidate; it stays in the list
 because its name is how people search (Bambu lists PA, PA-CF and PA-GF as H2C families), and search
 answers with its members. Duplicates are retired, never deleted, after the script proves each record
-has an identical twin, so the workbook keeps its audit trail and nothing is lost.
+has an identical twin, so the data keeps its audit trail and nothing is lost.
 
 Reversing it brings back double counting, which is worse than a gap because it looks like evidence
 agreeing with itself. See [the duplicate-products audit](audits/2026-09-13-duplicate-products/REPORT.md).
+
+## D45. The source of truth is CSV tables under a declared schema
+
+The workbook had become hard to govern, not too big. Git saw each audited change as a binary blob, so
+a 25-cell correction needed a 70,000-line evidence package to be reviewable. Relationships were
+semicolon lists inside cells, headline values were typed twice, formula ranges stopped at row 1809
+while data ran to 2052, 139 formula caches were stale, and every appended row needed an XML patch
+script and a hand edit to an expected row count.
+
+The records now live in `data/tables/*.csv`, one table per entity, and `schema/tables/` declares every
+column: type, role, required values, the missing states it accepts, patterns, vocabularies and
+references, including identifiers inside lists and prose. `build/src/schema.js` checks all of it before
+compile in about 200 ms and names the file, line, record and field. Files are kept in one canonical
+form, so a diff shows only what changed, and `data/manifest.json` makes every row-count change
+visible in its commit. `npm run verify` is the one gate for people, agents, the pre-commit hook and CI.
+
+No database sits in the build path. SQLite was the assessment's recommendation; for one person and
+two agents editing a few thousand rows, a schema over text files gives the same integrity checks
+without a second representation to keep in step. The same schema can generate one later if concurrent
+editing is ever needed. Excel remains a generated, read-only review view (`npm run data:export-xlsx`)
+with no import path, so there is still exactly one place data is changed.
+
+The conversion was proven, not assumed: the first CSV build reproduced the workbook build byte for byte,
+and every later step either left the compiled database unchanged or listed each difference with its
+reason. `npm run migration:verify` replays it from the workbooks in git history. See
+[the migration record](audits/2026-09-14-csv-source-migration/REPORT.md).
+
+Reversing it brings back unreviewable changes and errors found only at build time, by a message that
+names a sheet row rather than a field.
+
+## D46. A property is a registry row, and may apply to some filaments only
+
+A property's meaning was hardcoded in about a dozen places across the build and the app, differently:
+the drawer's Mechanical tab and the coverage rules disagreed about five properties, and the Overview
+told users elongation "high means tough" while the filter rail said it is not toughness. Adding one
+property meant 12 to 16 coordinated edits.
+
+`data/tables/properties.csv` and `data/tables/headline_definitions.csv` now say what every property and
+headline means, and the build and the interface derive their lists from them. A new property is a row;
+a new selectable headline is a row plus its selections. `test/new-property.test.js` adds an
+elastomer-only Shore A hardness with data alone and follows it to every view.
+
+"Applies to" makes sparsity a statement. Outside it a property is not applicable, with a reason, not
+missing: the drawer does not report it unmeasured, the filter rail counts availability only against
+the materials it applies to, and a measurement recorded against any other material stops the build.
+
+The estimate model stays in code, because conversions between properties are physics, not labels. A
+registry row cannot switch estimation on for a headline the model does not know.
+
+Reversing it brings back the drift: a label, unit or tab list that one screen changes and the next does
+not.
+
+## D47. What can be calculated is not stored
+
+The workbook stored conclusions beside the evidence for them and then checked they agreed: headline
+values beside their measurements, price medians beside their observations, per-kg prices beside list
+price and mass, each material's grade list beside its grades, environmental evidence beside the
+records it had to equal, and printing guidance beside the profile it quoted. Every pair was a place to
+forget one half.
+
+Each is now calculated from its evidence, and only the editorial choice is stored: which measurement a
+headline shows, which observations a price sample holds, which records a material cites. A stored list
+became derived only after a migration proved the derivation equal for every row. Where it was not equal,
+the difference was kept as data, not smoothed over: four materials cite a thermal measurement that is
+not their HDT value, so `headlines.csv` records them as context.
+
+Two compiled values moved, and both are listed in the migration record. PAHT-CF's price is 124.49
+(the median 124.485 rounded half up, where the typed 124.48 was a floating-point display). Two materials
+list the same environmental records in table order rather than typed order.
+

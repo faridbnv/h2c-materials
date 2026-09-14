@@ -7,7 +7,7 @@ dist/
 # repository, so it only resolves on the machine it was written on.
 *.code-workspace
 
-# Python bytecode from the workbook edit scripts.
+# Python bytecode from the historical workbook edit scripts in docs/audits/.
 __pycache__/
 
 # Local output of `npm run audit:data`. A named audit archives its own copy under docs/audits/.

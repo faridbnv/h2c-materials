@@ -104,7 +104,7 @@ export function validate(db, wb) {
     if (hasRep && !grades.some((g) => g.id === rep)) issues.push(err(where, `Representative grade ${rep} is not one of its grades`));
 
     // Headlines. Method, Comparison / Headlines: labelled single-grade observations, which in this
-    // workbook means the representative grade. A headline from another grade would put two
+    // database means the representative grade. A headline from another grade would put two
     // formulations' numbers side by side in one row as if they were one product.
     for (const [key, h] of Object.entries(mat.headline)) {
       if (!h?.known || !h.measurementId) continue;

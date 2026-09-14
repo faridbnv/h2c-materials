@@ -1,9 +1,11 @@
 # The build pipeline
 
 ```
-npm run build          full build, ending in a distributable HTML file
+npm run verify         everything a commit needs: data format, schema, build, tests, audit
+npm run data:check     the schema gate alone, in under a second
+npm run build          full build, ending in a distributable HTML file and its manifest
 npm run validate       stops after the report; writes no dist artefacts
-npm test               engine, parser, search and compiled-database tests
+npm test               builds, then engine, data, registry, contract, scale and database tests
 ```
 
 Everything runs from `build/src/index.js`. The build is deterministic and **fails on any validation
@@ -11,22 +13,25 @@ error**, so a database that has drifted cannot reach a distributable file.
 
 ---
 
-## 1. Extract — `extract.js`
+## 0. Check — `schema.js`
 
-Reads both workbooks into raw row objects. No interpretation happens here: every cell arrives as the
-string it displays, so that `"Not published"` and a number remain distinguishable downstream.
+Before anything is read for meaning, every table under `data/tables/` is checked against
+`schema/tables/<table>.schema.json`: the columns and their order, each value's type, required values,
+the explicit missing states a field accepts, patterns, controlled vocabularies (`schema/vocab/`),
+uniqueness, and references between tables, including each item of a list and each grade ID written
+into prose. Files must be in canonical CSV form and `data/manifest.json` (row count and SHA-256 per
+table) must be current, so a count change is visible in the commit that makes it. Any violation stops
+the build with the file, line, record and field. The whole check takes about 200 ms.
 
-Header rows were confirmed against the workbook's own embedded table definitions. Materials declares
-`A6:AQ108`; every other table starts at `A3`. Expected row counts are asserted, so if the frozen
-source moves, the build says so rather than silently compiling less data.
+## 1. Load — `load.js`
 
-The reference workbook needs its own reader: its sheet range does not start at column A, its
-category column only repeats on the first row of each block, and its header is three deep. It
-locates the `Name` cell and works in offsets from there rather than assuming positions.
+Reads the tables into raw row objects, one set per table under the name the compiler addresses it by.
+No interpretation happens here: a value is its trimmed text or null, so `"Not published"` and a number
+remain distinguishable downstream. Each row carries its file and line for error messages.
 
 ## 2. Normalize — `normalize/`
 
-Where the workbook's free text becomes machine-readable. This is the largest and most error-prone
+Where the sources' free text becomes machine-readable. This is the largest and most error-prone
 stage, and the one the architecture brief does not mention at all.
 
 **Missing states** (`values.js`). Four states that must never collapse into each other or into zero:
@@ -39,7 +44,7 @@ because this is serialised to JSON and `JSON.stringify` would turn Infinity into
 
 **Direction** (`direction.js`). Nine spellings onto canonical values. Three of them are the source's
 own words rather than a confirmed build orientation, so `Horizontal (source label)` gets its own
-value and never merges into XY. The Method sheet's rule: an unknown direction is not XY.
+value and never merges into XY. The Method table's rule: an unknown direction is not XY.
 
 **Thermal** (`thermal.js`). About twenty spellings of HDT standard and load, including full-width
 commas from Chinese-language datasheets. A load that was never stated stays unstated; 25 of 69 HDT
@@ -68,7 +73,7 @@ The chamber has two more answers the other axes do not (DECISIONS D32, D33):
 
 **Chemical** (`chemical.js`). 73 environment topics onto canonical categories, via a hand-maintained
 map in `build/mappings/environment-topics.json` that is reviewed like code. That file also carries
-each category's display names, which is why it is the only place a category is named. The sheet runs
+each category's display names, which is why it is the only place a category is named. The evidence runs
 two overlapping source vocabularies for the same chemistry, `Resistance to Acid` alongside `Effect
 of weak acids`; they merge but keep their strength qualifier, because a source that distinguished
 weak from strong said more than one that did not.
@@ -77,12 +82,21 @@ weak from strong said more than one that did not.
 
 Assembles the relational runtime database, and does the one thing that matters most:
 
-> **Headline values are verified against their own citations, never recomputed.**
+> **A headline is a selected measurement, never a number typed a second time.**
 
-The Materials sheet already carries the MeasurementID behind each headline, the PriceIDs behind each
-price, and a ProfileID for printing. The build checks that the number equals the measurement it
-cites. All 361 reconcile, and all 40 price headlines equal the median of their flagged observations
-and cite only those observations. A mismatch is a build error, not a judgement call.
+`headlines.csv` names the MeasurementID behind each headline; the value is read from that
+measurement. The build checks the selection against the headline's definition in
+`headline_definitions.csv`: an active numeric measurement of this material, on its representative
+grade, of an allowed property, in the headline's unit and direction. A selection that fails any of
+these is a build error naming the material and the reason. A headline limited by "Applies to" is not
+applicable, with its reason, for every other material.
+
+The price headline is calculated: the median regular CAD/kg (list price over net mass, to the cent)
+of the material's headline-sample observations. A material's grades are its active procurement
+grades; its environmental evidence is its own exposure, solubility and moisture records; its nozzle,
+bed and chamber guidance is its first cited profile's text. None of these is stored, so none can
+disagree with what it summarises. Editorial citations (printing, H2C status, use, durability, safety)
+are rows in `material_links.csv`.
 
 Compile also derives, each tagged with its origin so the interface can tell them apart:
 
@@ -94,7 +108,7 @@ Compile also derives, each tagged with its origin so the interface can tell them
   supplies the reason.
 - **Related evidence** for headlines with no value: one real measurement of the same property that
   was never promoted, with the reason. Never a cross-grade range.
-- **Facets** the Materials sheet does not carry directly, marked `derived`.
+- **Facets** the Materials table does not carry directly, marked `derived`.
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
   profiles, with the number of profiles behind each. 93 materials have a nozzle window, 93 a bed
   window and 58 a chamber window. It answers "what do I set it to", which was otherwise only in free
@@ -102,8 +116,11 @@ Compile also derives, each tagged with its origin so the interface can tell them
   profiles is kept as `chamberGuidance`: not required, then recommended, then no setpoint.
 - **A buy summary** per material: one offer chosen from the price observations, ranked by in stock,
   then the observation behind the headline, then anything with a price. 48 materials have one and
-  42 had stock on the price sampling date. Quarantined observations are skipped. The retailer URLs were in the workbook from the start and were
+  42 had stock on the price sampling date. Quarantined observations are skipped. The retailer URLs were in the data from the start and were
   rendered nowhere.
+- **The registry** (`db.registry`): every property's domain, units and applicability, and every
+  headline's definition and labels, so the interface builds its filters, axes, table, export and
+  drawer tabs from data.
 - **Environment category names**, carried through from the mapping file in a heading form ("Acid
   resistance") and a sentence form ("acids"), so the engine can name a category in a reason string
   without importing anything from the interface, and so there is one place to change a name.
@@ -135,28 +152,28 @@ see `docs/DATA-MODEL.md` under "Chamber evidence".
 Errors stop the build. Warnings do not: they record what the compiled database cannot support, so
 the interface can say so rather than implying a certainty it does not have.
 
-Checked: identifier uniqueness; referential integrity across every sheet; quarantined measurements
+Checked: identifier uniqueness; referential integrity across every table; every measurement of a
+registered property, in one of its units, of a material the property applies to; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
-kJ/m² without specimen geometry; the six excluded materials tripping the envelope gate on their own
-evidence; HDT loads either stated at 0.45 MPa or flagged; every in-scope headline carrying a value,
+kJ/m² without specimen geometry; scope and H2C status agreeing about exclusion; HDT loads either stated at 0.45 MPa or flagged; every in-scope headline carrying a value,
 an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
 range and citing only its own material's or representative product's measurements; each headline's
 likely range holding 80% (±10 points) and its plausible range at least 90% of hidden measured
-headlines; retired grades marked with the exact
-Method phrase; every chamber band naming a real, in-scope material
+headlines; a retirement finished on both Status and Availability; grade roles agreeing with the -R#
+ID suffix; every chamber band naming a real, in-scope material
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
 
 It also checks **cross-record consistency**, not just whether referenced identifiers exist:
 
 - every measurement, profile, price and use record is filed under the material its grade belongs to;
-- `GradeIDs` contains every procurement grade, while supplemental study grades with an `-R#` suffix
-  remain outside that procurement list;
+- a material's grade list is its active procurement grades; study and resin-reference grades (Role,
+  and an `-R#` suffix) remain outside it;
 - every measured headline belongs to its material and its representative grade;
 - each cited record exists and belongs to the material, except deliberately labelled family context
   in use, durability and safety notes;
-- nozzle, bed and chamber guidance quotes the cited print profile;
-- `Environmental evidence` is exactly the material's own exposure, solubility and moisture records;
+- each material link cites the right kind of record: a profile or evidence for printing, a source
+  for H2C status, evidence for use, durability and safety;
 - coverage does not claim absence beside the material's own records or claim evidence it does not
   have, and each Grades coverage row states the true procurement-manufacturer count.
 
@@ -170,7 +187,17 @@ a band. It lists every band the evidence superseded.
 `build/reports/validation-report.md` is regenerated every build and is a deliverable in its own
 right. It tells you what the tool cannot yet see.
 
-## 6. Bundle — `bundle.js`
+An unestimated in-scope headline says why when the cause is known: a material whose identity (its base
+polymer, or a blend's name) has no entry in `build/mappings/estimate-model.json` is reported with that
+fix.
+
+## 6. Contract — `contract.js`
+
+`dist/db.json` and `dist/reference.json` are checked against `schema/db.schema.json` and
+`schema/reference.schema.json` (JSON Schema 2020-12). A field the compiler renamed, dropped, retyped
+or added without declaring stops the build, reported at its JSON path.
+
+## 7. Bundle — `bundle.js`
 
 Inlines the stylesheet, the plotting library and the application, and embeds both compiled databases
 gzipped and base64-encoded.
@@ -180,12 +207,17 @@ in a string replacement, and minified library source is full of such sequences; 
 as a string scattered the matched placeholder tag through the output thirty times. The bundler also
 asserts that no source path survived into the output, which is how that failure is caught now.
 
+The build date is the commit date (or `SOURCE_DATE_EPOCH`), never the clock, so the same commit
+builds the same bytes. `dist/manifest.json` records the snapshot, build date, commit, whether the tree
+was clean, hashes of the data manifest, schema, build rules, mappings and app, and hashes of every
+output. Pages publishes it beside the page.
+
 ## Verifying a build
 
 ```bash
-npm run build                    # must report 0 errors
-npm test                         # 131 tests
+npm run verify                   # format, schema, build (0 errors), 169 tests, audit
 open dist/H2C_Material_Selector_2026-09-13.html
+npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
 
 The end-to-end check is the worked example from the architecture brief: H2C-relevant, HDT at least
@@ -206,12 +238,18 @@ URLs is not a substitute for actually running it without a network.
 ## Systematic data audit
 
 `npm test` always builds current inputs before the database tests. `npm run audit:data` also builds,
-then reuses the production extractor/compiler/validator and writes `build/reports/data-audit/`.
+then reuses the production loader/compiler/validator and writes `build/reports/data-audit/`.
 Pass an output directory to archive a review. The audit independently reconciles numeric raw values,
-checks explicit source-grade scope, regenerates both workbook payloads, and decompresses the HTML
+checks explicit source-grade scope, recompiles both payloads from the tables, and decompresses the HTML
 to prove it embeds those exact payloads. It produces a full record index and 102-filament / 19-family
 matrix. It does not assert that all external documents were re-read; live checks belong in the
 review's source log. `measurement-rules.js` adds build-stopping numeric and endpoint checks.
 
-The Pages workflow runs the data audit after tests. Exact native conversion-factor values are retained
-by extraction for formula checks; formatted display strings alone can round small factors.
+The Pages workflow runs `npm run verify`, which includes the audit. Conversion factors are stored at
+full precision in `measurements.csv`, so the raw-value reconciliation reads exactly the factor applied.
+
+## Scale
+
+`test/scale.test.js` doubles the data (every material and its records cloned under new IDs) and runs the
+gate, compile and validate: about 0.3 s and 10 s at 199 materials and 3,979 measurements, against 0.2 s
+and 2 s today. The estimate model dominates, because its Gaussian process is cubic in observations.

@@ -6,6 +6,6 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 
-console.log('Building the current workbook and code before database tests.\n');
+console.log('Building the current data tables and code before database tests.\n');
 const r = spawnSync('npm', ['run', 'build'], { cwd: root, stdio: 'inherit', shell: process.platform === 'win32' });
 process.exit(r.status ?? 1);

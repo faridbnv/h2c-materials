@@ -1,6 +1,6 @@
 // Parser tests for the build's normalize stage.
 //
-// This is where the workbook's free text becomes machine-readable, and where the most damaging bugs
+// This is where the sources' free text becomes machine-readable, and where the most damaging bugs
 // have been: a range dash read as a minus sign, an annealing schedule read as a chamber
 // requirement. Both silently produced plausible-looking wrong numbers rather than failing, so each
 // is pinned here with a comment explaining the failure it prevents.

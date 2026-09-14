@@ -30,7 +30,7 @@ export const DATA_STATUS = {
   // A result the source states in words, such as "No break" for a Charpy test on PEBA-S. It is
   // evidence, and it is not a number: it never becomes zero, a headline or a chart point.
   'Published qualitative result': { numeric: false, missing: MISSING.NOT_COMPARABLE, qualitative: true },
-  // A record of a product that was also filed under another material, kept in the workbook as an audit
+  // A record of a product that was also filed under another material, kept in the tables as an audit
   // trail after its identical twin was proven to exist (docs/audits/2026-09-13-duplicate-products/).
   // The build leaves it out of the database entirely.
   'Retired duplicate record': { numeric: false, missing: MISSING.QUARANTINED, quarantined: true, retiredDuplicate: true },
