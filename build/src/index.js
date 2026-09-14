@@ -3,7 +3,7 @@
 // Build entry point. Runs the five stages in order and fails the whole build on any validation
 // error, so a broken snapshot can never reach a distributable file.
 //
-//   extract    read the frozen workbooks into raw rows            extract.js
+//   load       read the CSV tables into raw rows                  load.js
 //   normalize  free text -> canonical values, each tagged         normalize/
 //   compile    assemble the relational runtime database           compile.js
 //   validate   schema, references, citations, consistency         validate.js
@@ -15,7 +15,8 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { extractWorkbook, EXPECTED_ROWS, snapshotDate } from './extract.js';
+import { EXPECTED_ROWS, snapshotDate } from './extract.js';
+import { readSource, sourceArg } from './source.js';
 import { compile } from './compile.js';
 import { compileReference } from './reference.js';
 import { validate, formatReport } from './validate.js';
@@ -32,7 +33,7 @@ const validateOnly = process.argv.includes('--validate-only');
 async function main() {
   const issues = [];
 
-  const wb = extractWorkbook(join(projectRoot, 'data/H2C_FDM_Material_Database.xlsx'));
+  const { wb, referenceRows, referenceWhere } = await readSource(projectRoot, sourceArg());
   const SNAPSHOT = snapshotDate(wb.Method.rows);
   for (const [sheet, expected] of Object.entries(EXPECTED_ROWS)) {
     const got = wb[sheet].rows.length;
@@ -44,7 +45,7 @@ async function main() {
   const { db, issues: compileIssues } = compile(wb, { snapshot: SNAPSHOT, build: BUILD });
   issues.push(...compileIssues);
 
-  const reference = compileReference(join(projectRoot, 'data/Generic_Materials_Reference.xlsx'), issues);
+  const reference = compileReference(referenceRows, issues, referenceWhere);
   issues.push(...validate(db, wb));
 
   const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD });

@@ -3,6 +3,7 @@
 // definitions (xl/tables/*.xml): Materials declares A6:AQ108, every other table starts at A3.
 
 import XLSX from 'xlsx';
+import { REFERENCE_PROPERTIES } from './reference-properties.js';
 
 // sheet name -> 0-based index of the header row
 export const SHEET_HEADER_ROW = {
@@ -33,17 +34,7 @@ export const EXPECTED_ROWS = {
   'Method': 48,
 };
 
-/**
- * The snapshot date, read from the Method sheet's Scope / Snapshot row rather than typed into the
- * build. It was a constant, so the workbook could move to a new snapshot while every file, filename
- * and "data" label still named the old one.
- */
-export function snapshotDate(methodRows) {
-  const row = methodRows.find((r) => r.Section === 'Scope' && r.Topic === 'Snapshot');
-  const date = String(row?.['Definition / rule'] ?? '').match(/^\d{4}-\d{2}-\d{2}/)?.[0];
-  if (!date) throw new Error('The Method sheet has no Scope / Snapshot row starting with a YYYY-MM-DD date');
-  return date;
-}
+export { snapshotDate } from './load.js';
 
 function sheetToRows(ws, headerRowIndex) {
   // raw:false keeps the displayed text; we do our own numeric parsing so that
@@ -91,16 +82,7 @@ export function extractWorkbook(path) {
 // The generic reference workbook has a three-deep header (group / property / min-max),
 // a category column that only repeats on the first row of each block, and a sheet range that
 // does not start at column A. So locate the "Name" header cell and work in offsets from it.
-export const REFERENCE_PROPERTIES = [
-  { key: 'density',            unit: 'kg/m3',     offset: 1 },
-  { key: 'tensileModulus',     unit: 'GPa',       offset: 3 },
-  { key: 'yieldStrength',      unit: 'MPa',       offset: 5 },
-  { key: 'tensileStrength',    unit: 'MPa',       offset: 7 },
-  { key: 'compressiveStrength',unit: 'MPa',       offset: 9 },
-  { key: 'elongation',         unit: '%',         offset: 11 },
-  { key: 'fractureToughness',  unit: 'MPa.m^0.5', offset: 13 },
-  { key: 'thermalExpansion',   unit: 'um/m/K',    offset: 15 },
-];
+export { REFERENCE_PROPERTIES };
 
 export function extractReference(path) {
   const wb = XLSX.readFile(path, { cellDates: false });

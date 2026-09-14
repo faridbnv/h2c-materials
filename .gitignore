@@ -12,3 +12,9 @@ __pycache__/
 
 # Local output of `npm run audit:data`. A named audit archives its own copy under docs/audits/.
 build/reports/data-audit/
+
+# Migration oracle: the baseline build outputs the CSV source must reproduce. Only the hashes are kept.
+.migration/*
+!.migration/baseline/
+.migration/baseline/*
+!.migration/baseline/HASHES.json

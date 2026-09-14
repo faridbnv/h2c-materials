@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Deterministic build: data/H2C_FDM_Material_Database.xlsx -> normalized JSON -> self-contained HTML",
+  "description": "Deterministic build: data/tables/*.csv -> normalized JSON -> self-contained HTML",
   "scripts": {
     "build": "node src/index.js",
     "validate": "node src/index.js --validate-only",
     "test": "node --test ../test/*.test.js"
   },
   "dependencies": {
+    "csv-parse": "7.0.2",
+    "csv-stringify": "6.8.3",
     "plotly.js-dist-min": "^4.1.0",
     "xlsx": "0.18.5"
   },

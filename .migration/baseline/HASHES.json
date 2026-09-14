@@ -1,0 +1,16 @@
+{
+  "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
+  "capturedOn": "2026-09-14",
+  "workbookSha256": "3269c825ba8c960bdf08d9c402c2886be2c6d20fd75adbf0263a4108d7fbf861",
+  "referenceWorkbookSha256": "224a244fcca334ed49f246450c405f5ddc12b2e8e2e008c94aa30409ea619b69",
+  "tests": 131,
+  "files": {
+    "H2C_Material_Selector_2026-09-13.html": "1aa8054f59cb6019ca51aff4f3108e6c1c909b7bae63a1f41d4f1c8f2db60ce0",
+    "audit.json": "1dcacfe02f8e207a38d9e46124efebc31818a8cad5eb75350618904ddaf17b9e",
+    "db.json": "d50f3831ea0612b8982989bc0daad7aa72b3141064503f899273189c6754f88d",
+    "reference.json": "73361d52860c82baaa346e1782039015b065476f4a8bef9cdb0572bd36ed8707",
+    "test-output.txt": "02d06d611c2329e32ab1d68a1ab76ec92e2ec1abcea411111886a314ebfcd39d",
+    "validation-report.md": "acdccf07edd661d84c233d040fb4d4c5030bc81b904689cddb4f4329b8ea7f47"
+  },
+  "metaBuild": "2026-09-14"
+}

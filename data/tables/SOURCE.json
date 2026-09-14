@@ -1,0 +1,23 @@
+{
+  "note": "Converted from the workbooks below by scripts/migrate/dump-workbook.mjs. The workbooks are retired; their history is in git.",
+  "workbook": {
+    "file": "data/H2C_FDM_Material_Database.xlsx",
+    "sha256": "3269c825ba8c960bdf08d9c402c2886be2c6d20fd75adbf0263a4108d7fbf861"
+  },
+  "reference": {
+    "file": "data/Generic_Materials_Reference.xlsx",
+    "sha256": "224a244fcca334ed49f246450c405f5ddc12b2e8e2e008c94aa30409ea619b69"
+  },
+  "rows": {
+    "materials": 102,
+    "grades": 155,
+    "profiles": 171,
+    "measurements": 2049,
+    "evidence": 478,
+    "prices": 104,
+    "sources": 243,
+    "coverage": 1188,
+    "method": 48,
+    "reference": 114
+  }
+}

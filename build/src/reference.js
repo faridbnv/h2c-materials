@@ -5,7 +5,7 @@
 // and never join the material data. They are a drawing layer: excluded from the candidate set,
 // counts, Pareto fronts, index tallies, search, shortlist and every export of candidates.
 
-import { extractReference, REFERENCE_PROPERTIES } from './extract.js';
+import { REFERENCE_PROPERTIES } from './reference-properties.js';
 
 // The ten defaults bracket the FDM trade space. The molded polymers are the most instructive:
 // they let an engineer see printed material sitting below its own molded equivalent.
@@ -30,10 +30,9 @@ export const AXIS_EQUIVALENCE = {
   elongation: 'elongationXY',
 };
 
-export function compileReference(path, issues) {
-  const rows = extractReference(path);
+export function compileReference(rows, issues, where = 'data/tables/reference.csv') {
   const missing = DEFAULT_SELECTION.filter((n) => !rows.some((r) => r.name === n));
-  if (missing.length) issues.push({ level: 'error', where: 'Generic_Materials_Reference.xlsx', message: `Default reference materials not found: ${missing.join(', ')}` });
+  if (missing.length) issues.push({ level: 'error', where, message: `Default reference materials not found: ${missing.join(', ')}` });
 
   return {
     meta: {

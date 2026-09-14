@@ -543,13 +543,13 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
   assert.equal(finding('PLA Tough+', 'Resistance to Alkali'), 'Not resistant');
 });
 
-// Systematic data audit: use the actual workbook, then introduce independent corruption.
-import { extractWorkbook } from '../build/src/extract.js';
+// Systematic data audit: use the actual source tables, then introduce independent corruption.
+import { loadTables } from '../build/src/load.js';
 import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js';
 import { normalQuantile, boundedQuantile, modulusFromShore, kindOf } from '../build/src/estimates.js';
 
 test('raw values reconcile, including decimal commas and grouped cycle counts', () => {
-  const wb=extractWorkbook(join(root,'data/H2C_FDM_Material_Database.xlsx'));
+  const wb=loadTables(join(root,'data'));
   assert.deepEqual(measurementIssues(db,wb),[]);
   assert.equal(rawNumber('4,30%'),4.3);
   assert.equal(rawNumber('123,460'),123460);

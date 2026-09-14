@@ -1,21 +1,22 @@
-// Reproducible audit using the production extractor, compiler, validator and raw-value rules.
-// npm run audit:data -- output-directory [before-db.json]
+// Reproducible audit using the production loader, compiler, validator and raw-value rules.
+// npm run audit:data -- output-directory [before-db.json] [--source=csv|xlsx]
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import { execFileSync } from 'node:child_process';
-import { extractWorkbook, EXPECTED_ROWS, snapshotDate } from '../build/src/extract.js';
+import { EXPECTED_ROWS, snapshotDate } from '../build/src/extract.js';
+import { readSource, sourceArg } from '../build/src/source.js';
 import { compile } from '../build/src/compile.js';
 import { validate } from '../build/src/validate.js';
 import { normalizedRawValue } from '../build/src/measurement-rules.js';
 import { compileReference } from '../build/src/reference.js';
 
-const out = resolve(process.argv[2] ?? 'build/reports/data-audit');
+const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const out = resolve(args[0] ?? 'build/reports/data-audit');
 mkdirSync(out, { recursive: true });
 const hash = (b) => createHash('sha256').update(b).digest('hex');
-const wbPath = 'data/H2C_FDM_Material_Database.xlsx';
-const wb = extractWorkbook(wbPath);
+const { wb, referenceRows, referenceWhere, inputs } = await readSource(resolve('.'), sourceArg());
 const stored = JSON.parse(readFileSync('dist/db.json'));
 const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: stored.meta.build });
 issues.push(...validate(db, wb));
@@ -23,7 +24,7 @@ for (const [sheet, n] of Object.entries(EXPECTED_ROWS)) if (wb[sheet].rows.lengt
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const htmlPath = `dist/H2C_Material_Selector_${db.meta.snapshot}.html`;
 const html = readFileSync(htmlPath, 'utf8');
-const reference = compileReference('data/Generic_Materials_Reference.xlsx', issues);
+const reference = compileReference(referenceRows, issues, referenceWhere);
 const unpack = (id) => JSON.parse(gunzipSync(Buffer.from(html.match(new RegExp(`id="${id}"[^>]*>([^<]+)</script>`))?.[1] ?? '', 'base64')));
 const checks = {
   freshCompileMatchesDist: identical(db, stored),
@@ -87,15 +88,15 @@ const provenance=[];
 for (const [sheet,{rows}] of Object.entries(wb)) for (const r of rows) {
   const id = r[wb[sheet].header[0]];
   const sourceIds = String(r.SourceID ?? '').split(';').map(s=>s.trim()).filter(Boolean);
-  provenance.push({sheet,row:r.__row,id,materialId:r.MaterialID??'',gradeId:r.GradeID??'',sourceId:r.SourceID??'',locator:r.Locator??r['Source locator']??'',urls:sourceIds.map(id=>sourceMap.get(id)?.url??'').join('; ')});
+  provenance.push({sheet,file:r.__file??'',row:r.__row,id,materialId:r.MaterialID??'',gradeId:r.GradeID??'',sourceId:r.SourceID??'',locator:r.Locator??r['Source locator']??'',urls:sourceIds.map(id=>sourceMap.get(id)?.url??'').join('; ')});
 }
 const csv=(rows)=>{
   const keys=Object.keys(rows[0]??{}),cell=v=>'"'+String(v??'').replaceAll('"','""')+'"';
   return [keys.map(cell).join(','),...rows.map(r=>keys.map(k=>cell(r[k])).join(','))].join('\n')+'\n';
 };
 let changes=null;
-if(process.argv[3]){
-  const before=JSON.parse(readFileSync(process.argv[3]));
+if(args[1]){
+  const before=JSON.parse(readFileSync(args[1]));
   changes={};
   for(const entity of ['materials','measurements','grades','profiles','evidence']) changes[entity]=db[entity].flatMap(r=>{
     const old=before[entity].find(x=>x.id===r.id);
@@ -104,11 +105,11 @@ if(process.argv[3]){
     return fields.length?[{id:r.id,fields:Object.fromEntries(fields.map(k=>[k,{before:old[k],after:r[k]}]))}]:[];
   });
 }
-const result={date:new Date().toISOString(),baseCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),workbookSha256:hash(readFileSync(wbPath)),htmlSha256:hash(html),counts:db.meta.counts,checks,issues,sourceScopeMismatches,rawReconciled:rawChecks.filter(r=>r.expected!==null).length,rawChecks,materials:materialRows,families,sources:sourceUsage};
+const result={date:new Date().toISOString(),baseCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceInputs:inputs,sourceSha256:hash(inputs.map(i=>`${i.sha256}  ${i.file}`).join('\n')),htmlSha256:hash(html),counts:db.meta.counts,checks,issues,sourceScopeMismatches,rawReconciled:rawChecks.filter(r=>r.expected!==null).length,rawChecks,materials:materialRows,families,sources:sourceUsage};
 writeFileSync(join(out,'audit.json'),JSON.stringify(result,null,2)+'\n');
 writeFileSync(join(out,'record-index.csv'),csv(provenance));
 if(changes)writeFileSync(join(out,'compiled-changes.json'),JSON.stringify(changes,null,2)+'\n');
-const L=['# Filament and family audit matrix','',`Workbook SHA256: \`${result.workbookSha256}\`. Rebuild with \`npm run audit:data\`.`, '', 'Every row received the same automated ownership, citation, raw-value and compilation checks. This is not a claim that every source was independently re-read. `audit.json` carries all record IDs and limitations; `record-index.csv` resolves each ID to its workbook row and source.', '', '## Every filament','', '| ID | Filament | Family / base | Active procurement grades | Numeric / all measurements | Profiles | Evidence | Limitations |','|---|---|---|---|---:|---:|---:|---|'];
+const L=['# Filament and family audit matrix','',`Source data SHA256: \`${result.sourceSha256}\` (hash of the per-file hashes in audit.json). Rebuild with \`npm run audit:data\`.`, '', 'Every row received the same automated ownership, citation, raw-value and compilation checks. This is not a claim that every source was independently re-read. `audit.json` carries all record IDs and limitations; `record-index.csv` resolves each ID to its source-table row and source.', '', '## Every filament','', '| ID | Filament | Family / base | Active procurement grades | Numeric / all measurements | Profiles | Evidence | Limitations |','|---|---|---|---|---:|---:|---:|---|'];
 for(const m of materialRows)L.push(`| ${m.id} | ${m.name} | ${m.family} / ${m.basePolymer} | ${m.activeGradeIds.join(', ')||'None'} | ${m.numeric} / ${m.measurements.length} | ${m.profiles.length} | ${m.evidence.length} | ${m.limitations.join('; ')||'No additional flag from these checks; exact grade conditions still apply'} |`);
 L.push('','## Every family','','| Family | Material IDs | Base polymers | Numeric observations | Interpretation |','|---|---|---|---:|---|');
 for(const f of families)L.push(`| ${f.family} | ${f.materials.join(', ')} | ${f.basePolymers.join(', ')} | ${f.numeric} | ${f.interpretation} |`);
