@@ -40,3 +40,12 @@ test('a study or reference role must match the -R# suffix', () => {
   const { errors } = build((wb) => { grade(wb, 'G020-01').Role = 'study'; });
   assert.ok(errors.some((e) => /grades G020-01: Role study disagrees with the ID/.test(e)), errors.join(' | '));
 });
+
+test('a material link must cite the right kind of record', () => {
+  const { errors } = build((wb) => {
+    wb['Material links'].rows.push({ MaterialID: 'M020', Link: 'h2c-status', RecordID: 'Q00318' });
+    wb['Material links'].rows.push({ MaterialID: 'M020', Link: 'use', RecordID: 'H2C-WIKI' });
+  });
+  assert.ok(errors.some((e) => /H2C status link cites Q00318, which is not a source/.test(e)), errors.join(' | '));
+  assert.ok(errors.some((e) => /use evidence cites H2C-WIKI, which does not exist/.test(e)), errors.join(' | '));
+});

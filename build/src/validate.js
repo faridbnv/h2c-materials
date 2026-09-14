@@ -120,7 +120,10 @@ export function validate(db, wb) {
       else if (m.materialId !== mat.id) issues.push(err(where, `Headline evidence cites ${id}, a measurement of ${m.materialId}`));
     }
 
-    // Printing. The guidance cells quote the first profile the row cites.
+    // H2C status is cited to sources.
+    for (const id of mat.identity.h2cEvidence) if (!S.has(id)) issues.push(err(where, `H2C status link cites ${id}, which is not a source`));
+
+    // Printing. The guidance quotes the first profile the material cites.
     const cited = mat.printingEvidence.map((id) => profileById.get(id)).filter(Boolean);
     for (const id of mat.printingEvidence) {
       const p = profileById.get(id), e = evidenceById.get(id);

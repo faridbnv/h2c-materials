@@ -16,6 +16,7 @@ import {
   H2C_BASELINE, PROCESS_STATE, REQUIREMENT,
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
+import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { buildEstimates, summariseEstimates } from './estimates.js';
 import { attachPrintEstimates } from './print-estimates.js';
@@ -26,13 +27,6 @@ import { attachChamberEstimates } from './chamber-estimates.js';
 // grade whose Availability still talks about retirement, because that is a half-finished retirement.
 export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
 
-// Identifier lists are semicolon separated. Seven materials have no grades at all and say so in
-// words, so an explicit missing state must not become an identifier.
-const MISSING_TEXT_RE = /^(not published|not applicable|none|n\/a|insufficient comparable data)$/i;
-const ids = (cell) => (cell == null ? [] : String(cell)
-  .split(/[;,]/)
-  .map((s) => s.trim())
-  .filter((s) => s && !MISSING_TEXT_RE.test(s)));
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 const median = (xs) => {
   const s = [...xs].sort((a, b) => a - b);
@@ -625,6 +619,22 @@ export function compile(wb, { snapshot, build }) {
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
 
+  const links = new Map();
+  for (const r of wb['Material links'].rows) {
+    const key = `${r.MaterialID}\u0000${r.Link}`;
+    if (!links.has(key)) links.set(key, []);
+    links.get(key).push(r.RecordID);
+  }
+  const linked = (materialId, link) => links.get(`${materialId}\u0000${link}`) ?? [];
+  const profilesById = new Map(profiles.map((p) => [p.id, p]));
+  // A material's environmental evidence is exactly its own exposure, solubility and moisture records.
+  const environmentalByMaterial = new Map();
+  for (const e of evidence) {
+    if (!ENVIRONMENT_CATEGORIES.has(e.category)) continue;
+    if (!environmentalByMaterial.has(e.materialId)) environmentalByMaterial.set(e.materialId, []);
+    environmentalByMaterial.get(e.materialId).push(e.id);
+  }
+
   const headlineSelections = new Map();
   for (const r of wb.Headlines.rows) {
     if (!headlineSelections.has(r.MaterialID)) headlineSelections.set(r.MaterialID, []);
@@ -640,6 +650,10 @@ export function compile(wb, { snapshot, build }) {
   const materials = wb.Materials.rows.map((mat) => {
     const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
     const selections = headlineSelections.get(mat.MaterialID) || [];
+    const printingEvidence = linked(mat.MaterialID, 'printing');
+    // The guidance quotes the first print profile the material cites.
+    const guideProfile = printingEvidence.map((id) => profilesById.get(id)).find(Boolean);
+    const guide = (axis) => guideProfile?.[axis].text ?? 'Not published';
     return {
       id: mat.MaterialID,
       name: mat['Original name'],
@@ -662,7 +676,7 @@ export function compile(wb, { snapshot, build }) {
       headlineBasis: mat['Headline basis'],
       measurementConditions: mat['Measurement conditions'],
       facets: deriveFacets(mat),
-      guidance: { nozzle: mat['Nozzle guidance'], bed: mat['Bed guidance'], chamber: mat['Chamber guidance'] },
+      guidance: { nozzle: guide('nozzle'), bed: guide('bed'), chamber: guide('chamber') },
       print: printSummary(mProfiles),
       buy: buySummary(mat.MaterialID, prices),
       gates: {
@@ -675,7 +689,7 @@ export function compile(wb, { snapshot, build }) {
         drying: mProfiles.some((p) => p.drying.required) ? 'required' : 'unknown',
       },
       profileIds: mProfiles.map((p) => p.id),
-      printingEvidence: ids(mat['Printing evidence']),
+      printingEvidence,
       // Everything headlines.csv cites for this material, kept so the validator can check that every
       // citation exists and belongs to it, not only the ones selected as values.
       headlineEvidence: headlineEvidence(selections),
@@ -684,10 +698,10 @@ export function compile(wb, { snapshot, build }) {
       impactNote: mat['Impact / toughness'],
       fatigueCreep: mat['Fatigue / creep'],
       printability: { rating: num(mat['Printability rating 1–5']), rubric: mat['Printability rubric'] },
-      identity: { source: mat['Identity source'], notes: mat['Identity notes'], h2cEvidence: ids(mat['H2C evidence']) },
+      identity: { source: mat['Identity source'], notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
       evidenceIds: {
-        use: ids(mat['Use evidence']), environmental: ids(mat['Environmental evidence']),
-        durability: ids(mat['Durability evidence']), safety: ids(mat['Safety evidence']),
+        use: linked(mat.MaterialID, 'use'), environmental: environmentalByMaterial.get(mat.MaterialID) ?? [],
+        durability: linked(mat.MaterialID, 'durability'), safety: linked(mat.MaterialID, 'safety'),
       },
     };
   });

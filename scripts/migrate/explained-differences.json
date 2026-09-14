@@ -35,6 +35,132 @@
       "path": "db.json.materials[M048].headline.priceCADkg.value",
       "before": 124.48,
       "after": 124.49
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[6]",
+      "before": "Q00297",
+      "after": "Q00165"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[7]",
+      "before": "Q00165",
+      "after": "Q00166"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[8]",
+      "before": "Q00166",
+      "after": "Q00167"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[9]",
+      "before": "Q00167",
+      "after": "Q00168"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[10]",
+      "before": "Q00168",
+      "after": "Q00169"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[11]",
+      "before": "Q00169",
+      "after": "Q00170"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M039].evidenceIds.environmental[12]",
+      "before": "Q00170",
+      "after": "Q00297"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[0]",
+      "before": "Q00447",
+      "after": "Q00216"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[1]",
+      "before": "Q00448",
+      "after": "Q00217"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[2]",
+      "before": "Q00449",
+      "after": "Q00218"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[3]",
+      "before": "Q00450",
+      "after": "Q00219"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[4]",
+      "before": "Q00451",
+      "after": "Q00220"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[5]",
+      "before": "Q00216",
+      "after": "Q00221"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[6]",
+      "before": "Q00217",
+      "after": "Q00447"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[7]",
+      "before": "Q00218",
+      "after": "Q00448"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[8]",
+      "before": "Q00219",
+      "after": "Q00449"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[9]",
+      "before": "Q00220",
+      "after": "Q00450"
+    },
+    {
+      "step": "m05",
+      "why": "Environmental evidence is now derived from the evidence table, so it lists the same records in evidence-table order instead of the order they were typed into the cell (same set; checked)",
+      "path": "db.json.materials[M051].evidenceIds.environmental[10]",
+      "before": "Q00221",
+      "after": "Q00451"
     }
   ]
 }

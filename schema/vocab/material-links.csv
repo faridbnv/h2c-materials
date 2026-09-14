@@ -1,0 +1,6 @@
+Value,Meaning
+durability,Durability evidence record (Q).
+h2c-status,Source for the material's H2C status.
+printing,Print profile (P) or evidence record (Q) for printing guidance; the first profile supplies the guidance text.
+safety,Safety evidence record (Q).
+use,"Application or use evidence record (Q), possibly family context from another material."

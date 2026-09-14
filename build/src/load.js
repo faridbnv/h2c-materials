@@ -20,6 +20,7 @@ export const TABLES = [
   { file: 'coverage', sheet: 'Coverage' },
   { file: 'method', sheet: 'Method' },
   { file: 'headlines', sheet: 'Headlines' },
+  { file: 'material_links', sheet: 'Material links' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;

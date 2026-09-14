@@ -1,0 +1,12 @@
+{
+  "$comment": "Contract for data/tables/material_links.csv. Checked by build/src/schema.js.",
+  "title": "Material links",
+  "description": "Records a material cites, one per row, in citation order. printing cites print profiles or evidence records (the first profile supplies the material's nozzle, bed and chamber guidance); h2c-status cites sources for its H2C status; use, durability and safety cite evidence records, which may be family context from another material. Environmental evidence is not listed: it is always the material's own environmental records.",
+  "primaryKey": null,
+  "uniqueKeys": [["MaterialID", "Link", "RecordID"]],
+  "fields": [
+    { "name": "MaterialID", "type": "string", "role": "editorial", "description": "Material that cites the record.", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true } },
+    { "name": "Link", "type": "string", "role": "editorial", "description": "What the citation supports.", "vocabulary": "material-links", "constraints": { "required": true } },
+    { "name": "RecordID", "type": "string", "role": "editorial", "description": "The cited profile (P), evidence record (Q) or source. The build checks the kind matches the link.", "reference": [{ "table": "profiles", "field": "ProfileID" }, { "table": "evidence", "field": "EvidenceID" }, { "table": "sources", "field": "SourceID" }], "constraints": { "required": true } }
+  ]
+}

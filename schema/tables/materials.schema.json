@@ -62,59 +62,6 @@
       }
     },
     {
-      "name": "Nozzle guidance",
-      "type": "string",
-      "role": "derived",
-      "description": "Nozzle temperature text quoted from the first cited print profile.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Bed guidance",
-      "type": "string",
-      "role": "derived",
-      "description": "Bed temperature text quoted from the first cited print profile.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Chamber guidance",
-      "type": "string",
-      "role": "derived",
-      "description": "Chamber temperature text quoted from the first cited print profile.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Printing evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Print profiles (P) and evidence records (Q) cited for printing guidance.",
-      "missing": [
-        "Not applicable"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^(P\\d{4}|Q\\d{5})$",
-        "reference": [
-          {
-            "table": "profiles",
-            "field": "ProfileID"
-          },
-          {
-            "table": "evidence",
-            "field": "EvidenceID"
-          }
-        ]
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Measurement conditions",
       "type": "string",
       "role": "prose",
@@ -242,22 +189,6 @@
       }
     },
     {
-      "name": "H2C evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Sources for the H2C status.",
-      "delimiter": ";",
-      "item": {
-        "reference": {
-          "table": "sources",
-          "field": "SourceID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Identity notes",
       "type": "string",
       "role": "prose",
@@ -285,85 +216,10 @@
       }
     },
     {
-      "name": "Use evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Application and use evidence records.",
-      "missing": [
-        "Not applicable"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^Q\\d{5}$",
-        "reference": {
-          "table": "evidence",
-          "field": "EvidenceID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Environmental evidence",
-      "type": "list",
-      "role": "derived",
-      "description": "Environmental evidence records; must be exactly the material's own environmental records.",
-      "missing": [
-        "Not applicable",
-        "Not published"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^Q\\d{5}$",
-        "reference": {
-          "table": "evidence",
-          "field": "EvidenceID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Durability evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Durability evidence records.",
-      "delimiter": ";",
-      "item": {
-        "pattern": "^Q\\d{5}$",
-        "reference": {
-          "table": "evidence",
-          "field": "EvidenceID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Fatigue / creep",
       "type": "string",
       "role": "prose",
       "description": "Fatigue and creep note.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Safety evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Safety evidence records.",
-      "delimiter": ";",
-      "item": {
-        "pattern": "^Q\\d{5}$",
-        "reference": {
-          "table": "evidence",
-          "field": "EvidenceID"
-        }
-      },
       "constraints": {
         "required": true
       }
