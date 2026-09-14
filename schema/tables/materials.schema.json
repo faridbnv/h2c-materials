@@ -267,26 +267,6 @@
       }
     },
     {
-      "name": "GradeIDs",
-      "type": "list",
-      "role": "derived",
-      "description": "Procurement grades of this material (study and retired grades excluded).",
-      "missing": [
-        "Not published"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^G\\d{3}-(\\d{2}|R\\d+)$",
-        "reference": {
-          "table": "grades",
-          "field": "GradeID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Headline basis",
       "type": "string",
       "role": "prose",

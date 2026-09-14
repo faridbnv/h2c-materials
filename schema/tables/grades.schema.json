@@ -29,6 +29,26 @@
       }
     },
     {
+      "name": "Role",
+      "type": "string",
+      "role": "canonical",
+      "description": "procurement: a buyable filament grade; study: a research specimen grade; reference: a moulded resin reference. Non-procurement grades carry an -R# ID suffix (checked by the build).",
+      "vocabulary": "grade-roles",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "role": "canonical",
+      "description": "active or retired. A retired grade stays as an audit record and backs nothing.",
+      "vocabulary": "grade-status",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Manufacturer",
       "type": "string",
       "role": "canonical",
@@ -77,7 +97,7 @@
       "name": "Availability",
       "type": "string",
       "role": "canonical",
-      "description": "Availability; \"Retired mapping; audit trail only\" retires the grade.",
+      "description": "Availability as recorded. Retirement is Status, not this text.",
       "constraints": {
         "required": true
       }

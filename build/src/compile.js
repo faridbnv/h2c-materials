@@ -21,8 +21,9 @@ import { buildEstimates, summariseEstimates } from './estimates.js';
 import { attachPrintEstimates } from './print-estimates.js';
 import { attachChamberEstimates } from './chamber-estimates.js';
 
-// Method, Identity / Retired mappings: a grade whose Availability reads exactly this is an audit record,
-// never an active grade. The validator rejects any near miss, because a typo would silently reactivate it.
+// Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an
+// active grade. Its Availability conventionally reads this phrase; the validator flags any active
+// grade whose Availability still talks about retirement, because that is a half-finished retirement.
 export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
 
 // Identifier lists are semicolon separated. Seven materials have no grades at all and say so in
@@ -539,8 +540,22 @@ export function compile(wb, { snapshot, build }) {
     colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
     rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
     diameters: r['Diameter compatibility'],
-    retired: r.Availability === RETIRED_AVAILABILITY,
+    retired: r.Status === 'retired',
   }));
+  // A material's procurement grades are its active procurement grades, in file order.
+  const procurementGrades = new Map();
+  for (const r of wb.Grades.rows) {
+    if (r.Role !== 'procurement' || r.Status !== 'active') continue;
+    if (!procurementGrades.has(r.MaterialID)) procurementGrades.set(r.MaterialID, []);
+    procurementGrades.get(r.MaterialID).push(r.GradeID);
+  }
+  for (const r of wb.Grades.rows) {
+    // Code that only sees compiled grades recognises study and reference grades by their -R# suffix,
+    // so the suffix and the role must agree.
+    if ((r.Role !== 'procurement') !== /-R\d+$/.test(r.GradeID)) {
+      issues.push({ level: 'error', where: `grades ${r.GradeID}`, message: `Role ${r.Role} disagrees with the ID: study and reference grades, and only they, end in -R#` });
+    }
+  }
 
   // A retired duplicate stays in the workbook as an audit trail and never reaches the database: its
   // identical twin under the grade that keeps the product is the record (Method, Identity / Family entries).
@@ -642,7 +657,7 @@ export function compile(wb, { snapshot, build }) {
       // candidate. Its members come from build/mappings/family-entries.json.
       familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(mat['Original name']) : null,
       representativeGrade: mat['Representative grade'],
-      gradeIds: ids(mat.GradeIDs),
+      gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
       headline: { ...compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
       headlineBasis: mat['Headline basis'],
       measurementConditions: mat['Measurement conditions'],

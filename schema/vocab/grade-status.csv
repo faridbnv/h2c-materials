@@ -1,0 +1,3 @@
+Value,Meaning
+active,The grade is in use.
+retired,An audit record of a mapping that was withdrawn. It backs nothing; records on it are retired or quarantined.

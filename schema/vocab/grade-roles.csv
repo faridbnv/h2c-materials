@@ -1,0 +1,4 @@
+Value,Meaning
+procurement,A commercial filament grade a user can buy. Listed among the material's grades.
+reference,"A moulded resin reference, not a filament. Anchors estimates only; ID ends in -R#."
+study,A research specimen grade from a published study. Evidence only; ID ends in -R#.

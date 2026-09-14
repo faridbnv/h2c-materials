@@ -54,10 +54,15 @@ export function validate(db, wb) {
     for (const g of m.gradeIds) if (!G.has(g)) issues.push(err(`materials ${m.id}`, `GradeIDs lists unknown grade "${g}"`));
   }
 
-  // -- retired grades are marked with one exact phrase -------------------------
+  // -- retirement is finished, not half-done -----------------------------------
+  // Status retires a grade. An active grade whose Availability still speaks of retirement, or a
+  // retired grade that does not say so, is a retirement someone started and did not finish.
   for (const g of db.grades) {
-    if (/retire/i.test(g.availability ?? '') && g.availability !== RETIRED_AVAILABILITY) {
-      issues.push(err(`grades ${g.id}`, `Availability "${g.availability}" looks like a retirement but is not the exact marker "${RETIRED_AVAILABILITY}", so the grade is still active`));
+    if (!g.retired && /retire/i.test(g.availability ?? '')) {
+      issues.push(err(`grades ${g.id}`, `Availability "${g.availability}" describes a retirement but Status is active`));
+    }
+    if (g.retired && g.availability !== RETIRED_AVAILABILITY) {
+      issues.push(err(`grades ${g.id}`, `Status is retired but Availability does not read "${RETIRED_AVAILABILITY}"`));
     }
   }
 
