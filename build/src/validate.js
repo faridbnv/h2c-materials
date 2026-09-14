@@ -12,12 +12,14 @@ import {
 } from './coverage-rules.js';
 
 import { issue } from './rules.js';
+import { referenceIssues } from './property-references.js';
 
 const err = (code, where, message, extra) => issue(code, where, message, extra);
 const warn = err; // the catalogue (rules.js) decides each code's level
 
 export function validate(db, wb) {
   const issues = measurementIssues(db, wb);
+  issues.push(...referenceIssues({ registry: db.registry, materials: db.materials, grades: db.grades, model: ESTIMATE_MODEL }));
 
   // -- identifiers are unique -------------------------------------------------
   for (const [name, rows] of [

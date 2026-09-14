@@ -49,6 +49,7 @@ what it means and how to fix it.
 |---|---|---|---|
 | `REGISTRY-APPLIES-TO` | error | An Applies to rule is malformed, tests an unknown field, or names a value no material has. | Write "Field: value \| value" over Family, Base polymer, Modifier / filler, Role, Scope or H2C status. |
 | `REGISTRY-NA-REASON` | error | Applies to is set without a Not applicable reason. | Say why the property does not apply elsewhere. |
+| `REGISTRY-CODE-REFERENCE` | error | Code relies on a property name that is not in properties.csv. | Rename the property in build/src/property-references.js and the code that uses it, or restore the property. |
 | `REGISTRY-HEADLINE` | error | A headline definition is inconsistent (value properties, evidence group, unit, price kind). | Correct the definition in headline_definitions.csv. |
 
 ## Measurements
@@ -110,6 +111,7 @@ what it means and how to fix it.
 | `NA-INVALID` | error | A not-applicable headline sits beside a value or estimate, or has no reason. | A headline is a value, an estimate, or not applicable with a reason. |
 | `EST-INVALID` | error | An estimate is malformed: beside a value, out of scope, unknown kind, strength or precision, no basis, ranges not nested, or evidence misattributed. | Fix the estimate model or its inputs; estimates are never authored. |
 | `EST-CALIBRATION` | error | An estimate model's likely or plausible range no longer holds hidden headlines as often as it claims. | Review recent data and conversions; the model must stay calibrated (D43). |
+| `EST-MODEL-REFERENCE` | error | The estimate model configuration names a material or grade that does not exist. | Update build/mappings/estimate-model.json to the current name or ID. |
 | `EST-CALIBRATION-FEW` | warn | Too few measured headlines to calibrate a model; it uses a default scale. | Informational; grows with data. |
 | `EST-SUMMARY` | warn | How missing headlines are covered by estimates. | Informational. |
 | `EST-REJECTED` | warn | Physically impossible observations kept out of the estimate model. | Re-read the source; correct or quarantine the measurement. |
