@@ -10,6 +10,13 @@
     "test": "node --test test/*.test.js",
     "pretest": "node scripts/ensure-db.mjs",
     "preaudit:data": "npm run build",
-    "audit:data": "node scripts/audit-data.mjs"
+    "audit:data": "node scripts/audit-data.mjs",
+    "data:fmt": "node scripts/data/fmt.mjs",
+    "data:check": "node scripts/data/check.mjs",
+    "data:new-id": "node scripts/data/new-id.mjs",
+    "data:diff": "node scripts/data/diff.mjs",
+    "trace": "node scripts/trace.mjs",
+    "hooks": "git config core.hooksPath .githooks",
+    "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && npm test && node scripts/audit-data.mjs"
   }
 }

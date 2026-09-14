@@ -1,0 +1,11 @@
+#!/bin/sh
+# Data gate before every commit: canonical format, schema and references, and no deleted records.
+# Install once per clone with `npm run hooks`. CI runs the full `npm run verify` as well.
+set -e
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+if git diff --cached --name-only | grep -qE '^(data/|schema/)'; then
+  node scripts/data/fmt.mjs --check
+  node scripts/data/check.mjs
+  node scripts/data/diff.mjs HEAD --fail-on-removed
+fi

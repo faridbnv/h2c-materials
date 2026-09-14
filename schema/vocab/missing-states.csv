@@ -1,0 +1,7 @@
+Value,Meaning
+Insufficient comparable data,Evidence exists but cannot support the comparison.
+Not applicable,The field does not apply to this record.
+Not available in sampled Canadian market,No eligible grade-matched offer in the sampled Canadian stores.
+Not published,Absent from the sampled evidence. Not proven absent; never zero.
+Not recorded,The value was not recorded when the source was captured.
+Unresolved unit / layout,The source unit or table layout is unresolved; quarantined from numeric use.

@@ -1,0 +1,135 @@
+{
+  "$comment": "Contract for data/tables/grades.csv. Checked by build/src/schema.js.",
+  "title": "Grades",
+  "description": "One row per exact commercial, study or resin-reference grade. A grade belongs to exactly one material.",
+  "primaryKey": "GradeID",
+  "fields": [
+    {
+      "name": "GradeID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable grade identifier: G + material number + sequence; -R# marks a study or resin-reference grade.",
+      "constraints": {
+        "required": true,
+        "pattern": "^G\\d{3}-(\\d{2}|R\\d+)$",
+        "unique": true
+      }
+    },
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Material the grade belongs to.",
+      "reference": {
+        "table": "materials",
+        "field": "MaterialID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Manufacturer",
+      "type": "string",
+      "role": "canonical",
+      "description": "Manufacturer or brand.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Product name",
+      "type": "string",
+      "role": "canonical",
+      "description": "Exact product name.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Shared formulation key",
+      "type": "string",
+      "role": "canonical",
+      "description": "Grades with the same key share one formulation.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Composition / filler",
+      "type": "string",
+      "role": "raw",
+      "description": "Declared composition.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Colour caveat",
+      "type": "string",
+      "role": "prose",
+      "description": "Colour scope of the data.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Availability",
+      "type": "string",
+      "role": "canonical",
+      "description": "Availability; \"Retired mapping; audit trail only\" retires the grade.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Certification claims",
+      "type": "string",
+      "role": "raw",
+      "description": "Certification claims as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Selected-grade rationale",
+      "type": "string",
+      "role": "prose",
+      "description": "Why this grade was selected or retired.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Source identifying the grade.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Source locator",
+      "type": "string",
+      "role": "raw",
+      "description": "Where in the source.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Diameter compatibility",
+      "type": "string",
+      "role": "prose",
+      "description": "Filament diameter notes.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

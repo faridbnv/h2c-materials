@@ -3,6 +3,7 @@
 // Build entry point. Runs the five stages in order and fails the whole build on any validation
 // error, so a broken snapshot can never reach a distributable file.
 //
+//   check      every table against its declared schema             schema.js
 //   load       read the CSV tables into raw rows                  load.js
 //   normalize  free text -> canonical values, each tagged         normalize/
 //   compile    assemble the relational runtime database           compile.js
@@ -15,8 +16,9 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { EXPECTED_ROWS, snapshotDate } from './extract.js';
+import { snapshotDate } from './load.js';
 import { readSource, sourceArg } from './source.js';
+import { checkData } from './schema.js';
 import { compile } from './compile.js';
 import { compileReference } from './reference.js';
 import { validate, formatReport } from './validate.js';
@@ -33,14 +35,19 @@ const validateOnly = process.argv.includes('--validate-only');
 async function main() {
   const issues = [];
 
-  const { wb, referenceRows, referenceWhere } = await readSource(projectRoot, sourceArg());
-  const SNAPSHOT = snapshotDate(wb.Method.rows);
-  for (const [sheet, expected] of Object.entries(EXPECTED_ROWS)) {
-    const got = wb[sheet].rows.length;
-    if (got !== expected) {
-      issues.push({ level: 'error', where: `Sheet "${sheet}"`, message: `Expected ${expected} rows, found ${got}. The frozen source moved.` });
-    }
+  const source = sourceArg();
+  // The schema gate comes first: a table that breaks its contract is reported precisely, by file,
+  // line and field, before the compiler can misread it. The manifest makes any row-count or content
+  // change visible in the commit that makes it.
+  if (source === 'csv') issues.push(...checkData(join(projectRoot, 'data'), join(projectRoot, 'schema')).issues);
+  if (issues.some((i) => i.level === 'error')) {
+    for (const e of issues.slice(0, 50)) console.error(`  ERROR  ${e.where}: ${e.message}`);
+    console.error('\nBuild failed: the data tables do not match their schema (npm run data:check).');
+    process.exit(1);
   }
+
+  const { wb, referenceRows, referenceWhere } = await readSource(projectRoot, source);
+  const SNAPSHOT = snapshotDate(wb.Method.rows);
 
   const { db, issues: compileIssues } = compile(wb, { snapshot: SNAPSHOT, build: BUILD });
   issues.push(...compileIssues);

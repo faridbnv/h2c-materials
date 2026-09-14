@@ -13,10 +13,14 @@ import { stringify } from 'csv-stringify/sync';
  * `line` is the 1-based file line the record starts on, for error messages.
  */
 export function readCsv(path) {
-  const text = readFileSync(path, 'utf8');
-  if (text.charCodeAt(0) === 0xfeff) throw new Error(`${path}: starts with a byte-order mark; save as UTF-8 without BOM`);
+  return parseCsvText(readFileSync(path, 'utf8'), path);
+}
+
+/** Parse CSV text the same way readCsv does; `label` names the input in error messages. */
+export function parseCsvText(text, label = 'CSV') {
+  if (text.charCodeAt(0) === 0xfeff) throw new Error(`${label}: starts with a byte-order mark; save as UTF-8 without BOM`);
   const parsed = parse(text, { bom: false, relax_column_count: false, skip_empty_lines: false, info: true });
-  if (!parsed.length) throw new Error(`${path}: empty file, expected a header row`);
+  if (!parsed.length) throw new Error(`${label}: empty file, expected a header row`);
   const header = parsed[0].record.map((h) => h.trim());
   const records = [];
   for (const { record, info } of parsed.slice(1)) {

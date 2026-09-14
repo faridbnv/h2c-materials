@@ -1,0 +1,61 @@
+{
+  "$comment": "Contract for data/tables/coverage.csv. Checked by build/src/schema.js.",
+  "title": "Coverage",
+  "description": "One row per reviewed coverage question for a material and domain.",
+  "primaryKey": "CoverageID",
+  "fields": [
+    {
+      "name": "CoverageID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable coverage identifier.",
+      "constraints": {
+        "required": true,
+        "pattern": "^C\\d{5}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Material reviewed.",
+      "reference": {
+        "table": "materials",
+        "field": "MaterialID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Domain",
+      "type": "string",
+      "role": "canonical",
+      "description": "Domain reviewed.",
+      "vocabulary": "coverage-domains",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "role": "editorial",
+      "description": "Coverage status; must agree with the records.",
+      "vocabulary": "coverage-status",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Finding",
+      "type": "string",
+      "role": "prose",
+      "description": "Finding.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

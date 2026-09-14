@@ -1,0 +1,11 @@
+Value,Meaning
+45/45,Alternating ±45° raster.
+Along flow,Along the melt flow (moulded).
+Horizontal (source label),The source says horizontal without an axis convention.
+Not applicable,"Direction does not apply (e.g. density, thermal transitions)."
+Not published,The source does not state a direction.
+Vertical XZ (source label),The source says vertical XZ.
+XY,In the build plane.
+XZ,Upright in the XZ plane.
+Z,Along the build axis.
+ZX,"Flat, loaded along Z-X."

@@ -1,0 +1,38 @@
+{
+  "$comment": "Contract for data/tables/method.csv. Checked by build/src/schema.js.",
+  "title": "Method",
+  "description": "Method rules in words. The Scope / Snapshot row sets the database snapshot date.",
+  "primaryKey": "Topic",
+  "fields": [
+    {
+      "name": "Section",
+      "type": "string",
+      "role": "canonical",
+      "description": "Method section.",
+      "vocabulary": "method-sections",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "role": "key",
+      "description": "Rule topic; unique.",
+      "constraints": {
+        "required": true,
+        "pattern": "^.+$",
+        "unique": true
+      }
+    },
+    {
+      "name": "Definition / rule",
+      "type": "string",
+      "role": "prose",
+      "description": "The rule.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

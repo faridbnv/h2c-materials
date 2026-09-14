@@ -1,6 +1,6 @@
-# Build the selector from the frozen workbooks and publish it to GitHub Pages.
+# Build the selector from the data tables and publish it to GitHub Pages.
 #
-# The distributable HTML is not committed: it is rebuilt here from the workbooks on every push, so
+# The distributable HTML is not committed: it is rebuilt here from data/tables on every push, so
 # the published page can never drift from the source of truth. The build fails on any validation
 # error, which means a database that has drifted stops here and never reaches the site.
 
@@ -36,16 +36,10 @@ jobs:
       - name: Install build dependencies
         run: npm ci --prefix build
 
-      # Build before testing: several tests assert invariants on the compiled database itself,
-      # so dist/db.json has to exist. A test failure still fails the job and blocks the deploy.
-      - name: Build the selector
-        run: npm run build
-
-      - name: Test
-        run: npm test
-
-      - name: Audit workbook and embedded data
-        run: node scripts/audit-data.mjs
+      # One gate: canonical data format, schema and references, build (which validates), tests and
+      # the source-to-HTML audit. Any failure stops the job and blocks the deploy.
+      - name: Verify
+        run: npm run verify
 
       - name: Assemble the site
         run: |

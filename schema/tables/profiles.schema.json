@@ -1,0 +1,372 @@
+{
+  "$comment": "Contract for data/tables/profiles.csv. Checked by build/src/schema.js.",
+  "title": "Print setup",
+  "description": "One row per published print profile for an exact grade.",
+  "primaryKey": "ProfileID",
+  "fields": [
+    {
+      "name": "ProfileID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable profile identifier.",
+      "constraints": {
+        "required": true,
+        "pattern": "^P\\d{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Material the profile belongs to.",
+      "reference": {
+        "table": "materials",
+        "field": "MaterialID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "GradeID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Exact grade the profile is published for.",
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Profile",
+      "type": "string",
+      "role": "canonical",
+      "description": "Kind of guidance.",
+      "vocabulary": "profile-kinds",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle °C",
+      "type": "string",
+      "role": "raw",
+      "description": "Nozzle °C as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bed °C",
+      "type": "string",
+      "role": "raw",
+      "description": "Bed °C as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Chamber °C",
+      "type": "string",
+      "role": "raw",
+      "description": "Chamber °C as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Enclosure",
+      "type": "string",
+      "role": "raw",
+      "description": "Enclosure as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Plate",
+      "type": "string",
+      "role": "raw",
+      "description": "Plate as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Adhesion / release",
+      "type": "string",
+      "role": "raw",
+      "description": "Adhesion / release as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Cooling",
+      "type": "string",
+      "role": "raw",
+      "description": "Cooling as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Speed",
+      "type": "string",
+      "role": "raw",
+      "description": "Speed as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Volumetric limit",
+      "type": "string",
+      "role": "raw",
+      "description": "Volumetric limit as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Drying",
+      "type": "string",
+      "role": "raw",
+      "description": "Drying as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Storage humidity",
+      "type": "string",
+      "role": "raw",
+      "description": "Storage humidity as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle material",
+      "type": "string",
+      "role": "raw",
+      "description": "Nozzle material as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle diameter",
+      "type": "string",
+      "role": "raw",
+      "description": "Nozzle diameter as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Abrasion / clogging",
+      "type": "string",
+      "role": "raw",
+      "description": "Abrasion / clogging as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "H2C left",
+      "type": "string",
+      "role": "editorial",
+      "description": "H2C left compatibility assessment.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "H2C right",
+      "type": "string",
+      "role": "editorial",
+      "description": "H2C right compatibility assessment.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "AMS 2 Pro",
+      "type": "string",
+      "role": "editorial",
+      "description": "AMS 2 Pro compatibility assessment.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "AMS HT",
+      "type": "string",
+      "role": "editorial",
+      "description": "AMS HT compatibility assessment.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "AMS published",
+      "type": "string",
+      "role": "raw",
+      "description": "AMS compatibility as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Temperature-group conflict",
+      "type": "string",
+      "role": "prose",
+      "description": "Mixed-temperature caution.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Support pairing",
+      "type": "string",
+      "role": "raw",
+      "description": "Support pairing as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Difficulty",
+      "type": "string",
+      "role": "raw",
+      "description": "Difficulty as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Warping / shrinkage",
+      "type": "string",
+      "role": "raw",
+      "description": "Warping / shrinkage as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Stringing",
+      "type": "string",
+      "role": "raw",
+      "description": "Stringing as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bridging",
+      "type": "string",
+      "role": "raw",
+      "description": "Bridging as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Overhang",
+      "type": "string",
+      "role": "raw",
+      "description": "Overhang as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Detail / tolerance",
+      "type": "string",
+      "role": "raw",
+      "description": "Detail / tolerance as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Surface finish",
+      "type": "string",
+      "role": "raw",
+      "description": "Surface finish as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Layer adhesion",
+      "type": "string",
+      "role": "raw",
+      "description": "Layer adhesion as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Odour / emissions",
+      "type": "string",
+      "role": "raw",
+      "description": "Odour / emissions as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Failure modes",
+      "type": "string",
+      "role": "raw",
+      "description": "Failure modes as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Source of the profile.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "H2C SourceID",
+      "type": "list",
+      "role": "editorial",
+      "description": "Sources for the H2C-specific assessment.",
+      "delimiter": ";",
+      "item": {
+        "reference": {
+          "table": "sources",
+          "field": "SourceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Locator",
+      "type": "string",
+      "role": "raw",
+      "description": "Where in the source.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

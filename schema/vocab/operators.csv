@@ -1,0 +1,5 @@
+Value,Meaning
+<,The source states less than the value.
+=,The published value.
+>,The source states more than the value.
+Not applicable,No number was published.

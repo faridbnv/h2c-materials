@@ -5,7 +5,8 @@ import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import { execFileSync } from 'node:child_process';
-import { EXPECTED_ROWS, snapshotDate } from '../build/src/extract.js';
+import { snapshotDate } from '../build/src/load.js';
+import { checkData } from '../build/src/schema.js';
 import { readSource, sourceArg } from '../build/src/source.js';
 import { compile } from '../build/src/compile.js';
 import { validate } from '../build/src/validate.js';
@@ -20,7 +21,7 @@ const { wb, referenceRows, referenceWhere, inputs } = await readSource(resolve('
 const stored = JSON.parse(readFileSync('dist/db.json'));
 const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: stored.meta.build });
 issues.push(...validate(db, wb));
-for (const [sheet, n] of Object.entries(EXPECTED_ROWS)) if (wb[sheet].rows.length !== n) issues.push({level:'error',where:sheet,message:`Expected ${n} rows, found ${wb[sheet].rows.length}`});
+if (sourceArg() === 'csv') issues.push(...checkData(resolve('data'), resolve('schema')).issues);
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const htmlPath = `dist/H2C_Material_Selector_${db.meta.snapshot}.html`;
 const html = readFileSync(htmlPath, 'utf8');

@@ -1,0 +1,548 @@
+{
+  "$comment": "Contract for data/tables/materials.csv. Checked by build/src/schema.js.",
+  "title": "Materials",
+  "description": "One row per selection identity: a filament material, a family entry, or an excluded material. Headline columns are the values the selector shows; each must equal the measurement it cites.",
+  "primaryKey": "MaterialID",
+  "fields": [
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable material identifier. Never reused.",
+      "constraints": {
+        "required": true,
+        "pattern": "^M\\d{3}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "Original name",
+      "type": "string",
+      "role": "canonical",
+      "description": "Name as it appears in the canonical master list.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "Family",
+      "type": "string",
+      "role": "canonical",
+      "description": "Navigation family.",
+      "vocabulary": "families",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "H2C status",
+      "type": "string",
+      "role": "canonical",
+      "description": "How the material relates to the Bambu Lab H2C.",
+      "vocabulary": "h2c-status",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Representative grade",
+      "type": "string",
+      "role": "editorial",
+      "description": "The exact commercial grade whose measurements back the headlines.",
+      "missing": [
+        "Not published"
+      ],
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle guidance",
+      "type": "string",
+      "role": "derived",
+      "description": "Nozzle temperature text quoted from the first cited print profile.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bed guidance",
+      "type": "string",
+      "role": "derived",
+      "description": "Bed temperature text quoted from the first cited print profile.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Chamber guidance",
+      "type": "string",
+      "role": "derived",
+      "description": "Chamber temperature text quoted from the first cited print profile.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Printing evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Print profiles (P) and evidence records (Q) cited for printing guidance.",
+      "missing": [
+        "Not applicable"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^(P\\d{4}|Q\\d{5})$",
+        "reference": [
+          {
+            "table": "profiles",
+            "field": "ProfileID"
+          },
+          {
+            "table": "evidence",
+            "field": "EvidenceID"
+          }
+        ]
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Density kg/m³",
+      "type": "number",
+      "role": "derived",
+      "description": "Headline density; equals the cited measurement.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Tensile modulus XY GPa",
+      "type": "number",
+      "role": "derived",
+      "description": "Headline in-plane tensile modulus; equals the cited measurement.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Tensile strength XY MPa",
+      "type": "number",
+      "role": "derived",
+      "description": "Headline in-plane tensile strength; equals the cited measurement.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Elongation at break XY %",
+      "type": "number",
+      "role": "derived",
+      "description": "Headline in-plane elongation at break; equals the cited measurement.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Mechanical evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Measurements cited for the mechanical headlines (density included).",
+      "missing": [
+        "Not applicable"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^V\\d{6}$",
+        "reference": {
+          "table": "measurements",
+          "field": "MeasurementID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Measurement conditions",
+      "type": "string",
+      "role": "prose",
+      "description": "Moisture and post-processing conditions behind the headlines.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "HDT 0.45 MPa °C",
+      "type": "number",
+      "role": "derived",
+      "description": "Headline heat deflection temperature at 0.45 MPa; equals the cited measurement.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Thermal evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Measurement cited for the HDT headline.",
+      "missing": [
+        "Not applicable"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^V\\d{6}$",
+        "reference": {
+          "table": "measurements",
+          "field": "MeasurementID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Price CAD/kg",
+      "type": "number",
+      "role": "derived",
+      "description": "Headline price: median regular CAD/kg of the cited headline-sample observations.",
+      "missing": [
+        "Not available in sampled Canadian market"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Price evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Price observations the headline price is the median of.",
+      "missing": [
+        "Not applicable"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^CA\\d{4}$",
+        "reference": {
+          "table": "prices",
+          "field": "PriceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Price basis",
+      "type": "string",
+      "role": "prose",
+      "description": "How the headline price was formed.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Best uses",
+      "type": "string",
+      "role": "prose",
+      "description": "Documented best uses.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Limitations",
+      "type": "string",
+      "role": "prose",
+      "description": "Documented limitations.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Full name",
+      "type": "string",
+      "role": "canonical",
+      "description": "Expanded polymer name.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Original category",
+      "type": "string",
+      "role": "canonical",
+      "description": "Category from the canonical master list.",
+      "vocabulary": "families",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Scope",
+      "type": "string",
+      "role": "canonical",
+      "description": "Whether the row is a candidate, a family entry, or excluded.",
+      "vocabulary": "scopes",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Abbreviation",
+      "type": "string",
+      "role": "canonical",
+      "description": "Short display name.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "Normalized name",
+      "type": "string",
+      "role": "canonical",
+      "description": "Search-normalized name.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "Base polymer",
+      "type": "string",
+      "role": "canonical",
+      "description": "Base polymer identity used by the estimate model.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Modifier / filler",
+      "type": "string",
+      "role": "canonical",
+      "description": "Reinforcement or formulation modifier.",
+      "vocabulary": "modifiers",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "role": "canonical",
+      "description": "Structural material or support/interface material.",
+      "vocabulary": "material-roles",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Identity source",
+      "type": "string",
+      "role": "canonical",
+      "description": "Source of the material identity.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "H2C evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Sources for the H2C status.",
+      "delimiter": ";",
+      "item": {
+        "reference": {
+          "table": "sources",
+          "field": "SourceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Identity notes",
+      "type": "string",
+      "role": "prose",
+      "description": "Notes on identity decisions.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "GradeIDs",
+      "type": "list",
+      "role": "derived",
+      "description": "Procurement grades of this material (study and retired grades excluded).",
+      "missing": [
+        "Not published"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^G\\d{3}-(\\d{2}|R\\d+)$",
+        "reference": {
+          "table": "grades",
+          "field": "GradeID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Headline basis",
+      "type": "string",
+      "role": "prose",
+      "description": "What the headline values represent.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Impact / toughness",
+      "type": "string",
+      "role": "prose",
+      "description": "Impact and toughness note.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Use evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Application and use evidence records.",
+      "missing": [
+        "Not applicable"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^Q\\d{5}$",
+        "reference": {
+          "table": "evidence",
+          "field": "EvidenceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Environmental evidence",
+      "type": "list",
+      "role": "derived",
+      "description": "Environmental evidence records; must be exactly the material's own environmental records.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "delimiter": ";",
+      "item": {
+        "pattern": "^Q\\d{5}$",
+        "reference": {
+          "table": "evidence",
+          "field": "EvidenceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Durability evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Durability evidence records.",
+      "delimiter": ";",
+      "item": {
+        "pattern": "^Q\\d{5}$",
+        "reference": {
+          "table": "evidence",
+          "field": "EvidenceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Fatigue / creep",
+      "type": "string",
+      "role": "prose",
+      "description": "Fatigue and creep note.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Safety evidence",
+      "type": "list",
+      "role": "editorial",
+      "description": "Safety evidence records.",
+      "delimiter": ";",
+      "item": {
+        "pattern": "^Q\\d{5}$",
+        "reference": {
+          "table": "evidence",
+          "field": "EvidenceID"
+        }
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Printability rating 1–5",
+      "type": "number",
+      "role": "editorial",
+      "description": "Analyst printability rating on rubric R-PRINT.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true,
+        "minimum": 1,
+        "maximum": 5
+      }
+    },
+    {
+      "name": "Printability rubric",
+      "type": "string",
+      "role": "canonical",
+      "description": "Rubric the printability rating uses.",
+      "vocabulary": "rubrics",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "$comment": "Contract for data/tables/prices.csv. Checked by build/src/schema.js.",
+  "title": "Prices CA",
+  "description": "One row per Canadian market observation of one SKU on one access date.",
+  "primaryKey": "PriceID",
+  "fields": [
+    {
+      "name": "PriceID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable price observation identifier.",
+      "constraints": {
+        "required": true,
+        "pattern": "^CA\\d{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Material the SKU belongs to.",
+      "reference": {
+        "table": "materials",
+        "field": "MaterialID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "GradeID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Exact grade sold.",
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Retailer",
+      "type": "string",
+      "role": "raw",
+      "description": "Retailer.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Variant / SKU",
+      "type": "string",
+      "role": "raw",
+      "description": "Variant or SKU as listed.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "Packaging",
+      "type": "string",
+      "role": "raw",
+      "description": "Spool or refill.",
+      "vocabulary": "packaging",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Net mass kg",
+      "type": "number",
+      "role": "raw",
+      "description": "Net filament mass.",
+      "constraints": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+    {
+      "name": "List price CAD",
+      "type": "number",
+      "role": "raw",
+      "description": "Regular list price.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+    {
+      "name": "Sale price CAD",
+      "type": "number",
+      "role": "raw",
+      "description": "Sale price when on sale.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+    {
+      "name": "Regular CAD/kg",
+      "type": "number",
+      "role": "derived",
+      "description": "List price ÷ net mass, for median-eligible rows.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+    {
+      "name": "Stock",
+      "type": "string",
+      "role": "raw",
+      "description": "Stock state at access.",
+      "vocabulary": "stock",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Eligible for median",
+      "type": "boolean",
+      "role": "editorial",
+      "description": "Whether the observation may enter a median.",
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Headline sample",
+      "type": "boolean",
+      "role": "editorial",
+      "description": "Whether the observation is in the headline median.",
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE",
+        "0"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Displayed price CAD",
+      "type": "number",
+      "role": "raw",
+      "description": "Price displayed at access.",
+      "constraints": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+    {
+      "name": "Currency",
+      "type": "string",
+      "role": "raw",
+      "description": "Currency.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "CAD"
+        ]
+      }
+    },
+    {
+      "name": "Market",
+      "type": "string",
+      "role": "raw",
+      "description": "Market.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Tax / shipping",
+      "type": "string",
+      "role": "raw",
+      "description": "Tax and shipping basis.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Regular price basis",
+      "type": "string",
+      "role": "editorial",
+      "description": "Why the regular price is regular; \"Quarantined\" excludes the row.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "URL",
+      "type": "string",
+      "role": "raw",
+      "description": "Listing URL.",
+      "constraints": {
+        "required": true,
+        "pattern": "^https?://"
+      }
+    },
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Catalogue source.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Access date",
+      "type": "string",
+      "role": "raw",
+      "description": "Date the listing was read.",
+      "constraints": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "Notes",
+      "type": "string",
+      "role": "prose",
+      "description": "Notes.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

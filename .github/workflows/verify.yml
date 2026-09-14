@@ -1,0 +1,32 @@
+# Verify every push on every branch: data format, schema, build, tests and the source-to-HTML audit.
+# Publishing stays in pages.yml, which runs the same gate on main before deploying.
+
+name: Verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: build/package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Verify
+        run: npm run verify
+
+      - name: No deleted records since the previous commit
+        run: |
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then node scripts/data/diff.mjs HEAD~1 HEAD --fail-on-removed; fi

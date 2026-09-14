@@ -1,0 +1,371 @@
+{
+  "$comment": "Contract for data/tables/measurements.csv. Checked by build/src/schema.js.",
+  "title": "Properties",
+  "description": "One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit.",
+  "primaryKey": "MeasurementID",
+  "fields": [
+    {
+      "name": "MeasurementID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable measurement identifier. Never reused; retired rows stay.",
+      "constraints": {
+        "required": true,
+        "pattern": "^V\\d{6}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Material the grade belongs to.",
+      "reference": {
+        "table": "materials",
+        "field": "MaterialID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "GradeID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Exact grade measured.",
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Property",
+      "type": "string",
+      "role": "canonical",
+      "description": "Property measured.",
+      "vocabulary": "properties",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Raw value",
+      "type": "string",
+      "role": "raw",
+      "description": "Value exactly as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Raw unit",
+      "type": "string",
+      "role": "raw",
+      "description": "Unit exactly as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Raw numeric",
+      "type": "number",
+      "role": "raw",
+      "description": "Number read from the raw value.",
+      "missing": [
+        "Not published",
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Raw uncertainty ±",
+      "type": "number",
+      "role": "raw",
+      "description": "Published ± uncertainty in the raw unit.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Raw upper bound",
+      "type": "number",
+      "role": "raw",
+      "description": "Upper bound of a published range, raw unit.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Operator",
+      "type": "string",
+      "role": "raw",
+      "description": "Published comparison: =, < or >.",
+      "vocabulary": "operators",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Conversion factor",
+      "type": "number",
+      "role": "canonical",
+      "description": "Raw unit to canonical unit multiplier.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Normalized value",
+      "type": "number",
+      "role": "canonical",
+      "description": "Reviewed value in the canonical unit; raw numeric × factor unless transcription-corrected.",
+      "missing": [
+        "Not published",
+        "Insufficient comparable data"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Normalized uncertainty ±",
+      "type": "number",
+      "role": "canonical",
+      "description": "Uncertainty in the canonical unit.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Normalized upper bound",
+      "type": "number",
+      "role": "canonical",
+      "description": "Range upper bound in the canonical unit.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Normalized unit",
+      "type": "string",
+      "role": "canonical",
+      "description": "Canonical unit.",
+      "vocabulary": "units",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Data status",
+      "type": "string",
+      "role": "canonical",
+      "description": "Whether the row is a usable number, a missing state, qualitative, quarantined or retired.",
+      "vocabulary": "data-status",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Specimen type",
+      "type": "string",
+      "role": "canonical",
+      "description": "Specimen form.",
+      "vocabulary": "specimen-types",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Direction",
+      "type": "string",
+      "role": "canonical",
+      "description": "Print direction of the specimen.",
+      "vocabulary": "directions",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Moisture condition",
+      "type": "string",
+      "role": "canonical",
+      "description": "Moisture state at test.",
+      "vocabulary": "moisture-conditions",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Post-processing",
+      "type": "string",
+      "role": "raw",
+      "description": "Annealing or other post-processing.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Test temperature",
+      "type": "string",
+      "role": "raw",
+      "description": "Test temperature as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Standard / load",
+      "type": "string",
+      "role": "raw",
+      "description": "Test standard and load as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Notch",
+      "type": "string",
+      "role": "canonical",
+      "description": "Impact specimen notch.",
+      "vocabulary": "notches",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Specimen / print parameters",
+      "type": "string",
+      "role": "raw",
+      "description": "Print parameters of the specimen.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Source of the value.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Locator",
+      "type": "string",
+      "role": "raw",
+      "description": "Where in the source.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Notes",
+      "type": "string",
+      "role": "prose",
+      "description": "Review notes.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Stress max MPa",
+      "type": "number",
+      "role": "raw",
+      "description": "Fatigue: maximum stress.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Stress min MPa",
+      "type": "number",
+      "role": "raw",
+      "description": "Fatigue: minimum stress.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Stress amplitude MPa",
+      "type": "number",
+      "role": "raw",
+      "description": "Fatigue: stress amplitude.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Frequency Hz",
+      "type": "number",
+      "role": "raw",
+      "description": "Fatigue: loading frequency.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Load ratio R",
+      "type": "number",
+      "role": "raw",
+      "description": "Fatigue: load ratio.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Run-out",
+      "type": "boolean",
+      "role": "raw",
+      "description": "Fatigue: specimen reached run-out without failure.",
+      "missing": [
+        "Not applicable"
+      ],
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE"
+      ],
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

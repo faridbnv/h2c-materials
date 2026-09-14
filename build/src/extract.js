@@ -1,4 +1,5 @@
-// Extract: read the frozen workbooks into raw row objects. No interpretation happens here.
+// Legacy extract: read the retired workbooks into raw row objects. Used only by the one-time
+// conversion (scripts/migrate/dump-workbook.mjs) and the parity check against it.
 // The workbook is never written. Header rows were confirmed against the embedded Excel table
 // definitions (xl/tables/*.xml): Materials declares A6:AQ108, every other table starts at A3.
 
@@ -18,21 +19,6 @@ export const SHEET_HEADER_ROW = {
   'Method': 2,
 };
 
-// Expected row counts for the current snapshot. A drift here means the frozen source moved, and the
-// build refuses to continue until someone confirms the move was intended and updates these. Last
-// moved by the 2026-09-13 duplicate-products fix (docs/audits/2026-09-13-duplicate-products/), after
-// the estimate-evidence research added printed-product and resin-reference grades and corrections.
-export const EXPECTED_ROWS = {
-  'Materials': 102,
-  'Grades': 155,
-  'Print setup': 171,
-  'Properties': 2049,
-  'Use & durability': 478,
-  'Prices CA': 104,
-  'Sources': 243,
-  'Coverage': 1188,
-  'Method': 48,
-};
 
 export { snapshotDate } from './load.js';
 

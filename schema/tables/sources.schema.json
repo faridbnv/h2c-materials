@@ -1,0 +1,123 @@
+{
+  "$comment": "Contract for data/tables/sources.csv. Checked by build/src/schema.js.",
+  "title": "Sources",
+  "description": "One row per source document or page, with its retrieval record and SHA-256.",
+  "primaryKey": "SourceID",
+  "fields": [
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable source identifier.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+        "unique": true
+      }
+    },
+    {
+      "name": "Publisher",
+      "type": "string",
+      "role": "raw",
+      "description": "Publisher.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "role": "raw",
+      "description": "Title.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Revision",
+      "type": "string",
+      "role": "raw",
+      "description": "Document revision.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Publication date",
+      "type": "string",
+      "role": "raw",
+      "description": "Publication date (YYYY, YYYY-MM or YYYY-MM-DD) or Not published.",
+      "constraints": {
+        "required": true,
+        "pattern": "^(\\d{4}(-\\d{2}(-\\d{2})?)?|Not published)$"
+      }
+    },
+    {
+      "name": "Access date",
+      "type": "string",
+      "role": "raw",
+      "description": "Date the source was retrieved.",
+      "constraints": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}( 00:00:00)?$"
+      }
+    },
+    {
+      "name": "Source class",
+      "type": "string",
+      "role": "canonical",
+      "description": "Kind of source.",
+      "vocabulary": "source-classes",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "URL",
+      "type": "string",
+      "role": "raw",
+      "description": "URL, or local path for a local reference.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "Locator",
+      "type": "string",
+      "role": "raw",
+      "description": "Default locator.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Applicable grades",
+      "type": "string",
+      "role": "editorial",
+      "description": "Grades or scope the source applies to.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Access status",
+      "type": "string",
+      "role": "raw",
+      "description": "Retrieval outcome.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "SHA256",
+      "type": "string",
+      "role": "raw",
+      "description": "SHA-256 of the retrieved artifact.",
+      "constraints": {
+        "required": true,
+        "pattern": "^([a-f0-9]{64}|Not recorded|Not applicable)$"
+      }
+    }
+  ]
+}

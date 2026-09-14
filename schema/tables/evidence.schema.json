@@ -1,0 +1,144 @@
+{
+  "$comment": "Contract for data/tables/evidence.csv. Checked by build/src/schema.js.",
+  "title": "Use & durability",
+  "description": "One row per finding: chemical exposure, flammability, application, durability, safety and similar evidence.",
+  "primaryKey": "EvidenceID",
+  "fields": [
+    {
+      "name": "EvidenceID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable evidence identifier.",
+      "constraints": {
+        "required": true,
+        "pattern": "^Q\\d{5}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "MaterialID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Material the finding belongs to.",
+      "reference": {
+        "table": "materials",
+        "field": "MaterialID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "GradeID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Exact grade, or Not applicable for family-level guidance.",
+      "missing": [
+        "Not applicable"
+      ],
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Domain",
+      "type": "string",
+      "role": "canonical",
+      "description": "Evidence domain.",
+      "vocabulary": "evidence-domains",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "role": "raw",
+      "description": "Topic as published; mapped by build/mappings/environment-topics.json.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Finding",
+      "type": "string",
+      "role": "raw",
+      "description": "Finding as published.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Exposure / conditions",
+      "type": "string",
+      "role": "raw",
+      "description": "Exposure conditions.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Rating 1–5",
+      "type": "number",
+      "role": "editorial",
+      "description": "Rubric rating, where a rubric applies.",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true,
+        "minimum": 1,
+        "maximum": 5
+      }
+    },
+    {
+      "name": "RubricID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Rubric of the rating.",
+      "missing": [
+        "Not applicable"
+      ],
+      "vocabulary": "rubrics",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Evidence type",
+      "type": "string",
+      "role": "canonical",
+      "description": "Kind of evidence.",
+      "vocabulary": "evidence-types",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "canonical",
+      "description": "Source of the finding.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Locator",
+      "type": "string",
+      "role": "raw",
+      "description": "Where in the source.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}
