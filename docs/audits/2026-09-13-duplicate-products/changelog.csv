@@ -1,0 +1,719 @@
+sheet,record,cell,action,field,before,after
+Grades,G047-01,H63,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G047-01,J63,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G057-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G057-01"
+Properties,V000854,P857,Edited,Data status,Published value,Retired duplicate record
+Properties,V000854,AA857,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000855,P858,Edited,Data status,Published value,Retired duplicate record
+Properties,V000855,AA858,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000856,P859,Edited,Data status,Published value,Retired duplicate record
+Properties,V000856,AA859,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000857,P860,Edited,Data status,Published value,Retired duplicate record
+Properties,V000857,AA860,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000858,P861,Edited,Data status,Published value,Retired duplicate record
+Properties,V000858,AA861,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000859,P862,Edited,Data status,Published value,Retired duplicate record
+Properties,V000859,AA862,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000860,P863,Edited,Data status,Published value,Retired duplicate record
+Properties,V000860,AA863,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000861,P864,Edited,Data status,Not published,Retired duplicate record
+Properties,V000861,AA864,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000862,P865,Edited,Data status,Published value,Retired duplicate record
+Properties,V000862,AA865,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000863,P866,Edited,Data status,Published value,Retired duplicate record
+Properties,V000863,AA866,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000864,P867,Edited,Data status,Published value,Retired duplicate record
+Properties,V000864,AA867,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000865,P868,Edited,Data status,Published value,Retired duplicate record
+Properties,V000865,AA868,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000866,P869,Edited,Data status,Published value,Retired duplicate record
+Properties,V000866,AA869,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000867,P870,Edited,Data status,Published value,Retired duplicate record
+Properties,V000867,AA870,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000868,P871,Edited,Data status,Published value,Retired duplicate record
+Properties,V000868,AA871,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000869,P872,Edited,Data status,Not published,Retired duplicate record
+Properties,V000869,AA872,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000870,P873,Edited,Data status,Published value,Retired duplicate record
+Properties,V000870,AA873,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000871,P874,Edited,Data status,Not published,Retired duplicate record
+Properties,V000871,AA874,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000872,P875,Edited,Data status,Published value,Retired duplicate record
+Properties,V000872,AA875,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000873,P876,Edited,Data status,Not published,Retired duplicate record
+Properties,V000873,AA876,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000874,P877,Edited,Data status,Published value,Retired duplicate record
+Properties,V000874,AA877,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000875,P878,Edited,Data status,Published value,Retired duplicate record
+Properties,V000875,AA878,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000876,P879,Edited,Data status,Published value,Retired duplicate record
+Properties,V000876,AA879,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000877,P880,Edited,Data status,Published value,Retired duplicate record
+Properties,V000877,AA880,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000878,P881,Edited,Data status,Published value,Retired duplicate record
+Properties,V000878,AA881,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000879,P882,Edited,Data status,Published value,Retired duplicate record
+Properties,V000879,AA882,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000880,P883,Edited,Data status,Published value,Retired duplicate record
+Properties,V000880,AA883,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000881,P884,Edited,Data status,Published value,Retired duplicate record
+Properties,V000881,AA884,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V000882,P885,Edited,Data status,Published value,Retired duplicate record
+Properties,V000882,AA885,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Use & durability,Q00171,J174,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00172,J175,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00173,J176,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00174,J177,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00175,J178,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00176,J179,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00177,J180,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Grades,G047-02,H64,Edited,Availability,Current official product listing retrieved,Retired mapping; audit trail only
+Grades,G047-02,J64,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G057-02, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G057-02"
+Properties,V000883,P886,Edited,Data status,Published value,Retired duplicate record
+Properties,V000883,AA886,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000884,P887,Edited,Data status,Published value,Retired duplicate record
+Properties,V000884,AA887,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000885,P888,Edited,Data status,Published value,Retired duplicate record
+Properties,V000885,AA888,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000886,P889,Edited,Data status,Published value,Retired duplicate record
+Properties,V000886,AA889,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000887,P890,Edited,Data status,Published value,Retired duplicate record
+Properties,V000887,AA890,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000888,P891,Edited,Data status,Published value,Retired duplicate record
+Properties,V000888,AA891,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000889,P892,Edited,Data status,Published value,Retired duplicate record
+Properties,V000889,AA892,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V000890,P893,Edited,Data status,Published value,Retired duplicate record
+Properties,V000890,AA893,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Grades,G047-03,H65,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G047-03,J65,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G049-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G049-01"
+Properties,V000891,P894,Edited,Data status,Published value,Retired duplicate record
+Properties,V000891,AA894,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G049-01
+Properties,V000892,P895,Edited,Data status,Published value,Retired duplicate record
+Properties,V000892,AA895,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G049-01
+Properties,V000893,P896,Edited,Data status,Published value,Retired duplicate record
+Properties,V000893,AA896,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G049-01
+Properties,V000894,P897,Edited,Data status,Published value (transcription corrected),Retired duplicate record
+Properties,V000894,AA897,Edited,Notes,"Source says elongation at maximum force, not at break; 4,40% = 4.4%. Dry, 50 mm/min; table heading 23 C / 50% RH. Source SHA256 matched 2026-09-13. SD-01 / SD-02.",Retired 2026-09-13: duplicate of the same record under G049-01
+Properties,V000895,P898,Edited,Data status,Published value,Retired duplicate record
+Properties,V000895,AA898,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G049-01
+Prices CA,CA0098,R101,Edited,Regular price basis,Retailer compare-at price,Quarantined 2026-09-13: duplicate listing of the product under G049-01
+Prices CA,CA0098,M101,Edited,Headline sample,1,0
+Grades,G061-01,H78,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G061-01,J78,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G057-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G057-01"
+Properties,V001081,P1084,Edited,Data status,Published value,Retired duplicate record
+Properties,V001081,AA1084,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001082,P1085,Edited,Data status,Published value,Retired duplicate record
+Properties,V001082,AA1085,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001083,P1086,Edited,Data status,Published value,Retired duplicate record
+Properties,V001083,AA1086,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001084,P1087,Edited,Data status,Published value,Retired duplicate record
+Properties,V001084,AA1087,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001085,P1088,Edited,Data status,Published value,Retired duplicate record
+Properties,V001085,AA1088,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001086,P1089,Edited,Data status,Published value,Retired duplicate record
+Properties,V001086,AA1089,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001087,P1090,Edited,Data status,Published value,Retired duplicate record
+Properties,V001087,AA1090,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001088,P1091,Edited,Data status,Not published,Retired duplicate record
+Properties,V001088,AA1091,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001089,P1092,Edited,Data status,Published value,Retired duplicate record
+Properties,V001089,AA1092,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001090,P1093,Edited,Data status,Published value,Retired duplicate record
+Properties,V001090,AA1093,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001091,P1094,Edited,Data status,Published value,Retired duplicate record
+Properties,V001091,AA1094,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001092,P1095,Edited,Data status,Published value,Retired duplicate record
+Properties,V001092,AA1095,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001093,P1096,Edited,Data status,Published value,Retired duplicate record
+Properties,V001093,AA1096,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001094,P1097,Edited,Data status,Published value,Retired duplicate record
+Properties,V001094,AA1097,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001095,P1098,Edited,Data status,Published value,Retired duplicate record
+Properties,V001095,AA1098,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001096,P1099,Edited,Data status,Not published,Retired duplicate record
+Properties,V001096,AA1099,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001097,P1100,Edited,Data status,Published value,Retired duplicate record
+Properties,V001097,AA1100,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001098,P1101,Edited,Data status,Not published,Retired duplicate record
+Properties,V001098,AA1101,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001099,P1102,Edited,Data status,Published value,Retired duplicate record
+Properties,V001099,AA1102,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001100,P1103,Edited,Data status,Not published,Retired duplicate record
+Properties,V001100,AA1103,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001101,P1104,Edited,Data status,Published value,Retired duplicate record
+Properties,V001101,AA1104,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001102,P1105,Edited,Data status,Published value,Retired duplicate record
+Properties,V001102,AA1105,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001103,P1106,Edited,Data status,Published value,Retired duplicate record
+Properties,V001103,AA1106,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001104,P1107,Edited,Data status,Published value,Retired duplicate record
+Properties,V001104,AA1107,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001105,P1108,Edited,Data status,Published value,Retired duplicate record
+Properties,V001105,AA1108,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001106,P1109,Edited,Data status,Published value,Retired duplicate record
+Properties,V001106,AA1109,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001107,P1110,Edited,Data status,Published value,Retired duplicate record
+Properties,V001107,AA1110,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001108,P1111,Edited,Data status,Published value,Retired duplicate record
+Properties,V001108,AA1111,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Properties,V001109,P1112,Edited,Data status,Published value,Retired duplicate record
+Properties,V001109,AA1112,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-01
+Use & durability,Q00208,J211,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00209,J212,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00210,J213,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00211,J214,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00212,J215,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00213,J216,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Use & durability,Q00214,J217,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Grades,G061-02,H79,Edited,Availability,Current official product listing retrieved,Retired mapping; audit trail only
+Grades,G061-02,J79,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G057-02, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G057-02"
+Properties,V001110,P1113,Edited,Data status,Published value,Retired duplicate record
+Properties,V001110,AA1113,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001111,P1114,Edited,Data status,Published value,Retired duplicate record
+Properties,V001111,AA1114,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001112,P1115,Edited,Data status,Published value,Retired duplicate record
+Properties,V001112,AA1115,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001113,P1116,Edited,Data status,Published value,Retired duplicate record
+Properties,V001113,AA1116,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001114,P1117,Edited,Data status,Published value,Retired duplicate record
+Properties,V001114,AA1117,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001115,P1118,Edited,Data status,Published value,Retired duplicate record
+Properties,V001115,AA1118,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001116,P1119,Edited,Data status,Published value,Retired duplicate record
+Properties,V001116,AA1119,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Properties,V001117,P1120,Edited,Data status,Published value,Retired duplicate record
+Properties,V001117,AA1120,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G057-02
+Grades,G062-01,H80,Edited,Availability,Current official product listing retrieved,Retired mapping; audit trail only
+Grades,G062-01,J80,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G053-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G053-01"
+Properties,V001118,P1121,Edited,Data status,Published value,Retired duplicate record
+Properties,V001118,AA1121,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001119,P1122,Edited,Data status,Published value,Retired duplicate record
+Properties,V001119,AA1122,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001120,P1123,Edited,Data status,Published value,Retired duplicate record
+Properties,V001120,AA1123,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001121,P1124,Edited,Data status,Published value,Retired duplicate record
+Properties,V001121,AA1124,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001122,P1125,Edited,Data status,Published value,Retired duplicate record
+Properties,V001122,AA1125,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001123,P1126,Edited,Data status,Published value,Retired duplicate record
+Properties,V001123,AA1126,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001124,P1127,Edited,Data status,Published value,Retired duplicate record
+Properties,V001124,AA1127,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Properties,V001125,P1128,Edited,Data status,Published value,Retired duplicate record
+Properties,V001125,AA1128,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G053-01
+Grades,G062-02,H81,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G062-02,J81,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G059-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G059-01"
+Properties,V001126,P1129,Edited,Data status,Published value,Retired duplicate record
+Properties,V001126,AA1129,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001127,P1130,Edited,Data status,Published value,Retired duplicate record
+Properties,V001127,AA1130,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001128,P1131,Edited,Data status,Published value,Retired duplicate record
+Properties,V001128,AA1131,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001129,P1132,Edited,Data status,Published value,Retired duplicate record
+Properties,V001129,AA1132,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001130,P1133,Edited,Data status,Published value,Retired duplicate record
+Properties,V001130,AA1133,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001131,P1134,Edited,Data status,Published value,Retired duplicate record
+Properties,V001131,AA1134,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001132,P1135,Edited,Data status,Published value,Retired duplicate record
+Properties,V001132,AA1135,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001133,P1136,Edited,Data status,Published value,Retired duplicate record
+Properties,V001133,AA1136,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001134,P1137,Edited,Data status,Published value,Retired duplicate record
+Properties,V001134,AA1137,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001135,P1138,Edited,Data status,Published value,Retired duplicate record
+Properties,V001135,AA1138,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001136,P1139,Edited,Data status,Published value,Retired duplicate record
+Properties,V001136,AA1139,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001137,P1140,Edited,Data status,Published value,Retired duplicate record
+Properties,V001137,AA1140,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001138,P1141,Edited,Data status,Published value,Retired duplicate record
+Properties,V001138,AA1141,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001139,P1142,Edited,Data status,Published value,Retired duplicate record
+Properties,V001139,AA1142,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001140,P1143,Edited,Data status,Published value,Retired duplicate record
+Properties,V001140,AA1143,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001141,P1144,Edited,Data status,Published value,Retired duplicate record
+Properties,V001141,AA1144,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001142,P1145,Edited,Data status,Published value,Retired duplicate record
+Properties,V001142,AA1145,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001143,P1146,Edited,Data status,Published value,Retired duplicate record
+Properties,V001143,AA1146,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001144,P1147,Edited,Data status,Published value,Retired duplicate record
+Properties,V001144,AA1147,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001145,P1148,Edited,Data status,Published value,Retired duplicate record
+Properties,V001145,AA1148,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001146,P1149,Edited,Data status,Published value,Retired duplicate record
+Properties,V001146,AA1149,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001147,P1150,Edited,Data status,Published value,Retired duplicate record
+Properties,V001147,AA1150,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001148,P1151,Edited,Data status,Published value,Retired duplicate record
+Properties,V001148,AA1151,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001149,P1152,Edited,Data status,Published value,Retired duplicate record
+Properties,V001149,AA1152,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001150,P1153,Edited,Data status,Published value,Retired duplicate record
+Properties,V001150,AA1153,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001151,P1154,Edited,Data status,Published value,Retired duplicate record
+Properties,V001151,AA1154,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001152,P1155,Edited,Data status,Published value,Retired duplicate record
+Properties,V001152,AA1155,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001153,P1156,Edited,Data status,Published value,Retired duplicate record
+Properties,V001153,AA1156,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Properties,V001154,P1157,Edited,Data status,Published value,Retired duplicate record
+Properties,V001154,AA1157,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G059-01
+Use & durability,Q00215,J218,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Grades,G064-02,H86,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G064-02,J86,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G065-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G065-01"
+Properties,V001208,P1211,Edited,Data status,Published value,Retired duplicate record
+Properties,V001208,AA1211,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001209,P1212,Edited,Data status,Published value,Retired duplicate record
+Properties,V001209,AA1212,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001210,P1213,Edited,Data status,Published value,Retired duplicate record
+Properties,V001210,AA1213,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001211,P1214,Edited,Data status,Published value,Retired duplicate record
+Properties,V001211,AA1214,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001212,P1215,Edited,Data status,Published value,Retired duplicate record
+Properties,V001212,AA1215,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001213,P1216,Edited,Data status,Published value,Retired duplicate record
+Properties,V001213,AA1216,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001214,P1217,Edited,Data status,Published value,Retired duplicate record
+Properties,V001214,AA1217,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001215,P1218,Edited,Data status,Published value,Retired duplicate record
+Properties,V001215,AA1218,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001216,P1219,Edited,Data status,Published value,Retired duplicate record
+Properties,V001216,AA1219,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001217,P1220,Edited,Data status,Published value,Retired duplicate record
+Properties,V001217,AA1220,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001218,P1221,Edited,Data status,Published value,Retired duplicate record
+Properties,V001218,AA1221,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001219,P1222,Edited,Data status,Published value,Retired duplicate record
+Properties,V001219,AA1222,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001220,P1223,Edited,Data status,Published value,Retired duplicate record
+Properties,V001220,AA1223,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001221,P1224,Edited,Data status,Published value,Retired duplicate record
+Properties,V001221,AA1224,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001222,P1225,Edited,Data status,Published value,Retired duplicate record
+Properties,V001222,AA1225,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001223,P1226,Edited,Data status,Published value,Retired duplicate record
+Properties,V001223,AA1226,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001224,P1227,Edited,Data status,Published value,Retired duplicate record
+Properties,V001224,AA1227,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001225,P1228,Edited,Data status,Published value,Retired duplicate record
+Properties,V001225,AA1228,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001226,P1229,Edited,Data status,Published value,Retired duplicate record
+Properties,V001226,AA1229,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001227,P1230,Edited,Data status,Published value,Retired duplicate record
+Properties,V001227,AA1230,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001228,P1231,Edited,Data status,Published value,Retired duplicate record
+Properties,V001228,AA1231,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001229,P1232,Edited,Data status,Published value,Retired duplicate record
+Properties,V001229,AA1232,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001230,P1233,Edited,Data status,Published value,Retired duplicate record
+Properties,V001230,AA1233,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001231,P1234,Edited,Data status,Published value,Retired duplicate record
+Properties,V001231,AA1234,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001232,P1235,Edited,Data status,Published value,Retired duplicate record
+Properties,V001232,AA1235,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001233,P1236,Edited,Data status,Published value,Retired duplicate record
+Properties,V001233,AA1236,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001234,P1237,Edited,Data status,Published value,Retired duplicate record
+Properties,V001234,AA1237,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Properties,V001235,P1238,Edited,Data status,Published value,Retired duplicate record
+Properties,V001235,AA1238,Edited,Notes,Not applicable,Retired 2026-09-13: duplicate of the same record under G065-01
+Use & durability,Q00223,J226,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+Grades,G044-01,H58,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G044-01,J58,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: duplicate of G046-01, the same data sheet filed under another material. Every measurement and evidence record has an identical twin under G046-01"
+Properties,V001689,P1692,Edited,Data status,Published value,Retired duplicate record
+Properties,V001689,AA1692,Edited,Notes,Manually reviewed source table.,Retired 2026-09-13: duplicate of the same record under G046-01
+Properties,V001691,P1694,Edited,Data status,Published value,Retired duplicate record
+Properties,V001691,AA1694,Edited,Notes,Manually reviewed source table.,Retired 2026-09-13: duplicate of the same record under G046-01
+Properties,V001693,P1696,Edited,Data status,Published value,Retired duplicate record
+Properties,V001693,AA1696,Edited,Notes,Manually reviewed source table.,Retired 2026-09-13: duplicate of the same record under G046-01
+Grades,G050-02,A155:M155,Added,,,
+Grades,G062-03,H82,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G062-03,J82,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: re-filed as G050-02 under M050. iSANMATE PA6 CF is a PA6-CF (TDS: ""PA6 CF"")"
+Sources,I-PA6-CF-TDS,J82,Edited,Applicable grades,G062-03,G050-02 (re-filed 2026-09-13 from G062-03)
+Properties,V001155,B1158,Edited,MaterialID,M062,M050
+Properties,V001155,C1158,Edited,GradeID,G062-03,G050-02
+Properties,V001156,B1159,Edited,MaterialID,M062,M050
+Properties,V001156,C1159,Edited,GradeID,G062-03,G050-02
+Properties,V001157,B1160,Edited,MaterialID,M062,M050
+Properties,V001157,C1160,Edited,GradeID,G062-03,G050-02
+Properties,V001158,B1161,Edited,MaterialID,M062,M050
+Properties,V001158,C1161,Edited,GradeID,G062-03,G050-02
+Properties,V001159,B1162,Edited,MaterialID,M062,M050
+Properties,V001159,C1162,Edited,GradeID,G062-03,G050-02
+Properties,V001160,B1163,Edited,MaterialID,M062,M050
+Properties,V001160,C1163,Edited,GradeID,G062-03,G050-02
+Properties,V001161,B1164,Edited,MaterialID,M062,M050
+Properties,V001161,C1164,Edited,GradeID,G062-03,G050-02
+Properties,V001162,B1165,Edited,MaterialID,M062,M050
+Properties,V001162,C1165,Edited,GradeID,G062-03,G050-02
+Print setup,P0079,B82,Edited,MaterialID,M062,M050
+Print setup,P0079,C82,Edited,GradeID,G062-03,G050-02
+Grades,G051-02,A156:M156,Added,,,
+Grades,G063-01,H83,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G063-01,J83,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: re-filed as G051-02 under M051. 3DXTECH AmideX PA6-GF30 is a PA6-GF (TDS title ""AmideX PA6-GF30 Glass Fiber Nylon"")"
+Sources,X-AMIDEX-Nylon-GF30-TDS-v1,J83,Edited,Applicable grades,G063-01,G051-02 (re-filed 2026-09-13 from G063-01)
+Properties,V001163,B1166,Edited,MaterialID,M063,M051
+Properties,V001163,C1166,Edited,GradeID,G063-01,G051-02
+Properties,V001164,B1167,Edited,MaterialID,M063,M051
+Properties,V001164,C1167,Edited,GradeID,G063-01,G051-02
+Properties,V001165,B1168,Edited,MaterialID,M063,M051
+Properties,V001165,C1168,Edited,GradeID,G063-01,G051-02
+Properties,V001166,B1169,Edited,MaterialID,M063,M051
+Properties,V001166,C1169,Edited,GradeID,G063-01,G051-02
+Properties,V001167,B1170,Edited,MaterialID,M063,M051
+Properties,V001167,C1170,Edited,GradeID,G063-01,G051-02
+Properties,V001168,B1171,Edited,MaterialID,M063,M051
+Properties,V001168,C1171,Edited,GradeID,G063-01,G051-02
+Properties,V001169,B1172,Edited,MaterialID,M063,M051
+Properties,V001169,C1172,Edited,GradeID,G063-01,G051-02
+Properties,V001170,B1173,Edited,MaterialID,M063,M051
+Properties,V001170,C1173,Edited,GradeID,G063-01,G051-02
+Print setup,P0080,B83,Edited,MaterialID,M063,M051
+Print setup,P0080,C83,Edited,GradeID,G063-01,G051-02
+Prices CA,CA0095,B98,Edited,MaterialID,M063,M051
+Prices CA,CA0095,C98,Edited,GradeID,G063-01,G051-02
+Prices CA,CA0095,M98,Edited,Headline sample,1,0
+Prices CA,CA0101,B104,Edited,MaterialID,M063,M051
+Prices CA,CA0101,C104,Edited,GradeID,G063-01,G051-02
+Grades,G051-03,A157:M157,Added,,,
+Grades,G063-02,H84,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G063-02,J84,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,"Retired 2026-09-13: re-filed as G051-03 under M051. Polymaker PolyMide PA6-GF is a PA6-GF (TDS: ""a glass fiber reinforced PA6 (Nylon 6) filament"")"
+Sources,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,J84,Edited,Applicable grades,G063-02,G051-03 (re-filed 2026-09-13 from G063-02)
+Properties,V001171,B1174,Edited,MaterialID,M063,M051
+Properties,V001171,C1174,Edited,GradeID,G063-02,G051-03
+Properties,V001172,B1175,Edited,MaterialID,M063,M051
+Properties,V001172,C1175,Edited,GradeID,G063-02,G051-03
+Properties,V001173,B1176,Edited,MaterialID,M063,M051
+Properties,V001173,C1176,Edited,GradeID,G063-02,G051-03
+Properties,V001174,B1177,Edited,MaterialID,M063,M051
+Properties,V001174,C1177,Edited,GradeID,G063-02,G051-03
+Properties,V001175,B1178,Edited,MaterialID,M063,M051
+Properties,V001175,C1178,Edited,GradeID,G063-02,G051-03
+Properties,V001176,B1179,Edited,MaterialID,M063,M051
+Properties,V001176,C1179,Edited,GradeID,G063-02,G051-03
+Properties,V001177,B1180,Edited,MaterialID,M063,M051
+Properties,V001177,C1180,Edited,GradeID,G063-02,G051-03
+Properties,V001178,B1181,Edited,MaterialID,M063,M051
+Properties,V001178,C1181,Edited,GradeID,G063-02,G051-03
+Properties,V001179,B1182,Edited,MaterialID,M063,M051
+Properties,V001179,C1182,Edited,GradeID,G063-02,G051-03
+Properties,V001180,B1183,Edited,MaterialID,M063,M051
+Properties,V001180,C1183,Edited,GradeID,G063-02,G051-03
+Properties,V001181,B1184,Edited,MaterialID,M063,M051
+Properties,V001181,C1184,Edited,GradeID,G063-02,G051-03
+Properties,V001182,B1185,Edited,MaterialID,M063,M051
+Properties,V001182,C1185,Edited,GradeID,G063-02,G051-03
+Properties,V001183,B1186,Edited,MaterialID,M063,M051
+Properties,V001183,C1186,Edited,GradeID,G063-02,G051-03
+Properties,V001184,B1187,Edited,MaterialID,M063,M051
+Properties,V001184,C1187,Edited,GradeID,G063-02,G051-03
+Properties,V001185,B1188,Edited,MaterialID,M063,M051
+Properties,V001185,C1188,Edited,GradeID,G063-02,G051-03
+Properties,V001186,B1189,Edited,MaterialID,M063,M051
+Properties,V001186,C1189,Edited,GradeID,G063-02,G051-03
+Properties,V001187,B1190,Edited,MaterialID,M063,M051
+Properties,V001187,C1190,Edited,GradeID,G063-02,G051-03
+Properties,V001188,B1191,Edited,MaterialID,M063,M051
+Properties,V001188,C1191,Edited,GradeID,G063-02,G051-03
+Properties,V001189,B1192,Edited,MaterialID,M063,M051
+Properties,V001189,C1192,Edited,GradeID,G063-02,G051-03
+Properties,V001190,B1193,Edited,MaterialID,M063,M051
+Properties,V001190,C1193,Edited,GradeID,G063-02,G051-03
+Properties,V001191,B1194,Edited,MaterialID,M063,M051
+Properties,V001191,C1194,Edited,GradeID,G063-02,G051-03
+Properties,V001192,B1195,Edited,MaterialID,M063,M051
+Properties,V001192,C1195,Edited,GradeID,G063-02,G051-03
+Properties,V001193,B1196,Edited,MaterialID,M063,M051
+Properties,V001193,C1196,Edited,GradeID,G063-02,G051-03
+Properties,V001194,B1197,Edited,MaterialID,M063,M051
+Properties,V001194,C1197,Edited,GradeID,G063-02,G051-03
+Properties,V001195,B1198,Edited,MaterialID,M063,M051
+Properties,V001195,C1198,Edited,GradeID,G063-02,G051-03
+Properties,V001196,B1199,Edited,MaterialID,M063,M051
+Properties,V001196,C1199,Edited,GradeID,G063-02,G051-03
+Properties,V001197,B1200,Edited,MaterialID,M063,M051
+Properties,V001197,C1200,Edited,GradeID,G063-02,G051-03
+Properties,V001198,B1201,Edited,MaterialID,M063,M051
+Properties,V001198,C1201,Edited,GradeID,G063-02,G051-03
+Properties,V001199,B1202,Edited,MaterialID,M063,M051
+Properties,V001199,C1202,Edited,GradeID,G063-02,G051-03
+Print setup,P0081,B84,Edited,MaterialID,M063,M051
+Print setup,P0081,C84,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00216,B219,Edited,MaterialID,M063,M051
+Use & durability,Q00216,C219,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00217,B220,Edited,MaterialID,M063,M051
+Use & durability,Q00217,C220,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00218,B221,Edited,MaterialID,M063,M051
+Use & durability,Q00218,C221,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00219,B222,Edited,MaterialID,M063,M051
+Use & durability,Q00219,C222,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00220,B223,Edited,MaterialID,M063,M051
+Use & durability,Q00220,C223,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00221,B224,Edited,MaterialID,M063,M051
+Use & durability,Q00221,C224,Edited,GradeID,G063-02,G051-03
+Use & durability,Q00222,B225,Edited,MaterialID,M063,M051
+Use & durability,Q00222,C225,Edited,GradeID,G063-02,G051-03
+Grades,G039-03,A158:M158,Added,,,
+Grades,G044-02,H59,Edited,Availability,Not published,Retired mapping; audit trail only
+Grades,G044-02,J59,Edited,Selected-grade rationale,Documented commercial formulation; traceable manufacturer evidence,Retired 2026-09-13: re-filed as G039-03 under M039. Polymaker PolyFlex TPU90 is a TPU
+Sources,S-POLYCN-PolyFlex-TPU90-TDS-V5-1,J67,Edited,Applicable grades,G044-02,G039-03 (re-filed 2026-09-13 from G044-02)
+Properties,V000835,B838,Edited,MaterialID,M044,M039
+Properties,V000835,C838,Edited,GradeID,G044-02,G039-03
+Properties,V000836,B839,Edited,MaterialID,M044,M039
+Properties,V000836,C839,Edited,GradeID,G044-02,G039-03
+Properties,V000837,B840,Edited,MaterialID,M044,M039
+Properties,V000837,C840,Edited,GradeID,G044-02,G039-03
+Print setup,P0056,B59,Edited,MaterialID,M044,M039
+Print setup,P0056,C59,Edited,GradeID,G044-02,G039-03
+Use & durability,Q00165,B168,Edited,MaterialID,M044,M039
+Use & durability,Q00165,C168,Edited,GradeID,G044-02,G039-03
+Use & durability,Q00166,B169,Edited,MaterialID,M044,M039
+Use & durability,Q00166,C169,Edited,GradeID,G044-02,G039-03
+Use & durability,Q00167,B170,Edited,MaterialID,M044,M039
+Use & durability,Q00167,C170,Edited,GradeID,G044-02,G039-03
+Use & durability,Q00168,B171,Edited,MaterialID,M044,M039
+Use & durability,Q00168,C171,Edited,GradeID,G044-02,G039-03
+Use & durability,Q00169,B172,Edited,MaterialID,M044,M039
+Use & durability,Q00169,C172,Edited,GradeID,G044-02,G039-03
+Use & durability,Q00170,B173,Edited,MaterialID,M044,M039
+Use & durability,Q00170,C173,Edited,GradeID,G044-02,G039-03
+Materials,M047,Y53,Edited,Scope,H2C-relevant,Family entry
+Materials,M047,E53,Edited,Representative grade,G047-01,Not published
+Materials,M047,AH53,Edited,GradeIDs,G047-01; G047-02; G047-03,Not published
+Materials,M047,F53,Edited,Nozzle guidance,250 – 270 (℃),Not published
+Materials,M047,G53,Edited,Bed guidance,25 - 50 (˚C),Not published
+Materials,M047,H53,Edited,Chamber guidance,40 - 60 (˚C),Not published
+Materials,M047,I53,Edited,Printing evidence,P0060; Q00359,Q00359
+Materials,M047,J53,Edited,Density kg/m³,1120,Not published
+Materials,M047,K53,Edited,Tensile modulus XY GPa,2.223,Not published
+Materials,M047,L53,Edited,Tensile strength XY MPa,66.2,Not published
+Materials,M047,M53,Edited,Elongation at break XY %,9.9,Not published
+Materials,M047,N53,Edited,Mechanical evidence,V000854; V000862; V000864; V000866,Not applicable
+Materials,M047,O53,Edited,Measurement conditions,Dried before testing (see preparation) / All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing; Conditioned: 70% RH / All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing,Not applicable: family entry
+Materials,M047,P53,Edited,HDT 0.45 MPa °C,110.5,Not published
+Materials,M047,Q53,Edited,Thermal evidence,V000860,Not applicable
+Materials,M047,R53,Edited,Price CAD/kg,162.65333333333334,Not available in sampled Canadian market
+Materials,M047,S53,Edited,Price evidence,CA0098,Not applicable
+Materials,M047,T53,Edited,Price basis,"1 in-stock regular-price observation(s), before tax/shipping",Family entry: no product of its own
+Materials,M047,AK53,Edited,Use evidence,Q00177; Q00298,Q00298
+Materials,M047,AL53,Edited,Environmental evidence,Q00171; Q00172; Q00173; Q00174; Q00175; Q00176; Q00299,Q00299
+Materials,M047,AI53,Edited,Headline basis,Single-grade observations; not a polymer-family range,Family entry: no values of its own; see its member materials
+Materials,M047,AG53,Edited,Identity notes,Not applicable,"PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612. Until 2026-09-13 this row held products that belong to those rows, so their numbers appeared twice; the products now live only in their own rows (docs/audits/2026-09-13-duplicate-products/)."
+Materials,M062,Y68,Edited,Scope,H2C-relevant,Family entry
+Materials,M062,E68,Edited,Representative grade,G062-01,Not published
+Materials,M062,AH68,Edited,GradeIDs,G062-01; G062-02; G062-03,Not published
+Materials,M062,F68,Edited,Nozzle guidance,265-285C,Not published
+Materials,M062,G68,Edited,Bed guidance,90-110C,Not published
+Materials,M062,H68,Edited,Chamber guidance,Recommended,Not published
+Materials,M062,I68,Edited,Printing evidence,P0144,Not applicable
+Materials,M062,J68,Edited,Density kg/m³,1160,Not published
+Materials,M062,K68,Edited,Tensile modulus XY GPa,8,Not published
+Materials,M062,L68,Edited,Tensile strength XY MPa,Not published,Not published
+Materials,M062,M68,Edited,Elongation at break XY %,2.1,Not published
+Materials,M062,N68,Edited,Mechanical evidence,V001118; V001120; V001121,Not applicable
+Materials,M062,O68,Edited,Measurement conditions,Not published / Not published,Not applicable: family entry
+Materials,M062,P68,Edited,HDT 0.45 MPa °C,150,Not published
+Materials,M062,Q68,Edited,Thermal evidence,V001125,Not applicable
+Materials,M062,R68,Edited,Price CAD/kg,Not available in sampled Canadian market,Not available in sampled Canadian market
+Materials,M062,S68,Edited,Price evidence,Not applicable,Not applicable
+Materials,M062,T68,Edited,Price basis,No eligible grade-matched offer in sampled Canadian storefronts,Family entry: no product of its own
+Materials,M062,AK68,Edited,Use evidence,Q00215,Not applicable
+Materials,M062,AL68,Edited,Environmental evidence,Not published,Not applicable
+Materials,M062,AI68,Edited,Headline basis,Single-grade observations; not a polymer-family range,Family entry: no values of its own; see its member materials
+Materials,M062,AG68,Edited,Identity notes,Not applicable,"PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF. Until 2026-09-13 this row held products that belong to those rows, so their numbers appeared twice; the products now live only in their own rows (docs/audits/2026-09-13-duplicate-products/)."
+Materials,M063,Y69,Edited,Scope,H2C-relevant,Family entry
+Materials,M063,E69,Edited,Representative grade,G063-01,Not published
+Materials,M063,AH69,Edited,GradeIDs,G063-01; G063-02,Not published
+Materials,M063,F69,Edited,Nozzle guidance,Not published,Not published
+Materials,M063,G69,Edited,Bed guidance,Not published,Not published
+Materials,M063,H69,Edited,Chamber guidance,Not published,Not published
+Materials,M063,I69,Edited,Printing evidence,P0080,Not applicable
+Materials,M063,J69,Edited,Density kg/m³,1350,Not published
+Materials,M063,K69,Edited,Tensile modulus XY GPa,4.261,Not published
+Materials,M063,L69,Edited,Tensile strength XY MPa,Not published,Not published
+Materials,M063,M69,Edited,Elongation at break XY %,6,Not published
+Materials,M063,N69,Edited,Mechanical evidence,V001163; V001165; V001166,Not applicable
+Materials,M063,O69,Edited,Measurement conditions,Not published / Not published,Not applicable: family entry
+Materials,M063,P69,Edited,HDT 0.45 MPa °C,186,Not published
+Materials,M063,Q69,Edited,Thermal evidence,V001170,Not applicable
+Materials,M063,R69,Edited,Price CAD/kg,162.65333333333334,Not available in sampled Canadian market
+Materials,M063,S69,Edited,Price evidence,CA0095,Not applicable
+Materials,M063,T69,Edited,Price basis,"1 in-stock regular-price observation(s), before tax/shipping",Family entry: no product of its own
+Materials,M063,AK69,Edited,Use evidence,Q00222,Not applicable
+Materials,M063,AL69,Edited,Environmental evidence,Q00216; Q00217; Q00218; Q00219; Q00220; Q00221,Not applicable
+Materials,M063,AI69,Edited,Headline basis,Single-grade observations; not a polymer-family range,Family entry: no values of its own; see its member materials
+Materials,M063,AG69,Edited,Identity notes,Not applicable,"PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF. Until 2026-09-13 this row held products that belong to those rows, so their numbers appeared twice; the products now live only in their own rows (docs/audits/2026-09-13-duplicate-products/)."
+Materials,M044,Y50,Edited,Scope,H2C-relevant,Family entry
+Materials,M044,E50,Edited,Representative grade,G044-01,Not published
+Materials,M044,AH50,Edited,GradeIDs,G044-01; G044-02,Not published
+Materials,M044,F50,Edited,Nozzle guidance,220–240°C,Not published
+Materials,M044,G50,Edited,Bed guidance,20–60°C,Not published
+Materials,M044,H50,Edited,Chamber guidance,No setpoint published ('-' in TDS),Not published
+Materials,M044,I50,Edited,Printing evidence,P0055,Not applicable
+Materials,M044,J50,Edited,Density kg/m³,1150,Not published
+Materials,M044,K50,Edited,Tensile modulus XY GPa,Not published,Not published
+Materials,M044,L50,Edited,Tensile strength XY MPa,Not published,Not published
+Materials,M044,M50,Edited,Elongation at break XY %,Not published,Not published
+Materials,M044,N50,Edited,Mechanical evidence,V001689,Not applicable
+Materials,M044,O50,Edited,Measurement conditions,Not published / Not published,Not applicable: family entry
+Materials,M044,P50,Edited,HDT 0.45 MPa °C,Not published,Not published
+Materials,M044,Q50,Edited,Thermal evidence,Not applicable,Not applicable
+Materials,M044,R50,Edited,Price CAD/kg,Not available in sampled Canadian market,Not available in sampled Canadian market
+Materials,M044,S50,Edited,Price evidence,Not applicable,Not applicable
+Materials,M044,T50,Edited,Price basis,No eligible grade-matched offer in sampled Canadian storefronts,Family entry: no product of its own
+Materials,M044,AK50,Edited,Use evidence,Q00294; Q00295; Q00296; Q00297,Q00294; Q00295; Q00296; Q00297
+Materials,M044,AL50,Edited,Environmental evidence,Q00165; Q00166; Q00167; Q00168; Q00169; Q00170,Not applicable
+Materials,M044,AI50,Edited,Headline basis,Single-grade observations; not a polymer-family range,Family entry: no values of its own; see its member materials
+Materials,M044,AG50,Edited,Identity notes,Not applicable,"TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC. Until 2026-09-13 this row held products that belong to those rows, so their numbers appeared twice; the products now live only in their own rows (docs/audits/2026-09-13-duplicate-products/)."
+Materials,M061,Y67,Edited,Scope,H2C-relevant,Family entry
+Materials,M061,E67,Edited,Representative grade,G061-01,Not published
+Materials,M061,AH67,Edited,GradeIDs,G061-01; G061-02,Not published
+Materials,M061,F67,Edited,Nozzle guidance,250 – 270 (℃),Not published
+Materials,M061,G67,Edited,Bed guidance,25 - 50 (˚C),Not published
+Materials,M061,H67,Edited,Chamber guidance,40 - 60 (˚C),Not published
+Materials,M061,I67,Edited,Printing evidence,P0075,Not applicable
+Materials,M061,J67,Edited,Density kg/m³,1120,Not published
+Materials,M061,K67,Edited,Tensile modulus XY GPa,2.223,Not published
+Materials,M061,L67,Edited,Tensile strength XY MPa,66.2,Not published
+Materials,M061,M67,Edited,Elongation at break XY %,9.9,Not published
+Materials,M061,N67,Edited,Mechanical evidence,V001081; V001089; V001091; V001093,Not applicable
+Materials,M061,O67,Edited,Measurement conditions,Dried before testing (see preparation) / All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing; Conditioned: 70% RH / All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing,Not applicable: family entry
+Materials,M061,P67,Edited,HDT 0.45 MPa °C,110.5,Not published
+Materials,M061,Q67,Edited,Thermal evidence,V001087,Not applicable
+Materials,M061,R67,Edited,Price CAD/kg,Not available in sampled Canadian market,Not available in sampled Canadian market
+Materials,M061,S67,Edited,Price evidence,Not applicable,Not applicable
+Materials,M061,T67,Edited,Price basis,No eligible grade-matched offer in sampled Canadian storefronts,Family entry: no product of its own
+Materials,M061,AK67,Edited,Use evidence,Q00214,Not applicable
+Materials,M061,AL67,Edited,Environmental evidence,Q00208; Q00209; Q00210; Q00211; Q00212; Q00213,Not applicable
+Materials,M061,AI67,Edited,Headline basis,Single-grade observations; not a polymer-family range,Family entry: no values of its own; see its member materials
+Materials,M061,AG67,Edited,Identity notes,Not applicable,"CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers. Until 2026-09-13 this row held products that belong to those rows, so their numbers appeared twice; the products now live only in their own rows (docs/audits/2026-09-13-duplicate-products/)."
+Materials,M050,AH56,Edited,GradeIDs,G050-01,G050-01; G050-02
+Materials,M051,AH57,Edited,GradeIDs,G051-01,G051-01; G051-02; G051-03
+Materials,M051,AL57,Edited,Environmental evidence,Q00447; Q00448; Q00449; Q00450; Q00451,Q00447; Q00448; Q00449; Q00450; Q00451; Q00216; Q00217; Q00218; Q00219; Q00220; Q00221
+Materials,M051,AK57,Edited,Use evidence,Not applicable,Q00222
+Materials,M039,AH45,Edited,GradeIDs,G039-01; G039-02,G039-01; G039-02; G039-03
+Materials,M039,AL45,Edited,Environmental evidence,Q00149; Q00150; Q00151; Q00152; Q00153; Q00154; Q00297,Q00149; Q00150; Q00151; Q00152; Q00153; Q00154; Q00297; Q00165; Q00166; Q00167; Q00168; Q00169; Q00170
+Materials,M064,AH70,Edited,GradeIDs,G064-01; G064-02,G064-01
+Materials,M064,AK70,Edited,Use evidence,Q00223,Not applicable
+Print setup,P0082,E85,Edited,Nozzle °C,Not published,265-285 °C
+Print setup,P0082,F85,Edited,Bed °C,Not published,90-110 °C
+Materials,M064,F70,Edited,Nozzle guidance,Not published,265-285 °C
+Materials,M064,G70,Edited,Bed guidance,Not published,90-110 °C
+Grades,G008-01,E145,Edited,Shared formulation key,R-POLYMAKER-PANCHROMA-TDS-V2-1,R-POLYMAKER-PANCHROMA-TDS-V2-1#Silk
+Grades,G091-02,E147,Edited,Shared formulation key,R-POLYMAKER-PANCHROMA-TDS-V2-1,R-POLYMAKER-PANCHROMA-TDS-V2-1#CoPE
+Coverage,C00011,D14,Edited,Status,Gap,Not applicable
+Coverage,C00011,E14,Edited,Finding,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.","Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00023,D26,Edited,Status,Gap,Not applicable
+Coverage,C00023,E26,Edited,Finding,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.","Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00024,D27,Edited,Status,Gap,Not applicable
+Coverage,C00024,E27,Edited,Finding,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.","Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00025,E28,Edited,Finding,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.",1 distinct manufacturer(s) documented against target 3. Fiberon PA612-ESD (G064-02) duplicated PA612-ESD and was retired 2026-09-13.
+Coverage,C00495,D498,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00495,E498,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00496,D499,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00496,E499,Edited,Finding,"See specimen, direction, moisture, preparation and standard before comparing.","Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00497,D500,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00497,E500,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.","Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00498,D501,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00498,E501,Edited,Finding,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00499,D502,Edited,Status,Gap,Not applicable
+Coverage,C00499,E502,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00500,D503,Edited,Status,Gap,Not applicable
+Coverage,C00500,E503,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00501,D504,Edited,Status,Gap,Not applicable
+Coverage,C00501,E504,Edited,Finding,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction","Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00502,D505,Edited,Status,Limited comparability,Not applicable
+Coverage,C00502,E505,Edited,Finding,At least one observation lacks specimen or conditioning information; no family aggregation performed.,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C00525,D528,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00525,E528,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00526,D529,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00526,E529,Edited,Finding,"See specimen, direction, moisture, preparation and standard before comparing.","Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00527,D530,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00527,E530,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.","Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00528,D531,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00528,E531,Edited,Finding,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00529,D532,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00529,E532,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00530,D533,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00530,E533,Edited,Finding,"1 in-stock regular-price observation(s), before tax/shipping","Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00531,D534,Edited,Status,Gap,Not applicable
+Coverage,C00531,E534,Edited,Finding,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction","Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00532,D535,Edited,Status,Limited comparability,Not applicable
+Coverage,C00532,E535,Edited,Finding,At least one observation lacks specimen or conditioning information; no family aggregation performed.,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C00664,D667,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00664,E667,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00665,D668,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00665,E668,Edited,Finding,"See specimen, direction, moisture, preparation and standard before comparing.","Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00666,D669,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00666,E669,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.","Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00667,D670,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00667,E670,Edited,Finding,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00668,D671,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00668,E671,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00669,D672,Edited,Status,Gap,Not applicable
+Coverage,C00669,E672,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00670,D673,Edited,Status,Gap,Not applicable
+Coverage,C00670,E673,Edited,Finding,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction","Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00671,D674,Edited,Status,Limited comparability,Not applicable
+Coverage,C00671,E674,Edited,Finding,At least one observation lacks specimen or conditioning information; no family aggregation performed.,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C00674,D677,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00674,E677,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00675,D678,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00675,E678,Edited,Finding,"See specimen, direction, moisture, preparation and standard before comparing.","Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00676,D679,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00676,E679,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.","Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00677,D680,Edited,Status,Gap,Not applicable
+Coverage,C00677,E680,Edited,Finding,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade.","Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00678,D681,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00678,E681,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00679,D682,Edited,Status,Gap,Not applicable
+Coverage,C00679,E682,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00680,D683,Edited,Status,Gap,Not applicable
+Coverage,C00680,E683,Edited,Finding,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction","Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00681,D684,Edited,Status,Limited comparability,Not applicable
+Coverage,C00681,E684,Edited,Finding,At least one observation lacks specimen or conditioning information; no family aggregation performed.,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C00684,D687,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00684,E687,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00685,D688,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00685,E688,Edited,Finding,"See specimen, direction, moisture, preparation and standard before comparing.","Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00686,D689,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00686,E689,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.","Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00687,D690,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00687,E690,Edited,Finding,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00688,D691,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00688,E691,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00689,D692,Edited,Status,Evidence recorded,Not applicable
+Coverage,C00689,E692,Edited,Finding,"1 in-stock regular-price observation(s), before tax/shipping","Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00690,D693,Edited,Status,Gap,Not applicable
+Coverage,C00690,E693,Edited,Finding,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction","Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C00691,D694,Edited,Status,Limited comparability,Not applicable
+Coverage,C00691,E694,Edited,Finding,At least one observation lacks specimen or conditioning information; no family aggregation performed.,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C01132,D1135,Edited,Status,Reviewed with limitations,Not applicable
+Coverage,C01132,E1135,Edited,Finding,"BASF Ultrafuse TPC 45D lists build chamber temperature as ""-"". Recorded 2026-09-13 as no setpoint published: not zero and not ""not required"".","Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+Coverage,C01153,D1156,Edited,Status,Resolved,Not applicable
+Coverage,C01153,E1156,Edited,Finding,"V000890: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13.","Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+Coverage,C01157,D1160,Edited,Status,Resolved,Not applicable
+Coverage,C01157,E1160,Edited,Finding,"V001117: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13.","Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+Coverage,C01158,D1161,Edited,Status,Resolved,Not applicable
+Coverage,C01158,E1161,Edited,Finding,"V001125: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13.","Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+Coverage,C01159,D1162,Edited,Status,Resolved,Not applicable
+Coverage,C01159,E1162,Edited,Finding,"V001170: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13.","Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+Coverage,C01174,A1177:E1177,Added,,,
+Coverage,C01175,A1178:E1178,Added,,,
+Coverage,C01176,A1179:E1179,Added,,,
+Coverage,C01177,A1180:E1180,Added,,,
+Coverage,C01178,A1181:E1181,Added,,,
+Coverage,C01179,A1182:E1182,Added,,,
+Coverage,C01180,A1183:E1183,Added,,,
+Coverage,C01181,A1184:E1184,Added,,,
+Coverage,C01182,A1185:E1185,Added,,,
+Coverage,C01183,A1186:E1186,Added,,,
+Coverage,C01184,A1187:E1187,Added,,,
+Coverage,C01185,A1188:E1188,Added,,,
+Coverage,C01186,A1189:E1189,Added,,,
+Coverage,C01187,A1190:E1190,Added,,,
+Coverage,C01188,A1191:E1191,Added,,,
+Method,Identity,A51:C51,Added,,,

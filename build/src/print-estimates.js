@@ -27,7 +27,7 @@ const MIN_WIDTH = 15;
  * @returns {{ applied: object[], fibreOffset: {nozzle:number, bed:number} }}
  */
 export function attachPrintEstimates(materials, model = ESTIMATE_MODEL) {
-  const pool = materials.filter((m) => !m.excluded && model.identities[identityOf(m)]);
+  const pool = materials.filter((m) => !m.excluded && !m.familyEntry && model.identities[identityOf(m)]);
   const fibre = (m) => FIBRE.has(m.facets.reinforcement.value);
 
   // What fibre does to a window, measured on identities printed both ways.

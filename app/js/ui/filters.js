@@ -64,7 +64,8 @@ function availLine(a, extra) {
 
 export function renderFilters(host, state, actions) {
   const { db, scenario } = state;
-  const materials = db.materials;
+  // Counts are over candidates. A family entry owns no product, so counting it would read as missing data.
+  const materials = db.materials.filter((m) => !m.familyEntry);
   const cs = scenario.constraints;
 
   const focused = host.contains(document.activeElement) ? document.activeElement : null;

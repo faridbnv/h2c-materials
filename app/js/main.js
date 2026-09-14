@@ -136,19 +136,25 @@ function recompute() {
   state.ctx.useEstimates = scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates;
   state.ctx.showEstimates = state.ctx.useEstimates;
 
+  // A family entry (PA, PA-CF, PA-GF, TPE; CoPA for PA6/66) owns no product and is never a candidate.
+  const candidates = db.materials.filter((m) => !m.familyEntry);
   // Assumptions are scenario data. The database object is never mutated.
   const materials = scenario.assumptions.length
-    ? db.materials.map((m) => applyAssumptions(m, scenario.assumptions).material)
-    : db.materials;
+    ? candidates.map((m) => applyAssumptions(m, scenario.assumptions).material)
+    : candidates;
 
   state.selection = runSelection(materials, scenario.constraints, state.ctx);
 
   const q = state.search.trim();
   const byId = new Map(materials.map((m) => [m.id, m]));
 
+  // Searching a family's name finds its members and says what the family is, so "PA-CF" answers
+  // with PA6-CF, PA12-CF and the rest rather than with nothing, or with one of them twice.
+  state.searchFamilies = q ? db.materials.filter((m) => m.familyEntry && matchesQuery(m, q)) : [];
+  const members = new Set(state.searchFamilies.flatMap((f) => f.familyEntry.members.map((x) => x.id)));
   const found = state.selection.evaluations
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
-    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && matchesQuery(m, q));
+    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && (matchesQuery(m, q) || members.has(m.id)));
 
   const visible = (e) => state.showStates.has(e.verdict) && (!e.screened || state.showScreened);
   state.rows = found.filter(({ evaluation: e }) => visible(e));
@@ -298,7 +304,7 @@ function renderLens() {
       host.appendChild(tableHost);
       // An empty grid explains nothing. Say why the list is empty and offer the way out. A search
       // whose only hits were excluded still goes to the table, which now lists them and why.
-      if (!state.rows.length && !state.searchExcluded.length) return renderNoResults(tableHost, state, actions);
+      if (!state.rows.length && !state.searchExcluded.length && !state.searchFamilies?.length) return renderNoResults(tableHost, state, actions);
       return renderTable(tableHost, state, actions);
     }
     case 'ashby': return renderAshby(host, state, actions);

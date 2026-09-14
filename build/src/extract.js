@@ -19,18 +19,18 @@ export const SHEET_HEADER_ROW = {
 
 // Expected row counts for the current snapshot. A drift here means the frozen source moved, and the
 // build refuses to continue until someone confirms the move was intended and updates these. Last
-// moved by the 2026-09-13 estimate-evidence research (docs/audits/2026-09-13-estimate-evidence/),
-// which added printed-product and resin-reference grades, corrected values and a Method row.
+// moved by the 2026-09-13 duplicate-products fix (docs/audits/2026-09-13-duplicate-products/), after
+// the estimate-evidence research added printed-product and resin-reference grades and corrections.
 export const EXPECTED_ROWS = {
   'Materials': 102,
-  'Grades': 151,
+  'Grades': 155,
   'Print setup': 171,
   'Properties': 2049,
   'Use & durability': 478,
   'Prices CA': 104,
   'Sources': 243,
-  'Coverage': 1173,
-  'Method': 47,
+  'Coverage': 1188,
+  'Method': 48,
 };
 
 /**

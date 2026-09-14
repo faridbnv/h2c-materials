@@ -152,10 +152,38 @@ function windowEstimate(est, what) {
       A starting point to verify, not a print setting, and it changes no result.</div></div>`;
 }
 
+/** A family entry has no product and no values: the drawer says what it is and links its members. */
+function renderFamilyEntry(host, m, actions) {
+  const f = m.familyEntry;
+  host.innerHTML = `
+  <div class="drawer" role="dialog" aria-label="${esc(m.name)}">
+    <div class="drawer-head">
+      <div style="display:flex;align-items:start;gap:10px">
+        <div style="flex:1">
+          <h2>${esc(m.name)}</h2>
+          <div class="sub">${esc(m.fullName ?? '')}</div>
+          <div class="sub" style="margin-top:5px">${f.kind === 'alias' ? 'An alias' : 'A family entry'} · H2C: ${esc(m.h2cStatus)}</div>
+        </div>
+        <button class="icon-btn" id="drawer-close" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <p class="lede">${f.kind === 'alias'
+        ? `${esc(m.name)} is another name for the material below. It has no product or values of its own.`
+        : `${esc(m.name)} is a family, not one material. It has no product or values of its own, and it is never a candidate: each product is recorded once, under the material it is.`}</p>
+      <div class="facts-list">${f.members.map((x) => `<div class="fact"><button class="btn btn-sm" data-open-member="${esc(x.id)}">${esc(x.name)}</button></div>`).join('')}</div>
+      <p class="fine">${esc(f.why)}</p>
+    </div>
+  </div>`;
+  host.querySelector('#drawer-close').addEventListener('click', actions.closeDrawer);
+  host.querySelectorAll('[data-open-member]').forEach((b) => b.addEventListener('click', () => actions.openMaterial(b.dataset.openMember)));
+}
+
 export function renderDrawer(host, state, actions) {
   const { db, selectedMaterialId, drawerTab, selection, ctx } = state;
   const m = db.materials.find((x) => x.id === selectedMaterialId);
   if (!m) { host.innerHTML = ''; return; }
+  if (m.familyEntry) return renderFamilyEntry(host, m, actions);
 
   const ms = ctx.measurementsByMaterial.get(m.id) ?? [];
   const ev = ctx.evidenceByMaterial.get(m.id) ?? [];

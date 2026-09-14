@@ -81,7 +81,7 @@ Assembles the relational runtime database, and does the one thing that matters m
 
 The Materials sheet already carries the MeasurementID behind each headline, the PriceIDs behind each
 price, and a ProfileID for printing. The build checks that the number equals the measurement it
-cites. All 380 reconcile, and all 40 price headlines equal the median of their flagged observations
+cites. All 361 reconcile, and all 40 price headlines equal the median of their flagged observations
 and cite only those observations. A mismatch is a build error, not a judgement call.
 
 Compile also derives, each tagged with its origin so the interface can tell them apart:
@@ -96,8 +96,8 @@ Compile also derives, each tagged with its origin so the interface can tell them
   was never promoted, with the reason. Never a cross-grade range.
 - **Facets** the Materials sheet does not carry directly, marked `derived`.
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
-  profiles, with the number of profiles behind each. 95 materials have a nozzle window, 96 a bed
-  window and 59 a chamber window. It answers "what do I set it to", which was otherwise only in free
+  profiles, with the number of profiles behind each. 93 materials have a nozzle window, 93 a bed
+  window and 58 a chamber window. It answers "what do I set it to", which was otherwise only in free
   text one tab deep. Where the chamber is answered in words, the strongest statement across the
   profiles is kept as `chamberGuidance`: not required, then recommended, then no setpoint.
 - **A buy summary** per material: one offer chosen from the price observations, ranked by in stock,
@@ -184,7 +184,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 122 tests
+npm test                         # 125 tests
 open dist/H2C_Material_Selector_2026-09-13.html
 ```
 

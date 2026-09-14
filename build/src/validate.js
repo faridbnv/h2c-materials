@@ -223,7 +223,7 @@ export function validate(db, wb) {
       const h = mat.headline[key];
       if (!h) continue;
       const where = `materials ${mat.id} ${key}`;
-      if (!mat.excluded && !h.known && !h.estimate && !h.notApplicable) {
+      if (!mat.excluded && !mat.familyEntry && !h.known && !h.estimate && !h.notApplicable) {
         issues.push(err(where, `${mat.name} has no value, no estimate and no not-applicable statement`));
       }
       if (h.notApplicable) {
@@ -237,7 +237,7 @@ export function validate(db, wb) {
       if (e.canScreen) tally.screen++;
       if (e.precision === 'poor') tally.poor++;
       if (h.known) issues.push(err(where, 'A measured headline also carries an estimate'));
-      if (mat.excluded) issues.push(err(where, 'An out-of-scope material carries an estimate'));
+      if (mat.excluded || mat.familyEntry) issues.push(err(where, 'An out-of-scope material or a family entry carries an estimate'));
       if (e.kind !== 'model') issues.push(err(where, `Unknown estimate kind "${e.kind}"`));
       if (!['this-grade', 'this-material', 'family'].includes(e.strength)) issues.push(err(where, `Unknown evidence strength "${e.strength}"`));
       if (!['good', 'fair', 'poor'].includes(e.precision)) issues.push(err(where, `Unknown precision "${e.precision}"`));
@@ -291,7 +291,11 @@ export function validate(db, wb) {
   }
 
   // -- materials with nothing to select on ------------------------------------
-  const noMeasurements = db.materials.filter((m) => !db.measurements.some((x) => x.materialId === m.id));
+  const noMeasurements = db.materials.filter((m) => !m.familyEntry && !db.measurements.some((x) => x.materialId === m.id));
+  const families = db.materials.filter((m) => m.familyEntry);
+  if (families.length) {
+    issues.push(warn('materials', `${families.length} canonical names are family entries with no product of their own and are not candidates: ${families.map((m) => `${m.name} (${m.familyEntry.members.map((x) => x.name).join(', ')})`).join('; ')}`));
+  }
   if (noMeasurements.length) {
     issues.push(warn('materials', `${noMeasurements.length} materials have no property measurements at all: ${noMeasurements.map((m) => m.name).join(', ')}`));
   }

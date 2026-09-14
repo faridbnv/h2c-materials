@@ -14,7 +14,7 @@ by anything here.
 ## D2. Headline values are verified, never recomputed
 
 The Materials sheet already cites the MeasurementID behind each headline. The build checks the
-number equals its citation rather than deriving a headline itself. All 380 reconcile. A price
+number equals its citation rather than deriving a headline itself. All 361 reconcile. A price
 headline must also cite only the observations its median was built from.
 
 This converts a class of judgement calls into build errors. Corrupting one density cell produces a
@@ -455,6 +455,7 @@ answers rather than failing.
 | A standard number read into its value | iSANMATE's "ISO 11357 80°C" became a glass transition of 1135780 °C | `database.test.js`, plausibility screen in `estimates.js` |
 | A decimal comma and a film method | iSANMATE PLA "110,3 MPa" under ASTM D882, a thin-film test, was recorded as 3 MPa for a printed part | `database.test.js` |
 | A method designation read as the value | iSANMATE PETG-GF "Vicat A/120 … 72" was recorded as 120 °C | `database.test.js` |
+| One data sheet under two or three materials | PolyMide CoPA's numbers shown for PA, PA6/66 and CoPA; PA-CF's headline was PA12-CF's; PLA Silk and CoPE shared one formulation key, so the estimate model read CoPE's evidence as PLA Silk's product | `database.test.js`, D44 |
 | Heat-deflection physics learned backwards | With too few unfilled nylons, the model's melting-point slope fitted negative and put PA66 at 15–91 °C; found in development, never shipped | `database.test.js` |
 
 ## D40. Peer observations are context, not exclusion bounds (superseded by D42, then D43)
@@ -569,4 +570,22 @@ least two products. Not applicable screens the same way. Strict neither shows no
 Reversing any part brings back a failure seen in this snapshot: exact-semantics-only brings back
 38–204 MPa; no shared structure lets PA66-CF sit below PA66; learned physics slopes reverse; no
 calibration makes every width a guess; hard caps collapse ranges to a point.
+
+## D44. Each product has one home; a family is an entry, not a material
+
+The canonical list mixes materials with families and aliases. PA, PA-CF, PA-GF and TPE name families;
+CoPA names the copolymer the database calls PA6/66. Their rows had been filled with products that
+belong to specific rows, so the tool showed one product as several candidates with identical
+numbers: the same PolyMide CoPA data sheet under PA, PA6/66 and CoPA, and CarbonX CF PA12 as both
+PA-CF's and PA12-CF's headline. Selection counted each copy, and the estimate model had to invent a
+"shared product" rule to keep the copies from disagreeing.
+
+A product is now recorded once, under the most specific material it is. A family or an alias has
+Scope `Family entry`, owns nothing, carries no value and is never a candidate; it stays in the list
+because its name is how people search (Bambu lists PA, PA-CF and PA-GF as H2C families), and search
+answers with its members. Duplicates are retired, never deleted, after the script proves each record
+has an identical twin, so the workbook keeps its audit trail and nothing is lost.
+
+Reversing it brings back double counting, which is worse than a gap because it looks like evidence
+agreeing with itself. See [the duplicate-products audit](audits/2026-09-13-duplicate-products/REPORT.md).
 

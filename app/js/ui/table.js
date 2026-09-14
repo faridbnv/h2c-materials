@@ -238,6 +238,13 @@ export function renderTable(host, state, actions) {
       </table>
     </div>` : '';
 
+  // A family's name in the search: say what it is and name its members, which the table then lists.
+  const families = state.searchFamilies ?? [];
+  const familyBlock = families.length ? `<div class="family-note">${families.map((f) => `<p><b>${esc(f.name)}</b>
+      ${f.familyEntry.kind === 'alias' ? 'is another name for' : 'is a family in this database, not one material. Its members are'}
+      ${f.familyEntry.members.map((x) => `<button class="link-btn" data-open-member="${esc(x.id)}">${esc(x.name)}</button>`).join(', ')}.
+      <span class="fine">${esc(f.familyEntry.why)}</span></p>`).join('')}</div>` : '';
+
   // Baseline picker: the anchor is offered, never imposed.
   const anchors = BASELINE_NAMES
     .map((n) => state.db.materials.find((m) => m.name === n))
@@ -258,6 +265,7 @@ export function renderTable(host, state, actions) {
       </label>
       <div class="legend-row">${legend}</div>
     </div>
+    ${familyBlock}
     ${sorted.length ? `<table class="grid">
       <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
       <thead><tr>${head}</tr></thead><tbody>${baselineRow}${body}</tbody></table>`
@@ -277,6 +285,7 @@ export function renderTable(host, state, actions) {
     actions.togglePin(b.dataset.pin);
   }));
   wireEvidence(host, actions);
+  host.querySelectorAll('[data-open-member]').forEach((b) => b.addEventListener('click', () => actions.openMaterial(b.dataset.openMember)));
   host.querySelectorAll('tr[data-material]').forEach((tr) => {
     const open = () => actions.openMaterial(tr.dataset.material);
     tr.addEventListener('click', (ev) => { if (!ev.target.closest('a, button')) open(); });

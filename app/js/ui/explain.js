@@ -19,7 +19,7 @@ export function renderExclusions(host, state, actions) {
     host.innerHTML = `<p class="empty">No constraints set, so nothing has been excluded.</p>`;
     return;
   }
-  const ranked = explainExclusions(db.materials, scenario.constraints, ctx);
+  const ranked = explainExclusions(db.materials.filter((m) => !m.familyEntry), scenario.constraints, ctx);
   const max = Math.max(1, ...ranked.map((r) => r.removed + r.held));
 
   host.innerHTML = `

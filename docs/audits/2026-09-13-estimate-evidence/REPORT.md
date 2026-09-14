@@ -116,3 +116,8 @@ PA612-GF 3.1–5.7.
 - **Estimates stay hidden in Strict**, as the owner asked, and never pass a material anywhere.
 - The model is refit on every build (about two seconds). A materially different snapshot can change
   its spreads; the calibration check stops the build if that breaks the coverage it states.
+
+**Later the same day:** the owner asked whether the generic nylon rows repeat other rows' products.
+They did. PA-CF, PA, PA-GF, TPE and CoPA became family entries, so the PA-CF figures above now belong
+to PA12-CF, whose product they were; see [../2026-09-13-duplicate-products/](../2026-09-13-duplicate-products/REPORT.md).
+

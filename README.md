@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 122 engine, parser, search, scenario, template and database tests
+npm test                       # 125 engine, parser, search, scenario, template and database tests
 npm run validate               # validate only, no bundle
 npm run audit:data             # fresh build, raw-value reconciliation, filament/family matrices and HTML parity
 ```
@@ -86,7 +86,7 @@ These come from the workbook's own Method sheet, the architecture brief and the 
 preferences: changing one changes what the tool asserts.
 
 1. **Headline values are verified, never recomputed.** The workbook already cites the measurement
-   behind each headline; the build checks the number matches. All 380 reconcile, and a mismatch
+   behind each headline; the build checks the number matches. All 361 reconcile, and a mismatch
    fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
@@ -142,7 +142,7 @@ used only like-for-like evidence and gave ranges too wide to use, such as PA-CF 
 The current model fits one calibrated Gaussian model per property to every observation in the
 database, each converted to the headline (a break strength, a flexural modulus, a Z value, a resin
 data sheet), with polymer, reinforcement and melting-point structure shared across a family. PA-CF
-strength now reads 71–93 MPa, PA66-CF sits above PA66, and hidden measured values fall inside the
+strength (its product, CarbonX CF PA12, now recorded only under PA12-CF) reads 70–92 MPa, PA66-CF sits above PA66, and hidden measured values fall inside the
 shown 80% range 79–81% of the time. Every in-scope headline has a value, an estimate or a reason it
 does not apply. An estimate never passes a material, and screens one out only when its 95% range
 clearly fails and the material's own data does not contradict it. See

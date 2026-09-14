@@ -9,17 +9,19 @@ Database snapshot 2026-09-13 · build 2026-09-14
 | Entity | Records |
 |---|---:|
 | materials | 102 |
-| h2cRelevant | 96 |
+| h2cRelevant | 91 |
+| familyEntries | 5 |
+| retiredDuplicates | [object Object] |
 | excluded | 6 |
-| grades | 151 |
-| measurements | 2049 |
-| numericMeasurements | 1889 |
+| grades | 155 |
+| measurements | 1902 |
+| numericMeasurements | 1750 |
 | quarantined | 2 |
 | profiles | 171 |
-| evidence | 478 |
+| evidence | 462 |
 | prices | 104 |
 | sources | 243 |
-| coverage | 1173 |
+| coverage | 1188 |
 
 ## Headline coverage
 
@@ -27,12 +29,12 @@ What a selection criterion can actually decide, out of 102 canonical materials.
 
 | Headline | Materials with a value |
 |---|---:|
-| density | 95 |
-| tensileModulusXY | 77 |
-| tensileStrengthXY | 60 |
-| elongationXY | 78 |
-| hdt045 | 70 |
-| priceCADkg | 40 |
+| density | 90 |
+| tensileModulusXY | 73 |
+| tensileStrengthXY | 58 |
+| elongationXY | 74 |
+| hdt045 | 66 |
+| priceCADkg | 38 |
 
 ## H2C envelope gate
 
@@ -40,9 +42,9 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 92 | n/a | 6 | 0 | 4 |
-| bed | 91 | n/a | 7 | 0 | 4 |
-| chamber | 69 | 4 | 5 | 2 | 22 |
+| nozzle | 87 | n/a | 6 | 0 | 9 |
+| bed | 86 | n/a | 7 | 0 | 9 |
+| chamber | 63 | 4 | 5 | 2 | 28 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
@@ -55,11 +57,11 @@ build/mappings/chamber-estimates.json; it is shown beside the chamber question a
 
 | Kind | Materials |
 |---|---:|
-| Published temperature window | 57 |
-| No heated chamber needed, in words | 19 |
+| Published temperature window | 54 |
+| No heated chamber needed, in words | 16 |
 | Chamber recommended, no temperature | 3 |
 | Data sheet lists no setpoint | 1 |
-| Nothing published | 16 |
+| Nothing published | 22 |
 | Carrying an estimated band (any of the last three) | 19 |
 
 23 research bands are superseded by evidence and not used: PLA Basic (20-45 °C; publishes 25-45 °C), PLA Matte (20-45 °C; publishes 25-45 °C), PLA Lite (20-45 °C; a source says no heated chamber is needed), PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; a source says no heated chamber is needed), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG Basic (20-50 °C; publishes 35-50 °C), PETG HF (20-50 °C; publishes 35-50 °C), PETG-CF (20-50 °C; publishes 35-50 °C), PEBA (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PET-GF (45-70 °C; a source says no heated chamber is needed), PPS-CF (60-90 °C; publishes 60-90 °C), PPA-CF (80-120 °C; publishes 50-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
@@ -72,10 +74,10 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials |
 |---|---|---:|---:|---:|
-| alkali | verdict | 67 | 65 | 54 |
-| acid | verdict | 71 | 63 | 55 |
-| organic-solvent | verdict | 65 | 47 | 57 |
-| oil-grease | verdict | 59 | 47 | 56 |
+| alkali | verdict | 63 | 61 | 50 |
+| acid | verdict | 67 | 59 | 51 |
+| organic-solvent | verdict | 63 | 45 | 53 |
+| oil-grease | verdict | 57 | 45 | 52 |
 | water-solubility | verdict | 42 | 41 | 41 |
 | flammability | verdict | 41 | 36 | 41 |
 | food-contact | indicator | 2 | 0 | 2 |
@@ -95,19 +97,19 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 120 | 84 | 81% | 95% | ×1.14 | 0.036 (34 pairs) |
-| tensileModulusXY | 252 | 68 | 79% | 96% | ×1.52 | 0.219 (10 pairs) |
-| tensileStrengthXY | 205 | 52 | 81% | 96% | ×1.53 | 0.122 (11 pairs) |
-| elongationXY | 176 | 70 | 80% | 96% | ×2.4 | 0.629 (12 pairs) |
-| hdt045 | 161 | 61 | 80% | 95% | 14.9 °C | 10.5 (9 pairs) |
+| density | 121 | 84 | 81% | 95% | ×1.14 | 0.0371 (37 pairs) |
+| tensileModulusXY | 252 | 68 | 81% | 96% | ×1.55 | 0.219 (12 pairs) |
+| tensileStrengthXY | 207 | 53 | 81% | 96% | ×1.56 | 0.142 (13 pairs) |
+| elongationXY | 176 | 69 | 81% | 96% | ×2.6 | 0.629 (14 pairs) |
+| hdt045 | 162 | 60 | 80% | 95% | 15 °C | 9.43 (11 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 7 | 1 | 4 | 2 | 0 | 0 | 6 |
-| tensileModulusXY | 24 | 12 | 3 | 4 | 5 | 0 | 17 |
-| tensileStrengthXY | 41 | 28 | 5 | 3 | 5 | 0 | 34 |
-| elongationXY | 23 | 9 | 4 | 5 | 5 | 0 | 15 |
-| hdt045 | 31 | 7 | 6 | 5 | 13 | 0 | 16 |
+| tensileModulusXY | 23 | 11 | 3 | 4 | 5 | 0 | 16 |
+| tensileStrengthXY | 38 | 26 | 4 | 3 | 5 | 0 | 31 |
+| elongationXY | 22 | 9 | 3 | 5 | 5 | 0 | 14 |
+| hdt045 | 30 | 7 | 6 | 5 | 12 | 0 | 16 |
 
 Evidence that contradicts everything else and was down-weighted:
 
@@ -122,9 +124,10 @@ Evidence that contradicts everything else and was down-weighted:
 - PEBA, tensileStrengthXY: ultimate unk 25 (V000850)
 - PEBA, tensileStrengthXY: flexural unk 5 (V000853)
 - PP, tensileStrengthXY: flexural unk 13.9 (V001498)
+- TPU for AMS, elongationXY: break XY 650 (V000779)
 - TPU for AMS, elongationXY: break Z 31 (V000780)
-- PA, elongationXY: break XY 9.9, 216.5 (V000866, V000878)
-- PA, elongationXY: break Z 1.8, 4.6 (V000867, V000879)
+- PA6/66, elongationXY: break XY 9.9, 216.5 (V001027, V001039)
+- PA6/66, elongationXY: break Z 1.8, 4.6 (V001028, V001040)
 - PP, elongationXY: break unk 460 (V001497)
 - PLA-GF, hdt045: HDT 1.8 amorphous 59.7, 84 (V000349, V000352)
 - PLA-GF, hdt045: HDT 0.45 75.5, 114.7 (V000350, V000353)
@@ -136,8 +139,8 @@ Evidence that contradicts everything else and was down-weighted:
 
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
-- PP, density: 810 kg/m³, expected about 1090
-- PC-ABS, elongationXY: 75 %, expected about 8.3
+- PP, density: 810 kg/m³, expected about 1100
+- PC-ABS, elongationXY: 75 %, expected about 8.89
 
 ## Consistency
 
@@ -145,7 +148,7 @@ Every one of the 102 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade, and the representative grade is one of them;
-- every headline cites a measurement of its own material and of the representative grade (380 checked);
+- every headline cites a measurement of its own material and of the representative grade (361 checked);
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
@@ -161,7 +164,8 @@ These are not defects. They record what the compiled database cannot support, so
 interface can say so rather than implying a certainty it does not have.
 
 - **measurements** — Impact data uses two incompatible units. 9 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
-- **materials** — 6 of 70 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
-- **materials** — Missing headlines: 57 estimated from the grade's own related measurements, 22 from the material's other grades, 19 from the family model alone (15 of all estimates imprecise), 28 not applicable. 88 estimates may screen a material out in Explore; none can pass one.
-- **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PP density 810 (expected about 1090); PC-ABS elongationXY 75 (expected about 8.3)
+- **materials** — 6 of 66 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
+- **materials** — Missing headlines: 54 estimated from the grade's own related measurements, 20 from the material's other grades, 19 from the family model alone (13 of all estimates imprecise), 27 not applicable. 83 estimates may screen a material out in Explore; none can pass one.
+- **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PP density 810 (expected about 1100); PC-ABS elongationXY 75 (expected about 8.89)
+- **materials** — 5 canonical names are family entries with no product of their own and are not candidates: TPE (TPU, TPU for AMS, TPU 95A HF, TPU 90A, TPU 85A, PEBA, TPC / TPEE, OBC); PA (PA6, PA6/66, PA66, PA12, PA612); CoPA (PA6/66); PA-CF (PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF); PA-GF (PA6-GF, PA12-GF, PA612-GF)
 - **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF

@@ -148,7 +148,7 @@ const identityOf = (m) => (m.family === 'Polymer Blends' ? m.normalizedName : m.
 
 function snapshot(materials, gradeList, measurements, model) {
   const grades = new Map(gradeList.map((g) => [g.id, g]));
-  const pool = materials.filter((m) => !m.excluded && model.identities[identityOf(m)]);
+  const pool = materials.filter((m) => !m.excluded && !m.familyEntry && model.identities[identityOf(m)]);
   const inPool = new Map(pool.map((m) => [m.id, m]));
   const fkey = (gid) => grades.get(gid)?.formulationKey || gid;
   const info = (m) => model.identities[identityOf(m)];
@@ -624,7 +624,7 @@ export function buildEstimates(materials, { grades = [], measurements = [] } = {
 
 /** Coverage summary for the validation report and meta. */
 export function summariseEstimates(materials) {
-  const pool = materials.filter((m) => !m.excluded);
+  const pool = materials.filter((m) => !m.excluded && !m.familyEntry);
   const out = {};
   for (const key of ESTIMATE_KEYS) {
     const missing = pool.filter((m) => !m.headline[key]?.known);

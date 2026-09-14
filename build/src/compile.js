@@ -5,6 +5,9 @@
 // "Mechanical evidence" and "Thermal evidence", PriceIDs in "Price evidence" and a ProfileID in
 // "Printing evidence". A headline that does not match its own citation is a build error.
 
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { parseValue, parseOperator, parseBoolean, toInterval, MISSING, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection, DIRECTION } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
@@ -482,6 +485,39 @@ function deriveFacets(mat) {
   };
 }
 
+// ---------------------------------------------------------------------------- family entries
+
+const FAMILY_ENTRY = 'Family entry';
+const FAMILY_ENTRIES = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../mappings/family-entries.json'), 'utf8')).families;
+
+function familyEntryFor(name) {
+  const f = FAMILY_ENTRIES[name];
+  return { kind: f?.kind ?? null, why: f?.why ?? null, members: (f?.members ?? []).map((n) => ({ name: n, id: null })) };
+}
+
+/**
+ * Resolve each family entry's member names to materials, and refuse any disagreement: a family entry
+ * the mapping does not describe, a mapping entry the workbook does not mark, a member that is not an
+ * in-scope material, or a family entry that still owns an active grade (the duplication this replaced).
+ */
+function resolveFamilyEntries(materials, grades, issues) {
+  const byName = new Map(materials.map((m) => [m.name, m]));
+  const where = 'family-entries.json';
+  for (const m of materials.filter((x) => x.familyEntry)) {
+    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', where, message: `${m.name} is a family entry in the workbook but is not described here` });
+    for (const member of m.familyEntry.members) {
+      const target = byName.get(member.name);
+      if (!target || target.excluded || target.familyEntry) issues.push({ level: 'error', where, message: `${m.name} lists "${member.name}", which is not an in-scope material` });
+      else member.id = target.id;
+    }
+    const owned = grades.filter((g) => g.materialId === m.id && !g.retired);
+    if (owned.length) issues.push({ level: 'error', where: `materials ${m.id}`, message: `Family entry ${m.name} owns active grade${owned.length === 1 ? '' : 's'} ${owned.map((g) => g.id).join(', ')}; a product belongs to the material it is` });
+  }
+  for (const name of Object.keys(FAMILY_ENTRIES)) {
+    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', where, message: `${name} is described here but the workbook does not mark it a family entry` });
+  }
+}
+
 // ---------------------------------------------------------------------------- main
 
 export function compile(wb, { snapshot, build }) {
@@ -503,7 +539,14 @@ export function compile(wb, { snapshot, build }) {
     retired: r.Availability === RETIRED_AVAILABILITY,
   }));
 
-  const measurements = compileMeasurements(wb.Properties.rows, issues);
+  // A retired duplicate stays in the workbook as an audit trail and never reaches the database: its
+  // identical twin under the grade that keeps the product is the record (Method, Identity / Family entries).
+  const isRetiredDuplicate = (status) => !!DATA_STATUS[status]?.retiredDuplicate;
+  const retiredDuplicates = {
+    measurements: wb.Properties.rows.filter((r) => isRetiredDuplicate(r['Data status'])).length,
+    evidence: wb['Use & durability'].rows.filter((r) => isRetiredDuplicate(r['Evidence type'])).length,
+  };
+  const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), issues);
   const measurementsById = new Map(measurements.map((m) => [m.id, m]));
 
   const profiles = compileProfiles(wb['Print setup'].rows, issues);
@@ -537,7 +580,8 @@ export function compile(wb, { snapshot, build }) {
     pricesByMaterial.get(p.materialId).push(p);
   }
 
-  const evidence = wb['Use & durability'].rows.map((r) => {
+  const evidenceRows = wb['Use & durability'].rows.filter((r) => !isRetiredDuplicate(r['Evidence type']));
+  const evidence = evidenceRows.map((r) => {
     const topic = classifyTopic(r.Topic);
     const finding = classifyFinding(r.Finding);
     return {
@@ -577,6 +621,9 @@ export function compile(wb, { snapshot, build }) {
       scope: mat.Scope,
       h2cStatus: mat['H2C status'],
       excluded: mat.Scope === 'Excluded',
+      // A family or an alias, not a material: it owns no product, carries no value and is never a
+      // candidate. Its members come from build/mappings/family-entries.json.
+      familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(mat['Original name']) : null,
       representativeGrade: mat['Representative grade'],
       gradeIds: ids(mat.GradeIDs),
       headline: { ...compileHeadlines(mat, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) },
@@ -587,7 +634,7 @@ export function compile(wb, { snapshot, build }) {
       print: printSummary(mProfiles),
       buy: buySummary(mat.MaterialID, prices),
       gates: {
-        scope: mat.Scope === 'H2C-relevant' ? 'within' : 'excluded',
+        scope: mat.Scope === 'H2C-relevant' ? 'within' : mat.Scope === FAMILY_ENTRY ? 'family' : 'excluded',
         nozzle: aggregateGate(mProfiles, 'nozzle'),
         bed: aggregateGate(mProfiles, 'bed'),
         chamber: aggregateGate(mProfiles, 'chamber'),
@@ -613,6 +660,8 @@ export function compile(wb, { snapshot, build }) {
     };
   });
 
+  resolveFamilyEntries(materials, grades, issues);
+
   // Estimates are attached last, once every headline is known, and only to headlines that have no
   // value of their own. The model's calibration and diagnostics travel in meta (DECISIONS D43).
   const estimateModel = buildEstimates(materials, { grades, measurements });
@@ -620,7 +669,7 @@ export function compile(wb, { snapshot, build }) {
   issues.push(...chamberEstimates.issues);
   const printEstimates = attachPrintEstimates(materials);
 
-  const environmentCategories = countUsableByCategory(wb['Use & durability'].rows);
+  const environmentCategories = countUsableByCategory(evidenceRows);
 
   return {
     db: {
@@ -632,7 +681,9 @@ export function compile(wb, { snapshot, build }) {
         h2cBaseline: H2C_BASELINE,
         counts: {
           materials: materials.length,
-          h2cRelevant: materials.filter((m) => !m.excluded).length,
+          h2cRelevant: materials.filter((m) => !m.excluded && !m.familyEntry).length,
+          familyEntries: materials.filter((m) => m.familyEntry).length,
+          retiredDuplicates,
           excluded: materials.filter((m) => m.excluded).length,
           grades: grades.length, measurements: measurements.length,
           numericMeasurements: measurements.filter((m) => m.numeric).length,

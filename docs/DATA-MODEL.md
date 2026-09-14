@@ -8,20 +8,21 @@ sheets, each an Excel table with declared columns.
 | Sheet | Rows | What it holds |
 |---|---:|---|
 | Materials | 102 | Canonical identities and headline observations |
-| Grades | 151 | Exact commercial formulations, tied to materials |
+| Grades | 155 | Exact commercial formulations, tied to materials |
 | Print setup | 171 | Processing guidance and H2C routing, per grade |
 | Properties | 2,049 | Individual property measurements, the unit of quantitative evidence |
 | Use & durability | 478 | Chemical, environmental and application evidence |
 | Prices CA | 104 | Canadian price observations |
 | Sources | 243 | The source register, with access dates and hashes |
-| Coverage | 1,173 | Gaps, conflicts and unresolved items |
-| Method | 47 | The rules the database was built under |
+| Coverage | 1,188 | Gaps, conflicts and unresolved items |
+| Method | 48 | The rules the database was built under |
 
 Counts are for snapshot 2026-09-13, after the manufacturer evidence audit in
 [audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/) and the
 missing-data research in [audits/2026-09-13-missing-data-research/](audits/2026-09-13-missing-data-research/),
 then the [coverage consolidation](audits/2026-09-13-coverage-consolidation/) and the
-[estimate evidence research](audits/2026-09-13-estimate-evidence/). The build holds these
+[estimate evidence research](audits/2026-09-13-estimate-evidence/) and the
+[duplicate-products fix](audits/2026-09-13-duplicate-products/). The build holds these
 numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
 changed workbook is always a deliberate, reviewed change to the tool.
 
@@ -63,6 +64,7 @@ method        44   the rules, verbatim
 {
   id, name, fullName, abbreviation, normalizedName,
   family, basePolymer, modifier, role, scope, h2cStatus, excluded,
+  familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
   representativeGrade, gradeIds: [],
   headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
   headlineBasis,                 // the workbook's own statement of what the headline is
@@ -80,8 +82,8 @@ method        44   the rules, verbatim
 ```
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
-every profile that published one, with the count behind it. 98 materials have a nozzle window, 98 a
-bed window and 61 a chamber window. The four with no product at all (PA66, PA66-CF, PA612, PA612-GF)
+every profile that published one, with the count behind it. 93 materials have a nozzle window, 93 a
+bed window and 58 a chamber window. The four with no product at all (PA66, PA66-CF, PA612, PA612-GF)
 carry an estimated nozzle and bed window (below); a chamber the sources answer only in words is
 shown in words.
 
@@ -202,10 +204,10 @@ claim. On this snapshot:
 | Headline | Hidden headlines | Likely (80%) holds | Plausible (95%) holds | Median likely width |
 |---|---:|---:|---:|---:|
 | Density | 84 | 81% | 95% | ×1.14 |
-| Stiffness | 68 | 79% | 96% | ×1.52 |
-| Strength | 52 | 81% | 96% | ×1.53 |
-| Elongation | 70 | 80% | 96% | ×2.40 |
-| Heat deflection | 61 | 80% | 95% | 15 °C |
+| Stiffness | 68 | 81% | 96% | ×1.55 |
+| Strength | 53 | 81% | 96% | ×1.56 |
+| Elongation | 69 | 81% | 96% | ×2.60 |
+| Heat deflection | 60 | 80% | 95% | 15 °C |
 
 The build fails if a likely range drifts more than 0.1 from 80%, or a plausible range falls more than
 0.05 below 95%. Heat deflection is softly capped by the melting point of a semicrystalline polymer and
@@ -222,9 +224,9 @@ product is filed under another material (both then show one estimate), and `canS
 
 **Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
 reason. Heat deflection of an elastomer and any value of a support product are not applicable unless
-the material's own sources publish one. On this snapshot: 98 estimates (57 from the grade's own related
-measurements, 22 from other grades or resin references, 19 from the family model alone; 15 imprecise)
-and 28 not applicable. 88 estimates may screen.
+the material's own sources publish one. On this snapshot: 93 estimates (54 from the grade's own related
+measurements, 20 from other grades or resin references, 19 from the family model alone; 13 imprecise)
+and 27 not applicable. 83 estimates may screen.
 
 **What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. In Explore with
 Estimates on it screens a material out when its plausible range wholly fails, none of the material's
@@ -278,8 +280,8 @@ The chamber question has three kinds of answer, and only the first is a temperat
 | A statement in words | "Not required", "enclosure not necessary", "Recommended", a data sheet's "-" | `print.chamberGuidance`: `not-required`, `recommended` or `no-setpoint` | within for `not-required`; unknown for the other two |
 | An estimated band | PPA, ~80–120 °C† | `print.chamberEstimate` | **none**: a band changes no verdict |
 
-Of the 96 in-scope materials, 55 publish a window, 20 say no heated chamber is needed, 3 recommend
-one without a temperature, 1 lists no setpoint and 17 publish nothing. 20 carry a band.
+Of the 91 in-scope candidates, 54 publish a window, 16 say no heated chamber is needed, 3 recommend
+one without a temperature, 1 lists no setpoint and 17 publish nothing. 19 carry a band.
 
 A **partial** window (DECISIONS D32) is chamber-only. PPS-CF publishes 60–90 °C; the H2C reaches 60–65 °C
 of it, which is neither within nor a failure, so a chamber requirement reports INDETERMINATE.
@@ -293,6 +295,24 @@ the basis and caution the research wrote. A band is attached only where no windo
 no source says no heated chamber is needed; the validation report lists the 22 the evidence
 superseded. Unlike a property estimate, a band cannot even screen a material out (D34, D42): it describes a
 plausible setpoint, and a setpoint is a recommendation at most.
+
+## Family entries and one home per product
+
+Every commercial product is recorded once, under the most specific material it is. Five canonical names
+are not materials: PA, PA-CF, PA-GF and TPE are families, and CoPA is another name for PA6/66. Their
+workbook Scope is `Family entry`, their members are in `build/mappings/family-entries.json`, and they
+carry no grade, value, estimate or print window. They are never candidates. Searching a family's name
+lists its members and says what the family is; its drawer links them.
+
+Until 2026-09-13 these rows held other rows' products: one PolyMide CoPA data sheet appeared under PA,
+PA6/66 and CoPA with the same numbers three times, and PA-CF's headline was PA12-CF's. The fix retired
+each duplicate grade with the retirement marker and marked its measurements and evidence `Retired
+duplicate record`, after proving each has an identical twin under the grade that keeps the product.
+Those records stay in the workbook as an audit trail and never reach `db.json`. Products filed under a
+generic row but belonging to a specific one moved there with every record (PA6-CF, PA6-GF, TPU).
+
+The build fails if a family entry owns an active grade, if the mapping and the workbook disagree, or
+if a member is not an in-scope material; a test fails if any data sheet is filed under two materials.
 
 ## Evidence ownership and coverage
 

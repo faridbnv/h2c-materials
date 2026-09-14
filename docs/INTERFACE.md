@@ -135,6 +135,10 @@ that is not applicable (`n/a`), such as heat deflection of an elastomer, screens
 screened material's result is still UNKNOWN and it is counted there; the Why excluded tab says how
 many each requirement screened.
 
+Five canonical names are families, not materials: PA, PA-CF, PA-GF, TPE, and CoPA (another name for
+PA6/66). They are never rows. Searching one lists its members, with a line saying what the family is,
+and its members link to their drawers.
+
 With estimates on, the table cell shows the estimate rather than the related `*` value, because the
 estimate already contains that measurement converted to the headline. An imprecise estimate is in
 italic. Hovering says what it rests on, both ranges and its precision; the drawer lists every

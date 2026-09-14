@@ -41,8 +41,10 @@ test('every numeric headline equals the measurement it cites', () => {
   }
   // 369 since the 2026-09-13 missing-data research: PLA Lite 4, PLA Silk 3, CoPE 3, PET-GF 5, CPE 2
   // and nGen 3 on top of the manufacturer audit's 349.
-  // 380 since the 2026-09-13 estimate-evidence research: PETG-GF +3, ASA-GF +4, POM +4
-  assert.equal(checked, 380);
+  // 380 since the 2026-09-13 estimate-evidence research: PETG-GF +3, ASA-GF +4, POM +4.
+  // 361 since the duplicate-products fix: PA, CoPA, PA-CF, PA-GF and TPE became family entries, and the
+  // 19 headlines they held were copies of headlines PA6/66, PA12-CF, PA6-GF and TPC / TPEE still hold.
+  assert.equal(checked, 361);
 });
 
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a
@@ -134,7 +136,7 @@ const ESTIMATED = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongati
 const valueOf = (m, k) => (m.headline[k].known ? m.headline[k].value : m.headline[k].estimate?.centre);
 
 test('no in-scope headline is left with nothing: a value, an estimate or a reason it does not apply', () => {
-  for (const m of db.materials.filter((x) => !x.excluded)) {
+  for (const m of db.materials.filter((x) => !x.excluded && !x.familyEntry)) {
     for (const k of ESTIMATED) {
       const h = m.headline[k];
       assert.ok(h.known || h.estimate || h.notApplicable, `${m.name} ${k} is blank`);
@@ -177,17 +179,65 @@ test('the likely and plausible ranges hold hidden measured headlines as often as
     assert.ok(Math.abs(c.likelyCoverage - 0.8) <= 0.05, `${key}: likely range holds ${c.likelyCoverage}`);
     assert.ok(c.plausibleCoverage >= 0.93, `${key}: plausible range holds ${c.plausibleCoverage}`);
   }
-  // The complaint that started the model: PA-CF strength 38-204 MPa.
-  const pacf = byName('PA-CF').headline.tensileStrengthXY.estimate;
-  assert.equal(pacf.strength, 'this-grade');
-  assert.ok(pacf.hi / pacf.lo < 1.6 && pacf.lo > 60 && pacf.hi < 110, `PA-CF strength ${pacf.lo}-${pacf.hi}`);
+  // The complaint that started the model: PA-CF strength 38-204 MPa. The product behind that number,
+  // CarbonX CF PA12, now lives only under PA12-CF.
+  const cf = byName('PA12-CF').headline.tensileStrengthXY.estimate;
+  assert.equal(cf.strength, 'this-grade');
+  assert.ok(cf.hi / cf.lo < 1.6 && cf.lo > 60 && cf.hi < 110, `PA12-CF strength ${cf.lo}-${cf.hi}`);
 });
 
-// One product has one value, whichever material row it is filed under.
-test('PA-CF and PA12-CF share CarbonX CF PA12, so they share its estimate', () => {
-  const a = byName('PA-CF').headline.tensileStrengthXY.estimate, b = byName('PA12-CF').headline.tensileStrengthXY.estimate;
-  assert.deepEqual([a.lo, a.centre, a.hi], [b.lo, b.centre, b.hi]);
-  assert.equal(a.sharedWith.name, 'PA12-CF');
+// --- 2026-09-13 duplicate products: docs/audits/2026-09-13-duplicate-products/ ------------------
+test('every commercial product has exactly one home: no data sheet is filed under two materials', () => {
+  const homes = new Map();
+  for (const g of db.grades.filter((x) => !x.retired)) {
+    const k = g.formulationKey || g.sourceId;
+    if (!homes.has(k)) homes.set(k, new Set());
+    homes.get(k).add(g.materialId);
+  }
+  const shared = [...homes].filter(([, ms]) => ms.size > 1).map(([k, ms]) => `${k}: ${[...ms].join(', ')}`);
+  assert.deepEqual(shared, []);
+  // Panchroma Silk PLA and Panchroma CoPE are two columns of one data sheet, not one product.
+  assert.equal(byName('CoPE').headline.elongationXY.estimate.sharedWith, null);
+});
+
+test('PA, PA-CF, PA-GF, TPE and CoPA are family entries: no product, no value, never a candidate', () => {
+  const families = { PA: 'family', 'PA-CF': 'family', 'PA-GF': 'family', TPE: 'family', CoPA: 'alias' };
+  for (const [n, kind] of Object.entries(families)) {
+    const m = byName(n);
+    assert.equal(m.familyEntry?.kind, kind, n);
+    assert.ok(m.familyEntry.members.length && m.familyEntry.members.every((x) => x.id && !byName(x.name).familyEntry), n);
+    assert.ok(ESTIMATED.every((k) => !m.headline[k].known && !m.headline[k].estimate), `${n} carries a value`);
+    assert.equal(db.grades.filter((g) => g.materialId === m.id && !g.retired).length, 0, `${n} owns a grade`);
+    assert.equal(m.print.nozzleC, null);
+  }
+  assert.deepEqual(byName('CoPA').familyEntry.members.map((x) => x.name), ['PA6/66']);
+  assert.equal(db.meta.counts.h2cRelevant, 91);
+  assert.equal(db.meta.counts.familyEntries, 5);
+});
+
+test('mis-filed products moved to the material they are, with everything recorded against them', () => {
+  const at = (gid) => db.grades.find((g) => g.id === gid);
+  assert.equal(at('G050-02').product, 'PA6 CF');
+  assert.deepEqual(byName('PA6-GF').gradeIds, ['G051-01', 'G051-02', 'G051-03']);
+  assert.ok(byName('TPU').gradeIds.includes('G039-03'));
+  for (const gid of ['G050-02', 'G051-02', 'G051-03', 'G039-03']) {
+    const mid = at(gid).materialId;
+    assert.ok(db.measurements.filter((x) => x.gradeId === gid).every((x) => x.materialId === mid), gid);
+  }
+  for (const gid of ['G062-03', 'G063-01', 'G063-02', 'G044-02', 'G047-01', 'G061-01', 'G062-01', 'G064-02', 'G044-01']) {
+    assert.ok(at(gid).retired, gid);
+    assert.equal(db.measurements.filter((x) => x.gradeId === gid).length, 0, `${gid} still carries measurements`);
+  }
+  // Moving a price must not move a price headline with it.
+  assert.equal(byName('PA6-GF').headline.priceCADkg.value, 76.99);
+  // PA-ESD keeps its own product, and the print window it gets is that product's.
+  assert.deepEqual(byName('PA-ESD').gradeIds, ['G064-01']);
+  assert.deepEqual([byName('PA-ESD').print.nozzleC.min, byName('PA-ESD').print.nozzleC.max], [265, 285]);
+  assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 147, evidence: 16 });
+});
+
+test('the validator rejects a family entry that owns a product or that the mapping does not describe', () => {
+  assert.ok(errorsFor((c) => { mat(c, 'PA-CF').familyEntry = null; mat(c, 'PA-CF').headline.density = { known: false, missing: 'not-published' }; }).some((e) => /no value, no estimate/.test(e)));
 });
 
 // Estimates must make sense in tandem across a family, not only one at a time.
@@ -203,7 +253,7 @@ test('polyamide estimates follow the physics: melting point orders heat resistan
 });
 
 test('an elastomer\'s heat deflection and a support product\'s properties are not applicable, not estimated', () => {
-  for (const n of ['TPU 85A', 'TPU 90A', 'TPE', 'PEBA', 'OBC']) assert.ok(byName(n).headline.hdt045.notApplicable, n);
+  for (const n of ['TPU 85A', 'TPU 90A', 'TPC / TPEE', 'PEBA', 'OBC']) assert.ok(byName(n).headline.hdt045.notApplicable, n);
   for (const n of ['Support for PLA', 'PVA']) assert.ok(ESTIMATED.filter((k) => !byName(n).headline[k].known).every((k) => byName(n).headline[k].notApplicable), n);
   // A published value beats the rule: TPU has an HDT of its own on record, so it is estimated.
   assert.ok(byName('TPU').headline.hdt045.estimate);
@@ -492,14 +542,16 @@ test('raw values reconcile, including decimal commas and grouped cycle counts', 
 });
 
 test('corrected source endpoints and qualitative outcomes stay distinct', () => {
-  for(const id of ['V000894','V000920']){
+  // V000894 was the same record filed under PA; it is a retired duplicate since 2026-09-13.
+  assert.ok(!db.measurements.some((m) => m.id === 'V000894'));
+  for(const id of ['V000920']){
     const m=db.measurements.find(m=>m.id===id);
     assert.equal(m.property,'Tensile strain at strength'); assert.equal(m.value,4.4);
     assert.ok(!db.materials.flatMap(m=>m.headline.elongationXY.related?.items??[]).some(i=>i.measurementId===id));
   }
   assert.equal(db.measurements.find(m=>m.id==='V001349').value,1.3);
   assert.equal(db.measurements.find(m=>m.id==='V000419').qualitative,true);
-  assert.ok(errorsFor(c=>{c.measurements.find(m=>m.id==='V000894').property='Elongation at break';}).some(e=>/endpoint/.test(e)));
+  assert.ok(errorsFor(c=>{c.measurements.find(m=>m.id==='V000920').property='Elongation at break';}).some(e=>/endpoint/.test(e)));
 });
 
 test('retired CoPE identity is archival, never active procurement or printing evidence', () => {
@@ -539,7 +591,7 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
 test('the validator rejects a blank headline, a range that does not nest, and evidence from another material', () => {
   assert.ok(errorsFor((c) => { delete mat(c, 'PA66').headline.tensileModulusXY.estimate; }).some((e) => /no value, no estimate/.test(e)));
   assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.lo = 99; }).some((e) => /outside the likely range/.test(e)));
-  assert.ok(errorsFor((c) => { mat(c, 'PA-CF').headline.tensileStrengthXY.estimate.plausible.hi = 70; }).some((e) => /not inside the plausible range/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'PA12-CF').headline.tensileStrengthXY.estimate.plausible.hi = 70; }).some((e) => /not inside the plausible range/.test(e)));
   const foreign = db.measurements.find((m) => m.materialId === byName('PLA').id).id;
   assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.evidence[0].items[0].measurementId = foreign; }).some((e) => /neither this material/.test(e)));
   assert.ok(errorsFor((c) => { c.meta.estimateModel.properties.density.calibration.likelyCoverage = 0.5; }).some((e) => /likely range contains 50%/.test(e)));
