@@ -45,10 +45,13 @@
       "name": "Property",
       "type": "string",
       "role": "canonical",
-      "description": "Property measured.",
-      "vocabulary": "properties",
+      "description": "Property measured; must be registered in properties.csv.",
       "constraints": {
         "required": true
+      },
+      "reference": {
+        "table": "properties",
+        "field": "Property"
       }
     },
     {

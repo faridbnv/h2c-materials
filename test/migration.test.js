@@ -38,7 +38,7 @@ test('the compiled database equals the baseline except for the explained differe
   const { wb, referenceRows } = await readSource(root, 'csv');
   const { db } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'oracle' });
   validate(db, wb);
-  const reference = compileReference(referenceRows, []);
+  const reference = compileReference(referenceRows, [], undefined, db.registry);
   const { extra, stale } = unexplained(diffAgainstBaseline({ db, reference }));
   assert.deepEqual(extra.slice(0, 20), [], `${extra.length} unexplained difference(s)`);
   assert.deepEqual(stale.map((d) => d.path), [], 'explained differences that no longer occur');

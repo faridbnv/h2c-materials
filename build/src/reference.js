@@ -22,15 +22,9 @@ export const DEFAULT_SELECTION = [
   'Hardwood (oak) parallel to the grain',
 ];
 
-// Reference property key -> the headline key it may be drawn against.
-export const AXIS_EQUIVALENCE = {
-  density: 'density',
-  tensileModulus: 'tensileModulusXY',
-  tensileStrength: 'tensileStrengthXY',
-  elongation: 'elongationXY',
-};
-
-export function compileReference(rows, issues, where = 'data/tables/reference.csv') {
+export function compileReference(rows, issues, where = 'data/tables/reference.csv', registry) {
+  // Reference property key -> the headline it may be drawn against, from headline_definitions.csv.
+  const axisEquivalence = Object.fromEntries(registry.headlines.filter((h) => h.referenceProperty).map((h) => [h.referenceProperty, h.key]));
   const missing = DEFAULT_SELECTION.filter((n) => !rows.some((r) => r.name === n));
   if (missing.length) issues.push({ level: 'error', where, message: `Default reference materials not found: ${missing.join(', ')}` });
 
@@ -39,7 +33,7 @@ export function compileReference(rows, issues, where = 'data/tables/reference.cs
       count: rows.length,
       categories: [...new Set(rows.map((r) => r.category))],
       properties: REFERENCE_PROPERTIES,
-      axisEquivalence: AXIS_EQUIVALENCE,
+      axisEquivalence,
       defaultSelection: DEFAULT_SELECTION,
       // Carried into the UI banner. These are bulk and molded values; candidates are printed and
       // anisotropic. Mixing them is allowed, mixing them silently is not.

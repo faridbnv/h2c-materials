@@ -1,0 +1,14 @@
+{
+  "$comment": "Contract for data/tables/properties.csv. Checked by build/src/schema.js; applicability by build/src/registry.js.",
+  "title": "Property registry",
+  "description": "One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all).",
+  "primaryKey": "Property",
+  "fields": [
+    { "name": "Property", "type": "string", "role": "key", "description": "Property name, exactly as measurements.csv uses it.", "constraints": { "required": true, "unique": true, "pattern": "^\\S.*\\S$" } },
+    { "name": "Domain", "type": "string", "role": "canonical", "description": "mechanical, thermal or physical.", "vocabulary": "property-domains", "constraints": { "required": true } },
+    { "name": "Units", "type": "list", "role": "canonical", "description": "Canonical units a numeric measurement of this property may carry. Different entries are not interconvertible (J/m and kJ/m², Shore A and Shore D).", "delimiter": ";", "item": { "vocabulary": "units" }, "constraints": { "required": true } },
+    { "name": "Applies to", "type": "string", "role": "canonical", "description": "Which materials the property applies to, as 'Field: value | value; Field: value' over Family, Base polymer, Modifier / filler, Role, Scope or H2C status. Blank: all materials. A measurement of a material outside it is a build error.", "constraints": {} },
+    { "name": "Not applicable reason", "type": "string", "role": "prose", "description": "Why the property does not apply outside 'Applies to'; required when it is set.", "constraints": {} },
+    { "name": "Description", "type": "string", "role": "prose", "description": "What the property measures, where that is not obvious from its name.", "constraints": {} }
+  ]
+}

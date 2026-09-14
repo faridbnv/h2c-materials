@@ -4,26 +4,18 @@
 // still has to be true. A consolidation pass on 2026-09-13 found coverage saying "Gap" beside
 // published data (PC-GF's print setup, TPU's HDT) and "Evidence recorded" where the only evidence was
 // another material's family notes (PC FR, PETG HF and fifteen more). These rules define "has data"
-// once, so the validator and the workbook edit that corrected those rows cannot disagree.
+// once, so the validator and the data edit that corrected those rows cannot disagree.
+
+import { propertiesInDomain } from './registry.js';
 
 // Categories that count as exposure, solubility or moisture evidence. Flammability is its own domain.
 export const ENVIRONMENT_CATEGORIES = new Set([
   'acid', 'alkali', 'organic-solvent', 'oil-grease', 'water-solubility', 'uv-outdoor', 'moisture', 'hydrolysis',
 ]);
 
-// Density and melt flow are physical properties, not mechanical ones. Counting density as mechanical
-// evidence turned every support material's "Mechanical: Gap" into a false contradiction.
-export const MECHANICAL_PROPERTIES = new Set([
-  'Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength',
-  'Elongation at break', 'Elongation at yield', 'Tensile strain at strength', 'Flexural modulus', 'Flexural strength',
-  'Flexural elongation at break', 'Flexural stress at conventional deflection', 'Charpy strength', 'Izod strength',
-  'Izod impact strength', 'Impact strength', 'Hardness', 'Compression strength', 'Interlayer adhesion strength', 'Fatigue life',
-]);
-
-export const THERMAL_PROPERTIES = new Set([
-  'HDT', 'Glass transition temperature', 'Vicat softening temperature', 'Melting temperature',
-  'Crystallization temperature', 'Continuous service temperature', 'Thermal conductivity', 'Coefficient of thermal expansion',
-]);
+// Mechanical and thermal evidence are the measurements of properties in those domains of the property
+// registry (properties.csv). Density and melt flow are physical, not mechanical: counting density as
+// mechanical evidence turned every support material's "Mechanical: Gap" into a false contradiction.
 
 /** Method, Identity / Grade sample: supplemental study grades carry R suffixes and are not procurement grades. */
 export const isStudyGrade = (gradeId) => /-R\d+$/.test(String(gradeId ?? ''));
@@ -39,9 +31,10 @@ export const CLAIMS_ABSENCE = new Set(['Gap']);
 export function domainData(db, material) {
   const own = (rows) => rows.filter((r) => r.materialId === material.id);
   const measured = own(db.measurements).filter((m) => (m.numeric || m.qualitative) && !m.quarantined);
+  const mechanical = propertiesInDomain(db.registry, 'mechanical'), thermal = propertiesInDomain(db.registry, 'thermal');
   return {
-    Mechanical: measured.filter((m) => MECHANICAL_PROPERTIES.has(m.property)).map((m) => m.id),
-    Thermal: measured.filter((m) => THERMAL_PROPERTIES.has(m.property)).map((m) => m.id),
+    Mechanical: measured.filter((m) => mechanical.has(m.property)).map((m) => m.id),
+    Thermal: measured.filter((m) => thermal.has(m.property)).map((m) => m.id),
     'Print setup': own(db.profiles).filter((p) => !p.retired)
       .filter((p) => ['nozzle', 'bed', 'chamber'].some((a) => p[a].state !== 'unknown') || p.drying.state === 'stated')
       .map((p) => p.id),

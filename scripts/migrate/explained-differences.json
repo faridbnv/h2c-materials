@@ -161,6 +161,12 @@
       "path": "db.json.materials[M051].evidenceIds.environmental[10]",
       "before": "Q00221",
       "after": "Q00451"
+    },
+    {
+      "step": "m06",
+      "why": "The database now carries the property registry (properties.csv and headline_definitions.csv) so the app can build its labels, filters, axes, table and export from data. Additive; its content is checked against the constants it replaced by test/registry.test.js.",
+      "path": "db.json.registry",
+      "added": true
     }
   ]
 }

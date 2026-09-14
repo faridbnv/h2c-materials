@@ -52,7 +52,7 @@ async function main() {
   const { db, issues: compileIssues } = compile(wb, { snapshot: SNAPSHOT, build: BUILD });
   issues.push(...compileIssues);
 
-  const reference = compileReference(referenceRows, issues, referenceWhere);
+  const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
   issues.push(...validate(db, wb));
 
   const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD });

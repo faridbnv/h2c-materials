@@ -40,10 +40,20 @@ import { dirname, join } from 'node:path';
 const here = dirname(fileURLToPath(import.meta.url));
 export const ESTIMATE_MODEL = JSON.parse(readFileSync(join(here, '../mappings/estimate-model.json'), 'utf8'));
 
-export const ESTIMATE_KEYS = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'];
-
-/** The headline's own semantics, as a conversion kind. */
+/** The headline's own semantics, as a conversion kind. A headline the model estimates needs one. */
 const HEAD = { density: 'density', tensileModulusXY: 'tensile XY', tensileStrengthXY: 'ultimate XY', elongationXY: 'break XY', hdt045: 'HDT 0.45' };
+
+/**
+ * The headlines the registry marks Estimated. Estimating a headline needs a model of it: a
+ * conversion kind here and a properties entry in estimate-model.json. A registry row cannot switch
+ * estimation on without one, because the model would have nothing to predict from.
+ */
+export function estimateKeys(registry, model = ESTIMATE_MODEL) {
+  const keys = registry.headlines.filter((h) => h.estimated).map((h) => h.key);
+  const unmodelled = keys.filter((k) => !HEAD[k] || !model.properties[k]);
+  if (unmodelled.length) throw new Error(`headline_definitions.csv marks ${unmodelled.join(', ')} Estimated, but the estimate model has no entry for ${unmodelled.length === 1 ? 'it' : 'them'} (build/src/estimates.js HEAD and build/mappings/estimate-model.json properties)`);
+  return keys;
+}
 
 // ----------------------------------------------------------------------------------------- numerics
 
@@ -477,7 +487,8 @@ const sig3 = (v, dir = 0) => {
   return (dir < 0 ? Math.floor(v * p) : dir > 0 ? Math.ceil(v * p) : Math.round(v * p)) / p;
 };
 
-export function buildEstimates(materials, { grades = [], measurements = [] } = {}, model = ESTIMATE_MODEL) {
+export function buildEstimates(materials, { grades = [], measurements = [], registry } = {}, model = ESTIMATE_MODEL) {
+  const ESTIMATE_KEYS = estimateKeys(registry, model);
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
   const zLikely = normalQuantile(0.5 + likely / 2), zPlausible = normalQuantile(0.5 + plausible / 2);
@@ -573,7 +584,7 @@ export function buildEstimates(materials, { grades = [], measurements = [] } = {
 
     for (const m of S.pool) {
       const h = m.headline[key];
-      if (!h || h.known) continue;
+      if (!h || h.known || h.notApplicable) continue;
       const rep = m.representativeGrade && S.grades.has(m.representativeGrade) ? m.representativeGrade : null;
       const f = rep ? S.fkey(rep) : null;
       // Its own measurements, and those of its representative product filed under another material.
@@ -640,10 +651,10 @@ export function buildEstimates(materials, { grades = [], measurements = [] } = {
 }
 
 /** Coverage summary for the validation report and meta. */
-export function summariseEstimates(materials) {
+export function summariseEstimates(materials, registry) {
   const pool = materials.filter((m) => !m.excluded && !m.familyEntry);
   const out = {};
-  for (const key of ESTIMATE_KEYS) {
+  for (const key of estimateKeys(registry)) {
     const missing = pool.filter((m) => !m.headline[key]?.known);
     const row = { missing: missing.length, 'this-grade': 0, 'this-material': 0, family: 0, notApplicable: 0, none: 0, canScreen: 0 };
     for (const m of missing) {

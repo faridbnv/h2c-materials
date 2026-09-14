@@ -1,0 +1,437 @@
+{
+  "note": "Property and headline constants as they were hardcoded before the registry (commit d8d1e6c), copied verbatim. test/registry.test.js requires the registry to reproduce them, except where DECISIONS D45 records a deliberate correction.",
+  "build": {
+    "HEADLINES": [
+      [
+        "density",
+        "kg/m³",
+        "mechanical",
+        "Density",
+        null
+      ],
+      [
+        "tensileModulusXY",
+        "GPa",
+        "mechanical",
+        "Tensile modulus",
+        "XY"
+      ],
+      [
+        "tensileStrengthXY",
+        "MPa",
+        "mechanical",
+        null,
+        "XY"
+      ],
+      [
+        "elongationXY",
+        "%",
+        "mechanical",
+        "Elongation at break",
+        "XY"
+      ],
+      [
+        "hdt045",
+        "°C",
+        "thermal",
+        "HDT",
+        null
+      ]
+    ],
+    "RELATED": {
+      "density": [
+        "Density"
+      ],
+      "tensileModulusXY": [
+        "Tensile modulus"
+      ],
+      "tensileStrengthXY": [
+        "Tensile strength (endpoint unspecified)",
+        "Tensile yield strength",
+        "Tensile break strength"
+      ],
+      "elongationXY": [
+        "Elongation at break",
+        "Elongation at yield"
+      ],
+      "hdt045": [
+        "HDT"
+      ]
+    },
+    "HEADLINE_TYPES": {
+      "density": {
+        "unit": "kg/m³",
+        "properties": [
+          "Density"
+        ]
+      },
+      "tensileModulusXY": {
+        "unit": "GPa",
+        "properties": [
+          "Tensile modulus"
+        ]
+      },
+      "tensileStrengthXY": {
+        "unit": "MPa",
+        "properties": [
+          "Tensile strength (endpoint unspecified)",
+          "Tensile yield strength",
+          "Tensile break strength"
+        ]
+      },
+      "elongationXY": {
+        "unit": "%",
+        "properties": [
+          "Elongation at break"
+        ]
+      },
+      "hdt045": {
+        "unit": "°C",
+        "properties": [
+          "HDT"
+        ]
+      }
+    },
+    "MECHANICAL_PROPERTIES": [
+      "Tensile modulus",
+      "Tensile strength (endpoint unspecified)",
+      "Tensile yield strength",
+      "Tensile break strength",
+      "Elongation at break",
+      "Elongation at yield",
+      "Tensile strain at strength",
+      "Flexural modulus",
+      "Flexural strength",
+      "Flexural elongation at break",
+      "Flexural stress at conventional deflection",
+      "Charpy strength",
+      "Izod strength",
+      "Izod impact strength",
+      "Impact strength",
+      "Hardness",
+      "Compression strength",
+      "Interlayer adhesion strength",
+      "Fatigue life"
+    ],
+    "THERMAL_PROPERTIES": [
+      "HDT",
+      "Glass transition temperature",
+      "Vicat softening temperature",
+      "Melting temperature",
+      "Crystallization temperature",
+      "Continuous service temperature",
+      "Thermal conductivity",
+      "Coefficient of thermal expansion"
+    ],
+    "ESTIMATE_KEYS": [
+      "density",
+      "tensileModulusXY",
+      "tensileStrengthXY",
+      "elongationXY",
+      "hdt045"
+    ],
+    "AXIS_EQUIVALENCE": {
+      "density": "density",
+      "tensileModulus": "tensileModulusXY",
+      "tensileStrength": "tensileStrengthXY",
+      "elongation": "elongationXY"
+    },
+    "XY_KEYS": [
+      "tensileModulusXY",
+      "tensileStrengthXY",
+      "elongationXY"
+    ]
+  },
+  "app": {
+    "PROPERTY": {
+      "density": {
+        "short": "Density",
+        "plain": "Density",
+        "technical": "Density",
+        "unit": "kg/m³",
+        "hint": "how heavy a printed part will be",
+        "better": "min"
+      },
+      "tensileModulusXY": {
+        "short": "Stiffness",
+        "plain": "Stiffness",
+        "technical": "Tensile modulus, XY direction",
+        "unit": "GPa",
+        "hint": "resistance to bending and stretching",
+        "better": "max"
+      },
+      "tensileStrengthXY": {
+        "short": "Strength",
+        "plain": "Strength",
+        "technical": "Tensile strength, XY direction",
+        "unit": "MPa",
+        "hint": "load it takes before failing",
+        "better": "max"
+      },
+      "elongationXY": {
+        "short": "Stretch",
+        "plain": "Stretch before breaking",
+        "technical": "Elongation at break, XY direction",
+        "unit": "%",
+        "hint": "how far it stretches before it snaps; not the same as springing back or toughness",
+        "better": "max"
+      },
+      "hdt045": {
+        "short": "Heat",
+        "plain": "Heat resistance",
+        "technical": "HDT at 0.45 MPa",
+        "unit": "°C",
+        "hint": "temperature where it starts to soften under load",
+        "better": "max"
+      },
+      "priceCADkg": {
+        "short": "Price",
+        "plain": "Price",
+        "technical": "Median Canadian retail price",
+        "unit": "CAD/kg",
+        "hint": "sampled Canadian retail, not live",
+        "better": "min"
+      }
+    },
+    "AXIS_DEFS": [
+      {
+        "key": "density",
+        "label": "Density",
+        "unit": "kg/m³",
+        "better": "min",
+        "measurement": {
+          "properties": [
+            "Density"
+          ],
+          "direction": null
+        }
+      },
+      {
+        "key": "tensileModulusXY",
+        "label": "Tensile modulus XY",
+        "unit": "GPa",
+        "better": "max",
+        "measurement": {
+          "properties": [
+            "Tensile modulus"
+          ],
+          "direction": "XY"
+        }
+      },
+      {
+        "key": "tensileStrengthXY",
+        "label": "Tensile strength XY",
+        "unit": "MPa",
+        "better": "max",
+        "measurement": {
+          "properties": [
+            "Tensile strength (endpoint unspecified)",
+            "Tensile yield strength",
+            "Tensile break strength"
+          ],
+          "direction": "XY"
+        }
+      },
+      {
+        "key": "elongationXY",
+        "label": "Elongation at break XY",
+        "unit": "%",
+        "better": "max",
+        "measurement": {
+          "properties": [
+            "Elongation at break"
+          ],
+          "direction": "XY"
+        }
+      },
+      {
+        "key": "hdt045",
+        "label": "HDT at 0.45 MPa",
+        "unit": "°C",
+        "better": "max",
+        "measurement": {
+          "properties": [
+            "HDT"
+          ],
+          "direction": null,
+          "loadMPa": 0.45
+        }
+      },
+      {
+        "key": "priceCADkg",
+        "label": "Price",
+        "unit": "CAD/kg",
+        "better": "min",
+        "measurement": null
+      }
+    ],
+    "PROPERTIES_COLUMNS": [
+      {
+        "key": "density",
+        "kind": "headline",
+        "label": "Density",
+        "unit": "kg/m³",
+        "title": "Density — how heavy a printed part will be",
+        "width": "11%"
+      },
+      {
+        "key": "tensileModulusXY",
+        "kind": "headline",
+        "label": "Stiffness",
+        "unit": "GPa",
+        "title": "Tensile modulus, XY direction — resistance to bending and stretching",
+        "width": "11%"
+      },
+      {
+        "key": "tensileStrengthXY",
+        "kind": "headline",
+        "label": "Strength",
+        "unit": "MPa",
+        "title": "Tensile strength, XY direction — load it takes before failing",
+        "width": "11%"
+      },
+      {
+        "key": "elongationXY",
+        "kind": "headline",
+        "label": "Stretch",
+        "unit": "%",
+        "title": "Elongation at break, XY direction — how far it stretches before it snaps; not the same as springing back or toughness",
+        "width": "11%"
+      },
+      {
+        "key": "hdt045",
+        "kind": "headline",
+        "label": "Heat",
+        "unit": "°C",
+        "title": "HDT at 0.45 MPa — temperature where it starts to soften under load",
+        "width": "11%"
+      },
+      {
+        "key": "priceCADkg",
+        "label": "Price",
+        "unit": "CAD/kg",
+        "kind": "price",
+        "width": "12%"
+      }
+    ],
+    "NUMERIC": [
+      {
+        "group": "Mechanical",
+        "key": "density",
+        "op": "<=",
+        "eg": "e.g. 1400 for something light"
+      },
+      {
+        "group": "Mechanical",
+        "key": "tensileModulusXY",
+        "op": ">=",
+        "eg": "e.g. 3, about as stiff as unfilled PLA"
+      },
+      {
+        "group": "Mechanical",
+        "key": "tensileStrengthXY",
+        "op": ">=",
+        "eg": "e.g. 50 for a load-bearing part"
+      },
+      {
+        "group": "Mechanical",
+        "key": "elongationXY",
+        "op": ">=",
+        "eg": "e.g. 100 or more for anything rubbery"
+      },
+      {
+        "group": "Thermal",
+        "key": "hdt045",
+        "op": ">=",
+        "eg": "e.g. 100 to survive a hot car"
+      },
+      {
+        "group": "Cost",
+        "key": "priceCADkg",
+        "op": "<=",
+        "eg": "e.g. 60 per kilogram"
+      }
+    ],
+    "NON_NEGATIVE": [
+      "density",
+      "tensileModulusXY",
+      "tensileStrengthXY",
+      "elongationXY",
+      "priceCADkg"
+    ],
+    "CSV_HEADERS": [
+      "Density kg/m3",
+      "Stiffness GPa",
+      "Strength MPa",
+      "Stretch %",
+      "Heat resistance C",
+      "Price CAD/kg"
+    ],
+    "CSV_KEYS": [
+      "density",
+      "tensileModulusXY",
+      "tensileStrengthXY",
+      "elongationXY",
+      "hdt045",
+      "priceCADkg"
+    ],
+    "DETAIL_HEAD": [
+      [
+        "Density",
+        "density",
+        "how heavy a printed part will be"
+      ],
+      [
+        "Stiffness",
+        "tensileModulusXY",
+        "resistance to bending and stretching"
+      ],
+      [
+        "Strength",
+        "tensileStrengthXY",
+        "load it takes before failing"
+      ],
+      [
+        "Stretch before breaking",
+        "elongationXY",
+        "high means tough, low means brittle"
+      ],
+      [
+        "Heat resistance",
+        "hdt045",
+        "temperature where it starts to soften under load"
+      ],
+      [
+        "Price",
+        "priceCADkg",
+        "sampled Canadian retail"
+      ]
+    ],
+    "DETAIL_MECHANICAL": [
+      "Tensile modulus",
+      "Tensile strength (endpoint unspecified)",
+      "Tensile yield strength",
+      "Tensile break strength",
+      "Elongation at break",
+      "Elongation at yield",
+      "Flexural modulus",
+      "Flexural strength",
+      "Charpy strength",
+      "Izod strength",
+      "Impact strength",
+      "Compression strength",
+      "Interlayer adhesion strength",
+      "Hardness",
+      "Fatigue life"
+    ],
+    "DETAIL_THERMAL": [
+      "HDT",
+      "Glass transition temperature",
+      "Vicat softening temperature",
+      "Melting temperature",
+      "Crystallization temperature",
+      "Coefficient of thermal expansion",
+      "Thermal conductivity"
+    ]
+  }
+}

@@ -17,6 +17,7 @@ import {
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
 import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
+import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { buildEstimates, summariseEstimates } from './estimates.js';
 import { attachPrintEstimates } from './print-estimates.js';
@@ -253,31 +254,32 @@ function buySummary(materialId, prices) {
 
 // ---------------------------------------------------------------------------- headlines
 
-// headline key -> [unit, evidence group, expected property, expected direction]
-const HEADLINES = [
-  ['density',           'kg/m³', 'mechanical', 'Density',            null],
-  ['tensileModulusXY',  'GPa',   'mechanical', 'Tensile modulus',    DIRECTION.XY],
-  ['tensileStrengthXY', 'MPa',   'mechanical', null,                 DIRECTION.XY],
-  ['elongationXY',      '%',     'mechanical', 'Elongation at break',DIRECTION.XY],
-  ['hdt045',            '°C',    'thermal',    'HDT',                null],
-];
-const HEADLINE_KEYS = new Set(HEADLINES.map(([k]) => k));
 const NOT_PUBLISHED = parseValue('Not published');
+const NOT_APPLICABLE = parseValue('Not applicable');
 
-function compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues) {
+function compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues) {
   const headline = {};
   const where = `headlines ${mat.MaterialID} (${mat['Original name']})`;
+  const defs = measurementHeadlines(registry);
   for (const s of selections) {
-    if (!HEADLINE_KEYS.has(s.HeadlineKey)) issues.push({ level: 'error', where, message: `Unknown headline key "${s.HeadlineKey}"` });
+    if (!defs.some((d) => d.key === s.HeadlineKey)) issues.push({ level: 'error', where, message: `Headline key "${s.HeadlineKey}" is not a measurement headline in headline_definitions.csv` });
   }
-  for (const [key, unit, , property, direction] of HEADLINES) {
+  for (const def of defs) {
+    const { key, unit, direction } = def;
     const values = selections.filter((s) => s.HeadlineKey === key && s.Use === 'value');
     if (values.length > 1) issues.push({ level: 'error', where, message: `${key} selects ${values.length} values (${values.map((s) => s.MeasurementID).join(', ')}); a headline shows one measurement` });
+
+    // A headline limited to some materials does not apply to the rest: not a gap, a statement.
+    if (!applies(def.appliesTo, mat)) {
+      if (values.length) issues.push({ level: 'error', where, message: `${key} does not apply to this material (${def.appliesToText}) but selects ${values[0].MeasurementID}` });
+      headline[key] = { known: false, missing: NOT_APPLICABLE.missing, text: NOT_APPLICABLE.text, unit, notApplicable: { reason: def.notApplicableReason, rule: def.appliesToText } };
+      continue;
+    }
 
     if (!values.length) {
       headline[key] = {
         known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
-        related: relatedEvidence(mat, key, measurementsByMaterial),
+        related: relatedEvidence(mat, def, measurementsByMaterial),
       };
       continue;
     }
@@ -288,7 +290,7 @@ function compileHeadlines(mat, selections, measurementsById, measurementsByMater
       : !m.numeric ? `${id} has no usable numeric value (${m.dataStatus})`
       : m.materialId !== mat.MaterialID ? `${id} is a measurement of ${m.materialId}`
       : m.gradeId !== mat['Representative grade'] ? `${id} is on grade ${m.gradeId}, not the representative grade ${mat['Representative grade']}`
-      : !(property ? m.property === property : RELATED.tensileStrengthXY.includes(m.property)) ? `${id} measures ${m.property}`
+      : !def.valueProperties.includes(m.property) ? `${id} measures ${m.property}`
       : m.unit !== unit ? `${id} is in ${m.unit}, not ${unit}`
       : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
       : null;
@@ -313,9 +315,9 @@ function compileHeadlines(mat, selections, measurementsById, measurementsByMater
       interval: m.interval,
       uncertainty: m.uncertainty,
     };
-    // The key is labelled 0.45 MPa. Where the cited source never stated a load, say so rather
-    // than letting the label assert it.
-    if (key === 'hdt045') {
+    // A headline defined at a test load (HDT at 0.45 MPa). Where the cited source never stated a
+    // load, say so rather than letting the label assert it.
+    if (def.loadMPa != null) {
       entry.loadStated = m.thermal?.loadStated ?? false;
       entry.loadMPa = m.thermal?.loadMPa ?? null;
       entry.standard = m.thermal?.standard ?? null;
@@ -331,8 +333,8 @@ function compileHeadlines(mat, selections, measurementsById, measurementsByMater
 }
 
 /** Every measurement a material cites for its headlines, values and context, grouped as the app shows them. */
-function headlineEvidence(selections) {
-  const group = Object.fromEntries(HEADLINES.map(([k, , g]) => [k, g]));
+function headlineEvidence(selections, registry) {
+  const group = Object.fromEntries(measurementHeadlines(registry).map((d) => [d.key, d.evidenceGroup]));
   return {
     mechanical: selections.filter((s) => group[s.HeadlineKey] === 'mechanical').map((s) => s.MeasurementID),
     thermal: selections.filter((s) => group[s.HeadlineKey] === 'thermal').map((s) => s.MeasurementID),
@@ -350,13 +352,6 @@ function headlineEvidence(selections) {
  * This never becomes the headline and never satisfies a constraint. It is labelled with exactly
  * why it is not the headline, so the engineer can judge it.
  */
-const RELATED = {
-  density:           ['Density'],
-  tensileModulusXY:  ['Tensile modulus'],
-  tensileStrengthXY: ['Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength'],
-  elongationXY:      ['Elongation at break', 'Elongation at yield'],
-  hdt045:            ['HDT'],
-};
 
 // There is deliberately NO cross-property fallback.
 //
@@ -394,9 +389,9 @@ const DIRECTION_NOTE = {
  *
  * This never becomes the headline and never satisfies a constraint.
  */
-function relatedEvidence(mat, key, measurementsByMaterial) {
-  const props = RELATED[key];
-  if (!props) return null;
+function relatedEvidence(mat, def, measurementsByMaterial) {
+  const props = def.relatedProperties;
+  if (!props.length) return null;
   const materialId = mat.MaterialID;
   const representative = mat['Representative grade'];
 
@@ -410,10 +405,10 @@ function relatedEvidence(mat, key, measurementsByMaterial) {
       printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
       why: (m.specimenType?.startsWith('Raw material') ? 'raw-material supplier value, not a printed or product specimen' : null)
         || DIRECTION_NOTE[m.direction]
-        || (key === 'hdt045' && m.thermal && m.thermal.loadMPa !== 0.45
-            ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not 0.45 MPa` : 'load not stated by the source')
+        || (def.loadMPa != null && m.thermal && m.thermal.loadMPa !== def.loadMPa
+            ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa` : 'load not stated by the source')
             : null)
-        || (key === 'tensileStrengthXY' && m.property !== props[0]
+        || (def.endpointNote && m.property !== props[0]
             ? `${m.property.replace('Tensile ', '')} endpoint, not the headline endpoint` : null)
         || 'on record but not selected as the headline observation',
     }));
@@ -520,6 +515,7 @@ function resolveFamilyEntries(materials, grades, issues) {
 
 export function compile(wb, { snapshot, build }) {
   const issues = [];
+  const registry = compileRegistry(wb, issues);
 
   const sources = wb.Sources.rows.map((r) => ({
     id: r.SourceID, publisher: r.Publisher, title: r.Title, revision: r.Revision,
@@ -672,7 +668,7 @@ export function compile(wb, { snapshot, build }) {
       familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(mat['Original name']) : null,
       representativeGrade: mat['Representative grade'],
       gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
-      headline: { ...compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
+      headline: { ...compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
       headlineBasis: mat['Headline basis'],
       measurementConditions: mat['Measurement conditions'],
       facets: deriveFacets(mat),
@@ -692,7 +688,7 @@ export function compile(wb, { snapshot, build }) {
       printingEvidence,
       // Everything headlines.csv cites for this material, kept so the validator can check that every
       // citation exists and belongs to it, not only the ones selected as values.
-      headlineEvidence: headlineEvidence(selections),
+      headlineEvidence: headlineEvidence(selections, registry),
       bestUses: mat['Best uses'],
       limitations: mat.Limitations,
       impactNote: mat['Impact / toughness'],
@@ -710,7 +706,7 @@ export function compile(wb, { snapshot, build }) {
 
   // Estimates are attached last, once every headline is known, and only to headlines that have no
   // value of their own. The model's calibration and diagnostics travel in meta (DECISIONS D43).
-  const estimateModel = buildEstimates(materials, { grades, measurements });
+  const estimateModel = buildEstimates(materials, { grades, measurements, registry });
   const chamberEstimates = attachChamberEstimates(materials);
   issues.push(...chamberEstimates.issues);
   const printEstimates = attachPrintEstimates(materials);
@@ -738,15 +734,18 @@ export function compile(wb, { snapshot, build }) {
           sources: sources.length, coverage: coverage.length,
         },
         environmentCategories,
-        estimateCoverage: summariseEstimates(materials),
+        estimateCoverage: summariseEstimates(materials, registry),
         estimateModel,
         chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },
         printEstimates,
         headlineCoverage: Object.fromEntries(
-          [...HEADLINES.map(([k]) => k), 'priceCADkg'].map((k) => [k, materials.filter((m) => m.headline[k]?.known).length]),
+          registry.headlines.map((h) => [h.key, materials.filter((m) => m.headline[h.key]?.known).length]),
         ),
       },
       materials, grades, measurements, profiles, evidence, prices, sources, coverage, method,
+      // What every property and headline means. The app builds its labels, filters, axes, table and
+      // export from this, so a registry row reaches the interface with no code change.
+      registry,
     },
     issues,
   };

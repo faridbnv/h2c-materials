@@ -25,7 +25,7 @@ if (sourceArg() === 'csv') issues.push(...checkData(resolve('data'), resolve('sc
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const htmlPath = `dist/H2C_Material_Selector_${db.meta.snapshot}.html`;
 const html = readFileSync(htmlPath, 'utf8');
-const reference = compileReference(referenceRows, issues, referenceWhere);
+const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
 const unpack = (id) => JSON.parse(gunzipSync(Buffer.from(html.match(new RegExp(`id="${id}"[^>]*>([^<]+)</script>`))?.[1] ?? '', 'base64')));
 const checks = {
   freshCompileMatchesDist: identical(db, stored),

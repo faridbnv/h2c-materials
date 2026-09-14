@@ -1,6 +1,0 @@
-Value,Meaning
-density,Density in kg/m³.
-elongationXY,Elongation at break in the build plane (XY) in %.
-hdt045,Heat deflection temperature at 0.45 MPa in °C.
-tensileModulusXY,Tensile modulus in the build plane (XY) in GPa.
-tensileStrengthXY,Tensile strength in the build plane (XY) in MPa.

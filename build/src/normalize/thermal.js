@@ -43,9 +43,3 @@ export function parseHdtStandard(raw) {
     text,
   };
 }
-
-// Thermal properties that must never be collapsed into one another.
-export const THERMAL_PROPERTIES = [
-  'HDT', 'Glass transition temperature', 'Vicat softening temperature',
-  'Melting temperature', 'Crystallization temperature',
-];

@@ -21,6 +21,8 @@ export const TABLES = [
   { file: 'method', sheet: 'Method' },
   { file: 'headlines', sheet: 'Headlines' },
   { file: 'material_links', sheet: 'Material links' },
+  { file: 'properties', sheet: 'Property registry' },
+  { file: 'headline_definitions', sheet: 'Headline definitions' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;

@@ -4,7 +4,8 @@
 import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
-import { ESTIMATE_MODEL, ESTIMATE_KEYS } from './estimates.js';
+import { ESTIMATE_MODEL, estimateKeys } from './estimates.js';
+import { measurementHeadlines, applies } from './registry.js';
 import { RETIRED_AVAILABILITY } from './compile.js';
 import {
   ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
@@ -185,7 +186,7 @@ export function validate(db, wb) {
   // Method sheet, Comparison / Directions. A headline labelled XY must cite an XY measurement,
   // and "unknown direction is not XY".
   for (const mat of db.materials) {
-    for (const key of ['tensileModulusXY', 'tensileStrengthXY', 'elongationXY']) {
+    for (const key of measurementHeadlines(db.registry).filter((h) => h.direction === DIRECTION.XY).map((h) => h.key)) {
       const h = mat.headline[key];
       if (h?.known && h.verified && h.direction !== DIRECTION.XY) {
         issues.push(err(`materials ${mat.id}`, `Headline ${key} cites a measurement whose direction is ${h.direction}`));
@@ -227,7 +228,7 @@ export function validate(db, wb) {
   const LEVELS = ESTIMATE_MODEL.levels;
   const tally = { 'this-grade': 0, 'this-material': 0, family: 0, notApplicable: 0, screen: 0, poor: 0 };
   for (const mat of db.materials) {
-    for (const key of ESTIMATE_KEYS) {
+    for (const key of estimateKeys(db.registry)) {
       const h = mat.headline[key];
       if (!h) continue;
       const where = `materials ${mat.id} ${key}`;

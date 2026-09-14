@@ -1,3 +1,5 @@
+import { applies } from './registry.js';
+
 // Independent raw-to-normalized reconciliation. Never repairs a value during compilation.
 // Decimal commas with one/two decimal digits differ from grouped integer cycle counts.
 export function rawNumber(text) {
@@ -25,14 +27,6 @@ export function normalizedRawValue(row) {
   return value * factor;
 }
 
-export const HEADLINE_TYPES = {
-  density: { unit: 'kg/m³', properties: ['Density'] },
-  tensileModulusXY: { unit: 'GPa', properties: ['Tensile modulus'] },
-  tensileStrengthXY: { unit: 'MPa', properties: ['Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength'] },
-  elongationXY: { unit: '%', properties: ['Elongation at break'] },
-  hdt045: { unit: '°C', properties: ['HDT'] },
-};
-
 export function measurementIssues(db, wb) {
   const issues = [];
   const error = (where, message) => issues.push({ level: 'error', where, message });
@@ -55,11 +49,22 @@ export function measurementIssues(db, wb) {
     }
   }
   const byId = new Map(db.measurements.map((m) => [m.id, m]));
-  for (const mat of db.materials) for (const [key, rule] of Object.entries(HEADLINE_TYPES)) {
-    const h = mat.headline[key];
+  for (const mat of db.materials) for (const def of db.registry.headlines.filter((h) => h.kind === 'measurement')) {
+    const h = mat.headline[def.key];
     if (!h?.known) continue;
     const m = byId.get(h.measurementId);
-    if (!m || !rule.properties.includes(m.property) || m.unit !== rule.unit || h.unit !== rule.unit || m.value !== h.value) error(`materials ${mat.id}`, `Headline ${key} has inconsistent property, unit, value or citation`);
+    if (!m || !def.valueProperties.includes(m.property) || m.unit !== def.unit || h.unit !== def.unit || m.value !== h.value) error(`materials ${mat.id}`, `Headline ${def.key} has inconsistent property, unit, value or citation`);
+  }
+
+  // Every measurement is of a registered property, in one of its units, of a material it applies to.
+  const properties = new Map(db.registry.properties.map((p) => [p.name, p]));
+  const materials = new Map(db.materials.map((m) => [m.id, m]));
+  for (const m of db.measurements) {
+    const p = properties.get(m.property);
+    if (!p) { error(`measurements ${m.id}`, `Property "${m.property}" is not in properties.csv`); continue; }
+    if (m.numeric && !p.units.includes(m.unit)) error(`measurements ${m.id}`, `${m.property} in ${m.unit}; properties.csv allows ${p.units.join(', ')}`);
+    const mat = materials.get(m.materialId);
+    if (mat && !applies(p.appliesTo, mat)) error(`measurements ${m.id}`, `${m.property} does not apply to ${mat.name} (${p.appliesToText}); file it under the right material or widen Applies to`);
   }
   return issues;
 }

@@ -1,0 +1,33 @@
+{
+  "$comment": "Contract for data/tables/headline_definitions.csv. Checked by build/src/schema.js; semantics by build/src/registry.js.",
+  "title": "Headline definitions",
+  "description": "One row per headline the selector compares materials on. The build and the app read everything about a headline from here: which measurements may back it, its unit, direction and load, its labels, filter, chart axis, table column and export header. A new headline is a new row plus its selections in headlines.csv.",
+  "primaryKey": "HeadlineKey",
+  "fields": [
+    { "name": "HeadlineKey", "type": "string", "role": "key", "description": "Stable key used in scenarios, links and exports. Never rename a published key.", "constraints": { "required": true, "unique": true, "pattern": "^[a-z][A-Za-z0-9]*$" } },
+    { "name": "Kind", "type": "string", "role": "canonical", "description": "measurement: backed by a selected measurement; price: the median Canadian price.", "constraints": { "required": true, "enum": ["measurement", "price"] } },
+    { "name": "Unit", "type": "string", "role": "canonical", "description": "The headline's unit; a backing measurement must carry it.", "constraints": { "required": true } },
+    { "name": "Value properties", "type": "list", "role": "canonical", "description": "Properties whose measurement may be the headline value.", "delimiter": ";", "item": { "reference": { "table": "properties", "field": "Property" } }, "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "Related properties", "type": "list", "role": "canonical", "description": "Properties shown as related evidence when the headline has no value; the first is the headline's own endpoint.", "delimiter": ";", "item": { "reference": { "table": "properties", "field": "Property" } }, "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "Direction", "type": "string", "role": "canonical", "description": "Print direction a backing measurement must have.", "vocabulary": "directions", "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "Load MPa", "type": "number", "role": "canonical", "description": "Test load the headline is defined at; a backing measurement with an unstated load is flagged.", "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "Evidence group", "type": "string", "role": "canonical", "description": "Which citation list the headline's evidence joins.", "missing": ["Not applicable"], "constraints": { "required": true, "enum": ["mechanical", "thermal"] } },
+    { "name": "Endpoint note", "type": "boolean", "role": "canonical", "description": "Whether related evidence of a non-first property is labelled as a different endpoint.", "trueValues": ["TRUE"], "falseValues": ["FALSE"], "constraints": { "required": true } },
+    { "name": "Short", "type": "string", "role": "prose", "description": "Column and pill label.", "constraints": { "required": true } },
+    { "name": "Plain", "type": "string", "role": "prose", "description": "Plain-language name.", "constraints": { "required": true } },
+    { "name": "Technical", "type": "string", "role": "prose", "description": "Technical name, shown as a subtitle.", "constraints": { "required": true } },
+    { "name": "Hint", "type": "string", "role": "prose", "description": "What the number means to a user.", "constraints": { "required": true } },
+    { "name": "Axis label", "type": "string", "role": "prose", "description": "Chart axis title.", "constraints": { "required": true } },
+    { "name": "Export header", "type": "string", "role": "prose", "description": "CSV export column header.", "constraints": { "required": true, "unique": true } },
+    { "name": "Better", "type": "string", "role": "canonical", "description": "Whether lower or higher is better (Pareto direction).", "constraints": { "required": true, "enum": ["min", "max"] } },
+    { "name": "Filter group", "type": "string", "role": "canonical", "description": "Filter rail group.", "vocabulary": "filter-groups", "constraints": { "required": true } },
+    { "name": "Filter operator", "type": "string", "role": "canonical", "description": "Default comparison in the filter rail.", "constraints": { "required": true, "enum": [">=", "<="] } },
+    { "name": "Filter example", "type": "string", "role": "prose", "description": "Example shown under the filter input.", "constraints": { "required": true } },
+    { "name": "Non-negative", "type": "boolean", "role": "canonical", "description": "Whether a negative requirement is rejected.", "trueValues": ["TRUE"], "falseValues": ["FALSE"], "constraints": { "required": true } },
+    { "name": "Table column", "type": "boolean", "role": "canonical", "description": "Whether the Properties table shows it by default.", "trueValues": ["TRUE"], "falseValues": ["FALSE"], "constraints": { "required": true } },
+    { "name": "Estimated", "type": "boolean", "role": "canonical", "description": "Whether the estimate model predicts it when missing; needs entries in build/mappings/estimate-model.json.", "trueValues": ["TRUE"], "falseValues": ["FALSE"], "constraints": { "required": true } },
+    { "name": "Reference property", "type": "string", "role": "canonical", "description": "Generic reference envelope drawn against this headline on charts.", "missing": ["Not applicable"], "constraints": { "required": true, "enum": ["density", "tensileModulus", "yieldStrength", "tensileStrength", "compressiveStrength", "elongation", "fractureToughness", "thermalExpansion"] } },
+    { "name": "Applies to", "type": "string", "role": "canonical", "description": "Which materials the headline applies to (same syntax as properties.csv). Blank: all. Outside it the headline is Not applicable, with the reason below.", "constraints": {} },
+    { "name": "Not applicable reason", "type": "string", "role": "prose", "description": "Why the headline does not apply outside 'Applies to'; required when it is set.", "constraints": {} }
+  ]
+}
