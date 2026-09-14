@@ -163,9 +163,9 @@ Every one of the 102 materials was checked, and any failure below stops the buil
 These are not defects. They record what the compiled database cannot support, so the
 interface can say so rather than implying a certainty it does not have.
 
-- **measurements** — Impact data uses two incompatible units. 9 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
-- **materials** — 6 of 66 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
-- **materials** — Missing headlines: 54 estimated from the grade's own related measurements, 20 from the material's other grades, 19 from the family model alone (13 of all estimates imprecise), 27 not applicable. 83 estimates may screen a material out in Explore; none can pass one.
-- **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PP density 810 (expected about 1100); PC-ABS elongationXY 75 (expected about 8.89)
-- **materials** — 5 canonical names are family entries with no product of their own and are not candidates: TPE (TPU, TPU for AMS, TPU 95A HF, TPU 90A, TPU 85A, PEBA, TPC / TPEE, OBC); PA (PA6, PA6/66, PA66, PA12, PA612); CoPA (PA6/66); PA-CF (PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF); PA-GF (PA6-GF, PA12-GF, PA612-GF)
-- **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
+- `IMPACT-UNITS` **measurements** — Impact data uses two incompatible units. 9 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
+- `HDT-LOAD-UNSTATED` **materials** — 6 of 66 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
+- `EST-SUMMARY` **materials** — Missing headlines: 54 estimated from the grade's own related measurements, 20 from the material's other grades, 19 from the family model alone (13 of all estimates imprecise), 27 not applicable. 83 estimates may screen a material out in Explore; none can pass one.
+- `EST-OUTLIER` **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PP density 810 (expected about 1100); PC-ABS elongationXY 75 (expected about 8.89)
+- `FAMILY-ENTRIES` **materials** — 5 canonical names are family entries with no product of their own and are not candidates: TPE (TPU, TPU for AMS, TPU 95A HF, TPU 90A, TPU 85A, PEBA, TPC / TPEE, OBC); PA (PA6, PA6/66, PA66, PA12, PA612); CoPA (PA6/66); PA-CF (PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF); PA-GF (PA6-GF, PA12-GF, PA612-GF)
+- `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF

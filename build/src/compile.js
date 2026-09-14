@@ -45,7 +45,7 @@ export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200
 function compileMeasurements(rows, issues) {
   return rows.map((r) => {
     const status = DATA_STATUS[r['Data status']] ?? null;
-    if (!status) issues.push({ level: 'error', where: `Properties row ${r.__row}`, message: `Unknown Data status "${r['Data status']}"` });
+    if (!status) issues.push({ level: 'error', code: 'DATA-STATUS-UNKNOWN', where: `Properties row ${r.__row}`, message: `Unknown Data status "${r['Data status']}"` });
 
     const value = num(r['Normalized value']);
     const uncertainty = num(r['Normalized uncertainty ±']);
@@ -121,7 +121,7 @@ function compileProfiles(rows, issues) {
       chamber = { ...chamber, state: PROCESS_STATE.NOT_REQUIRED, requirement: REQUIREMENT.NONE, fromEnclosure: true };
     }
     for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber], ['Enclosure', enclosure]]) {
-      if (p.unparsed) issues.push({ level: 'warn', where: `Print setup row ${r.__row}`, message: `${name} text not parsed: "${p.text}"` });
+      if (p.unparsed) issues.push({ level: 'warn', code: 'PARSE-UNREAD', where: `Print setup row ${r.__row}`, message: `${name} text not parsed: "${p.text}"` });
     }
     return {
       id: r.ProfileID,
@@ -268,16 +268,16 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
   const where = `headlines ${mat.MaterialID} (${mat['Original name']})`;
   const defs = measurementHeadlines(registry);
   for (const s of selections) {
-    if (!defs.some((d) => d.key === s.HeadlineKey)) issues.push({ level: 'error', where, message: `Headline key "${s.HeadlineKey}" is not a measurement headline in headline_definitions.csv` });
+    if (!defs.some((d) => d.key === s.HeadlineKey)) issues.push({ level: 'error', code: 'HEADLINE-KEY-UNKNOWN', where, message: `Headline key "${s.HeadlineKey}" is not a measurement headline in headline_definitions.csv` });
   }
   for (const def of defs) {
     const { key, unit, direction } = def;
     const values = selections.filter((s) => s.HeadlineKey === key && s.Use === 'value');
-    if (values.length > 1) issues.push({ level: 'error', where, message: `${key} selects ${values.length} values (${values.map((s) => s.MeasurementID).join(', ')}); a headline shows one measurement` });
+    if (values.length > 1) issues.push({ level: 'error', code: 'HEADLINE-SELECTION-MULTIPLE', where, message: `${key} selects ${values.length} values (${values.map((s) => s.MeasurementID).join(', ')}); a headline shows one measurement` });
 
     // A headline limited to some materials does not apply to the rest: not a gap, a statement.
     if (!applies(def.appliesTo, mat)) {
-      if (values.length) issues.push({ level: 'error', where, message: `${key} does not apply to this material (${def.appliesToText}) but selects ${values[0].MeasurementID}` });
+      if (values.length) issues.push({ level: 'error', code: 'HEADLINE-NOT-APPLICABLE', where, message: `${key} does not apply to this material (${def.appliesToText}) but selects ${values[0].MeasurementID}` });
       headline[key] = { known: false, missing: NOT_APPLICABLE.missing, text: NOT_APPLICABLE.text, unit, notApplicable: { reason: def.notApplicableReason, rule: def.appliesToText } };
       continue;
     }
@@ -301,7 +301,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
       : null;
     if (problem) {
-      issues.push({ level: 'error', where, message: `Headline ${key} cannot show ${problem}` });
+      issues.push({ level: 'error', code: 'HEADLINE-SELECTION-INVALID', where, message: `Headline ${key} cannot show ${problem}` });
       headline[key] = { known: true, value: m?.value ?? null, unit, origin: ORIGIN.SOURCE, verified: false };
       continue;
     }
@@ -503,17 +503,17 @@ function resolveFamilyEntries(materials, grades, issues) {
   const byName = new Map(materials.map((m) => [m.name, m]));
   const where = 'family-entries.json';
   for (const m of materials.filter((x) => x.familyEntry)) {
-    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', where, message: `${m.name} is a family entry in materials.csv but is not described here` });
+    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} is a family entry in materials.csv but is not described here` });
     for (const member of m.familyEntry.members) {
       const target = byName.get(member.name);
-      if (!target || target.excluded || target.familyEntry) issues.push({ level: 'error', where, message: `${m.name} lists "${member.name}", which is not an in-scope material` });
+      if (!target || target.excluded || target.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} lists "${member.name}", which is not an in-scope material` });
       else member.id = target.id;
     }
     const owned = grades.filter((g) => g.materialId === m.id && !g.retired);
-    if (owned.length) issues.push({ level: 'error', where: `materials ${m.id}`, message: `Family entry ${m.name} owns active grade${owned.length === 1 ? '' : 's'} ${owned.map((g) => g.id).join(', ')}; a product belongs to the material it is` });
+    if (owned.length) issues.push({ level: 'error', code: 'FAMILY-ENTRY-OWNS', where: `materials ${m.id}`, message: `Family entry ${m.name} owns active grade${owned.length === 1 ? '' : 's'} ${owned.map((g) => g.id).join(', ')}; a product belongs to the material it is` });
   }
   for (const name of Object.keys(FAMILY_ENTRIES)) {
-    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', where, message: `${name} is described here but materials.csv does not mark it a family entry` });
+    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${name} is described here but materials.csv does not mark it a family entry` });
   }
 }
 
@@ -549,7 +549,7 @@ export function compile(wb, { snapshot, build }) {
     // Code that only sees compiled grades recognises study and reference grades by their -R# suffix,
     // so the suffix and the role must agree.
     if ((r.Role !== 'procurement') !== /-R\d+$/.test(r.GradeID)) {
-      issues.push({ level: 'error', where: `grades ${r.GradeID}`, message: `Role ${r.Role} disagrees with the ID: study and reference grades, and only they, end in -R#` });
+      issues.push({ level: 'error', code: 'GRADE-ROLE-ID', where: `grades ${r.GradeID}`, message: `Role ${r.Role} disagrees with the ID: study and reference grades, and only they, end in -R#` });
     }
   }
 
@@ -578,7 +578,7 @@ export function compile(wb, { snapshot, build }) {
     const listPrice = num(r['List price CAD']), netMassKg = num(r['Net mass kg']);
     // Regular CAD/kg is list price / net mass to the cent, and exists only where a median may use it.
     if (eligibleForMedian && (listPrice === null || !netMassKg)) {
-      issues.push({ level: 'error', where: `prices ${r.PriceID}`, message: 'Eligible for median without a list price and net mass to calculate CAD/kg from' });
+      issues.push({ level: 'error', code: 'PRICE-INCOMPLETE', where: `prices ${r.PriceID}`, message: 'Eligible for median without a list price and net mass to calculate CAD/kg from' });
     }
     return {
     id: r.PriceID, materialId: r.MaterialID, gradeId: r.GradeID, retailer: r.Retailer,

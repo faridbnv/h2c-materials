@@ -11,8 +11,10 @@ import {
   ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
 } from './coverage-rules.js';
 
-const err = (where, message) => ({ level: 'error', where, message });
-const warn = (where, message) => ({ level: 'warn', where, message });
+import { issue } from './rules.js';
+
+const err = (code, where, message, extra) => issue(code, where, message, extra);
+const warn = err; // the catalogue (rules.js) decides each code's level
 
 export function validate(db, wb) {
   const issues = measurementIssues(db, wb);
@@ -25,8 +27,8 @@ export function validate(db, wb) {
   ]) {
     const seen = new Set();
     for (const r of rows) {
-      if (!r.id) { issues.push(err(name, 'Record with no identifier')); continue; }
-      if (seen.has(r.id)) issues.push(err(`${name} ${r.id}`, 'Duplicate identifier'));
+      if (!r.id) { issues.push(err('ID-MISSING', name, 'Record with no identifier')); continue; }
+      if (seen.has(r.id)) issues.push(err('ID-DUPLICATE', `${name} ${r.id}`, 'Duplicate identifier'));
       seen.add(r.id);
     }
   }
@@ -39,7 +41,7 @@ export function validate(db, wb) {
     for (const r of rows) {
       const v = r[field];
       if (!v || v === 'Not applicable' || v === 'Not published') continue;
-      if (!universe.has(v)) issues.push(err(`${name} ${r.id}`, `${field} "${v}" is not a known ${universeName}`));
+      if (!universe.has(v)) issues.push(err('REF-UNKNOWN', `${name} ${r.id}`, `${field} "${v}" is not a known ${universeName}`));
     }
   };
   for (const [rows, name] of [[db.grades, 'grades'], [db.profiles, 'profiles'], [db.measurements, 'measurements'], [db.evidence, 'evidence'], [db.prices, 'prices'], [db.coverage, 'coverage']]) {
@@ -52,7 +54,7 @@ export function validate(db, wb) {
     ref(rows, name, 'sourceId', S, 'SourceID');
   }
   for (const m of db.materials) {
-    for (const g of m.gradeIds) if (!G.has(g)) issues.push(err(`materials ${m.id}`, `GradeIDs lists unknown grade "${g}"`));
+    for (const g of m.gradeIds) if (!G.has(g)) issues.push(err('GRADES-LIST', `materials ${m.id}`, `GradeIDs lists unknown grade "${g}"`));
   }
 
   // -- retirement is finished, not half-done -----------------------------------
@@ -60,10 +62,10 @@ export function validate(db, wb) {
   // retired grade that does not say so, is a retirement someone started and did not finish.
   for (const g of db.grades) {
     if (!g.retired && /retire/i.test(g.availability ?? '')) {
-      issues.push(err(`grades ${g.id}`, `Availability "${g.availability}" describes a retirement but Status is active`));
+      issues.push(err('GRADE-RETIREMENT-HALF', `grades ${g.id}`, `Availability "${g.availability}" describes a retirement but Status is active`));
     }
     if (g.retired && g.availability !== RETIRED_AVAILABILITY) {
-      issues.push(err(`grades ${g.id}`, `Status is retired but Availability does not read "${RETIRED_AVAILABILITY}"`));
+      issues.push(err('GRADE-RETIREMENT-HALF', `grades ${g.id}`, `Status is retired but Availability does not read "${RETIRED_AVAILABILITY}"`));
     }
   }
 
@@ -78,9 +80,9 @@ export function validate(db, wb) {
   for (const [rows, name] of [[db.measurements, 'measurements'], [db.profiles, 'profiles'], [db.prices, 'prices'], [db.evidence, 'evidence']]) {
     for (const r of rows) {
       const g = gradeById.get(r.gradeId);
-      if (g && g.materialId !== r.materialId) issues.push(err(`${name} ${r.id}`, `Filed under ${r.materialId} but its grade ${r.gradeId} belongs to ${g.materialId}`));
-      if (g?.retired && name !== 'profiles' && !r.quarantined) issues.push(err(`${name} ${r.id}`, `Active record uses retired grade ${r.gradeId}`));
-      if (g?.retired && name === 'profiles' && !r.retired) issues.push(err(`${name} ${r.id}`, `Active profile uses retired grade ${r.gradeId}`));
+      if (g && g.materialId !== r.materialId) issues.push(err('OWN-GRADE-MATERIAL', `${name} ${r.id}`, `Filed under ${r.materialId} but its grade ${r.gradeId} belongs to ${g.materialId}`));
+      if (g?.retired && name !== 'profiles' && !r.quarantined) issues.push(err('OWN-RETIRED-GRADE', `${name} ${r.id}`, `Active record uses retired grade ${r.gradeId}`));
+      if (g?.retired && name === 'profiles' && !r.retired) issues.push(err('OWN-RETIRED-GRADE', `${name} ${r.id}`, `Active profile uses retired grade ${r.gradeId}`));
     }
   }
 
@@ -93,15 +95,15 @@ export function validate(db, wb) {
 
     // Grades. Study grades (an R suffix) are not procurement grades and are not listed.
     for (const g of grades) {
-      if (!g.retired && !isStudyGrade(g.id) && !mat.gradeIds.includes(g.id)) issues.push(err(where, `Grade ${g.id} belongs to this material but GradeIDs does not list it`));
+      if (!g.retired && !isStudyGrade(g.id) && !mat.gradeIds.includes(g.id)) issues.push(err('GRADES-LIST', where, `Grade ${g.id} belongs to this material but GradeIDs does not list it`));
     }
     for (const id of mat.gradeIds) {
-      if (gradeById.get(id)?.retired) issues.push(err(where, `GradeIDs lists retired mapping ${id}`));
-      if (gradeById.get(id) && gradeById.get(id).materialId !== mat.id) issues.push(err(where, `GradeIDs lists ${id}, a grade of ${gradeById.get(id).materialId}`));
+      if (gradeById.get(id)?.retired) issues.push(err('GRADES-LIST', where, `GradeIDs lists retired mapping ${id}`));
+      if (gradeById.get(id) && gradeById.get(id).materialId !== mat.id) issues.push(err('GRADES-LIST', where, `GradeIDs lists ${id}, a grade of ${gradeById.get(id).materialId}`));
     }
     const rep = mat.representativeGrade;
     const hasRep = rep && !isMissingText(rep) && !/^insufficient/i.test(rep);
-    if (hasRep && !grades.some((g) => g.id === rep)) issues.push(err(where, `Representative grade ${rep} is not one of its grades`));
+    if (hasRep && !grades.some((g) => g.id === rep)) issues.push(err('REP-GRADE-NOT-OWN', where, `Representative grade ${rep} is not one of its grades`));
 
     // Headlines. Method, Comparison / Headlines: labelled single-grade observations, which in this
     // database means the representative grade. A headline from another grade would put two
@@ -109,33 +111,33 @@ export function validate(db, wb) {
     for (const [key, h] of Object.entries(mat.headline)) {
       if (!h?.known || !h.measurementId) continue;
       const m = measurementById.get(h.measurementId);
-      if (!m) { issues.push(err(where, `Headline ${key} cites missing measurement ${h.measurementId}`)); continue; }
-      if (gradeById.get(m.gradeId)?.retired) issues.push(err(where, `Headline ${key} cites retired grade ${m.gradeId}`));
-      if (m.materialId !== mat.id) issues.push(err(where, `Headline ${key} cites ${m.id}, a measurement of ${m.materialId}`));
-      else if (hasRep && m.gradeId !== rep) issues.push(err(where, `Headline ${key} cites ${m.id} on grade ${m.gradeId}, not the representative grade ${rep}`));
+      if (!m) { issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites missing measurement ${h.measurementId}`)); continue; }
+      if (gradeById.get(m.gradeId)?.retired) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites retired grade ${m.gradeId}`));
+      if (m.materialId !== mat.id) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites ${m.id}, a measurement of ${m.materialId}`));
+      else if (hasRep && m.gradeId !== rep) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites ${m.id} on grade ${m.gradeId}, not the representative grade ${rep}`));
       citationsChecked++;
     }
     for (const id of [...mat.headlineEvidence.mechanical, ...mat.headlineEvidence.thermal]) {
       const m = measurementById.get(id);
-      if (!m) issues.push(err(where, `Headline evidence cites ${id}, which does not exist`));
-      else if (m.materialId !== mat.id) issues.push(err(where, `Headline evidence cites ${id}, a measurement of ${m.materialId}`));
+      if (!m) issues.push(err('LINK-CITATION', where, `Headline evidence cites ${id}, which does not exist`));
+      else if (m.materialId !== mat.id) issues.push(err('LINK-CITATION', where, `Headline evidence cites ${id}, a measurement of ${m.materialId}`));
     }
 
     // H2C status is cited to sources.
-    for (const id of mat.identity.h2cEvidence) if (!S.has(id)) issues.push(err(where, `H2C status link cites ${id}, which is not a source`));
+    for (const id of mat.identity.h2cEvidence) if (!S.has(id)) issues.push(err('LINK-CITATION', where, `H2C status link cites ${id}, which is not a source`));
 
     // Printing. The guidance quotes the first profile the material cites.
     const cited = mat.printingEvidence.map((id) => profileById.get(id)).filter(Boolean);
     for (const id of mat.printingEvidence) {
       const p = profileById.get(id), e = evidenceById.get(id);
-      if (!p && !e) issues.push(err(where, `Printing evidence cites ${id}, which does not exist`));
-      else if ((p ?? e).materialId !== mat.id) issues.push(err(where, `Printing evidence cites ${id} of ${(p ?? e).materialId}`));
+      if (!p && !e) issues.push(err('LINK-CITATION', where, `Printing evidence cites ${id}, which does not exist`));
+      else if ((p ?? e).materialId !== mat.id) issues.push(err('LINK-CITATION', where, `Printing evidence cites ${id} of ${(p ?? e).materialId}`));
     }
     if (cited.length) {
       for (const axis of ['nozzle', 'bed', 'chamber']) {
         const g = mat.guidance[axis], t = cited[0][axis].text;
         if (guidanceText(g) !== guidanceText(t) && !(isMissingText(g) && isMissingText(t))) {
-          issues.push(err(where, `${axis} guidance "${g}" is not what its printing evidence ${cited[0].id} says ("${t}")`));
+          issues.push(err('GUIDANCE-MISMATCH', where, `${axis} guidance "${g}" is not what its printing evidence ${cited[0].id} says ("${t}")`));
         }
       }
     }
@@ -144,11 +146,11 @@ export function validate(db, wb) {
     // the environmental column may cite only this material's own exposure, solubility and moisture
     // records, because it is the one a reader takes as evidence about this grade.
     for (const [kind, list] of Object.entries(mat.evidenceIds)) {
-      for (const id of list) if (!evidenceById.get(id)) issues.push(err(where, `${kind} evidence cites ${id}, which does not exist`));
+      for (const id of list) if (!evidenceById.get(id)) issues.push(err('LINK-CITATION', where, `${kind} evidence cites ${id}, which does not exist`));
     }
     const ownEnvironment = db.evidence.filter((e) => e.materialId === mat.id && ENVIRONMENT_CATEGORIES.has(e.category)).map((e) => e.id).sort().join('; ');
     if ([...mat.evidenceIds.environmental].sort().join('; ') !== ownEnvironment) {
-      issues.push(err(where, `Environmental evidence cites "${mat.evidenceIds.environmental.join('; ') || 'nothing'}"; its own exposure records are "${ownEnvironment || 'none'}"`));
+      issues.push(err('ENVIRONMENT-NOT-OWN', where, `Environmental evidence cites "${mat.evidenceIds.environmental.join('; ') || 'nothing'}"; its own exposure records are "${ownEnvironment || 'none'}"`));
     }
 
     // Coverage. Terminal, but it has to be true: no Gap beside data, no claimed evidence without it.
@@ -156,11 +158,11 @@ export function validate(db, wb) {
     for (const c of db.coverage.filter((x) => x.materialId === mat.id)) {
       if (data[c.domain] !== undefined) {
         const has = data[c.domain].length > 0;
-        if (has && CLAIMS_ABSENCE.has(c.status)) issues.push(err(`coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" beside ${data[c.domain].length} record(s) of its own, e.g. ${data[c.domain][0]}`));
-        if (!has && CLAIMS_EVIDENCE.has(c.status)) issues.push(err(`coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" but it has no record of its own in that domain`));
+        if (has && CLAIMS_ABSENCE.has(c.status)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" beside ${data[c.domain].length} record(s) of its own, e.g. ${data[c.domain][0]}`));
+        if (!has && CLAIMS_EVIDENCE.has(c.status)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" but it has no record of its own in that domain`));
       }
       const n = c.domain === 'Grades' && c.finding?.match(/^(\d+) distinct manufacturer\(s\)/);
-      if (n && Number(n[1]) !== manufacturerCount(db, mat)) issues.push(err(`coverage ${c.id}`, `${mat.name} Grades quotes ${n[1]} manufacturers; its procurement grades name ${manufacturerCount(db, mat)}`));
+      if (n && Number(n[1]) !== manufacturerCount(db, mat)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} Grades quotes ${n[1]} manufacturers; its procurement grades name ${manufacturerCount(db, mat)}`));
     }
   }
   db.meta.consistency = { materials: db.materials.length, headlineCitations: citationsChecked };
@@ -170,14 +172,14 @@ export function validate(db, wb) {
   // excluded from numeric summaries.
   for (const m of db.measurements) {
     if (m.quarantined && (m.value !== null || m.numeric)) {
-      issues.push(err(`measurements ${m.id}`, 'Quarantined measurement carries a numeric value'));
+      issues.push(err('QUARANTINE-NUMERIC', `measurements ${m.id}`, 'Quarantined measurement carries a numeric value'));
     }
   }
   const quarantinedIds = new Set(db.measurements.filter((m) => m.quarantined).map((m) => m.id));
   for (const mat of db.materials) {
     for (const [key, h] of Object.entries(mat.headline)) {
       if (h?.measurementId && quarantinedIds.has(h.measurementId)) {
-        issues.push(err(`materials ${mat.id}`, `Headline ${key} cites quarantined measurement ${h.measurementId}`));
+        issues.push(err('QUARANTINE-NUMERIC', `materials ${mat.id}`, `Headline ${key} cites quarantined measurement ${h.measurementId}`));
       }
     }
   }
@@ -189,7 +191,7 @@ export function validate(db, wb) {
     for (const key of measurementHeadlines(db.registry).filter((h) => h.direction === DIRECTION.XY).map((h) => h.key)) {
       const h = mat.headline[key];
       if (h?.known && h.verified && h.direction !== DIRECTION.XY) {
-        issues.push(err(`materials ${mat.id}`, `Headline ${key} cites a measurement whose direction is ${h.direction}`));
+        issues.push(err('HEADLINE-DIRECTION', `materials ${mat.id}`, `Headline ${key} cites a measurement whose direction is ${h.direction}`));
       }
     }
   }
@@ -200,17 +202,17 @@ export function validate(db, wb) {
   const impactUnits = new Set(impact.map((m) => m.unit));
   if (impactUnits.has('J/m') && impactUnits.has('kJ/m²')) {
     const n = impact.filter((m) => m.unit === 'J/m').length;
-    issues.push(warn('measurements', `Impact data uses two incompatible units. ${n} rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.`));
+    issues.push(warn('IMPACT-UNITS', 'measurements', `Impact data uses two incompatible units. ${n} rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.`));
   }
 
   // -- excluded materials stay out of the default candidate set ---------------
   const excluded = db.materials.filter((m) => m.excluded);
   // Exclusion is stated twice, as scope and as H2C status; the two must agree, whatever the count.
   for (const m of db.materials) {
-    if (m.excluded !== (m.h2cStatus === 'Excluded')) issues.push(err(`materials ${m.id}`, `Scope "${m.scope}" and H2C status "${m.h2cStatus}" disagree about exclusion`));
+    if (m.excluded !== (m.h2cStatus === 'Excluded')) issues.push(err('EXCLUSION', `materials ${m.id}`, `Scope "${m.scope}" and H2C status "${m.h2cStatus}" disagree about exclusion`));
   }
   for (const m of excluded) {
-    if (m.gates.scope !== 'excluded') issues.push(err(`materials ${m.id}`, 'Excluded material does not carry the excluded scope gate'));
+    if (m.gates.scope !== 'excluded') issues.push(err('EXCLUSION', `materials ${m.id}`, 'Excluded material does not carry the excluded scope gate'));
   }
 
   // -- HDT load labelling -----------------------------------------------------
@@ -218,10 +220,10 @@ export function validate(db, wb) {
   const unstated = hdt.filter((m) => !m.headline.hdt045.loadStated);
   const wrongLoad = hdt.filter((m) => m.headline.hdt045.loadStated && m.headline.hdt045.loadMPa !== 0.45);
   for (const m of wrongLoad) {
-    issues.push(err(`materials ${m.id}`, `Column is HDT at 0.45 MPa but the cited source states ${m.headline.hdt045.loadMPa} MPa`));
+    issues.push(err('HDT-LOAD-WRONG', `materials ${m.id}`, `Column is HDT at 0.45 MPa but the cited source states ${m.headline.hdt045.loadMPa} MPa`));
   }
   if (unstated.length) {
-    issues.push(warn('materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`));
+    issues.push(warn('HDT-LOAD-UNSTATED', 'materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`));
   }
 
   // -- estimates ---------------------------------------------------------------
@@ -237,38 +239,38 @@ export function validate(db, wb) {
       const where = `materials ${mat.id} ${key}`;
       if (!mat.excluded && !mat.familyEntry && !h.known && !h.estimate && !h.notApplicable) {
         const identity = identityOf(mat);
-        issues.push(err(where, ESTIMATE_MODEL.identities[identity]
+        issues.push(err('HEADLINE-BLANK', where, ESTIMATE_MODEL.identities[identity]
           ? `${mat.name} has no value, no estimate and no not-applicable statement`
           : `${mat.name} has no value, and cannot be estimated: its identity "${identity}" (${mat.family === 'Polymer Blends' ? 'a blend is identified by its name' : 'base polymer'}) has no entry in build/mappings/estimate-model.json identities. Add one (group and morphology), or record a value`));
       }
       if (h.notApplicable) {
         tally.notApplicable++;
-        if (h.known || h.estimate) issues.push(err(where, 'Not applicable beside a value or an estimate'));
-        if (!h.notApplicable.reason) issues.push(err(where, 'Not applicable without a reason'));
+        if (h.known || h.estimate) issues.push(err('NA-INVALID', where, 'Not applicable beside a value or an estimate'));
+        if (!h.notApplicable.reason) issues.push(err('NA-INVALID', where, 'Not applicable without a reason'));
       }
       const e = h.estimate;
       if (!e) continue;
       tally[e.strength] = (tally[e.strength] ?? 0) + 1;
       if (e.canScreen) tally.screen++;
       if (e.precision === 'poor') tally.poor++;
-      if (h.known) issues.push(err(where, 'A measured headline also carries an estimate'));
-      if (mat.excluded || mat.familyEntry) issues.push(err(where, 'An out-of-scope material or a family entry carries an estimate'));
-      if (e.kind !== 'model') issues.push(err(where, `Unknown estimate kind "${e.kind}"`));
-      if (!['this-grade', 'this-material', 'family'].includes(e.strength)) issues.push(err(where, `Unknown evidence strength "${e.strength}"`));
-      if (!['good', 'fair', 'poor'].includes(e.precision)) issues.push(err(where, `Unknown precision "${e.precision}"`));
-      if (!e.basis || !e.method) issues.push(err(where, 'Does not say what it was built from'));
-      if (!(e.lo <= e.centre && e.centre <= e.hi)) issues.push(err(where, `Centre ${e.centre} lies outside the likely range ${e.lo}-${e.hi}`));
-      if (!(e.plausible.lo <= e.lo && e.hi <= e.plausible.hi)) issues.push(err(where, `The likely range ${e.lo}-${e.hi} is not inside the plausible range ${e.plausible.lo}-${e.plausible.hi}`));
-      if (e.strength === 'family' && e.evidence.length) issues.push(err(where, 'A family-only estimate lists evidence of its own'));
-      if (e.strength !== 'family' && !e.evidence.length) issues.push(err(where, 'Claims evidence of its own but lists none'));
+      if (h.known) issues.push(err('EST-INVALID', where, 'A measured headline also carries an estimate'));
+      if (mat.excluded || mat.familyEntry) issues.push(err('EST-INVALID', where, 'An out-of-scope material or a family entry carries an estimate'));
+      if (e.kind !== 'model') issues.push(err('EST-INVALID', where, `Unknown estimate kind "${e.kind}"`));
+      if (!['this-grade', 'this-material', 'family'].includes(e.strength)) issues.push(err('EST-INVALID', where, `Unknown evidence strength "${e.strength}"`));
+      if (!['good', 'fair', 'poor'].includes(e.precision)) issues.push(err('EST-INVALID', where, `Unknown precision "${e.precision}"`));
+      if (!e.basis || !e.method) issues.push(err('EST-INVALID', where, 'Does not say what it was built from'));
+      if (!(e.lo <= e.centre && e.centre <= e.hi)) issues.push(err('EST-INVALID', where, `Centre ${e.centre} lies outside the likely range ${e.lo}-${e.hi}`));
+      if (!(e.plausible.lo <= e.lo && e.hi <= e.plausible.hi)) issues.push(err('EST-INVALID', where, `The likely range ${e.lo}-${e.hi} is not inside the plausible range ${e.plausible.lo}-${e.plausible.hi}`));
+      if (e.strength === 'family' && e.evidence.length) issues.push(err('EST-INVALID', where, 'A family-only estimate lists evidence of its own'));
+      if (e.strength !== 'family' && !e.evidence.length) issues.push(err('EST-INVALID', where, 'Claims evidence of its own but lists none'));
       const repF = gradeById.get(mat.representativeGrade)?.formulationKey ?? mat.representativeGrade;
       for (const ev of e.evidence) {
         for (const item of ev.items) {
           if (!item.measurementId) continue;
           const x = measurementById.get(item.measurementId);
           const f = x && (gradeById.get(x.gradeId)?.formulationKey ?? x.gradeId);
-          if (!x) issues.push(err(where, `Cites ${item.measurementId}, which does not exist`));
-          else if (x.materialId !== mat.id && f !== repF) issues.push(err(where, `Cites ${item.measurementId}, which is neither this material's nor its representative product's`));
+          if (!x) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which does not exist`));
+          else if (x.materialId !== mat.id && f !== repF) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which is neither this material's nor its representative product's`));
         }
       }
     }
@@ -276,18 +278,18 @@ export function validate(db, wb) {
   const model = db.meta.estimateModel ?? { properties: {}, rejected: [], conflicts: [], outliers: [] };
   for (const [key, p] of Object.entries(model.properties)) {
     const c = p.calibration;
-    if (c.held < 20) { issues.push(warn(`estimate model ${key}`, `Only ${c.held} measured headlines to calibrate against; the ranges use a default scale`)); continue; }
+    if (c.held < 20) { issues.push(warn('EST-CALIBRATION-FEW', `estimate model ${key}`, `Only ${c.held} measured headlines to calibrate against; the ranges use a default scale`)); continue; }
     const tolerance = 0.1;
-    if (Math.abs(c.likelyCoverage - LEVELS.likely) > tolerance) issues.push(err(`estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
-    if (c.plausibleCoverage < LEVELS.plausible - 0.05) issues.push(err(`estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
+    if (Math.abs(c.likelyCoverage - LEVELS.likely) > tolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
+    if (c.plausibleCoverage < LEVELS.plausible - 0.05) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
   }
   db.meta.estimateTally = tally;
-  issues.push(warn('materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));
+  issues.push(warn('EST-SUMMARY', 'materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));
   if (model.rejected.length) {
-    issues.push(warn('measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`));
+    issues.push(warn('EST-REJECTED', 'measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`));
   }
   if (model.outliers.length) {
-    issues.push(warn('materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`));
+    issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`));
   }
 
   // -- unparsed free text -----------------------------------------------------
@@ -298,21 +300,21 @@ export function validate(db, wb) {
     }
   }
   if (unparsedProcess.length) {
-    issues.push(warn('profiles', `${unparsedProcess.length} process temperature cells were not parsed: ${unparsedProcess.slice(0, 10).join(' | ')}`));
+    issues.push(warn('PARSE-UNREAD', 'profiles', `${unparsedProcess.length} process temperature cells were not parsed: ${unparsedProcess.slice(0, 10).join(' | ')}`));
   }
   const unmappedTopics = [...new Set(db.evidence.filter((e) => !e.category).map((e) => e.topic))];
   if (unmappedTopics.length) {
-    issues.push(err('evidence', `Topics with no mapping in build/mappings/environment-topics.json: ${unmappedTopics.join(', ')}`));
+    issues.push(err('TOPIC-UNMAPPED', 'evidence', `Topics with no mapping in build/mappings/environment-topics.json: ${unmappedTopics.join(', ')}`));
   }
 
   // -- materials with nothing to select on ------------------------------------
   const noMeasurements = db.materials.filter((m) => !m.familyEntry && !db.measurements.some((x) => x.materialId === m.id));
   const families = db.materials.filter((m) => m.familyEntry);
   if (families.length) {
-    issues.push(warn('materials', `${families.length} canonical names are family entries with no product of their own and are not candidates: ${families.map((m) => `${m.name} (${m.familyEntry.members.map((x) => x.name).join(', ')})`).join('; ')}`));
+    issues.push(warn('FAMILY-ENTRIES', 'materials', `${families.length} canonical names are family entries with no product of their own and are not candidates: ${families.map((m) => `${m.name} (${m.familyEntry.members.map((x) => x.name).join(', ')})`).join('; ')}`));
   }
   if (noMeasurements.length) {
-    issues.push(warn('materials', `${noMeasurements.length} materials have no property measurements at all: ${noMeasurements.map((m) => m.name).join(', ')}`));
+    issues.push(warn('NO-MEASUREMENTS', 'materials', `${noMeasurements.length} materials have no property measurements at all: ${noMeasurements.map((m) => m.name).join(', ')}`));
   }
 
   return issues;
@@ -468,7 +470,7 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   if (errors.length) {
     L.push('## Errors');
     L.push('');
-    for (const e of errors) L.push(`- **${e.where}** — ${e.message}`);
+    for (const e of errors) L.push(`- \`${e.code}\` **${e.where}** — ${e.message}`);
     L.push('');
   }
 
@@ -477,7 +479,7 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   L.push('These are not defects. They record what the compiled database cannot support, so the');
   L.push('interface can say so rather than implying a certainty it does not have.');
   L.push('');
-  for (const w of warnings) L.push(`- **${w.where}** — ${w.message}`);
+  for (const w of warnings) L.push(`- \`${w.code}\` **${w.where}** — ${w.message}`);
   L.push('');
 
   return L.join('\n');

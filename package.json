@@ -17,10 +17,11 @@
     "data:diff": "node scripts/data/diff.mjs",
     "trace": "node scripts/trace.mjs",
     "hooks": "git config core.hooksPath .githooks",
-    "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && npm test && node scripts/audit-data.mjs",
+    "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/docs-rules.mjs --check && npm test && node scripts/audit-data.mjs",
     "data:export-xlsx": "node scripts/data/export-xlsx.mjs",
     "migration:verify": "node scripts/migrate/verify-migration.mjs",
     "migration:ledger": "node scripts/migrate/transfer-ledger.mjs",
-    "data:lint": "node scripts/data/lint.mjs"
+    "data:lint": "node scripts/data/lint.mjs",
+    "docs:rules": "node scripts/docs-rules.mjs"
   }
 }

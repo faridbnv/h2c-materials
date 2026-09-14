@@ -33,15 +33,15 @@ export function attachChamberEstimates(materials, bands = CHAMBER_BANDS) {
   const seen = new Set();
 
   for (const band of bands.bands) {
-    if (!(band.lo < band.hi)) issues.push({ level: 'error', where: 'chamber-estimates.json', message: `Band ${band.lo}-${band.hi} °C is not a range` });
-    if (!band.basis) issues.push({ level: 'error', where: 'chamber-estimates.json', message: `Band ${band.lo}-${band.hi} °C does not say where it came from` });
+    if (!(band.lo < band.hi)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber-estimates.json', message: `Band ${band.lo}-${band.hi} °C is not a range` });
+    if (!band.basis) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber-estimates.json', message: `Band ${band.lo}-${band.hi} °C does not say where it came from` });
 
     for (const name of band.materials) {
       const m = byName.get(name);
-      if (!m) { issues.push({ level: 'error', where: 'chamber-estimates.json', message: `"${name}" is not a material in the snapshot` }); continue; }
-      if (seen.has(name)) { issues.push({ level: 'error', where: 'chamber-estimates.json', message: `"${name}" is listed in more than one band` }); continue; }
+      if (!m) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber-estimates.json', message: `"${name}" is not a material in the snapshot` }); continue; }
+      if (seen.has(name)) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber-estimates.json', message: `"${name}" is listed in more than one band` }); continue; }
       seen.add(name);
-      if (m.excluded) { issues.push({ level: 'error', where: 'chamber-estimates.json', message: `"${name}" is outside the H2C scope and must not carry a band` }); continue; }
+      if (m.excluded) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber-estimates.json', message: `"${name}" is outside the H2C scope and must not carry a band` }); continue; }
 
       const guidance = m.print?.chamberGuidance?.state;
       const reason = m.print?.chamberC ? `publishes ${m.print.chamberC.min}-${m.print.chamberC.max} °C`
@@ -57,7 +57,7 @@ export function attachChamberEstimates(materials, bands = CHAMBER_BANDS) {
     }
   }
   for (const name of Object.keys(bands.noBand ?? {})) {
-    if (!byName.has(name)) issues.push({ level: 'error', where: 'chamber-estimates.json', message: `"${name}" in noBand is not a material in the snapshot` });
+    if (!byName.has(name)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber-estimates.json', message: `"${name}" in noBand is not a material in the snapshot` });
   }
   return { applied, superseded, issues };
 }

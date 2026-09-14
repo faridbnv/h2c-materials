@@ -26,7 +26,7 @@ export function compileReference(rows, issues, where = 'data/tables/reference.cs
   // Reference property key -> the headline it may be drawn against, from headline_definitions.csv.
   const axisEquivalence = Object.fromEntries(registry.headlines.filter((h) => h.referenceProperty).map((h) => [h.referenceProperty, h.key]));
   const missing = DEFAULT_SELECTION.filter((n) => !rows.some((r) => r.name === n));
-  if (missing.length) issues.push({ level: 'error', where, message: `Default reference materials not found: ${missing.join(', ')}` });
+  if (missing.length) issues.push({ level: 'error', code: 'REFERENCE-DEFAULT', where, message: `Default reference materials not found: ${missing.join(', ')}` });
 
   return {
     meta: {

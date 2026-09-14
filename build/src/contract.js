@@ -33,7 +33,7 @@ export function contractIssues({ db, reference }, { limit = 20 } = {}) {
       if (!byRecord.has(record) || depth > byRecord.get(record).depth) byRecord.set(record, { e, depth });
     }
     for (const { e } of [...byRecord.values()].slice(0, limit)) {
-      issues.push({ level: 'error', where: `${file}${e.instancePath || '/'}`, message: `${e.message}${e.params?.additionalProperty ? ` ("${e.params.additionalProperty}")` : ''} (schema/${name}.schema.json ${e.schemaPath})` });
+      issues.push({ level: 'error', code: 'CONTRACT', where: `${file}${e.instancePath || '/'}`, message: `${e.message}${e.params?.additionalProperty ? ` ("${e.params.additionalProperty}")` : ''} (schema/${name}.schema.json ${e.schemaPath})` });
     }
   }
   return issues;

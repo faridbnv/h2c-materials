@@ -37,13 +37,13 @@ export function parseAppliesTo(text, where, issues, materialRows) {
   const clauses = [];
   for (const part of String(text).split(';').map((s) => s.trim()).filter(Boolean)) {
     const m = /^([^:]+):(.+)$/.exec(part);
-    if (!m) { issues.push({ level: 'error', where, message: `Applies to "${part}" is not "Field: value | value"` }); continue; }
+    if (!m) { issues.push({ level: 'error', code: 'REGISTRY-APPLIES-TO', where, message: `Applies to "${part}" is not "Field: value | value"` }); continue; }
     const column = m[1].trim();
     const field = APPLICABILITY_FIELDS[column];
-    if (!field) { issues.push({ level: 'error', where, message: `Applies to tests "${column}"; it may test ${Object.keys(APPLICABILITY_FIELDS).join(', ')}` }); continue; }
+    if (!field) { issues.push({ level: 'error', code: 'REGISTRY-APPLIES-TO', where, message: `Applies to tests "${column}"; it may test ${Object.keys(APPLICABILITY_FIELDS).join(', ')}` }); continue; }
     const values = m[2].split('|').map((s) => s.trim()).filter(Boolean);
     const seen = new Set(materialRows.map((r) => r[column]));
-    for (const v of values) if (!seen.has(v)) issues.push({ level: 'error', where, message: `Applies to names ${column} "${v}", which no material has` });
+    for (const v of values) if (!seen.has(v)) issues.push({ level: 'error', code: 'REGISTRY-APPLIES-TO', where, message: `Applies to names ${column} "${v}", which no material has` });
     clauses.push({ column, field, values });
   }
   return clauses.length ? clauses : null;
@@ -57,12 +57,12 @@ export function applies(rule, material) {
 
 export function compileRegistry(wb, issues) {
   const materialRows = wb.Materials.rows;
-  const err = (where, message) => issues.push({ level: 'error', where, message });
+  const err = (code, where, message) => issues.push({ level: 'error', code, where, message });
 
   const properties = wb['Property registry'].rows.map((r) => {
     const where = `properties ${r.Property}`;
     const appliesTo = parseAppliesTo(r['Applies to'], where, issues, materialRows);
-    if (appliesTo && !r['Not applicable reason']) err(where, 'Applies to is set, so a Not applicable reason is required');
+    if (appliesTo && !r['Not applicable reason']) err('REGISTRY-NA-REASON', where, 'Applies to is set, so a Not applicable reason is required');
     return {
       name: r.Property, domain: r.Domain, units: list(r.Units),
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
@@ -74,7 +74,7 @@ export function compileRegistry(wb, issues) {
   const headlines = wb['Headline definitions'].rows.map((r) => {
     const where = `headline_definitions ${r.HeadlineKey}`;
     const appliesTo = parseAppliesTo(r['Applies to'], where, issues, materialRows);
-    if (appliesTo && !r['Not applicable reason']) err(where, 'Applies to is set, so a Not applicable reason is required');
+    if (appliesTo && !r['Not applicable reason']) err('REGISTRY-NA-REASON', where, 'Applies to is set, so a Not applicable reason is required');
     const h = {
       key: r.HeadlineKey, kind: r.Kind, unit: r.Unit,
       valueProperties: list(r['Value properties']), relatedProperties: list(r['Related properties']),
@@ -87,18 +87,18 @@ export function compileRegistry(wb, issues) {
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
     if (h.kind === 'measurement') {
-      if (!h.valueProperties.length) err(where, 'A measurement headline needs at least one value property');
-      if (!h.evidenceGroup) err(where, 'A measurement headline needs an evidence group');
+      if (!h.valueProperties.length) err('REGISTRY-HEADLINE', where, 'A measurement headline needs at least one value property');
+      if (!h.evidenceGroup) err('REGISTRY-HEADLINE', where, 'A measurement headline needs an evidence group');
       for (const name of h.valueProperties) {
         const p = propertyByName.get(name);
-        if (p && !p.units.includes(h.unit)) err(where, `Value property ${name} is never measured in ${h.unit} (its units: ${p.units.join(', ')})`);
+        if (p && !p.units.includes(h.unit)) err('REGISTRY-HEADLINE', where, `Value property ${name} is never measured in ${h.unit} (its units: ${p.units.join(', ')})`);
       }
     } else if (h.valueProperties.length || h.relatedProperties.length) {
-      err(where, 'A price headline is not backed by measurements; its value and related properties must be Not applicable');
+      err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties must be Not applicable');
     }
     return h;
   });
-  if (headlines.filter((h) => h.kind === 'price').length > 1) err('headline_definitions', 'Only one price headline exists');
+  if (headlines.filter((h) => h.kind === 'price').length > 1) err('REGISTRY-HEADLINE', 'headline_definitions', 'Only one price headline exists');
 
   return { properties, headlines };
 }

@@ -34,9 +34,9 @@ const checks = {
   freshReferenceMatchesDist: identical(reference, JSON.parse(readFileSync('dist/reference.json'))),
   externalScriptOrStylesheet: /<(?:script\b[^>]*\bsrc|link\b[^>]*\bhref)\s*=\s*["']https?:/i.test(html),
 };
-if (!checks.freshCompileMatchesDist || !checks.htmlDatabaseMatchesDist || !checks.htmlReferenceMatchesDist || !checks.freshReferenceMatchesDist || checks.externalScriptOrStylesheet) issues.push({level:'error',where:'HTML pipeline',message:'Fresh source, compiled data or embedded data drift; or external script/style dependency'});
+if (!checks.freshCompileMatchesDist || !checks.htmlDatabaseMatchesDist || !checks.htmlReferenceMatchesDist || !checks.freshReferenceMatchesDist || checks.externalScriptOrStylesheet) issues.push({level:'error',code:'AUDIT-PARITY',where:'HTML pipeline',message:'Fresh source, compiled data or embedded data drift; or external script/style dependency'});
 for (const r of reference.materials) for (const [key, p] of Object.entries(r.properties)) {
-  if (p && (!Number.isFinite(p.min) || !Number.isFinite(p.max) || p.min > p.max)) issues.push({level:'error',where:`Reference ${r.id} ${key}`,message:'Invalid reference interval'});
+  if (p && (!Number.isFinite(p.min) || !Number.isFinite(p.max) || p.min > p.max)) issues.push({level:'error',code:'AUDIT-REFERENCE-INTERVAL',where:`Reference ${r.id} ${key}`,message:'Invalid reference interval'});
 }
 
 const rawChecks = wb.Properties.rows.map((r) => ({
@@ -51,7 +51,7 @@ for (const r of [...db.measurements, ...db.profiles, ...db.evidence]) {
   const applicable = sourceMap.get(r.sourceId)?.applicableGrades;
   if (r.gradeId?.startsWith('G') && /G\d{3}-/.test(applicable) && !(applicable.match(/G\d{3}-(?:\d+|R\d+)/g) ?? []).includes(r.gradeId)) sourceScopeMismatches.push(r.id);
 }
-if (sourceScopeMismatches.length) issues.push({level:'error',where:'source scope',message:sourceScopeMismatches.join(', ')});
+if (sourceScopeMismatches.length) issues.push({level:'error',code:'AUDIT-SOURCE-SCOPE',where:'source scope',message:sourceScopeMismatches.join(', ')});
 const sourceUsage = db.sources.map((s) => ({...s,
   checksumRecorded: /^[a-f0-9]{64}$/i.test(s.sha256 ?? ''),
   records: Object.fromEntries(['grades','measurements','profiles','evidence','prices'].map((k)=>[k,db[k].filter((r)=>r.sourceId===s.id).map((r)=>r.id)])),

@@ -53,7 +53,7 @@ async function main() {
   // change visible in the commit that makes it.
   issues.push(...checkData(join(projectRoot, 'data'), join(projectRoot, 'schema')).issues);
   if (issues.some((i) => i.level === 'error')) {
-    for (const e of issues.slice(0, 50)) console.error(`  ERROR  ${e.where}: ${e.message}`);
+    for (const e of issues.slice(0, 50)) console.error(`  ERROR  [${e.code}] ${e.where}: ${e.message}`);
     console.error('\nBuild failed: the data tables do not match their schema (npm run data:check).');
     process.exit(1);
   }
@@ -77,8 +77,8 @@ async function main() {
 
   console.log(`\nmaterials ${db.meta.counts.materials}  measurements ${db.meta.counts.measurements}  profiles ${db.meta.counts.profiles}  reference ${reference.meta.count}`);
   console.log(`errors ${errors.length}   warnings ${warnings.length}`);
-  for (const e of errors.slice(0, 20)) console.log(`  ERROR  ${e.where}: ${e.message}`);
-  for (const w of warnings.slice(0, 10)) console.log(`  warn   ${w.where}: ${w.message}`);
+  for (const e of errors.slice(0, 20)) console.log(`  ERROR  [${e.code}] ${e.where}: ${e.message}`);
+  for (const w of warnings.slice(0, 10)) console.log(`  warn   [${w.code}] ${w.where}: ${w.message}`);
   console.log(`\nreport -> build/reports/validation-report.md`);
 
   if (errors.length) {
