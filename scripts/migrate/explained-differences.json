@@ -1,0 +1,9 @@
+{
+  "note": "Every way the compiled output may differ from the branch-base baseline (.migration/baseline/*.json.gz), meta.build excluded. Each entry names the migration step that made the change and why. test/migration.test.js fails on any difference not listed here and on any entry that no longer occurs.",
+  "differences": [
+    { "step": "m01", "why": "Excel wrote this access date as a date-time; the date is the value", "path": "db.json.sources[R-POLYMAKER-WIKI-HTPLAGF].accessDate", "before": "2026-09-11 00:00:00", "after": "2026-09-11" },
+    { "step": "m01", "why": "Excel wrote this access date as a date-time; the date is the value", "path": "db.json.sources[R-STRATASYS-ULTEM9085].accessDate", "before": "2026-09-11 00:00:00", "after": "2026-09-11" },
+    { "step": "m01", "why": "Excel wrote this access date as a date-time; the date is the value", "path": "db.json.sources[R-H2C-SPECS].accessDate", "before": "2026-09-11 00:00:00", "after": "2026-09-11" },
+    { "step": "m01", "why": "Excel wrote this access date as a date-time; the date is the value", "path": "db.json.sources[R-MDPI-FATIGUE].accessDate", "before": "2026-09-11 00:00:00", "after": "2026-09-11" }
+  ]
+}

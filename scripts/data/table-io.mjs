@@ -8,7 +8,7 @@
 //
 // Rows keep their file order; appends go to the end. Nothing is deleted: retire a record instead.
 
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, writeCsv } from '../../build/src/csv.js';
@@ -16,12 +16,14 @@ import { loadSchemas, buildManifest } from '../../build/src/schema.js';
 
 export const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
-export function openTables(root = projectRoot) {
+export function openTables(root = projectRoot, { allowMissing = false } = {}) {
   const dataDir = join(root, 'data');
   const { tables: schemas } = loadSchemas(join(root, 'schema'));
   const tables = {};
   for (const name of Object.keys(schemas)) {
-    const { header, records } = readCsv(join(dataDir, 'tables', `${name}.csv`));
+    const path = join(dataDir, 'tables', `${name}.csv`);
+    if (allowMissing && !existsSync(path)) continue;
+    const { header, records } = readCsv(path);
     tables[name] = { header, rows: records.map((r) => r.values), dirty: false };
   }
   const changes = [];
@@ -69,6 +71,35 @@ export function openTables(root = projectRoot) {
       changes.push({ table: name, record: id, action: 'Added', field: null, before: null, after: null });
       return clean;
     },
+    /** Add a column after `after` (or at the end), filling each row with fill(row). Structural: update the schema too. */
+    addColumn(name, column, { after = null, fill = () => null } = {}) {
+      const t = table(name);
+      if (t.header.includes(column)) throw new Error(`${name}: column "${column}" already exists`);
+      const at = after == null ? t.header.length : t.header.indexOf(after) + 1;
+      if (after != null && at === 0) throw new Error(`${name}: no column "${after}"`);
+      t.header.splice(at, 0, column);
+      for (const r of t.rows) {
+        const v = fill(r);
+        r[column] = v == null || v === '' ? null : String(v).trim();
+      }
+      t.dirty = true;
+      changes.push({ table: name, record: '(column)', action: 'Added', field: column, before: null, after: null });
+    },
+    /** Remove a column. Only for a migration that moved its content elsewhere; data is never dropped silently. */
+    dropColumn(name, column) {
+      const t = table(name);
+      if (!t.header.includes(column)) throw new Error(`${name}: no column "${column}"`);
+      t.header = t.header.filter((h) => h !== column);
+      for (const r of t.rows) delete r[column];
+      t.dirty = true;
+      changes.push({ table: name, record: '(column)', action: 'Removed', field: column, before: null, after: null });
+    },
+    /** Create a new table. Structural: add schema/tables/<name>.schema.json in the same change. */
+    createTable(name, header, rows = []) {
+      if (tables[name]) throw new Error(`Table "${name}" already exists`);
+      tables[name] = { header: [...header], rows: rows.map((r) => Object.fromEntries(header.map((h) => [h, r[h] == null || r[h] === '' ? null : String(r[h]).trim()]))), dirty: true };
+      changes.push({ table: name, record: '(table)', action: 'Added', field: null, before: null, after: null });
+    },
     /** Next free ID for a table. For grades pass the MaterialID; `study: true` gives the next -R# grade. */
     nextId(name, { materialId, study = false } = {}) {
       return nextId(name, table(name).rows.map((r) => r[pkOf(name)]), { materialId, study });
@@ -80,6 +111,7 @@ export function openTables(root = projectRoot) {
         t.dirty = false;
       }
       const parsed = Object.fromEntries(Object.keys(tables).map((n) => [n, readCsv(join(dataDir, 'tables', `${n}.csv`))]));
+      // A table can exist without a schema only mid-migration; every committed table has one.
       writeFileSync(join(dataDir, 'manifest.json'), JSON.stringify(buildManifest(dataDir, parsed), null, 2) + '\n');
       return api.changes();
     },

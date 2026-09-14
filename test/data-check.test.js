@@ -108,7 +108,7 @@ test('scripted edits refuse to overwrite data that moved, and never duplicate a 
   const dir = copy();
   try {
     const t = openTables(dir);
-    assert.throws(() => t.set('measurements', 'V000384', 'Normalized value', '2', { expect: '9.99' }), /expected "9\.99", found "1\.40"; the data moved/);
+    assert.throws(() => t.set('measurements', 'V000384', 'Normalized value', '2', { expect: '9.99' }), /expected "9\.99", found "1\.4"; the data moved/);
     assert.throws(() => t.append('coverage', { CoverageID: 'C00002' }), /CoverageID C00002 already exists/);
     assert.throws(() => t.append('coverage', { CoverageID: 'C99999', Reviewer: 'x' }), /unknown columns Reviewer/);
     assert.equal(t.changes().length, 0);

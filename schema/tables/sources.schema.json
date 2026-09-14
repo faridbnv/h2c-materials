@@ -54,12 +54,11 @@
     },
     {
       "name": "Access date",
-      "type": "string",
+      "type": "date",
       "role": "raw",
-      "description": "Date the source was retrieved.",
+      "description": "Date the source was retrieved (YYYY-MM-DD).",
       "constraints": {
-        "required": true,
-        "pattern": "^\\d{4}-\\d{2}-\\d{2}( 00:00:00)?$"
+        "required": true
       }
     },
     {

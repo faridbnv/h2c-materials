@@ -153,8 +153,7 @@
         "TRUE"
       ],
       "falseValues": [
-        "FALSE",
-        "0"
+        "FALSE"
       ],
       "constraints": {
         "required": true
@@ -234,12 +233,11 @@
     },
     {
       "name": "Access date",
-      "type": "string",
+      "type": "date",
       "role": "raw",
       "description": "Date the listing was read.",
       "constraints": {
-        "required": true,
-        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        "required": true
       }
     },
     {

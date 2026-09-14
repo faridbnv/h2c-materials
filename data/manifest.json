@@ -3,7 +3,7 @@
   "tables": {
     "materials": {
       "rows": 102,
-      "sha256": "d767c6f74b8b5c47ebb772c1432dc4043cf260367952516dbb74d033933478b8"
+      "sha256": "0afb640aa81a63430a7dad9a43a354fbdadb9ee59df3578492ab8e3eb028ad23"
     },
     "grades": {
       "rows": 155,
@@ -15,19 +15,19 @@
     },
     "measurements": {
       "rows": 2049,
-      "sha256": "d0cd8596dd9f92808c770042bbc7685a880e55ec12bf4b45d49a6c6ce7346770"
+      "sha256": "d155253a5e83347e52aec3698f9e0a391d73140834034a8794d4ab653aafedd2"
     },
     "evidence": {
       "rows": 478,
-      "sha256": "c87fc45f14fb1e03666f6b8fb0b735cd2d8e3d4846e361e9a4bf50b721ebef49"
+      "sha256": "742c99eec1d50308116de86ac191e7473c35d0ef405998a6f9ac9451d1c20595"
     },
     "prices": {
       "rows": 104,
-      "sha256": "3c75cdd91dbb7f0e4eee5ff9b0f5521c05bc5cd3a1b1e040c84b63c5fae56795"
+      "sha256": "891992f285c6d186f8045c2b4698d0de0ecb18af93690aa6726cc5dcf363a24f"
     },
     "sources": {
       "rows": 243,
-      "sha256": "c82dbe3a5b5e5b69f2b6228ccc45c1da3065ee08c81ea4e34636c7c7d2f62f9f"
+      "sha256": "62d2b2d69075fea51503bc5f20141c0cf5d69811795929adeb23ff773a5aca9d"
     },
     "coverage": {
       "rows": 1188,

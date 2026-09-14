@@ -18,3 +18,5 @@ build/reports/data-audit/
 !.migration/baseline/
 .migration/baseline/*
 !.migration/baseline/HASHES.json
+!.migration/baseline/db.json.gz
+!.migration/baseline/reference.json.gz

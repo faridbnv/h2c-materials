@@ -1,5 +1,5 @@
 {
-  "note": "Converted from the workbooks below by scripts/migrate/dump-workbook.mjs. The workbooks are retired; their history is in git.",
+  "note": "Converted from the workbooks below by scripts/migrate/dump-workbook.mjs, then scripts/migrate/m*.mjs in order. The workbooks are retired; their history is in git.",
   "workbook": {
     "file": "data/H2C_FDM_Material_Database.xlsx",
     "sha256": "3269c825ba8c960bdf08d9c402c2886be2c6d20fd75adbf0263a4108d7fbf861"
