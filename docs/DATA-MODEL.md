@@ -222,6 +222,12 @@ or `poor`, by per-property width thresholds), every piece of its own evidence wi
 and the reason for the conversion, the soft limits applied, `sharedWith` where its representative
 product is filed under another material (both then show one estimate), and `canScreen`.
 
+**Unstated heat loads.** A heat deflection headline whose source names no load was measured at
+0.45 MPa or at 1.8 MPa, so its 0.45 MPa value lies between the value and the value plus the largest
+(95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer (34 grades), 37 °C
+for a fibre-filled semicrystalline one. `hdt045.loadBracket` carries it. It never passes a requirement;
+in Explore with estimates on, a requirement the whole bracket fails screens the material out.
+
 **Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
 reason. Heat deflection of an elastomer and any value of a support product are not applicable unless
 the material's own sources publish one. On this snapshot: 93 estimates (54 from the grade's own related

@@ -200,7 +200,7 @@ export function renderTable(host, state, actions) {
     anyRelated ? `<span class="lg"><span class="related-mark">*</span> a measurement that was never made the headline. Hover for why.</span>` : '',
     anyEstimate ? `<span class="lg"><span class="est-mark">\u2020</span> an estimate: the likely range, not a measurement. Hover it for what it rests on.</span>` : '',
     anyNotApplicable ? `<span class="lg"><span class="na">n/a</span> not applicable, such as heat deflection of an elastomer.</span>` : '',
-    anyLoad ? `<span class="lg"><span class="load-mark">?</span> heat test load not stated, so it can neither pass nor fail a heat requirement outright.</span>` : '',
+    anyLoad ? `<span class="lg"><span class="load-mark">?</span> heat test load not stated, so it never passes a heat requirement; with estimates on, one far above it screens the material out.</span>` : '',
   ].filter(Boolean).join('');
 
   // Hits the filters removed. A search that finds nothing because the requirements already

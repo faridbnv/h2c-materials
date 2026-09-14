@@ -130,7 +130,11 @@ set in plain language.
 An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
 only when its wider plausible (95%) range wholly fails the requirement, only when it rests on the
 material's own evidence or an identity measured on at least two products, and never when one of the
-material's own measurements of that property could meet the requirement (DECISIONS D43). A property
+material's own measurements of that property could meet the requirement (DECISIONS D43). A resin
+supplier's moulded value is not one of those measurements and vetoes nothing. A heat value whose load
+the source never stated never passes a heat requirement, and it is bracketed rather than open-ended:
+PLA Lite's 53 °C means 53 to about 63 °C at 0.45 MPa, so with estimates on it is screened out of
+"at least 100 °C". A property
 that is not applicable (`n/a`), such as heat deflection of an elastomer, screens the same way. A
 screened material's result is still UNKNOWN and it is counted there; the Why excluded tab says how
 many each requirement screened.

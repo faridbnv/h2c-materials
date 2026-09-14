@@ -140,14 +140,23 @@ function evaluateNumeric(material, c, ctx = {}) {
     reason = `Published ${fmt(h.value)} ${h.unit}`;
     if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
   }
-  // A headline whose load was never stated cannot back a load-specific thermal claim outright.
+  // A headline whose load was never stated cannot back a load-specific thermal claim outright. It is
+  // not unbounded either: measured at 0.45 or 1.8 MPa, the 0.45 MPa value lies in a bracket whose top
+  // is the largest load gap its matrix shows (build/src/estimates.js). That top is inference, so it
+  // decides only what an estimate may: in Explore with estimates on, a requirement the whole bracket
+  // fails screens the material out, and the verdict stays INDETERMINATE (D26, D43).
   if (c.property === 'hdt045' && h.loadStated === false) {
+    const b = h.loadBracket;
+    const bracket = b ? compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, c.operator, c.value) : null;
+    const screened = !!(ctx.useEstimates && bracket === STATUS.FAIL);
     return {
       status: STATUS.INDETERMINATE,
-      reason: `${reason}, but the source states the standard without the load`,
+      reason: b
+        ? `${reason}, but the source states the standard without the load, so at 0.45 MPa it is ${fmt(b.lo)} to ${fmt(b.hi)} ${h.unit}${bracket === STATUS.FAIL ? `, which cannot meet this requirement${screened ? '. Screened out; the load is not stated' : ''}` : ''}`
+        : `${reason}, but the source states the standard without the load`,
       criterion: label, observed: h.value, unit: h.unit,
       measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
-      caveat: 'load-not-stated',
+      caveat: 'load-not-stated', loadBracket: b ?? null, screened, vetoedBy: [],
     };
   }
 

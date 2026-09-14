@@ -230,6 +230,23 @@ test('the plausible range decides a screen, not the narrower likely range the re
   assert.equal(evaluateMaterial(m, [elongation(70)], explore).screened, true);
 });
 
+// Regression: PLA Lite (53 °C, load not stated) stayed a candidate for "heat resistance at least 100 °C",
+// because a value at an unstated load was treated as bounded below only.
+test('an unstated-load heat value is bracketed: a requirement above the bracket screens, never fails', () => {
+  const pla = { id: 'L', excluded: false, gates: {}, headline: { hdt045: { known: true, value: 53, unit: '°C',
+    interval: { lo: 53, hi: 53, kind: 'point' }, loadStated: false, loadBracket: { lo: 53, hi: 62.7, unit: '°C' } } } };
+  const hdt = (value, operator = '>=') => ({ kind: 'numeric', property: 'hdt045', operator, value });
+  const far = evaluateMaterial(pla, [hdt(100)], explore);
+  assert.equal(far.verdict, STATUS.UNKNOWN, 'inference never becomes a FAIL');
+  assert.equal(far.screened, true);
+  assert.match(far.results[0].reason, /53 to 62\.7 °C, which cannot meet this requirement/);
+  // Inside the bracket it stays unresolved and visible; without estimates nothing is screened.
+  assert.equal(evaluateMaterial(pla, [hdt(60)], explore).screened, false);
+  assert.equal(evaluateMaterial(pla, [hdt(100)], { unknownPolicy: UNKNOWN_POLICY.EXPLORATION }).screened, false);
+  // It never passes, even below its own value.
+  assert.equal(evaluateConstraint(pla, hdt(50), explore).status, STATUS.INDETERMINATE);
+});
+
 test('not applicable holds a material out of Explore and never passes, and is silent without estimates', () => {
   const tpu = { id: 'T', excluded: false, gates: {}, headline: { hdt045: { known: false, missing: 'not-published', unit: '°C',
     notApplicable: { reason: 'Heat deflection is a rigid-bar test' } } } };

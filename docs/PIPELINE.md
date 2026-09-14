@@ -184,7 +184,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 125 tests
+npm test                         # 131 tests
 open dist/H2C_Material_Selector_2026-09-13.html
 ```
 

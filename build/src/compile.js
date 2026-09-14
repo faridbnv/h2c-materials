@@ -424,7 +424,11 @@ function relatedEvidence(mat, key, measurementsByMaterial) {
     best,
     // Every related interval, not only the ten listed. An estimate may not screen a material out of a
     // requirement that any of its own measurements of this property could meet (engine, D42).
-    intervals: sorted.map((i) => ({ measurementId: i.measurementId, lo: i.interval?.lo ?? null, hi: i.interval?.hi ?? null })),
+    // A resin supplier's moulded value is not a measurement of this material's filament, so it vetoes
+    // nothing; the estimate already carries it through the moulded conversion. Zytel 101L's 3.1 GPa
+    // once kept PA66 among candidates for "stiffness at least 3 GPa".
+    intervals: sorted.filter((i) => !i.specimenType?.startsWith('Raw material'))
+      .map((i) => ({ measurementId: i.measurementId, lo: i.interval?.lo ?? null, hi: i.interval?.hi ?? null })),
     grades: new Set(items.map((i) => i.gradeId)).size,
     unit: best.unit,
     items: sorted.slice(0, 10),

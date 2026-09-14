@@ -21,7 +21,7 @@ Three places, in the order to try them.
    errors, so the reason usually sits directly above the code.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D44, each saying what would break if it were
    reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[audits/](audits/).** Ten audit passes so far, each in its own dated folder: the report as it was
+3. **[audits/](audits/).** Eleven audit passes so far, each in its own dated folder: the report as it was
    delivered, and the outcome of every finding.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it

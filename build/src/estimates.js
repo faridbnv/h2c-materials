@@ -550,6 +550,23 @@ export function buildEstimates(materials, { grades = [], measurements = [] } = {
       conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs }])),
     };
 
+    // A heat deflection value whose load the source never stated was measured at 0.45 MPa or at 1.8 MPa.
+    // At 0.45 MPa it is the value; at 1.8 MPa the 0.45 MPa value lies above it by the gap this matrix
+    // shows between the two loads. So the 0.45 MPa value is bracketed, not merely bounded below: PLA
+    // Lite's 53 °C means 53 to about 63 °C, not "53 or anything above". Treated as unbounded, it kept a
+    // PLA among candidates for "heat resistance at least 100 °C".
+    if (key === 'hdt045') {
+      for (const m of S.pool) {
+        const h = m.headline.hdt045;
+        const c = conv[`HDT 1.8 ${S.matrix(m)}`];
+        if (!h?.known || h.loadStated !== false || !c) continue;
+        h.loadBracket = {
+          lo: h.value, hi: sig3(h.value + c.offset + zPlausible * c.sd, 1), unit: h.unit,
+          why: `at 0.45 MPa the value itself; at 1.8 MPa up to ${sig3(c.offset + zPlausible * c.sd, 1)} °C lower than the 0.45 MPa value, the ${Math.round(plausible * 100)}% gap ${c.pairs} ${S.matrix(m)} grades publishing both loads show`,
+        };
+      }
+    }
+
     // Identities measured on at least this many products may screen without the material's own evidence.
     const identityProducts = new Map();
     for (const o of obs) { const id = identityOf(o.m); if (!identityProducts.has(id)) identityProducts.set(id, new Set()); identityProducts.get(id).add(o.f); }

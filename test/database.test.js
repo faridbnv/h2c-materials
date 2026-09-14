@@ -236,6 +236,26 @@ test('mis-filed products moved to the material they are, with everything recorde
   assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 147, evidence: 16 });
 });
 
+test('an unstated-load heat headline carries a bracket from its matrix\'s load gap', () => {
+  const b = byName('PLA Lite').headline.hdt045.loadBracket;
+  assert.equal(b.lo, 53);
+  assert.ok(b.hi > 55 && b.hi < 75, `PLA Lite bracket ${b.lo}-${b.hi}`);
+  for (const m of db.materials.filter((x) => !x.excluded && !x.familyEntry && x.headline.hdt045?.known)) {
+    assert.equal(!!m.headline.hdt045.loadBracket, m.headline.hdt045.loadStated === false, m.name);
+  }
+});
+
+// Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".
+test('a resin reference never vetoes a screen: related intervals are the filament\'s own', () => {
+  for (const m of db.materials) {
+    for (const h of Object.values(m.headline)) {
+      for (const i of h?.related?.intervals ?? []) {
+        assert.ok(!db.measurements.find((x) => x.id === i.measurementId)?.specimenType?.startsWith('Raw material'), `${m.name} ${i.measurementId}`);
+      }
+    }
+  }
+});
+
 test('the validator rejects a family entry that owns a product or that the mapping does not describe', () => {
   assert.ok(errorsFor((c) => { mat(c, 'PA-CF').familyEntry = null; mat(c, 'PA-CF').headline.density = { known: false, missing: 'not-published' }; }).some((e) => /no value, no estimate/.test(e)));
 });
