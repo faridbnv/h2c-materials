@@ -9,32 +9,9 @@
 // it. Nothing is dumbed down, only ordered: the reader gets the meaning first and the standard
 // second.
 
-export const PROPERTY = {
-  density: {
-    short: 'Density', plain: 'Density', technical: 'Density', unit: 'kg/m³',
-    hint: 'how heavy a printed part will be', better: 'min',
-  },
-  tensileModulusXY: {
-    short: 'Stiffness', plain: 'Stiffness', technical: 'Tensile modulus, XY direction', unit: 'GPa',
-    hint: 'resistance to bending and stretching', better: 'max',
-  },
-  tensileStrengthXY: {
-    short: 'Strength', plain: 'Strength', technical: 'Tensile strength, XY direction', unit: 'MPa',
-    hint: 'load it takes before failing', better: 'max',
-  },
-  elongationXY: {
-    short: 'Stretch', plain: 'Stretch before breaking', technical: 'Elongation at break, XY direction', unit: '%',
-    hint: 'how far it stretches before it snaps; not the same as springing back or toughness', better: 'max',
-  },
-  hdt045: {
-    short: 'Heat', plain: 'Heat resistance', technical: 'HDT at 0.45 MPa', unit: '°C',
-    hint: 'temperature where it starts to soften under load', better: 'max',
-  },
-  priceCADkg: {
-    short: 'Price', plain: 'Price', technical: 'Median Canadian retail price', unit: 'CAD/kg',
-    hint: 'sampled Canadian retail, not live', better: 'min',
-  },
-};
+// Filled from the database's registry at start-up (registry.js, useRegistry): one row per headline in
+// data/tables/headline_definitions.csv supplies short, plain, technical, unit, hint and better.
+export const PROPERTY = {};
 
 export const prop = (key) => PROPERTY[key] ?? { short: key, plain: key, technical: key, unit: '', hint: '' };
 

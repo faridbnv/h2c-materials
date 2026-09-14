@@ -8,6 +8,7 @@
 import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { renderWhy } from './explain.js';
 import { materialName, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION } from './labels.js';
+import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
 /** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
@@ -23,12 +24,10 @@ const sourceLink = (url) => /^https?:\/\//i.test(url ?? '')
   ? `<a href="${esc(url)}" target="_blank" rel="noopener" title="Opens the original source in a new tab. Needs an internet connection.">${esc(url)}</a>`
   : esc(url ?? '');
 
-const MECHANICAL = ['Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength',
-  'Tensile break strength', 'Elongation at break', 'Elongation at yield', 'Flexural modulus',
-  'Flexural strength', 'Charpy strength', 'Izod strength', 'Impact strength', 'Compression strength',
-  'Interlayer adhesion strength', 'Hardness', 'Fatigue life'];
-const THERMAL = ['HDT', 'Glass transition temperature', 'Vicat softening temperature',
-  'Melting temperature', 'Crystallization temperature', 'Coefficient of thermal expansion', 'Thermal conductivity'];
+// The Mechanical and Thermal tabs list the registry's properties in those domains (properties.csv),
+// the same classification coverage uses. A property that applies only to some materials is listed
+// only for them, so a PLA is never told it has "not measured" an elastomer's Shore hardness.
+const tabProperties = (tab, m) => propertiesInDomain(tab === 'Mechanical' ? 'mechanical' : 'thermal').filter((p) => propertyApplies(p, m));
 
 const COVERAGE_FOR_TAB = {
   Mechanical: ['Mechanical', 'Sparse properties'],
@@ -196,8 +195,8 @@ export function renderDrawer(host, state, actions) {
 
   const counts = {
     Overview: null,
-    Mechanical: ms.filter((x) => MECHANICAL.includes(x.property)).length,
-    Thermal: ms.filter((x) => THERMAL.includes(x.property)).length,
+    Mechanical: ms.filter((x) => tabProperties('Mechanical', m).includes(x.property)).length,
+    Thermal: ms.filter((x) => tabProperties('Thermal', m).includes(x.property)).length,
     Printing: profiles.length,
     Environment: ev.filter((e) => e.filterable).length,
     Grades: grades.length,
@@ -251,14 +250,8 @@ function tabBody(tab, c) {
   const covFor = (t) => cov.filter((r) => (COVERAGE_FOR_TAB[t] ?? []).includes(r.domain));
 
   if (tab === 'Overview') {
-    const HEAD = [
-      ['Density', 'density', 'how heavy a printed part will be'],
-      ['Stiffness', 'tensileModulusXY', 'resistance to bending and stretching'],
-      ['Strength', 'tensileStrengthXY', 'load it takes before failing'],
-      ['Stretch before breaking', 'elongationXY', 'high means tough, low means brittle'],
-      ['Heat resistance', 'hdt045', 'temperature where it starts to soften under load'],
-      ['Price', 'priceCADkg', 'sampled Canadian retail'],
-    ];
+    // Every headline, labelled and explained exactly as the filter rail and the table label it.
+    const HEAD = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint]);
 
     // The section that answers "can I print this" now also answers "what do I set it to". The
     // numbers were one tab away, which is one tab too many for the first question anyone asks.
@@ -364,7 +357,7 @@ function tabBody(tab, c) {
   }
 
   if (tab === 'Mechanical' || tab === 'Thermal') {
-    const list = tab === 'Mechanical' ? MECHANICAL : THERMAL;
+    const list = tabProperties(tab, m);
     const rows = ms.filter((x) => list.includes(x.property));
     const present = new Set(rows.map((r) => r.property));
     const absent = list.filter((p) => !present.has(p));

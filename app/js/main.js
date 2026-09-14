@@ -18,6 +18,7 @@ import { esc } from './ui/format.js';
 import { TEMPLATES } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive } from './ui/start.js';
 import { setEnvironmentLabels } from './ui/labels.js';
+import { useRegistry } from './ui/registry.js';
 
 /**
  * Which verdicts a policy shows by default. Strict shows what passed; Explore also shows what
@@ -626,6 +627,7 @@ function renderScenario(host) {
   state.reference = reference;
   state.ctx = buildContext(db);
   setEnvironmentLabels(db.meta.environmentCategories);
+  useRegistry(db.registry);
   let linkProblem = null;
   let fromLink = null;
   try {

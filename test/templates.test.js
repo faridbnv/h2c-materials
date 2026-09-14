@@ -10,12 +10,14 @@ import { runSelection } from '../app/js/engine/constraints.js';
 import { validateScenario } from '../app/js/engine/scenario.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 import { toCSV } from '../app/js/ui/table.js';
+import { useRegistry } from '../app/js/ui/registry.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 let db, ctx;
 
 before(() => {
   db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
+  useRegistry(db.registry); // as app/js/main.js does on start-up
   const group = (rows) => {
     const m = new Map();
     for (const r of rows) { if (!m.has(r.materialId)) m.set(r.materialId, []); m.get(r.materialId).push(r); }

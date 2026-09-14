@@ -3,35 +3,9 @@
 //
 // `measurement` maps an axis onto the raw Properties rows, for the evidence plot mode. An axis
 // with no measurement mapping (price) simply cannot be drawn at measurement level.
-export const AXIS_DEFS = [
-  {
-    key: 'density', label: 'Density', unit: 'kg/m³', better: 'min',
-    measurement: { properties: ['Density'], direction: null },
-  },
-  {
-    key: 'tensileModulusXY', label: 'Tensile modulus XY', unit: 'GPa', better: 'max',
-    measurement: { properties: ['Tensile modulus'], direction: 'XY' },
-  },
-  {
-    key: 'tensileStrengthXY', label: 'Tensile strength XY', unit: 'MPa', better: 'max',
-    measurement: {
-      properties: ['Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength'],
-      direction: 'XY',
-    },
-  },
-  {
-    key: 'elongationXY', label: 'Elongation at break XY', unit: '%', better: 'max',
-    measurement: { properties: ['Elongation at break'], direction: 'XY' },
-  },
-  {
-    key: 'hdt045', label: 'HDT at 0.45 MPa', unit: '°C', better: 'max',
-    measurement: { properties: ['HDT'], direction: null, loadMPa: 0.45 },
-  },
-  {
-    key: 'priceCADkg', label: 'Price', unit: 'CAD/kg', better: 'min',
-    measurement: null,
-  },
-];
+// Filled from the registry at start-up (registry.js, useRegistry): every headline, with its axis label,
+// unit, Pareto direction, and the value properties, direction and load that map it onto measurements.
+export const AXIS_DEFS = [];
 
 export const axisByKey = (k) => AXIS_DEFS.find((a) => a.key === k) ?? AXIS_DEFS[0];
 

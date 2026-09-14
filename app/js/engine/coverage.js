@@ -68,11 +68,14 @@ export function evidenceSummary(material, { measurements, evidence, coverage, gr
   };
 }
 
-/** Data-availability count for one headline key, for the filter rail's inline label. */
+/**
+ * Data-availability count for one headline key, for the filter rail's inline label. A headline limited
+ * to some materials by the registry counts only those: "3 of 8 have data", not "3 of 102".
+ */
 export function availability(materials, key) {
-  const withData = materials.filter((m) => m.headline?.[key]?.known).length;
-  const caveats = key === 'hdt045'
-    ? materials.filter((m) => m.headline?.hdt045?.known && m.headline.hdt045.loadStated === false).length
-    : 0;
-  return { withData, total: materials.length, caveats };
+  const scoped = materials.filter((m) => !m.headline?.[key]?.notApplicable?.rule);
+  const withData = scoped.filter((m) => m.headline?.[key]?.known).length;
+  // A value measured at an unstated load, for a headline defined at a load (HDT at 0.45 MPa).
+  const caveats = scoped.filter((m) => m.headline?.[key]?.known && m.headline[key].loadStated === false).length;
+  return { withData, total: scoped.length, caveats, notApplicable: materials.length - scoped.length };
 }

@@ -11,6 +11,7 @@
 import { availability } from '../engine/coverage.js';
 import { esc } from './format.js';
 import { prop, envLabel, envNoun } from './labels.js';
+import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 
 // Labels come from the one vocabulary. The rail used to speak materials science on its own
 // ("Tensile modulus XY", "HDT at 0.45 MPa") while the detail drawer three clicks away said
@@ -19,14 +20,7 @@ import { prop, envLabel, envNoun } from './labels.js';
 // No placeholder numbers. Grey 1400 and 100 sitting in the boxes read as applied settings, which
 // they were not, and an applied value looked almost identical. The example lives in the helper
 // line where it cannot be mistaken for a constraint.
-const NUMERIC = [
-  { group: 'Mechanical', key: 'density',           op: '<=', eg: 'e.g. 1400 for something light' },
-  { group: 'Mechanical', key: 'tensileModulusXY',  op: '>=', eg: 'e.g. 3, about as stiff as unfilled PLA' },
-  { group: 'Mechanical', key: 'tensileStrengthXY', op: '>=', eg: 'e.g. 50 for a load-bearing part' },
-  { group: 'Mechanical', key: 'elongationXY',      op: '>=', eg: 'e.g. 100 or more for anything rubbery' },
-  { group: 'Thermal',    key: 'hdt045',            op: '>=', eg: 'e.g. 100 to survive a hot car' },
-  { group: 'Cost',       key: 'priceCADkg',        op: '<=', eg: 'e.g. 60 per kilogram' },
-];
+// The numeric filters come from the registry (headline_definitions.csv: filter group, operator, example).
 
 // Ordered by how often a criterion actually decides something. Mechanical and thermal properties
 // carry the decision; compatibility sits last because for this database it mostly cannot
@@ -45,9 +39,6 @@ const OP_WORD = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'les
 
 const find = (cs, pred) => cs.find(pred) ?? null;
 
-// Properties that cannot be negative. A negative density or price was accepted as a real
-// requirement and silently emptied the list.
-const NON_NEGATIVE = new Set(['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'priceCADkg']);
 
 // Interface state that must survive a re-render. The rail is rebuilt from the scenario on every
 // change, which used to snap every group back to its default and drop keyboard focus, and an
@@ -157,13 +148,15 @@ function body(group, materials, cs, db) {
       evidence rather than as filters that would pass everything.</div>`);
   }
 
-  for (const f of NUMERIC.filter((x) => x.group === group)) {
+  for (const f of numericFilters().filter((x) => x.group === group)) {
     const c = find(cs, (x) => x.property === f.key);
     const a = availability(materials, f.key);
     const P = prop(f.key);
-    const extra = f.key === 'hdt045' && a.caveats
+    const def = headlineDef(f.key);
+    const extra = a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
-      : f.key === 'priceCADkg' ? `Three Canadian retailers, sampled ${db.meta.pricesSampled ?? db.meta.snapshot}` : null;
+      : def?.kind === 'price' ? `Three Canadian retailers, sampled ${db.meta.pricesSampled ?? db.meta.snapshot}`
+      : def?.appliesTo ? `Applies only to ${def.appliesToText.replace(/:/g, ' ')}; ${a.notApplicable} other material${a.notApplicable === 1 ? '' : 's'} are not applicable` : null;
     out.push(`<div class="control" data-active="${!!c}">
       <label title="${esc(P.technical)}">${esc(P.plain)}</label>
       <div class="sub-label">${esc(P.hint)}</div>
@@ -173,7 +166,7 @@ function body(group, materials, cs, db) {
           ${['>=', '<=', '>', '<'].map((o) => `<option value="${o}" ${(c?.operator ?? draftOps.get(f.key) ?? f.op) === o ? 'selected' : ''}>${esc(OP_WORD[o])}</option>`).join('')}
         </select>
         <input type="number" step="any" data-value-for="${f.key}" value="${c ? c.value : ''}"
-          ${NON_NEGATIVE.has(f.key) ? 'min="0"' : ''} aria-label="${esc(P.plain)} value"
+          ${nonNegativeKeys().has(f.key) ? 'min="0"' : ''} aria-label="${esc(P.plain)} value"
           aria-describedby="err-${f.key}">
         <span class="unit">${esc(P.unit)}</span>
         ${c ? `<button class="icon-btn clear" data-clear="${f.key}" title="Remove the ${esc(P.plain.toLowerCase())} requirement" aria-label="Remove the ${esc(P.plain.toLowerCase())} requirement">✕</button>` : ''}
@@ -321,7 +314,7 @@ function wire(host, state, actions) {
     const opEl = host.querySelector(`[data-op-for="${key}"]`);
     const vEl = host.querySelector(`[data-value-for="${key}"]`);
     const errEl = host.querySelector(`#err-${key}`);
-    const def = NUMERIC.find((f) => f.key === key);
+    const def = numericFilters().find((f) => f.key === key);
     const raw = vEl.value.trim();
     const existing = find(cs(), (c) => c.property === key);
     draftOps.set(key, opEl.value);
@@ -330,7 +323,7 @@ function wire(host, state, actions) {
     // the requirement because the box could not be read.
     const problem = vEl.validity.badInput ? 'Enter a number.'
       : raw !== '' && !Number.isFinite(Number(raw)) ? 'Enter a number.'
-      : raw !== '' && NON_NEGATIVE.has(key) && Number(raw) < 0 ? `${prop(key).plain} cannot be negative.`
+      : raw !== '' && nonNegativeKeys().has(key) && Number(raw) < 0 ? `${prop(key).plain} cannot be negative.`
       : null;
     errEl.hidden = !problem;
     errEl.textContent = problem ?? '';

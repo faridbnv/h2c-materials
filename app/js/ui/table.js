@@ -9,6 +9,7 @@
 
 import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { prop, materialName, describeConstraint, CHAMBER_GUIDANCE } from './labels.js';
+import { exportHeadlines, tableHeadlines } from './registry.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -19,17 +20,21 @@ export const COLUMN_SETS = {
   properties: {
     label: 'Properties',
     help: 'What the material is like',
-    columns: [
-      { key: 'name', label: 'Material', kind: 'name', width: '20%' },
-      { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
-      P('density', { width: '11%' }),
-      P('tensileModulusXY', { width: '11%' }),
-      P('tensileStrengthXY', { width: '11%' }),
-      P('elongationXY', { width: '11%' }),
-      P('hdt045', { width: '11%' }),
-      { key: 'priceCADkg', label: 'Price', unit: 'CAD/kg', kind: 'price', width: '12%' },
-      { key: 'pin', label: 'Shortlist', kind: 'pin', width: '72px' },
-    ],
+    // Headline columns come from the registry (headline_definitions.csv, Table column). Up to five
+    // measured columns keep their 11%; more share the same width.
+    get columns() {
+      const heads = tableHeadlines();
+      const measured = heads.filter((h) => h.kind === 'measurement');
+      const width = measured.length <= 5 ? '11%' : `${Math.floor((55 / measured.length) * 10) / 10}%`;
+      return [
+        { key: 'name', label: 'Material', kind: 'name', width: '20%' },
+        { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
+        ...heads.map((h) => (h.kind === 'price'
+          ? { key: h.key, label: prop(h.key).short, unit: prop(h.key).unit, kind: 'price', width: '12%' }
+          : P(h.key, { width }))),
+        { key: 'pin', label: 'Shortlist', kind: 'pin', width: '72px' },
+      ];
+    },
   },
   printing: {
     label: 'Printing',
@@ -184,8 +189,7 @@ export function renderTable(host, state, actions) {
         title="Reference only. Not a candidate and not counted.">${cells(baseline, null, { ghost: true })}</tr>`
     : '';
 
-  const anyLoad = COLUMNS.some((c) => c.key === 'hdt045')
-    && sorted.some(({ material: m }) => m.headline.hdt045?.known && m.headline.hdt045.loadStated === false);
+  const anyLoad = sorted.some(({ material: m }) => COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key]?.known && m.headline[c.key].loadStated === false));
   const anyRelated = sorted.some(({ material: m }) =>
     COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known && m.headline[c.key].related));
   const anyEstimate = state.ctx?.showEstimates && sorted.some(({ material: m }) =>
@@ -305,7 +309,7 @@ export function renderTable(host, state, actions) {
 export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State', 'In results',
     'Failed', 'Could not be checked',
-    'Density kg/m3', 'Stiffness GPa', 'Strength MPa', 'Stretch %', 'Heat resistance C', 'Price CAD/kg',
+    ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
     ...(useEstimates ? ['Estimated fields', 'Screened by estimate'] : [])];
@@ -313,7 +317,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
-  const KEYS = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045', 'priceCADkg'];
+  const KEYS = exportHeadlines().map((h) => h.key);
   // An exported number is always a measurement or an observed price. An estimated bound travels in
   // its own column so a spreadsheet can never mistake inference for evidence, and a scenario
   // assumption is named rather than exported as if it were measured.
@@ -331,7 +335,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     if (i && i.kind !== 'point') {
       out.push(`${k}: ${i.lo ?? 'unbounded'} to ${i.hi ?? 'unbounded'}${h.uncertainty ? ` (± ${h.uncertainty})` : ''}`);
     }
-    if (k === 'hdt045' && h.loadStated === false) out.push('hdt045: test load not stated');
+    if (h.loadStated === false) out.push(`${k}: test load not stated`);
     return out;
   }).join(' | ');
   const ids = (m) => KEYS.map((k) => m.headline[k]?.measurementId).filter(Boolean).join(' ');
