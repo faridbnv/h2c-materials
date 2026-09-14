@@ -154,7 +154,9 @@ function invertSmall(B) {
 
 // ------------------------------------------------------------------------------------ the snapshot
 
-const identityOf = (m) => (m.family === 'Polymer Blends' ? m.normalizedName : m.basePolymer);
+// A material's chemical identity in the model: its base polymer, or for a blend its own name. A material
+// whose identity has no entry in estimate-model.json identities cannot be estimated; validate.js says so.
+export const identityOf = (m) => (m.family === 'Polymer Blends' ? m.normalizedName : m.basePolymer);
 
 function snapshot(materials, gradeList, measurements, model) {
   const grades = new Map(gradeList.map((g) => [g.id, g]));
@@ -430,29 +432,49 @@ function predict(P, hp, m, f, manufacturer, hide = []) {
   const t = point(m, f, manufacturer);
   const k = new Float64Array(n);
   for (let i = 0; i < n; i++) k[i] = cov(t, pts[i], hp);
-  let A = Ki, al = alpha;
-  if (hide.length) {
-    const Binv = invertSmall(hide.map((a) => hide.map((b) => Ki[a * n + b])));
-    const hidden = new Set(hide);
-    A = new Float64Array(n * n);
-    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
-      let v = Ki[i * n + j];
-      for (let p = 0; p < hide.length; p++) for (let q = 0; q < hide.length; q++) v -= Ki[i * n + hide[p]] * Binv[p][q] * Ki[hide[q] * n + j];
-      A[i * n + j] = hidden.has(i) || hidden.has(j) ? 0 : v;
+  if (!hide.length) {
+    let mu = mean, q = 0;
+    const w = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      if (!k[i]) continue;
+      mu += k[i] * alpha[i];
+      let v = 0; for (let j = 0; j < n; j++) v += Ki[i * n + j] * k[j];
+      w[i] = v; q += k[i] * v;
     }
-    al = new Float64Array(n);
-    for (let i = 0; i < n; i++) { if (hidden.has(i)) continue; let v = 0; for (let j = 0; j < n; j++) v += A[i * n + j] * r[j]; al[i] = v; }
-    for (const i of hide) k[i] = 0;
+    return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q)), weights: w };
   }
-  let mu = mean, q = 0;
+
+  // Hiding observations H downdates the inverse: A = Ki - Ki[:,H] B^-1 Ki[H,:] with B = Ki[H,H], zero
+  // on H's rows and columns. Only A r and A k are needed, so they are computed as vectors and the n x n
+  // matrix is never formed: forming it for every calibration hold-out made calibration cubic in the
+  // number of observations (13 s of a 13.6 s compile at twice today's data).
+  const h = hide.length;
+  const hidden = new Set(hide);
+  const Binv = invertSmall(hide.map((a) => hide.map((b) => Ki[a * n + b])));
+  for (const i of hide) k[i] = 0;
+  // Ki[H_q, visible columns] against r and against k, then B^-1 applied to each.
+  const tr = new Float64Array(h), tk = new Float64Array(h);
+  for (let q = 0; q < h; q++) {
+    const row = hide[q] * n;
+    let sr = 0, sk = 0;
+    for (let j = 0; j < n; j++) { if (hidden.has(j)) continue; sr += Ki[row + j] * r[j]; sk += Ki[row + j] * k[j]; }
+    tr[q] = sr; tk[q] = sk;
+  }
+  const cr = new Float64Array(h), ck = new Float64Array(h);
+  for (let p = 0; p < h; p++) for (let q = 0; q < h; q++) { cr[p] += Binv[p][q] * tr[q]; ck[p] += Binv[p][q] * tk[q]; }
+
+  let mu = mean, q2 = 0;
   const w = new Float64Array(n);
   for (let i = 0; i < n; i++) {
     if (!k[i]) continue;
-    mu += k[i] * al[i];
-    let v = 0; for (let j = 0; j < n; j++) v += A[i * n + j] * k[j];
-    w[i] = v; q += k[i] * v;
+    const row = i * n;
+    let ar = 0, ak = 0;
+    for (let j = 0; j < n; j++) { if (hidden.has(j)) continue; ar += Ki[row + j] * r[j]; ak += Ki[row + j] * k[j]; }
+    for (let p = 0; p < h; p++) { ar -= Ki[row + hide[p]] * cr[p]; ak -= Ki[row + hide[p]] * ck[p]; }
+    mu += k[i] * ar;
+    w[i] = ak; q2 += k[i] * ak;
   }
-  return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q)), weights: w };
+  return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q2)), weights: w };
 }
 
 /** Empirical Bayes: each free spread in turn over a grid, three sweeps, above its documented floor. */

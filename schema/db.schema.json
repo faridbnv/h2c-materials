@@ -1,0 +1,1569 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pdynamics.ca/h2c-materials/db.schema.json",
+  "title": "H2C Material Selector runtime database (dist/db.json)",
+  "description": "The contract between the build and the offline application. build/src/contract.js validates every build against it; a renamed, removed, retyped or unexpected field in a record fails the build. Nested analysis objects (print summaries, gates, estimates, model diagnostics) are typed at their top level only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "materials",
+    "grades",
+    "measurements",
+    "profiles",
+    "evidence",
+    "prices",
+    "sources",
+    "coverage",
+    "method",
+    "registry"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "snapshot",
+        "build",
+        "pricesSampled",
+        "h2cBaseline",
+        "counts",
+        "environmentCategories",
+        "estimateCoverage",
+        "estimateModel",
+        "chamberEstimates",
+        "printEstimates",
+        "headlineCoverage",
+        "consistency",
+        "estimateTally"
+      ],
+      "properties": {
+        "snapshot": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "build": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "pricesSampled": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "h2cBaseline": {
+          "type": "object"
+        },
+        "counts": {
+          "type": "object"
+        },
+        "environmentCategories": {
+          "type": "object"
+        },
+        "estimateCoverage": {
+          "type": "object"
+        },
+        "estimateModel": {
+          "type": "object"
+        },
+        "chamberEstimates": {
+          "type": "object"
+        },
+        "printEstimates": {
+          "type": "object"
+        },
+        "headlineCoverage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "consistency": {
+          "type": "object"
+        },
+        "estimateTally": {
+          "type": "object"
+        }
+      }
+    },
+    "materials": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/material"
+      }
+    },
+    "grades": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "materialId",
+          "manufacturer",
+          "product",
+          "formulationKey",
+          "composition",
+          "colourCaveat",
+          "availability",
+          "certifications",
+          "rationale",
+          "sourceId",
+          "locator",
+          "diameters",
+          "retired"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^G\\d{3}-(\\d{2}|R\\d+)$"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "formulationKey": {
+            "type": "string"
+          },
+          "composition": {
+            "type": "string"
+          },
+          "colourCaveat": {
+            "type": "string"
+          },
+          "availability": {
+            "type": "string"
+          },
+          "certifications": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "diameters": {
+            "type": "string"
+          },
+          "retired": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "materialId",
+          "gradeId",
+          "property",
+          "value",
+          "unit",
+          "interval",
+          "uncertainty",
+          "operator",
+          "dataStatus",
+          "corrected",
+          "qualitative",
+          "quarantined",
+          "numeric",
+          "specimenType",
+          "direction",
+          "directionText",
+          "moisture",
+          "postProcessing",
+          "testTemperature",
+          "standardText",
+          "notch",
+          "printParameters",
+          "sourceId",
+          "locator",
+          "notes",
+          "raw"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^V\\d{6}$"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "gradeId": {
+            "type": "string"
+          },
+          "property": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "interval": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/interval"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "uncertainty": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "operator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "dataStatus": {
+            "type": "string"
+          },
+          "corrected": {
+            "type": "boolean"
+          },
+          "qualitative": {
+            "type": "boolean"
+          },
+          "quarantined": {
+            "type": "boolean"
+          },
+          "numeric": {
+            "type": "boolean"
+          },
+          "specimenType": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "directionText": {
+            "type": "string"
+          },
+          "moisture": {
+            "type": "string"
+          },
+          "postProcessing": {
+            "type": "string"
+          },
+          "testTemperature": {
+            "type": "string"
+          },
+          "standardText": {
+            "type": "string"
+          },
+          "notch": {
+            "type": "string"
+          },
+          "printParameters": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "raw": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "value",
+              "unit"
+            ],
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
+          },
+          "thermal": {
+            "type": "object"
+          },
+          "fatigue": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "materialId",
+          "gradeId",
+          "profile",
+          "nozzle",
+          "bed",
+          "chamber",
+          "gates",
+          "enclosure",
+          "enclosureState",
+          "plate",
+          "nozzleMaterial",
+          "nozzleDiameter",
+          "abrasion",
+          "drying",
+          "storageHumidity",
+          "routing",
+          "supportPairing",
+          "failureModes",
+          "sourceId",
+          "h2cSourceId",
+          "locator",
+          "retired"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^P\\d{4}$"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "gradeId": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "nozzle": {
+            "type": "object"
+          },
+          "bed": {
+            "type": "object"
+          },
+          "chamber": {
+            "type": "object"
+          },
+          "gates": {
+            "type": "object"
+          },
+          "enclosure": {
+            "type": "string"
+          },
+          "enclosureState": {
+            "type": "string"
+          },
+          "plate": {
+            "type": "string"
+          },
+          "nozzleMaterial": {
+            "type": "string"
+          },
+          "nozzleDiameter": {
+            "type": "object"
+          },
+          "abrasion": {
+            "type": "object"
+          },
+          "drying": {
+            "type": "object"
+          },
+          "storageHumidity": {
+            "type": "string"
+          },
+          "routing": {
+            "type": "object"
+          },
+          "supportPairing": {
+            "type": "string"
+          },
+          "failureModes": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "h2cSourceId": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "retired": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "materialId",
+          "gradeId",
+          "domain",
+          "topic",
+          "category",
+          "categoryLabel",
+          "filterable",
+          "strength",
+          "agent",
+          "verdict",
+          "finding",
+          "qualified",
+          "vague",
+          "exposure",
+          "rating",
+          "rubricId",
+          "evidenceType",
+          "sourceId",
+          "locator"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^Q\\d{5}$"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "gradeId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "categoryLabel": {
+            "type": "string"
+          },
+          "filterable": {
+            "type": "boolean"
+          },
+          "strength": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "agent": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verdict": {
+            "type": "string"
+          },
+          "finding": {
+            "type": "string"
+          },
+          "qualified": {
+            "type": "boolean"
+          },
+          "vague": {
+            "type": "boolean"
+          },
+          "exposure": {
+            "type": "string"
+          },
+          "rating": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "rubricId": {
+            "type": "string"
+          },
+          "evidenceType": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "prices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "materialId",
+          "gradeId",
+          "retailer",
+          "variant",
+          "packaging",
+          "netMassKg",
+          "listPrice",
+          "salePrice",
+          "regularPerKg",
+          "stock",
+          "eligibleForMedian",
+          "headlineSample",
+          "displayedPrice",
+          "currency",
+          "market",
+          "taxShipping",
+          "basis",
+          "url",
+          "sourceId",
+          "accessDate",
+          "notes",
+          "quarantined"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^CA\\d{4}$"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "gradeId": {
+            "type": "string"
+          },
+          "retailer": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          },
+          "packaging": {
+            "type": "string"
+          },
+          "netMassKg": {
+            "type": "number"
+          },
+          "listPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "salePrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "regularPerKg": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "stock": {
+            "type": "string"
+          },
+          "eligibleForMedian": {
+            "type": "boolean"
+          },
+          "headlineSample": {
+            "type": "boolean"
+          },
+          "displayedPrice": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "market": {
+            "type": "string"
+          },
+          "taxShipping": {
+            "type": "string"
+          },
+          "basis": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "accessDate": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "quarantined": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "publisher",
+          "title",
+          "revision",
+          "publicationDate",
+          "accessDate",
+          "sourceClass",
+          "url",
+          "locator",
+          "applicableGrades",
+          "accessStatus",
+          "sha256"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "publicationDate": {
+            "type": "string"
+          },
+          "accessDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "sourceClass": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "applicableGrades": {
+            "type": "string"
+          },
+          "accessStatus": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "materialId",
+          "domain",
+          "status",
+          "finding"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^C\\d{5}$"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "finding": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "method": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "topic",
+          "rule"
+        ],
+        "properties": {
+          "section": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "properties",
+        "headlines"
+      ],
+      "properties": {
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registryProperty"
+          }
+        },
+        "headlines": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/registryHeadline"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "rule": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "column",
+              "field",
+              "values"
+            ],
+            "properties": {
+              "column": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "registryProperty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "domain",
+        "units",
+        "appliesTo",
+        "appliesToText",
+        "notApplicableReason",
+        "description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "mechanical",
+            "thermal",
+            "physical"
+          ]
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "appliesTo": {
+          "$ref": "#/$defs/rule"
+        },
+        "appliesToText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notApplicableReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "registryHeadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "kind",
+        "unit",
+        "valueProperties",
+        "relatedProperties",
+        "direction",
+        "loadMPa",
+        "evidenceGroup",
+        "endpointNote",
+        "labels",
+        "better",
+        "filter",
+        "tableColumn",
+        "estimated",
+        "referenceProperty",
+        "appliesTo",
+        "appliesToText",
+        "notApplicableReason"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "measurement",
+            "price"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "valueProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relatedProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "direction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "loadMPa": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "evidenceGroup": {
+          "enum": [
+            "mechanical",
+            "thermal",
+            null
+          ]
+        },
+        "endpointNote": {
+          "type": "boolean"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "short",
+            "plain",
+            "technical",
+            "hint",
+            "axis",
+            "export"
+          ],
+          "properties": {
+            "short": {
+              "type": "string"
+            },
+            "plain": {
+              "type": "string"
+            },
+            "technical": {
+              "type": "string"
+            },
+            "hint": {
+              "type": "string"
+            },
+            "axis": {
+              "type": "string"
+            },
+            "export": {
+              "type": "string"
+            }
+          }
+        },
+        "better": {
+          "enum": [
+            "min",
+            "max"
+          ]
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "group",
+            "operator",
+            "example",
+            "nonNegative"
+          ],
+          "properties": {
+            "group": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string"
+            },
+            "example": {
+              "type": "string"
+            },
+            "nonNegative": {
+              "type": "boolean"
+            }
+          }
+        },
+        "tableColumn": {
+          "type": "boolean"
+        },
+        "estimated": {
+          "type": "boolean"
+        },
+        "referenceProperty": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appliesTo": {
+          "$ref": "#/$defs/rule"
+        },
+        "appliesToText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notApplicableReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "headlineMeasured": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "known",
+        "value",
+        "unit",
+        "origin",
+        "verified",
+        "measurementId",
+        "gradeId",
+        "sourceId",
+        "direction",
+        "specimenType",
+        "moisture",
+        "interval",
+        "uncertainty"
+      ],
+      "properties": {
+        "known": {
+          "const": true
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "measurementId": {
+          "type": "string",
+          "pattern": "^V\\d{6}$"
+        },
+        "gradeId": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "specimenType": {
+          "type": "string"
+        },
+        "moisture": {
+          "type": "string"
+        },
+        "interval": {
+          "$ref": "#/$defs/interval"
+        },
+        "uncertainty": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "loadStated": {
+          "type": "boolean"
+        },
+        "loadMPa": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "standard": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "caveat": {
+          "type": "string"
+        },
+        "caveatText": {
+          "type": "string"
+        },
+        "loadBracket": {
+          "type": "object"
+        }
+      }
+    },
+    "headlinePrice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "known",
+        "value",
+        "unit",
+        "origin",
+        "verified",
+        "priceIds",
+        "observations",
+        "basis"
+      ],
+      "properties": {
+        "known": {
+          "const": true
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "CAD/kg"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "priceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "observations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "basis": {
+          "type": "string"
+        }
+      }
+    },
+    "headlineMissing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "known",
+        "missing",
+        "text",
+        "unit"
+      ],
+      "properties": {
+        "known": {
+          "const": false
+        },
+        "missing": {
+          "enum": [
+            "not-published",
+            "insufficient-comparable",
+            "not-applicable",
+            "quarantined",
+            "not-available-in-market"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "related": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "estimate": {
+          "type": "object"
+        },
+        "notApplicable": {
+          "type": "object",
+          "required": [
+            "reason"
+          ],
+          "properties": {
+            "reason": {
+              "type": "string"
+            },
+            "rule": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "headline": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/headlineMeasured"
+        },
+        {
+          "$ref": "#/$defs/headlinePrice"
+        },
+        {
+          "$ref": "#/$defs/headlineMissing"
+        }
+      ]
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "normalizedName",
+        "abbreviation",
+        "fullName",
+        "family",
+        "basePolymer",
+        "modifier",
+        "role",
+        "scope",
+        "h2cStatus",
+        "excluded",
+        "familyEntry",
+        "representativeGrade",
+        "gradeIds",
+        "headline",
+        "headlineBasis",
+        "measurementConditions",
+        "facets",
+        "guidance",
+        "print",
+        "buy",
+        "gates",
+        "profileIds",
+        "printingEvidence",
+        "headlineEvidence",
+        "bestUses",
+        "limitations",
+        "impactNote",
+        "fatigueCreep",
+        "printability",
+        "identity",
+        "evidenceIds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^M\\d{3}$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "normalizedName": {
+          "type": "string"
+        },
+        "abbreviation": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "basePolymer": {
+          "type": "string"
+        },
+        "modifier": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "h2cStatus": {
+          "type": "string"
+        },
+        "excluded": {
+          "type": "boolean"
+        },
+        "familyEntry": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "representativeGrade": {
+          "type": "string"
+        },
+        "gradeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "headline": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/headline"
+          }
+        },
+        "headlineBasis": {
+          "type": "string"
+        },
+        "measurementConditions": {
+          "type": "string"
+        },
+        "facets": {
+          "type": "object"
+        },
+        "guidance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "nozzle",
+            "bed",
+            "chamber"
+          ],
+          "properties": {
+            "nozzle": {
+              "type": "string"
+            },
+            "bed": {
+              "type": "string"
+            },
+            "chamber": {
+              "type": "string"
+            }
+          }
+        },
+        "print": {
+          "type": "object"
+        },
+        "buy": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gates": {
+          "type": "object"
+        },
+        "profileIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "printingEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "headlineEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mechanical",
+            "thermal"
+          ],
+          "properties": {
+            "mechanical": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "thermal": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "bestUses": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "impactNote": {
+          "type": "string"
+        },
+        "fatigueCreep": {
+          "type": "string"
+        },
+        "printability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rating",
+            "rubric"
+          ],
+          "properties": {
+            "rating": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "rubric": {
+              "type": "string"
+            }
+          }
+        },
+        "identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source",
+            "notes",
+            "h2cEvidence"
+          ],
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "h2cEvidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "evidenceIds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "use",
+            "environmental",
+            "durability",
+            "safety"
+          ],
+          "properties": {
+            "use": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "environmental": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "durability": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "safety": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "interval": {
+      "description": "What a measurement asserts: a point, a symmetric uncertainty, a published range, or a bound from a > or < operator (one end null, with whether the bound itself is excluded).",
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lo",
+            "hi",
+            "kind"
+          ],
+          "properties": {
+            "lo": {
+              "type": "number"
+            },
+            "hi": {
+              "type": "number"
+            },
+            "kind": {
+              "enum": [
+                "point",
+                "uncertainty",
+                "range"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lo",
+            "hi",
+            "openLow"
+          ],
+          "properties": {
+            "lo": {
+              "type": "number"
+            },
+            "hi": {
+              "type": "null"
+            },
+            "openLow": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lo",
+            "hi",
+            "openHigh"
+          ],
+          "properties": {
+            "lo": {
+              "type": "null"
+            },
+            "hi": {
+              "type": "number"
+            },
+            "openHigh": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -50,6 +50,8 @@ jobs:
           cp dist/H2C_Material_Selector_*.html _site/
           # The validation report is a deliverable; publish it alongside.
           cp build/reports/validation-report.md _site/validation-report.md
+          # What the page was built from: commit, input hashes and output hashes.
+          cp dist/manifest.json _site/manifest.json
           # Tell GitHub Pages not to run the output through Jekyll.
           touch _site/.nojekyll
           ls -la _site

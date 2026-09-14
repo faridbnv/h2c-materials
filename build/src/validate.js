@@ -4,7 +4,7 @@
 import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
-import { ESTIMATE_MODEL, estimateKeys } from './estimates.js';
+import { ESTIMATE_MODEL, estimateKeys, identityOf } from './estimates.js';
 import { measurementHeadlines, applies } from './registry.js';
 import { RETIRED_AVAILABILITY } from './compile.js';
 import {
@@ -205,7 +205,10 @@ export function validate(db, wb) {
 
   // -- excluded materials stay out of the default candidate set ---------------
   const excluded = db.materials.filter((m) => m.excluded);
-  if (excluded.length !== 6) issues.push(err('materials', `Expected 6 excluded materials, found ${excluded.length}`));
+  // Exclusion is stated twice, as scope and as H2C status; the two must agree, whatever the count.
+  for (const m of db.materials) {
+    if (m.excluded !== (m.h2cStatus === 'Excluded')) issues.push(err(`materials ${m.id}`, `Scope "${m.scope}" and H2C status "${m.h2cStatus}" disagree about exclusion`));
+  }
   for (const m of excluded) {
     if (m.gates.scope !== 'excluded') issues.push(err(`materials ${m.id}`, 'Excluded material does not carry the excluded scope gate'));
   }
@@ -233,7 +236,10 @@ export function validate(db, wb) {
       if (!h) continue;
       const where = `materials ${mat.id} ${key}`;
       if (!mat.excluded && !mat.familyEntry && !h.known && !h.estimate && !h.notApplicable) {
-        issues.push(err(where, `${mat.name} has no value, no estimate and no not-applicable statement`));
+        const identity = identityOf(mat);
+        issues.push(err(where, ESTIMATE_MODEL.identities[identity]
+          ? `${mat.name} has no value, no estimate and no not-applicable statement`
+          : `${mat.name} has no value, and cannot be estimated: its identity "${identity}" (${mat.family === 'Polymer Blends' ? 'a blend is identified by its name' : 'base polymer'}) has no entry in build/mappings/estimate-model.json identities. Add one (group and morphology), or record a value`));
       }
       if (h.notApplicable) {
         tally.notApplicable++;
@@ -334,7 +340,7 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
 
   L.push('## Headline coverage');
   L.push('');
-  L.push('What a selection criterion can actually decide, out of 102 canonical materials.');
+  L.push(`What a selection criterion can actually decide, out of ${db.materials.length} canonical materials.`);
   L.push('');
   L.push('| Headline | Materials with a value |');
   L.push('|---|---:|');

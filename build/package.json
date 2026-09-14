@@ -10,6 +10,7 @@
     "test": "node --test ../test/*.test.js"
   },
   "dependencies": {
+    "ajv": "8.20.0",
     "csv-parse": "7.0.2",
     "csv-stringify": "6.8.3",
     "plotly.js-dist-min": "^4.1.0",
