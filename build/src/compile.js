@@ -5,7 +5,6 @@
 // the measurement must be the material's own, on its representative grade, with the headline's
 // property, unit and direction. A selection that fails any of these is a build error.
 
-import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseValue, parseOperator, parseBoolean, toInterval, MISSING, DATA_STATUS } from './normalize/values.js';
@@ -22,7 +21,7 @@ import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped } from './typed-values.js';
 import { buildEstimates, summariseEstimates } from './estimates.js';
 import { attachPrintEstimates } from './print-estimates.js';
-import { attachChamberEstimates } from './chamber-estimates.js';
+import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 
 // Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an
 // active grade. Its Availability conventionally reads this phrase; the validator flags any active
@@ -487,9 +486,17 @@ function deriveFacets(mat) {
 // ---------------------------------------------------------------------------- family entries
 
 const FAMILY_ENTRY = 'Family entry';
-const FAMILY_ENTRIES = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../mappings/family-entries.json'), 'utf8')).families;
 
-function familyEntryFor(name) {
+/** Family entries by name, from family_entries.csv and family_members.csv (members in table order). */
+function familyEntriesFromTables(wb) {
+  const nameOf = new Map(wb.Materials.rows.map((m) => [m.MaterialID, m['Original name']]));
+  const out = {};
+  for (const r of wb['Family entries'].rows) out[nameOf.get(r.MaterialID)] = { kind: r.Kind, why: r.Why, members: [] };
+  for (const r of wb['Family members'].rows) out[nameOf.get(r.FamilyMaterialID)]?.members.push(nameOf.get(r.MemberMaterialID));
+  return out;
+}
+
+function familyEntryFor(FAMILY_ENTRIES, name) {
   const f = FAMILY_ENTRIES[name];
   return { kind: f?.kind ?? null, why: f?.why ?? null, members: (f?.members ?? []).map((n) => ({ name: n, id: null })) };
 }
@@ -499,11 +506,11 @@ function familyEntryFor(name) {
  * the mapping does not describe, a mapping entry the materials table does not mark, a member that is not an
  * in-scope material, or a family entry that still owns an active grade (the duplication this replaced).
  */
-function resolveFamilyEntries(materials, grades, issues) {
+function resolveFamilyEntries(FAMILY_ENTRIES, materials, grades, issues) {
   const byName = new Map(materials.map((m) => [m.name, m]));
-  const where = 'family-entries.json';
+  const where = 'family_entries.csv';
   for (const m of materials.filter((x) => x.familyEntry)) {
-    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} is a family entry in materials.csv but is not described here` });
+    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} is a family entry in materials.csv but has no row in family_entries.csv` });
     for (const member of m.familyEntry.members) {
       const target = byName.get(member.name);
       if (!target || target.excluded || target.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} lists "${member.name}", which is not an in-scope material` });
@@ -513,7 +520,7 @@ function resolveFamilyEntries(materials, grades, issues) {
     if (owned.length) issues.push({ level: 'error', code: 'FAMILY-ENTRY-OWNS', where: `materials ${m.id}`, message: `Family entry ${m.name} owns active grade${owned.length === 1 ? '' : 's'} ${owned.map((g) => g.id).join(', ')}; a product belongs to the material it is` });
   }
   for (const name of Object.keys(FAMILY_ENTRIES)) {
-    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${name} is described here but materials.csv does not mark it a family entry` });
+    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${name} has a row in family_entries.csv but materials.csv does not mark it a family entry` });
   }
 }
 
@@ -522,6 +529,7 @@ function resolveFamilyEntries(materials, grades, issues) {
 export function compile(wb, { snapshot, build }) {
   const issues = [];
   const registry = compileRegistry(wb, issues);
+  const familyEntries = familyEntriesFromTables(wb);
 
   const sources = wb.Sources.rows.map((r) => ({
     id: r.SourceID, publisher: r.Publisher, title: r.Title, revision: r.Revision,
@@ -670,8 +678,8 @@ export function compile(wb, { snapshot, build }) {
       h2cStatus: mat['H2C status'],
       excluded: mat.Scope === 'Excluded',
       // A family or an alias, not a material: it owns no product, carries no value and is never a
-      // candidate. Its members come from build/mappings/family-entries.json.
-      familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(mat['Original name']) : null,
+      // candidate. Its members come from data/tables/family_members.csv.
+      familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(familyEntries, mat['Original name']) : null,
       representativeGrade: mat['Representative grade'],
       gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
       headline: { ...compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
@@ -708,12 +716,12 @@ export function compile(wb, { snapshot, build }) {
     };
   });
 
-  resolveFamilyEntries(materials, grades, issues);
+  resolveFamilyEntries(familyEntries, materials, grades, issues);
 
   // Estimates are attached last, once every headline is known, and only to headlines that have no
   // value of their own. The model's calibration and diagnostics travel in meta (DECISIONS D43).
   const estimateModel = buildEstimates(materials, { grades, measurements, registry });
-  const chamberEstimates = attachChamberEstimates(materials);
+  const chamberEstimates = attachChamberEstimates(materials, chamberBandsFromTables(wb));
   issues.push(...chamberEstimates.issues);
   const printEstimates = attachPrintEstimates(materials);
 

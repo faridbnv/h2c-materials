@@ -215,7 +215,7 @@ test('PA, PA-CF, PA-GF, TPE and CoPA are family entries: no product, no value, n
     assert.equal(m.print.nozzleC, null);
   }
   assert.deepEqual(byName('CoPA').familyEntry.members.map((x) => x.name), ['PA6/66']);
-  assert.equal(db.meta.counts.familyEntries, Object.keys(JSON.parse(readFileSync(join(root, 'build/mappings/family-entries.json'), 'utf8')).families).length);
+  assert.equal(db.meta.counts.familyEntries, readFileSync(join(root, 'data/tables/family_entries.csv'), 'utf8').trim().split('\n').length - 1);
   assert.equal(db.meta.counts.h2cRelevant, db.materials.filter((m) => m.scope === 'H2C-relevant').length);
 });
 

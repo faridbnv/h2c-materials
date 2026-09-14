@@ -45,7 +45,7 @@ Those tests read oddly without the context, which is exactly why the context is 
 what the tool asserts about its own trustworthiness.
 
 **Names live in one place.** `app/js/ui/labels.js` for properties and criteria,
-`build/mappings/environment-topics.json` for environment categories. A second way to name something
+`schema/vocab/environment-categories.csv` for environment categories. A second way to name something
 does not look wrong where you write it; it looks wrong three screens away, to a reader who now
 doubts the number beside it.
 

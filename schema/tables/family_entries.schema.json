@@ -1,0 +1,11 @@
+{
+  "$comment": "Contract for data/tables/family_entries.csv. Checked by build/src/schema.js.",
+  "title": "Family entries",
+  "description": "Canonical names that are families or aliases, not materials (D44). Each is a materials.csv row with Scope Family entry; it owns no product, carries no value, and search answers with its members (family_members.csv). The build fails if this table and the Scope disagree.",
+  "primaryKey": "MaterialID",
+  "fields": [
+    { "name": "MaterialID", "type": "string", "role": "key", "description": "The family entry's row in materials.csv.", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true, "unique": true } },
+    { "name": "Kind", "type": "string", "role": "canonical", "description": "family: a group of materials; alias: another name for one material.", "constraints": { "required": true, "enum": ["family", "alias"] } },
+    { "name": "Why", "type": "string", "role": "prose", "description": "Why this name is a family or alias, and where its products are filed.", "constraints": { "required": true } }
+  ]
+}

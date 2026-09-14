@@ -304,7 +304,7 @@ export function validate(db, wb) {
   }
   const unmappedTopics = [...new Set(db.evidence.filter((e) => !e.category).map((e) => e.topic))];
   if (unmappedTopics.length) {
-    issues.push(err('TOPIC-UNMAPPED', 'evidence', `Topics with no mapping in build/mappings/environment-topics.json: ${unmappedTopics.join(', ')}`));
+    issues.push(err('TOPIC-UNMAPPED', 'evidence', `Topics with no mapping in schema/vocab/environment-topics.csv: ${unmappedTopics.join(', ')}`));
   }
 
   // -- materials with nothing to select on ------------------------------------
@@ -381,7 +381,7 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   L.push('');
   L.push(`What the ${inScope.length} in-scope materials publish about the chamber, strongest kind first. A statement`);
   L.push('in words is manufacturer evidence but never a temperature. An estimated band is inference from');
-  L.push('build/mappings/chamber-estimates.json; it is shown beside the chamber question and changes no verdict.');
+  L.push('data/tables/chamber_bands.csv; it is shown beside the chamber question and changes no verdict.');
   L.push('');
   L.push('| Kind | Materials |');
   L.push('|---|---:|');

@@ -1,6 +1,18 @@
 {
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
+    "chamber_bands": {
+      "rows": 43,
+      "sha256": "79d807782803b193d336130a85a09e0cb631efc31bf5826aefc13241b8fd3540"
+    },
+    "family_entries": {
+      "rows": 5,
+      "sha256": "446762ef8639a957cba695f3ae9502c3a0f278c5716e983c6766c0c4e0127735"
+    },
+    "family_members": {
+      "rows": 22,
+      "sha256": "7fb05c14ee58a0eedfca12f1951223234212255833fe117de1dcca53b6689809"
+    },
     "materials": {
       "rows": 102,
       "sha256": "c6fcedefe25a406f17085526219613fd37224eb7f5483098438428bee6e3ac96"

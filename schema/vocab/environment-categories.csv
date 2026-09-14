@@ -1,0 +1,20 @@
+Value,Meaning,Noun,Filterable
+acid,Acid resistance,acids,TRUE
+alkali,Alkali resistance,alkalis,TRUE
+organic-solvent,Organic solvent resistance,solvents,TRUE
+oil-grease,Oil and grease resistance,oils and grease,TRUE
+water-solubility,Water solubility,water,TRUE
+uv-outdoor,UV and outdoor,sunlight and weather,TRUE
+moisture,Moisture sensitivity,moisture,TRUE
+hydrolysis,Hydrolytic stability,hot water and steam,TRUE
+flammability,Flammability,fire,TRUE
+food-contact,Food contact claims,food contact,TRUE
+fatigue,Fatigue evidence,repeated loading,TRUE
+creep,Creep evidence,sustained load,TRUE
+application,Application notes,Not applicable,FALSE
+print-quality,Print quality,Not applicable,FALSE
+post-processing,Post-processing,Not applicable,FALSE
+specimen-prep,Specimen preparation,Not applicable,FALSE
+safety,Safety,Not applicable,FALSE
+circularity,Disposal and circularity,Not applicable,FALSE
+limitations,Stated limitations,Not applicable,FALSE

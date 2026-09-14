@@ -83,7 +83,7 @@ plotting library, not the data, is what the file weighs.
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
 | `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43). |
 | `print-estimates.js` | Nozzle and bed windows inferred from peers where no source publishes one. They decide nothing. |
-| `chamber-estimates.js` | The research's chamber bands, from `build/mappings/chamber-estimates.json`. Attached only where nothing better exists; they decide nothing. |
+| `chamber-estimates.js` | The research's chamber bands, from `data/tables/chamber_bands.csv`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
@@ -194,7 +194,7 @@ three screens each had their own copy of that table until then.
 
 **A new word for something.** It goes in `ui/labels.js` and nowhere else. Environment category names
 are the exception, and only because they belong with the topic rules: they are authored in
-`build/mappings/environment-topics.json` and compiled into the snapshot, so the engine can name a
+`schema/vocab/environment-categories.csv` and `environment-topics.csv` and compiled into the snapshot, so the engine can name a
 category without importing anything from `ui/`.
 
 **A new lens.** Add it to `renderLens` in `main.js` and to the lens bar in `app/index.html`. Read

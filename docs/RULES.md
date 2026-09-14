@@ -119,7 +119,7 @@ what it means and how to fix it.
 
 | Code | Level | Means | Fix |
 |---|---|---|---|
-| `TOPIC-UNMAPPED` | error | An evidence topic with no category mapping. | Map the topic in build/mappings/environment-topics.json. |
+| `TOPIC-UNMAPPED` | error | An evidence topic with no category mapping. | Add the topic to schema/vocab/environment-topics.csv with its category. |
 
 ## Materials
 

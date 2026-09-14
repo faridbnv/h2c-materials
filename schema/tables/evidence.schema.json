@@ -58,10 +58,11 @@
       "name": "Topic",
       "type": "string",
       "role": "raw",
-      "description": "Topic as published; mapped by build/mappings/environment-topics.json.",
+      "description": "Topic as published; must be in schema/vocab/environment-topics.csv, which maps it to a category.",
       "constraints": {
         "required": true
-      }
+      },
+      "vocabulary": "environment-topics"
     },
     {
       "name": "Finding",

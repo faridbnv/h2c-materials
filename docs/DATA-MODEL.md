@@ -354,7 +354,7 @@ of it, which is neither within nor a failure, so a chamber requirement reports I
 no heated chamber. "Enclosure recommended" does not count as anything (D33). A data sheet's "-" is its
 own state: not zero, and not "not required".
 
-**Bands** come from the 2026-09-13 research, authored in `build/mappings/chamber-estimates.json` with
+**Bands** come from the 2026-09-13 research, authored in `data/tables/chamber_bands.csv` with
 the basis and caution the research wrote. A band is attached only where no window is published and
 no source says no heated chamber is needed; the validation report lists the 22 the evidence
 superseded. Unlike a property estimate, a band cannot even screen a material out (D34, D42): it describes a
@@ -364,7 +364,7 @@ plausible setpoint, and a setpoint is a recommendation at most.
 
 Every commercial product is recorded once, under the most specific material it is. Five canonical names
 are not materials: PA, PA-CF, PA-GF and TPE are families, and CoPA is another name for PA6/66. Their
-Scope is `Family entry`, their members are in `build/mappings/family-entries.json`, and they
+Scope is `Family entry`, their members are in `data/tables/family_entries.csv` and `family_members.csv`, and they
 carry no grade, value, estimate or print window. They are never candidates. Searching a family's name
 lists its members and says what the family is; its drawer links them.
 

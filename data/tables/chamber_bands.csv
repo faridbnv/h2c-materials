@@ -1,0 +1,44 @@
+MaterialID,Kind,Low °C,High °C,Basis,Caution,Source
+M002,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M003,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M004,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M011,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M012,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M013,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M015,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M008,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M076,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M080,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M021,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M022,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M024,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M025,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M045,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M046,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M082,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M084,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M085,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M086,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M089,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M090,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M091,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M092,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M093,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M030,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M034,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M036,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M037,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M048,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M049,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M066,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M068,band,45,70,engineering-polymer peers that print enclosed,"Where a grade publishes its own window, that window is used instead.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M055,band,40,70,the plausible range for nylons,"These entries have no exact commercial grade, so this band is especially weak.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M056,band,40,70,the plausible range for nylons,"These entries have no exact commercial grade, so this band is especially weak.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M058,band,40,70,the plausible range for nylons,"These entries have no exact commercial grade, so this band is especially weak.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M060,band,40,70,the plausible range for nylons,"These entries have no exact commercial grade, so this band is especially weak.",docs/audits/2026-09-13-missing-data-research/REPORT.md
+M073,band,60,90,the Bambu PPS-CF product window,Superseded wherever the exact grade publishes its window.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M069,band,80,120,the plausible range for high-temperature aromatic nylons,A reseller's 100-120 °C figure for Bambu PPA-CF is secondary and unconfirmed. Exact-grade primary evidence is required before any exclusion.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M070,band,80,120,the plausible range for high-temperature aromatic nylons,A reseller's 100-120 °C figure for Bambu PPA-CF is secondary and unconfirmed. Exact-grade primary evidence is required before any exclusion.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M071,band,80,120,the plausible range for high-temperature aromatic nylons,A reseller's 100-120 °C figure for Bambu PPA-CF is secondary and unconfirmed. Exact-grade primary evidence is required before any exclusion.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M087,band,45,80,the polyacetal family,The exact purefil product publishes a 120-150 °C bed and no chamber temperature. A chamber temperature is not inferred from a bed temperature.,docs/audits/2026-09-13-missing-data-research/REPORT.md
+M096,no-band,Not applicable,Not applicable,The exact product recommends a heated chamber and publishes no window. PVDF processing cannot inherit a generic rigid-polymer band.,Not applicable,docs/audits/2026-09-13-missing-data-research/REPORT.md

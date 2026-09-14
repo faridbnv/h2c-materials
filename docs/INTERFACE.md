@@ -218,7 +218,7 @@ function, used by the requirement pills, the explain panel, the per-candidate wh
 excluded-search group and the CSV export, so the panel can never print `hdt045 >= 100` while the
 pill beside it says "Heat resistance at least 100 °C".
 
-Environment category names are authored in `build/mappings/environment-topics.json` and compiled
+Environment category names are authored in `schema/vocab/environment-categories.csv` and compiled
 into the snapshot, in a heading form ("Acid resistance") and a sentence form ("acids"). The engine
 and the interface both read them from there, which is why a category name cannot drift between the
 two, and why nothing builds a name by appending "resistance" to an internal key.

@@ -23,6 +23,9 @@ export const TABLES = [
   { file: 'material_links', sheet: 'Material links' },
   { file: 'properties', sheet: 'Property registry' },
   { file: 'headline_definitions', sheet: 'Headline definitions' },
+  { file: 'family_entries', sheet: 'Family entries' },
+  { file: 'family_members', sheet: 'Family members' },
+  { file: 'chamber_bands', sheet: 'Chamber bands' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;

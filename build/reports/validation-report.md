@@ -53,7 +53,7 @@ Nozzle and bed are read by the upper end of the window.
 
 What the 96 in-scope materials publish about the chamber, strongest kind first. A statement
 in words is manufacturer evidence but never a temperature. An estimated band is inference from
-build/mappings/chamber-estimates.json; it is shown beside the chamber question and changes no verdict.
+data/tables/chamber_bands.csv; it is shown beside the chamber question and changes no verdict.
 
 | Kind | Materials |
 |---|---:|

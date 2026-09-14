@@ -1,0 +1,89 @@
+Value,Meaning,Category,Strength,Agent
+Resistance to Acid,,acid,unspecified,Not applicable
+Effect of weak acids,,acid,weak,Not applicable
+Effect of strong acids,,acid,strong,Not applicable
+Acid resistance,,acid,unspecified,Not applicable
+Acetic acid80%,,acid,specific,Acetic acid 80%
+Nitric acid10%,,acid,specific,Nitric acid 10%
+Phosphoric acid40%,,acid,specific,Phosphoric acid 40%
+Sulfuric acid70%,,acid,specific,Sulfuric acid 70%
+Resistance to Alkali,,alkali,unspecified,Not applicable
+Effect of weak alkalis,,alkali,weak,Not applicable
+Effect of strong alkalis,,alkali,strong,Not applicable
+Alkali resistance,,alkali,unspecified,Not applicable
+Resistance to Organic Solvent,,organic-solvent,unspecified,Not applicable
+Effect of organic solvent,,organic-solvent,unspecified,Not applicable
+Acetone,,organic-solvent,specific,Acetone
+Ethanol,,organic-solvent,specific,Ethanol
+Ethanol (60°C),,organic-solvent,specific,Ethanol at 60 C
+Isopropanol,,organic-solvent,specific,Isopropanol
+Limonene,,organic-solvent,specific,Limonene
+Methanol,,organic-solvent,specific,Methanol
+Methyl ethyl ketone,,organic-solvent,specific,Methyl ethyl ketone
+Propylene glycol,,organic-solvent,specific,Propylene glycol
+Chemical exposure,,organic-solvent,unspecified,Not applicable
+Organic-solvent resistance,,organic-solvent,unspecified,Not applicable
+Chemical and solvent resistance,,organic-solvent,unspecified,Not applicable
+Resistance to Oil and Grease,,oil-grease,unspecified,Not applicable
+Effect of oils and grease,,oil-grease,unspecified,Not applicable
+Oil and grease resistance,,oil-grease,unspecified,Not applicable
+Petroleum,,oil-grease,specific,Petroleum
+Mineral oil and cyclic loading,,oil-grease,specific,Mineral oil under cyclic load
+Solubility,,water-solubility,Not applicable,Not applicable
+Water removal,,water-solubility,Not applicable,Not applicable
+Limonene support,,organic-solvent,specific,d-Limonene
+Water solubility,,water-solubility,Not applicable,Not applicable
+UV,,uv-outdoor,Not applicable,Not applicable
+UV / heat,,uv-outdoor,Not applicable,Not applicable
+UV / weather,,uv-outdoor,Not applicable,Not applicable
+Environmental,,uv-outdoor,Not applicable,Not applicable
+UV resistance,,uv-outdoor,Not applicable,Not applicable
+Moisture,,moisture,Not applicable,Not applicable
+Moisture / dimensions,,moisture,Not applicable,Not applicable
+Moisture handling,,moisture,Not applicable,Not applicable
+Hydrolysis / dimensional stability,,hydrolysis,Not applicable,Not applicable
+Flammability,,flammability,Not applicable,Not applicable
+Food contact,,food-contact,Not applicable,Not applicable
+S–N evidence,,fatigue,Not applicable,Not applicable
+Shared reinforced-polymer principle,,fatigue,Not applicable,Not applicable
+Creep,,creep,Not applicable,Not applicable
+Shared selection principle,,creep,Not applicable,Not applicable
+Best uses,,application,Not applicable,Not applicable
+Application,,application,Not applicable,Not applicable
+Industrial use,,application,Not applicable,Not applicable
+Industrial uses,,application,Not applicable,Not applicable
+Intended role,,application,Not applicable,Not applicable
+Published applications,,application,Not applicable,Not applicable
+Elasticity,,application,Not applicable,Not applicable
+Test specimen preparation,,specimen-prep,Not applicable,Not applicable
+Printability rubric,,print-quality,Not applicable,Not applicable
+Print quality,,print-quality,Not applicable,Not applicable
+Difficulty,,print-quality,Not applicable,Not applicable
+Finish / detail,,print-quality,Not applicable,Not applicable
+Cooling / stringing,,print-quality,Not applicable,Not applicable
+Warping / emissions,,print-quality,Not applicable,Not applicable
+Warping / detail,,print-quality,Not applicable,Not applicable
+Warping / bed,,print-quality,Not applicable,Not applicable
+Warping,,print-quality,Not applicable,Not applicable
+Bed / warping,,print-quality,Not applicable,Not applicable
+Warping / adhesion,,print-quality,Not applicable,Not applicable
+Feed / overhangs,,print-quality,Not applicable,Not applicable
+Bed,,print-quality,Not applicable,Not applicable
+Layer adhesion,,print-quality,Not applicable,Not applicable
+Sanding / bonding,,post-processing,Not applicable,Not applicable
+Support / adhesion,,post-processing,Not applicable,Not applicable
+Vapour smoothing,,post-processing,Not applicable,Not applicable
+Machining / finishing,,post-processing,Not applicable,Not applicable
+Support removal,,post-processing,Not applicable,Not applicable
+Smoothing,,post-processing,Not applicable,Not applicable
+Post-processing,,post-processing,Not applicable,Not applicable
+Shared emissions precaution,,safety,Not applicable,Not applicable
+Processing ventilation,,safety,Not applicable,Not applicable
+Chemical stability,,safety,Not applicable,Not applicable
+Disposal,,circularity,Not applicable,Not applicable
+Avoid when,,limitations,Not applicable,Not applicable
+Grade distinction,,limitations,Not applicable,Not applicable
+Filled grades,,limitations,Not applicable,Not applicable
+Support conflict,,limitations,Not applicable,Not applicable
+Contamination,,limitations,Not applicable,Not applicable
+Abrasive wear,,limitations,Not applicable,Not applicable

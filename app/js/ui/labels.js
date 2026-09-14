@@ -120,7 +120,7 @@ export function describeConstraint(c) {
 /**
  * Environment categories.
  *
- * The names are authored in build/mappings/environment-topics.json and compiled into the snapshot,
+ * The names are authored in schema/vocab/environment-categories.csv and compiled into the snapshot,
  * so there is one place to change them and no chance of the app and the build disagreeing. They
  * are seeded here at boot. The app used to build a name by appending "resistance" to the internal
  * key, which produced "water solubility resistance".

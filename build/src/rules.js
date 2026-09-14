@@ -81,7 +81,7 @@ export const RULES = {
   'EST-SUMMARY': r('warn', 'estimates', 'How missing headlines are covered by estimates.', 'Informational.'),
   'EST-REJECTED': r('warn', 'estimates', 'Physically impossible observations kept out of the estimate model.', 'Re-read the source; correct or quarantine the measurement.'),
   'EST-OUTLIER': r('warn', 'estimates', 'Measured headlines far outside what every other observation predicts.', 'Re-read the source and check the grade is the right product.'),
-  'TOPIC-UNMAPPED': r('error', 'evidence', 'An evidence topic with no category mapping.', 'Map the topic in build/mappings/environment-topics.json.'),
+  'TOPIC-UNMAPPED': r('error', 'evidence', 'An evidence topic with no category mapping.', 'Add the topic to schema/vocab/environment-topics.csv with its category.'),
   'FAMILY-ENTRIES': r('warn', 'materials', 'Canonical names that are family entries, not candidates.', 'Informational (D44).'),
   'NO-MEASUREMENTS': r('warn', 'materials', 'Materials with no property measurements at all.', 'Research a grade with published data.'),
 

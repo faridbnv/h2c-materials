@@ -141,3 +141,12 @@ test('an identifier mentioned in prose must exist', () => {
   const m = seeded((t) => t.set('sources', 'H2C-WIKI', 'Applicable grades', 'Family guidance; see G020-01 and G999-01'));
   assert.deepEqual(m.map((x) => x.replace(/:\d+/, ':N')), ['data/tables/sources.csv:N  H2C-WIKI Applicable grades mentions "G999-01", which is not a GradeID in grades.csv']);
 });
+
+test('mappings are checked at the gate: an unmapped topic, a family member or a chamber band that points at nothing', () => {
+  const m = seeded((t) => {
+    t.set('evidence', 'Q00001', 'Topic', 'Resistance to Kryptonite');
+    t.append('family_members', { FamilyMaterialID: t.rows('family_entries')[0].MaterialID, MemberMaterialID: 'M999' });
+  });
+  assert.ok(m.some((x) => /evidence\.csv:\d+  Q00001 Topic "Resistance to Kryptonite" is not in schema\/vocab\/environment-topics\.csv/.test(x)), m.join('\n'));
+  assert.ok(m.some((x) => /family_members\.csv:\d+  MemberMaterialID "M999" is not a MaterialID in materials\.csv/.test(x)), m.join('\n'));
+});

@@ -4,12 +4,22 @@
 // is a manufacturer claim, not independent validation, so a verdict always travels with its
 // evidence type and source.
 
-import { readFileSync } from 'node:fs';
+import { readCsv } from '../csv.js';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const MAP = JSON.parse(readFileSync(join(here, '../../mappings/environment-topics.json'), 'utf8'));
+// Topic -> category and category names are vocabularies (schema/vocab/environment-topics.csv and
+// environment-categories.csv), so evidence.Topic is checked against them at the schema gate.
+const vocab = (file) => readCsv(join(here, '../../../schema/vocab', file)).records.map((r) => r.values);
+const NA = 'Not applicable';
+const MAP = {
+  categories: Object.fromEntries(vocab('environment-categories.csv').map((c) => [c.Value, { label: c.Meaning, ...(c.Noun && c.Noun !== NA ? { noun: c.Noun } : {}), filterable: c.Filterable === 'TRUE' }])),
+  topics: Object.fromEntries(vocab('environment-topics.csv').map((t) => [t.Value, { category: t.Category, ...(t.Strength && t.Strength !== NA ? { strength: t.Strength } : {}), ...(t.Agent && t.Agent !== NA ? { agent: t.Agent } : {}) }])),
+};
+for (const [topic, t] of Object.entries(MAP.topics)) {
+  if (!MAP.categories[t.category]) throw new Error(`schema/vocab/environment-topics.csv: topic "${topic}" names category "${t.category}", which environment-categories.csv does not define`);
+}
 
 export const CATEGORIES = MAP.categories;
 

@@ -72,7 +72,7 @@ The chamber has two more answers the other axes do not (DECISIONS D32, D33):
   being recommended means nothing about 65 °C.
 
 **Chemical** (`chemical.js`). 73 environment topics onto canonical categories, via a hand-maintained
-map in `build/mappings/environment-topics.json` that is reviewed like code. That file also carries
+vocabulary, `schema/vocab/environment-topics.csv`, that `evidence.Topic` must match, so an unmapped topic fails at the schema gate. `environment-categories.csv` carries
 each category's display names, which is why it is the only place a category is named. The evidence runs
 two overlapping source vocabularies for the same chemistry, `Resistance to Acid` alongside `Effect
 of weak acids`; they merge but keep their strength qualifier, because a source that distinguished
@@ -141,7 +141,7 @@ under "Estimates"; DECISIONS D43 says why.
 `print-estimates.js` then infers a nozzle and bed window for a material that publishes neither, from
 the same polymer or its chemical group, shifted for fibre and kept above the melting point.
 
-Chamber bands are not computed. They are read from `build/mappings/chamber-estimates.json`, where
+Chamber bands are not computed. They are read from `data/tables/chamber_bands.csv`, one row per material by MaterialID, where
 the 2026-09-13 research's bands are authored with its basis and caution, and attached only to a
 material with no published window and no statement that no heated chamber is needed. Every name is
 checked against the snapshot, and a name that is not there stops the build. They change no verdict;

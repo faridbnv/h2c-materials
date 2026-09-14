@@ -169,7 +169,7 @@ Explore the unsampled ones stay visible and flagged, which is the honest reading
 
 ## D20. Category names are authored with the rules that create them
 
-Environment category display names live in `build/mappings/environment-topics.json`, next to the
+Environment category display names live in `build/mappings/environment-topics.json` (since m09, `schema/vocab/environment-categories.csv`), next to the
 topic patterns, and compile into the snapshot in two forms: a heading ("Acid resistance") and a
 sentence noun ("acids").
 
@@ -352,7 +352,7 @@ is its own state: not zero, and not "not required".
 ## D34. An estimated chamber band decides nothing
 
 The 2026-09-13 research proposed chamber bands for materials that publish no chamber temperature.
-They are kept, in `build/mappings/chamber-estimates.json`, and shown marked †, but unlike a property
+They are kept, in `build/mappings/chamber-estimates.json` (since m09, `data/tables/chamber_bands.csv`), and shown marked †, but unlike a property
 estimate (D43) a band cannot even screen a material out.
 
 A property estimate is built from verified measurements of the same property. A chamber band is a

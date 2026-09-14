@@ -1,0 +1,15 @@
+{
+  "$comment": "Contract for data/tables/chamber_bands.csv. Checked by build/src/schema.js.",
+  "title": "Chamber bands",
+  "description": "Estimated chamber temperature bands from research, for materials whose sources publish no chamber window. A band is inference: it is shown beside the chamber question, never decides a gate (D6, D34), and is superseded where a source publishes a window or says no heated chamber is needed. A no-band row records a material deliberately given none, and why.",
+  "primaryKey": "MaterialID",
+  "fields": [
+    { "name": "MaterialID", "type": "string", "role": "key", "description": "The material; one row each.", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true, "unique": true } },
+    { "name": "Kind", "type": "string", "role": "editorial", "description": "band: an estimated band; no-band: deliberately none.", "constraints": { "required": true, "enum": ["band", "no-band"] } },
+    { "name": "Low °C", "type": "number", "role": "editorial", "description": "Lower end of the band.", "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "High °C", "type": "number", "role": "editorial", "description": "Upper end of the band.", "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "Basis", "type": "string", "role": "prose", "description": "What the band was inferred from, or why there is none.", "constraints": { "required": true } },
+    { "name": "Caution", "type": "string", "role": "prose", "description": "What the band cannot say.", "constraints": { "required": true } },
+    { "name": "Source", "type": "string", "role": "editorial", "description": "The research report the band comes from.", "constraints": { "required": true } }
+  ]
+}
