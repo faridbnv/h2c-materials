@@ -14,11 +14,11 @@ import { openTables, projectRoot } from '../data/table-io.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
-export async function runChain(outRoot, { log = () => {} } = {}) {
+export async function runChain(outRoot, { log = () => {}, xlsx, refXlsx } = {}) {
   mkdirSync(join(outRoot, 'data'), { recursive: true });
   // Migrations read the schema only to find column types; the committed schema serves every step.
   cpSync(join(projectRoot, 'schema'), join(outRoot, 'schema'), { recursive: true });
-  dumpWorkbook({ dataDir: join(outRoot, 'data') });
+  dumpWorkbook({ dataDir: join(outRoot, 'data'), ...(xlsx ? { xlsx } : {}), ...(refXlsx ? { refXlsx } : {}) });
   const steps = readdirSync(here).filter((f) => /^m\d{2}-.*\.mjs$/.test(f)).sort();
   for (const step of steps) {
     const { migrate } = await import(pathToFileURL(join(here, step)).href);

@@ -18,6 +18,7 @@
     "trace": "node scripts/trace.mjs",
     "hooks": "git config core.hooksPath .githooks",
     "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && npm test && node scripts/audit-data.mjs",
-    "data:export-xlsx": "node scripts/data/export-xlsx.mjs"
+    "data:export-xlsx": "node scripts/data/export-xlsx.mjs",
+    "migration:verify": "node scripts/migrate/verify-migration.mjs"
   }
 }

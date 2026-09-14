@@ -1,10 +1,15 @@
+// Legacy: the reader for the retired Excel workbooks (data/H2C_FDM_Material_Database.xlsx and
+// data/Generic_Materials_Reference.xlsx, removed from the tree after the 2026-09-14 conversion; they
+// remain in git history). Nothing in the build uses it. It exists so the conversion can be replayed and
+// checked: scripts/migrate/verify-migration.mjs.
+//
 // Legacy extract: read the retired workbooks into raw row objects. Used only by the one-time
 // conversion (scripts/migrate/dump-workbook.mjs) and the parity check against it.
 // The workbook is never written. Header rows were confirmed against the embedded Excel table
 // definitions (xl/tables/*.xml): Materials declares A6:AQ108, every other table starts at A3.
 
 import XLSX from 'xlsx';
-import { REFERENCE_PROPERTIES } from './reference-properties.js';
+import { REFERENCE_PROPERTIES } from '../reference-properties.js';
 
 // sheet name -> 0-based index of the header row
 export const SHEET_HEADER_ROW = {
@@ -20,7 +25,6 @@ export const SHEET_HEADER_ROW = {
 };
 
 
-export { snapshotDate } from './load.js';
 
 function sheetToRows(ws, headerRowIndex) {
   // raw:false keeps the displayed text; we do our own numeric parsing so that

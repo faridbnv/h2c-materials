@@ -21,7 +21,7 @@ if (!query) {
 }
 
 const root = resolve('.');
-const { wb } = await readSource(root, 'csv');
+const { wb } = readSource(root);
 const { db } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'trace' });
 const byId = (rows, field) => new Map(rows.map((r) => [r[field], r]));
 const measurementRows = byId(wb.Properties.rows, 'MeasurementID');
@@ -65,11 +65,16 @@ function headline(depth, m, k) {
   if (!h) return line(depth, `${k}: no such headline (${Object.keys(m.headline).join(', ')})`);
   if (h.known) {
     line(depth, `${k} = ${h.value} ${h.unit}  [${h.origin}${h.verified === false ? ', NOT VERIFIED' : ''}]`);
-    if (k === 'priceCADkg') {
-      line(depth + 1, `median of ${h.priceIds?.join(', ')} · ${h.basis ?? ''}`);
-      for (const p of h.observations ?? []) line(depth + 2, `${p.id ?? ''} ${JSON.stringify(p)}`);
+    if (h.priceIds) {
+      line(depth + 1, `median of ${h.observations} headline-sample observation(s) · ${h.basis ?? ''}`);
+      for (const id of h.priceIds) {
+        const p = db.prices.find((x) => x.id === id);
+        const row = wb['Prices CA'].rows.find((r) => r.PriceID === id);
+        line(depth + 2, `${id}  (${at(row)})  ${p.retailer} · ${p.variant} · ${p.listPrice} CAD / ${p.netMassKg} kg = ${p.regularPerKg} CAD/kg · ${p.stock} · accessed ${p.accessDate}`);
+        line(depth + 3, p.url);
+      }
     } else {
-      if (h.loadStated === false) line(depth + 1, 'HDT load not stated by the source');
+      if (h.loadStated === false) line(depth + 1, 'test load not stated by the source');
       measurement(depth + 1, h.measurementId);
     }
   } else {

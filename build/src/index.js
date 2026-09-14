@@ -19,7 +19,7 @@ import { execFileSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotDate } from './load.js';
-import { readSource, sourceArg } from './source.js';
+import { readSource } from './source.js';
 import { checkData } from './schema.js';
 import { contractIssues } from './contract.js';
 import { compile } from './compile.js';
@@ -48,18 +48,17 @@ const validateOnly = process.argv.includes('--validate-only');
 async function main() {
   const issues = [];
 
-  const source = sourceArg();
   // The schema gate comes first: a table that breaks its contract is reported precisely, by file,
   // line and field, before the compiler can misread it. The manifest makes any row-count or content
   // change visible in the commit that makes it.
-  if (source === 'csv') issues.push(...checkData(join(projectRoot, 'data'), join(projectRoot, 'schema')).issues);
+  issues.push(...checkData(join(projectRoot, 'data'), join(projectRoot, 'schema')).issues);
   if (issues.some((i) => i.level === 'error')) {
     for (const e of issues.slice(0, 50)) console.error(`  ERROR  ${e.where}: ${e.message}`);
     console.error('\nBuild failed: the data tables do not match their schema (npm run data:check).');
     process.exit(1);
   }
 
-  const { wb, referenceRows, referenceWhere } = await readSource(projectRoot, source);
+  const { wb, referenceRows, referenceWhere } = readSource(projectRoot);
   const SNAPSHOT = snapshotDate(wb.Method.rows);
 
   const { db, issues: compileIssues } = compile(wb, { snapshot: SNAPSHOT, build: BUILD });
@@ -97,7 +96,7 @@ async function main() {
   const out = await bundle({ projectRoot, buildRoot, db, reference, meta: { snapshot: SNAPSHOT, build: BUILD } });
   console.log(`\n${out.path.split('/').pop()} -> ${(out.bytes / 1024 / 1024).toFixed(2)} MB self-contained`);
 
-  writeFileSync(join(projectRoot, 'dist/manifest.json'), JSON.stringify(releaseManifest(out.path, source, SNAPSHOT), null, 2) + '\n');
+  writeFileSync(join(projectRoot, 'dist/manifest.json'), JSON.stringify(releaseManifest(out.path, SNAPSHOT), null, 2) + '\n');
   console.log('manifest -> dist/manifest.json');
 }
 
@@ -105,14 +104,14 @@ async function main() {
  * What this release was built from and what it produced, so a published page can be traced to the
  * exact data, schema, rules and code: commit, whether the tree was clean, input hashes and output hashes.
  */
-function releaseManifest(htmlPath, source, snapshot) {
+function releaseManifest(htmlPath, snapshot) {
   const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
   const git = (...args) => { try { return execFileSync('git', args, { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return null; } };
   const tree = (dir, filter = () => true) => sha(readdirSync(join(projectRoot, dir), { recursive: true }).filter((f) => filter(f) && !f.endsWith('/')).sort()
     .map((f) => { try { return `${sha(readFileSync(join(projectRoot, dir, f)))}  ${dir}/${f}`; } catch { return ''; } }).join('\n'));
   const file = (p) => sha(readFileSync(join(projectRoot, p)));
   return {
-    snapshot, build: BUILD, source,
+    snapshot, build: BUILD,
     commit: git('rev-parse', 'HEAD'),
     sourceTreeClean: git('status', '--porcelain', '--', 'data', 'schema', 'build/src', 'build/mappings', 'app') === '',
     inputs: {

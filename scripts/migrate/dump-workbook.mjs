@@ -15,7 +15,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { extractWorkbook, extractReference } from '../../build/src/extract.js';
+import { extractWorkbook, extractReference } from '../../build/src/legacy/extract-workbook.js';
 import { REFERENCE_PROPERTIES } from '../../build/src/reference-properties.js';
 import { TABLES, tablePath } from '../../build/src/load.js';
 import { writeCsv } from '../../build/src/csv.js';

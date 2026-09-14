@@ -1,5 +1,5 @@
 // Reproducible audit using the production loader, compiler, validator and raw-value rules.
-// npm run audit:data -- output-directory [before-db.json] [--source=csv|xlsx]
+// npm run audit:data -- output-directory [before-db.json]
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
@@ -7,7 +7,7 @@ import { gunzipSync } from 'node:zlib';
 import { execFileSync } from 'node:child_process';
 import { snapshotDate } from '../build/src/load.js';
 import { checkData } from '../build/src/schema.js';
-import { readSource, sourceArg } from '../build/src/source.js';
+import { readSource } from '../build/src/source.js';
 import { compile } from '../build/src/compile.js';
 import { validate } from '../build/src/validate.js';
 import { normalizedRawValue } from '../build/src/measurement-rules.js';
@@ -17,11 +17,11 @@ const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const out = resolve(args[0] ?? 'build/reports/data-audit');
 mkdirSync(out, { recursive: true });
 const hash = (b) => createHash('sha256').update(b).digest('hex');
-const { wb, referenceRows, referenceWhere, inputs } = await readSource(resolve('.'), sourceArg());
+const { wb, referenceRows, referenceWhere, inputs } = readSource(resolve('.'));
 const stored = JSON.parse(readFileSync('dist/db.json'));
 const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: stored.meta.build });
 issues.push(...validate(db, wb));
-if (sourceArg() === 'csv') issues.push(...checkData(resolve('data'), resolve('schema')).issues);
+issues.push(...checkData(resolve('data'), resolve('schema')).issues);
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const htmlPath = `dist/H2C_Material_Selector_${db.meta.snapshot}.html`;
 const html = readFileSync(htmlPath, 'utf8');
