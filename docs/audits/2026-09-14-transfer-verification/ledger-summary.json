@@ -2,8 +2,8 @@
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
   "cells": 99364,
   "totals": {
-    "equal": 88256,
-    "derived: first cited profile, equal": 306,
+    "equal": 87829,
+    "derived: first cited profile, equal": 290,
     "derived or linked: same identifiers, same order": 918,
     "derived: headline read from its measurement, equal": 353,
     "derived: no headline selection, same missing state": 149,
@@ -11,7 +11,9 @@
     "derived: own environmental records, same order": 100,
     "display padding removed (m01)": 5662,
     "derived: median of the sample, equal": 34,
+    "derived: first cited profile, equal after text cleanup (m07)": 16,
     "derived: headline read from its measurement, equal but for floating-point noise": 8,
+    "text cleanup (m07)": 427,
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
     "formula cached text, current": 2864,
@@ -27,8 +29,8 @@
   },
   "bySheet": {
     "Materials": {
-      "equal": 2438,
-      "derived: first cited profile, equal": 306,
+      "equal": 2437,
+      "derived: first cited profile, equal": 290,
       "derived or linked: same identifiers, same order": 918,
       "derived: headline read from its measurement, equal": 353,
       "derived: no headline selection, same missing state": 149,
@@ -36,28 +38,34 @@
       "derived: own environmental records, same order": 100,
       "display padding removed (m01)": 10,
       "derived: median of the sample, equal": 34,
+      "derived: first cited profile, equal after text cleanup (m07)": 16,
       "derived: headline read from its measurement, equal but for floating-point noise": 8,
+      "text cleanup (m07)": 1,
       "derived: own environmental records, table order (m05, listed)": 2,
       "derived: median rounded to the cent (m03, listed)": 4
     },
     "Grades": {
-      "equal": 2015,
+      "equal": 2010,
+      "text cleanup (m07)": 5,
       "added column: Role": 155,
       "added column: Status": 155
     },
     "Print setup": {
-      "equal": 6498
+      "equal": 6424,
+      "text cleanup (m07)": 74
     },
     "Properties": {
-      "equal": 58990,
+      "equal": 58654,
       "display padding removed (m01)": 5546,
       "formula cached text, current": 2864,
       "formula cached text, STALE: kept as the build read it": 139,
       "equal but for floating-point noise in the formula result": 74,
+      "text cleanup (m07)": 336,
       "number stored as text made canonical (m01)": 4
     },
     "Use & durability": {
-      "equal": 5726,
+      "equal": 5720,
+      "text cleanup (m07)": 6,
       "display padding removed (m01)": 10
     },
     "Prices CA": {
@@ -70,8 +78,9 @@
       "boolean made canonical (m01)": 2
     },
     "Sources": {
-      "equal": 2699,
+      "equal": 2694,
       "date serial written as a date": 213,
+      "text cleanup (m07)": 5,
       "date made canonical (m01)": 4
     },
     "Coverage": {

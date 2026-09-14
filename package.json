@@ -20,6 +20,7 @@
     "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && npm test && node scripts/audit-data.mjs",
     "data:export-xlsx": "node scripts/data/export-xlsx.mjs",
     "migration:verify": "node scripts/migrate/verify-migration.mjs",
-    "migration:ledger": "node scripts/migrate/transfer-ledger.mjs"
+    "migration:ledger": "node scripts/migrate/transfer-ledger.mjs",
+    "data:lint": "node scripts/data/lint.mjs"
   }
 }
