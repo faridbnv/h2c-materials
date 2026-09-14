@@ -124,38 +124,6 @@
       }
     },
     {
-      "name": "Price CAD/kg",
-      "type": "number",
-      "role": "derived",
-      "description": "Headline price: median regular CAD/kg of the cited headline-sample observations.",
-      "missing": [
-        "Not available in sampled Canadian market"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Price evidence",
-      "type": "list",
-      "role": "editorial",
-      "description": "Price observations the headline price is the median of.",
-      "missing": [
-        "Not applicable"
-      ],
-      "delimiter": ";",
-      "item": {
-        "pattern": "^CA\\d{4}$",
-        "reference": {
-          "table": "prices",
-          "field": "PriceID"
-        }
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Price basis",
       "type": "string",
       "role": "prose",

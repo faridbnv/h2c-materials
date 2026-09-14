@@ -449,36 +449,21 @@ function relatedEvidence(mat, key, measurementsByMaterial) {
   };
 }
 
-function compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) {
-  const parsed = parseValue(mat['Price CAD/kg']);
-  const cited = ids(mat['Price evidence']).map((id) => pricesById.get(id)).filter(Boolean);
-  if (!parsed.known) return { known: false, missing: parsed.missing, text: parsed.text, unit: 'CAD/kg' };
+// Half up to the cent, on the decimal value: 124.485 is 124.49, not binary floating point's 124.48.
+const cents = (x) => Math.round(Number((x * 100).toPrecision(12))) / 100;
+const NOT_IN_MARKET = parseValue('Not available in sampled Canadian market');
 
-  // Method sheet, Pricing / Calculations: headline is the median of eligible flagged observations.
+/**
+ * Method, Pricing / Calculations: the headline is the median regular CAD/kg of the material's
+ * headline-sample observations, to the cent. It is calculated here, never typed, so it cannot
+ * disagree with its observations; a material with no sample has no price in the sampled market.
+ */
+function compilePriceHeadline(mat, pricesByMaterial) {
   const sample = (pricesByMaterial.get(mat.MaterialID) || []).filter((p) => p.headlineSample && p.regularPerKg !== null);
-  const expected = median(sample.map((p) => p.regularPerKg));
-  const agrees = expected !== null && Math.abs(expected - parsed.value) < 0.005;
-  if (!agrees) {
-    issues.push({
-      level: 'error',
-      where: `Materials ${mat.MaterialID}`,
-      message: `Price headline ${parsed.value} does not equal the median of its headline-sample observations (${expected})`,
-    });
-  }
-  // A headline may only cite observations it was built from. When CA0069 was quarantined (a PLA Pure
-  // listing filed under ABS) the median moved, but the Materials row still cited it and still said
-  // "2 observations", and nothing noticed because only the value was checked.
-  const stray = cited.filter((p) => !p.headlineSample || p.regularPerKg === null);
-  if (stray.length) {
-    issues.push({
-      level: 'error',
-      where: `Materials ${mat.MaterialID}`,
-      message: `Price headline cites ${stray.map((p) => p.id).join(', ')}, which ${stray.length === 1 ? 'is' : 'are'} not in the headline sample`,
-    });
-  }
+  if (!sample.length) return { known: false, missing: NOT_IN_MARKET.missing, text: NOT_IN_MARKET.text, unit: 'CAD/kg' };
   return {
-    known: true, value: parsed.value, unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: agrees && !stray.length,
-    priceIds: cited.filter((p) => !stray.includes(p)).map((p) => p.id), observations: sample.length, basis: mat['Price basis'],
+    known: true, value: cents(median(sample.map((p) => p.regularPerKg))), unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: true,
+    priceIds: sample.map((p) => p.id), observations: sample.length, basis: mat['Price basis'],
   };
 }
 
@@ -577,12 +562,19 @@ export function compile(wb, { snapshot, build }) {
     profilesByMaterial.get(p.materialId).push(p);
   }
 
-  const prices = wb['Prices CA'].rows.map((r) => ({
+  const prices = wb['Prices CA'].rows.map((r) => {
+    const eligibleForMedian = parseBoolean(r['Eligible for median']);
+    const listPrice = num(r['List price CAD']), netMassKg = num(r['Net mass kg']);
+    // Regular CAD/kg is list price / net mass to the cent, and exists only where a median may use it.
+    if (eligibleForMedian && (listPrice === null || !netMassKg)) {
+      issues.push({ level: 'error', where: `prices ${r.PriceID}`, message: 'Eligible for median without a list price and net mass to calculate CAD/kg from' });
+    }
+    return {
     id: r.PriceID, materialId: r.MaterialID, gradeId: r.GradeID, retailer: r.Retailer,
-    variant: r['Variant / SKU'], packaging: r.Packaging, netMassKg: num(r['Net mass kg']),
-    listPrice: num(r['List price CAD']), salePrice: num(r['Sale price CAD']),
-    regularPerKg: num(r['Regular CAD/kg']), stock: r.Stock,
-    eligibleForMedian: parseBoolean(r['Eligible for median']),
+    variant: r['Variant / SKU'], packaging: r.Packaging, netMassKg,
+    listPrice, salePrice: num(r['Sale price CAD']),
+    regularPerKg: eligibleForMedian && listPrice !== null && netMassKg ? cents(listPrice / netMassKg) : null, stock: r.Stock,
+    eligibleForMedian,
     headlineSample: parseBoolean(r['Headline sample']),
     displayedPrice: num(r['Displayed price CAD']), currency: r.Currency, market: r.Market,
     taxShipping: r['Tax / shipping'], basis: r['Regular price basis'], url: r.URL,
@@ -590,8 +582,8 @@ export function compile(wb, { snapshot, build }) {
     // The workbook marks a wrong-product listing by writing "Quarantined" into its price basis
     // (CA0069, a PLA Pure spool filed under ABS). It stays as an audit trail and nothing else.
     quarantined: /^quarantined\b/i.test(String(r['Regular price basis'] ?? '')),
-  }));
-  const pricesById = new Map(prices.map((p) => [p.id, p]));
+    };
+  });
   const pricesByMaterial = new Map();
   for (const p of prices) {
     if (!pricesByMaterial.has(p.materialId)) pricesByMaterial.set(p.materialId, []);
@@ -651,7 +643,7 @@ export function compile(wb, { snapshot, build }) {
       familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(mat['Original name']) : null,
       representativeGrade: mat['Representative grade'],
       gradeIds: ids(mat.GradeIDs),
-      headline: { ...compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesById, pricesByMaterial, issues) },
+      headline: { ...compileHeadlines(mat, selections, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
       headlineBasis: mat['Headline basis'],
       measurementConditions: mat['Measurement conditions'],
       facets: deriveFacets(mat),

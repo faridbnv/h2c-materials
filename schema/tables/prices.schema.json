@@ -107,19 +107,6 @@
       }
     },
     {
-      "name": "Regular CAD/kg",
-      "type": "number",
-      "role": "derived",
-      "description": "List price ÷ net mass, for median-eligible rows.",
-      "missing": [
-        "Not applicable"
-      ],
-      "constraints": {
-        "required": true,
-        "minimum": 0
-      }
-    },
-    {
       "name": "Stock",
       "type": "string",
       "role": "raw",
