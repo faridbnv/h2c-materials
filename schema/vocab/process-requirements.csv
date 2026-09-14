@@ -1,0 +1,5 @@
+Value,Meaning
+none,Explicitly not required.
+recommended,"A recommendation, not a requirement the printer fails."
+required,A window the material needs.
+unknown,No statement.

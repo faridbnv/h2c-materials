@@ -243,6 +243,19 @@
       }
     },
     {
+      "name": "Test load MPa",
+      "type": "number",
+      "role": "canonical",
+      "description": "Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Notch",
       "type": "string",
       "role": "canonical",
@@ -288,6 +301,15 @@
       "type": "string",
       "role": "prose",
       "description": "Review notes.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Parse review",
+      "type": "string",
+      "role": "editorial",
+      "description": "Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build.",
       "constraints": {
         "required": true
       }

@@ -19,6 +19,7 @@ import { classifyTopic, classifyFinding, countUsableByCategory } from './normali
 import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
+import { applyProfileTyped, applyLoadTyped } from './typed-values.js';
 import { buildEstimates, summariseEstimates } from './estimates.js';
 import { attachPrintEstimates } from './print-estimates.js';
 import { attachChamberEstimates } from './chamber-estimates.js';
@@ -37,7 +38,7 @@ const median = (xs) => {
 };
 
 // Plausibility windows keep a stray number in a sentence from being read as a temperature.
-const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200] };
+export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200] };
 
 // ---------------------------------------------------------------------------- measurements
 
@@ -85,7 +86,7 @@ function compileMeasurements(rows, issues) {
     };
 
     if (r.Property === 'HDT') {
-      const h = parseHdtStandard(r['Standard / load']);
+      const h = applyLoadTyped(r, parseHdtStandard(r['Standard / load']), issues);
       m.thermal = { standard: h.standard, loadMPa: h.loadMPa, loadStated: h.loadStated, label: h.label, origin: ORIGIN.PARSED };
     }
     if (r.Property === 'Fatigue life') {
@@ -103,10 +104,15 @@ function compileMeasurements(rows, issues) {
 
 function compileProfiles(rows, issues) {
   return rows.map((r) => {
-    const nozzle = parseTemperature(r['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle });
-    const bed = parseTemperature(r['Bed °C'], { plausible: TEMP_WINDOW.bed });
-    const enclosure = parseEnclosure(r.Enclosure);
-    let chamber = parseTemperature(r['Chamber °C'], { plausible: TEMP_WINDOW.chamber });
+    // The stored typed values decide; the parsers' reading of the raw text checks them (typed-values.js).
+    const typed = applyProfileTyped(r, {
+      nozzle: parseTemperature(r['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle }),
+      bed: parseTemperature(r['Bed °C'], { plausible: TEMP_WINDOW.bed }),
+      chamber: parseTemperature(r['Chamber °C'], { plausible: TEMP_WINDOW.chamber }),
+      enclosure: parseEnclosure(r.Enclosure), drying: parseDrying(r.Drying), abrasion: parseAbrasion(r['Abrasion / clogging']),
+    }, issues);
+    const { nozzle, bed, enclosure } = typed;
+    let { chamber } = typed;
     // Five Spectrum data sheets say only that a closed chamber is "not necessary". A material that
     // does not need enclosing does not need a heated chamber, so that clears the chamber question
     // without inventing a temperature. The reverse does not hold: an enclosure being recommended
@@ -133,8 +139,8 @@ function compileProfiles(rows, issues) {
       plate: r.Plate,
       nozzleMaterial: r['Nozzle material'],
       nozzleDiameter: parseNozzleDiameters(r['Nozzle diameter']),
-      abrasion: parseAbrasion(r['Abrasion / clogging']),
-      drying: parseDrying(r.Drying),
+      abrasion: typed.abrasion,
+      drying: typed.drying,
       storageHumidity: r['Storage humidity'],
       // Routing and AMS fields are carried verbatim. 133 of 160 say "Verify exact grade", so they
       // are evidence chips in the detail view, never filters. See the plan, section 5.4.

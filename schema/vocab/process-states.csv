@@ -1,0 +1,7 @@
+Value,Meaning
+ambient,The source says room temperature: no heated setpoint needed.
+no-setpoint,"The source prints '-': no setpoint given, which is neither zero nor not required."
+not-required,The source says it is not required.
+range,A temperature window; min and max hold it (min may be Not published for 'up to').
+recommended,"Recommended, with no temperature."
+unknown,"Not published, or text the parser could not read."

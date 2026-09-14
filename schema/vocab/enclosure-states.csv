@@ -1,0 +1,4 @@
+Value,Meaning
+not-needed,The source says no enclosure is needed; a heated chamber is then not needed either.
+recommended,The source recommends or requires an enclosure; says nothing about 65 °C.
+unknown,"Not published, or unread."

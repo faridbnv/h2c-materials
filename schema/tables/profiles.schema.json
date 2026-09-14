@@ -61,10 +61,102 @@
       }
     },
     {
+      "name": "Nozzle state",
+      "type": "string",
+      "role": "canonical",
+      "description": "Reviewed reading of Nozzle °C: range, not-required, ambient, no-setpoint, recommended or unknown.",
+      "vocabulary": "process-states",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle min °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Lower end of the window; Not published for an up-to value; Not applicable unless the state is range.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle max °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Upper end of the window; Not applicable unless the state is range.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Nozzle requirement",
+      "type": "string",
+      "role": "canonical",
+      "description": "required, recommended, none or unknown.",
+      "vocabulary": "process-requirements",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Bed °C",
       "type": "string",
       "role": "raw",
       "description": "Bed °C as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bed state",
+      "type": "string",
+      "role": "canonical",
+      "description": "Reviewed reading of Bed °C: range, not-required, ambient, no-setpoint, recommended or unknown.",
+      "vocabulary": "process-states",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bed min °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Lower end of the window; Not published for an up-to value; Not applicable unless the state is range.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bed max °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Upper end of the window; Not applicable unless the state is range.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Bed requirement",
+      "type": "string",
+      "role": "canonical",
+      "description": "required, recommended, none or unknown.",
+      "vocabulary": "process-requirements",
       "constraints": {
         "required": true
       }
@@ -79,10 +171,66 @@
       }
     },
     {
+      "name": "Chamber state",
+      "type": "string",
+      "role": "canonical",
+      "description": "Reviewed reading of Chamber °C: range, not-required, ambient, no-setpoint, recommended or unknown.",
+      "vocabulary": "process-states",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Chamber min °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Lower end of the window; Not published for an up-to value; Not applicable unless the state is range.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Chamber max °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Upper end of the window; Not applicable unless the state is range.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Chamber requirement",
+      "type": "string",
+      "role": "canonical",
+      "description": "required, recommended, none or unknown.",
+      "vocabulary": "process-requirements",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Enclosure",
       "type": "string",
       "role": "raw",
       "description": "Enclosure as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Enclosure state",
+      "type": "string",
+      "role": "canonical",
+      "description": "Reviewed reading of Enclosure.",
+      "vocabulary": "enclosure-states",
       "constraints": {
         "required": true
       }
@@ -142,6 +290,42 @@
       }
     },
     {
+      "name": "Drying state",
+      "type": "string",
+      "role": "canonical",
+      "description": "stated or unknown.",
+      "vocabulary": "drying-states",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Drying °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Drying temperature.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Drying hours",
+      "type": "number",
+      "role": "canonical",
+      "description": "Drying time.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Storage humidity",
       "type": "string",
       "role": "raw",
@@ -173,6 +357,24 @@
       "type": "string",
       "role": "raw",
       "description": "Abrasion / clogging as published; parsed by the build.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Hardened nozzle",
+      "type": "boolean",
+      "role": "canonical",
+      "description": "Whether the source says a hardened or wear-resistant nozzle is needed.",
+      "missing": [
+        "Not published"
+      ],
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE"
+      ],
       "constraints": {
         "required": true
       }
@@ -364,6 +566,15 @@
       "type": "string",
       "role": "raw",
       "description": "Where in the source.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Parse review",
+      "type": "string",
+      "role": "editorial",
+      "description": "Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build.",
       "constraints": {
         "required": true
       }
