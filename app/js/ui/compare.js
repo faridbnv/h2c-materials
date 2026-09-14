@@ -5,7 +5,7 @@
 
 import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, chip, wireEvidence } from './format.js';
-import { prop, describeConstraint, gateVerdict } from './labels.js';
+import { prop, describeConstraint, gateVerdict, estimateTitle } from './labels.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 
@@ -51,7 +51,7 @@ export function renderCompare(host, state, actions) {
   // Estimates belong here too. Compare used to print "Not published" for a material whose family
   // bound was the very thing that decided whether it stayed in the results, so the reader saw a
   // blank where the tool had an opinion.
-  const useEstimates = state.ctx?.useEstimates;
+  const useEstimates = state.ctx?.showEstimates;
   const estimateOf = (m, key) => {
     const h = m.headline[key];
     return !h?.known && useEstimates && h?.estimate ? h.estimate : null;
@@ -60,7 +60,7 @@ export function renderCompare(host, state, actions) {
   const blocks = AXIS_DEFS.map((a) => {
     const vals = picked.map((m) => m.headline[a.key]);
     const known = vals.filter((v) => v?.known).map((v) => v.value);
-    const estHi = picked.map((m) => estimateOf(m, a.key)).filter(Boolean).map((e) => e.hi);
+    const estHi = picked.map((m) => estimateOf(m, a.key)).filter(Boolean).map((e) => e.plausible?.hi ?? e.hi);
     const boundHi = vals.filter((v) => v?.known && v.interval?.hi != null).map((v) => v.interval.hi);
     const related = vals.filter((v) => v && !v.known && v.related);
     if (!known.length && !estHi.length && !related.length) {
@@ -88,9 +88,14 @@ export function renderCompare(host, state, actions) {
         const who = `${esc(m.name)}${isAnchor(m) ? ' <span class="anchor-tag">baseline</span>' : ''}`;
         if (!h?.known) {
           const e = estimateOf(m, a.key);
+          if (h?.notApplicable) {
+            return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}"><span>${who}</span>
+              <span class="missing" title="${esc(h.notApplicable.reason)}">not applicable</span><span></span></div>`;
+          }
           // A measurement that never became the headline is still a measurement. The table shows
-          // it with an asterisk; Compare used to print "Not published" for the same material.
-          if (h?.related) {
+          // it with an asterisk; Compare used to print "Not published" for the same material. With
+          // estimates on, the estimate already carries it, converted, so the estimate is shown.
+          if (h?.related && !e) {
             const b = h.related.best;
             return `<div class="cmp-bar cmp-related${isAnchor(m) ? ' anchor' : ''}">
               <span>${who}</span>
@@ -101,16 +106,17 @@ export function renderCompare(host, state, actions) {
             return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}"><span>${who}</span>
               <span class="missing" title="${esc(h?.text ?? 'Not published in the sampled sources. Not zero, and not a low value.')}">${esc(missingWord(h))}</span><span></span></div>`;
           }
-          // A span, not a bar. There is no value to fill to, and drawing one would invent a number.
-          const left = (e.lo / max) * 100;
-          const w = Math.max(((e.hi - e.lo) / max) * 100, 1.5);
-          const title = `Estimated, not measured. The ${e.peerCount} measured peers in ${e.basis} `
-            + `fall between ${fmtNumber(e.lo)} and ${fmtNumber(e.hi)} ${e.unit}. `
-            + 'Peer context only; does not decide eligibility.';
+          // A span, not a bar: the likely range, with the plausible range behind it and a tick at the
+          // centre. There is no measured value to fill to.
+          const pct = (v) => Math.max(0, Math.min(100, (v / max) * 100));
+          const left = pct(e.lo);
+          const w = Math.max(pct(e.hi) - left, 1.5);
+          const wide = e.plausible ? `<span class="est-wide" style="left:${pct(e.plausible.lo)}%;width:${Math.max(pct(e.plausible.hi) - pct(e.plausible.lo), 1.5)}%"></span>` : '';
+          const title = estimateTitle(e, fmtNumber);
           return `<div class="cmp-bar estimated${isAnchor(m) ? ' anchor' : ''}" title="${esc(title)}">
             <span>${who}</span>
-            <span class="track"><span class="est-span" style="left:${left}%;width:${w}%"></span></span>
-            <span class="val est">~${fmtNumber(e.lo)}\u2013${fmtNumber(e.hi)}<span class="est-mark">\u2020</span></span></div>`;
+            <span class="track">${wide}<span class="est-span" style="left:${left}%;width:${w}%"></span><span class="est-centre" style="left:${pct(e.centre)}%"></span></span>
+            <span class="val est est-${esc(e.precision)}">~${fmtNumber(e.lo)}\u2013${fmtNumber(e.hi)}<span class="est-mark">\u2020</span></span></div>`;
         }
         const w = (h.value / max) * 100;
         const bounds = h.interval && h.interval.lo !== h.interval.hi && h.interval.lo !== null && h.interval.hi !== null
@@ -137,7 +143,7 @@ export function renderCompare(host, state, actions) {
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
       <div><b>Requirements:</b> ${hard.length ? hard.map((c) => esc(describeConstraint(c))).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Tracked only:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
-      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}Missing data ${scenario.unknownPolicy === 'exploration' ? 'kept and flagged' : 'left out'}${useEstimates ? ', family estimates on' : ''}.
+      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}Missing data ${scenario.unknownPolicy === 'exploration' ? 'kept and flagged' : 'left out'}${useEstimates ? ', estimates on (they never pass a material and may screen one out)' : ''}.
         Database snapshot ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. Values are recorded for each material and may come from
         different grades; check the exact grade before you buy or print.</div>
     </div>`;
@@ -179,8 +185,10 @@ export function renderCompare(host, state, actions) {
           <td>${state.ctx.measurementsByMaterial.get(m.id)?.length ?? 0}</td></tr>`;
       }).join('')}</tbody></table>
     ${picked.some((m) => AXIS_DEFS.some((a) => estimateOf(m, a.key)))
-      ? `<p class="fine">A \u2020 span is the range of a material's closest measured relatives, not a
-         measurement of the material itself. It never confirms or excludes a material.</p>`
+      ? `<p class="fine">A \u2020 span is an estimate, not a measurement: the likely range (${Math.round((db.meta.estimateModel?.levels?.likely ?? 0.8) * 100)}%), with the
+         plausible range behind it and a tick at its centre. It is built from the material's own related
+         measurements where it has any, and from its polymer family. It never passes a requirement; hover
+         it for what it rests on and whether it can screen.</p>`
       : ''}`;
 
   host.querySelector('#cmp-print')?.addEventListener('click', () => window.print());

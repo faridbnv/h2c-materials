@@ -142,65 +142,103 @@ test('an unrecognised unknown-data policy falls back to strict, consistently', (
   assert.equal(good.eligible, true);
 });
 
-// --- family estimates -------------------------------------------------------
-// An estimate is inference drawn from a material's relatives. It exists to stop a material falling
-// context without claiming the sample bounds an unmeasured formulation.
+// --- estimates ----------------------------------------------------------------
+// An estimate is inference, so it never changes a verdict. It may change eligibility in one direction
+// only: in Explore, an estimate that can screen and whose plausible range wholly fails holds a material
+// out, unless one of the material's own measurements of that property could meet the requirement (D43).
+// The likely range is what the reader sees; the plausible range is what decides.
 
-const estimated = (lo, hi) => ({
+const estimated = (lo, hi, { canScreen = true, related = null, plausible = null } = {}) => ({
   id: 'M1', excluded: false, gates: {},
-  headline: { elongationXY: { known: false, missing: 'not-published', unit: '%',
-    estimate: { lo, hi, unit: '%', peerCount: 14, basis: 'PLA, unreinforced grades', peers: [] } } },
+  headline: { elongationXY: { known: false, missing: 'not-published', unit: '%', related,
+    estimate: { kind: 'model', strength: 'family', precision: 'fair', lo, hi, centre: (lo + hi) / 2, plausible: plausible ?? { lo, hi },
+      unit: '%', basis: 'the family model only: PLA', method: 'Gaussian model', evidence: [],
+      canScreen, screenLimit: canScreen ? null : 'no evidence of this material, and PLA is measured on fewer than 2 products' } } },
+});
+const elongation = (value, operator = '>=') => ({ kind: 'numeric', property: 'elongationXY', operator, value });
+const explore = { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.EXPLORATION };
+
+// Regression: PLA Lite once sat among the elastomers in a search for elongation at least 100%.
+test('an estimate whose whole range fails screens the material out of Explore, without failing it', () => {
+  const e = evaluateMaterial(estimated(2.2, 32.9), [elongation(100)], explore);
+  assert.equal(e.verdict, STATUS.UNKNOWN, 'inference never becomes a FAIL');
+  assert.equal(e.screened, true);
+  assert.equal(e.eligible, false);
+  assert.deepEqual(e.screenedBy, ['elongationXY >= 100']);
+  assert.match(e.results[0].reason, /Screened out; not measured/);
+  const s = runSelection([estimated(2.2, 32.9)], [elongation(100)], explore);
+  assert.deepEqual(s.counts, { pass: 0, fail: 0, unknown: 1, screened: 1, total: 1 });
 });
 
-test('peer extrema never rule out an unmeasured material', () => {
-  const m = estimated(2.8, 15.3);
-  const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 };
-  const r = evaluateConstraint(m, c, { useEstimates: true });
+test('an estimate never passes a requirement, even when its whole range meets it', () => {
+  const r = evaluateConstraint(estimated(2.2, 32.9), elongation(2), explore);
   assert.equal(r.status, STATUS.UNKNOWN);
-  assert.ok(r.estimated);
-  assert.match(r.reason, /measured peers/);
-});
-
-test('an estimate never confirms a requirement, even when every peer would meet it', () => {
-  const m = estimated(2.8, 15.3);
-  const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 2 };
-  const r = evaluateConstraint(m, c, { useEstimates: true });
-  assert.equal(r.status, STATUS.UNKNOWN, 'a passing estimate is still not evidence');
   assert.equal(r.plausible, STATUS.PASS);
-  assert.ok(r.estimated);
+  assert.equal(r.screened, false);
 });
 
-test('a straddling estimate holds rather than deciding', () => {
-  const r = evaluateConstraint(estimated(2.8, 15.3), { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 10 }, { useEstimates: true });
-  assert.equal(r.status, STATUS.UNKNOWN);
+test('a straddling estimate neither screens nor decides', () => {
+  const r = evaluateConstraint(estimated(2.2, 32.9), elongation(10), explore);
   assert.equal(r.plausible, STATUS.INDETERMINATE);
+  assert.equal(r.screened, false);
 });
 
-test('estimates are invisible unless explicitly enabled, so Strict never sees them', () => {
-  const m = estimated(2.8, 15.3);
-  const c = { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 };
-  const off = evaluateConstraint(m, c, {});
-  assert.equal(off.status, STATUS.UNKNOWN);
+test('an estimate that may not screen only informs', () => {
+  const e = evaluateMaterial(estimated(2.2, 32.9, { canScreen: false }), [elongation(100)], explore);
+  assert.equal(e.screened, false);
+  assert.equal(e.eligible, true);
+  assert.match(e.results[0].reason, /fewer than 2 products/);
+});
+
+// Regression, found while designing this model: a class envelope screened CPE out of "elongation at
+// least 100%" although its own data sheet reports 150% in an unstated direction.
+test('the material\'s own measurement vetoes a screen, whatever its direction or endpoint', () => {
+  const related = { intervals: [{ measurementId: 'V9', lo: 150, hi: 150 }] };
+  const e = evaluateMaterial(estimated(2.2, 32.9, { related }), [elongation(100)], explore);
+  assert.equal(e.screened, false);
+  assert.equal(e.eligible, true);
+  assert.deepEqual(e.results[0].vetoedBy, ['V9']);
+  // A failing own measurement vetoes nothing.
+  const low = evaluateMaterial(estimated(2.2, 32.9, { related: { intervals: [{ measurementId: 'V8', lo: 40, hi: 40 }] } }), [elongation(100)], explore);
+  assert.equal(low.screened, true);
+});
+
+test('estimates are invisible unless enabled, and never screen in Strict', () => {
+  const off = evaluateConstraint(estimated(2.2, 32.9), elongation(100), {});
   assert.equal(off.estimated, undefined);
   assert.match(off.reason, /Not published/);
+  const strict = evaluateMaterial(estimated(2.2, 32.9), [elongation(100)], { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.STRICT });
+  assert.equal(strict.screened, false);
+  assert.equal(strict.eligible, false, 'Strict holds it out for missing data, not because of the estimate');
 });
 
-test('an estimate leaves an exploration candidate unresolved', () => {
-  const m = estimated(2.8, 15.3);
-  const e = evaluateMaterial(m, [{ kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 }],
-    { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.EXPLORATION });
-  assert.equal(e.verdict, STATUS.UNKNOWN);
-  assert.equal(e.eligible, true);
-  assert.equal(e.ruledOutByEstimate, false);
-  assert.ok(e.usesEstimate);
-});
-
-test('a material that fails on real evidence is not attributed to an estimate', () => {
+test('a material that fails on real evidence is a FAIL, never "screened"', () => {
   const m = { id: 'M2', excluded: false, gates: {}, headline: { elongationXY: { known: true, value: 5, unit: '%', interval: { lo: 5, hi: 5 } } } };
-  const e = evaluateMaterial(m, [{ kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100 }], { useEstimates: true });
+  const e = evaluateMaterial(m, [elongation(100)], explore);
   assert.equal(e.verdict, STATUS.FAIL);
-  assert.equal(e.ruledOutByEstimate, false);
+  assert.equal(e.screened, false);
   assert.equal(e.usesEstimate, false);
+});
+
+test('the plausible range decides a screen, not the narrower likely range the reader sees', () => {
+  // Likely 20-40%, plausibly 12-60%: a requirement of 50% fails the likely range but not the plausible one.
+  const m = estimated(20, 40, { plausible: { lo: 12, hi: 60 } });
+  const r = evaluateConstraint(m, elongation(50), explore);
+  assert.equal(r.screened, false);
+  assert.equal(r.plausible, STATUS.INDETERMINATE);
+  assert.match(r.reason, /Estimated 20 to 40 %.*plausibly 12 to 60/);
+  assert.equal(evaluateMaterial(m, [elongation(70)], explore).screened, true);
+});
+
+test('not applicable holds a material out of Explore and never passes, and is silent without estimates', () => {
+  const tpu = { id: 'T', excluded: false, gates: {}, headline: { hdt045: { known: false, missing: 'not-published', unit: '°C',
+    notApplicable: { reason: 'Heat deflection is a rigid-bar test' } } } };
+  const hdt = { kind: 'numeric', property: 'hdt045', operator: '>=', value: 60 };
+  const e = evaluateMaterial(tpu, [hdt], explore);
+  assert.equal(e.verdict, STATUS.UNKNOWN);
+  assert.equal(e.screened, true);
+  assert.match(e.results[0].reason, /^Not applicable/);
+  assert.equal(evaluateMaterial(tpu, [hdt], {}).screened, false);
 });
 
 // The availability gate. Absence of an offer is not proof a material cannot be bought: the sample
@@ -231,7 +269,7 @@ test('strict mode reports unchecked materials as UNKNOWN, not FAIL', () => {
   const unmeasured = { id: 'B', gates: {}, headline: { hdt045: { known: false, missing: 'not-published' } } };
   const cs = [{ kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 }];
   const s = runSelection([measured, unmeasured], cs, { unknownPolicy: UNKNOWN_POLICY.STRICT });
-  assert.deepEqual(s.counts, { pass: 0, fail: 1, unknown: 1, total: 2 });
+  assert.deepEqual(s.counts, { pass: 0, fail: 1, unknown: 1, screened: 0, total: 2 });
   assert.equal(s.candidates.length, 0);
   const [a, b] = s.evaluations;
   assert.deepEqual(a.failedBy, ['hdt045 >= 100']);

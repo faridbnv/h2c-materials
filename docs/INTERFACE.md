@@ -121,17 +121,31 @@ no data". The two names in the code and in these documents are Strict and Explor
 what each one does, because the words themselves told a first-time reader nothing.
 
 - **Leave it out** (Strict) — a criterion that cannot be evaluated holds the material out. Measured
-  evidence only; family estimates are not consulted at all. The material's result is still UNKNOWN,
+  evidence only; estimates are not consulted at all. The material's result is still UNKNOWN,
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
-- **Keep it, flagged** (Explore) — materials with unresolved criteria stay visible and flagged, and
-  peer spans provide context without deciding eligibility.
+- **Keep it, flagged** (Explore) — materials with unresolved criteria stay visible and flagged. With
+  **Estimates** on, a material whose estimate clearly cannot meet a requirement is screened out.
+
+An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
+only when its wider plausible (95%) range wholly fails the requirement, only when it rests on the
+material's own evidence or an identity measured on at least two products, and never when one of the
+material's own measurements of that property could meet the requirement (DECISIONS D43). A property
+that is not applicable (`n/a`), such as heat deflection of an elastomer, screens the same way. A
+screened material's result is still UNKNOWN and it is counted there; the Why excluded tab says how
+many each requirement screened.
+
+With estimates on, the table cell shows the estimate rather than the related `*` value, because the
+estimate already contains that measurement converted to the headline. An imprecise estimate is in
+italic. Hovering says what it rests on, both ranges and its precision; the drawer lists every
+measurement behind it with its converted value. Where no source publishes a nozzle or bed window, the
+Printing table shows an estimated one, marked `†`, which decides nothing.
 
 Switching resets which verdicts the table shows, so the change is visible in the results rather than
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
-The **Estimates** toggle appears in Explore only, and shows peer context without changing eligibility.
+The **Estimates** toggle appears in Explore only, and says how many materials it screened.
 
 ## The four states
 
@@ -148,6 +162,10 @@ exports. Always icon plus text, never colour alone.
 The status bar chips are **buttons**: they choose which verdicts the table shows. The last one
 switched on stays on, and says so.
 
+A fourth chip, **SCREENED**, appears only when an estimate screened something. It is not a verdict:
+its materials are already counted under UNKNOWN. It brings them back into the table, each marked
+"screened" with the requirement and estimate that held it out.
+
 Before any requirement is set nothing has been tested, so rows read **not tested** and the chips
 stand down. A green PASS on a blank screen asserted a test that never ran.
 
@@ -157,8 +175,8 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 |---|---|
 | `4.43` | A measured, verified headline |
 | `46*` | A real measurement never promoted to a headline. Hover for why |
-| `~2.8–15.3†` | An estimate from relatives. Context only; never decides eligibility |
-| `80?` | A heat value whose source states the standard but not the load. It cannot pass a heat requirement outright |
+| `~1.9–41†` | An estimate: a 95% interval from the material's other grades, same-polymer peers or close analogues. Never passes; hover for its evidence and whether it can screen |
+| `80?` | A heat value whose source states the standard but not the load. It can neither pass nor fail a heat requirement outright |
 | `—` | Not published. Hover for which kind of absence |
 
 Every measured value carries a small dot, a real button reachable by keyboard: it opens the
@@ -255,10 +273,10 @@ warnings and banners · the chart · the guide-line card · reading this chart
   that fires when nothing is wrong teaches the reader to ignore the one that matters.
 
 - **Also draw the estimated materials** draws the candidates that have no measurement of their own on one of the
-  chosen axes. They appear as a dotted range rather than a dot, because the value is the span of
-  their closest measured relatives and not a position anyone measured; where the other axis is
-  measured the range collapses to a whisker. Off by default, since twenty-five overlapping ranges
-  are less readable than none, but **the count is in the footer either way**. Nothing that the
+  chosen axes. They appear as a dotted range rather than a dot, because the value is a 95% interval
+  and not a position anyone measured; where the other axis is measured the range collapses to a
+  whisker. An open-ended estimate is not drawn. Off by default, since overlapping ranges are less
+  readable than none, but **the count is in the footer either way**. Nothing that the
   filters kept is ever silently missing from the picture.
 
   The two switches it replaced were "Points" and "Comparability". That reads as four combinations
@@ -289,7 +307,7 @@ and fails outright on plenty of real machines.
   axis is meaningless. Aligned bars instead.
 - **No universal material score.** Scores are scenario preferences applied after hard constraints,
   never a quality ranking.
-- **No imputation presented as data.** Estimates exist, are labelled, and never decide eligibility.
+- **No imputation presented as data.** Estimates exist, are labelled as intervals, never pass a requirement, and screen only as D42 allows.
 
 ## Accessibility and output
 
@@ -304,7 +322,8 @@ stylesheet, so a printed comparison says which question it answers.
 The CSV export lists the rows in the table's order, with the requirements and policy in its header,
 each row's result, whether it is in the results, every failed and unchecked criterion with its
 reason, value qualifiers and measurement IDs. Estimates get their own columns only when they were in
-use.
+use: each estimate with its kind, interval, basis and whether it can screen, and which requirement
+screened the row, if any.
 
 ## State in the URL
 

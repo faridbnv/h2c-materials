@@ -10,4 +10,4 @@ All 11 confirmed finding groups in [REPORT.md](REPORT.md) were addressed locally
 - Added one repeatable data-audit command and a CI gate, a full filament/family matrix, source/record index, source-review log and before/after evidence.
 - Checked the user-supplied Bambu references; 39 numerical comparisons across 13 exact Bambu materials agree with the registered guide edition.
 
-Validation: 112 tests pass; zero build/audit errors; all 1,806 numeric observations reconcile; both HTML payloads match freshly compiled workbook data. See the report for evidence limits, remaining grade-aggregation caveats and source-refresh priorities. No publication was performed.
+Validation: 112 tests pass; zero build/audit errors; all 1,806 numeric observations reconcile; both HTML payloads match freshly compiled workbook data. See the report for evidence limits, remaining grade-aggregation caveats and source-refresh priorities. Correction from the [review](../2026-09-13-systematic-data-review/REPORT.md): this was published. Commit `54f606a` was pushed to `main` and deployed by the Pages workflow on 2026-09-13. The estimate policy recorded here (D40) was later replaced by D42.

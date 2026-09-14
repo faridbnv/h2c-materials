@@ -24,12 +24,12 @@
       <span class="mode-label">If a material has no data</span>
       <div class="segmented" role="group" aria-label="How to treat data that is missing">
         <button id="mode-strict" aria-pressed="true" title="Strict: a criterion that cannot be evaluated holds the material out of the results.">Leave it out</button>
-        <button id="mode-explore" aria-pressed="false" title="Explore: materials with unresolved criteria stay visible and flagged. Peer estimates provide context only.">Keep it, flagged</button>
+        <button id="mode-explore" aria-pressed="false" title="Explore: materials with unresolved criteria stay visible and flagged. With Estimates on, a material whose estimate clearly cannot meet a requirement is screened out; the status bar brings it back.">Keep it, flagged</button>
       </div>
     </div>
 
     <label class="est-toggle" id="est-toggle" hidden
-      title="Show observations from peers with the same base polymer and modifier. These do not decide eligibility.">
+      title="Use estimates for missing values: a calibrated likely range built from the material's own related measurements and its polymer family. An estimate never passes a material. It screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement.">
       <input type="checkbox" id="use-estimates"><span>Estimates</span></label>
 
     <button class="btn btn-sm" id="btn-scenario" title="Export, save, load or share this selection">Save / share</button>
@@ -72,6 +72,7 @@
     <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true">PASS 0</button>
     <button type="button" class="chip chip-UNKNOWN" id="s-unknown" aria-pressed="false">UNKNOWN 0</button>
     <button type="button" class="chip chip-FAIL"    id="s-fail"    aria-pressed="false">FAIL 0</button>
+    <button type="button" class="chip chip-screened" id="s-screened" aria-pressed="false" hidden>SCREENED 0</button>
     <div class="spacer"></div>
   </footer>
 

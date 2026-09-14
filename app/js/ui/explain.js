@@ -34,7 +34,7 @@ export function renderExclusions(host, state, actions) {
         <div>
           <div class="crit">${esc(nameOf(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">preference</span>' : ''}</div>
           <div class="why" style="font-size:12px;color:var(--ink-2)">
-            failed ${r.removed} · could not check ${r.held} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
+            failed ${r.removed} · could not check ${r.held}${r.screened ? ` (${r.screened} of them screened by an estimate)` : ''} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
           <div class="bar" style="width:${(r.removed / max) * 100}%"></div>
           <div class="held" style="width:${(r.held / max) * 100}%"></div>
         </div>

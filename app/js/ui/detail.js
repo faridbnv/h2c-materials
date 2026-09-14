@@ -7,7 +7,7 @@
 
 import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { renderWhy } from './explain.js';
-import { materialName, gateVerdict, CHAMBER_GUIDANCE } from './labels.js';
+import { materialName, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION } from './labels.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
 /** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
@@ -110,20 +110,46 @@ function describeFacets(m) {
   return bits.length ? bits.join(', ') + '.' : '';
 }
 
-/** The full estimate record: the span, where it came from, and every peer behind it. */
+/** The full estimate record: both ranges, what it rests on, and every measurement behind it, converted. */
 function estimateBlock(h, label) {
+  if (h && !h.known && h.notApplicable) {
+    return `<div class="est-card na-card"><h4>${esc(label)}: not applicable</h4>
+      <div class="est-basis">${esc(h.notApplicable.reason)}</div></div>`;
+  }
   const e = h && !h.known && h.estimate;
   if (!e) return '';
+  const s = ESTIMATE_STRENGTH[e.strength];
+  const pct = (p) => `${Math.round(p * 100)}%`;
+  const item = (i) => `${esc(i.property)} ${fmtNumber(i.value)} ${esc(i.unit)}${i.direction && !['not-applicable', 'unknown'].includes(i.direction) ? ` (${esc(i.direction)})` : ''}`
+    + `${i.measurementId ? ` <span style="font-family:var(--mono)">${esc(i.measurementId)}</span>` : ''}${i.from ? `, ${esc(i.from)}` : ''}`;
+  const evidence = e.evidence.length
+    ? `<ul class="est-evidence">${e.evidence.map((ev) => `<li>${ev.items.map(item).join('; ')}
+        ${ev.sameGrade ? '<span class="tag">this grade</span>' : `<span class="tag">grade ${esc(ev.gradeId)}</span>`}
+        \u2192 about ${fmtNumber(ev.converted)} ${esc(e.unit)} as this headline. <span class="fine">${esc(ev.conversion)}.</span>
+        ${ev.conflict ? '<b>Contradicts the rest of the evidence and is down-weighted.</b>' : ''}</li>`).join('')}</ul>`
+    : '';
+  const bounds = e.bounds?.length ? ` Limited by ${e.bounds.map((b) => esc(b.why)).join('; ')}.` : '';
   return `<div class="est-card">
-    <h4>${esc(label)}: estimated, not measured</h4>
-    <div class="est-span">${fmtNumber(e.lo)} \u2013 ${fmtNumber(e.hi)} ${esc(e.unit)}</div>
-    <div class="est-basis">This material has no published value. The range is the span of the
-      ${e.peerCount} measured peers in <b>${esc(e.basis)}</b>${e.sharedSourceDropped
-        ? `, after collapsing ${e.sharedSourceDropped} further entr${e.sharedSourceDropped === 1 ? 'y that shares' : 'ies that share'} one commercial source`
-        : ''}.
-      This peer sample cannot establish a value for this material and does not decide eligibility.</div>
-    <div class="est-peers">${e.peers.map((p) => `${esc(p.name)} ${fmtNumber(p.value)}`).join(' \u00b7 ')}</div>
+    <h4>${esc(label)}: estimated ${esc(s.short)}</h4>
+    <div class="est-span">${fmtNumber(e.lo)} \u2013 ${fmtNumber(e.hi)} ${esc(e.unit)} <span class="fine">likely (${pct(e.levels.likely)}), centred on ${fmtNumber(e.centre)}</span></div>
+    <div class="est-basis">Plausibly ${fmtNumber(e.plausible.lo)} \u2013 ${fmtNumber(e.plausible.hi)} ${esc(e.unit)} (${pct(e.levels.plausible)}). Precision: <b>${esc(e.precision)}</b>, ${esc(ESTIMATE_PRECISION[e.precision])}.
+      ${esc(s.title)}${e.strength !== 'family' ? `; this material's own evidence carries about ${pct(e.ownShare)} of the estimate` : ''}. Family: ${esc(e.family)}.${bounds}
+      ${e.sharedWith ? `Its representative product is also recorded under ${esc(e.sharedWith.name)}, so both show the same estimate.` : ''}
+      The ranges are calibrated: when each measured value in the database is hidden and predicted from the rest, ranges like these contain it that often.
+      It is never enough to pass a requirement. ${e.canScreen
+        ? 'In "Keep it, flagged" with Estimates on, it screens this material out of a requirement its plausible range wholly fails, unless one of the material\'s own measurements could meet it.'
+        : `It cannot screen this material out: ${esc(e.screenLimit)}.`}</div>
+    ${evidence}
   </div>`;
+}
+
+/** An estimated nozzle or bed window, where nothing is published. It decides nothing. */
+function windowEstimate(est, what) {
+  if (!est) return '';
+  return `<div class="est-card"><h4>${esc(what)}: estimated, not published</h4>
+    <div class="est-span">${fmtNumber(est.lo)} \u2013 ${fmtNumber(est.hi)} ${esc(est.unit)}</div>
+    <div class="est-basis">No source publishes this window for the material: ${esc(est.basis)} (${est.peers.map((p) => `${esc(p.name)} ${fmtNumber(p.min)}\u2013${fmtNumber(p.max)}`).join(', ')}).
+      A starting point to verify, not a print setting, and it changes no result.</div></div>`;
 }
 
 export function renderDrawer(host, state, actions) {
@@ -250,7 +276,7 @@ function tabBody(tab, c) {
             <div class="fact-value">${renderValue(h, { showUnit: true, estimates: true })}</div>
             <div class="fact-hint">${esc(hint)}</div>
             ${h?.caveatText ? `<div class="fact-warn">${esc(h.caveatText)}</div>` : ''}
-            ${!h?.known && !h?.related && h?.estimate ? `<div class="fact-warn">estimated from ${h.estimate.peerCount} relatives</div>` : ''}
+            ${!h?.known && h?.estimate ? `<div class="fact-warn">estimated ${esc(ESTIMATE_STRENGTH[h.estimate.strength].short)}</div>` : ''}
           </div>`;
         }).join('')}
       </div>
@@ -259,8 +285,8 @@ function tabBody(tab, c) {
 
       <h3 class="sec">Can the H2C print it?</h3>
       <div class="facts-list">
-        ${gateLine(m.gates.nozzle, 'Nozzle temperature', range(m.print?.nozzleC))}
-        ${gateLine(m.gates.bed, 'Bed temperature', range(m.print?.bedC))}
+        ${gateLine(m.gates.nozzle, 'Nozzle temperature', range(m.print?.nozzleC), windowEstimate(m.print?.nozzleEstimate, 'Nozzle'))}
+        ${gateLine(m.gates.bed, 'Bed temperature', range(m.print?.bedC), windowEstimate(m.print?.bedEstimate, 'Bed'))}
         ${gateLine(m.gates.chamber, 'Chamber temperature', range(m.print?.chamberC), chamberExtra)}
         <div class="fact">
           ${m.gates.abrasive === 'requires-hardened'

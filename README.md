@@ -17,7 +17,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 ```bash
 npm install --prefix build     # once
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html
-npm test                       # 112 engine, parser, search, scenario, template and database tests
+npm test                       # 122 engine, parser, search, scenario, template and database tests
 npm run validate               # validate only, no bundle
 npm run audit:data             # fresh build, raw-value reconciliation, filament/family matrices and HTML parity
 ```
@@ -86,7 +86,7 @@ These come from the workbook's own Method sheet, the architecture brief and the 
 preferences: changing one changes what the tool asserts.
 
 1. **Headline values are verified, never recomputed.** The workbook already cites the measurement
-   behind each headline; the build checks the number matches. All 369 reconcile, and a mismatch
+   behind each headline; the build checks the number matches. All 380 reconcile, and a mismatch
    fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
@@ -102,7 +102,10 @@ preferences: changing one changes what the tool asserts.
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
-11. **Peer estimates never decide eligibility.** Same-polymer, same-modifier sample spans are context, not bounds on an unmeasured grade.
+11. **An estimate never passes a material, and screens only on like-for-like evidence.** It is a 95%
+    prediction interval from the material's own other grades or same-polymer peers. In Explore it may
+    screen a material out when its whole interval fails, never when the material's own measurement
+    could meet the requirement.
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
 13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot
@@ -129,13 +132,21 @@ Only the first is evidence. The interface renders them differently on purpose.
 |---|---|---|
 | **Measured** | A verified headline, traceable to one measurement, grade and source | `4.43` |
 | **Related** | A real measurement of the same property, never promoted to a headline | `46*` |
-| **Estimated** | The span of the material's closest measured relatives. Inference, not evidence | `~2.8–15.3†` |
+| **Estimated** | The likely (80%) range of a calibrated model of every observation. Inference, not evidence | `~71.3–92.5†` |
 
-Peer spans are contextual observations from the same base polymer and modifier, preserving reported
-intervals. They do not establish bounds for an unmeasured grade and never confirm or reject a candidate.
-The systematic data audit removed broad family/filler fallbacks and excluded unknown-load HDT peers.
-See [the audit](docs/audits/2026-09-13-systematic-data/REPORT.md) and
-[the data model](docs/DATA-MODEL.md#family-estimates).
+Estimates exist because in Explore a material with no mechanical data answered UNKNOWN to every
+mechanical criterion, so PLA Lite sat among the elastomers in a search for "elongation at least
+100%". The first estimate model fixed that by pooling whole families and treating a sample's extremes
+as a bound, which was wrong in its own way; the second stopped estimates deciding anything; the third
+used only like-for-like evidence and gave ranges too wide to use, such as PA-CF strength 38–204 MPa.
+The current model fits one calibrated Gaussian model per property to every observation in the
+database, each converted to the headline (a break strength, a flexural modulus, a Z value, a resin
+data sheet), with polymer, reinforcement and melting-point structure shared across a family. PA-CF
+strength now reads 71–93 MPa, PA66-CF sits above PA66, and hidden measured values fall inside the
+shown 80% range 79–81% of the time. Every in-scope headline has a value, an estimate or a reason it
+does not apply. An estimate never passes a material, and screens one out only when its 95% range
+clearly fails and the material's own data does not contradict it. See
+[the data model](docs/DATA-MODEL.md#estimates) and DECISIONS D43.
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
 labelled "If a material has no data", and the two buttons read "Leave it out" and "Keep it, flagged",

@@ -1,6 +1,8 @@
 // Shared rendering. Every displayed value carries its origin in its typography, so a published
 // number never looks like one a regular expression recovered out of free text.
 
+import { estimateTitle } from './labels.js';
+
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -48,15 +50,18 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     const label = esc(MISSING_LABEL[entry.missing] ?? 'Not published');
     const r = entry.related;
 
-    // Precedence: a real measurement of this property beats a bound drawn from relatives.
-    if (!r && estimates && entry.estimate) {
+    // Not applicable is a statement about the property, not a gap, so it shows whatever the toggle.
+    if (entry.notApplicable) {
+      return `<span class="na" title="${esc(`Not applicable. ${entry.notApplicable.reason}`)}">n/a</span>`;
+    }
+    // An estimate already contains this material's related measurements, converted to the headline,
+    // so while estimates are on it takes precedence over the raw related value. With them off, the
+    // related value is shown on its own, as before.
+    if (estimates && entry.estimate) {
       const e = entry.estimate;
       const span = `${fmtNumber(e.lo)}–${fmtNumber(e.hi)}${showUnit ? ' ' + esc(e.unit) : ''}`;
-      const title = `Estimated, not measured. This material has no ${''}published value. The `
-        + `${e.peerCount} measured peers in ${e.basis} fall between ${fmtNumber(e.lo)} and ${fmtNumber(e.hi)} ${e.unit}`
-        + `${e.sharedSourceDropped ? ` (${e.sharedSourceDropped} further entries share one commercial source and were counted once)` : ''}.`
-        + ' Peer context only; does not decide eligibility.';
-      return `<span class="est" title="${esc(title)}">~${span}<span class="est-mark">†</span></span>`;
+      const title = estimateTitle(e, fmtNumber);
+      return `<span class="est est-${esc(e.precision)}" title="${esc(title)}">~${span}<span class="est-mark">†</span></span>`;
     }
     // In the table a dash, because "Not published" does not fit a numeric column and was being
     // clipped to "Not publis...". The wording survives in the tooltip, the detail drawer, the
@@ -102,7 +107,7 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
         title="Open the measurement behind this value" aria-label="Open the measurement behind ${esc(text)}"></button>`
     : '';
   // The qualification has to sit beside the number, not only in a hover: a heat value whose test
-  // load was never stated looks exactly like one that was, and cannot pass a heat requirement.
+  // load was never stated looks exactly like one that was, and can neither pass nor fail a heat requirement.
   const load = entry.loadStated === false
     ? `<span class="load-mark" title="The source states the test standard but not the load">?</span>`
     : '';

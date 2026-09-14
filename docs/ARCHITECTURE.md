@@ -65,7 +65,8 @@ plotting library, not the data, is what the file weighs.
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database and verify every headline against its own citation. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
-| `estimates.js` | Family bounds for materials with no measurement of their own. |
+| `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43). |
+| `print-estimates.js` | Nozzle and bed windows inferred from peers where no source publishes one. They decide nothing. |
 | `chamber-estimates.js` | The research's chamber bands, from `build/mappings/chamber-estimates.json`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
@@ -139,8 +140,10 @@ a measured value.
 
 **A new selectable property.** Add it to the headline list in `compile.js`, to `PROPERTY` in
 `ui/labels.js` with its plain name and unit, to `AXIS_DEFS` in `ui/axes.js` with its measurement
-mapping, to the numeric controls in `ui/filters.js`, and to `ESTIMATE_KEYS` in `estimates.js` if a
-family bound makes sense for it. The engine needs no change: it works off whatever headline keys
+mapping, to the numeric controls in `ui/filters.js`, and, if an estimate makes sense for it, to
+`ESTIMATE_KEYS`, `HEAD` and `kindOf` in `estimates.js`, with its scale, floors, precision thresholds
+and conversions in `build/mappings/estimate-model.json`. The calibration check will say at once
+whether the model holds for it. The engine needs no change: it works off whatever headline keys
 exist.
 
 **A new constraint kind.** Add a branch in `evaluateConstraint` and a matching control. Return the
@@ -172,4 +175,4 @@ category without importing anything from `ui/`.
 The systematic audit uses `build/src/measurement-rules.js` for independent raw-value and headline
 semantics checks and `scripts/audit-data.mjs` for reproducible source-to-HTML verification and record
 inventories. Both reuse the established pipeline. Retirement is an explicit source status, not a
-hardcoded grade exclusion. Peer estimates now provide context only (D40).
+hardcoded grade exclusion; the Method sheet names the exact marker. Estimates may screen but never pass (D42).

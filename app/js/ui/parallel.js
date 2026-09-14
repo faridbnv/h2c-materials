@@ -36,7 +36,7 @@ export function renderParallel(host, state, actions) {
   // measurement. A line is a position claim on every axis it crosses, so these cannot be drawn as
   // lines without inventing values. They are counted and named instead, so the reader knows the
   // difference between "this material is missing" and "this material is only estimated here".
-  const estimateOnly = state.ctx?.useEstimates
+  const estimateOnly = state.ctx?.showEstimates
     ? rows.filter(({ material: m }) =>
         !chosen.every((k) => m.headline[k]?.known)
         && chosen.every((k) => m.headline[k]?.known || m.headline[k]?.estimate))

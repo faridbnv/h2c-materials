@@ -68,7 +68,7 @@ const materialRows = db.materials.map((m) => {
     profiles:m.profileIds,evidence:own('evidence').map((r)=>r.id),prices:own('prices').map((r)=>r.id),
     coverage:own('coverage').map((r)=>r.id),
     sources:[...new Set(['grades','measurements','profiles','evidence','prices'].flatMap((k)=>own(k).map((r)=>r.sourceId)))].sort(),
-    peerSpans:Object.entries(m.headline).filter(([,h])=>h.estimate).map(([key,h])=>({key,...h.estimate})),
+    estimates:Object.entries(m.headline).filter(([,h])=>h.estimate).map(([key,h])=>({key,...h.estimate})),
     limitations:[
       ...(!measured.length?['No property measurements']:[]),
       ...(m.headline.hdt045.known&&!m.headline.hdt045.loadStated?['Headline HDT load unstated']:[]),
@@ -81,7 +81,7 @@ const materialRows = db.materials.map((m) => {
 });
 const families = [...new Set(materialRows.map(m=>m.family))].map(family=>{
   const ms=materialRows.filter(m=>m.family===family);
-  return {family,materials:ms.map(m=>m.id),basePolymers:[...new Set(ms.map(m=>m.basePolymer))],modifiers:[...new Set(ms.map(m=>m.modifier))],numeric:ms.reduce((n,m)=>n+m.numeric,0),peerSpans:ms.flatMap(m=>m.peerSpans.map(e=>({material:m.id,...e}))),interpretation:ms.some(m=>m.basePolymer!==ms[0].basePolymer)?'Navigation family spans distinct polymers; no property transfer between them':'Shared base identity does not establish grade/formulation equivalence'};
+  return {family,materials:ms.map(m=>m.id),basePolymers:[...new Set(ms.map(m=>m.basePolymer))],modifiers:[...new Set(ms.map(m=>m.modifier))],numeric:ms.reduce((n,m)=>n+m.numeric,0),estimates:ms.flatMap(m=>m.estimates.map(e=>({material:m.id,...e}))),interpretation:ms.some(m=>m.basePolymer!==ms[0].basePolymer)?'Navigation family spans distinct polymers; no property transfer between them':'Shared base identity does not establish grade/formulation equivalence'};
 });
 const provenance=[];
 for (const [sheet,{rows}] of Object.entries(wb)) for (const r of rows) {

@@ -4,7 +4,8 @@
 import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
-import { peerGroup } from './estimates.js';
+import { ESTIMATE_MODEL, ESTIMATE_KEYS } from './estimates.js';
+import { RETIRED_AVAILABILITY } from './compile.js';
 import {
   ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
 } from './coverage-rules.js';
@@ -51,6 +52,13 @@ export function validate(db, wb) {
   }
   for (const m of db.materials) {
     for (const g of m.gradeIds) if (!G.has(g)) issues.push(err(`materials ${m.id}`, `GradeIDs lists unknown grade "${g}"`));
+  }
+
+  // -- retired grades are marked with one exact phrase -------------------------
+  for (const g of db.grades) {
+    if (/retire/i.test(g.availability ?? '') && g.availability !== RETIRED_AVAILABILITY) {
+      issues.push(err(`grades ${g.id}`, `Availability "${g.availability}" looks like a retirement but is not the exact marker "${RETIRED_AVAILABILITY}", so the grade is still active`));
+    }
   }
 
   // -- every record points at the right material --------------------------------
@@ -204,29 +212,67 @@ export function validate(db, wb) {
     issues.push(warn('materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`));
   }
 
-  // -- family estimates --------------------------------------------------------
-  // These are inference, not evidence, so the rules that keep them separable are checked here.
-  let estimates = 0;
+  // -- estimates ---------------------------------------------------------------
+  // Inference, not evidence, so everything that keeps an estimate honest is checked here: that no
+  // headline is left with nothing, that ranges nest and cite real evidence, and that the model still
+  // delivers the coverage it states when measured headlines are hidden (DECISIONS D43).
+  const LEVELS = ESTIMATE_MODEL.levels;
+  const tally = { 'this-grade': 0, 'this-material': 0, family: 0, notApplicable: 0, screen: 0, poor: 0 };
   for (const mat of db.materials) {
-    for (const [key, h] of Object.entries(mat.headline)) {
-      if (!h?.estimate) continue;
-      estimates++;
-      const e = h.estimate;
-      for (const p of e.peers ?? []) {
-        const peer = db.materials.find((m) => m.id === p.id);
-        if (!peer || peerGroup(peer) !== peerGroup(mat)) issues.push(err(`materials ${mat.id}`, `Estimate ${key} borrows from a different polymer/modifier group: ${p.id}`));
-        if (key === 'hdt045' && (!peer?.headline[key].loadStated || peer?.headline[key].loadMPa !== 0.45)) issues.push(err(`materials ${mat.id}`, `HDT estimate borrows an unstated or different test load from ${p.id}`));
+    for (const key of ESTIMATE_KEYS) {
+      const h = mat.headline[key];
+      if (!h) continue;
+      const where = `materials ${mat.id} ${key}`;
+      if (!mat.excluded && !h.known && !h.estimate && !h.notApplicable) {
+        issues.push(err(where, `${mat.name} has no value, no estimate and no not-applicable statement`));
       }
-      if (h.known) issues.push(err(`materials ${mat.id}`, `Headline ${key} has a measured value AND a family estimate`));
-      if (mat.excluded) issues.push(err(`materials ${mat.id}`, `Excluded material carries a family estimate for ${key}`));
-      if (!e.peers?.length || e.peerCount < 2) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} cites fewer than two independent peers`));
-      if (e.lo === e.hi) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} is a single value, not a range`));
-      if (!e.basis) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} does not say where it came from`));
-      if (e.peers?.some((p) => p.id === mat.id)) issues.push(err(`materials ${mat.id}`, `Estimate for ${key} includes the material itself`));
+      if (h.notApplicable) {
+        tally.notApplicable++;
+        if (h.known || h.estimate) issues.push(err(where, 'Not applicable beside a value or an estimate'));
+        if (!h.notApplicable.reason) issues.push(err(where, 'Not applicable without a reason'));
+      }
+      const e = h.estimate;
+      if (!e) continue;
+      tally[e.strength] = (tally[e.strength] ?? 0) + 1;
+      if (e.canScreen) tally.screen++;
+      if (e.precision === 'poor') tally.poor++;
+      if (h.known) issues.push(err(where, 'A measured headline also carries an estimate'));
+      if (mat.excluded) issues.push(err(where, 'An out-of-scope material carries an estimate'));
+      if (e.kind !== 'model') issues.push(err(where, `Unknown estimate kind "${e.kind}"`));
+      if (!['this-grade', 'this-material', 'family'].includes(e.strength)) issues.push(err(where, `Unknown evidence strength "${e.strength}"`));
+      if (!['good', 'fair', 'poor'].includes(e.precision)) issues.push(err(where, `Unknown precision "${e.precision}"`));
+      if (!e.basis || !e.method) issues.push(err(where, 'Does not say what it was built from'));
+      if (!(e.lo <= e.centre && e.centre <= e.hi)) issues.push(err(where, `Centre ${e.centre} lies outside the likely range ${e.lo}-${e.hi}`));
+      if (!(e.plausible.lo <= e.lo && e.hi <= e.plausible.hi)) issues.push(err(where, `The likely range ${e.lo}-${e.hi} is not inside the plausible range ${e.plausible.lo}-${e.plausible.hi}`));
+      if (e.strength === 'family' && e.evidence.length) issues.push(err(where, 'A family-only estimate lists evidence of its own'));
+      if (e.strength !== 'family' && !e.evidence.length) issues.push(err(where, 'Claims evidence of its own but lists none'));
+      const repF = gradeById.get(mat.representativeGrade)?.formulationKey ?? mat.representativeGrade;
+      for (const ev of e.evidence) {
+        for (const item of ev.items) {
+          if (!item.measurementId) continue;
+          const x = measurementById.get(item.measurementId);
+          const f = x && (gradeById.get(x.gradeId)?.formulationKey ?? x.gradeId);
+          if (!x) issues.push(err(where, `Cites ${item.measurementId}, which does not exist`));
+          else if (x.materialId !== mat.id && f !== repF) issues.push(err(where, `Cites ${item.measurementId}, which is neither this material's nor its representative product's`));
+        }
+      }
     }
   }
-  if (estimates) {
-    issues.push(warn('materials', `${estimates} peer spans were derived for missing headlines. Same polymer and modifier only; these observations never confirm or exclude a material.`));
+  const model = db.meta.estimateModel ?? { properties: {}, rejected: [], conflicts: [], outliers: [] };
+  for (const [key, p] of Object.entries(model.properties)) {
+    const c = p.calibration;
+    if (c.held < 20) { issues.push(warn(`estimate model ${key}`, `Only ${c.held} measured headlines to calibrate against; the ranges use a default scale`)); continue; }
+    const tolerance = 0.1;
+    if (Math.abs(c.likelyCoverage - LEVELS.likely) > tolerance) issues.push(err(`estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
+    if (c.plausibleCoverage < LEVELS.plausible - 0.05) issues.push(err(`estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
+  }
+  db.meta.estimateTally = tally;
+  issues.push(warn('materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));
+  if (model.rejected.length) {
+    issues.push(warn('measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`));
+  }
+  if (model.outliers.length) {
+    issues.push(warn('materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`));
   }
 
   // -- unparsed free text -----------------------------------------------------
@@ -345,18 +391,42 @@ export function formatReport(db, reference, issues, { snapshot, build }) {
   }
   L.push('');
 
-  L.push('## Family estimates');
+  L.push('## Estimates');
   L.push('');
-  L.push('Missing headlines may carry a sample span from the same polymer and modifier. Peer intervals');
-  L.push('are preserved, unknown HDT loads are excluded, and repeated formulation keys count once.');
-  L.push('Peer context never confirms or excludes a material.');
+  L.push('A missing headline carries an estimate from one Gaussian model per property that takes every observation');
+  L.push('in the snapshot, each converted to the headline\'s semantics (build/mappings/estimate-model.json, DECISIONS');
+  L.push(`D43). The likely range is ${Math.round(ESTIMATE_MODEL.levels.likely * 100)}% and the plausible range ${Math.round(ESTIMATE_MODEL.levels.plausible * 100)}%. Both are calibrated by hiding each measured`);
+  L.push('headline and predicting it from everything else; the build fails if that coverage drifts. An estimate never');
+  L.push('passes a material; in Explore it may screen one out only when its plausible range wholly fails.');
   L.push('');
-  L.push('| Headline | Missing | Same polymer and modifier | No comparable peer span |');
-  L.push('|---|---:|---:|---:|');
-  for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
-    L.push(`| ${k} | ${v.missing} | ${v['polymer+modifier'] ?? 0} | ${v.none ?? 0} |`);
+  L.push('| Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |');
+  L.push('|---|---:|---:|---:|---:|---:|---:|');
+  const mdl = db.meta.estimateModel ?? { properties: {} };
+  for (const [k, v] of Object.entries(mdl.properties)) {
+    const c = v.calibration;
+    const width = ESTIMATE_MODEL.properties[k].scale === 'log' ? `×${c.medianLikelyWidth}` : `${c.medianLikelyWidth} °C`;
+    const between = v.betweenProduct.estimated ? `${v.betweenProduct.used} (estimated)` : `${v.betweenProduct.used} (${v.betweenProduct.pairs} pairs)`;
+    L.push(`| ${k} | ${v.observations} | ${c.held} | ${Math.round((c.likelyCoverage ?? 0) * 100)}% | ${Math.round((c.plausibleCoverage ?? 0) * 100)}% | ${width} | ${between} |`);
   }
   L.push('');
+  L.push('| Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |');
+  L.push('|---|---:|---:|---:|---:|---:|---:|---:|');
+  for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
+    L.push(`| ${k} | ${v.missing} | ${v['this-grade']} | ${v['this-material']} | ${v.family} | ${v.notApplicable} | ${v.none} | ${v.canScreen} |`);
+  }
+  L.push('');
+  if (mdl.conflicts?.length) {
+    L.push('Evidence that contradicts everything else and was down-weighted:');
+    L.push('');
+    for (const c of mdl.conflicts) L.push(`- ${c.material}, ${c.key}: ${c.kind} ${c.values.join(', ')} (${c.measurementIds.join(', ') || 'hardness'})`);
+    L.push('');
+  }
+  if (mdl.outliers?.length) {
+    L.push('Measured headlines far outside their prediction (worth a second look at the source and the grade):');
+    L.push('');
+    for (const o of mdl.outliers) L.push(`- ${o.material}, ${o.key}: ${o.measured} ${o.unit}, expected about ${o.expected}`);
+    L.push('');
+  }
 
   L.push('## Consistency');
   L.push('');

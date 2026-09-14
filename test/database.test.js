@@ -41,7 +41,8 @@ test('every numeric headline equals the measurement it cites', () => {
   }
   // 369 since the 2026-09-13 missing-data research: PLA Lite 4, PLA Silk 3, CoPE 3, PET-GF 5, CPE 2
   // and nGen 3 on top of the manufacturer audit's 349.
-  assert.equal(checked, 369);
+  // 380 since the 2026-09-13 estimate-evidence research: PETG-GF +3, ASA-GF +4, POM +4
+  assert.equal(checked, 380);
 });
 
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a
@@ -127,57 +128,134 @@ test('every HDT headline is either a stated 0.45 MPa or flagged as unstated', ()
   }
 });
 
-// --- family estimates on the compiled snapshot -------------------------------
-test('estimates never sit on a headline that has its own measurement', () => {
-  for (const m of db.materials) {
-    for (const [k, h] of Object.entries(m.headline)) {
-      if (h?.estimate) assert.equal(h.known, false, `${m.name} ${k}`);
+// --- estimates on the compiled snapshot (DECISIONS D43) -----------------------------------------
+const byName = (name) => db.materials.find((m) => m.name === name);
+const ESTIMATED = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'];
+const valueOf = (m, k) => (m.headline[k].known ? m.headline[k].value : m.headline[k].estimate?.centre);
+
+test('no in-scope headline is left with nothing: a value, an estimate or a reason it does not apply', () => {
+  for (const m of db.materials.filter((x) => !x.excluded)) {
+    for (const k of ESTIMATED) {
+      const h = m.headline[k];
+      assert.ok(h.known || h.estimate || h.notApplicable, `${m.name} ${k} is blank`);
+      assert.ok(!(h.known && (h.estimate || h.notApplicable)), `${m.name} ${k} mixes a value with inference`);
+      assert.ok(!(h.estimate && h.notApplicable), `${m.name} ${k}`);
     }
+  }
+  for (const m of db.materials.filter((x) => x.excluded)) {
+    assert.ok(ESTIMATED.every((k) => !m.headline[k].estimate), `${m.name} is out of scope`);
   }
 });
 
-// Regression: PA, PA6/66 and CoPA all draw their headline from one PolyMide datasheet. Counting
-// them as three peers produced an "estimate" of 2.223 to 2.223 GPa, a precise value dressed as a
-// range. The Method sheet calls shared formulation keys repeated evidence, not independent tests.
-test('estimates are a real range, never a single value repeated', () => {
-  for (const m of db.materials) {
-    for (const [k, h] of Object.entries(m.headline)) {
-      if (!h?.estimate) continue;
-      assert.ok(h.estimate.hi > h.estimate.lo, `${m.name} ${k} spans ${h.estimate.lo} to ${h.estimate.hi}`);
-      assert.ok(h.estimate.peerCount >= 2, `${m.name} ${k} cites ${h.estimate.peerCount} peers`);
-    }
-  }
-});
-
-test('every estimate names its basis and its peers, and excludes the material itself', () => {
+test('every estimate nests its ranges and cites only its own material or representative product', () => {
   let n = 0;
   for (const m of db.materials) {
-    for (const [k, h] of Object.entries(m.headline)) {
-      if (!h?.estimate) continue;
+    for (const k of ESTIMATED) {
+      const e = m.headline[k].estimate;
+      if (!e) continue;
       n++;
-      assert.ok(h.estimate.basis, `${m.name} ${k} has no basis`);
-      assert.equal(h.estimate.peers.length, h.estimate.peerCount, `${m.name} ${k}`);
-      assert.ok(!h.estimate.peers.some((p) => p.id === m.id), `${m.name} ${k} includes itself`);
+      assert.ok(e.plausible.lo <= e.lo && e.lo <= e.centre && e.centre <= e.hi && e.hi <= e.plausible.hi, `${m.name} ${k}`);
+      assert.ok(['this-grade', 'this-material', 'family'].includes(e.strength) && ['good', 'fair', 'poor'].includes(e.precision), `${m.name} ${k}`);
+      assert.equal(e.strength === 'family', e.evidence.length === 0, `${m.name} ${k}`);
+      const repF = db.grades.find((g) => g.id === m.representativeGrade)?.formulationKey;
+      for (const item of e.evidence.flatMap((ev) => ev.items).filter((i) => i.measurementId)) {
+        const x = db.measurements.find((y) => y.id === item.measurementId);
+        const f = db.grades.find((g) => g.id === x.gradeId)?.formulationKey;
+        assert.ok(x.materialId === m.id || f === repF, `${m.name} ${k} cites ${x.id}`);
+      }
     }
   }
-  assert.ok(n > 0, `expected peer context where comparable peers exist, got ${n}`);
+  assert.ok(n >= 80, `expected estimates for most gaps, got ${n}`);
 });
 
-test('excluded materials get no estimates', () => {
-  for (const m of db.materials.filter((x) => x.excluded)) {
-    for (const h of Object.values(m.headline)) assert.equal(h?.estimate, undefined, m.name);
+// The model's promise is its coverage: hide a measured headline, predict it, and the range holds it
+// as often as it says. The validator fails the build on drift; this pins the snapshot.
+test('the likely and plausible ranges hold hidden measured headlines as often as they say', () => {
+  for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
+    const c = p.calibration;
+    assert.ok(c.held >= 40, `${key}: only ${c.held} headlines to calibrate against`);
+    assert.ok(Math.abs(c.likelyCoverage - 0.8) <= 0.05, `${key}: likely range holds ${c.likelyCoverage}`);
+    assert.ok(c.plausibleCoverage >= 0.93, `${key}: plausible range holds ${c.plausibleCoverage}`);
   }
+  // The complaint that started the model: PA-CF strength 38-204 MPa.
+  const pacf = byName('PA-CF').headline.tensileStrengthXY.estimate;
+  assert.equal(pacf.strength, 'this-grade');
+  assert.ok(pacf.hi / pacf.lo < 1.6 && pacf.lo > 60 && pacf.hi < 110, `PA-CF strength ${pacf.lo}-${pacf.hi}`);
 });
 
-// Elastomers, supports and rigid thermoplastics are different populations. Pooling them produced a
-// modulus bound from 0.0053 to 2.88 GPa, which rules nothing out and misleads about support materials.
-test('the widest tier never pools elastomers with rigid thermoplastics', () => {
-  const tpu = db.materials.find((m) => m.name === 'TPU');
-  assert.equal(tpu.headline.hdt045.estimate, undefined, 'TPU has no HDT peers and should get no bound');
-  for (const m of db.materials.filter((x) => x.family === 'Flexible Elastomers')) {
-    const e = m.headline.tensileModulusXY?.estimate;
-    if (e) assert.ok(e.lo < 2, `${m.name} borrowed a rigid-thermoplastic bound: ${e.lo} to ${e.hi}`);
+// One product has one value, whichever material row it is filed under.
+test('PA-CF and PA12-CF share CarbonX CF PA12, so they share its estimate', () => {
+  const a = byName('PA-CF').headline.tensileStrengthXY.estimate, b = byName('PA12-CF').headline.tensileStrengthXY.estimate;
+  assert.deepEqual([a.lo, a.centre, a.hi], [b.lo, b.centre, b.hi]);
+  assert.equal(a.sharedWith.name, 'PA12-CF');
+});
+
+// Estimates must make sense in tandem across a family, not only one at a time.
+test('polyamide estimates follow the physics: melting point orders heat resistance, fibre raises stiffness', () => {
+  const hdt = (n) => valueOf(byName(n), 'hdt045');
+  assert.ok(hdt('PA66') > hdt('PA612') && hdt('PA612') > hdt('PA12'), `PA66 ${hdt('PA66')}, PA612 ${hdt('PA612')}, PA12 ${hdt('PA12')}`);
+  assert.ok(hdt('PA66-CF') > hdt('PA66') + 50 && hdt('PA612-GF') > hdt('PA612') + 40);
+  assert.ok(hdt('PA66-CF') < 262 && hdt('PA612-GF') < 218, 'a semicrystalline bar cannot hold above its melting point');
+  const stiff = (n) => valueOf(byName(n), 'tensileModulusXY');
+  assert.ok(stiff('PA66-CF') > stiff('PA66') * 1.5 && stiff('PA612-GF') > stiff('PA612') * 1.3);
+  const stretch = (n) => valueOf(byName(n), 'elongationXY');
+  assert.ok(stretch('PA66-CF') < stretch('PA66') && stretch('PA612-GF') < stretch('PA612'));
+});
+
+test('an elastomer\'s heat deflection and a support product\'s properties are not applicable, not estimated', () => {
+  for (const n of ['TPU 85A', 'TPU 90A', 'TPE', 'PEBA', 'OBC']) assert.ok(byName(n).headline.hdt045.notApplicable, n);
+  for (const n of ['Support for PLA', 'PVA']) assert.ok(ESTIMATED.filter((k) => !byName(n).headline[k].known).every((k) => byName(n).headline[k].notApplicable), n);
+  // A published value beats the rule: TPU has an HDT of its own on record, so it is estimated.
+  assert.ok(byName('TPU').headline.hdt045.estimate);
+});
+
+test('estimated nozzle and bed windows appear only where nothing is published, and decide nothing', () => {
+  for (const m of db.materials) {
+    for (const [est, pub, gate] of [['nozzleEstimate', 'nozzleC', 'nozzle'], ['bedEstimate', 'bedC', 'bed']]) {
+      if (!m.print[est]) continue;
+      assert.equal(m.print[pub], null, m.name);
+      assert.equal(m.gates[gate].verdict, 'unknown', m.name);
+      assert.ok(m.print[est].lo < m.print[est].hi && m.print[est].peers.length, m.name);
+    }
   }
+  assert.ok(byName('PA66').print.nozzleEstimate.lo > 262, 'a PA66 nozzle window starts above its melting point');
+  assert.ok(byName('PA612-GF').print.nozzleEstimate);
+});
+
+// --- 2026-09-13 estimate evidence: docs/audits/2026-09-13-estimate-evidence/ ---------------------
+test('values the registered sources publish are recorded as published', () => {
+  const x = (id) => db.measurements.find((m) => m.id === id);
+  assert.equal(x('V000605').value, 80, 'ISO 11357 80 °C, not 1135780');
+  assert.equal(x('V000039').value, 110.3);
+  assert.match(x('V000039').specimenType, /^Film specimen/);
+  assert.equal(x('V000507').value, 72, 'Vicat A/120 at 72 °C');
+  for (const n of ['PLA', 'PP', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
+    const h = byName(n).headline.hdt045;
+    assert.ok(h.loadStated && h.loadMPa === 0.45, `${n}: 3DXTECH prints "at 0.45 MPa (66psi)"`);
+  }
+  assert.ok(db.meta.estimateModel.rejected.length === 0, 'no physically impossible value remains');
+});
+
+test('PETG-GF, ASA-GF and POM carry printed headlines from their new representative grades', () => {
+  const g = (n) => byName(n).representativeGrade;
+  assert.equal(g('PETG-GF'), 'G025-02');
+  assert.deepEqual(ESTIMATED.slice(0, 4).map((k) => byName('PETG-GF').headline[k].value), [1330, 2.3345, 53.6, 1.9]);
+  assert.equal(g('ASA-GF'), 'G034-03');
+  assert.deepEqual(ESTIMATED.map((k) => byName('ASA-GF').headline[k].value), [1110, 2.758, 39, 5.8, 98]);
+  assert.equal(g('POM / Acetal'), 'G087-02');
+  assert.deepEqual(ESTIMATED.slice(0, 4).map((k) => byName('POM / Acetal').headline[k].value), [1420, 1.87, 50, 11]);
+});
+
+test('resin references are study grades whose moulded values never become headlines', () => {
+  for (const id of ['G055-R1', 'G058-R1', 'G087-R1']) {
+    const grade = db.grades.find((x) => x.id === id);
+    const m = db.materials.find((x) => x.id === grade.materialId);
+    assert.ok(!m.gradeIds.includes(id), `${id} is not a procurement grade`);
+    const rows = db.measurements.filter((x) => x.gradeId === id);
+    assert.ok(rows.length && rows.every((x) => x.specimenType === 'Raw material value'), id);
+    for (const k of ESTIMATED) assert.ok(!rows.some((x) => x.id === m.headline[k].measurementId), `${id} backs ${k}`);
+  }
+  assert.equal(byName('PA66').headline.tensileModulusXY.estimate.strength, 'this-material');
 });
 
 // --- 2026-09-13 manufacturer audit --------------------------------------------------------------
@@ -398,7 +476,7 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
 // Systematic data audit: use the actual workbook, then introduce independent corruption.
 import { extractWorkbook } from '../build/src/extract.js';
 import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js';
-import { peerGroup } from '../build/src/estimates.js';
+import { normalQuantile, boundedQuantile, modulusFromShore, kindOf } from '../build/src/estimates.js';
 
 test('raw values reconcile, including decimal commas and grouped cycle counts', () => {
   const wb=extractWorkbook(join(root,'data/H2C_FDM_Material_Database.xlsx'));
@@ -438,16 +516,31 @@ test('a headline cannot borrow another property simply because its value matches
   assert.ok(errorsFor(c=>{const h=mat(c,'PLA Basic').headline.tensileStrengthXY;c.measurements.find(m=>m.id===h.measurementId).unit='GPa';}).some(e=>/inconsistent property/.test(e)));
 });
 
-test('peer spans never cross polymer and modifier groups or drop peer intervals', () => {
-  for(const m of db.materials)for(const [key,h] of Object.entries(m.headline))if(h.estimate){
-    for(const p of h.estimate.peers){
-      const peer=db.materials.find(x=>x.id===p.id);
-      assert.equal(peerGroup(peer),peerGroup(m));
-      assert.ok(h.estimate.lo<=peer.headline[key].interval.lo);
-      assert.ok(h.estimate.hi>=peer.headline[key].interval.hi);
-      if(key==='hdt045')assert.equal(peer.headline[key].loadMPa,.45);
-    }
-  }
-  assert.ok(Object.values(mat(db,'OBC').headline).every(h=>!h.estimate));
-  assert.ok(errorsFor(c=>{mat(c,'PLA Lite').headline.tensileModulusXY.estimate.peers[0].id='M039';}).some(e=>/different polymer/.test(e)));
+test('the estimate numerics: normal quantiles, soft limits and hardness', () => {
+  assert.ok(Math.abs(normalQuantile(0.975) - 1.95996) < 1e-4 && Math.abs(normalQuantile(0.1) + 1.28155) < 1e-4);
+  assert.ok(Math.abs(boundedQuantile(10, 2, [], 0.5) - 10) < 1e-9);
+  // A soft upper limit pulls the distribution below it without piling it against the limit.
+  const hi = boundedQuantile(100, 10, [{ side: 'upper', value: 90, sd: 6 }], 0.9);
+  const lo = boundedQuantile(100, 10, [{ side: 'upper', value: 90, sd: 6 }], 0.1);
+  assert.ok(hi < 100 && hi - lo > 10, `soft limit gives ${lo}-${hi}`);
+  assert.ok(Math.abs(modulusFromShore('95A') - 43.8) < 0.5 && Math.abs(modulusFromShore('45D') - 46.5) < 0.5);
+  assert.equal(modulusFromShore('hard'), null);
+});
+
+test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z value is never XY', () => {
+  const x = (o) => ({ numeric: true, direction: 'XY', moisture: 'Not published', specimenType: 'Printed specimen', ...o });
+  assert.equal(kindOf(x({ property: 'Tensile break strength' }), 'tensileStrengthXY', 'amorphous'), 'break XY');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'Z' }), 'tensileModulusXY', 'amorphous'), 'tensile Z');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'XZ' }), 'tensileModulusXY', 'amorphous'), 'tensile XY');
+  assert.equal(kindOf(x({ property: 'HDT', specimenType: 'Raw material value', thermal: { loadStated: true, loadMPa: 0.455 } }), 'hdt045', 'amorphous'), 'HDT 0.45 moulded amorphous');
+  assert.equal(kindOf(x({ property: 'Glass transition temperature' }), 'hdt045', 'semi-unfilled'), null);
+});
+
+test('the validator rejects a blank headline, a range that does not nest, and evidence from another material', () => {
+  assert.ok(errorsFor((c) => { delete mat(c, 'PA66').headline.tensileModulusXY.estimate; }).some((e) => /no value, no estimate/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.lo = 99; }).some((e) => /outside the likely range/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'PA-CF').headline.tensileStrengthXY.estimate.plausible.hi = 70; }).some((e) => /not inside the plausible range/.test(e)));
+  const foreign = db.measurements.find((m) => m.materialId === byName('PLA').id).id;
+  assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.evidence[0].items[0].measurementId = foreign; }).some((e) => /neither this material/.test(e)));
+  assert.ok(errorsFor((c) => { c.meta.estimateModel.properties.density.calibration.likelyCoverage = 0.5; }).some((e) => /likely range contains 50%/.test(e)));
 });

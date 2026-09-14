@@ -70,7 +70,7 @@ export function renderAshby(host, state, actions) {
 
   // Only in "one dot per material": at measurement level every point is already a real
   // measurement, and a family bound has nothing to say about an individual grade.
-  const estimated = measurementMode ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.useEstimates);
+  const estimated = measurementMode ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
   const envelopes = p.showEstimates ? estimated : [];
 
   const subjects = new Set(pts.map((q) => q.id)).size;
@@ -83,7 +83,7 @@ export function renderAshby(host, state, actions) {
   const axisSelect = (which, cur) => `<select id="ashby-${which}" data-axis="${which}" data-focus="axis-${which}">
     ${AXIS_DEFS.map((a) => {
       const n = rows.filter((r) => r.material.headline[a.key]?.known).length;
-      const est = state.ctx?.useEstimates
+      const est = state.ctx?.showEstimates
         ? rows.filter((r) => { const h = r.material.headline[a.key]; return h && !h.known && h.estimate; }).length
         : 0;
       const P = prop(a.key);
@@ -108,9 +108,9 @@ export function renderAshby(host, state, actions) {
   // sentence whenever it did not apply, so the panel changed shape as the reader changed settings.
   const estimateReason = estimated.length ? ''
     : measurementMode ? 'Not used when every measurement is drawn: an estimate describes a material, not a grade.'
-    : state.ctx?.useEstimates ? 'No candidate on these axes has an estimate to draw.'
+    : state.ctx?.showEstimates ? 'No candidate on these axes has an estimate to draw.'
     : state.scenario.unknownPolicy === 'exploration' ? 'Estimates are off. Tick Estimates in the top bar to use them.'
-    : 'Estimates are off. They are available with "Keep it, flagged", where they provide context only.';
+    : 'Estimates are off. They are available with "Keep it, flagged", where they can screen a material out but never pass one.';
 
   const index = indexById(p.index);
   const cheapest = INDICES.filter((i) => i.costForm), lightest = INDICES.filter((i) => !i.costForm);
@@ -202,15 +202,15 @@ export function renderAshby(host, state, actions) {
         // Counted even when not drawn, so they are never silently absent. That silence was the
         // whole problem: a quarter of the set vanished from the chart while the table listed them.
         ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
-           ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only the range of
-           ${estimated.length === 1 ? 'its' : 'their'} closest relatives. Not drawn. Tick
+           ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only an estimated range. Not drawn. Tick
            <b>Also draw the estimated materials</b>, under Points above, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
         : ''}
       ${envelopes.length ? `<br><b>The dotted ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
-        with no measurement of their own on one of these axes. Each spans the values its closest
-        measured relatives take, so the material is somewhere along it. A whisker means the other
-        axis is measured. It is an estimate, not a position: it never joins the frontier and never
-        counts as a plotted candidate.` : ''}
+        with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
+        built from the material's own related measurements and its polymer family, so the material is probably
+        somewhere along it.
+        A whisker means the other axis is measured. It is an estimate, not a position: it never joins the
+        frontier and never counts as a plotted candidate.` : ''}
       ${frontSize > 1 ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
         both axes at once: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
         ${esc(prop(yDef.key).plain.toLowerCase())} ${yDef.better === 'max' ? 'higher' : 'lower'} is better.
@@ -227,17 +227,16 @@ export function renderAshby(host, state, actions) {
 }
 
 /**
- * Materials the chart cannot draw as a point, because at least one axis is a family estimate
- * rather than a measurement.
+ * Materials the chart cannot draw as a point, because at least one axis is an estimate rather
+ * than a measurement.
  *
- * These used to vanish. On density against stiffness that is 25 of the 96 in-scope materials: a
- * quarter of the set silently absent from the picture the tool exists to draw, while the table two
- * tabs away listed them with their estimated span. Worse, an estimate is exactly what rules a
- * material out of a filter in Explore mode, so the reader could see a material excluded by an
- * estimate and find no trace of that estimate on the chart.
+ * These used to vanish: a quarter of the in-scope set silently absent from the picture the tool
+ * exists to draw, while the table two tabs away listed their estimated span. And in Explore an
+ * estimate can screen a material out of a requirement, so a reader could see a material screened by
+ * an estimate and find no trace of that estimate on the chart.
  *
- * They are drawn as an envelope rather than a dot. A dot would need a value, and the midpoint of a
- * family bound is a number nobody measured — the one thing this tool refuses to put on a chart.
+ * They are drawn as an envelope rather than a dot. A dot would need a value, and the centre of an
+ * estimate is a number nobody measured — the one thing this tool refuses to put on a chart.
  * The envelope says what is actually known: somewhere in here.
  */
 function estimateEnvelopes(rows, xDef, yDef, useEstimates) {
@@ -245,7 +244,8 @@ function estimateEnvelopes(rows, xDef, yDef, useEstimates) {
   const span = (h) => {
     if (h?.known) return { lo: h.value, hi: h.value, measured: true };
     const e = h && h.estimate;
-    return e ? { lo: e.lo, hi: e.hi, measured: false, basis: e.basis, peers: e.peerCount } : null;
+    // An open end cannot be drawn as a box edge; such an estimate is left to the table and drawer.
+    return e && e.lo !== null && e.hi !== null ? { lo: e.lo, hi: e.hi, measured: false, basis: e.basis, strength: e.strength, precision: e.precision } : null;
   };
   const out = [];
   for (const { material: m, evaluation: ev } of rows) {

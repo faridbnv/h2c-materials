@@ -15,7 +15,12 @@ import {
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { buildEstimates, summariseEstimates } from './estimates.js';
+import { attachPrintEstimates } from './print-estimates.js';
 import { attachChamberEstimates } from './chamber-estimates.js';
+
+// Method, Identity / Retired mappings: a grade whose Availability reads exactly this is an audit record,
+// never an active grade. The validator rejects any near miss, because a typo would silently reactivate it.
+export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
 
 // Identifier lists are semicolon separated. Seven materials have no grades at all and say so in
 // words, so an explicit missing state must not become an identifier.
@@ -386,7 +391,7 @@ function relatedEvidence(mat, key, measurementsByMaterial) {
   const items = (measurementsByMaterial.get(materialId) ?? [])
     .filter((m) => m.numeric && !m.quarantined && props.includes(m.property))
     .map((m) => ({
-      measurementId: m.id, gradeId: m.gradeId, sourceId: m.sourceId,
+      measurementId: m.id, gradeId: m.gradeId, sourceId: m.sourceId, interval: m.interval,
       property: m.property, value: m.value, unit: m.unit,
       direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
       loadMPa: m.thermal?.loadMPa ?? null,
@@ -414,6 +419,9 @@ function relatedEvidence(mat, key, measurementsByMaterial) {
   return {
     count: items.length,
     best,
+    // Every related interval, not only the ten listed. An estimate may not screen a material out of a
+    // requirement that any of its own measurements of this property could meet (engine, D42).
+    intervals: sorted.map((i) => ({ measurementId: i.measurementId, lo: i.interval?.lo ?? null, hi: i.interval?.hi ?? null })),
     grades: new Set(items.map((i) => i.gradeId)).size,
     unit: best.unit,
     items: sorted.slice(0, 10),
@@ -492,7 +500,7 @@ export function compile(wb, { snapshot, build }) {
     colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
     rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
     diameters: r['Diameter compatibility'],
-    retired: r.Availability === 'Retired mapping; audit trail only',
+    retired: r.Availability === RETIRED_AVAILABILITY,
   }));
 
   const measurements = compileMeasurements(wb.Properties.rows, issues);
@@ -605,11 +613,12 @@ export function compile(wb, { snapshot, build }) {
     };
   });
 
-  // Family estimates are attached last, once every headline is known, and only to headlines that
-  // have no value of their own.
-  buildEstimates(materials, grades);
+  // Estimates are attached last, once every headline is known, and only to headlines that have no
+  // value of their own. The model's calibration and diagnostics travel in meta (DECISIONS D43).
+  const estimateModel = buildEstimates(materials, { grades, measurements });
   const chamberEstimates = attachChamberEstimates(materials);
   issues.push(...chamberEstimates.issues);
+  const printEstimates = attachPrintEstimates(materials);
 
   const environmentCategories = countUsableByCategory(wb['Use & durability'].rows);
 
@@ -633,7 +642,9 @@ export function compile(wb, { snapshot, build }) {
         },
         environmentCategories,
         estimateCoverage: summariseEstimates(materials),
+        estimateModel,
         chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },
+        printEstimates,
         headlineCoverage: Object.fromEntries(
           [...HEADLINES.map(([k]) => k), 'priceCADkg'].map((k) => [k, materials.filter((m) => m.headline[k]?.known).length]),
         ),

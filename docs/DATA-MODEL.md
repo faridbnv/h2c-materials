@@ -8,19 +8,20 @@ sheets, each an Excel table with declared columns.
 | Sheet | Rows | What it holds |
 |---|---:|---|
 | Materials | 102 | Canonical identities and headline observations |
-| Grades | 144 | Exact commercial formulations, tied to materials |
-| Print setup | 167 | Processing guidance and H2C routing, per grade |
-| Properties | 1,966 | Individual property measurements, the unit of quantitative evidence |
+| Grades | 151 | Exact commercial formulations, tied to materials |
+| Print setup | 171 | Processing guidance and H2C routing, per grade |
+| Properties | 2,049 | Individual property measurements, the unit of quantitative evidence |
 | Use & durability | 478 | Chemical, environmental and application evidence |
 | Prices CA | 104 | Canadian price observations |
-| Sources | 235 | The source register, with access dates and hashes |
-| Coverage | 1,146 | Gaps, conflicts and unresolved items |
-| Method | 44 | The rules the database was built under |
+| Sources | 243 | The source register, with access dates and hashes |
+| Coverage | 1,173 | Gaps, conflicts and unresolved items |
+| Method | 47 | The rules the database was built under |
 
 Counts are for snapshot 2026-09-13, after the manufacturer evidence audit in
 [audits/2026-09-13-manufacturer-evidence/](audits/2026-09-13-manufacturer-evidence/) and the
 missing-data research in [audits/2026-09-13-missing-data-research/](audits/2026-09-13-missing-data-research/),
-then the [coverage consolidation](audits/2026-09-13-coverage-consolidation/). The build holds these
+then the [coverage consolidation](audits/2026-09-13-coverage-consolidation/) and the
+[estimate evidence research](audits/2026-09-13-estimate-evidence/). The build holds these
 numbers in `build/src/extract.js` and refuses to run when the workbook moves, so a
 changed workbook is always a deliberate, reviewed change to the tool.
 
@@ -70,7 +71,8 @@ method        44   the rules, verbatim
   gates:  { scope, nozzle, bed, chamber, abrasive, drying },
   print:  { nozzleC, bedC, chamberC,     // the widest published window across its profiles
             chamberGuidance,             // what a source says about the chamber in words, or null
-            chamberEstimate },           // a research band where nothing better exists; decides nothing
+            chamberEstimate,             // a research band where nothing better exists; decides nothing
+            nozzleEstimate, bedEstimate }, // a window inferred from peers where none is published; decides nothing
   buy:    { … } | null,                  // the best sampled Canadian offer
   profileIds: [], evidenceIds: {...}, printingEvidence, guidance,
   printability, identity, bestUses, limitations, impactNote, fatigueCreep
@@ -78,9 +80,10 @@ method        44   the rules, verbatim
 ```
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
-every profile that published one, with the count behind it. 95 materials have a nozzle window, 96 a
-bed window and 59 a chamber window; the rest published none and render as a dash rather than as zero,
-except where a source answered the chamber question in words (below).
+every profile that published one, with the count behind it. 98 materials have a nozzle window, 98 a
+bed window and 61 a chamber window. The four with no product at all (PA66, PA66-CF, PA612, PA612-GF)
+carry an estimated nozzle and bed window (below); a chamber the sources answer only in words is
+shown in words.
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
 in stock first, then the observation behind the headline, then whatever carries a price. 48 of 102
@@ -134,7 +137,8 @@ and only the first is evidence.
 |---|---|---|---|
 | **Measured** | A verified headline, traceable to one measurement, grade and source | `4.43` | yes |
 | **Related** | A real measurement of the same property that was never promoted to a headline | `46*` | no |
-| **Estimated** | The span of the material's closest measured relatives | `~2.8–15.3†` | **no; never excludes either** |
+| **Estimated** | The likely (80%) range of a calibrated model of every observation | `~71.3–92.5†` | **no; in Explore it may screen a material out** |
+| **Not applicable** | A property that does not apply, such as heat deflection of an elastomer | `n/a` | no; in Explore it may screen a material out |
 
 ### Related evidence
 
@@ -154,27 +158,86 @@ There is deliberately **no cross-property fallback**. An earlier version fell ba
 transition when a material had no HDT, which surfaced TPE's glass transition of −35 °C in a column
 headed "HDT at 0.45 MPa". The Method sheet keeps those quantities distinct.
 
-### Family estimates
+### Estimates
 
-Where a headline is missing, a span of comparable peer observations may be shown as context.
-**An observed sample minimum/maximum is not a bound on an unmeasured formulation. Neither a
-passing nor a failing peer span determines eligibility.** This replaces the earlier exclusion rule
-(D10), following the systematic audit (D40).
+Where a headline is missing, the build attaches an estimate. Its design is DECISIONS D43, its code
+`build/src/estimates.js`, and its structure, conversions and limits are reviewed like code in
+`build/mappings/estimate-model.json`.
 
-Construction:
+**One model per headline, over every observation.** The natural log of density, stiffness, strength
+and elongation, and heat deflection in °C, are each modelled as
 
-- Use verified headline observations, preserving finite interval endpoints and uncertainty.
-- Require the same family, base polymer, modifier and role. Polymer blends also require the same
-  normalized identity. Display families such as Polyolefins and Flexible Elastomers are not pools
-  of interchangeable polymers. There is no wider fallback.
-- Keep undisclosed commercial modifiers separate from explicitly unfilled materials; do not claim
-  that an undisclosed formulation is unreinforced.
-- Exclude unbounded observations and HDT with unstated or non-0.45 MPa loads.
-- Require two distinct formulation keys and a nonzero span. Shared keys count once.
+```
+product value = identity (pulled towards its chemical group)
+              + reinforcement, by matrix (amorphous, semicrystalline, elastomer)
+              + declared variant (silk, particle-filled) + test house
+              [+ melting point, for heat deflection of polymers that crystallise while printing]
+              + the material's own deviation + the product's own deviation
+```
 
-Every span carries its basis, peers and their intervals. Three spans remain in this snapshot,
-compared with 105 before the systematic audit. Strict mode does not consult them. Explore may show
-them, but always leaves the missing property unresolved. CSV keeps them separate from measurements.
+Everything the snapshot holds about a material enters: its headline where it has one, its related
+measurements, its other grades, and resin data sheets. Each is first converted to the headline's
+semantics with an offset and a spread:
+
+| Evidence | Converted as (headline minus evidence) |
+|---|---|
+| Break or yield strength, XY | about +5% and +2%, spread 0.1 and 0.08 |
+| Flexural modulus, XY | about equal, spread 0.2 (learned from 70 grades publishing both) |
+| Tensile value in Z | XY about 1.4 times Z for stiffness, 1.6 times for strength, spread 0.35 |
+| Direction not stated | centred, spread 0.3 to 0.9 |
+| Moulded resin value | printed stiffness about 85%, strength 70 to 85%, elongation a small fraction; semicrystalline heat deflection about 30 °C lower, amorphous about the same |
+| Heat deflection at 1.8 MPa | +24 °C fibre-filled semicrystalline, +8 °C amorphous |
+| Glass transition (amorphous), Vicat, melting point (fibre-filled semicrystalline) | −3, −8 and −38 °C, spreads 14 to 25 °C |
+| Shore hardness (elastomers) | Gent (1958) or Qi et al. (2003), then about 45% of that, spread 0.6 |
+
+Each documented offset is refined by the median of grades that publish both, and each spread by their
+MAD; the documented value counts as three pairs. On each product only the most direct kinds are kept.
+
+**How wide, and how it is checked.** The spread between two products of the same material is
+measured directly from materials with several products (median pairwise difference). The rest are
+estimated from the data above documented floors. Then each measured headline is hidden and predicted
+from everything else, and both ranges are scaled until they hold the hidden value as often as they
+claim. On this snapshot:
+
+| Headline | Hidden headlines | Likely (80%) holds | Plausible (95%) holds | Median likely width |
+|---|---:|---:|---:|---:|
+| Density | 84 | 81% | 95% | ×1.14 |
+| Stiffness | 68 | 79% | 96% | ×1.52 |
+| Strength | 52 | 81% | 96% | ×1.53 |
+| Elongation | 70 | 80% | 96% | ×2.40 |
+| Heat deflection | 61 | 80% | 95% | 15 °C |
+
+The build fails if a likely range drifts more than 0.1 from 80%, or a plausible range falls more than
+0.05 below 95%. Heat deflection is softly capped by the melting point of a semicrystalline polymer and
+by Tg plus 10 °C (20 °C with fibre) for an amorphous one. Values outside a physical range are rejected
+and listed; evidence that contradicts everything else is down-weighted and listed; measured headlines
+far from their prediction (PP's HyperLite density of 810 kg/m³, PC-ABS elongation of 75%) are listed
+in the validation report for a second look.
+
+**What each estimate carries.** `centre`, `lo`/`hi` (likely), `plausible.lo`/`plausible.hi`,
+`strength` (`this-grade`, `this-material` or `family`: what it rests on), `precision` (`good`, `fair`
+or `poor`, by per-property width thresholds), every piece of its own evidence with the converted value
+and the reason for the conversion, the soft limits applied, `sharedWith` where its representative
+product is filed under another material (both then show one estimate), and `canScreen`.
+
+**Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
+reason. Heat deflection of an elastomer and any value of a support product are not applicable unless
+the material's own sources publish one. On this snapshot: 98 estimates (57 from the grade's own related
+measurements, 22 from other grades or resin references, 19 from the family model alone; 15 imprecise)
+and 28 not applicable. 88 estimates may screen.
+
+**What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. In Explore with
+Estimates on it screens a material out when its plausible range wholly fails, none of the material's
+own measurements could meet the requirement, and it rests on the material's own evidence or an
+identity measured on at least two products. Not applicable screens the same way. Strict neither shows
+nor uses estimates. The earlier models are recorded in D10, D11, D40 and D42.
+
+### Resin references
+
+Three identities have no filament source that characterises them: PA66, PA612 and, until Tarfuse POM,
+POM. A resin supplier data sheet is recorded for each as a study grade with an `R` suffix (G055-R1
+Zytel 101L, G058-R1 Zytel 151L, G087-R1 Delrin 100P). Its values are `Raw material value`, never a
+headline or a procurement grade, and exist only to anchor estimates through the moulded conversion.
 
 ---
 
@@ -184,21 +247,26 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 
 | Surface | What it does |
 |---|---|
-| Table cell | `~2.8–15.3†`, with the basis and peer count on hover |
-| Detail drawer | The full record: the span, the basis, every peer behind it |
-| Filter | Context only; always UNKNOWN |
-| Ashby lens | A dotted range, off by default, always counted in the footer |
-| Compare | A hatched span across the bar track, never a filled bar |
+| Table cell | `~71.3–92.5†`, the likely range; imprecise ones in italic. With estimates on it replaces the related `*` value, which it already contains, converted |
+| Detail drawer | The full record: both ranges and the centre, precision, what it rests on and its share, every measurement behind it with its converted value, and the limits applied |
+| Filter | Always UNKNOWN. In Explore may screen the material out, as above; the SCREENED chip brings it back |
+| Ashby lens | The likely range as a dotted box, off by default, always counted in the footer |
+| Compare | The likely range as a hatched span, the plausible range faint behind it, a tick at the centre; never a filled bar |
 | Parallel | Not drawn. A line commits to a value on every axis it crosses, so the affected materials are named and counted instead |
-| CSV export | Its own column, so a spreadsheet can never mistake inference for evidence |
+| CSV export | Its own column with both ranges, strength and precision, so a spreadsheet can never mistake inference for evidence |
 | Pareto front, candidate counts, index tallies | Never. Inference cannot dominate evidence |
 
 Strict mode sees none of this. Estimates exist only in Explore, and only while the Estimates toggle
-is on.
+is on. `n/a` is a statement, not inference, and shows in both modes.
 
 A chamber band is marked the same way, `~80–120†` in the Printing table while estimates are on and as
-a card in the drawer's chamber line, but it has no row in the Filter line above: it rules nothing out
+a card in the drawer's chamber line, but unlike a property estimate it never screens: it rules nothing out
 and nothing in. It appears in the CSV's estimated-fields column with "decides nothing" beside it.
+
+An estimated nozzle or bed window (`build/src/print-estimates.js`) is marked the same way and decides
+nothing either. It is the median window of the same polymer's materials, or of its chemical group and
+matrix when the polymer has none, shifted by the snapshot's median fibre offset (9 °C nozzle), and a
+semicrystalline nozzle window starts above the melting point. PA66 reads `~270–285†` °C.
 
 ## Chamber evidence
 
@@ -223,7 +291,7 @@ own state: not zero, and not "not required".
 **Bands** come from the 2026-09-13 research, authored in `build/mappings/chamber-estimates.json` with
 the basis and caution the research wrote. A band is attached only where no window is published and
 no source says no heated chamber is needed; the validation report lists the 22 the evidence
-superseded. Like a peer estimate, a band cannot rule a material out (D34, D40): it describes a
+superseded. Unlike a property estimate, a band cannot even screen a material out (D34, D42): it describes a
 plausible setpoint, and a setpoint is a recommendation at most.
 
 ## Evidence ownership and coverage

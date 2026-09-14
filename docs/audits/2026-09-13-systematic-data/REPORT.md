@@ -2,7 +2,8 @@
 
 **Date:** 2026-09-13  
 **Baseline:** `b616ec1` (clean working tree at start)  
-**Disposition:** 11 confirmed defect/control-gap groups corrected locally; evidence limitations remain explicit. No deployment performed.
+**Disposition:** 11 confirmed defect/control-gap groups corrected locally; evidence limitations remain explicit. No deployment performed.  
+**Correction (review, 2026-09-13):** the commit that carried this audit, `54f606a`, was pushed to `main` and published by the Pages workflow the same day. See [the review](../2026-09-13-systematic-data-review/REPORT.md).
 
 ## Outcome and scope
 

@@ -77,19 +77,44 @@ function evaluateNumeric(material, c, ctx = {}) {
   const label = `${c.property} ${c.operator} ${fmt(c.value)}`;
 
   if (!h || !h.known) {
-    // Observed peer minima/maxima do not bound an unmeasured formulation. Keep context,
-    // but neither an apparent pass nor an apparent failure can decide this material.
+    // A property that does not apply (heat deflection of an elastomer, any value of a support
+    // product) is a statement, not a gap. It can never pass; with estimates on it holds the material
+    // out of Explore like an estimate that fails, and the SCREENED chip brings it back (D43).
+    if (ctx.useEstimates && h?.notApplicable) {
+      return {
+        status: STATUS.UNKNOWN, notApplicable: true, screened: true, vetoedBy: [],
+        criterion: label, reason: `Not applicable: ${h.notApplicable.reason}`, missing: h?.missing ?? 'not-published',
+      };
+    }
+    // An estimate is inference, so the verdict stays UNKNOWN whatever it says: the verdict describes
+    // the evidence (D26). What an estimate may change is eligibility, and only in one direction. It
+    // screens a material out of Explore when it may screen, its plausible (95%) range wholly fails
+    // the requirement, and none of the material's own measurements of this property, in any
+    // direction or at any endpoint, could meet it. The likely (80%) range is what the reader sees;
+    // the wider one decides, so a screen is never closer to the threshold than the evidence allows.
     if (ctx.useEstimates && h?.estimate) {
       const est = h.estimate;
-      const verdict = compareInterval({ lo: est.lo, hi: est.hi, kind: 'range' }, c.operator, c.value);
+      const wide = est.plausible ?? { lo: est.lo, hi: est.hi };
+      const plausible = compareInterval({ lo: wide.lo, hi: wide.hi, kind: 'range' }, c.operator, c.value);
       const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
+      const veto = (h.related?.intervals ?? []).filter((r) => compareInterval({ lo: r.lo, hi: r.hi }, c.operator, c.value) !== STATUS.FAIL);
+      const screened = plausible === STATUS.FAIL && est.canScreen && !veto.length;
+      const reason = plausible === STATUS.FAIL
+        ? screened
+          ? `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
+          : veto.length
+            ? `Not published. Estimated ${span} would fail, but its own measurement ${veto[0].measurementId} could meet it, so it is not screened`
+            : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
+        : `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
       return {
         status: STATUS.UNKNOWN,
         estimated: true,
         estimate: est,
-        plausible: verdict,
+        plausible,
+        screened,
+        vetoedBy: veto.map((r) => r.measurementId),
         criterion: label,
-        reason: `Not published. ${est.peerCount} measured peers in ${est.basis} fall in ${span}, but this sample does not establish this material's value; verify its exact grade`,
+        reason,
         missing: h?.missing ?? 'not-published',
       };
     }
@@ -364,15 +389,19 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
   else if (!unresolved.length) verdict = STATUS.PASS;
   else verdict = STATUS.UNKNOWN;
 
+  const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unresolved.some((r) => r.screened);
+
   return {
     materialId: material.id,
     verdict,
-    eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN),
-    needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION,
-    // True when the material survives or falls only because of a family estimate, which the UI
-    // must show rather than let the reader assume a measurement was involved.
+    eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
+    needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
+    // The UI must show when an estimate was involved rather than let the reader assume a measurement.
     usesEstimate: results.some((r) => r.estimated),
-    ruledOutByEstimate: failed.length > 0 && failed.every((r) => r.estimated),
+    // Held out of Explore by an estimate, not by a failure. Its verdict is still UNKNOWN, so it is
+    // counted there and never in FAIL; the status bar can bring it back.
+    screened,
+    screenedBy: screened ? unresolved.filter((r) => r.screened).map((r) => r.criterion) : [],
     results,
     failed,
     unresolved,
@@ -387,11 +416,12 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
 /** Run the whole set. Returns evaluations plus the counts the status bar needs. */
 export function runSelection(materials, constraints, ctx = {}) {
   const evaluations = materials.map((m) => evaluateMaterial(m, constraints, ctx));
-  const counts = { pass: 0, fail: 0, unknown: 0, total: evaluations.length };
+  const counts = { pass: 0, fail: 0, unknown: 0, screened: 0, total: evaluations.length };
   for (const e of evaluations) {
     if (e.verdict === STATUS.PASS) counts.pass++;
     else if (e.verdict === STATUS.UNKNOWN) counts.unknown++;
     else counts.fail++;
+    if (e.screened) counts.screened++;
   }
   return { evaluations, counts, candidates: evaluations.filter((e) => e.eligible) };
 }
@@ -406,12 +436,13 @@ export function explainExclusions(materials, constraints, ctx = {}) {
   return constraints.map((c, i) => {
     const without = constraints.filter((_, j) => j !== i);
     const recovered = runSelection(materials, without, ctx).candidates.length - base;
-    let removed = 0, held = 0;
+    let removed = 0, held = 0, screened = 0;
     for (const m of materials) {
       const r = evaluateConstraint(m, c, ctx);
       if (r.status === STATUS.FAIL) removed++;
       else if (r.status === STATUS.UNKNOWN || r.status === STATUS.INDETERMINATE) held++;
+      if (r.screened) screened++;
     }
-    return { constraint: c, removed, held, recovered };
+    return { constraint: c, removed, held, screened, recovered };
   }).sort((a, b) => b.recovered - a.recovered || b.removed - a.removed);
 }

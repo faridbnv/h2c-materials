@@ -19,19 +19,18 @@ export const SHEET_HEADER_ROW = {
 
 // Expected row counts for the current snapshot. A drift here means the frozen source moved, and the
 // build refuses to continue until someone confirms the move was intended and updates these. Last
-// moved by the 2026-09-13 coverage consolidation (docs/audits/2026-09-13-coverage-consolidation/), which
-// added 98 use-and-durability rows, after the missing-data research added 4 grades, 7 profiles, 67
-// properties, 11 sources, 30 coverage rows and 2 method rows.
+// moved by the 2026-09-13 estimate-evidence research (docs/audits/2026-09-13-estimate-evidence/),
+// which added printed-product and resin-reference grades, corrected values and a Method row.
 export const EXPECTED_ROWS = {
   'Materials': 102,
-  'Grades': 144,
-  'Print setup': 167,
-  'Properties': 1966,
+  'Grades': 151,
+  'Print setup': 171,
+  'Properties': 2049,
   'Use & durability': 478,
   'Prices CA': 104,
-  'Sources': 235,
-  'Coverage': 1146,
-  'Method': 44,
+  'Sources': 243,
+  'Coverage': 1173,
+  'Method': 47,
 };
 
 /**

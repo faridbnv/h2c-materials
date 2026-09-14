@@ -610,13 +610,17 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .fact { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; font-size: var(--t-body); }
 .fact-why { color: var(--ink-2); font-size: var(--t-small); }
 
-/* ---------------------------------------------------------------- family estimates */
+/* ---------------------------------------------------------------- estimates */
 .est-toggle {
   display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small);
   border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 5px 10px; cursor: pointer;
   white-space: nowrap; color: var(--ink-2); flex-shrink: 0;
 }
 .est-toggle:hover { border-color: var(--accent); color: var(--accent); }
+/* Screened by an estimate: still UNKNOWN, so the colour is UNKNOWN's, with a dashed edge that says
+   inference rather than evidence. */
+.chip-screened { background: transparent; color: var(--unknown); border: 1px dashed var(--unknown); }
+.chip-screened::before { content: "†"; }
 .est-toggle[data-ruled]:not([data-ruled=""])::after {
   content: attr(data-ruled); font-size: var(--t-label); color: var(--unknown); font-weight: 650;
 }
@@ -627,6 +631,14 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
   border-bottom: 1px dashed var(--unknown); cursor: help; font-variant-numeric: tabular-nums;
 }
 .est .est-mark { font-weight: 700; margin-left: 2px; }
+/* An imprecise estimate is an order of magnitude, and looks it. */
+.est.est-poor { opacity: 0.7; font-style: italic; }
+/* Not applicable is a statement, not a gap. */
+.na { font-size: var(--t-small); color: var(--ink-3); font-style: italic; cursor: help; }
+.est-card.na-card { border-style: solid; border-color: var(--line); background: transparent; }
+.est-card .est-span .fine { font-size: var(--t-label); font-weight: 400; color: var(--ink-3); }
+.est-card .est-evidence { margin: 8px 0 0; padding-left: 18px; font-size: var(--t-label); color: var(--ink-2); line-height: 1.6; }
+.est-card .est-evidence .tag { font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; margin: 0 3px; }
 .est-card {
   border: 1px dashed var(--unknown); background: var(--unknown-bg); border-radius: var(--radius);
   padding: 12px 14px; margin-top: 10px;
@@ -736,5 +748,7 @@ tr.baseline-row .name { color: var(--accent); }
   background: repeating-linear-gradient(45deg,
     var(--unknown-bg) 0 5px, transparent 5px 9px);
 }
+.cmp-bar .est-wide { position: absolute; top: 5px; height: 6px; background: var(--unknown-bg); border: 1px dashed var(--unknown); border-radius: 3px; opacity: 0.6; }
+.cmp-bar .est-centre { position: absolute; top: 1px; width: 2px; height: 14px; margin-left: -1px; background: var(--unknown); border-radius: 1px; }
 .cmp-bar.estimated .val.est { color: var(--unknown); }
 .cmp-bar.estimated { cursor: help; }

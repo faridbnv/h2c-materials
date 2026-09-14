@@ -31,11 +31,14 @@ const state = {
   db: null, reference: null, scenario: null, ctx: null,
   lens: 'table', search: '', sort: { key: 'name', dir: 'asc' },
   columnSet: 'properties',
-  // Family estimates are an Explore-mode aid only; Strict never sees them.
+  // Estimates are an Explore-mode aid only; Strict neither shows them nor lets them decide.
   useEstimates: true,
   // Which constraint verdicts the table shows. The status-bar chips toggle these, which is what
   // makes them controls rather than decoration, and what makes Strict against Explore visible.
   showStates: new Set(['PASS']),
+  // Whether materials an estimate screened out of Explore are shown anyway. They are UNKNOWN, not
+  // FAIL, so they would otherwise sit among the flagged results; the SCREENED chip brings them back.
+  showScreened: false,
   selectedMaterialId: null, drawerTab: 'Overview',
   // Which panel occupies the drawer: a material, or the save-and-share panel. One slot, so Escape,
   // focus and re-rendering treat both the same way; the Scenario panel used to be written straight
@@ -92,6 +95,7 @@ async function loadData() {
 function hydrate(scenario) {
   state.scenario = scenario;
   state.showStates = defaultShowStates(scenario.unknownPolicy);
+  state.showScreened = false;
   state.selectedMaterialId = scenario.openMaterial ?? null;
   state.panel = state.selectedMaterialId ? 'material' : null;
   state.drawerTab = 'Overview';
@@ -126,8 +130,11 @@ function recompute() {
   const { db, scenario } = state;
   scenario.unknownPolicy = normalizePolicy(scenario.unknownPolicy);
   state.ctx.unknownPolicy = scenario.unknownPolicy;
-  // Strict means measured evidence only. Estimates are never allowed to decide anything there.
+  // Strict means measured evidence only: estimates are neither shown nor allowed to decide anything.
+  // `showEstimates` is the display switch, kept separate from `useEstimates` (the engine's) so the two
+  // can diverge later without touching every view.
   state.ctx.useEstimates = scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates;
+  state.ctx.showEstimates = state.ctx.useEstimates;
 
   // Assumptions are scenario data. The database object is never mutated.
   const materials = scenario.assumptions.length
@@ -143,14 +150,15 @@ function recompute() {
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
     .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && matchesQuery(m, q));
 
-  state.rows = found.filter(({ evaluation: e }) => state.showStates.has(e.verdict));
+  const visible = (e) => state.showStates.has(e.verdict) && (!e.screened || state.showScreened);
+  state.rows = found.filter(({ evaluation: e }) => visible(e));
 
   // Search the whole database, not only what survived the filters.
   //
   // Setting a heat requirement and then searching "PLA" used to return nothing, which reads as
   // "PLA is not in this database". It is, and it failed a requirement. The hits the filters
   // removed are kept here and shown in their own group with the criterion that removed them.
-  state.searchExcluded = q ? found.filter(({ evaluation: e }) => !state.showStates.has(e.verdict)) : [];
+  state.searchExcluded = q ? found.filter(({ evaluation: e }) => !visible(e)) : [];
 }
 
 // ------------------------------------------------------------------ actions
@@ -214,9 +222,11 @@ const actions = {
     // Reset the view to the policy's own default so the change is visible in the table, not just
     // in a label. Strict shows what passed; Explore also shows what could not be evaluated.
     state.showStates = defaultShowStates(policy);
+    state.showScreened = false;
     render(); pushHash();
   },
   toggleEstimates(on) { state.useEstimates = on; state.scenario.useEstimates = on; render(); pushHash(); },
+  toggleScreened() { state.showScreened = !state.showScreened; render(); },
   setColumns(which) {
     state.columnSet = which;
     state.scenario.columnSet = which;
@@ -228,6 +238,7 @@ const actions = {
   // "show everything that matched" filled the table with materials that had failed.
   showAllStates() {
     state.showStates = defaultShowStates(state.scenario.unknownPolicy);
+    state.showScreened = false;
     render();
   },
   toggleState(verdict) {
@@ -377,12 +388,16 @@ function render() {
   const estToggle = document.getElementById('est-toggle');
   estToggle.hidden = !explore;
   document.getElementById('use-estimates').checked = state.useEstimates;
-  if (explore && state.useEstimates) {
-    const ruled = state.selection.evaluations.filter((e) => e.ruledOutByEstimate).length;
-    estToggle.dataset.ruled = ruled ? `${ruled} ruled out` : '';
-  } else {
-    estToggle.dataset.ruled = '';
-  }
+  estToggle.dataset.ruled = explore && state.useEstimates && counts.screened ? `${counts.screened} screened` : '';
+  // Screened materials are UNKNOWN, and they are counted there. This chip shows how many of those an
+  // estimate held out, and brings them back; it never appears unless an estimate screened something.
+  const scr = document.getElementById('s-screened');
+  scr.hidden = !(tested && explore && state.useEstimates && counts.screened);
+  scr.textContent = `SCREENED ${counts.screened}`;
+  scr.setAttribute('aria-pressed', String(state.showScreened));
+  scr.title = state.showScreened
+    ? `Showing the ${counts.screened} materials an estimate screened out, among the UNKNOWN results. Click to hold them out again.`
+    : `${counts.screened} of the UNKNOWN materials are held out because an estimate of a missing value clearly cannot meet a requirement. Click to show them.`;
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));
@@ -428,6 +443,7 @@ function wireChrome() {
   for (const [id, verdict] of [['s-pass', 'PASS'], ['s-unknown', 'UNKNOWN'], ['s-fail', 'FAIL']]) {
     document.getElementById(id).addEventListener('click', () => actions.toggleState(verdict));
   }
+  document.getElementById('s-screened').addEventListener('click', () => actions.toggleScreened());
   document.getElementById('btn-clear-pins').addEventListener('click', () => {
     state.scenario.shortlist = []; render(); pushHash();
   });
@@ -561,7 +577,7 @@ function renderScenario(host) {
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
     download(`h2c-candidates-${db.meta.snapshot}.csv`,
-      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.useEstimates }), 'text/csv'));
+      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates }), 'text/csv'));
   host.querySelector('#sc-json').addEventListener('click', () =>
     download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(scenario), 'application/json'));
   host.querySelector('#sc-link').addEventListener('click', async (e) => {

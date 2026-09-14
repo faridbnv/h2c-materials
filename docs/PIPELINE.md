@@ -81,7 +81,7 @@ Assembles the relational runtime database, and does the one thing that matters m
 
 The Materials sheet already carries the MeasurementID behind each headline, the PriceIDs behind each
 price, and a ProfileID for printing. The build checks that the number equals the measurement it
-cites. All 369 reconcile, and all 40 price headlines equal the median of their flagged observations
+cites. All 380 reconcile, and all 40 price headlines equal the median of their flagged observations
 and cite only those observations. A mismatch is a build error, not a judgement call.
 
 Compile also derives, each tagged with its origin so the interface can tell them apart:
@@ -108,10 +108,21 @@ Compile also derives, each tagged with its origin so the interface can tell them
   resistance") and a sentence form ("acids"), so the engine can name a category in a reason string
   without importing anything from the interface, and so there is one place to change a name.
 
-## 4. Estimates — `estimates.js` and `chamber-estimates.js`
+## 4. Estimates — `estimates.js`, `print-estimates.js` and `chamber-estimates.js`
 
-Runs after every headline is known. Family estimates are covered in `docs/DATA-MODEL.md` under
-"Three kinds of number".
+Runs after every headline is known, in about two seconds. For each headline it rejects physically
+impossible values, converts every observation of every in-scope material to the headline's semantics
+(conversions documented in `build/mappings/estimate-model.json`, refined by grades that publish both),
+measures the spread between products of one material directly, estimates the remaining spreads from
+the data above documented floors, and fits one Gaussian model. It then hides each measured headline,
+predicts it, and scales the likely (80%) and plausible (95%) ranges to the coverage actually achieved.
+Every missing headline gets an estimate with its evidence, precision and screening ability, or a
+not-applicable reason. Diagnostics (calibration, conversions, spreads, rejected values, conflicting
+evidence, outlying headlines) go to `meta.estimateModel`. `docs/DATA-MODEL.md` explains the model
+under "Estimates"; DECISIONS D43 says why.
+
+`print-estimates.js` then infers a nozzle and bed window for a material that publishes neither, from
+the same polymer or its chemical group, shifted for fibre and kept above the melting point.
 
 Chamber bands are not computed. They are read from `build/mappings/chamber-estimates.json`, where
 the 2026-09-13 research's bands are authored with its basis and caution, and attached only to a
@@ -127,8 +138,12 @@ the interface can say so rather than implying a certainty it does not have.
 Checked: identifier uniqueness; referential integrity across every sheet; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
 kJ/m² without specimen geometry; the six excluded materials tripping the envelope gate on their own
-evidence; HDT loads either stated at 0.45 MPa or flagged; every family estimate citing a basis, at
-least two independent peers and a real range; every chamber band naming a real, in-scope material
+evidence; HDT loads either stated at 0.45 MPa or flagged; every in-scope headline carrying a value,
+an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
+range and citing only its own material's or representative product's measurements; each headline's
+likely range holding 80% (±10 points) and its plausible range at least 90% of hidden measured
+headlines; retired grades marked with the exact
+Method phrase; every chamber band naming a real, in-scope material
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
 
@@ -169,7 +184,7 @@ asserts that no source path survived into the output, which is how that failure 
 
 ```bash
 npm run build                    # must report 0 errors
-npm test                         # 103 tests
+npm test                         # 122 tests
 open dist/H2C_Material_Selector_2026-09-13.html
 ```
 

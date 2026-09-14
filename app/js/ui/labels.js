@@ -75,6 +75,36 @@ export const CHAMBER_GUIDANCE = {
   'no-setpoint': { word: 'no setpoint', title: 'The data sheet lists no chamber setpoint ("-"). Not zero, and not the same as not required.' },
 };
 
+/**
+ * Estimates, by what they rest on (build/src/estimates.js, DECISIONS D43). One wording, used by the
+ * table cell, the drawer, Compare, the chart and the export.
+ */
+export const ESTIMATE_STRENGTH = {
+  'this-grade': { short: 'from this grade\'s related measurements', title: 'Built mainly from this grade\'s own related measurements (another endpoint, direction, load or specimen), each converted to this headline, with the family model' },
+  'this-material': { short: 'from this material\'s other grades', title: 'Built from this material\'s other grades or resin data, converted to this headline, with the family model' },
+  family: { short: 'from the family model only', title: 'No evidence of this material itself: predicted from its polymer, reinforcement and chemical family, learned from every measured material' },
+};
+
+/** How a likely range should be read. */
+export const ESTIMATE_PRECISION = {
+  good: 'narrow enough to decide on',
+  fair: 'indicative',
+  poor: 'an order of magnitude only',
+};
+
+const percent = (p) => `${Math.round(p * 100)}%`;
+
+/** A hover sentence for an estimate. `fmt` formats a number, so this module needs no imports. */
+export function estimateTitle(e, fmt) {
+  const s = ESTIMATE_STRENGTH[e.strength] ?? { title: 'Estimated' };
+  const levels = e.levels ?? { likely: 0.8, plausible: 0.95 };
+  const wide = e.plausible ? ` Plausibly ${fmt(e.plausible.lo)} to ${fmt(e.plausible.hi)} (${percent(levels.plausible)}).` : '';
+  return `Estimated, not measured: likely ${fmt(e.lo)} to ${fmt(e.hi)} ${e.unit ?? ''} (${percent(levels.likely)} of hidden measured values fell inside ranges like this), centred on ${fmt(e.centre)}.${wide}`
+    + ` ${s.title}.${e.sharedWith ? ` Its representative product is also recorded under ${e.sharedWith.name}.` : ''}`
+    + ` Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`
+    + ` Never enough to pass a requirement. ${e.canScreen ? 'In Explore it screens this material out when its plausible range wholly fails.' : `It cannot screen: ${e.screenLimit}.`}`;
+}
+
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
 
 /** Format a number without trailing noise. */

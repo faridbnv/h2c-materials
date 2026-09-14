@@ -9,3 +9,6 @@ dist/
 
 # Python bytecode from the workbook edit scripts.
 __pycache__/
+
+# Local output of `npm run audit:data`. A named audit archives its own copy under docs/audits/.
+build/reports/data-audit/

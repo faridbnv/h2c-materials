@@ -1,14 +1,14 @@
 // Estimated chamber bands: what the 2026-09-13 research inferred for materials whose sources
 // publish no chamber temperature.
 //
-// These differ from the family estimates in estimates.js in two ways, and both matter.
+// These differ from the property estimates in estimates.js in two ways, and both matter.
 //
 // They are authored, not computed. A researcher chose each band from peer profiles, so they live in
 // build/mappings/chamber-estimates.json, reviewed like code, with the basis and caution the research
 // wrote. The build does not re-derive them.
 //
-// They never decide anything. A family estimate may rule a material out of a property requirement
-// it clearly cannot meet. A chamber band cannot, because the most it could ever describe is a
+// They never decide anything. A property estimate may screen a material out of a requirement its
+// plausible range wholly fails (D43). A chamber band cannot, because the most it could ever describe is a
 // plausible setpoint, and a setpoint is a recommendation: D6 already says a recommendation never
 // removes a candidate. So a band is shown beside the chamber question and changes no verdict.
 //

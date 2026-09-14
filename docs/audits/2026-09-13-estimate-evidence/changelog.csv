@@ -1,0 +1,265 @@
+sheet,record,cell,action,field,before,after
+Sources,R-ERYONE-PETG-GF-TDS,A239:L239,Added,,,
+Sources,R-IPCON-ASA-GF-TDS,A240:L240,Added,,,
+Sources,R-FLASHFORGE-ASA-GF10-TDS,A241:L241,Added,,,
+Sources,R-GRUPA-AZOTY-TARFUSE-POM-TDS,A242:L242,Added,,,
+Sources,R-STRATASYS-FDM-NYLON12-MDS,A243:L243,Added,,,
+Sources,R-DUPONT-DELRIN-100P,A244:L244,Added,,,
+Sources,R-CELANESE-ZYTEL-101L,A245:L245,Added,,,
+Sources,R-DUPONT-ZYTEL-GUIDE,A246:L246,Added,,,
+Grades,G025-02,A148:M148,Added,,,
+Grades,G034-03,A149:M149,Added,,,
+Grades,G034-04,A150:M150,Added,,,
+Grades,G087-02,A151:M151,Added,,,
+Grades,G055-R1,A152:M152,Added,,,
+Grades,G058-R1,A153:M153,Added,,,
+Grades,G087-R1,A154:M154,Added,,,
+Print setup,P0168,A171:AL171,Added,,,
+Print setup,P0169,A172:AL172,Added,,,
+Print setup,P0171,A173:AL173,Added,,,
+Print setup,P0170,A174:AL174,Added,,,
+Print setup,P0104,E107,Edited,Nozzle °C,Not published,240-260 °C
+Print setup,P0103,E106,Edited,Nozzle °C,Not published,235 °C (printed-specimen extrusion temperature; no recommended window published)
+Print setup,P0103,F106,Edited,Bed °C,Not published,60 °C (printed-specimen bed temperature)
+Print setup,P0106,E109,Edited,Nozzle °C,Not published,265 °C (printed-specimen extrusion temperature; no recommended window published)
+Print setup,P0106,F109,Edited,Bed °C,Not published,85 °C (printed-specimen bed temperature)
+Properties,V001967,A1970:AG1970,Added,,,
+Properties,V001968,A1971:AG1971,Added,,,
+Properties,V001969,A1972:AG1972,Added,,,
+Properties,V001970,A1973:AG1973,Added,,,
+Properties,V001971,A1974:AG1974,Added,,,
+Properties,V001972,A1975:AG1975,Added,,,
+Properties,V001973,A1976:AG1976,Added,,,
+Properties,V001974,A1977:AG1977,Added,,,
+Properties,V001975,A1978:AG1978,Added,,,
+Properties,V001976,A1979:AG1979,Added,,,
+Properties,V001977,A1980:AG1980,Added,,,
+Properties,V001978,A1981:AG1981,Added,,,
+Properties,V001979,A1982:AG1982,Added,,,
+Properties,V001980,A1983:AG1983,Added,,,
+Properties,V001981,A1984:AG1984,Added,,,
+Properties,V001982,A1985:AG1985,Added,,,
+Properties,V001983,A1986:AG1986,Added,,,
+Properties,V001984,A1987:AG1987,Added,,,
+Properties,V001985,A1988:AG1988,Added,,,
+Properties,V001986,A1989:AG1989,Added,,,
+Properties,V001987,A1990:AG1990,Added,,,
+Properties,V001988,A1991:AG1991,Added,,,
+Properties,V001989,A1992:AG1992,Added,,,
+Properties,V001990,A1993:AG1993,Added,,,
+Properties,V001991,A1994:AG1994,Added,,,
+Properties,V001992,A1995:AG1995,Added,,,
+Properties,V001993,A1996:AG1996,Added,,,
+Properties,V001994,A1997:AG1997,Added,,,
+Properties,V001995,A1998:AG1998,Added,,,
+Properties,V001996,A1999:AG1999,Added,,,
+Properties,V001997,A2000:AG2000,Added,,,
+Properties,V001998,A2001:AG2001,Added,,,
+Properties,V001999,A2002:AG2002,Added,,,
+Properties,V002000,A2003:AG2003,Added,,,
+Properties,V002001,A2004:AG2004,Added,,,
+Properties,V002002,A2005:AG2005,Added,,,
+Properties,V002003,A2006:AG2006,Added,,,
+Properties,V002004,A2007:AG2007,Added,,,
+Properties,V002005,A2008:AG2008,Added,,,
+Properties,V002006,A2009:AG2009,Added,,,
+Properties,V002007,A2010:AG2010,Added,,,
+Properties,V002008,A2011:AG2011,Added,,,
+Properties,V002009,A2012:AG2012,Added,,,
+Properties,V002010,A2013:AG2013,Added,,,
+Properties,V002011,A2014:AG2014,Added,,,
+Properties,V002012,A2015:AG2015,Added,,,
+Properties,V002013,A2016:AG2016,Added,,,
+Properties,V002014,A2017:AG2017,Added,,,
+Properties,V002015,A2018:AG2018,Added,,,
+Properties,V002016,A2019:AG2019,Added,,,
+Properties,V002017,A2020:AG2020,Added,,,
+Properties,V002018,A2021:AG2021,Added,,,
+Properties,V002019,A2022:AG2022,Added,,,
+Properties,V002020,A2023:AG2023,Added,,,
+Properties,V002021,A2024:AG2024,Added,,,
+Properties,V002022,A2025:AG2025,Added,,,
+Properties,V002023,A2026:AG2026,Added,,,
+Properties,V002024,A2027:AG2027,Added,,,
+Properties,V002025,A2028:AG2028,Added,,,
+Properties,V002026,A2029:AG2029,Added,,,
+Properties,V002027,A2030:AG2030,Added,,,
+Properties,V002028,A2031:AG2031,Added,,,
+Properties,V002029,A2032:AG2032,Added,,,
+Properties,V002030,A2033:AG2033,Added,,,
+Properties,V002031,A2034:AG2034,Added,,,
+Properties,V002032,A2035:AG2035,Added,,,
+Properties,V002033,A2036:AG2036,Added,,,
+Properties,V002034,A2037:AG2037,Added,,,
+Properties,V002035,A2038:AG2038,Added,,,
+Properties,V002036,A2039:AG2039,Added,,,
+Properties,V002037,A2040:AG2040,Added,,,
+Properties,V002038,A2041:AG2041,Added,,,
+Properties,V002039,A2042:AG2042,Added,,,
+Properties,V002040,A2043:AG2043,Added,,,
+Properties,V002041,A2044:AG2044,Added,,,
+Properties,V002042,A2045:AG2045,Added,,,
+Properties,V002043,A2046:AG2046,Added,,,
+Properties,V002044,A2047:AG2047,Added,,,
+Properties,V002045,A2048:AG2048,Added,,,
+Properties,V002046,A2049:AG2049,Added,,,
+Properties,V002047,A2050:AG2050,Added,,,
+Properties,V002048,A2051:AG2051,Added,,,
+Properties,V002049,A2052:AG2052,Added,,,
+Properties,V000605,E608,Edited,Raw value,1135780 °C,80 °C
+Properties,V000605,G608,Edited,Raw numeric,1135780,80
+Properties,V000605,L608,Edited,Normalized value,1135780,80
+Properties,V000605,V608,Edited,Standard / load,ISO1135780°C ISO,ISO 11357
+Properties,V000605,P608,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V000605,AA608,Edited,Notes,Not applicable,"Corrected 2026-09-13. The TDS prints ""ISO 11357 80°C""; the standard number and the value had been read as one number, 1135780."
+Properties,V000039,E42,Edited,Raw value,3 MPa,"110,3 MPa"
+Properties,V000039,G42,Edited,Raw numeric,3,110.3
+Properties,V000039,L42,Edited,Normalized value,3,110.3
+Properties,V000039,V42,Edited,Standard / load,"ASTM D882 110,","ASTM D882, machine direction"
+Properties,V000039,Q42,Edited,Specimen type,Not published (do not assume printed),Film specimen (ASTM D882); not a printed or moulded bar
+Properties,V000039,P42,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V000039,AA42,Edited,Notes,Not applicable,"Corrected 2026-09-13. ""110,3"" uses a decimal comma and had been read as 3. ASTM D882 is the thin-film tensile method; MD is the film machine direction. Not comparable with a printed bar."
+Properties,V000040,Q43,Edited,Specimen type,Not published (do not assume printed),Film specimen (ASTM D882); not a printed or moulded bar
+Properties,V000040,AA43,Edited,Notes,Not applicable,"ASTM D882 thin-film value, machine direction. Not comparable with a printed bar (2026-09-13)."
+Properties,V000041,Q44,Edited,Specimen type,Not published (do not assume printed),Film specimen (ASTM D882); not a printed or moulded bar
+Properties,V000041,AA44,Edited,Notes,Not applicable,"ASTM D882 thin-film value, machine direction. Not comparable with a printed bar (2026-09-13)."
+Properties,V000507,E510,Edited,Raw value,120 ℃,72 ℃
+Properties,V000507,G510,Edited,Raw numeric,120,72
+Properties,V000507,L510,Edited,Normalized value,120,72
+Properties,V000507,V510,Edited,Standard / load,Not published,Vicat A/120 (the TDS cites ASTM D-648 beside it)
+Properties,V000507,P510,Edited,Data status,Published value,Published value (transcription corrected)
+Properties,V000507,AA510,Edited,Notes,Not applicable,"Corrected 2026-09-13. The TDS row reads ""Vicat softening point A/120 ℃ ASTM D-648 72"": A/120 is the Vicat method and 72 °C the value, which had been read as 120."
+Properties,V001489,V1492,Edited,Standard / load,ISO 75-2/B,ISO 75-2 method B (0.45 MPa)
+Properties,V001489,AA1492,Edited,Notes,Test load not published; do not combine with specified-load HDT.,ISO 75-2 method B is the 0.45 MPa load; the load is stated by the method letter (2026-09-13).
+Properties,V000008,V11,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000389,V392,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000517,V520,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000594,V597,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000603,V606,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000726,V729,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000890,V893,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V000971,V974,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001014,V1017,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001051,V1054,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001117,V1120,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001125,V1128,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001170,V1173,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001207,V1210,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001346,V1349,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001477,V1480,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001496,V1499,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001508,V1511,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001515,V1518,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001531,V1534,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001554,V1557,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Properties,V001610,V1613,Edited,Standard / load,ISO 75,"ISO 75, 0.45 MPa (66 psi)"
+Materials,M025,E31,Edited,Representative grade,G025-01,G025-02
+Materials,M025,AH31,Edited,GradeIDs,G025-01,G025-01; G025-02
+Materials,M025,I31,Edited,Printing evidence,P0028,P0168
+Materials,M025,F31,Edited,Nozzle guidance,Not published,250-280 °C
+Materials,M025,G31,Edited,Bed guidance,Not published,60-70 °C
+Materials,M025,H31,Edited,Chamber guidance,Not published,Not published
+Materials,M025,J31,Edited,Density kg/m³,1260,1330
+Materials,M025,K31,Edited,Tensile modulus XY GPa,Not published,2.3345
+Materials,M025,L31,Edited,Tensile strength XY MPa,Not published,53.6
+Materials,M025,M31,Edited,Elongation at break XY %,Not published,1.9
+Materials,M025,N31,Edited,Mechanical evidence,V000505,V001967; V001971; V001970; V001972
+Materials,M025,O31,Edited,Measurement conditions,Not published / Not published,"Printed X-Y specimens, 250 °C nozzle, 100% infill; GB/T 1040 tensile at 50 mm/min. HDT is published with an ambiguous load and is not a headline"
+Materials,M025,AG31,Edited,Identity notes,Not applicable,"Representative grade changed 2026-09-13 from iSANMATE PETG Glass Fiber (G025-01, no specimen direction published) to Eryone PETG-GF (G025-02, printed X-Y data, 10% glass fibre). iSANMATE was not overwritten."
+Materials,M034,E40,Edited,Representative grade,G034-01,G034-03
+Materials,M034,AH40,Edited,GradeIDs,G034-01; G034-02,G034-01; G034-02; G034-03; G034-04
+Materials,M034,I40,Edited,Printing evidence,P0041,P0169
+Materials,M034,F40,Edited,Nozzle guidance,240 - 270°C,265-290 °C
+Materials,M034,G40,Edited,Bed guidance,80 - 100°C,90-110 °C
+Materials,M034,H40,Edited,Chamber guidance,Not published,Not required (TDS: no need for positive chamber heating)
+Materials,M034,J40,Edited,Density kg/m³,1110,1110
+Materials,M034,K40,Edited,Tensile modulus XY GPa,Not published,2.758
+Materials,M034,L40,Edited,Tensile strength XY MPa,Not published,39
+Materials,M034,M40,Edited,Elongation at break XY %,Not published,5.8
+Materials,M034,N40,Edited,Mechanical evidence,V000671,V001980; V001985; V001983; V001987
+Materials,M034,O40,Edited,Measurement conditions,Not published / Not published,"Printed by IPCON on a Bambu P1S, 275 °C nozzle, 100% concentric infill; ISO 527. HDT ISO 75 at 0.45 MPa"
+Materials,M034,P40,Edited,HDT 0.45 MPa °C,Not published,98
+Materials,M034,Q40,Edited,Thermal evidence,Not applicable,V001982
+Materials,M034,AG40,Edited,Identity notes,Not applicable,"Representative grade changed 2026-09-13 from Spectrum ASA-X GF10 (G034-01), whose mechanical and HDT values are injection moulded per its TDS, to IPCON ASA GF (G034-03), which publishes printed XY and Z data. Flashforge ASAGF10 (G034-04) added."
+Materials,M087,E93,Edited,Representative grade,G087-01,G087-02
+Materials,M087,AH93,Edited,GradeIDs,G087-01,G087-01; G087-02
+Materials,M087,J93,Edited,Density kg/m³,Not published,1420
+Materials,M087,K93,Edited,Tensile modulus XY GPa,Not published,1.87
+Materials,M087,L93,Edited,Tensile strength XY MPa,Not published,50
+Materials,M087,M93,Edited,Elongation at break XY %,Not published,11
+Materials,M087,N93,Edited,Mechanical evidence,Not applicable,V002018; V002023; V002021; V002022
+Materials,M087,O93,Edited,Measurement conditions,Not published,"Printed flat (XY) ISO 527 bars at 23 °C, preliminary TDS; XZ and ZX not yet tested. HDT not published"
+Materials,M087,AG93,Edited,Identity notes,"purefil profile bed range extends above H2C limit. Conditional at boundary, not validated.","Representative grade changed 2026-09-13 from purefil POM (G087-01, print settings only) to Grupa Azoty Tarfuse POM (G087-02, printed XY data, polyacetal copolymer). purefil remains the printing evidence. Delrin 100P (G087-R1) is a resin reference only."
+Materials,M082,F88,Edited,Nozzle guidance,Not published,235 °C (printed-specimen extrusion temperature; no recommended window published)
+Materials,M082,G88,Edited,Bed guidance,Not published,60 °C (printed-specimen bed temperature)
+Materials,M084,F90,Edited,Nozzle guidance,Not published,265 °C (printed-specimen extrusion temperature; no recommended window published)
+Materials,M084,G90,Edited,Bed guidance,Not published,85 °C (printed-specimen bed temperature)
+Coverage,C00005,D8,Edited,Status,Gap,Gap
+Coverage,C00005,E8,Edited,Finding,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.",2 distinct manufacturer(s) documented against target 3. Eryone PETG-GF (G025-02) added 2026-09-13 as the representative grade.
+Coverage,C00305,D308,Edited,Status,Gap,Evidence recorded
+Coverage,C00305,E308,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Eryone PETG-GF TDS recorded 2026-09-13: nozzle 250-280 °C, bed 60-70 °C, closed printing."
+Coverage,C00306,D309,Edited,Status,Limited comparability,Evidence recorded
+Coverage,C00306,E309,Edited,Finding,"Elongation at break 98% (V000508) is recorded with no stated direction, so it cannot be an XY headline. No other mechanical value is published.","Eryone PETG-GF printed X-Y tensile values are the headlines. iSANMATE tensile strength 53 MPa and flexural modulus 1986 MPa, published but never entered, recovered 2026-09-13; its 98% elongation has no stated direction and conflicts with every glass-filled value."
+Coverage,C00307,D310,Edited,Status,Evidence recorded,Evidence recorded
+Coverage,C00307,E310,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.",Eryone HDT 80 °C is published with an ambiguous load and is not a headline; Tg 75 °C. The iSANMATE Vicat value was corrected from 120 °C to 72 °C.
+Coverage,C00008,D11,Edited,Status,Gap,Evidence recorded
+Coverage,C00008,E11,Edited,Finding,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.","4 distinct manufacturer(s) documented against target 3. IPCON ASA GF (G034-03, representative) and Flashforge ASAGF10 (G034-04) added 2026-09-13."
+Coverage,C00395,D398,Edited,Status,Evidence recorded,Evidence recorded
+Coverage,C00395,E398,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"IPCON ASA GF: nozzle 265-290 °C, bed 90-110 °C, no positive chamber heating. Flashforge ASAGF10: nozzle 240-260 °C, bed 100-120 °C, room temperature to 60 °C. Spectrum ASA-X GF10: nozzle 240-270 °C, bed 80-100 °C."
+Coverage,C00396,D399,Edited,Status,Evidence recorded,Evidence recorded
+Coverage,C00396,E399,Edited,Finding,"See specimen, direction, moisture, preparation and standard before comparing.",IPCON ASA GF printed XY and Z tensile values are the headlines. Spectrum ASA-X GF10 tensile values are injection moulded per its TDS footnote and are recorded as raw-material values.
+Coverage,C00397,D400,Edited,Status,Evidence recorded,Evidence recorded
+Coverage,C00397,E400,Edited,Finding,"HDT, Tg and Vicat are not continuous-service ratings.",IPCON HDT 98 °C at 0.45 MPa (ISO 75) is the headline. Spectrum moulded HDT 100 °C at 0.45 MPa and 90 °C at 1.81 MPa are raw-material values; Flashforge 88 °C at 0.455 MPa.
+Coverage,C00576,D579,Edited,Status,Limited comparability,Limited comparability
+Coverage,C00576,E579,Edited,Finding,"The only mechanical records are 12 fatigue results for the study grade G052-R1, which is not a procurement grade. No tensile, flexural or impact value is published for a PA12 grade.","Stratasys FDM Nylon 12 data sheet recorded 2026-09-13 on the study grade G052-R1: printed XZ (on edge) and ZX (upright) tensile and flexural values. None is an XY headline, and the AMIDEX representative grade publishes no mechanical value."
+Coverage,C00577,D580,Edited,Status,Gap,Limited comparability
+Coverage,C00577,E580,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Stratasys FDM Nylon 12: HDT 94.7 °C at 66 psi and 84.3 °C at 264 psi (XY bars), Tg 34 °C, on the study grade G052-R1. Not the representative grade, so not a headline."
+Coverage,C00605,D608,Edited,Status,Gap,Limited comparability
+Coverage,C00605,E608,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Resin reference only: Zytel 101L NC010 moulded, dry (G055-R1), recorded 2026-09-13 as raw-material values to anchor estimates. No printed PA66 filament data was found."
+Coverage,C00606,D609,Edited,Status,Gap,Limited comparability
+Coverage,C00606,E609,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Resin reference only: Zytel 101L NC010 HDT 190 °C at 0.45 MPa and 70 °C at 1.8 MPa, moulded, dry; melting point 262 °C."
+Coverage,C00635,D638,Edited,Status,Gap,Limited comparability
+Coverage,C00635,E638,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Resin reference only: Zytel 151L NC010 moulded, dry as moulded (G058-R1), recorded 2026-09-13 as raw-material values to anchor estimates. No unfilled PA612 filament data was found."
+Coverage,C00636,D639,Edited,Status,Gap,Limited comparability
+Coverage,C00636,E639,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Resin reference only: Zytel 151L NC010 HDT 135 °C at 0.45 MPa and 62 °C at 1.8 MPa, moulded; melting point 218 °C."
+Coverage,C00041,D44,Edited,Status,Gap,Gap
+Coverage,C00041,E44,Edited,Finding,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations.",2 distinct manufacturer(s) documented against target 3. Grupa Azoty Tarfuse POM (G087-02) added 2026-09-13 as the representative grade.
+Coverage,C00930,D933,Edited,Status,Evidence recorded,Evidence recorded
+Coverage,C00930,E933,Edited,Finding,Published nozzle and bed profile available; check other setup fields individually.,"purefil POM: nozzle 190-210 °C, bed 120-150 °C (P0109). Tarfuse POM: nozzle 210-240 °C, bed 100-130 °C, build chamber 70-140 °C, recorded 2026-09-13."
+Coverage,C00931,D934,Edited,Status,Gap,Evidence recorded
+Coverage,C00931,E934,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Tarfuse POM printed XY tensile strength, modulus and elongation are the headlines (preliminary TDS; XZ and ZX not yet tested). Delrin 100P NC010 moulded values (G087-R1) are a resin reference."
+Coverage,C00932,D935,Edited,Status,Gap,Evidence recorded
+Coverage,C00932,E935,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"Tarfuse POM: melting point 165-170 °C, Tg -50 °C; no HDT published. Delrin 100P NC010 resin reference: HDT 160 °C at 0.45 MPa and 93 °C at 1.80 MPa, moulded."
+Coverage,C00879,D882,Edited,Status,Partially resolved,Evidence recorded
+Coverage,C00879,E882,Edited,Finding,"Only a bed temperature (40-60 °C, P0104) is published. Nozzle and chamber temperatures are not.",iSANMATE PP recommends a 240-260 °C nozzle (recovered 2026-09-13 from the hash-matched TDS) and a 40-60 °C bed (P0104). HyperLite PP specimens were printed at 235 °C nozzle and 60 °C bed (P0103). No chamber temperature is published.
+Coverage,C00899,D902,Edited,Status,Gap,Partially resolved
+Coverage,C00899,E902,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,"FibreX PP+GF30 publishes only its printed-specimen conditions, 265 °C nozzle and 85 °C bed (P0106), recorded 2026-09-13. No recommended window."
+Coverage,C01147,A1150:E1150,Added,,,
+Coverage,C01148,A1151:E1151,Added,,,
+Coverage,C01149,A1152:E1152,Added,,,
+Coverage,C01150,A1153:E1153,Added,,,
+Coverage,C01151,A1154:E1154,Added,,,
+Coverage,C01152,A1155:E1155,Added,,,
+Coverage,C01153,A1156:E1156,Added,,,
+Coverage,C01154,A1157:E1157,Added,,,
+Coverage,C01155,A1158:E1158,Added,,,
+Coverage,C01156,A1159:E1159,Added,,,
+Coverage,C01157,A1160:E1160,Added,,,
+Coverage,C01158,A1161:E1161,Added,,,
+Coverage,C01159,A1162:E1162,Added,,,
+Coverage,C01160,A1163:E1163,Added,,,
+Coverage,C01161,A1164:E1164,Added,,,
+Coverage,C01162,A1165:E1165,Added,,,
+Coverage,C01163,A1166:E1166,Added,,,
+Coverage,C01164,A1167:E1167,Added,,,
+Coverage,C01165,A1168:E1168,Added,,,
+Coverage,C01166,A1169:E1169,Added,,,
+Coverage,C01167,A1170:E1170,Added,,,
+Coverage,C01168,A1171:E1171,Added,,,
+Coverage,C01169,A1172:E1172,Added,,,
+Coverage,C01170,A1173:E1173,Added,,,
+Coverage,C01171,A1174:E1174,Added,,,
+Coverage,C01172,A1175:E1175,Added,,,
+Coverage,C01173,A1176:E1176,Added,,,
+Method,Comparison / Estimates,C49,Edited,Definition / rule,"A missing headline may carry an estimate, always shown as an estimate: first from the material's own other grades with the headline's test semantics, then from other materials of the same polymer and reinforcement class, then from a declared close-analogue group as context only. Every estimate is a 95% prediction interval for one more formulation, using a documented between-formulation spread or the sample's own where wider. An estimate never passes a requirement. In exploration it may screen a material out only from its own grades or at least five peer formulations, only when the whole interval fails, and never when one of the material's own measurements of that property could meet the requirement. Display families and behaviour classes are never pooled. Parameters: build/mappings/estimate-model.json.","A missing headline may carry an estimate, always shown as an estimate. One Gaussian model per headline, on a log scale for density, stiffness, strength and elongation and in °C for heat deflection, takes every observation in the snapshot: measured headlines, a material's related measurements (another endpoint, direction, load or specimen, and resin data sheets) and its other grades, each converted to the headline's own semantics with a documented offset and spread refined from grades that publish both. Its structure is polymer identity within its chemical group, reinforcement by matrix, declared variants, test house and, for the heat deflection of polymers that crystallise while printing, the melting point; each material and product adds its own deviation. Melting point and glass transition limit heat deflection. The likely (80%) and plausible (95%) ranges are calibrated by hiding each measured headline and predicting it back. An estimate never passes a requirement; in exploration it may screen a material out only when its plausible range wholly fails, no own measurement of that property could meet the requirement, and it rests on the material's own evidence or an identity measured on at least two products. Heat deflection of an elastomer, and any value of a support product, is not applicable unless its own sources publish one. Parameters: build/mappings/estimate-model.json."
+Method,Evidence,A50:C50,Added,,,

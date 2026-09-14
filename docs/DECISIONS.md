@@ -14,7 +14,7 @@ by anything here.
 ## D2. Headline values are verified, never recomputed
 
 The Materials sheet already cites the MeasurementID behind each headline. The build checks the
-number equals its citation rather than deriving a headline itself. All 369 reconcile. A price
+number equals its citation rather than deriving a headline itself. All 380 reconcile. A price
 headline must also cite only the observations its median was built from.
 
 This converts a class of judgement calls into build errors. Corrupting one density cell produces a
@@ -72,7 +72,7 @@ An earlier version fell back to Vicat or glass transition where a material had n
 put a glass transition of −35 °C in a column headed "HDT at 0.45 MPa" — a different physical
 quantity, and actively dangerous for anyone screening on heat resistance. Same-property only.
 
-## D10. A family estimate may rule out, never rule in (superseded by D40)
+## D10. A family estimate may rule out, never rule in (superseded by D40, D42, then D43)
 
 The asymmetry is the whole design. Knowing every measured unreinforced PLA falls between 2.8 and
 15.3% elongation is enough to say PLA Lite is not an elastomer. It is not enough to certify PLA Lite
@@ -83,7 +83,7 @@ estimates, a search for elongation at least 100% returned 35 materials including
 nylons; it now returns 14, of which 8 are genuine elastomers and 6 are supports that honestly have
 no peers.
 
-## D11. Estimates never pool across behaviour classes (narrowed by D40)
+## D11. Estimates never pool across behaviour classes (narrowed by D40, D42 and D43)
 
 "All unreinforced materials" spanned TPU at 0.0053 GPa and PLA at 2.88 GPa. Three orders of
 magnitude rules nothing out and implies a support material might be as stiff as a structural one.
@@ -205,10 +205,10 @@ genuinely about both.
 
 The chart plotted only measured headlines, so on density against stiffness 25 of the 96 in-scope
 materials simply were not there. The table two tabs away listed them with their estimated span, and
-in Explore an estimate is what rules a material out of a filter, so a reader could see a material
-excluded by an estimate and find no trace of that estimate on the chart.
+in Explore an estimate can screen a material out of a filter (D43), so a reader could see a material
+screened by an estimate and find no trace of that estimate on the chart.
 
-They are drawn as a dotted range. Not a dot: a dot needs a value, and the midpoint of a family bound
+They are drawn as a dotted range. Not a dot: a dot needs a value, and the centre of an estimate
 is a number nobody measured, which is the one thing this tool refuses to put on a chart. Where the
 other axis is measured the range collapses to a whisker, which is the stronger statement and the
 lighter mark.
@@ -344,10 +344,10 @@ is its own state: not zero, and not "not required".
 ## D34. An estimated chamber band decides nothing
 
 The 2026-09-13 research proposed chamber bands for materials that publish no chamber temperature.
-They are kept, in `build/mappings/chamber-estimates.json`, and shown marked †, but unlike a family
-estimate (D10) a band cannot even rule a material out.
+They are kept, in `build/mappings/chamber-estimates.json`, and shown marked †, but unlike a property
+estimate (D43) a band cannot even screen a material out.
 
-A family estimate is a span of verified measurements of the same property. A chamber band is a
+A property estimate is built from verified measurements of the same property. A chamber band is a
 researcher's judgement of a plausible setpoint, and a setpoint is at most a recommendation, which
 never removes a candidate (D6). The evidence agrees: of the bands that met a real value, Support for
 PA/PET publishes 45–60 °C against a band of 20–45, and PPA-CF 50–80 °C against 80–120. A band that
@@ -443,13 +443,21 @@ answers rather than failing.
 | Compare evidence dots | Rendered by the shared value renderer and never wired, so the dot did nothing exactly where a difference needed checking | visual |
 | Chamber rows dropped at a page break | Fourteen Bambu data sheets carry a chamber window as the first row of page 2, and none was transcribed, so PC FR, PAHT-CF and every Bambu PLA and PETG reported "no chamber requirement published" | `database.test.js` |
 | A chamber window read by its upper end | ABS-CF's 50–70 °C failed the chamber criterion, though 50–65 °C is reachable | `normalize.test.js` |
+| A class envelope used for screening | Would have screened CPE out of "elongation at least 100%" though its data sheet reports 150%; found in the prototype, never shipped | `constraints.test.js` |
+| Another grade's value taken as the material's | One PLA grade at 46 MPa screened generic PLA out of "strength at least 60 MPa"; found while building D42, never shipped | `database.test.js` |
 | Hardcoded rail counts | "45 of 102 state an abrasion requirement" counted profiles, not materials; the true figure is 27 | derived from data now |
 | Bambu chemical table rows omitted | The shared “Other Physical and Chemical Properties” table disappeared for 19 exact grades, leaving 98 source-backed findings out of the database | `database.test.js`, coverage-consolidation plan |
 | Environmental evidence copied from family notes | 31 materials appeared to own another material's exposure evidence, while some exact-grade records were omitted | `database.test.js`, `validate.js` |
 | Coverage contradicted the records | Rows said `Gap` beside measured/profile data or `Evidence recorded` with no record owned by the material | `database.test.js`, `coverage-rules.js` |
 | Existence-only referential checks | A valid measurement and a valid grade could be joined under the wrong material without an error | mutation tests in `database.test.js` |
+| Estimates blind to the material's own related evidence | PA-CF strength shown as 38–204 MPa beside its own 72 MPa break strength; the table then showed the 72* and hid the estimate the filter was using | `database.test.js`, D43 |
+| A heat load lost at a line break | 22 3DXTECH values printed "at 0.45 MPa (66psi)" were recorded as load not stated, so PLA, PP, PA12-CF, PVDF and 14 more could neither pass nor fail a heat requirement | `database.test.js` |
+| A standard number read into its value | iSANMATE's "ISO 11357 80°C" became a glass transition of 1135780 °C | `database.test.js`, plausibility screen in `estimates.js` |
+| A decimal comma and a film method | iSANMATE PLA "110,3 MPa" under ASTM D882, a thin-film test, was recorded as 3 MPa for a printed part | `database.test.js` |
+| A method designation read as the value | iSANMATE PETG-GF "Vicat A/120 … 72" was recorded as 120 °C | `database.test.js` |
+| Heat-deflection physics learned backwards | With too few unfilled nylons, the model's melting-point slope fitted negative and put PA66 at 15–91 °C; found in development, never shipped | `database.test.js` |
 
-## D40. Peer observations are context, not exclusion bounds
+## D40. Peer observations are context, not exclusion bounds (superseded by D42, then D43)
 
 The systematic data audit found OBC borrowing PP and reinforced PP mechanical spans, flexible
 families pooling TPU with PEBA/TPC, and HDT estimates borrowing unstated loads. Even within a
@@ -467,3 +475,98 @@ Tests rebuild the inputs every time; the audit command independently checks the 
 
 See [systematic data audit](audits/2026-09-13-systematic-data/REPORT.md) for all findings, cell edits,
 source checksums, before/after compiled changes, every filament and every family.
+
+
+## D42. An estimate is a prediction interval from like-for-like evidence, and may only screen (superseded by D43)
+
+Estimates failed twice, in opposite directions. The first model (D10, D11) pooled display families
+and then whole filler classes, took the sample's minimum and maximum, and let that span fail a
+material: OBC borrowed polypropylene's elongation, TPU pooled with PEBA, and a handful of peers'
+extremes were treated as a bound. The second (D40) kept three same-polymer spans and let none decide
+anything, which gave up the reason estimates exist: keeping a PLA out of an elastomer search.
+
+The model now separates which evidence from how wide, and both from what an estimate may do.
+
+**Which evidence.** A ladder, strongest first: the material's own other grades with the headline's
+exact test semantics; then other materials of the same polymer identity and reinforcement class;
+then a declared close-analogue group, reviewed like code in `build/mappings/estimate-model.json`.
+Nothing pools a display family or a behaviour class. A prototype class envelope would have screened
+CPE out of "elongation at least 100%" although its own data sheet reports 150%.
+
+**How wide.** Every rung gives a 95% prediction interval for one more formulation, never a sample's
+extremes. That includes the material's own other grades: a generic PLA grade at 46 MPa does not
+bound the representative grade, and an early version of this model screened PLA out of "strength
+at least 60 MPa" on exactly that basis. The spread is a documented, conservative between-formulation
+prior, or a sample's own spread where wider (TPU's hardness grades are), on a log scale for
+stiffness, strength and elongation. The spread actually seen across the snapshot is computed every
+build, and the build fails if the median group exceeds the prior.
+
+**What it may do.** Never pass: the verdict stays UNKNOWN, so the FAIL count stays evidence (D26).
+In Explore with Estimates on, it may screen a material out, only when its whole interval fails the
+requirement, only from the material's own grades or from peers with at least five independent
+formulations, and never when any of the material's own measurements of that property, in any
+direction or at any endpoint, could meet the requirement. A screened material is counted under
+UNKNOWN, marked "screened", and brought back by the SCREENED chip. Strict never consults estimates.
+
+Reversing any part reintroduces one of the three failures: pooling brings back OBC and TPU,
+extremes as bounds bring back over-confident exclusions, and no screening brings back PLA Lite among
+the elastomers. The user chose screening, the evidence rungs and the 95% level when this was designed.
+
+## D43. An estimate is a calibrated model of every observation, and says how far to trust it
+
+D42 was honest and too wide to use: PA-CF strength 38–204 MPa beside its own 72 MPa break strength,
+TPE elongation 73–4695%, and nothing at all for PA66, PA612 or POM. It had two blind spots. It used
+only measurements with the headline's exact semantics, so the break strength, flexural modulus,
+Z-direction value or glass transition most gaps already had counted for nothing. And it treated
+each material alone, so estimates made no sense side by side: nothing tied PA66-CF to PA66, or PA66
+to PA12.
+
+**One model per headline.** A Gaussian model on the scale the property varies on (natural log for
+density, stiffness, strength and elongation; °C for heat deflection) takes every observation in the
+snapshot. A product's value is its polymer identity, pulled towards its chemical group, plus its
+reinforcement by matrix (fibre lifts a semicrystalline bar's heat deflection towards its melting
+point, an amorphous one's only a little past Tg), a declared variant, its test house, and for the
+heat deflection of polymers that crystallise while printing, its melting point with a documented
+positive slope; plus the material's and the product's own deviations.
+
+**Every observation, converted.** A related measurement enters converted to the headline's semantics
+with an offset and a spread: documented in `build/mappings/estimate-model.json`, refined by the
+median and MAD of grades that publish both. A break strength converts tightly, a Z value loosely, a
+moulded resin value very loosely. On each product only the most direct kinds are used, because
+3DXTECH's flexural and break strengths disagree with Bambu's ratio and stacking both double-counted.
+Hardness informs an elastomer's stiffness through Gent (1958) and Qi et al. (2003). Values outside a
+physical range are rejected and reported; evidence that contradicts everything else is down-weighted
+and reported.
+
+**Spreads, measured where they can be.** The spread between two products of one material is measured
+directly from materials with several products, by the median pairwise difference, so one test house
+reporting on another basis does not set it for everyone. The remaining spreads are estimated from
+the data (empirical Bayes) above documented floors. The melting-point slope's spread is fixed:
+unfilled nylons are too few to learn it, and letting them reverse it put PA66 at 15–91 °C.
+
+**Calibrated, and labelled.** Each measured headline is hidden in turn and predicted from everything
+else. The likely range (80%, what the tool shows) and the plausible range (95%, what may screen) are
+scaled until they hold the hidden value that often, and the build fails if they drift by more than
+0.1 or 0.05. Melting point and glass transition cap heat deflection as soft limits, never a hard
+truncation that would pile a range against the cap. Each estimate says what it rests on (this grade's
+related measurements, the material's other grades, or the family model alone) and how precise it
+is (good, fair, poor, per property). One product has one value: a representative product filed under
+two materials, like CarbonX CF PA12 under PA-CF and PA12-CF, gets one estimate.
+
+**Nothing left blank.** Every in-scope headline has a value, an estimate, or a reason it does not
+apply: heat deflection of an elastomer (a rigid-bar test; Bambu lists it N/A) and any value of a
+support product, unless its own sources publish one. The build fails otherwise. Where no source
+characterises an identity, a resin supplier data sheet is recorded as a study grade to anchor it
+(Zytel 101L for PA66, Zytel 151L for PA612, Delrin 100P for POM), never as a headline. Nozzle and bed
+windows nobody publishes are estimated from same-polymer or same-group products, above the melting
+point; like a chamber band, they decide nothing.
+
+**What it may do.** Unchanged in principle from D42. Never pass. In Explore with Estimates on, screen a
+material out only when the plausible range wholly fails, no own measurement could meet the
+requirement, and the estimate rests on the material's own evidence or an identity measured on at
+least two products. Not applicable screens the same way. Strict neither shows nor uses estimates.
+
+Reversing any part brings back a failure seen in this snapshot: exact-semantics-only brings back
+38–204 MPa; no shared structure lets PA66-CF sit below PA66; learned physics slopes reverse; no
+calibration makes every width a guess; hard caps collapse ranges to a point.
+

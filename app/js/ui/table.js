@@ -121,7 +121,7 @@ export function renderTable(host, state, actions) {
       if (c.kind === 'state') {
         return ghost
           ? `<td><span class="chip chip-neutral">baseline</span></td>`
-          : tested ? `<td>${chip(e.verdict)}</td>`
+          : tested ? `<td>${chip(e.verdict)}${e.screened ? ` <span class="chip chip-screened" title="${esc(`Screened by an estimate: ${e.screenedBy.join(', ')}. Not a failure; not measured.`)}">screened</span>` : ''}</td>`
           : `<td><span class="chip chip-neutral" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
@@ -137,10 +137,14 @@ export function renderTable(host, state, actions) {
         // one exists, is marked the way every other estimate is and only while estimates are on.
         if (!r && c.key === 'chamberC' && (m.print?.chamberGuidance || m.print?.chamberEstimate)) {
           const g = m.print.chamberGuidance && CHAMBER_GUIDANCE[m.print.chamberGuidance.state];
-          const e = state.ctx?.useEstimates ? m.print.chamberEstimate : null;
+          const e = state.ctx?.showEstimates ? m.print.chamberEstimate : null;
           const word = g ? `<span class="missing" title="${esc(g.title)}">${esc(g.word)}</span>` : '';
           const band = e ? `<span class="est" title="${esc(`Estimated, not published: ${e.basis}. Not a print setting, and it changes no result.`)}">~${fmtNumber(e.lo)}\u2013${fmtNumber(e.hi)}<span class="est-mark">\u2020</span></span>` : '';
           if (word || band) return `<td class="num">${word}${word && band ? '<br>' : ''}${band}</td>`;
+        }
+        const windowEst = !r && state.ctx?.showEstimates && (c.key === 'nozzleC' ? m.print?.nozzleEstimate : c.key === 'bedC' ? m.print?.bedEstimate : null);
+        if (windowEst) {
+          return `<td class="num"><span class="est" title="${esc(`Estimated, not published: ${windowEst.basis}. A starting point to verify; it changes no result.`)}">~${fmtNumber(windowEst.lo)}\u2013${fmtNumber(windowEst.hi)}<span class="est-mark">\u2020</span></span></td>`;
         }
         if (!r) return `<td class="num"><span class="missing dash" title="No ${esc(c.label.toLowerCase())} temperature published for this material">\u2014</span></td>`;
         // A range across every recorded profile, not one setting to dial in. The drawer's Printing
@@ -157,14 +161,14 @@ export function renderTable(host, state, actions) {
       }
       if (c.kind === 'price') {
         const h = m.headline.priceCADkg;
-        const inner = renderValue(h, { compact: true, estimates: state.ctx?.useEstimates });
+        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates });
         if (!m.buy) return `<td class="num">${inner}</td>`;
         const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${m.buy.accessDate})`;
         return `<td class="num"><a class="buy" href="${esc(m.buy.url)}" target="_blank" rel="noopener"
           title="${esc(t)}">${inner}<span class="buy-mark" aria-label="opens the retailer page">\u2197</span></a>
           ${m.buy.anyInStock ? '' : '<span class="oos" title="No sampled offer was in stock on the snapshot date">out of stock</span>'}</td>`;
       }
-      return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.useEstimates })}</td>`;
+      return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates })}</td>`;
     }).join('');
 
   const body = sorted.map(({ material: m, evaluation: e }) =>
@@ -184,23 +188,25 @@ export function renderTable(host, state, actions) {
     && sorted.some(({ material: m }) => m.headline.hdt045?.known && m.headline.hdt045.loadStated === false);
   const anyRelated = sorted.some(({ material: m }) =>
     COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known && m.headline[c.key].related));
-  const anyEstimate = state.ctx?.useEstimates && sorted.some(({ material: m }) =>
-    COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known
-      && !m.headline[c.key].related && m.headline[c.key].estimate));
+  const anyEstimate = state.ctx?.showEstimates && sorted.some(({ material: m }) =>
+    COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key] && !m.headline[c.key].known && m.headline[c.key].estimate));
+  const anyNotApplicable = sorted.some(({ material: m }) =>
+    COLUMNS.some((c) => c.kind === 'headline' && m.headline[c.key]?.notApplicable));
 
   // The legend sits above the table. Both markers first appear in row one and their explanation
   // used to be after the last row.
   const legend = [
     `<span class="lg"><span class="dash">\u2014</span> not published. Not zero, and not a low value.</span>`,
     anyRelated ? `<span class="lg"><span class="related-mark">*</span> a measurement that was never made the headline. Hover for why.</span>` : '',
-    anyEstimate ? `<span class="lg"><span class="est-mark">\u2020</span> an estimate from similar materials, not a measurement.</span>` : '',
-    anyLoad ? `<span class="lg"><span class="load-mark">?</span> heat test load not stated, so it cannot pass a heat requirement outright.</span>` : '',
+    anyEstimate ? `<span class="lg"><span class="est-mark">\u2020</span> an estimate: the likely range, not a measurement. Hover it for what it rests on.</span>` : '',
+    anyNotApplicable ? `<span class="lg"><span class="na">n/a</span> not applicable, such as heat deflection of an elastomer.</span>` : '',
+    anyLoad ? `<span class="lg"><span class="load-mark">?</span> heat test load not stated, so it can neither pass nor fail a heat requirement outright.</span>` : '',
   ].filter(Boolean).join('');
 
   // Hits the filters removed. A search that finds nothing because the requirements already
   // excluded the match reads as "this material is not in the database", which is false.
   const excluded = state.searchExcluded ?? [];
-  const hiddenOnly = excluded.filter(({ evaluation: e }) => !e.failed.length && !e.heldBy.length).length;
+  const hiddenOnly = excluded.filter(({ evaluation: e }) => !e.failed.length && !e.heldBy.length && !e.screened).length;
   const excludedBlock = excluded.length ? `
     <div class="excluded-group">
       <h3>${excluded.length} more match${excluded.length === 1 ? 'es' : ''} "${esc(state.search)}"
@@ -214,6 +220,9 @@ export function renderTable(host, state, actions) {
           const { primary, aka } = materialName(m.name);
           const why = e.failed.length
             ? e.failed.map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
+            : e.screened
+              ? e.unresolved.filter((r) => r.screened).map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
+                + '<br>Not a failure. The SCREENED chip at the bottom of the screen shows these.'
             : e.heldBy.length
               ? `Could not be checked against ${esc(e.unresolved.map((r) => describeConstraint(r.constraint)).join(', '))}.`
                 + ' Not a failure: it is left out because missing data is set to "leave it out".'
@@ -290,7 +299,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     'Density kg/m3', 'Stiffness GPa', 'Strength MPa', 'Stretch %', 'Heat resistance C', 'Price CAD/kg',
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
-    ...(useEstimates ? ['Estimated fields', 'Ruled out by estimate'] : [])];
+    ...(useEstimates ? ['Estimated fields', 'Screened by estimate'] : [])];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -318,8 +327,11 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
   }).join(' | ');
   const ids = (m) => KEYS.map((k) => m.headline[k]?.measurementId).filter(Boolean).join(' ');
   const estimated = (m) => [...Object.entries(m.headline)
-    .filter(([, h]) => h && !h.known && h.estimate)
-    .map(([k, h]) => `${k} ~${h.estimate.lo}-${h.estimate.hi} (${h.estimate.basis}, n=${h.estimate.peerCount})`),
+    .filter(([, h]) => h && !h.known && (h.estimate || h.notApplicable))
+    .map(([k, h]) => (h.notApplicable ? `${k} not applicable`
+      : `${k} ~${h.estimate.lo}-${h.estimate.hi} ${h.estimate.unit} likely, ${h.estimate.plausible.lo}-${h.estimate.plausible.hi} plausible (${h.estimate.strength}; precision ${h.estimate.precision}; ${h.estimate.canScreen ? 'can screen' : 'context only'})`)),
+    ...(m.print?.nozzleEstimate ? [`nozzle ~${m.print.nozzleEstimate.lo}-${m.print.nozzleEstimate.hi} C (${m.print.nozzleEstimate.basis}; decides nothing)`] : []),
+    ...(m.print?.bedEstimate ? [`bed ~${m.print.bedEstimate.lo}-${m.print.bedEstimate.hi} C (${m.print.bedEstimate.basis}; decides nothing)`] : []),
     ...(m.print?.chamberEstimate ? [`chamber ~${m.print.chamberEstimate.lo}-${m.print.chamberEstimate.hi} C (research band: ${m.print.chamberEstimate.basis}; decides nothing)`] : []),
   ].join(' | ');
   const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}`).join(' | ');
@@ -330,7 +342,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     `# database snapshot ${meta.snapshot}, application build ${meta.build}`,
   ];
   if (scenario) {
-    header.push(`# missing data: ${scenario.unknownPolicy === 'exploration' ? 'kept, flagged (Explore)' : 'left out (Strict)'}; family estimates ${useEstimates ? 'on' : 'off'}`);
+    header.push(`# missing data: ${scenario.unknownPolicy === 'exploration' ? 'kept, flagged (Explore)' : 'left out (Strict)'}; estimates ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
     if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
@@ -350,7 +362,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
       m.gates.abrasive === 'requires-hardened' ? 'required' : m.gates.abrasive === 'no-special-concern' ? 'not needed' : 'not recorded',
       m.gates.drying === 'required' ? 'published' : 'not recorded',
       m.buy?.url ?? '',
-      ...(useEstimates ? [estimated(m), e.ruledOutByEstimate ? 'yes' : ''] : []),
+      ...(useEstimates ? [estimated(m), e.screened ? e.screenedBy.join('; ') : ''] : []),
     ].map(q).join(',')),
   ];
   return lines.join('\n');

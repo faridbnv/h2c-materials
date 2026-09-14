@@ -1,0 +1,190 @@
+{
+  "_comment": [
+    "The estimate model: the structure, conversions and physical limits a missing headline is inferred from.",
+    "Reviewed like code. build/src/estimates.js reads it; docs/DATA-MODEL.md, 'Estimates', explains it, and",
+    "docs/DECISIONS.md D43 records why it replaced D42.",
+    "",
+    "One Gaussian model per headline, on the scale the property varies on. Every piece of evidence in the",
+    "snapshot enters it: measured headlines, a material's related measurements (another endpoint, direction,",
+    "load or specimen), its other grades, and resin data sheets. Each is first converted to the headline's",
+    "own semantics with an offset and a spread, learned from grades that publish both where enough of them",
+    "exist and otherwise the documented value below. The model's structure is polymer identity (inside a",
+    "chemical group), reinforcement, reinforcement in a semicrystalline matrix, declared variants and the",
+    "test house; for heat deflection of fast-crystallising polymers, the melting point. Each material and",
+    "each product adds its own deviation. Every spread that cannot be measured directly is estimated from",
+    "the data (empirical Bayes) with the floors below, and the whole model is checked by hiding every",
+    "measured headline and predicting it back: the stated coverage is the coverage achieved."
+  ],
+
+  "levels": { "likely": 0.8, "plausible": 0.95 },
+  "_levelsComment": "The likely range is what the tool shows. The plausible range is what may screen a material out of Explore.",
+
+  "properties": {
+    "density":           { "scale": "log",    "scaleUnit": 0.08, "precision": { "good": 1.1, "fair": 1.25 }, "plausibleValues": [300, 2500],   "floors": { "tp": 0.02, "tf": 0.02, "sm": 0.01, "w": 0.015, "tg": 0.03 } },
+    "tensileModulusXY":  { "scale": "log",    "scaleUnit": 0.3,  "precision": { "good": 1.6, "fair": 2.5 }, "plausibleValues": [0.0005, 40],  "floors": { "tp": 0.08, "tf": 0.08, "tfx": 0.05, "sm": 0.04, "w": 0.06, "tg": 0.1, "tm": 0.03 } },
+    "tensileStrengthXY": { "scale": "log",    "scaleUnit": 0.3,  "precision": { "good": 1.6, "fair": 2.5 }, "plausibleValues": [0.3, 400],    "floors": { "tp": 0.08, "tf": 0.08, "tfx": 0.05, "sm": 0.04, "w": 0.06, "tg": 0.1, "tm": 0.03 } },
+    "elongationXY":      { "scale": "log",    "scaleUnit": 0.3,  "precision": { "good": 2.5, "fair": 5 }, "plausibleValues": [0.1, 3000],   "floors": { "tp": 0.08, "tf": 0.08, "tfx": 0.05, "sm": 0.04, "w": 0.06, "tg": 0.1, "tm": 0.03 } },
+    "hdt045":            { "scale": "linear", "scaleUnit": 30,   "precision": { "good": 25, "fair": 60 },  "plausibleValues": [-150, 450],   "floors": { "tp": 8, "tf": 8, "tfx": 8, "sm": 4, "w": 4, "tg": 10, "tm": 3, "ttm": 10 }, "_ttm": "ttm is fixed, not a floor: the spread of the melting-point slope, °C per 50 °C of melting point" }
+  },
+
+  "_identitiesComment": [
+    "group: the chemical family an identity's own effect is pulled towards when its data are thin.",
+    "morphology: amorphous, semicrystalline or elastomer; reinforcement acts differently in each.",
+    "tm: typical DSC melting point of the unfilled polymer, °C, used where the material publishes none. It",
+    "caps heat deflection and, for polymers that crystallise during printing (fastCrystallising), drives it.",
+    "PET and PPS crystallise slowly and print largely amorphous, so their melting point does not drive it."
+  ],
+  "identities": {
+    "PLA":    { "group": "polylactide", "morphology": "amorphous" },
+    "PETG":   { "group": "copolyester", "morphology": "amorphous" },
+    "PCTG":   { "group": "copolyester", "morphology": "amorphous" },
+    "CPE":    { "group": "copolyester", "morphology": "amorphous" },
+    "CoPE":   { "group": "copolyester", "morphology": "amorphous" },
+    "nGen":   { "group": "copolyester", "morphology": "amorphous" },
+    "PET":    { "group": "aromatic polyester", "morphology": "semicrystalline", "tm": 252 },
+    "ABS":    { "group": "styrenic", "morphology": "amorphous" },
+    "ASA":    { "group": "styrenic", "morphology": "amorphous" },
+    "HIPS":   { "group": "styrenic", "morphology": "amorphous" },
+    "PC":     { "group": "polycarbonate", "morphology": "amorphous" },
+    "PC-ABS": { "group": "polycarbonate", "morphology": "amorphous" },
+    "PC-PBT": { "group": "polycarbonate", "morphology": "amorphous" },
+    "PA":     { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 210, "fastCrystallising": true },
+    "PA6":    { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 222, "fastCrystallising": true },
+    "PA66":   { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 262, "fastCrystallising": true },
+    "PA6/66": { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 200, "fastCrystallising": true },
+    "CoPA":   { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 200, "fastCrystallising": true },
+    "PA12":   { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 178, "fastCrystallising": true },
+    "PA612":  { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 218, "fastCrystallising": true },
+    "PAHT":   { "group": "aliphatic polyamide", "morphology": "semicrystalline", "tm": 225, "fastCrystallising": true },
+    "PPA":    { "group": "semi-aromatic polyamide", "morphology": "semicrystalline", "tm": 290 },
+    "PP":     { "group": "polyolefin", "morphology": "semicrystalline", "tm": 165, "fastCrystallising": true },
+    "PE":     { "group": "polyolefin", "morphology": "semicrystalline", "tm": 132, "fastCrystallising": true },
+    "PPS":    { "group": "polysulfide", "morphology": "semicrystalline", "tm": 283 },
+    "PVDF":   { "group": "fluoropolymer", "morphology": "semicrystalline", "tm": 170, "fastCrystallising": true },
+    "POM":    { "group": "acetal", "morphology": "semicrystalline", "tm": 175, "fastCrystallising": true },
+    "PVA":    { "group": "vinyl alcohol", "morphology": "semicrystalline", "tm": 220 },
+    "BVOH":   { "group": "vinyl alcohol", "morphology": "semicrystalline", "tm": 190 },
+    "PVB":    { "group": "vinyl acetal", "morphology": "amorphous" },
+    "TPU":    { "group": "elastomer", "morphology": "elastomer" },
+    "TPE":    { "group": "elastomer", "morphology": "elastomer" },
+    "PEBA":   { "group": "elastomer", "morphology": "elastomer" },
+    "TPC":    { "group": "elastomer", "morphology": "elastomer" },
+    "OBC":    { "group": "elastomer", "morphology": "elastomer" },
+    "Support":{ "group": "support product", "morphology": "amorphous" }
+  },
+
+  "_variantsComment": "Commercial variants with a shared, declared character. A variant's effect is learned only from its members and pulled towards zero.",
+  "variants": {
+    "silk":            ["PLA Silk", "PLA Silk+", "PLA Silk Dual Color"],
+    "particle-filled": ["PLA Metal", "PLA Marble", "PLA Sparkle", "PLA Wood", "PLA Galaxy", "PLA Glow"]
+  },
+
+  "_hardnessComment": [
+    "Nominal Shore hardness from a grade's product designation or data sheet. For an elastomer it is converted",
+    "to a stiffness estimate: Gent (1958) for Shore A, Qi, Joyce and Boyce (2003) for Shore D, and then the",
+    "'hardness' conversion below, because printed data-sheet moduli sit well below those relations."
+  ],
+  "hardness": {
+    "G039-01": { "shore": "95A", "from": "PolyFlex TPU95 product designation" },
+    "G041-01": { "shore": "95A", "from": "TPU 95A HF product designation" },
+    "G042-01": { "shore": "90A", "from": "TPU 90A product designation" },
+    "G043-01": { "shore": "85A", "from": "TPU 85A product designation" },
+    "G040-01": { "shore": "68D", "from": "Bambu TPU for AMS data sheet, Basic Info: 'Shore hardness of 68D'" },
+    "G044-01": { "shore": "45D", "from": "Ultrafuse TPC 45D data sheet: 'shore 45D'" },
+    "G044-02": { "shore": "90A", "from": "PolyFlex TPU90 product designation" },
+    "G046-01": { "shore": "45D", "from": "Ultrafuse TPC 45D data sheet: 'shore 45D'" },
+    "G045-01": { "shore": "90A", "from": "eSUN PEBA90A product designation" }
+  },
+
+  "_conversionsComment": [
+    "offset: headline minus related value on the model scale (natural log for density, stiffness, strength and",
+    "elongation; °C for heat deflection). sd: how far one conversion may miss. The build refines both from",
+    "grades that publish the headline and the related value, weighting the documented value as three pairs;",
+    "a kind with no documented value here is never used, however many pairs it has.",
+    "Kinds read: <measurement> <direction XY, Z or unk> [wet] [moulded]. 'moulded' is a resin or raw-material",
+    "value from a supplier data sheet, never a printed part. For heat deflection, Tg, Tm and Vicat kinds",
+    "carry the matrix class: amorphous, semi-filled (semicrystalline with fibre) or semi-unfilled."
+  ],
+  "conversions": {
+    "density": {
+      "density":          { "offset": 0,     "sd": 0.01, "why": "The same property on another specimen or grade" },
+      "density moulded":  { "offset": -0.02, "sd": 0.03, "why": "A printed or filament density can sit a few percent below the resin's" }
+    },
+    "tensileModulusXY": {
+      "flexural XY":      { "offset": 0,     "sd": 0.2,  "why": "Flexural and tensile moduli of a printed bar agree to within about 20%" },
+      "flexural Z":       { "offset": 0.4,   "sd": 0.45, "why": "Across the layers a bar is weaker and softer" },
+      "flexural unk":     { "offset": 0,     "sd": 0.4,  "why": "Direction not stated" },
+      "tensile Z":        { "offset": 0.34,  "sd": 0.35, "why": "XY is typically about 1.4 times Z" },
+      "tensile unk":      { "offset": 0,     "sd": 0.35, "why": "Direction not stated; may be a moulded bar" },
+      "tensile moulded":  { "offset": -0.15, "sd": 0.25, "why": "A printed XY bar reaches roughly 85% of a moulded bar's stiffness" },
+      "flexural moulded": { "offset": -0.15, "sd": 0.3,  "why": "Moulded flexural modulus, converted as a moulded tensile one" },
+      "hardness":         { "offset": -0.8,  "sd": 0.6,  "why": "Elastomers only. Printed data-sheet moduli sit below the Gent and Qi hardness relations, and vary with how each lab defines an elastomer's modulus" }
+    },
+    "tensileStrengthXY": {
+      "break XY":         { "offset": 0.05,  "sd": 0.1,  "why": "Break stress sits at or just below the ultimate strength of a filled or brittle bar" },
+      "yield XY":         { "offset": 0.02,  "sd": 0.08, "why": "For a thermoplastic that necks, yield is the maximum stress" },
+      "ultimate Z":       { "offset": 0.48,  "sd": 0.35, "why": "Across the layers strength is typically 60% of XY, with a wide spread" },
+      "break Z":          { "offset": 0.5,   "sd": 0.4,  "why": "Across the layers, at break" },
+      "yield Z":          { "offset": 0.45,  "sd": 0.4,  "why": "Across the layers, at yield" },
+      "flexural XY":      { "offset": -0.5,  "sd": 0.2,  "why": "Flexural strength of a printed bar is typically 1.4 to 1.8 times its tensile strength" },
+      "flexural Z":       { "offset": 0,     "sd": 0.45, "why": "Flexural, across the layers" },
+      "flexural unk":     { "offset": -0.3,  "sd": 0.35, "why": "Flexural, direction not stated" },
+      "ultimate unk":     { "offset": 0.1,   "sd": 0.3,  "why": "Direction not stated" },
+      "break unk":        { "offset": 0.15,  "sd": 0.3,  "why": "Break stress, direction not stated" },
+      "yield unk":        { "offset": 0.1,   "sd": 0.3,  "why": "Yield stress, direction not stated" },
+      "ultimate moulded": { "offset": -0.25, "sd": 0.25, "why": "A printed XY bar reaches roughly 70 to 85% of a moulded bar's strength" },
+      "yield moulded":    { "offset": -0.25, "sd": 0.25, "why": "Moulded yield stress, converted as moulded strength" },
+      "break moulded":    { "offset": -0.2,  "sd": 0.3,  "why": "Moulded break stress" }
+    },
+    "elongationXY": {
+      "break Z":          { "offset": 0.9,   "sd": 0.9,  "why": "Across the layers a bar breaks at a fraction of its XY strain" },
+      "break unk":        { "offset": 0,     "sd": 0.9,  "why": "Direction not stated" },
+      "break moulded":    { "offset": -1.4,  "sd": 1.0,  "why": "A printed bar breaks at a small fraction of a moulded bar's strain: nGen prints 11% against 190% moulded" },
+      "yield XY":         { "offset": 0.9,   "sd": 0.9,  "why": "Break strain is never below the yield strain, and a ductile bar goes far beyond it" },
+      "yield Z":          { "offset": 0.9,   "sd": 1.0,  "why": "Yield strain across the layers" },
+      "yield unk":        { "offset": 0.9,   "sd": 1.0,  "why": "Yield strain or strain at maximum stress, direction not stated" }
+    },
+    "hdt045": {
+      "HDT 1.8 semi-filled":   { "offset": 24,  "sd": 8,  "why": "At 0.45 MPa a fibre-filled semicrystalline bar holds about 24 °C longer than at 1.8 MPa" },
+      "HDT 1.8 semi-unfilled": { "offset": 30,  "sd": 20, "why": "Unfilled semicrystalline bars separate widely between the two loads" },
+      "HDT 1.8 amorphous":     { "offset": 8,   "sd": 8,  "why": "Amorphous bars soften over a narrow range near Tg, so the two loads sit close" },
+      "HDT 1.8 elastomer":     { "offset": 10,  "sd": 15, "why": "Rarely published; wide" },
+      "HDT unstated":          { "offset": 5,   "sd": 15, "why": "A heat deflection value without its load is 0.45 MPa or 1.8 MPa; 0.45 MPa is never the lower" },
+      "Tg amorphous":          { "offset": -3,  "sd": 15, "why": "An amorphous bar deflects at 0.45 MPa near its glass transition" },
+      "Vicat amorphous":       { "offset": -8,  "sd": 14, "why": "Vicat softening sits a little above HDT at 0.45 MPa for amorphous polymers" },
+      "Vicat semi-filled":     { "offset": -25, "sd": 25, "why": "Fibre-filled semicrystalline: Vicat runs well above HDT" },
+      "Vicat semi-unfilled":   { "offset": -45, "sd": 35, "why": "Unfilled semicrystalline: a needle finds the melt long before a bar deflects" },
+      "Tm semi-filled":        { "offset": -38, "sd": 18, "why": "A fibre network carries a semicrystalline bar to within about 40 °C of its melting point" },
+      "HDT 0.45 moulded semicrystalline":     { "offset": -30, "sd": 30, "why": "A printed semicrystalline bar crystallises less than a moulded one and deflects earlier" },
+      "HDT unstated moulded semicrystalline": { "offset": -30, "sd": 32, "why": "Moulded semicrystalline, load not stated" },
+      "HDT 0.45 moulded amorphous":           { "offset": -3,  "sd": 8,  "why": "Moulded and printed amorphous bars both deflect near Tg" },
+      "HDT unstated moulded amorphous":       { "offset": 2,   "sd": 15, "why": "Moulded amorphous, load not stated" }
+    }
+  },
+  "wet": {
+    "_comment": "A value measured after moisture conditioning, converted to dry: added to the dry conversion's offset, spreads combined.",
+    "tensileModulusXY":  { "offset": 0.25, "sd": 0.15 },
+    "tensileStrengthXY": { "offset": 0.12, "sd": 0.1 },
+    "elongationXY":      { "offset": -0.4, "sd": 0.3 }
+  },
+
+  "bounds": {
+    "_comment": "Physical knowledge of heat deflection. Limits are soft: each is a normal CDF with its own spread, because a melting point or a glass transition plus a margin is itself approximate.",
+    "hdtAboveMelting": "A semicrystalline bar cannot hold its shape above its melting point.",
+    "meltingSd": 6,
+    "amorphousAboveTg": { "unfilled": 10, "fibre": 20, "sd": 8, "why": "An amorphous matrix softens at its glass transition; fibres carry a bar only a little further." },
+    "meltingPointSlope": { "reference": 200, "fibre": 1.0, "unfilled": 0.6, "why": "Mean rise of HDT at 0.45 MPa per °C of melting point for polymers that crystallise while printing: a fibre-filled bar tracks its melting point (PA6-CF, PA612-CF and PAHT-CF all sit 30 to 40 °C below it); an unfilled bar rises more slowly. The model learns deviations from these slopes, not their sign." }
+  },
+
+  "_precisionComment": "How a likely range is described, per property: its high-to-low ratio on a log scale, its width in °C for heat deflection. Good: narrow enough to decide on. Fair: indicative. Poor: an order of magnitude only. Elongation of printed parts varies far more than stiffness, so its thresholds are wider.",
+
+  "notApplicable": {
+    "elastomerHdt": "Heat deflection is a rigid-bar test and is not meaningful for an elastomer. Manufacturers list it as N/A (Bambu Lab, TPU for AMS). Shown only where the material's own sources publish one.",
+    "support": "A support product is not characterised as a structural material. Its values are shown only where its own sources publish them."
+  },
+
+  "screening": {
+    "_comment": "An estimate never passes a material. In Explore it may screen one out when its plausible range wholly fails, no own measurement of the material could meet the requirement, and the estimate rests on the material's own evidence or on an identity measured on at least two products.",
+    "minIdentityProducts": 2
+  }
+}
