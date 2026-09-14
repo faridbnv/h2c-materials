@@ -1,0 +1,87 @@
+{
+  "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
+  "cells": 99364,
+  "totals": {
+    "equal": 88256,
+    "derived: first cited profile, equal": 306,
+    "derived or linked: same identifiers, same order": 918,
+    "derived: headline read from its measurement, equal": 353,
+    "derived: no headline selection, same missing state": 149,
+    "derived: no price sample, same missing state": 64,
+    "derived: own environmental records, same order": 100,
+    "display padding removed (m01)": 5662,
+    "derived: median of the sample, equal": 34,
+    "derived: headline read from its measurement, equal but for floating-point noise": 8,
+    "derived: own environmental records, table order (m05, listed)": 2,
+    "derived: median rounded to the cent (m03, listed)": 4,
+    "formula cached text, current": 2864,
+    "formula cached text, STALE: kept as the build read it": 139,
+    "equal but for floating-point noise in the formula result": 74,
+    "number stored as text made canonical (m01)": 4,
+    "derived: list price / net mass, equal": 53,
+    "date serial written as a date": 317,
+    "derived: not eligible, no per-kg price": 44,
+    "derived: list price / net mass to the cent (display showed the same)": 7,
+    "boolean made canonical (m01)": 2,
+    "date made canonical (m01)": 4
+  },
+  "bySheet": {
+    "Materials": {
+      "equal": 2438,
+      "derived: first cited profile, equal": 306,
+      "derived or linked: same identifiers, same order": 918,
+      "derived: headline read from its measurement, equal": 353,
+      "derived: no headline selection, same missing state": 149,
+      "derived: no price sample, same missing state": 64,
+      "derived: own environmental records, same order": 100,
+      "display padding removed (m01)": 10,
+      "derived: median of the sample, equal": 34,
+      "derived: headline read from its measurement, equal but for floating-point noise": 8,
+      "derived: own environmental records, table order (m05, listed)": 2,
+      "derived: median rounded to the cent (m03, listed)": 4
+    },
+    "Grades": {
+      "equal": 2015,
+      "added column: Role": 155,
+      "added column: Status": 155
+    },
+    "Print setup": {
+      "equal": 6498
+    },
+    "Properties": {
+      "equal": 58990,
+      "display padding removed (m01)": 5546,
+      "formula cached text, current": 2864,
+      "formula cached text, STALE: kept as the build read it": 139,
+      "equal but for floating-point noise in the formula result": 74,
+      "number stored as text made canonical (m01)": 4
+    },
+    "Use & durability": {
+      "equal": 5726,
+      "display padding removed (m01)": 10
+    },
+    "Prices CA": {
+      "equal": 1982,
+      "display padding removed (m01)": 96,
+      "derived: list price / net mass, equal": 53,
+      "date serial written as a date": 104,
+      "derived: not eligible, no per-kg price": 44,
+      "derived: list price / net mass to the cent (display showed the same)": 7,
+      "boolean made canonical (m01)": 2
+    },
+    "Sources": {
+      "equal": 2699,
+      "date serial written as a date": 213,
+      "date made canonical (m01)": 4
+    },
+    "Coverage": {
+      "equal": 5940
+    },
+    "Method": {
+      "equal": 144
+    },
+    "Reference": {
+      "equal": 1824
+    }
+  }
+}

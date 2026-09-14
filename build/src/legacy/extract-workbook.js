@@ -1,10 +1,8 @@
 // Legacy: the reader for the retired Excel workbooks (data/H2C_FDM_Material_Database.xlsx and
 // data/Generic_Materials_Reference.xlsx, removed from the tree after the 2026-09-14 conversion; they
 // remain in git history). Nothing in the build uses it. It exists so the conversion can be replayed and
-// checked: scripts/migrate/verify-migration.mjs.
+// checked: scripts/migrate/verify-migration.mjs and scripts/migrate/transfer-ledger.mjs.
 //
-// Legacy extract: read the retired workbooks into raw row objects. Used only by the one-time
-// conversion (scripts/migrate/dump-workbook.mjs) and the parity check against it.
 // The workbook is never written. Header rows were confirmed against the embedded Excel table
 // definitions (xl/tables/*.xml): Materials declares A6:AQ108, every other table starts at A3.
 
@@ -108,4 +106,59 @@ export function extractReference(path) {
     rows.push({ category, name, properties: props, __row: r + 1 });
   }
   return rows;
+}
+
+/**
+ * Every cell of every table in the workbook as Excel stores it, not as it displays: native value `v`,
+ * type `t` (n number, s string, b boolean), formula `f` if any, and the displayed text `w`.
+ * Accepts a file path or a Buffer. Returns { [sheet]: { header, rows: [{ __row, cells: { column: cell } }] } }.
+ */
+export function readWorkbookNative(input) {
+  const wb = Buffer.isBuffer(input) ? XLSX.read(input, { cellFormula: true, cellDates: false }) : XLSX.readFile(input, { cellFormula: true, cellDates: false });
+  const out = {};
+  for (const [name, headerRow] of Object.entries(SHEET_HEADER_ROW)) {
+    const ws = wb.Sheets[name];
+    const range = XLSX.utils.decode_range(ws['!ref']);
+    const header = [];
+    for (let c = range.s.c; c <= range.e.c; c++) header[c] = String(ws[XLSX.utils.encode_cell({ r: headerRow, c })]?.v ?? '').trim();
+    const rows = [];
+    for (let r = headerRow + 1; r <= range.e.r; r++) {
+      const cells = {};
+      let any = false;
+      for (let c = range.s.c; c <= range.e.c; c++) {
+        if (!header[c]) continue;
+        const cell = ws[XLSX.utils.encode_cell({ r, c })];
+        if (!cell || cell.v == null || cell.v === '') continue;
+        cells[header[c]] = { v: cell.v, t: cell.t, f: cell.f ?? null, w: cell.w ?? null };
+        any = true;
+      }
+      if (any) rows.push({ __row: r + 1, cells });
+    }
+    out[name] = { header: header.filter(Boolean), rows };
+  }
+  return out;
+}
+
+/** The reference workbook's native min/max numbers per material name: { name: { key: { min, max } } }. */
+export function readReferenceNative(input) {
+  const wb = Buffer.isBuffer(input) ? XLSX.read(input) : XLSX.readFile(input);
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  const range = XLSX.utils.decode_range(ws['!ref']);
+  let nameCol = -1, headerRow = -1;
+  for (let r = 0; r < 6 && nameCol < 0; r++) for (let c = range.s.c; c <= range.e.c; c++) {
+    if (String(ws[XLSX.utils.encode_cell({ r, c })]?.v ?? '').trim().toLowerCase() === 'name') { nameCol = c; headerRow = r; break; }
+  }
+  const out = {};
+  for (let r = headerRow + 1; r <= range.e.r; r++) {
+    const name = ws[XLSX.utils.encode_cell({ r, c: nameCol })]?.v;
+    if (name == null || !String(name).trim()) continue;
+    const props = {};
+    for (const p of REFERENCE_PROPERTIES) {
+      const min = ws[XLSX.utils.encode_cell({ r, c: nameCol + p.offset })];
+      const max = ws[XLSX.utils.encode_cell({ r, c: nameCol + p.offset + 1 })];
+      props[p.key] = { min: min?.v ?? null, max: max?.v ?? null, minText: min?.w ?? null, maxText: max?.w ?? null };
+    }
+    out[String(name).trim()] = { row: r + 1, props };
+  }
+  return out;
 }

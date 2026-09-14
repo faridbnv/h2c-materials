@@ -24,8 +24,7 @@ import { compile } from '../../build/src/compile.js';
 import { validate } from '../../build/src/validate.js';
 import { compileReference } from '../../build/src/reference.js';
 
-export const BASE_COMMIT = '60f7392e2ae3e3c6dce67424a3d05052a1361731';
-export const MIGRATED_COMMIT = '35ba8d2';
+import { BASE_COMMIT, MIGRATED_COMMIT } from './commits.mjs';
 
 const git = (args, encoding = 'utf8') => execFileSync('git', args, { cwd: projectRoot, encoding, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
 const work = mkdtempSync(join(tmpdir(), 'h2c-verify-migration-'));
