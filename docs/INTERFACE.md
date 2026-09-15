@@ -185,6 +185,8 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 | `46*` | A real measurement never promoted to a headline. Hover for why |
 | `~1.9–41†` | An estimate: a 95% interval from the material's other grades, same-polymer peers or close analogues. Never passes; hover for its evidence and whether it can screen |
 | `80?` | A heat value whose source states the standard but not the load. It can neither pass nor fail a heat requirement outright |
+| `35≈` | A published mean ± spread whose spread contains the requirement's threshold. Judged on the mean (D54); hover for the spread |
+| `50.99` | A number beside a requirement on its column keeps the digits that put it on its own side of the threshold, where rounding would cross it |
 | `—` | Not published. Hover for which kind of absence |
 
 Every measured value carries a small dot, a real button reachable by keyboard: it opens the
@@ -341,6 +343,11 @@ the same question and warns when the snapshot differs. Search text and a lasso s
 carried. A copied link from a local file only works on that computer, and the panel says so.
 
 A saved file and a link are both validated completely before anything changes. A damaged one is
-refused with a reason and the running session is left as it was. Loading a file restores the lens,
+refused with a reason and the running session is left as it was. A requirement the build cannot evaluate (an unknown
+property, gate, facet or environment, an empty list) and a second requirement on one property are left out with a
+warning, so a hand-edited link never reads as a data gap. A link pasted into an open tab applies at once.
+
+A scenario assumption stands in for a missing value only: never for one that does not apply, labelled "Assumed" in
+every reason, drawn faint on the chart and never on its front. Loading a file restores the lens,
 columns, baseline and estimates switch as well as the requirements, through the same function the
 page uses at startup.

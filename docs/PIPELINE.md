@@ -1,7 +1,8 @@
 # The build pipeline
 
 ```
-npm run verify         everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views
+npm run verify         everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz
+npm run ui:fuzz        2,000 random scenarios through the built page, compared with the engine (about 3 minutes)
 npm run data:check     the schema gate alone, in under a second
 npm run build          full build, ending in a distributable HTML file and its manifest
 npm run validate       stops after the report; writes no dist artefacts
@@ -231,7 +232,7 @@ output. Pages publishes it beside the page.
 ## Verifying a build
 
 ```bash
-npm run verify                   # format, schema, lint, docs, build, tests, audit, review snapshot, interface views
+npm run verify                   # format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz
 open dist/H2C_Material_Selector_2026-09-13.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
@@ -273,6 +274,16 @@ ranges and the range that may screen), process gates, each template's candidates
 with estimates, and every build warning by record. `npm run ui:check` drives the built page in headless Chrome
 through the default view, every template in both modes, each shared link reopened, and Compare, and compares what
 a reader sees with `build/snapshot/ui/`. Both are checked by `verify`; a change commits its diff.
+
+`npm run ui:fuzz`, the last step of `verify`, runs 2,000 seeded random scenarios through the built page (every
+requirement kind and operator, thresholds at the evidence itself, assumptions, searches, templates) in Strict and
+Explore with estimates on and off, reads the table and the Ashby chart, and compares rows, verdicts, count, chips,
+points, envelopes, front, legend, rounding, reasons and link round trips with the engine run in Node. It takes about
+3 minutes; `--n 3000 --seed N` runs more. Examples of any violation, each with its seed, scenario and link, go to
+`$TMPDIR/h2c-ui-fuzz/violations.jsonl`. The method is in `docs/audits/2026-09-15-filtering-estimates-data/ui-fuzz/NOTES.md`.
+
+`npm run audit:data` also reviews the per-record build findings against `data/review/accepted-findings.csv`
+(AUDIT-REVIEW-FINDING, AUDIT-REVIEW-STALE), as `npm run data:lint` reviews lint findings.
 
 The Pages workflow runs `npm run verify`, which includes the audit. Conversion factors are stored at
 full precision in `measurements.csv`, so the raw-value reconciliation reads exactly the factor applied.

@@ -96,6 +96,16 @@ difference. A vocabulary can carry what the build needs about a wording: each Mo
   "Superseded by C#####", and it leaves the views and the checks.
 - **Quarantined measurements** (Data status "Unresolved unit / layout"): kept with the reason, never a number, for
   example a heat deflection pair whose methods and loads contradict each other.
+- **Physically implausible measurements** (Data status "Published value (physically implausible)"): a number the source
+  really publishes that physics rules out, with the reason in Notes. It is shown, flagged, and backs no headline,
+  estimate, conversion, implied bound or plot point (D55).
+- **Declared states** (D53, D56): each Moisture condition declares a State (dry, conditioned, not-stated), each
+  Post-processing wording a State (as-printed, annealed, not-stated), and each Specimen type a Form (printed,
+  not-stated, moulded, film, filament). The build reads the declaration, never the words.
+- **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
+  its current replacement, and no measurement or headline may use it (D57).
+- **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings
+  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS), each with its reason (D57).
 
 ### Properties that apply to some filaments only
 
@@ -254,6 +264,14 @@ headed "HDT at 0.45 MPa". The Method table keeps those quantities distinct.
 Where a headline is missing, the build attaches an estimate. Its design is DECISIONS D43, its code
 `build/src/estimates.js`, and its structure, conversions and limits are reviewed like code in
 `build/mappings/estimate-model.json`.
+
+The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PET, BVOH, PVA, unfilled PPA)
+deflects near its glass transition and learns nothing from annealed values; an annealed value is never averaged with
+its as-printed twin; conditioned values convert to dry by the polymer's water uptake; density is bounded by the neat
+polymer's range and the rule of mixtures; an unfilled bar is capped by its own highest Vicat; an elastomer has no heat
+deflection estimate and no yield-to-ultimate conversion; an unknown direction never converts upwards past its
+documented offset; a material's only evidence is never down-weighted as a conflict; and what its own printed data
+prove (implied bounds) limits its range from below (D55). A physically implausible value informs nothing.
 
 **One model per headline, over every observation.** The natural log of density, stiffness, strength
 and elongation, and heat deflection in °C, are each modelled as

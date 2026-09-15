@@ -877,3 +877,92 @@ path.
 
 Reversing any part brings back a failure seen in this snapshot: wet nylon read as dry, a lightweight PP pulling
 polypropylene's density, PEBA's strength pinned to its bound, or a change whose effect nobody saw until a user did.
+
+## D54. A published mean ± band is judged on its mean; the band flags a result close to the limit
+
+A measured headline with a band ("35 ± 4 MPa") was compared as the hard interval 31 to 39, so it never passed a
+requirement of 33 MPa and decided nothing within its own spread. 128 of 362 headlines carry a band, mostly a specimen
+standard deviation from Bambu Lab, Polymaker and Fiberlogy sheets, not a tolerance. The owner ruled (audit
+2026-09-15, C-04) that such a value is judged on its mean, as a value without a band is. When the threshold lies
+within the band the verdict stands and the result says it is close to the limit (`closeToLimit`, "≈" in the table).
+A published range ("42-52") and a one-sided bound ("> 16.5 MPa") are still judged as the intervals they are, and a
+bound that vetoes a screen is the published value, never value + SD.
+
+A number in a column that carries a requirement is shown with the digits that keep it on its own side of the
+threshold: PC's price of 50.99 read "51" while passing "price < 51".
+
+Reversing it makes a quarter of the measured headlines undecidable next to their own values again, and a table that
+rounds a pass into a visible failure.
+
+## D55. A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline
+
+Some sheets publish what cannot be: PC's HDT at 0.45 MPa below its HDT at 1.8 MPa, a 1.19 GPa modulus on a 68D
+elastomer that stretches 650 %, a PA12 glass transition of 158 °C, an HDT on a 26 MPa TPU. They are faithful
+transcriptions, so correcting them would invent data (D35), and using them made a TPU pass a rigid-part stiffness
+requirement in Strict. The owner ruled (audit 2026-09-15) that they are recorded, flagged, and excluded or
+down-weighted. Data status "Published value (physically implausible)" keeps the number with its reason in Notes and
+a chip in the drawer; it backs no headline, estimate, conversion, implied bound or plot point, and a headline that
+selected one is estimated from the evidence that remains (m24). Lint rules check what one sheet can contradict
+within one grade and state (HDT load order, Z above XY, strain below stress / modulus); a finding is flagged or
+accepted with a reason.
+
+Implied bounds, which veto a screen and limit an estimate from below, come only from printed specimens at their
+published value, never from a moulded bar, a drawn film, a filament strand, an unstated specimen, an annealed value
+beside its as-printed twin or a conditioned elongation (D48 amended). ASTM D882 film strengths had kept PLA a
+candidate for 140 MPa; Spectrum PA12-CF's unstated 125 MPa kept it in searches for 95 MPa. The same bounds now cut
+the material's own estimate: no plausible range reaches below a value its own printed data prove (58 did).
+
+Reversing it lets a sheet's impossible number decide a requirement, and a stronger specimen than a printed part keep
+a material in searches its printed parts fail.
+
+## D56. The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have
+
+The owner asked for any correction that makes the estimates more reliable for engineering decisions (audit
+2026-09-15). Each is a declared, documented piece of `build/mappings/estimate-model.json`:
+
+- **Crystallisation while printing.** PET, BVOH and PVA, and unfilled PPA, crystallise too slowly to crystallise in a
+  print (`printsAmorphous`): their as-printed heat deflection converts with the amorphous class, is capped at the glass
+  transition plus a lift, and learns nothing from annealed values. PET's estimate reached 132 °C against its own
+  Vicat of 65.9 °C. PPS is not one: printed hot it reaches 241-264 °C unannealed.
+- **States.** Post-processing and Specimen type declare a State and a Form in their vocabularies, as Moisture condition
+  does (D53). An annealed value beside its as-printed twin is another state, not a repeat (PET-GF15's 81.6 and
+  133.7 °C had averaged to a precise 107.65 °C), and repeats under different annealing schedules keep a spread that
+  spans them. A headline is never a moulded, film, filament, conditioned or annealed-beside-as-printed value.
+- **Water uptake.** The conditioned-to-dry offset follows the polymer: high for PA6, PA66, PA6/66 and PPA (dry modulus
+  about twice the conditioned), low for PA12, PA612 and PAHT, none elsewhere.
+- **Density.** An unfilled estimate is bounded by the neat polymer's handbook range, a filled one by the rule of
+  mixtures at 35 wt% fibre and 5 % porosity; PA12 was estimated 1040-1180 kg/m³ against its own 1010.
+- **Elastomers.** Heat deflection is never estimated (ISO 75 ends at 0.2 % outer-fibre strain, which needs a modulus
+  near 225 MPa); yield does not convert to an elastomer's ultimate values; Shore A and Shore D have separate offsets.
+  This reverses "a published value beats the rule" for TPU.
+- **Direction.** A source's orientation label is an unknown direction (Method, Comparison / Directions), and an
+  unknown-direction conversion may move below its documented offset, never above: 18 Z results coded unknown had
+  taught it offsets that inflated estimates 1.35-1.6x.
+- **Own evidence.** A material's only evidence for a headline is never down-weighted as a conflict: PP's own 0.39 GPa
+  had given way to PP-CF, PP-GF and two variants (1.5-4.5 GPa).
+- **The Vicat cap, not a melting margin.** An unfilled bar is capped by the highest Vicat its own grades publish. A
+  cap at the melting point less 20 °C was tried and dropped: PVDF publishes 158 °C, 12 °C under its melting point,
+  and the heat deflection back-test lost certification.
+
+Calibration holds (plausible coverage 95-97 % for every headline) and the D48 certifications are unchanged. Reversing
+any item brings back a failure seen in this snapshot.
+
+## D57. Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed
+
+- **Compounds and variants.** HyperLite PP is its own material, PP Lightweight, as PLA Aero is (m25); PP describes
+  iSANMATE PP. Spectrum PA6 Neat (1.25 g/cm³) is declared an undisclosed dense filler, as Spectrum HDPE is, and both
+  materials say their values are a compound's ("About this entry" in the drawer). PC-GF's representative grade is BASF's
+  printed, dry data set rather than a sheet stating no specimen (m26).
+- **Replaced properties.** "Izod strength" and "Izod impact strength" are one test. properties.csv gains "Replaced by":
+  the replaced record stays (nothing is deleted), its replacement must be current, and no measurement or headline may
+  use it (m22). A headline or material link re-pointed at another record is an edit, not a deletion
+  (`replacedWithin`).
+- **Build findings.** Outliers, imprecise estimates, family-order breaks, unstated loads and materials with no
+  measurements are reviewed per record in data/review/accepted-findings.csv, and `npm run audit:data` fails on an
+  unaccepted or stale one; informational summaries are level info.
+- **The rendered app.** `npm run ui:fuzz`, in verify, runs 2,000 seeded random scenarios through the built page in
+  every Strict/Explore/estimates setting and compares table, chart, counts, chips and links with the engine. It found
+  what the 14-view probe could not: a plot purge that threw in 187 of 200 scenarios.
+
+Reversing any of these lets a lightweight or filled product speak for its polymer, a duplicate property name split
+evidence, a new outlier reach the page unreviewed, or an interface defect pass every unit test.

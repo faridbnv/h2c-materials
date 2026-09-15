@@ -1,0 +1,172 @@
+{
+  "partial": false,
+  "seed": 1,
+  "scenariosRequested": 3000,
+  "scenariosRun": 3000,
+  "tabs": 10,
+  "runtimeSeconds": 224.5,
+  "recycleEvery": 40,
+  "pageLoads": 755,
+  "inAppImports": 2409,
+  "importFallbacks": 3,
+  "roundtrips": 164,
+  "readings": 26198,
+  "msPerScenario": 748.5,
+  "timingMsTotalAcrossTabs": {
+    "load": 669112,
+    "import": 506722,
+    "run": 823617,
+    "oracle": 31285
+  },
+  "avgLoadMs": 886,
+  "avgImportMs": 210,
+  "invariants": {
+    "I6-exception": {
+      "checks": 3000,
+      "violations": 0
+    },
+    "I6-dialog": {
+      "checks": 3000,
+      "violations": 0
+    },
+    "I2-count": {
+      "checks": 26198,
+      "violations": 0
+    },
+    "I2-chips": {
+      "checks": 26198,
+      "violations": 0
+    },
+    "I6-bad-token": {
+      "checks": 26198,
+      "violations": 0
+    },
+    "I3-strict-estimate": {
+      "checks": 13360,
+      "violations": 0
+    },
+    "I1-rows": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I1-noresults": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I1-verdict": {
+      "checks": 446289,
+      "violations": 0
+    },
+    "I1-screened": {
+      "checks": 446289,
+      "violations": 0
+    },
+    "I1-excluded": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-points": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-coords": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-point-verdict": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-envelopes": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-front": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-legend": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-estimate-text": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I4-axis-counts": {
+      "checks": 13099,
+      "violations": 0
+    },
+    "I3-off-estimate": {
+      "checks": 7360,
+      "violations": 0
+    },
+    "I3-strict-identical": {
+      "checks": 6000,
+      "violations": 0
+    },
+    "I8-mono-policy": {
+      "checks": 3000,
+      "violations": 0
+    },
+    "I4-assumption-point": {
+      "checks": 241983,
+      "violations": 233
+    },
+    "I2-header": {
+      "checks": 12271,
+      "violations": 0
+    },
+    "I9-rail": {
+      "checks": 16812,
+      "violations": 2096
+    },
+    "I6-empty-reason": {
+      "checks": 794970,
+      "violations": 0
+    },
+    "I6-reason-assumption": {
+      "checks": 786058,
+      "violations": 162
+    },
+    "I5-rounding": {
+      "checks": 174159,
+      "violations": 300
+    },
+    "I5-rounding-pill": {
+      "checks": 174159,
+      "violations": 0
+    },
+    "I8-mono-add": {
+      "checks": 1707,
+      "violations": 0
+    },
+    "I7-roundtrip": {
+      "checks": 164,
+      "violations": 0
+    }
+  },
+  "signatures": {
+    "I9-rail | rail shows one of several requirements on a property": 2096,
+    "I4-assumption-point | scenario assumption drawn as a measured point": 233,
+    "I6-reason-assumption | reason calls a scenario assumption \"Published\"": 162,
+    "I5-rounding | displayed priceCADkg crosses the threshold (<=)": 130,
+    "I5-rounding | displayed priceCADkg crosses the threshold (<)": 48,
+    "I5-rounding | displayed priceCADkg crosses the threshold (>=)": 41,
+    "I5-rounding | displayed hdt045 crosses the threshold (>=)": 24,
+    "I5-rounding | displayed tensileStrengthXY crosses the threshold (>=)": 18,
+    "I5-rounding | displayed tensileModulusXY crosses the threshold (>)": 7,
+    "I5-rounding | displayed priceCADkg crosses the threshold (>)": 6,
+    "I5-rounding | displayed hdt045 crosses the threshold (>)": 5,
+    "I5-rounding | displayed tensileModulusXY crosses the threshold (>=)": 5,
+    "I5-rounding | displayed tensileStrengthXY crosses the threshold (<)": 5,
+    "I5-rounding | displayed hdt045 crosses the threshold (<)": 3,
+    "I5-rounding | displayed tensileStrengthXY crosses the threshold (>)": 2,
+    "I5-rounding | displayed tensileModulusXY crosses the threshold (<=)": 2,
+    "I5-rounding | displayed tensileStrengthXY crosses the threshold (<=)": 2,
+    "I5-rounding | displayed tensileModulusXY crosses the threshold (<)": 1,
+    "I5-rounding | displayed hdt045 crosses the threshold (<=)": 1
+  },
+  "page": "H2C_Material_Selector_2026-09-13.html",
+  "dbSnapshot": "2026-09-13"
+}

@@ -2,7 +2,7 @@
 
 This file is for anyone changing the H2C material database: the owner and the AI agents alike. It says
 where data lives, how to change it without breaking anything, and what the build will refuse. The
-reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D53). Every column and vocabulary
+reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D57). Every column and vocabulary
 is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by code, in `docs/RULES.md`.
 
 ## The one rule
@@ -11,11 +11,12 @@ is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by co
 generated and never edited, and the retired Excel workbooks are history. Before committing, run:
 
 ```bash
-npm run verify        # format, schema, lint, docs, tests, audit, review snapshot, interface views: 0 errors, 0 failures
+npm run verify        # format, schema, lint, docs, tests, audit, review snapshot, interface views, UI fuzz: 0 errors, 0 failures
 ```
 
-`verify` fails on a new lint finding, on a stale `docs/RULES.md` or `docs/DATA-DICTIONARY.md`, and on a
-stale `build/snapshot/`. After a data or rule change, run `npm run snapshot` (and `npm run ui:check -- --write`
+`verify` fails on a new lint finding, on an unreviewed build finding, on a stale `docs/RULES.md` or
+`docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
+engine over 2,000 random scenarios (about 4 minutes in all; `npm run ui:fuzz` alone takes about 3). After a data or rule change, run `npm run snapshot` (and `npm run ui:check -- --write`
 when a view changed), read the diff, and commit it with the change: it is the change's downstream effect.
 
 ## Before any change
@@ -100,12 +101,15 @@ note saying what was wrong.
 and locator, the direction, specimen, moisture and standard as published. A sheet that prints two tables
 (dry and conditioned, as printed and annealed, two print speeds) must say in each row which table it came
 from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as injection moulded is Specimen type
-"Raw material value". A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
+"Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form). Post-processing
+is copied as printed ("As printed", the sheet's annealing sentence) and each wording declares its State in
+`schema/vocab/post-processing.csv`; a new wording is added there, or the build stops. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
 **Make a measurement a headline.** A row in `headlines.csv`: MaterialID, HeadlineKey, MeasurementID,
 Use `value`. The measurement must be the material's own, on its representative grade, with the
-headline's property, unit and direction; the build says which if not. Replace the old value row; do
+headline's property, unit and direction, a printed or unstated specimen, not conditioned, not flagged implausible,
+and not annealed where the grade publishes the as-printed value; the build says which if not. Replace the old value row; do
 not add a second one. Use `context` for a measurement cited for a headline that is not its value.
 
 **Add a grade.** A row in `grades.csv` with Role `procurement` (or `study` / `reference` with an `-R#`
@@ -131,6 +135,19 @@ duplicate record", with a note naming the twin that stays. Quarantine a wrong pr
 starting its Regular price basis with "Quarantined". A coverage finding a later row replaces gets Status
 "Superseded" and a Finding that starts "Superseded by C#####".
 
+**Flag a value physics rules out.** When a sheet publishes what cannot be (HDT at 0.45 MPa below HDT at 1.8 MPa, a
+modulus its own hardness and elongation contradict), keep the number: Data status "Published value (physically
+implausible)" and the reason in Notes, through a migration (m24). It then backs no headline, estimate or bound; move a
+headline that selected it to Use `context`. The physics lint (MEAS-PHYSICS-*) finds some of these; accept the rest
+with a reason.
+
+**Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
+its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.
+
+**Accept a build finding.** Outliers, imprecise estimates, family-order breaks, unstated loads and materials without
+measurements are reviewed per record: fix them, or `npm run data:lint -- --accept EST-WIDE "reason"`. `npm run
+audit:data` (in verify) fails on an unreviewed or stale one.
+
 **Add a property.** A row in `properties.csv`: its exact name, domain (mechanical, thermal, physical)
 and units. If it only means something for some filaments, set "Applies to", for example
 `Family: Flexible Elastomers`, and a Not applicable reason. Then add measurements. No code changes.
@@ -146,6 +163,7 @@ npm run trace -- M020                  # every headline of a material, back to i
 npm run trace -- V000384               # a measurement, and the headlines that cite it
 npm run build && open dist/H2C_Material_Selector_*.html
 git diff build/snapshot                  # what the change did to headlines, estimates, gates, templates, warnings
+npm run ui:fuzz -- --n 3000 --seed 7     # the rendered page against the engine, more scenarios or another seed
 ```
 
 Estimates and screening (D43, D48): the build back-tests which evidence may screen a material out, and
