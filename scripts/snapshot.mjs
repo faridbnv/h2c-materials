@@ -63,7 +63,9 @@ for (const t of TEMPLATES) {
   }
 }
 
-const warnings = issues.filter((i) => i.level === 'warn').flatMap((i) => (i.records?.length ? i.records : [i.where]).map((r) => ({ Code: i.code, Record: r })));
+// Sorted by code and record, so moving a rule between modules never reads as a change in what it finds.
+const warnings = issues.filter((i) => i.level === 'warn').flatMap((i) => (i.records?.length ? i.records : [i.where]).map((r) => ({ Code: i.code, Record: r })))
+  .sort((a, b) => a.Code.localeCompare(b.Code) || a.Record.localeCompare(b.Record, 'en', { numeric: true }));
 
 const files = {
   'headlines.csv': csvText(Object.keys(headlines[0]), headlines),
