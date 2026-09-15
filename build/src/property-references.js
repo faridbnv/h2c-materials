@@ -5,8 +5,7 @@
 //
 // So every such name is declared here, the build fails if one is not a registered property
 // (REGISTRY-CODE-REFERENCE), and test/references.test.js fails if code uses a registered property name
-// that is not declared here. Names the estimate model's configuration uses for materials and grades
-// are checked the same way by build/src/estimate/validate.js (EST-MODEL-REFERENCE).
+// that is not declared here. The estimate model's configuration names no material, grade or polymer; those are tables.
 
 import { issue } from './rules.js';
 
@@ -23,6 +22,7 @@ export const CODE_PROPERTY_NAMES = {
   'Tensile break strength': 'estimate/ (strength endpoint)',
   'Tensile yield strength': 'estimate/ (strength endpoint)',
   'Flexural strength': 'estimate/ (strength conversion)',
+  'Hardness': 'estimate/observations.js (an elastomer\'s stiffness from its Shore hardness)',
   'Charpy strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
   'Izod impact strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
   'Elongation at break': 'estimate/ (elongation kind), measurement-rules.js (endpoint locator rule)',

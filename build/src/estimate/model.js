@@ -4,8 +4,23 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
+import Ajv2020 from 'ajv/dist/2020.js';
+
 const here = dirname(fileURLToPath(import.meta.url));
-export const ESTIMATE_MODEL = JSON.parse(readFileSync(join(here, '../../mappings/estimate-model.json'), 'utf8'));
+
+/** Load the configuration and check it against schema/estimate-model.schema.json: a misspelt or missing setting stops here. */
+export function loadEstimateModel(path = join(here, '../../mappings/estimate-model.json')) {
+  const model = JSON.parse(readFileSync(path, 'utf8'));
+  const schema = JSON.parse(readFileSync(join(here, '../../../schema/estimate-model.schema.json'), 'utf8'));
+  const check = new Ajv2020({ allErrors: true, strict: true, allowUnionTypes: true }).compile(schema);
+  if (!check(model)) {
+    const problems = check.errors.map((e) => `${e.instancePath || '/'} ${e.message}${e.params?.additionalProperty ? ` ("${e.params.additionalProperty}")` : ''}`);
+    throw new Error(`build/mappings/estimate-model.json does not match schema/estimate-model.schema.json:\n  ${problems.join('\n  ')}`);
+  }
+  return model;
+}
+
+export const ESTIMATE_MODEL = loadEstimateModel();
 
 /** The headline's own semantics, as a conversion kind. A headline the model estimates needs one. */
 export const HEAD = { density: 'density', tensileModulusXY: 'tensile XY', tensileStrengthXY: 'ultimate XY', elongationXY: 'break XY', hdt045: 'HDT 0.45' };
@@ -22,9 +37,25 @@ export function estimateKeys(registry, model = ESTIMATE_MODEL) {
   return keys;
 }
 
-// A material's chemical identity in the model: its base polymer, or for a blend its own name. A material
-// whose identity has no entry in estimate-model.json identities cannot be estimated; validate.js says so.
-export const identityOf = (m) => (m.family === 'Polymer Blends' ? m.normalizedName : m.basePolymer);
+// A material's chemical identity in the model: materials.csv Estimate identity, a row of data/tables/polymers.csv. A
+// material with none is not estimated; validate.js says so.
+export const identityOf = (m) => m.estimateIdentity ?? null;
+
+/**
+ * The model with the polymer identities of data/tables/polymers.csv (compiled as db.polymers), in the shape the stage
+ * reads: group, morphology, tm, fastCrystallising, printsAmorphous (true or 'unfilled'), waterUptake, density [min, max].
+ */
+export function modelWith(polymers, base = ESTIMATE_MODEL) {
+  const identities = Object.fromEntries(polymers.map((p) => [p.id, {
+    group: p.group, morphology: p.morphology,
+    ...(p.meltingPointC != null ? { tm: p.meltingPointC } : {}),
+    ...(p.asPrinted === 'crystallises while printing' ? { fastCrystallising: true } : {}),
+    ...(p.asPrinted === 'prints amorphous' ? { printsAmorphous: true } : p.asPrinted === 'prints amorphous unless fibre-filled' ? { printsAmorphous: 'unfilled' } : {}),
+    ...(p.waterUptake ? { waterUptake: p.waterUptake } : {}),
+    ...(p.neatDensity ? { density: [p.neatDensity.min, p.neatDensity.max] } : {}),
+  }]));
+  return { ...base, identities };
+}
 
 export const transform = (key, model) => (model.properties[key].scale === 'log' ? Math.log : (v) => v);
 export const untransform = (key, model) => (model.properties[key].scale === 'log' ? Math.exp : (v) => v);

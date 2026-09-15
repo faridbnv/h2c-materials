@@ -150,7 +150,23 @@
       "name": "Base polymer",
       "type": "string",
       "role": "canonical",
-      "description": "Base polymer identity used by the estimate model.",
+      "description": "The base polymer, as the source names it.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Estimate identity",
+      "type": "string",
+      "role": "canonical",
+      "description": "The polymers.csv row the estimate model treats this material as: its base polymer, or for a blend its own name. Not applicable for a material the model does not estimate.",
+      "reference": {
+        "table": "polymers",
+        "field": "PolymerID"
+      },
+      "missing": [
+        "Not applicable"
+      ],
       "constraints": {
         "required": true
       }
@@ -161,6 +177,19 @@
       "role": "canonical",
       "description": "Reinforcement or formulation modifier.",
       "vocabulary": "modifiers",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Variant class",
+      "type": "string",
+      "role": "canonical",
+      "description": "A commercial variant class the estimate model gives its own covariate, so its offset does not move its polymer: silk, particle-filled.",
+      "vocabulary": "variant-classes",
+      "missing": [
+        "Not applicable"
+      ],
       "constraints": {
         "required": true
       }

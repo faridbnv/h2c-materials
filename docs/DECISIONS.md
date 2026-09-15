@@ -1074,3 +1074,28 @@ term, so PA12's own 94.7 °C read as "about 108 °C as this headline".
 
 Reversing it lets a thin class screen on the strength of a test that cannot fail it, lets a material's own data sheet be
 overruled by its family, and lets calibration grade itself on values it has seen.
+
+## D60. What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables
+
+D51 moved hand-kept mappings keyed by name into tables and left the estimate model's configuration alone, because
+conversions between properties are physics. But the configuration also held records: 36 polymer identities matched to
+materials by the text of their base polymer, nine grades' Shore hardness keyed by GradeID with their quotes, and two
+lists of material names. A renamed material or polymer broke them silently until a check written for the purpose
+noticed, and no schema, lint, diff or source register covered them.
+
+- **polymers.csv** (m28) holds each identity's group, morphology, melting point, how it solidifies in a print (crystallises
+  while printing, prints amorphous, prints amorphous unless fibre-filled, crystallises without following its melting
+  point), water uptake and neat density range, with its source or the basis for its numbers. `materials.csv` Estimate
+  identity is a foreign key to it and Variant class a vocabulary, so a wrong name fails at the schema gate by file and
+  line. The values moved unchanged and no estimate moved.
+- **Shore hardness** is a measurement (m29). Every source was re-read from its hash-matched copy: PolyFlex TPU95, TPU for
+  AMS and Ultrafuse TPC 45D print theirs, and are published values never transcribed; Bambu TPU 95A HF, 90A and 85A and
+  eSUN PEBA-90A print none, and carry Data status "Nominal from product designation". Reading measurements, the model
+  now uses every published Shore hardness, including four the configuration's list had missed (I-TPU, a second PolyFlex
+  TPU90 record, Spectrum and Kimya PEBA), and elastomer stiffness estimates moved by 1 to 3%. TPC / TPEE's coverage no
+  longer calls its mechanical data a gap.
+- **What stays configuration** is what is physics or judgement, not a record: conversions and their documented offsets,
+  physical limits, spread floors, calibration and screening settings. It names no material, grade or polymer
+  (`test/references.test.js`), and EST-MODEL-REFERENCE is retired.
+
+Reversing it puts records back where no schema, diff or source register can see them.

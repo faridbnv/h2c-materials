@@ -16,6 +16,7 @@
     "sources",
     "coverage",
     "method",
+    "polymers",
     "registry"
   ],
   "properties": {
@@ -780,6 +781,91 @@
         }
       }
     },
+    "polymers": {
+      "type": "array",
+      "description": "The polymer identities the estimate stage knows (data/tables/polymers.csv).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "group",
+          "morphology",
+          "meltingPointC",
+          "asPrinted",
+          "waterUptake",
+          "neatDensity",
+          "sourceId",
+          "basis"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "morphology": {
+            "enum": [
+              "amorphous",
+              "semicrystalline",
+              "elastomer"
+            ]
+          },
+          "meltingPointC": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "asPrinted": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "waterUptake": {
+            "enum": [
+              "high",
+              "low",
+              null
+            ]
+          },
+          "neatDensity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "properties": {
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "sourceId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "basis": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "registry": {
       "type": "object",
       "additionalProperties": false,
@@ -1327,7 +1413,9 @@
         "fullName",
         "family",
         "basePolymer",
+        "estimateIdentity",
         "modifier",
+        "variantClass",
         "role",
         "scope",
         "h2cStatus",
@@ -1377,8 +1465,22 @@
         "basePolymer": {
           "type": "string"
         },
+        "estimateIdentity": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The polymers row the estimate stage treats the material as."
+        },
         "modifier": {
           "type": "string"
+        },
+        "variantClass": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A declared commercial variant class (silk, particle-filled)."
         },
         "role": {
           "type": "string"

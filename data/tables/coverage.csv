@@ -514,7 +514,7 @@ C00512,M045,Comparability,Limited comparability,At least one observation lacks s
 C00513,M046,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
 C00514,M046,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00515,M046,Print setup,Evidence recorded,Published nozzle and bed profile available; check other setup fields individually.
-C00516,M046,Mechanical,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00516,M046,Mechanical,Superseded,"Superseded by C01200 (2026-09-15; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00517,M046,Thermal,Evidence recorded,"HDT, Tg and Vicat are not continuous-service ratings."
 C00518,M046,Moisture / environmental,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00519,M046,Post-processing / application,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -1198,3 +1198,4 @@ C01196,M103,Post-processing / application,Evidence recorded,Evidence-specific fi
 C01197,M103,Canadian price,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01198,M103,Sparse properties,Gap,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01199,M103,Comparability,Limited comparability,At least one observation lacks specimen or conditioning information; no family aggregation performed.
+C01200,M046,Mechanical,Reviewed with limitations,"Shore hardness 45D recorded 2026-09-15 (m29, V002236) from the Ultrafuse TPC 45D data sheet's description; no tensile, flexural or impact value is published for the selected grade, and none is substituted."

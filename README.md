@@ -72,7 +72,7 @@ schema/db.schema.json                   the contract for the compiled database
 
 build/src/                              check -> load -> normalize -> compile -> validate -> contract -> bundle
 build/src/coverage-rules.js             one definition of what counts as a material's own data
-build/mappings/estimate-model.json      the estimate model's configuration, reviewed like code
+build/mappings/estimate-model.json      the estimate model's conversions, physical limits and fitting judgements, reviewed like code
 build/reports/                          the validation report, regenerated every build
 
 app/js/engine/                          the selection logic. Pure: no DOM, never imports from ui/

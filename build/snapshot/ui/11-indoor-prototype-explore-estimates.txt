@@ -60,10 +60,10 @@ also called Amphora · Copolyesters
  UNKNOWN ~1,150–1,240† 1.7 54 11 ~58.3–78.2† — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.0101–0.232† ~13.8–29.4† ~731–1,390† n/a — ☆
+ UNKNOWN 905 ~0.00896–0.203† ~13.8–29.4† ~731–1,390† n/a — ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~3.79–8.08† ~54.8–94.2† ~2.47–12.9† 142 — ☆
+ UNKNOWN 1,140 ~3.79–8.09† ~54.8–94.2† ~2.47–12.9† 142 — ☆
 PA12
 Nylon / Polyamide
  UNKNOWN ~995–1,070† ~1.34–2.88† ~51.5–82.6† ~31.2–66.5† ~87.1–112† — ☆
@@ -78,7 +78,7 @@ Nylon / Polyamide
  UNKNOWN 1,120 2.22 66.2 9.9 111 — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~1,020–1,090† ~1.39–2.53† ~44.7–68.2† ~8.61–23.3† ~85.9–127† — ☆
+ UNKNOWN ~1,020–1,090† ~1.39–2.54† ~44.7–68.2† ~8.61–23.3† ~85.9–127† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN 1,030 5.14 91.9 2.6 175 — ☆
@@ -87,13 +87,13 @@ Nylon / Polyamide
  UNKNOWN 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,100–1,200† ~3.18–6.35† ~60.6–97.9† ~2.4–6.98† ~170–210† — ☆
+ UNKNOWN ~1,100–1,200† ~3.19–6.36† ~60.6–97.9† ~2.4–6.98† ~170–210† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN ~1,060–1,140† ~1.53–2.79† ~43.9–70.2† ~8.74–28.3† ~109–159† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,160† ~3.85–7.86† ~72–120† ~2.83–9.35† ~214–257† — ☆
+ UNKNOWN ~1,070–1,160† ~3.85–7.87† ~72–120† ~2.83–9.35† ~214–257† — ☆
 PC-ABS
 Polymer Blends
  UNKNOWN 1,140 2.2 ~59.7–71.8† 75 126 — ☆
@@ -111,7 +111,7 @@ Polyolefins
  UNKNOWN 1,100 ~2.2–5.26† ~26.9–58.1† ~5.1–34.7† ~54.5–118† — ☆
 PEBA
 Flexible Elastomers
- UNKNOWN 1,010 ~0.037–0.143† ~17.3–25.1† 520 n/a — ☆
+ UNKNOWN 1,010 ~0.0361–0.14† ~17.3–25.1† 520 n/a — ☆
 PET
 PET Engineering
  UNKNOWN 1,340 ~1.47–3.01† ~45.9–72.1† ~4.32–17.2† ~63.5–72.1† — ☆
@@ -150,7 +150,7 @@ also called Acetal · Acetals
  UNKNOWN 1,420 1.87 50 11 ~80.6–151† — ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.917–2.11† ~16.6–27.9† ~18.7–89.9† 92? — ☆
+ UNKNOWN 890 ~0.917–2.12† ~16.6–27.9† ~18.7–89.9† 92? — ☆
 PP Lightweight
 Polyolefins
  UNKNOWN 810 1.65 ~38.7–47.8† 13 94 — ☆
@@ -182,7 +182,7 @@ Fluoropolymers
  UNKNOWN 1,710 2.45 ~51.9–63.6† 25 158 — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.00815–0.0511† ~10.7–40.8† ~197–1,030† n/a — ☆
+ UNKNOWN 1,150 ~0.00805–0.0506† ~10.7–40.8† ~197–1,030† n/a — ☆
 TPU
 Flexible Elastomers
  UNKNOWN 1,200 0.029 ~31.8–64.1† 330 n/a — ☆

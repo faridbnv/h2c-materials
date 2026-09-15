@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pdynamics.ca/h2c-materials/estimate-model.schema.json",
+  "title": "Estimate model configuration (build/mappings/estimate-model.json)",
+  "description": "The estimate stage's physics and judgements: conversions between properties, physical limits, spread floors, fitting, calibration and screening settings. Records (polymers, variant classes, hardness) are tables, never here (DECISIONS D60). build/src/estimate/model.js checks the file against this schema when it loads it, so a misspelt or missing setting stops the build by its path.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": { "^_": {} },
+  "required": ["levels", "properties", "gradeVariants", "conversions", "wet", "bounds", "notApplicable", "fitting", "calibration", "screening"],
+  "properties": {
+    "levels": { "type": "object", "additionalProperties": false, "required": ["likely", "plausible"], "properties": { "likely": { "$ref": "#/$defs/probability" }, "plausible": { "$ref": "#/$defs/probability" } } },
+    "properties": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/headlineModel" } },
+    "gradeVariants": { "type": "object", "additionalProperties": false, "required": ["spreadInScaleUnits"], "properties": { "spreadInScaleUnits": { "type": "number", "exclusiveMinimum": 0 } } },
+    "conversions": { "type": "object", "additionalProperties": { "type": "object", "additionalProperties": { "$ref": "#/$defs/conversion" } } },
+    "wet": {
+      "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} }, "required": ["high", "low"],
+      "properties": {
+        "high": { "type": "object", "additionalProperties": { "$ref": "#/$defs/offsetSd" } },
+        "low": { "type": "object", "additionalProperties": { "$ref": "#/$defs/offsetSd" } }
+      }
+    },
+    "bounds": {
+      "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} },
+      "required": ["hdtAboveMelting", "meltingSd", "amorphousAboveTg", "meltingPointSlope", "hdtFloor", "plausibleValuesSd", "oneSided", "ownVicat", "density"],
+      "properties": {
+        "hdtAboveMelting": { "type": "string" },
+        "meltingSd": { "type": "number", "exclusiveMinimum": 0 },
+        "amorphousAboveTg": { "type": "object", "additionalProperties": false, "required": ["unfilled", "fibre", "sd", "why"], "properties": { "unfilled": { "type": "number" }, "fibre": { "type": "number" }, "sd": { "type": "number", "exclusiveMinimum": 0 }, "why": { "type": "string" } } },
+        "meltingPointSlope": { "type": "object", "additionalProperties": false, "required": ["reference", "fibre", "unfilled", "why"], "properties": { "reference": { "type": "number" }, "fibre": { "type": "number" }, "unfilled": { "type": "number" }, "why": { "type": "string" } } },
+        "hdtFloor": { "type": "object", "additionalProperties": false, "required": ["value", "sd", "why"], "properties": { "value": { "type": "number" }, "sd": { "type": "number", "exclusiveMinimum": 0 }, "why": { "type": "string" } } },
+        "plausibleValuesSd": { "type": "object", "additionalProperties": false, "required": ["log", "linear", "why"], "properties": { "log": { "type": "number", "exclusiveMinimum": 0 }, "linear": { "type": "number", "exclusiveMinimum": 0 }, "why": { "type": "string" } } },
+        "oneSided": {
+          "type": "object", "additionalProperties": false, "required": ["half", "sd", "why"],
+          "properties": { "half": { "$ref": "#/$defs/perScale" }, "sd": { "$ref": "#/$defs/perScale" }, "why": { "type": "string" } }
+        },
+        "ownVicat": { "type": "object", "additionalProperties": false, "required": ["lift", "sd", "why"], "properties": { "lift": { "type": "number" }, "sd": { "type": "number", "exclusiveMinimum": 0 }, "why": { "type": "string" } } },
+        "density": {
+          "type": "object", "additionalProperties": false, "required": ["porosity", "maxFibreWeight", "fibreDensity", "sd", "why"],
+          "properties": {
+            "porosity": { "$ref": "#/$defs/probability" }, "maxFibreWeight": { "$ref": "#/$defs/probability" },
+            "fibreDensity": { "type": "object", "additionalProperties": { "type": "number", "exclusiveMinimum": 0 } },
+            "sd": { "type": "number", "exclusiveMinimum": 0 }, "why": { "type": "string" }
+          }
+        }
+      }
+    },
+    "notApplicable": { "type": "object", "additionalProperties": false, "required": ["elastomerHdt", "support"], "properties": { "elastomerHdt": { "type": "string" }, "support": { "type": "string" } } },
+    "fitting": {
+      "type": "object", "additionalProperties": false, "patternProperties": { "^_|Why$": { "type": ["string", "array"] } },
+      "required": ["documentedPairs", "minPairsForSpread", "keepKindsWithinSpread", "minBetweenProductPairs", "conflictZ", "conflictNoiseFactor", "conflictPasses"],
+      "properties": {
+        "documentedPairs": { "type": "number", "minimum": 0 }, "minPairsForSpread": { "type": "integer", "minimum": 2 },
+        "keepKindsWithinSpread": { "type": "number", "minimum": 1 }, "minBetweenProductPairs": { "type": "integer", "minimum": 1 },
+        "conflictZ": { "type": "number", "exclusiveMinimum": 0 }, "conflictNoiseFactor": { "type": "number", "minimum": 1 }, "conflictPasses": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "calibration": {
+      "type": "object", "additionalProperties": false, "patternProperties": { "^_|Why$": { "type": ["string", "array"] } },
+      "required": ["folds", "minHeld", "defaultScale", "likelyScale", "plausibleScale", "outlierZ", "likelyTolerance", "plausibleShortfall"],
+      "properties": {
+        "folds": { "type": "integer", "minimum": 2 }, "minHeld": { "type": "integer", "minimum": 1 }, "defaultScale": { "type": "number", "exclusiveMinimum": 0 },
+        "likelyScale": { "$ref": "#/$defs/interval" }, "plausibleScale": { "$ref": "#/$defs/interval" },
+        "outlierZ": { "type": "number", "exclusiveMinimum": 0 }, "likelyTolerance": { "$ref": "#/$defs/probability" }, "plausibleShortfall": { "$ref": "#/$defs/probability" }
+      }
+    },
+    "screening": {
+      "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} },
+      "required": ["maxWrongRate", "confidence", "why"],
+      "properties": { "maxWrongRate": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 }, "confidence": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 }, "why": { "type": "string" } }
+    }
+  },
+  "$defs": {
+    "probability": { "type": "number", "minimum": 0, "maximum": 1 },
+    "interval": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+    "perScale": { "type": "object", "additionalProperties": false, "required": ["log", "linear"], "properties": { "log": { "type": "number", "minimum": 0 }, "linear": { "type": "number", "minimum": 0 } } },
+    "offsetSd": { "type": "object", "additionalProperties": false, "required": ["offset", "sd"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 } } },
+    "conversion": { "type": "object", "additionalProperties": false, "required": ["offset", "sd", "why"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 }, "why": { "type": "string" } } },
+    "headlineModel": {
+      "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} },
+      "required": ["scale", "scaleUnit", "precision", "plausibleValues", "floors"],
+      "properties": {
+        "scale": { "enum": ["log", "linear"] },
+        "scaleUnit": { "type": "number", "exclusiveMinimum": 0 },
+        "precision": { "type": "object", "additionalProperties": false, "required": ["good", "fair"], "properties": { "good": { "type": "number" }, "fair": { "type": "number" } } },
+        "plausibleValues": { "$ref": "#/$defs/interval" },
+        "floors": {
+          "description": "Every free spread has a floor (DECISIONS D59); ttm is the fixed spread of the melting-point slope.",
+          "type": "object", "additionalProperties": false,
+          "required": ["tp", "tf", "tfx", "sm", "w", "tg", "tm", "we", "tv"],
+          "properties": { "tp": { "$ref": "#/$defs/spread" }, "tf": { "$ref": "#/$defs/spread" }, "tfx": { "$ref": "#/$defs/spread" }, "sm": { "$ref": "#/$defs/spread" }, "w": { "$ref": "#/$defs/spread" }, "tg": { "$ref": "#/$defs/spread" }, "tm": { "$ref": "#/$defs/spread" }, "ttm": { "$ref": "#/$defs/spread" }, "we": { "$ref": "#/$defs/spread" }, "tv": { "$ref": "#/$defs/spread" } }
+        }
+      }
+    },
+    "spread": { "type": "number", "exclusiveMinimum": 0 }
+  }
+}

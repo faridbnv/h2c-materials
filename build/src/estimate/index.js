@@ -31,7 +31,7 @@
 // report section).
 
 import { normalQuantile } from './numerics.js';
-import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, untransform, sig3 } from './model.js';
+import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, modelWith, untransform, sig3 } from './model.js';
 import { snapshot, rawObservations } from './observations.js';
 import { conversions, convert, betweenProductSpread } from './conversions.js';
 import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.js';
@@ -42,8 +42,11 @@ import { attachPrintEstimates } from './print.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
 
-/** Estimates for every missing headline of every in-scope material, attached in place; returns the model's diagnostics. */
-export function buildEstimates(materials, { grades = [], measurements = [], registry } = {}, model = ESTIMATE_MODEL) {
+/**
+ * Estimates for every missing headline of every in-scope material, attached in place; returns the model's diagnostics.
+ * `model` is the configuration with its polymer identities (model.js modelWith).
+ */
+export function buildEstimates(materials, { grades = [], measurements = [], registry } = {}, model) {
   const ESTIMATE_KEYS = estimateKeys(registry, model);
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
@@ -173,8 +176,9 @@ export function summariseEstimates(materials, registry) {
 
 /** Apply the estimate stage to a compiled database in place. */
 export function attachEstimates(db) {
-  const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, registry: db.registry });
-  const printEstimates = attachPrintEstimates(db.materials);
+  const model = modelWith(db.polymers);
+  const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, registry: db.registry }, model);
+  const printEstimates = attachPrintEstimates(db.materials, model);
   db.meta.estimateCoverage = summariseEstimates(db.materials, db.registry);
   db.meta.estimateModel = estimateModel;
   db.meta.printEstimates = printEstimates;

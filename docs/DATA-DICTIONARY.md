@@ -23,6 +23,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
+| [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
 | [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. |
 | [properties](#properties) | Property | One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all). |
@@ -193,8 +194,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. |
 | Abbreviation | canonical | string | yes |  |  | Short display name. |
 | Normalized name | canonical | string | yes |  |  | Search-normalized name. |
-| Base polymer | canonical | string | yes |  |  | Base polymer identity used by the estimate model. |
+| Base polymer | canonical | string | yes |  |  | The base polymer, as the source names it. |
+| Estimate identity | canonical | string | yes | Not applicable | → polymers.PolymerID | The polymers.csv row the estimate model treats this material as: its base polymer, or for a blend its own name. Not applicable for a material the model does not estimate. |
 | Modifier / filler | canonical | string | yes |  | [modifiers](#vocab-modifiers) | Reinforcement or formulation modifier. |
+| Variant class | canonical | string | yes | Not applicable | [variant-classes](#vocab-variant-classes) | A commercial variant class the estimate model gives its own covariate, so its offset does not move its polymer: silk, particle-filled. |
 | Role | canonical | string | yes |  | [material-roles](#vocab-material-roles) | Structural material or support/interface material. |
 | Identity source | canonical | string | yes |  | → sources.SourceID | Source of the material identity. |
 | Identity notes | prose | string | yes |  |  | Notes on identity decisions. |
@@ -255,6 +258,23 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Section | canonical | string | yes |  | [method-sections](#vocab-method-sections) | Method section. |
 | Topic | key | string | yes |  | `^.+$` | Rule topic; unique. |
 | Definition / rule | prose | string | yes |  |  | The rule. |
+
+### polymers
+
+`data/tables/polymers.csv` (Polymers). The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| PolymerID | key | string | yes |  |  | The identity, as materials name it: a base polymer (PA6) or a blend (PC-ABS). |
+| Group | canonical | string | yes |  |  | The chemical family the identity's own effect is pulled towards when its data are thin. |
+| Morphology | canonical | string | yes |  | amorphous, semicrystalline, elastomer | amorphous, semicrystalline or elastomer: reinforcement acts differently in each. |
+| Melting point °C | canonical | number | yes | Not applicable |  | Typical DSC melting point of the unfilled polymer, used where the material publishes none. It caps heat deflection and, for a polymer that crystallises while printing, drives it. |
+| As printed | canonical | string | yes | Not applicable | crystallises while printing, prints amorphous, prints amorphous unless fibre-filled, crystallises, not driven by its melting point | How a semicrystalline polymer solidifies in a print. crystallises while printing: its heat deflection follows its melting point (PA, PP, PVDF, POM). prints amorphous: it crystallises too slowly and deflects near its glass transition (PET, PVA, BVOH). prints amorphous unless fibre-filled: fibres nucleate it in a hot print (PPA). crystallises, not driven by its melting point: PPS printed hot (DECISIONS D56). |
+| Water uptake | canonical | string | yes | Not applicable | high, low | high (PA6, PA66, PA6/66, PPA: conditioned modulus about half the dry value) or low (PA12, PA612, PAHT). A conditioned value converts to dry with that class's offset; a polymer with neither reads as dry. |
+| Neat density min kg/m³ | canonical | number | yes | Not recorded |  | Lower end of the neat polymer's density range. It bounds an unfilled product's density estimate softly, and with the rule of mixtures a fibre-filled one's. |
+| Neat density max kg/m³ | canonical | number | yes | Not recorded |  | Upper end of the neat polymer's density range. |
+| SourceID | canonical | string | yes | Not recorded | → sources.SourceID | The source the numbers are taken from, or Not recorded with the Basis saying where they come from. |
+| Basis | prose | string | yes |  |  | Where the numbers and the classification come from. |
 
 ### prices
 
@@ -473,6 +493,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
+| Nominal from product designation | A value the product's name states (TPU 95A, PEBA-90A) and its source prints no row for: numeric evidence of the product's grade, never a headline and not a test result. |
 | Not published | No number was published for this property and grade. |
 | Published qualitative result | A result stated in words, such as "No break"; evidence, never a number. |
 | Published value | A usable published number. |
@@ -1075,5 +1096,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Shore D |  |
 | µm/m/K |  |
 | W/(m·K) | Thermal conductivity. |
+
+<a id="vocab-variant-classes"></a>
+### variant-classes
+
+`schema/vocab/variant-classes.csv`, used by materials.Variant class.
+
+| Value | Meaning |
+|---|---|
+| particle-filled | A commercial PLA variant with a decorative particle filler (metal, marble, sparkle, wood, glow): the estimate model gives the class its own covariate, so its offset does not move plain PLA. |
+| silk | A commercial silk-effect PLA variant: the estimate model gives the class its own covariate, so its offset does not move plain PLA. |
 
 Role meanings: key, identifier; canonical, decides behaviour; raw, as the source prints it; editorial, a curation choice; prose, explanation for readers.

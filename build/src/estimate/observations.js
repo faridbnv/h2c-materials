@@ -155,14 +155,16 @@ export function rawObservations(key, S, model) {
       add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state: x.postProcessing ?? 'Not published', y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
         item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
     }
-    // An elastomer's nominal hardness, from its product designation, informs its stiffness.
+    // An elastomer's Shore hardness (measurements.csv Hardness in Shore A or D, published or nominal from its product
+    // designation) informs its stiffness.
     if (key === 'tensileModulusXY' && S.info(m).morphology === 'elastomer') {
       for (const gid of m.gradeIds ?? []) {
-        const h = model.hardness[gid];
-        const e = h && modulusFromShore(h.shore);
+        const hx = (S.byMaterial.get(m.id) ?? []).find((x) => x.gradeId === gid && x.property === 'Hardness' && (x.unit === 'Shore A' || x.unit === 'Shore D'));
+        const shore = hx && `${hx.value}${hx.unit.slice(-1)}`;
+        const e = shore && modulusFromShore(shore);
         if (!e || S.grades.get(gid)?.retired) continue;
-        add({ f: S.fkey(gid), gradeId: gid, kind: `hardness ${/A$/i.test(h.shore) ? 'A' : 'D'}`, y: Math.log(e / 1000), half: 0,
-          item: { gradeId: gid, property: `Shore hardness ${h.shore}`, value: Number((e / 1000).toPrecision(3)), unit: 'GPa', from: h.from } });
+        add({ f: S.fkey(gid), gradeId: gid, kind: `hardness ${hx.unit.slice(-1)}`, y: Math.log(e / 1000), half: 0,
+          item: { measurementId: hx.id, gradeId: gid, property: `Shore hardness ${shore}`, value: Number((e / 1000).toPrecision(3)), unit: 'GPa', from: `${hx.locator} (${hx.dataStatus})` } });
       }
     }
   }

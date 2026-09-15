@@ -124,9 +124,10 @@ Variant and say why in Composition / filler: its values stay its own, and the es
 pulling the family.
 
 **Add a material.** A row in `materials.csv`, its grades, measurements, headline selections, profiles
-and `material_links.csv` citations, and its `coverage.csv` rows. If it is a new blend, or a new base
-polymer, and should be estimated, it needs an identity in `build/mappings/estimate-model.json`; the
-build names that fix if it is missing.
+and `material_links.csv` citations, and its `coverage.csv` rows. To be estimated it names its Estimate identity, a row
+of `polymers.csv` (its base polymer, or for a blend its own name); a new polymer is a new row there with its group,
+morphology, how it solidifies in a print, water uptake and neat density, and where those come from. A commercial
+variant class (silk, particle-filled) goes in Variant class. The build names the fix if either is missing.
 
 **Add a source.** A row in `sources.csv`. Grade IDs mentioned in "Applicable grades" must exist. Citation
 role is `cited` unless the source is kept to corroborate, as a register, as provenance, or was not retrieved;

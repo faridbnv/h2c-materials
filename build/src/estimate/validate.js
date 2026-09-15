@@ -1,7 +1,7 @@
 // Checks on the estimate stage's output, and its section of the validation report. Inference, not evidence, so
 // everything that keeps an estimate honest is checked: that no headline is left with nothing, that ranges nest and
 // cite real evidence, that the model still delivers the coverage it states when measured headlines are hidden
-// (DECISIONS D43), and that every material, grade and property the model's configuration names exists (D51).
+// (DECISIONS D43). The model's configuration names no material, grade or polymer: those are tables (m28, m29; DECISIONS D60).
 
 import { issue } from '../rules.js';
 import { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
@@ -9,24 +9,9 @@ import { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
 const err = (code, where, message, extra) => issue(code, where, message, extra);
 const warn = err; // the catalogue (rules.js) decides each code's level
 
-/** Names the estimate model's configuration uses for materials, grades and properties, checked against the data. */
-export function modelReferenceIssues({ registry, materials, grades, model = ESTIMATE_MODEL }) {
-  const issues = [];
-  const properties = new Set(registry.properties.map((p) => p.name));
-  const names = new Set(materials.map((m) => m.name));
-  for (const [tag, list] of Object.entries(model.variants ?? {})) {
-    if (tag.startsWith('_')) continue;
-    for (const n of list) if (!names.has(n)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `variants.${tag} names "${n}", which is not a material`));
-  }
-  const gradeIds = new Set(grades.map((g) => g.id));
-  for (const id of Object.keys(model.hardness ?? {})) {
-    if (!id.startsWith('_') && !gradeIds.has(id)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `hardness names grade "${id}", which does not exist`));
-  }
-  return issues;
-}
-
 export function validateEstimates(db) {
-  const issues = modelReferenceIssues({ registry: db.registry, materials: db.materials, grades: db.grades });
+  const issues = [];
+  const polymers = new Map((db.polymers ?? []).map((p) => [p.id, p]));
   const gradeById = new Map(db.grades.map((g) => [g.id, g]));
   const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
 
@@ -43,9 +28,9 @@ export function validateEstimates(db) {
       const where = `materials ${mat.id} ${key}`;
       if (!mat.excluded && !mat.familyEntry && !h.known && !h.estimate && !h.notApplicable) {
         const identity = identityOf(mat);
-        issues.push(err('HEADLINE-BLANK', where, ESTIMATE_MODEL.identities[identity]
+        issues.push(err('HEADLINE-BLANK', where, identity && polymers.has(identity)
           ? `${mat.name} has no value, no estimate and no not-applicable statement`
-          : `${mat.name} has no value, and cannot be estimated: its identity "${identity}" (${mat.family === 'Polymer Blends' ? 'a blend is identified by its name' : 'base polymer'}) has no entry in build/mappings/estimate-model.json identities. Add one (group and morphology), or record a value`));
+          : `${mat.name} has no value, and cannot be estimated: it has no Estimate identity in materials.csv, or its identity has no row in data/tables/polymers.csv. Name one (a polymers.csv row with its group and morphology), or record a value`));
       }
       if (h.notApplicable) {
         tally.notApplicable++;
@@ -106,7 +91,7 @@ export function validateEstimates(db) {
   if (wide.length) issues.push(warn('EST-WIDE', 'materials', `${wide.length} estimates are too imprecise to guide a choice: ${wide.map((w) => w.text).join('; ')}`, { records: wide.map((w) => w.record) }));
 
   const valueOf = (m, key) => (m.headline[key]?.known ? m.headline[key].value : m.headline[key]?.estimate?.centre ?? null);
-  const morphologyOf = (m) => ESTIMATE_MODEL.identities[identityOf(m)]?.morphology;
+  const morphologyOf = (m) => polymers.get(identityOf(m))?.morphology;
   const order = [];
   const inScope = db.materials.filter((m) => !m.excluded && !m.familyEntry);
   for (const r of inScope.filter((m) => /fibre/i.test(m.modifier))) {

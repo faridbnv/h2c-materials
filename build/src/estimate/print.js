@@ -5,7 +5,7 @@
 // nylon. A window is inferred, not invented, and it says how:
 //
 //   peers    the same polymer identity when any of its materials publishes a window; otherwise every
-//            material of the same chemical group and matrix (build/mappings/estimate-model.json)
+//            material of the same chemical group and matrix (data/tables/polymers.csv)
 //   fibre    carbon or glass fibre raises a window by the median difference between filled and
 //            unfilled materials of the same identity in the snapshot
 //   melting  a semicrystalline polymer cannot print below its melting point, so the nozzle window
@@ -14,7 +14,7 @@
 // Like a chamber band, an estimated window decides nothing: the nozzle and bed gates stay unknown
 // (DECISIONS D6, D43). It is shown beside the gate, marked as an estimate.
 
-import { ESTIMATE_MODEL, identityOf } from './model.js';
+import { identityOf } from './model.js';
 import { median } from './numerics.js';
 
 const FIBRE = new Set(['carbon-fibre', 'glass-fibre']);
@@ -25,7 +25,7 @@ const MIN_WIDTH = 15;
  * @param materials compiled materials with `print.nozzleC` and `print.bedC` set
  * @returns {{ applied: object[], fibreOffset: {nozzle:number, bed:number} }}
  */
-export function attachPrintEstimates(materials, model = ESTIMATE_MODEL) {
+export function attachPrintEstimates(materials, model) {
   const pool = materials.filter((m) => !m.excluded && !m.familyEntry && model.identities[identityOf(m)]);
   const fibre = (m) => FIBRE.has(m.facets.reinforcement.value);
 

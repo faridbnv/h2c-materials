@@ -1,0 +1,18 @@
+{
+  "$comment": "Contract for data/tables/polymers.csv. Checked by build/src/schema.js; read by the estimate stage (build/src/estimate/).",
+  "title": "Polymers",
+  "description": "The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so.",
+  "primaryKey": "PolymerID",
+  "fields": [
+    { "name": "PolymerID", "type": "string", "role": "key", "description": "The identity, as materials name it: a base polymer (PA6) or a blend (PC-ABS).", "constraints": { "required": true, "unique": true } },
+    { "name": "Group", "type": "string", "role": "canonical", "description": "The chemical family the identity's own effect is pulled towards when its data are thin.", "constraints": { "required": true } },
+    { "name": "Morphology", "type": "string", "role": "canonical", "description": "amorphous, semicrystalline or elastomer: reinforcement acts differently in each.", "constraints": { "required": true, "enum": ["amorphous", "semicrystalline", "elastomer"] } },
+    { "name": "Melting point °C", "type": "number", "role": "canonical", "description": "Typical DSC melting point of the unfilled polymer, used where the material publishes none. It caps heat deflection and, for a polymer that crystallises while printing, drives it.", "missing": ["Not applicable"], "constraints": { "required": true } },
+    { "name": "As printed", "type": "string", "role": "canonical", "description": "How a semicrystalline polymer solidifies in a print. crystallises while printing: its heat deflection follows its melting point (PA, PP, PVDF, POM). prints amorphous: it crystallises too slowly and deflects near its glass transition (PET, PVA, BVOH). prints amorphous unless fibre-filled: fibres nucleate it in a hot print (PPA). crystallises, not driven by its melting point: PPS printed hot (DECISIONS D56).", "missing": ["Not applicable"], "constraints": { "required": true, "enum": ["crystallises while printing", "prints amorphous", "prints amorphous unless fibre-filled", "crystallises, not driven by its melting point"] } },
+    { "name": "Water uptake", "type": "string", "role": "canonical", "description": "high (PA6, PA66, PA6/66, PPA: conditioned modulus about half the dry value) or low (PA12, PA612, PAHT). A conditioned value converts to dry with that class's offset; a polymer with neither reads as dry.", "missing": ["Not applicable"], "constraints": { "required": true, "enum": ["high", "low"] } },
+    { "name": "Neat density min kg/m³", "type": "number", "role": "canonical", "description": "Lower end of the neat polymer's density range. It bounds an unfilled product's density estimate softly, and with the rule of mixtures a fibre-filled one's.", "missing": ["Not recorded"], "constraints": { "required": true } },
+    { "name": "Neat density max kg/m³", "type": "number", "role": "canonical", "description": "Upper end of the neat polymer's density range.", "missing": ["Not recorded"], "constraints": { "required": true } },
+    { "name": "SourceID", "type": "string", "role": "canonical", "description": "The source the numbers are taken from, or Not recorded with the Basis saying where they come from.", "reference": { "table": "sources", "field": "SourceID" }, "missing": ["Not recorded"], "constraints": { "required": true } },
+    { "name": "Basis", "type": "string", "role": "prose", "description": "Where the numbers and the classification come from.", "constraints": { "required": true } }
+  ]
+}

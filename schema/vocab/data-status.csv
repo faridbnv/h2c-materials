@@ -1,4 +1,5 @@
 Value,Meaning
+Nominal from product designation,"A value the product's name states (TPU 95A, PEBA-90A) and its source prints no row for: numeric evidence of the product's grade, never a headline and not a test result."
 Not published,No number was published for this property and grade.
 Published qualitative result,"A result stated in words, such as ""No break""; evidence, never a number."
 Published value,A usable published number.

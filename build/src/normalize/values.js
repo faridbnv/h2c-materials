@@ -28,6 +28,9 @@ export const DATA_STATUS = {
   // A number the source really publishes that physics rules out: PC's HDT at 0.45 MPa below its HDT at 1.8 MPa, a
   // 1.19 GPa modulus on a 68D elastomer. It stays evidence, flagged, and decides nothing (audit 2026-09-15, B-09, B-10).
   'Published value (physically implausible)': { numeric: true, corrected: false, implausible: true },
+  // A value the product's name states (TPU 95A) where the source prints no row for it: evidence of the product's grade of
+  // hardness, never a headline (it is not a test result). The estimate stage reads it (m29).
+  'Nominal from product designation': { numeric: true, corrected: false, nominal: true },
   'Not published': { numeric: false, missing: MISSING.NOT_PUBLISHED },
   'Unresolved unit / layout': { numeric: false, missing: MISSING.QUARANTINED, quarantined: true },
   // A result the source states in words, such as "No break" for a Charpy test on PEBA-S. It is

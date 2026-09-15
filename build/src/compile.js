@@ -666,6 +666,15 @@ export function compile(wb, { snapshot, build }) {
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
 
+  // The polymer identities the estimate stage knows (data/tables/polymers.csv): physical facts, with where they come from.
+  const orNull = (cell) => (cell == null || /^Not (applicable|recorded)$/.test(cell) ? null : cell);
+  const polymers = wb.Polymers.rows.map((r) => ({
+    id: r.PolymerID, group: r.Group, morphology: r.Morphology, meltingPointC: num(r['Melting point °C']),
+    asPrinted: orNull(r['As printed']), waterUptake: orNull(r['Water uptake']),
+    neatDensity: num(r['Neat density min kg/m³']) != null ? { min: num(r['Neat density min kg/m³']), max: num(r['Neat density max kg/m³']) } : null,
+    sourceId: orNull(r.SourceID), basis: r.Basis,
+  }));
+
   const links = new Map();
   for (const r of wb['Material links'].rows) {
     const key = `${r.MaterialID}\u0000${r.Link}`;
@@ -709,7 +718,9 @@ export function compile(wb, { snapshot, build }) {
       fullName: mat['Full name'],
       family: mat.Family,
       basePolymer: mat['Base polymer'],
+      estimateIdentity: mat['Estimate identity'] && mat['Estimate identity'] !== 'Not applicable' ? mat['Estimate identity'] : null,
       modifier: mat['Modifier / filler'],
+      variantClass: mat['Variant class'] && mat['Variant class'] !== 'Not applicable' ? mat['Variant class'] : null,
       role: mat.Role,
       scope: mat.Scope,
       h2cStatus: mat['H2C status'],
@@ -788,7 +799,7 @@ export function compile(wb, { snapshot, build }) {
           registry.headlines.map((h) => [h.key, materials.filter((m) => m.headline[h.key]?.known).length]),
         ),
       },
-      materials, grades, measurements, profiles, evidence, prices, sources, coverage, method,
+      materials, grades, measurements, profiles, evidence, prices, sources, coverage, method, polymers,
       // What every property and headline means. The app builds its labels, filters, axes, table and
       // export from this, so a registry row reaches the interface with no code change.
       registry,

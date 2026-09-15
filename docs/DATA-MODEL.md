@@ -43,6 +43,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `family_entries.csv` | 5 | Canonical names that are families or aliases, not materials (D44), with why |
 | `family_members.csv` | 22 | The materials each family entry stands for, in search order |
 | `chamber_bands.csv` | 43 | Research chamber bands for materials whose sources publish no window, or why none is given |
+| `polymers.csv` | 36 | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
 Every column of every table, and every vocabulary, is listed in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).

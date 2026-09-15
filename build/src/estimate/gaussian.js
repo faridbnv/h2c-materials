@@ -26,7 +26,8 @@ export function makeKernel(key, S, model) {
     // Reinforcement acts through the matrix: a fibre network lifts a semicrystalline bar's heat
     // deflection towards its melting point but an amorphous bar's only a little past Tg.
     if (f !== 'unfilled') { if (key !== 'hdt045') x.set(`f:${f}`, 1); x.set(`fx:${f}:${info.morphology}`, 1); }
-    for (const [tag, names] of Object.entries(model.variants)) if (names.includes(m.name)) x.set(`v:${tag}`, 1);
+    // A declared commercial variant class (materials.csv Variant class: silk, particle-filled) has its own effect.
+    if (m.variantClass) x.set(`v:${m.variantClass}`, 1);
     // A variant product explains its own offset (a lightweight additive, an undisclosed filler) rather than moving its family.
     if (S.variantOf(formulation)) x.set(`v:grade:${S.variantOf(formulation)}`, 1);
     if (manufacturer) x.set(`s:${manufacturer}`, 1);

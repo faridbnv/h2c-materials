@@ -1,5 +1,5 @@
-// Code that relies on a property by name declares it, and every declared name, and every material or grade
-// the estimate model names, must exist in the data.
+// Code that relies on a property by name declares it, and every declared name must exist in the data. The estimate
+// model's configuration names no material, grade or polymer: those are tables.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -8,8 +8,9 @@ import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { compile } from '../build/src/compile.js';
 import { CODE_PROPERTY_NAMES, codeReferenceIssues } from '../build/src/property-references.js';
-import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
-import { modelReferenceIssues } from '../build/src/estimate/validate.js';
+import { mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { ESTIMATE_MODEL, loadEstimateModel } from '../build/src/estimate/model.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const wb = loadTables(join(root, 'data'));
@@ -32,13 +33,24 @@ test('every registered property name used as a string in code is declared', () =
   assert.deepEqual(undeclared, []);
 });
 
-test('every declared name and every model reference resolves, and a rename is caught', () => {
+test('every declared name resolves, a rename is caught, and the model configuration holds no records', () => {
   const { db } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
-  const referenceIssues = (a) => [...codeReferenceIssues(a.registry), ...modelReferenceIssues(a)];
-  assert.deepEqual(referenceIssues({ registry: db.registry, materials: db.materials, grades: db.grades, model: ESTIMATE_MODEL }), []);
+  assert.deepEqual(codeReferenceIssues(db.registry), []);
   const renamed = structuredClone(db.registry);
   renamed.properties.find((p) => p.name === 'Flexural modulus').name = 'Flexural modulus (chord)';
-  const model = { ...ESTIMATE_MODEL, variants: { silk: ['PLA Silk', 'PLA Silky'] } };
-  const codes = referenceIssues({ registry: renamed, materials: db.materials, grades: db.grades, model }).map((i) => `${i.code}: ${i.message.slice(0, 60)}`);
-  assert.deepEqual(codes, ['REGISTRY-CODE-REFERENCE: Code relies on property "Flexural modulus" (estimate/ (modul', 'EST-MODEL-REFERENCE: variants.silk names "PLA Silky", which is not a material']);
+  const codes = codeReferenceIssues(renamed).map((i) => `${i.code}: ${i.message.slice(0, 60)}`);
+  assert.deepEqual(codes, ['REGISTRY-CODE-REFERENCE: Code relies on property "Flexural modulus" (estimate/ (modul']);
+  // Polymers, variant classes and hardness are tables (m28, m29), not configuration keyed by name or ID.
+  for (const k of ['identities', 'variants', 'hardness', 'impliedBounds']) assert.equal(ESTIMATE_MODEL[k], undefined, `estimate-model.json holds ${k}`);
 });
+
+test('the estimate model configuration is checked against its schema when it loads', () => {
+  const broken = structuredClone(ESTIMATE_MODEL);
+  broken.screening.maxWrongRat = 0.1;
+  delete broken.calibration.folds;
+  broken.properties.density.floors.we = 0;
+  const path = join(mkdtempSync(join(tmpdir(), 'h2c-model-')), 'estimate-model.json');
+  writeFileSync(path, JSON.stringify(broken));
+  assert.throws(() => loadEstimateModel(path), (e) => /floors\/we must be > 0/.test(e.message) && /required property 'folds'/.test(e.message) && /"maxWrongRat"/.test(e.message));
+});
+

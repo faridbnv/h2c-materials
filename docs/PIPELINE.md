@@ -232,9 +232,8 @@ a band. It lists every band the evidence superseded.
 `build/reports/validation-report.md` is regenerated every build and is a deliverable in its own
 right. It tells you what the tool cannot yet see.
 
-An unestimated in-scope headline says why when the cause is known: a material whose identity (its base
-polymer, or a blend's name) has no entry in `build/mappings/estimate-model.json` is reported with that
-fix.
+An unestimated in-scope headline says why when the cause is known: a material with no Estimate identity, or one with no
+row in `data/tables/polymers.csv`, is reported with that fix.
 
 ## 6. Contract — `contract.js`
 
