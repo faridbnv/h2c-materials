@@ -364,3 +364,4 @@ M102,tensileModulusXY,V001661,value
 M102,tensileStrengthXY,V001660,value
 M102,elongationXY,V001662,value
 M102,hdt045,V001666,value
+M065,hdt045,V002065,value

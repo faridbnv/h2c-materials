@@ -1,12 +1,12 @@
 {
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
-  "cells": 99371,
+  "cells": 99393,
   "totals": {
-    "equal": 87540,
+    "equal": 87264,
     "derived: first cited profile, equal": 290,
-    "derived or linked: same identifiers, same order": 918,
+    "derived or linked: same identifiers, same order": 917,
     "derived: headline read from its measurement, equal": 353,
-    "derived: no headline selection, same missing state": 149,
+    "derived: no headline selection, same missing state": 148,
     "derived: no price sample, same missing state": 64,
     "derived: own environmental records, same order": 100,
     "display padding removed (m01)": 5662,
@@ -16,12 +16,13 @@
     "text cleanup (m07)": 427,
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
-    "edited after the conversion (npm run data:diff -- 0a61cee)": 297,
+    "derived from a headline selection edited after the conversion (npm run data:diff -- 0a61cee)": 2,
+    "edited after the conversion (npm run data:diff -- 0a61cee)": 573,
     "formula cached text, current": 2864,
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
     "number stored as text made canonical (m01)": 4,
-    "added after the conversion (npm run data:diff -- 0a61cee)": 7,
+    "added after the conversion (npm run data:diff -- 0a61cee)": 29,
     "derived: list price / net mass, equal": 53,
     "date serial written as a date": 309,
     "derived: not eligible, no per-kg price": 44,
@@ -33,9 +34,9 @@
     "Materials": {
       "equal": 2437,
       "derived: first cited profile, equal": 290,
-      "derived or linked: same identifiers, same order": 918,
+      "derived or linked: same identifiers, same order": 917,
       "derived: headline read from its measurement, equal": 353,
-      "derived: no headline selection, same missing state": 149,
+      "derived: no headline selection, same missing state": 148,
       "derived: no price sample, same missing state": 64,
       "derived: own environmental records, same order": 100,
       "display padding removed (m01)": 10,
@@ -44,7 +45,8 @@
       "derived: headline read from its measurement, equal but for floating-point noise": 8,
       "text cleanup (m07)": 1,
       "derived: own environmental records, table order (m05, listed)": 2,
-      "derived: median rounded to the cent (m03, listed)": 4
+      "derived: median rounded to the cent (m03, listed)": 4,
+      "derived from a headline selection edited after the conversion (npm run data:diff -- 0a61cee)": 2
     },
     "Grades": {
       "equal": 2008,
@@ -77,17 +79,17 @@
       "added column: Parse review": 171
     },
     "Properties": {
-      "equal": 58368,
+      "equal": 58092,
       "display padding removed (m01)": 5546,
       "formula cached text, current": 2864,
-      "edited after the conversion (npm run data:diff -- 0a61cee)": 286,
+      "edited after the conversion (npm run data:diff -- 0a61cee)": 562,
       "formula cached text, STALE: kept as the build read it": 139,
       "equal but for floating-point noise in the formula result": 74,
       "text cleanup (m07)": 336,
       "number stored as text made canonical (m01)": 4,
-      "added after the conversion (npm run data:diff -- 0a61cee)": 6,
-      "added column: Test load MPa": 2055,
-      "added column: Parse review": 2055
+      "added after the conversion (npm run data:diff -- 0a61cee)": 28,
+      "added column: Test load MPa": 2077,
+      "added column: Parse review": 2077
     },
     "Use & durability": {
       "equal": 5720,

@@ -34,7 +34,11 @@ const editedAfter = new Map();
     if (side === 'to') { try { return readFileSync(join(projectRoot, 'data/tables', `${name}.csv`), 'utf8'); } catch { return null; } }
     try { return execFileSync('git', ['show', `${CONVERSION_END_COMMIT}:data/tables/${name}.csv`], { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch { return null; }
   };
-  for (const c of diffTables(schemas, read)) editedAfter.set(`${c.table}\u0000${c.record}\u0000${c.field ?? ''}`, c.action);
+  for (const c of diffTables(schemas, read)) {
+    editedAfter.set(`${c.table}\u0000${c.record}\u0000${c.field ?? ''}`, c.action);
+    // A headline selection changed after the conversion changes the material's derived columns too.
+    if (c.table === 'headlines') editedAfter.set(`headlines-of\u0000${String(c.record).split(' | ')[0]}`, 'Edited');
+  }
 }
 const EDITED_CLASS = `edited after the conversion (npm run data:diff -- ${CONVERSION_END_COMMIT})`;
 const ADDED_CLASS = `added after the conversion (npm run data:diff -- ${CONVERSION_END_COMMIT})`;
@@ -182,7 +186,8 @@ for (const [sheet, { header, rows }] of Object.entries(native)) {
         if (cls === 'unexplained' && editedAfter.get(`${fileOf[sheet]}\u0000${id}\u0000${column}`) === 'Edited') cls = EDITED_CLASS;
         record(sheet, row.__row, id, column, cell, now[column], cls);
       } else {
-        const [cls, value] = classifyReplaced(sheet, column, cell, id);
+        let [cls, value] = classifyReplaced(sheet, column, cell, id);
+        if (cls === 'unexplained' && sheet === 'Materials' && editedAfter.has(`headlines-of\u0000${id}`)) cls = `derived from a headline selection ${EDITED_CLASS}`;
         record(sheet, row.__row, id, column, cell, value, cls);
       }
     }
