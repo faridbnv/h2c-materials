@@ -1,6 +1,6 @@
 {
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
-  "cells": 99534,
+  "cells": 99538,
   "totals": {
     "equal": 87205,
     "derived: first cited profile, equal": 290,
@@ -22,7 +22,7 @@
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
     "number stored as text made canonical (m01)": 4,
-    "added after the conversion (npm run data:diff -- 0a61cee)": 170,
+    "added after the conversion (npm run data:diff -- 0a61cee)": 174,
     "derived: list price / net mass, equal": 53,
     "date serial written as a date": 309,
     "derived: not eligible, no per-kg price": 44,
@@ -87,9 +87,9 @@
       "equal but for floating-point noise in the formula result": 74,
       "text cleanup (m07)": 336,
       "number stored as text made canonical (m01)": 4,
-      "added after the conversion (npm run data:diff -- 0a61cee)": 169,
-      "added column: Test load MPa": 2218,
-      "added column: Parse review": 2218
+      "added after the conversion (npm run data:diff -- 0a61cee)": 173,
+      "added column: Test load MPa": 2222,
+      "added column: Parse review": 2222
     },
     "Use & durability": {
       "equal": 5720,

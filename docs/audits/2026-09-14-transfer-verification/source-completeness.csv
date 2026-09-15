@@ -2,35 +2,25 @@ SourceID,Page,Value,Uncertainty,Unit,Line
 S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,3,370,,°C,"D ecomposition temperature TGA, 20°C/min 370 °C"
 S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,4,55,,˚C,D rying setting 55˚C for 6h
 I-PLA-TDS,1,7,,MPa,"T D 144 ,7 MPa"
-I-PLA-TDS,1,3861,,MPa,3861 MP a
 I-PLA-TDS,2,2.10,,%, §  2.10%
 I-PLA-TDS,2,20,,ºC,20 º C  §  90
 B-pla-basic-filament-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
 B-pla-basic-filament-TDS,1,70,,°C,"X1 Series Printer Heatbed: 60 - 70 °C, 12 h"
-B-pla-basic-filament-TDS,2,210,,°C,"Melt Index 210 °C, 2.16 kg 23.2 ± 3.5 g/10 min"
 B-pla-matte-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
 B-pla-matte-TDS,1,70,,°C,"X1 Series Printer Heatbed: 60 - 70 °C, 12 h"
 B-pla-basic-gradient-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
-B-pla-basic-gradient-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 45.8 ± 6.6 g/ 10 min"
 B-pla-basic-gradient-TDS,2,401980,100,MPa,"Young's Modulus ( Z )  §  7 ,  §  401980 ± 100 MPa"
 B-pla-basic-gradient-TDS,2,320.3,1.2,kJ/m,"Impact Strength ( X - Y )  §  ,  §  320.3 ± 1.2 kJ/m²"
-B-pla-tough-upgrade-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 18.0 ± 2.5 g/10 min"
-B-pla-tough-upgrade-TDS,2,25.9,3.3,kJ/m,25.9 ± 3.3 kJ/m ²
 B-pla-translucent-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C)
 B-pla-translucent-TDS,1,70,,°C,"X1 Series Printer Heatbed: 60 - 70 ° C, 12 h"
-B-pla-translucent-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 4.08 ± 1.5 g/10 min"
 B-pla-silk-upgrade-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
 B-pla-silk-dual-color-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
-B-pla-silk-dual-color-TDS,2,8.2,0.5,kJ/m,8.2 ± 0.5 kJ/m ² (notched)
 B-pla-metal-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
 B-pla-marble-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
 B-pla-marble-TDS,2,12920,180,MPa,"Bending Modulus ( X - Y )  §  ,  §  12920 ± 180 MPa"
 B-pla-sparkle-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
 B-pla-wood-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
-B-pla-wood-TDS,2,210,,°C,"Melt Index 210 °C, 2.16 kg 29.4 ± 1.7 g/10 min"
 B-pla-galaxy-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
-B-pla-galaxy-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 11.0 ± 1.7 g/10 min"
-B-pla-galaxy-TDS,2,17.6,2.2,kJ/m,17.6 ± 2.2 kJ/m ² (notched)
 B-pla-galaxy-TDS,3,60,,°C,"annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 ° C, and"
 B-pla-glow-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C )
 B-pla-aero-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
@@ -40,98 +30,63 @@ S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,3,348.15,,°C,"Decomposition temperatur
 S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,5,12,,%,HT-PLA-GF contains 12% glass fiber in the composition.
 I-PLA-Glass-Fiber-Technical-Data-Sheet,1,220,,℃,"Melt Flow Index （ 220 ℃ , 10K g ） g/10min"
 S-POLYCN-PolyLite-PETG-TDS-V5-3,2,90,,%,Light t ransmission  §  90%
-S-POLYCN-PolyLite-PETG-TDS-V5-3,2,0.54,,%,Equilibrium water absorption (%)= 0.54%
-I-PETG-TDS,1,19,,MPa, §  19 MP a
-I-PETG-TDS,1,31,,%,Nominal Elongation at Break  §  31 %
 I-PETG-TDS,1,78171,,MPa, §  78171 MPa
-I-PETG-TDS,2,68,,ºC,"0, 45 MPa  §  68 º C"
-I-PETG-TDS,2,1.8,,MPa,1.8 MPa  §  62 º C
-I-PETG-TDS,2,62,,ºC,1.8 MPa  §  62 º C
 B-petg-basic-TDS,1,80,,°C,"Heatbed: 80 °C, 12 h"
-B-petg-basic-TDS,2,245,,°C,"Melt Index 245 °C, 2.16 kg 22.9 ± 2.4 g/10 min"
 B-petg-hf-TDS,1,85,,°C,"X1 Series Printer Heatbed: 75 - 85 ° C, 12 h"
-B-petg-hf-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 28.2 ± 2.7 g/10 min"
-B-petg-hf-TDS,2,6.2,1.8,kJ/m,6.2 ± 1.8 kJ/m ² (notched)
 B-petg-hf-TDS,3,80,,°C,"80 ° C, and the time is 4 to 8 hours. When drying the filament and annealing the prints,"
 B-petg-translucent-TDS,1,85,,°C,"X1 Series Printer Heatbed: 75 - 85 °C, 12 h"
-B-petg-cf-TDS,2,250,,°C,"Melt Inde x 250 ° C , 2.16 kg 19.3 ± 2.4 g/ 10 min"
 I-PETG-Glass-Fiber-Technical-Data-Sheet,1,210,,℃,"Melt Index （ 210 ℃ , 2160g ） g/10min ASTM D-12382-9"
 S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,2,280,,°C,"Melt i ndex 280°C, 5 kg 14 g/10min"
 S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,3,373,,°C,"D ecomposition temperature TGA, 20°C/min 373 °C"
 S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,4,65,,˚C,Drying temperature 65 ( ˚C )
 S-SPECTRUM-en-tds-spectrum-petg-esd,1,00,,%,"Elongation at Break 58,00%  § "
 S-SPECTRUM-en-tds-spectrum-petg-esd,1,30,,%,"Elongation at Yield 4,30%  § "
-B-abs-gf-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 7.56 ± 1.4 g/10 min"
-B-abs-gf-TDS,2,4.2,1.1,kJ/m,4.2 ± 1.1 kJ/m ² (notched)
 I-CF-ABS-TDS,1,7,,MPa,"Te nsile Strength , Break  §  7 MP a 48"
 I-CF-ABS-TDS,1,7,,MPa, §  7 MP a 5200
-I-CF-ABS-TDS,1,78,,MPa,F lexural Strength  §  78 MP a 78
-I-CF-ABS-TDS,1,78,,MPa, §  78 MP a 5280
-I-ESD-ABS-TDS,1,280,,°C,"Me l t I nde x 280°C, 5kg 2 g/10min 280°C, 5kg 2 g/10min"
-I-ESD-ABS-TDS,1,280,,°C,"Me l t I nde x 280°C, 5kg 2 g/10min 280°C, 5kg 2 g/10min"
-I-ESD-ABS-TDS,1,0.45,,MPa, § : Method A (0.45 MPa) 70℃
-I-ESD-ABS-TDS,1,70,,℃, § : Method A (0.45 MPa) 70℃
-I-ESD-ABS-TDS,1,1.80,,MPa, § : Method B (1.80 MPa) 75℃
-I-ESD-ABS-TDS,1,75,,℃, § : Method B (1.80 MPa) 75℃
-I-ESD-ABS-TDS,1,34.00,0.16,MPa,Tensi l e Br eaking S t r ength (X-Y)  §  34.00±0.16 MPa
 I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
 I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
 I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
 I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
 B-asa-aero-TDS,1,280,,°C,Nozzle Temperature 240 - 280 °C
-B-asa-aero-TDS,2,8.2,1.6,kJ/m,8.2 ± 1.6 kJ/m² (notched)
-B-asa-cf-TDS,2,6.2,1.4,kJ/m,6.2 ± 1.4 kJ/m² （ notched ）
 S-SPECTRUM-en-tds-spectrum-pc-cf,1,10,,%,reinforcement with 10% carbon fiber. This unique
 S-SPECTRUM-en-tds-spectrum-pc-cf,1,10,,%,• 10% CF
 S-SPECTRUM-en-tds-spectrum-pc-cf,1,2140,,°C,0.45mn/m2140°C  § 
 S-SPECTRUM-en-tds-spectrum-pc-cf,1,2129,,°C,1.81mn/m2129°C  § 
 I-PC-CF-TDS,1,20,,%,"1. High strength, the strength is more than 20% higher than ordinary PC;"
 S-PCGF-TDS-1,1,0.2,,%,Moisture content <0.2 %  § 
-S-POLYCN-PolyFlex-TPU95-TDS-V5-1,2,0.82,,%,Equili brium water absorption (%)= 0.82 %
 S-POLYCN-PolyFlex-TPU95-TDS-V5-1,3,9.4,0.3,MPa,"100% modulus (X - Y)  §  ,  §  9.4 ± 0.3 MPa"
 I-TPU-TDS,1,235,,ºC,"with a commonly used diameter of 1.75 mm ,235 º C printing temperature , 50 º"
-I-TPU-TDS,1,95,,Shore,95 ( Shore A )  § 
 B-tpu-for-ams-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C)
 B-tpu-for-ams-TDS,1,90,,°C,"X1 Series Printer Heatbed: 80 - 90 ° C, 12 h"
-B-tpu-for-ams-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 21.8 ± 0.3 g/10 min"
 B-tpu-for-ams-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
 B-tpu-for-ams-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
-B-tpu-95a-hf-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 36.5 ± 2.6 g/10 min"
 B-tpu-95a-hf-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
-B-TPU-SOFT-TDS-4,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 9.36 ± 2.6 g/10 min"
 B-TPU-SOFT-TDS-4,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
 B-TPU-SOFT-TDS-4,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
-B-TPU-SOFT-TDS-5,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 8.76 ± 2.6 g/10 min"
 B-TPU-SOFT-TDS-5,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
 B-TPU-SOFT-TDS-5,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
 S-POLYCN-PolyFlex-TPU90-TDS-V5-1,2,185,,°C,"Melt i ndex 185 °C, 1.2 kg 6.1 g/10min"
-S-POLYCN-PolyFlex-TPU90-TDS-V5-1,2,0.67,,%,Equili brium water absorption (%)= 0.67 %
 S-POLYCN-PolyFlex-TPU90-TDS-V5-1,3,6.17,0.19,MPa,"100% modulus (X - Y)  §  ,  §  6.17 ± 0.19 MPa"
-S-PEBA-PEBA90A-TDS-en,1,190,,℃,Melt Flow Index （ 190 ℃ ， 2.16kg ）  §  10~16 g/10min
 S-PEBA-PEBA90A-TDS-en,1,120,,℃,Vicat Softening Point （ 120 ℃ ， 10 N ）  §  110 ℃
 S-PEBA-PEBA90A-TDS-en,1,407.5,,MPa,Tensile Strength (Z-axis)  §  407.5 MP a
 S-PEBA-PEBA90A-TDS-en,1,40150,,%,Elongation at Break (Z-axis)  §  40150 %
 S-PEBA-PEBA90A-TDS-en,2,70,,%,Maximum Resilience  §  70 %
 S-PEBA-PEBA90A-TDS-en,3,100,,%,Infill Density 100%
 S-POLYCN-PolyMide-CoPA-TDS-V5-2,2,260,,°C,"Melt i ndex 260°C, 1.2 kg 12 g/10min"
-S-POLYCN-PolyMide-CoPA-TDS-V5-2,2,2.82,,%,Equili brium water absorption (%)= 2.82 %
 S-POLYCN-PolyMide-CoPA-TDS-V5-2,3,370,,°C,"D ecomposition temperature TGA, 20°C/min 370 °C"
 S-POLYCN-PolyMide-CoPA-TDS-V5-2,5,20,,%,used under dry conditions (relative humidity below 20%).
 S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,40,,%,"Elongation at max. force (dry, at 50 mm/min) 4,40%  § "
 S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,160,,°C,Service temperature (max. 200h) 160°C
 B-paht-cf-TDS,1,90,,°C,Spool Material PC + ABS ( Temperature resistance 90 °C )
-B-paht-cf-TDS,2,280,,°C,"Melt Inde x 280 ° C , 2.16 kg 14.4 ± 2.0 g/ 10 min"
 B-paht-cf-TDS,2,411820,170,MPa,"Bending Modulus ( Z )  §  ,  §  411820 ± 170 MPa"
 B-paht-cf-TDS,2,04313.3,0.8,kJ/m,Impact Strength (Z)  §  ，  §  04313.3 ± 0.8 kJ/m²
 B-pa6-cf-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resist ance 90 ° C )
 B-pa6-cf-TDS,3,130,,°C,"130 °C, and the tim e is 6 to 12 hours. The annealing effect depends on the annealing"
 B-pa6-gf-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C )
-B-pa6-gf-TDS,2,280,,°C,"Melt Index 280 ° C, 2.16 kg 9.0 ± 0.8 g/10 min"
 S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,2,280,,°C,"Melt i ndex 280°C, 2.16 kg 25 g/10min"
 S-FIBER-PA612,1,448.4,,°C,"Decomposition temp. TGA, 20°C/min 448.4 °C"
 S-FIBER-PA612,1,30,,%,*Model infill 30%
 S-FIBER-PA612,1,20,,%,humidity below 20%).
-S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,2,3.22,,%,Equili brium water absorption (%)= 3.22 %
 S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,3,370,,°C,"D ecomposition temperature TGA, 20°C/min > 370 °C"
 S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,5,20,,%,used under dry conditions (relative humidity below 20%).
 X-3DXSTAT-ESD-PA12-TDS-v1,1,60,,%,Layer Height: 0.25mm or 60% of nozzle diameter
@@ -142,20 +97,14 @@ S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,290,,°C,290°C 300°C
 S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,30,,%,*Model infill 30%
 S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,20,,%,humidity below 20%).
 B-pet-cf-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C )
-B-pet-cf-TDS,2,280,,°C,"Melt Index 280 ° C , 2.16 kg 25.3 ± 2.5 g/10 min"
 B-pet-cf-TDS,3,140,,°C,"annealing temperature of models printed with Bambu PET-CF is 80 to 140 ° C, and the time"
 S-PPA-TDS,1,0.5,,%,Net Filament Weight 1 kg ± 0.5%
 S-PPA-TDS,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C )
-S-PPA-TDS,1,290,,°C,Melt Index 290 ° C ， 2.16 kg 15.6 g/ 10 min
-S-PPA-TDS,1,290,,°C,"290 ° C, bed temperature: 100 ° C, printing speed: 150 mm/s, infill density: 100%, infill pattern: concentric) and black PPA"
 B-ppa-cf-TDS,1,145,,°C,(Temperature resistance 145 ° C )
 B-ppa-cf-TDS,1,140,,°C,"Blast Drying Oven: 100 - 140 °C, 8 - 12 h"
-B-ppa-cf-TDS,2,6.5,2.3,kJ/m,6.5 ± 2.3 kJ/m² (notched)
 B-ppa-cf-TDS,3,140,,°C,"annealing temperature of models printed with Bambu PPA - CF is 120 to 140 °C, and the"
 D-IPCON-PPA,1,0.5,,%,Net Filament Weight 1 kg ± 0.5%
 D-IPCON-PPA,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C)
-D-IPCON-PPA,1,290,,°C,Melt Index 290 ° C ， 2.16 kg 13.2 g/ 10 min
-D-IPCON-PPA,1,290,,°C,"290 ° C, bed temperature: 100 ° C, printing speed: 150 mm/s, infill density: 100%, infill pattern: concentric) and black PPA GF"
 D-IPCON-PPA,2,220,,°C,1 . Extreme temperature and humidity resistance (short-term peak of temperature resistance reaches 220 ° C);
 S-SPECTRUM-en-tds-spectrum-pps-am230,1,23,,°C,"Charpy impact strength, unnotched* (23°C) 18 kJ/m 2  § eU"
 S-SPECTRUM-en-tds-spectrum-pps-am230,1,23,,°C,"Charpy impact strength, notched* (23°C) 1,3 kJ/m 2  § eA"
@@ -166,7 +115,6 @@ S-PPSGF-TDS-0,1,0.5,,%,Net Filament Weight 0.75 kg ± 0.5%
 S-PPSGF-TDS-0,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C )
 S-PPSGF-TDS-0,1,0.21,,%,Shrinkage Rate* Specially-defined 0.21% - 0.42%
 S-PPSGF-TDS-0,1,0.42,,%,Shrinkage Rate* Specially-defined 0.21% - 0.42%
-S-PPSGF-TDS-0,1,340,,°C,"Melt Index 340 ° C , 2.16 kg 22.3 g/10 min"
 S-PPSGF-TDS-0,1,345,,°C,"temperature: 345 ° C, bed temperature: 120 ° C, printing speed: 100 mm/s ) and IPCON P P S G F (Grey) filament . The parameters"
 S-PPSGF-TDS-0,2,15,,%,"respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill pattern — grid . The data is for user"
 S-PPSGF-TDS-0,2,350,,°C,"Q1 Pro and other printers that have 350 ° C nozzle temperature and positive chamber temperature, as well as AMS"
@@ -177,18 +125,14 @@ S-FIBER-PPSGF-TDS-2,1,30,,%,X-Y *Model infill 30%
 S-FIBER-PPSGF-TDS-2,1,20,,%,Fiberon™ PPS-GF20 should always be stored and used under dry conditions (relative humidity below 20%).
 B-pva-TDS,1,90,,°C,Spool Material PC+ ABS (Temperature resistance 90 ° C )
 B-pva-TDS,1,100,,°C,"X1 Series Printer Heatbed: 90 - 100 ° C, 12 h"
-B-pva-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 7.2 ± 1.1 g/10 min"
 B-pva-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
 B-pva-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
 B-support-for-pla-petg-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C)
-B-support-for-pla-petg-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 14.3 ± 1.2 g/10 min"
 B-support-for-pla-petg-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
 B-support-for-pla-petg-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
 B-support-for-abs-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 °C)
 B-support-for-abs-TDS,1,95,,°C,"X1 Se ries Printer Heatbed: 85 - 95 °C, 6 h"
-B-support-for-abs-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 11.6 ± 0.7 g/10 min"
 B-support-for-abs-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
-B-support-for-pa-pet-TDS,2,280,,°C,"Melt Index 280 °C, 2.16 kg 29.2 ± 2.1 g/10 min"
 B-support-for-pa-pet-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
 B-support-for-pa-pet-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
 S-SPECTRUM-en-tds-spectrum-hdpe,1,110,,°C,Heat Resistance 110 °C
@@ -200,28 +144,18 @@ S-CPECF,1,4,,MPa,"52,4 MPa  §  at yield , 50 mm/min"
 S-CPECF,1,7,,MPa,"37,7 MPa  §  at break , 50 mm/min"
 S-CPECF,1,9,,kJ/m,"Charpy impact strength 105 ,9 kJ/m  §  25 °C, unnotched"
 S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,00,,%,"Elongation at Break 5,00%  § "
-S-PVB-PVB-Prusament-TDS-2021-10-EN,2,230,,°C,(1) 2.16 kg; 230 °C
-S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,2,0.352,,%,Equili brium water absorption (%)= 0.352 %
-S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,4,13,2,kJ/m,"Low temperature impact  §  e A:2010, 13 ± 2 kJ /m"
 S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,960,,°C,1.5mm 960°C
 S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,960,,°C,3.0mm 960°C
 S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,750,,°C,1.5mm 750°C
 S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,725,,°C,3.0mm 725°C
 S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,2,20,,˚C,and toughness at low temperature ( - 20˚C/ - 30˚C). Polymaker™ PC - PBT also features
-S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,2,0.257,,%,Equilibrium water absorption (%)= 0.257 %
-S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,15,3,kJ/m,"Low temperature impact  §  e A:2010, 15 ± 3 kJ /m"
-S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,7.3,2,kJ/m,"Low temperature impact  §  e A:2010, 7.3 ± 2 kJ /m"
 S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,90,,˚C,release the residual internal stress. Annealing settings: 90˚C for 2h
 I-PEEK-TDS,1,357343,,°C,Me lting Point  §  357343 ° C
 I-PEEK-TDS,1,357143,,°C,Glass Tran sition Onse t  §  357143 ° C
 I-PEI-9085-TDS,1,370,,°C,"technology , with a diameter of 1.75 mm, 370 ° C -390 ° C printin g"
 I-PPSU-TDS,1,180,,ºC,"can be used under a high temperature of 180 º C , PPSU has an excellent hydrolysis"
-I-PPSU-TDS,1,365,,ºC,365 º C / 5.0 Kg  §  14 to 20 g/ 10 min
 I-PPSU-TDS,1,0.70,,%,Molding Shrinkage - Flow  §  0.70%
-I-PPSU-TDS,1,7.20,,%,7.20%
-I-PPSU-TDS,1,120,,%,B reak 3.18 mm 60 to 120 %
 I-PPSU-TDS,1,399,,kJ/m,3.18 mm 399 kJ / m ^ 2
-I-PPSU-TDS,2,1.8,,MPa,"1.8MPa,"
 I-PPSU-TDS,2,1356220,,ºC,Glass Tr ansition Temperature ASTM E1356220 º C
 R-BAMBU-SUPPORT-PLA-NEW-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
 R-ESSENTIUM-PPSCF-TDS,1,15,,%,Essentium PPS-CF is a 15% carbon fiber reinforced polyphenylene sulfide (PPS) filament made with LUVOCOM® 3F resin from
@@ -232,8 +166,6 @@ R-POLYMAKER-PANCHROMA-TDS-V2-1,1,63,,°C,63°C
 R-POLYMAKER-PANCHROMA-TDS-V2-1,1,55,,°C,Recommended drying setting 55 °C for 6h
 R-FIBERON-PETGF15-TDS,1,422.8,,°C,"GA, 20°C/min T 422.8°C"
 R-FIBERON-PETGF15-TDS,1,30,,%,*Model infill 30%
-R-FILLAMENTUM-CPE-HG100-TDS,1,230,,°C,"1,6 g/10 min  §  230 °C, 1,2 kg"
-R-FILLAMENTUM-CPE-HG100-TDS,1,230,,°C,"5,9 g/10 min  §  230 °C, 3,8 kg"
 R-FILLAMENTUM-CPE-HG100-TDS,1,0,,%,"Haze < 1,0 %  § "
 R-FILLAMENTUM-CPE-HG100-TDS,1,275,,°C,Print temperature 255 – 275 °C
 R-FILLAMENTUM-CPE-HG100-TDS,1,85,,°C,"tolerance +/ - 0,05 mm , which is strictly Hot pad 70 – 85 °C"
@@ -245,18 +177,8 @@ R-IPCON-ASA-GF-TDS,1,0.5,,%,Net Filament Weight 0.75 kg ± 0.5%
 R-IPCON-ASA-GF-TDS,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C )
 R-IPCON-ASA-GF-TDS,1,0.13,,%,Shrinkage Rate* Specially-defined 0.13% - 0.37%
 R-IPCON-ASA-GF-TDS,1,0.37,,%,Shrinkage Rate* Specially-defined 0.13% - 0.37%
-R-IPCON-ASA-GF-TDS,1,25,,°C,"Saturated Water Absorption Rate 25 ° C , 55% RH , room air 0.31 %"
-R-IPCON-ASA-GF-TDS,1,0.31,,%,"Saturated Water Absorption Rate 25 ° C , 55% RH , room air 0.31 %"
-R-IPCON-ASA-GF-TDS,1,270,,°C,"Melt Index 270 ° C , 2.16 kg 19.5 g/10 min"
-R-IPCON-ASA-GF-TDS,1,221,,°C,"Melting Temperature DSC , 10 ° C/min 221 ° C"
-R-IPCON-ASA-GF-TDS,1,23.5,,kJ/m,"Impact Strength XY  §  ,  §  23.5 kJ/m ²"
-R-IPCON-ASA-GF-TDS,1,8.2,,kJ/m," §  ,  §  8.2 kJ/m ²"
 R-IPCON-ASA-GF-TDS,2,15,,%,"lengths of 100.00 and 150.00 mm respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill"
-R-IPCON-ASA-GF-TDS,2,25,,%,"lengths of 100.00 and 150.00 mm respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill"
-R-IPCON-ASA-GF-TDS,2,80,,℃,"≤ 80 ℃ , ≤ 20 % RH"
 R-IPCON-ASA-GF-TDS,2,35,,℃,"≤ 35 ℃ , ≤ 20 % RH"
-R-FLASHFORGE-ASA-GF10-TDS,1,220,,℃,Melt Index (MFR) (220 ℃ / 5 Kg)
-R-FLASHFORGE-ASA-GF10-TDS,1,23,,℃,Water Absorption (23 ℃ /24h)  §  %
 R-FLASHFORGE-ASA-GF10-TDS,2,110,,℃,Build Platform Temperature 100 ~ 120 ℃ (110 ℃ recommended )
 R-GRUPA-AZOTY-TARFUSE-POM-TDS,2,275,,°C,Melt volume - flow rate MVR 275°C/5 kg
 R-GRUPA-AZOTY-TARFUSE-POM-TDS,2,8,,MPa," C - 75 - 1, - 21,8 MP a"
