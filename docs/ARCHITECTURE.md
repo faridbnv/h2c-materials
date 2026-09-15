@@ -100,14 +100,19 @@ plotting library, not the data, is what the file weighs.
 | `data/fmt.mjs` | `npm run data:fmt`: rewrite tables and vocabularies canonically and refresh `data/manifest.json`; `--check` changes nothing. |
 | `data/check.mjs` | `npm run data:check`: the schema gate on its own, in under a second. |
 | `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
+| `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
+| `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`. |
+| `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
+| `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
+| `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. |
 | `data/diff.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses deletions. It replaces hand-written audit changelogs. |
 | `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line. |
 | `data/synthesize.mjs` | A multiple of today's data under new IDs, for the scale test. |
 | `data/export-xlsx.mjs` | The read-only review workbook. |
-| `migrate/` | The one-time conversion from the workbooks (dump, then m01..m06) and its historical check. |
+| `migrate/` | The one-time conversion from the workbooks (dump, then m01..m09), its transfer ledger, and the source corrections m10..m18 (`source-edits.mjs` guards each edit). |
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories. |
 
-`npm run verify` runs them in the order a commit needs: format, schema, build, tests, audit. The
+`npm run verify` runs them in the order a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, and CI runs `verify` on every push. `AGENTS.md` is the editing guide.
 

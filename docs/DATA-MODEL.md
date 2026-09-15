@@ -278,7 +278,7 @@ in the validation report for a second look.
 `strength` (`this-grade`, `this-material` or `family`: what it rests on), `precision` (`good`, `fair`
 or `poor`, by per-property width thresholds), every piece of its own evidence with the converted value
 and the reason for the conversion, the soft limits applied, `sharedWith` where its representative
-product is filed under another material (both then show one estimate), and `canScreen`.
+product is filed under another material (both then show one estimate), `canScreen`, and where it may screen, `screenRange` (the range that decides) and `screenBasis` (why).
 
 **Unstated heat loads.** A heat deflection headline whose source names no load was measured at
 0.45 MPa or at 1.8 MPa, so its 0.45 MPa value lies between the value and the value plus the largest
@@ -292,11 +292,23 @@ the material's own sources publish one. On this snapshot: 93 estimates (54 from 
 measurements, 20 from other grades or resin references, 19 from the family model alone; 13 imprecise)
 and 27 not applicable. 83 estimates may screen.
 
-**What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. In Explore with
-Estimates on it screens a material out when its plausible range wholly fails, none of the material's
-own measurements could meet the requirement, and it rests on the material's own evidence or an
-identity measured on at least two products. Not applicable screens the same way. Strict neither shows
-nor uses estimates. The earlier models are recorded in D10, D11, D40 and D42.
+**What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. Which estimates may
+screen is measured every build (D48): each measured headline is hidden as far as an evidence class requires
+(this grade, this material, family) and predicted, and a class is certified when its plausible ranges are not
+significantly too narrow on either side over at least 20 cases (`meta.estimateModel.properties.*.screening`).
+In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails
+(its plausible range if its class is certified, else the union with the certified family-only range), and no
+measurement of the material bounds the headline from below and meets the requirement (`impliedBounds`: yield or
+break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa). Not
+applicable screens the same way; the unstated-load bracket screens only for matrix classes whose bracket is
+certified (today amorphous). Strict neither shows nor uses estimates. The earlier models are recorded in D10,
+D11, D40, D42 and D43.
+
+**Moisture, variants and bounds.** A value measured after conditioning (the Moisture condition vocabulary's
+State says which) converts to dry through the documented wet offset. A grade whose Variant is set gets its own
+covariate with a loose documented spread, so a lightweight or densely filled product does not pull its family.
+A one-sided bound ("> 700 %") enters at the bound with a documented half-width, never calibrates a conversion,
+and limits its own material's estimate.
 
 ### Resin references
 

@@ -1,7 +1,7 @@
 # The build pipeline
 
 ```
-npm run verify         everything a commit needs: data format, schema, build, tests, audit
+npm run verify         everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views
 npm run data:check     the schema gate alone, in under a second
 npm run build          full build, ending in a distributable HTML file and its manifest
 npm run validate       stops after the report; writes no dist artefacts
@@ -215,7 +215,7 @@ output. Pages publishes it beside the page.
 ## Verifying a build
 
 ```bash
-npm run verify                   # format, schema, build (0 errors), 169 tests, audit
+npm run verify                   # format, schema, lint, docs, build, tests, audit, review snapshot, interface views
 open dist/H2C_Material_Selector_2026-09-13.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
@@ -244,6 +244,19 @@ checks explicit source-grade scope, recompiles both payloads from the tables, an
 to prove it embeds those exact payloads. It produces a full record index and 102-filament / 19-family
 matrix. It does not assert that all external documents were re-read; live checks belong in the
 review's source log. `measurement-rules.js` adds build-stopping numeric and endpoint checks.
+
+`npm run audit:sources` goes further on demand (it needs the network once): it fetches every PDF source cited
+by measurements into `.cache/sources/`, checks its SHA-256, and lists every published number and every named
+property that has no row, into `docs/audits/2026-09-14-transfer-verification/source-completeness*.csv`. Its first
+run found hundreds of values the original transcription had dropped (migrations m13 to m17).
+
+## Review snapshot and interface views
+
+`npm run snapshot` writes `build/snapshot/`: every headline (value, or estimate with its likely and plausible
+ranges and the range that may screen), process gates, each template's candidates in Strict, Explore and Explore
+with estimates, and every build warning by record. `npm run ui:check` drives the built page in headless Chrome
+through the default view, every template in both modes, each shared link reopened, and Compare, and compares what
+a reader sees with `build/snapshot/ui/`. Both are checked by `verify`; a change commits its diff.
 
 The Pages workflow runs `npm run verify`, which includes the audit. Conversion factors are stored at
 full precision in `measurements.csv`, so the raw-value reconciliation reads exactly the factor applied.

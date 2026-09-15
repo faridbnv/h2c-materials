@@ -18,7 +18,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
-npm run verify                 # everything a commit needs: format, schema, build, 169 tests, audit
+npm run verify                 # everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
 npm run data:export-xlsx       # read-only review workbook in dist/review/
@@ -79,10 +79,12 @@ app/js/ui/labels.js                     the one vocabulary: what every criterion
 app/js/main.js                          the only place that holds state
 
 test/                                   engine, data gate, registry, contract, scale and database tests
-scripts/data/                           fmt, check, new-id, diff, the edit API, review workbook, scale data
+scripts/data/                           fmt, check, lint, new, retire, new-id, diff, the edit API, review workbook, scale data
+scripts/audit/                          source completeness: every PDF source re-read for values not in the tables
+scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interface views (build/snapshot/)
 scripts/trace.mjs                       a headline back to its source
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
-scripts/migrate/                        the 2026-09-14 conversion from the retired workbooks, replayable
+scripts/migrate/                        the 2026-09-14 conversion (m01-m09) and the source corrections that followed (m10-m18)
 .githooks/pre-commit                    format, schema and no-deletion check on data commits
 .github/workflows/                      verify on every push; build, verify, publish on main
 dist/                                   build output, not committed
@@ -109,15 +111,15 @@ preferences: changing one changes what the tool asserts.
 5. **XY and Z never merge**, and an unstated direction is not XY.
 6. **Impact in J/m is never converted to kJ/m²** without specimen geometry.
 7. **Quarantined measurements stay out of every numeric summary.**
-8. **A load that was never stated is never assumed.** 25 of 69 HDT headlines are in that position
-   and say so.
+8. **A load that was never stated is never assumed.** An HDT headline whose source names no load says so,
+   and the build lists every one (HDT-LOAD-UNSTATED).
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
-11. **An estimate never passes a material, and screens only on like-for-like evidence.** It is a 95%
-    prediction interval from the material's own other grades or same-polymer peers. In Explore it may
-    screen a material out when its whole interval fails, never when the material's own measurement
-    could meet the requirement.
+11. **An estimate never passes a material, and screens only where a back-test shows it screens reliably.**
+    Every build hides each measured headline as far as an evidence class requires and checks the calibrated
+    ranges would have held (D48). In Explore it may screen a material out when the range its class may screen
+    on wholly fails, never when the material's own measurement bounds the headline and meets the requirement.
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
 13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot
