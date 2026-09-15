@@ -1,7 +1,7 @@
-COUNT 38 shown PASS + UNKNOWN
-STATUS PASS 20 | UNKNOWN 22 | FAIL 56 | SCREENED 4
-20 of the 98 materials in this database meet these requirements
-22 more could not be checked for missing data, and are listed flagged. From the Lightweight structure template. Click any criterion to remove it.
+COUNT 34 shown PASS + UNKNOWN
+STATUS PASS 22 | UNKNOWN 16 | FAIL 60 | SCREENED 4
+22 of the 98 materials in this database meet these requirements
+16 more could not be checked for missing data, and are listed flagged. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -34,7 +34,6 @@ heat test load not stated, so it never passes a heat requirement; with estimates
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS-CF PASS 1,110 5.21 ~46.9–57.8† 2 76 — ☆
 ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
-ASA UNKNOWN 1,050 2.45 37 9.2 100 39↗ ☆
 ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
 out of stock
  ☆
@@ -96,16 +95,13 @@ PE
 Polyolefins
  UNKNOWN 1,100 ~2.26–5.14† ~26.5–58.9† ~5.1–34.7† ~55.1–117† — ☆
 PETG Basic PASS 1,250 2.78 51 9.5 71 25↗ ☆
-PETG-CF UNKNOWN 1,250 2.46 35 10.4 74 41↗ ☆
 PLA PASS 1,240 2.87 ~56.5–67.6† 8 ~52.6–61.7† — ☆
-PLA Basic UNKNOWN 1,240 2.58 35 12.2 57 28↗ ☆
-PLA Basic Gradient UNKNOWN 1,240 2.58 36 15.2 57 —↗
+PLA Basic PASS 1,240 2.58≈ 35 12.2 57 28↗ ☆
+PLA Basic Gradient PASS 1,240 2.58≈ 36 15.2 57 —↗
 out of stock
  ☆
 PLA Lite UNKNOWN 1,230 ~2.15–3.55† 53 3.89 53? — ☆
-PLA Marble UNKNOWN 1,220 2.33 33 6.7 56 32↗ ☆
 PLA Translucent PASS 1,220 2.88 55.4 11 60 30↗ ☆
-PLA Wood UNKNOWN 1,210 2.36 26 15.3 60 32↗ ☆
 PLA-CF PASS 1,220 2.79 38 8.4 55 41↗ ☆
 PP-CF
 Polyolefins

@@ -8,7 +8,7 @@ import { matchesQuery } from './engine/search.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
-import { renderAshby } from './ui/ashby.js';
+import { renderAshby, purgePlots } from './ui/ashby.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
 import { renderCompare } from './ui/compare.js';
@@ -109,6 +109,7 @@ function hydrate(scenario) {
 }
 
 const materialIds = () => new Set(state.db.materials.map((m) => m.id));
+const headlineKeys = () => new Set(state.db.registry.headlines.map((h) => h.key));
 
 // ------------------------------------------------------------------ derived state
 
@@ -141,7 +142,7 @@ function recompute() {
   const candidates = db.materials.filter((m) => !m.familyEntry);
   // Assumptions are scenario data. The database object is never mutated.
   const materials = scenario.assumptions.length
-    ? candidates.map((m) => applyAssumptions(m, scenario.assumptions).material)
+    ? candidates.map((m) => applyAssumptions(m, scenario.assumptions, Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]))).material)
     : candidates;
 
   state.selection = runSelection(materials, scenario.constraints, state.ctx);
@@ -293,6 +294,7 @@ const actions = {
 
 function renderLens() {
   const host = document.getElementById('lens');
+  purgePlots(host);
   switch (state.lens) {
     case 'table': {
       // A header is always present: the start panel while nothing is set, and a statement of the
@@ -602,7 +604,7 @@ function renderScenario(host) {
       // Validate completely before committing anything, so a bad file leaves the session intact.
       let loaded;
       try {
-        loaded = deserialize(await file.text(), db.meta, { materialIds: materialIds() });
+        loaded = deserialize(await file.text(), db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys() });
       } catch (err) {
         alert(`Could not load that scenario, and nothing was changed.\n\n${err.message}`);
         return;
@@ -631,7 +633,7 @@ function renderScenario(host) {
   let linkProblem = null;
   let fromLink = null;
   try {
-    fromLink = fromHash(location.hash.slice(1), db.meta, { materialIds: materialIds() });
+    fromLink = fromHash(location.hash.slice(1), db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys() });
   } catch (err) {
     linkProblem = err.message;
   }
@@ -654,6 +656,25 @@ function renderScenario(host) {
     ...(fromLink?.warnings ?? []),
   ];
   if (notices.length) setTimeout(() => alert(notices.join('\n\n')), 0);
+
+  // A link pasted into an open tab changes only the fragment, which reloads nothing: without this the old selection
+  // stayed on screen (audit 2026-09-15, A-07). The page's own replaceState writes fire no hashchange.
+  window.addEventListener('hashchange', () => {
+    const hash = location.hash.slice(1);
+    if (hash === toHash(state.scenario)) return;
+    let next;
+    try {
+      next = fromHash(hash, db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys() });
+    } catch (err) {
+      alert(`This link could not be read, and nothing was changed.\n\n${err.message}`);
+      return;
+    }
+    hydrate(next?.scenario ?? newScenario(db.meta));
+    document.querySelectorAll('[data-lens]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lens === state.lens)));
+    render();
+    if (state.lens !== 'table') setLens(state.lens);
+    if (next?.warnings.length) setTimeout(() => alert(next.warnings.join('\n\n')), 0);
+  });
 })().catch((err) => {
   document.getElementById('lens').innerHTML =
     `<div class="empty"><h3>Could not start</h3><p>${esc(err.message)}</p></div>`;

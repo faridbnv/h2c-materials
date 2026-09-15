@@ -55,6 +55,12 @@ export function detailLevel(p) {
 }
 
 
+/** Release every Plotly plot inside a host before its markup is replaced. */
+export function purgePlots(host) {
+  if (typeof Plotly === 'undefined') return;
+  host.querySelectorAll('.js-plotly-plot').forEach((gd) => Plotly.purge(gd));
+}
+
 export function renderAshby(host, state, actions) {
   const { db, reference, rows, scenario } = state;
   const p = scenario.plot;
@@ -134,6 +140,9 @@ export function renderAshby(host, state, actions) {
       a headline.</span></div>` : '',
   ].join('').trim();
 
+  // Plotly keeps a window resize listener, and the plot it holds, until purged: 800 redraws once left 1,408
+  // listeners and a 569 MB heap (audit 2026-09-15, A-04).
+  purgePlots(host);
   host.innerHTML = `
     <div class="ashby-axes">
       ${axisPicker('y', yDef, p.yLog)}
@@ -267,6 +276,8 @@ function headlinePoints(rows, xDef, yDef) {
       x: m.headline[xDef.key]?.known ? m.headline[xDef.key].value : null,
       y: m.headline[yDef.key]?.known ? m.headline[yDef.key].value : null,
       xh: m.headline[xDef.key], yh: m.headline[yDef.key],
+      // A scenario assumption is drawn, marked and kept off the front: nobody measured it (audit 2026-09-15, A-02).
+      assumed: !!(m.headline[xDef.key]?.assumption || m.headline[yDef.key]?.assumption),
       notes: [], relaxed: [],
     }))
     .filter((q) => q.x !== null && q.y !== null);
@@ -388,7 +399,7 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     groups.get(key).push(q);
   }
 
-  const eligibleForFront = pts.filter((q) => q.evaluation.eligible);
+  const eligibleForFront = pts.filter((q) => q.evaluation.eligible && !q.assumed);
   const frontNow = paretoFront(eligibleForFront, xDef.better, yDef.better);
   const measurementMode = pts.some((q) => q.notes !== undefined && q.xh?.measurementId && q.yh?.measurementId);
   const labelPoints = pts.length <= 30;
@@ -454,7 +465,8 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
       customdata: list.map((q) => [q.id, q.label, q.evaluation.verdict,
         q.xh.measurementId ?? '', q.yh.measurementId ?? '',
         q.yh.direction ?? '', q.yh.gradeId ?? '',
-        q.relaxed.length ? 'mixed: ' + q.relaxed.join(', ')
+        q.assumed ? 'scenario assumption, not measured; not on the front'
+          : q.relaxed.length ? 'mixed: ' + q.relaxed.join(', ')
           : q.notes.length ? q.notes.join(', ')
           : 'conditions match the axis definition']),
       error_x: errorBars(list, 'xh'),
@@ -464,7 +476,7 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
         symbol: list.map((q) => FILLER_SYMBOL[q.filler] ?? 'circle'),
         color: colors.color(family),
         // Evidence status in the outline: a held candidate reads hollow.
-        opacity: list.map((q) => (q.relaxed.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
+        opacity: list.map((q) => (q.assumed ? 0.3 : q.relaxed.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
         line: { width: list.map((q) => (q.relaxed.length || q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
       },
       hovertemplate:

@@ -138,16 +138,24 @@ function evaluateNumeric(material, c, ctx = {}) {
   }
 
   const interval = h.interval ?? { lo: h.value, hi: h.value, kind: 'point' };
-  const status = compareInterval(interval, c.operator, c.value);
+  // A published "mean ± band" is judged on its mean (owner ruling, audit 2026-09-15, C-04; DECISIONS D54). The band is
+  // mostly a specimen standard deviation, not a tolerance: read as hard limits, "35 ± 4 MPa" never passed 33 MPa and
+  // 128 of 362 headlines could decide nothing near their own value. A threshold inside the band is flagged close to
+  // the limit. A published range ("42-52") and a one-sided bound ("> 16.5") are still judged as the interval they are.
+  const band = interval.kind === 'uncertainty';
+  const status = compareInterval(band ? { lo: h.value, hi: h.value, kind: 'point' } : interval, c.operator, c.value);
+  const closeToLimit = band && interval.lo <= c.value && c.value <= interval.hi;
 
   let reason;
   if (status === STATUS.INDETERMINATE) {
-    reason = interval.kind === 'uncertainty'
-      ? `Reported ${fmt(h.value)} ± ${fmt(h.uncertainty)} ${h.unit} straddles the threshold`
-      : `Reported range ${fmt(interval.lo)} to ${fmt(interval.hi)} ${h.unit} straddles the threshold`;
+    reason = `Reported range ${fmt(interval.lo)} to ${fmt(interval.hi)} ${h.unit} straddles the threshold`;
   } else {
-    reason = `Published ${fmt(h.value)} ${h.unit}`;
+    // A scenario assumption is the reader's own number, never a published one (audit 2026-09-15, A-02).
+    reason = h.assumption
+      ? `Assumed ${fmt(h.value)} ${h.unit} (a scenario assumption, not published)`
+      : `Published ${fmt(h.value)}${band ? ` ± ${fmt(h.uncertainty)}` : ''} ${h.unit}`;
     if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
+    if (closeToLimit) reason += `; close to the limit: the threshold lies within the published spread, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
   }
   // A headline whose load was never stated cannot back a load-specific thermal claim outright. It is
   // not unbounded either: measured at 0.45 or 1.8 MPa, the 0.45 MPa value lies in a bracket whose top
@@ -172,7 +180,7 @@ function evaluateNumeric(material, c, ctx = {}) {
   }
 
   return {
-    status, reason, criterion: label,
+    status, reason, criterion: label, closeToLimit,
     observed: h.value, unit: h.unit, interval,
     measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
     direction: h.direction,

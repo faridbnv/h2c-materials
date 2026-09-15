@@ -52,7 +52,10 @@ const isObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v)
  * to materials this snapshot does not hold are dropped with a warning, because the rest of the
  * question is still worth having.
  */
-export function validateScenario(raw, meta, { materialIds = null } = {}) {
+const GATES = new Set(['scope', 'h2cStatus', 'abrasive', 'buyable', 'dryingKnown', 'nozzle', 'bed', 'chamber']);
+const FACETS = new Set(['reinforcement', 'esd', 'flexible', 'supportMaterial', 'flameRetardant']);
+
+export function validateScenario(raw, meta, { materialIds = null, headlineKeys = null } = {}) {
   if (!isObject(raw)) throw new Error('The file does not contain a scenario object.');
   if (raw.version !== undefined && raw.version !== SCENARIO_VERSION) {
     throw new Error(`Scenario version ${raw.version} cannot be read by this build.`);
@@ -81,6 +84,31 @@ export function validateScenario(raw, meta, { materialIds = null } = {}) {
       return rest;
     }
     return { ...c };
+  });
+
+  // A requirement this build cannot evaluate is dropped with a warning, as an unknown shortlisted material is. A typo in
+  // a hand-edited link ("notAHeadline", gate "warp") used to read as a data gap on every material, and an empty list as a
+  // failure of every material (audit 2026-09-15, A-06).
+  const described = (c) => (c.kind === 'numeric' ? `"${c.property}"` : c.kind === 'gate' ? `gate "${c.gate}"` : c.kind === 'facet' ? `"${c.facet}"` : `"${c.category}"`);
+  const unusable = (c) => (c.kind === 'numeric' && headlineKeys && !headlineKeys.has(c.property) ? 'names a property this build does not have'
+    : c.kind === 'gate' && !GATES.has(c.gate) ? 'names a gate this build does not have'
+    : c.kind === 'facet' && !FACETS.has(c.facet) ? 'names a facet this build does not have'
+    : c.kind === 'environment' && meta?.environmentCategories && !(c.category in meta.environmentCategories) ? 'names an environment this build does not have'
+    : Array.isArray(c.in) && !c.in.length ? 'lists nothing to accept'
+    : null);
+  out.constraints = out.constraints.filter((c) => {
+    const why = unusable(c);
+    if (why) warnings.push(`A requirement on ${described(c)} ${why}, so it was left out.`);
+    return !why;
+  });
+  // One requirement per property: the filter rail holds one, so a second from a link or file was invisible there, dropped
+  // by editing the first, and missing from the chart (audit 2026-09-15, A-05). The first is kept.
+  const seen = new Set();
+  out.constraints = out.constraints.filter((c) => {
+    if (c.kind !== 'numeric') return true;
+    if (!seen.has(c.property)) { seen.add(c.property); return true; }
+    warnings.push(`A second requirement on "${c.property}" (${c.operator} ${c.value}) was left out; a selection holds one requirement per property.`);
+    return false;
   });
 
   out.unknownPolicy = normalizePolicy(raw.unknownPolicy);
@@ -160,15 +188,18 @@ export function fromHash(hash, meta, options) {
  * A user assumption stands in for a missing value inside one scenario only. It must be visible
  * everywhere the candidate appears and must never be written back to the database.
  */
-export function applyAssumptions(material, assumptions) {
+export function applyAssumptions(material, assumptions, units = {}) {
   const mine = assumptions.filter((a) => a.materialId === material.id || a.materialId === '*');
   if (!mine.length) return { material, assumed: [] };
   const headline = { ...material.headline };
   const assumed = [];
   for (const a of mine) {
     if (headline[a.property]?.known) continue; // never overwrite observed data
+    // Nor a statement that the property does not apply: a "*" assumption once gave an elastomer a heat deflection that
+    // passed Strict (audit 2026-09-15, A-03). An assumption without a unit takes the headline's own.
+    if (headline[a.property]?.notApplicable) continue;
     headline[a.property] = {
-      known: true, value: a.value, unit: a.unit, origin: 'assumption',
+      known: true, value: a.value, unit: a.unit ?? headline[a.property]?.unit ?? units[a.property] ?? '', origin: 'assumption',
       interval: { lo: a.value, hi: a.value, kind: 'point' }, assumption: true, note: a.note ?? null,
     };
     assumed.push(a.property);

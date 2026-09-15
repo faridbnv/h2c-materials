@@ -1,7 +1,7 @@
-COUNT 24 shown PASS + UNKNOWN
-STATUS PASS 15 | UNKNOWN 17 | FAIL 66 | SCREENED 8
+COUNT 23 shown PASS + UNKNOWN
+STATUS PASS 15 | UNKNOWN 16 | FAIL 67 | SCREENED 8
 15 of the 98 materials in this database meet these requirements
-17 more could not be checked for missing data, and are listed flagged. From the Outdoor structural part template. Click any criterion to remove it.
+16 more could not be checked for missing data, and are listed flagged. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
@@ -61,9 +61,6 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  PASS 1,090 4.43 102 5.8 186 110↗ ☆
-PA6-GF
-Nylon / Polyamide
- UNKNOWN 1,140 2.85 75 3.9 182 77↗ ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14 91.9 2.6 175 — ☆

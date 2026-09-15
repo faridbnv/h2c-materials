@@ -118,7 +118,10 @@ export function renderTable(host, state, actions) {
       ${esc(c.label)}${c.unit ? ` <span class="u">${esc(c.unit)}</span>` : ''}${arrow}</th>`;
   }).join('');
 
-  const cells = (m, e, { ghost = false } = {}) => COLUMNS.map((c) => {
+  const cells = (m, e, { ghost = false } = {}) => {
+    // This row's results on one property: the thresholds its number must not be rounded across, and whether it is close.
+    const on = (key) => (e?.results ?? []).filter((r) => r.constraint?.kind === 'numeric' && r.constraint.property === key);
+    return COLUMNS.map((c) => {
       if (c.kind === 'name') {
         // Family sits under the name rather than in its own column: it repeated the name outright
         // on 34 of 96 rows and cost 13% of the width to do it.
@@ -175,15 +178,16 @@ export function renderTable(host, state, actions) {
       }
       if (c.kind === 'price') {
         const h = m.headline.priceCADkg;
-        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates });
+        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg') });
         if (!m.buy) return `<td class="num">${inner}</td>`;
         const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${m.buy.accessDate})`;
         return `<td class="num"><a class="buy" href="${esc(m.buy.url)}" target="_blank" rel="noopener"
           title="${esc(t)}">${inner}<span class="buy-mark" aria-label="opens the retailer page">\u2197</span></a>
           ${m.buy.anyInStock ? '' : '<span class="oos" title="No sampled offer was in stock on the snapshot date">out of stock</span>'}</td>`;
       }
-      return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates })}</td>`;
+      return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key) })}</td>`;
     }).join('');
+  };
 
   const body = sorted.map(({ material: m, evaluation: e }) =>
     `<tr data-material="${esc(m.id)}" data-selected="${state.selectedMaterialId === m.id}" tabindex="0">${cells(m, e)}</tr>`

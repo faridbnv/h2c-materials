@@ -1,5 +1,5 @@
-COUNT 24 shown PASS + UNKNOWN
-STATUS PASS 15 | UNKNOWN 17 | FAIL 66 | SCREENED 8
+COUNT 23 shown PASS + UNKNOWN
+STATUS PASS 15 | UNKNOWN 16 | FAIL 67 | SCREENED 8
 Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Missing data kept and flagged, estimates on (they never pass a material and may screen one out). Database snapshot 2026-09-13, build 2026-09-15. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:

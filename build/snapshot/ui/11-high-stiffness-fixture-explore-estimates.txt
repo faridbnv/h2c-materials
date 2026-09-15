@@ -1,7 +1,7 @@
 COUNT 16 shown PASS + UNKNOWN
-STATUS PASS 10 | UNKNOWN 19 | FAIL 69 | SCREENED 13
-10 of the 98 materials in this database meet these requirements
-19 more could not be checked for missing data, and are listed flagged. From the High-stiffness fixture template. Click any criterion to remove it.
+STATUS PASS 11 | UNKNOWN 18 | FAIL 69 | SCREENED 13
+11 of the 98 materials in this database meet these requirements
+18 more could not be checked for missing data, and are listed flagged. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
@@ -46,7 +46,7 @@ Nylon / Polyamide
  UNKNOWN 1,250 ~1.96–5.15† ~48.9–108† ~6.16–43.7† ~99.3–142† 163↗ ☆
 PA612-CF
 Nylon / Polyamide
- UNKNOWN 1,030 5.14 91.9 2.6 175 — ☆
+ PASS 1,030 5.14≈ 91.9 2.6 175 — ☆
 PA612-GF
 Nylon / Polyamide
  UNKNOWN ~1,090–1,190† ~3.24–6.23† ~60.2–98.6† ~2.4–6.98† ~172–209† — ☆

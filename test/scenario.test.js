@@ -55,3 +55,31 @@ test('an old link that accepted limited resistance is not carried forward', () =
   const raw = { version: 1, constraints: [{ kind: 'environment', category: 'acid', require: ['resistant', 'limited'] }] };
   assert.equal(validateScenario(raw, meta, ids).scenario.constraints[0].require, undefined);
 });
+
+test('a requirement this build cannot evaluate, or a second one on a property, is left out with a warning (A-05, A-06)', () => {
+  const meta = { snapshot: 'x', environmentCategories: { acid: 'Acid' } };
+  const { scenario, warnings } = validateScenario({ version: 1, constraints: [
+    { kind: 'numeric', property: 'hdt045', operator: '>=', value: 80 },
+    { kind: 'numeric', property: 'hdt045', operator: '<=', value: 120 },
+    { kind: 'numeric', property: 'notAHeadline', operator: '>=', value: 1 },
+    { kind: 'gate', gate: 'warp' },
+    { kind: 'facet', facet: 'reinforcement', in: [] },
+    { kind: 'environment', category: 'lava' },
+    { kind: 'gate', gate: 'nozzle' },
+  ] }, meta, { headlineKeys: new Set(['hdt045', 'density']) });
+  assert.deepEqual(scenario.constraints.map((c) => c.property ?? c.gate), ['hdt045', 'nozzle']);
+  assert.equal(warnings.length, 5);
+  assert.match(warnings.join(' '), /second requirement on "hdt045"/);
+});
+
+test('an assumption never overrides "not applicable", takes the headline unit, and reads as assumed (A-02, A-03)', async () => {
+  const { applyAssumptions } = await import('../app/js/engine/scenario.js');
+  const { evaluateConstraint, STATUS } = await import('../app/js/engine/constraints.js');
+  const tpu = { id: 'M1', headline: { hdt045: { known: false, notApplicable: { reason: 'elastomer' } }, tensileModulusXY: { known: false, missing: 'not-published', unit: 'GPa' } } };
+  const { material } = applyAssumptions(tpu, [{ materialId: '*', property: 'hdt045', value: 150 }, { materialId: 'M1', property: 'tensileModulusXY', value: 2 }], { tensileModulusXY: 'GPa' });
+  assert.equal(material.headline.hdt045.known, false);
+  assert.equal(material.headline.tensileModulusXY.unit, 'GPa');
+  const r = evaluateConstraint(material, { kind: 'numeric', property: 'tensileModulusXY', operator: '>=', value: 1 });
+  assert.equal(r.status, STATUS.PASS);
+  assert.match(r.reason, /^Assumed 2 GPa \(a scenario assumption, not published\)/);
+});

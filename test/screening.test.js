@@ -26,10 +26,21 @@ test('structural invariants hold over random multi-requirement scenarios', () =>
   const pick = (a) => a[Math.floor(rnd() * a.length)];
   const ranges = { density: [800, 1800], tensileModulusXY: [0.01, 12], tensileStrengthXY: [5, 170], elongationXY: [1, 700], hdt045: [40, 270], priceCADkg: [20, 300] };
   const cats = Object.keys(db.meta.environmentCategories);
+  const statuses = [...new Set(mats.map((m) => m.h2cStatus))];
+  // Thresholds at the evidence itself half the time: a headline value, an interval or band end, an estimate end. Every
+  // comparison the rail can emit, including the strict ones (audit 2026-09-15).
+  const edges = Object.fromEntries(Object.keys(ranges).map((k) => [k, mats.flatMap((m) => {
+    const h = m.headline[k];
+    return [h?.value, h?.interval?.lo, h?.interval?.hi, h?.estimate?.plausible?.lo, h?.estimate?.plausible?.hi, h?.loadBracket?.hi];
+  }).filter(Number.isFinite)]));
   const gen = () => {
     const kind = pick(['numeric', 'numeric', 'numeric', 'gate', 'facet', 'environment', 'evidence']);
-    if (kind === 'numeric') { const p = pick(Object.keys(ranges)); const [a, b] = ranges[p]; return { kind, property: p, operator: pick(['>=', '<=']), value: a + rnd() * (b - a), mandatory: rnd() > 0.1 }; }
-    if (kind === 'gate') return pick([{ kind, gate: 'scope' }, { kind, gate: 'nozzle' }, { kind, gate: 'bed' }, { kind, gate: 'chamber' }, { kind, gate: 'abrasive', hardenedAvailable: rnd() > 0.5 }, { kind, gate: 'buyable', inStock: rnd() > 0.5 }, { kind, gate: 'dryingKnown' }]);
+    if (kind === 'numeric') {
+      const p = pick(Object.keys(ranges)); const [a, b] = ranges[p];
+      const value = rnd() < 0.5 && edges[p].length ? pick(edges[p]) : a + rnd() * (b - a);
+      return { kind, property: p, operator: pick(['>=', '<=', '>', '<']), value, mandatory: rnd() > 0.1 };
+    }
+    if (kind === 'gate') return pick([{ kind, gate: 'scope' }, { kind, gate: 'nozzle' }, { kind, gate: 'bed' }, { kind, gate: 'chamber' }, { kind, gate: 'abrasive', hardenedAvailable: rnd() > 0.5 }, { kind, gate: 'buyable', inStock: rnd() > 0.5 }, { kind, gate: 'dryingKnown' }, { kind, gate: 'h2cStatus', in: statuses.filter(() => rnd() > 0.4) }].filter((g) => !g.in || g.in.length));
     if (kind === 'facet') return pick([{ kind, facet: 'supportMaterial', equals: false }, { kind, facet: 'reinforcement', in: [pick(['carbon-fibre', 'glass-fibre', 'unfilled'])] }, { kind, facet: 'flexible', equals: rnd() > 0.5 }]);
     if (kind === 'environment') return { kind, category: pick(cats) };
     return { kind, exactGrade: rnd() > 0.5, noConflicts: rnd() > 0.5 };
@@ -47,6 +58,8 @@ test('structural invariants hold over random multi-requirement scenarios', () =>
     if (!sub(I.exploreEst, I.exploreNoEst)) bump('Estimates on shows a material estimates off does not', cs);
     for (const e of s.exploreEst.evaluations) {
       for (const r of e.results) if (r.status === STATUS.PASS && (r.estimated || r.notApplicable || r.caveat)) bump('PASS resting on inference', cs);
+      // A close-to-limit PASS is judged on a published mean (D54): it must rest on a measurement, and say so.
+      for (const r of e.results) if (r.closeToLimit && !(r.measurementId && /close to the limit/.test(r.reason))) bump('close-to-limit result without its measurement or wording', cs);
       if (e.verdict === STATUS.PASS && e.screened) bump('PASS and screened at once', cs);
       if (e.verdict === STATUS.FAIL && e.eligible) bump('FAIL still eligible', cs);
     }
@@ -54,7 +67,7 @@ test('structural invariants hold over random multi-requirement scenarios', () =>
     for (const [k, c] of Object.entries(modes)) if (!sub(ids(runSelection(mats, extra, { ...base, ...c })), I[k])) bump(`Adding a requirement adds a material (${k})`, extra);
     const n = cs.find((c) => c.kind === 'numeric' && c.mandatory !== false);
     if (n) {
-      const tight = cs.map((c) => (c === n ? { ...c, value: c.operator === '>=' ? c.value * 1.2 : c.value * 0.8 } : c));
+      const tight = cs.map((c) => (c === n ? { ...c, value: c.operator.startsWith('>') ? c.value * 1.2 : c.value * 0.8 } : c));
       for (const [k, c] of Object.entries(modes)) if (!sub(ids(runSelection(mats, tight, { ...base, ...c })), I[k])) bump(`Tightening a threshold adds a material (${k})`, tight);
     }
     const soft = [...cs, { ...gen(), mandatory: false }];

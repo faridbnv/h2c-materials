@@ -40,14 +40,24 @@ test('bounded measurements: ">650 %" and "<0.8 %"', () => {
   assert.equal(compareInterval(lt08, '>=', 1), STATUS.FAIL);
 });
 
-test('uncertainty that straddles the threshold is indeterminate, not a pass', () => {
-  const m = { id: 'M1', headline: { tensileModulusXY: {
-    known: true, value: 2.98, unit: 'GPa', uncertainty: 0.09,
-    interval: { lo: 2.89, hi: 3.07, kind: 'uncertainty' }, measurementId: 'V1',
+test('a mean ± band is judged on its mean, and a threshold inside the band is flagged close to the limit (D54)', () => {
+  const m = { id: 'M1', headline: { tensileStrengthXY: {
+    known: true, value: 35, unit: 'MPa', uncertainty: 4,
+    interval: { lo: 31, hi: 39, kind: 'uncertainty' }, measurementId: 'V1',
   } } };
-  const r = evaluateConstraint(m, { kind: 'numeric', property: 'tensileModulusXY', operator: '>=', value: 3 });
-  assert.equal(r.status, STATUS.INDETERMINATE);
-  assert.match(r.reason, /straddles/);
+  const at = (operator, value) => evaluateConstraint(m, { kind: 'numeric', property: 'tensileStrengthXY', operator, value });
+  assert.equal(at('>=', 33).status, STATUS.PASS);
+  assert.equal(at('>=', 33).closeToLimit, true);
+  assert.match(at('>=', 33).reason, /close to the limit/);
+  assert.equal(at('>=', 36).status, STATUS.FAIL);
+  assert.equal(at('>=', 36).closeToLimit, true);
+  assert.equal(at('>=', 30).closeToLimit, false);
+  assert.equal(at('<=', 35).status, STATUS.PASS);
+  // A published range is still a range.
+  const r = { id: 'M2', headline: { tensileStrengthXY: { known: true, value: 42, unit: 'MPa', interval: { lo: 42, hi: 52, kind: 'range' }, measurementId: 'V2' } } };
+  const inRange = evaluateConstraint(r, { kind: 'numeric', property: 'tensileStrengthXY', operator: '>=', value: 45 });
+  assert.equal(inRange.status, STATUS.INDETERMINATE);
+  assert.match(inRange.reason, /straddles/);
 });
 
 test('missing data is UNKNOWN and never zero', () => {

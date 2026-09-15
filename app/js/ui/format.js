@@ -19,6 +19,21 @@ export function fmtNumber(v, unit) {
   return unit ? `${s} ${unit}` : s;
 }
 
+const SIDE = { '>=': (a, b) => a >= b, '>': (a, b) => a > b, '<=': (a, b) => a <= b, '<': (a, b) => a < b };
+
+/**
+ * A number shown beside requirements on its property, never rounded across one of them. PC's price of 50.99 read
+ * "51" while passing "price < 51" (audit 2026-09-15, A-01): where rounding would put the shown number on the other
+ * side of a threshold than the value is, it gets the digits that keep it on its own side.
+ */
+export function fmtAgainst(v, thresholds = [], unit) {
+  let s = fmtNumber(v, null);
+  const crosses = (text) => thresholds.some(({ operator, value }) => SIDE[operator]
+    && SIDE[operator](Number(text.replace(/,/g, '')), value) !== SIDE[operator](v, value));
+  for (let digits = 3; Number.isFinite(v) && crosses(s) && digits <= 12; digits++) s = String(Number(v.toPrecision(digits)));
+  return unit ? `${s} ${unit}` : s;
+}
+
 // Wording for the four missing states. They are different engineering answers and stay different.
 // The long form, used wherever there is room and in every tooltip.
 const MISSING_FULL = {
@@ -44,7 +59,7 @@ const MISSING_LABEL = {
  * tensile-strength measurement that never became the headline because the source stated no
  * direction or a different endpoint. A blank cell hid that and implied nothing was known.
  */
-export function renderValue(entry, { showUnit = false, compact = false, estimates = false } = {}) {
+export function renderValue(entry, { showUnit = false, compact = false, estimates = false, results = [] } = {}) {
   if (!entry) return `<span class="missing">—</span>`;
   if (!entry.known) {
     const label = esc(MISSING_LABEL[entry.missing] ?? 'Not published');
@@ -85,7 +100,8 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
       + `<span class="rv">${fmtNumber(b.value)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span></span>`;
   }
-  const text = fmtNumber(entry.value, showUnit ? entry.unit : null);
+  const thresholds = results.map((r) => r.constraint).filter((c) => c && Number.isFinite(c.value));
+  const text = fmtAgainst(entry.value, thresholds, showUnit ? entry.unit : null);
   let cls = '';
   let title = '';
   if (entry.assumption) {
@@ -111,7 +127,12 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
   const load = entry.loadStated === false
     ? `<span class="load-mark" title="The source states the test standard but not the load">?</span>`
     : '';
-  return `<span class="${cls}"${title ? ` title="${esc(title)}"` : ''}>${text}</span>${load}${dot}`;
+  // A published mean whose spread contains a requirement's threshold decides on its mean (D54) and says it is close.
+  const close = results.find((r) => r.closeToLimit);
+  const near = close
+    ? `<span class="load-mark" title="${esc(`Close to the limit: published ${fmtNumber(entry.value)} ± ${fmtNumber(entry.uncertainty)} ${entry.unit}, and the threshold lies within that spread. Judged on the mean.`)}">≈</span>`
+    : '';
+  return `<span class="${cls}"${title ? ` title="${esc(title)}"` : ''}>${text}</span>${load}${near}${dot}`;
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */
