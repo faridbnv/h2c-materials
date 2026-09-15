@@ -164,6 +164,10 @@ function snapshot(materials, gradeList, measurements, model) {
   const pool = materials.filter((m) => !m.excluded && !m.familyEntry && model.identities[identityOf(m)]);
   const inPool = new Map(pool.map((m) => [m.id, m]));
   const fkey = (gid) => grades.get(gid)?.formulationKey || gid;
+  // A product declared a variant of its material (grades.csv Variant) carries that variant in every grade of its formulation.
+  const variants = new Map();
+  for (const g of gradeList) if (g.variant) variants.set(fkey(g.id), g.variant);
+  const variantOf = (f) => (f ? variants.get(f) ?? null : null);
   const info = (m) => model.identities[identityOf(m)];
   const reinforcement = (m) => m.facets.reinforcement.value;
   const fibre = (m) => reinforcement(m) === 'carbon-fibre' || reinforcement(m) === 'glass-fibre';
@@ -182,7 +186,7 @@ function snapshot(materials, gradeList, measurements, model) {
     ?? median(pool.filter((p) => identityOf(p) === identityOf(m)).flatMap((p) => (byMaterial.get(p.id) ?? [])
       .filter((x) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !x.specimenType?.startsWith('Raw material')).map((x) => x.value)));
 
-  return { grades, pool, inPool, fkey, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf };
+  return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf };
 }
 
 // --------------------------------------------------------------------------------- evidence kinds
@@ -381,21 +385,23 @@ function meltingPoint(key, S, model) {
 function makeKernel(key, S, model) {
   const scale = model.properties[key].scaleUnit;
   const tmCovariate = meltingPoint(key, S, model).covariate;
-  const columns = (m, manufacturer) => {
+  const columns = (m, formulation, manufacturer) => {
     const id = identityOf(m), info = S.info(m), f = S.reinforcement(m);
     const x = new Map([['1', 1], [`g:${info.group}`, 1], [`p:${id}`, 1]]);
     // Reinforcement acts through the matrix: a fibre network lifts a semicrystalline bar's heat
     // deflection towards its melting point but an amorphous bar's only a little past Tg.
     if (f !== 'unfilled') { if (key !== 'hdt045') x.set(`f:${f}`, 1); x.set(`fx:${f}:${info.morphology}`, 1); }
     for (const [tag, names] of Object.entries(model.variants)) if (names.includes(m.name)) x.set(`v:${tag}`, 1);
+    // A variant product explains its own offset (a lightweight additive, an undisclosed filler) rather than moving its family.
+    if (S.variantOf(formulation)) x.set(`v:grade:${S.variantOf(formulation)}`, 1);
     if (manufacturer) x.set(`s:${manufacturer}`, 1);
     if (tmCovariate(m) != null) x.set(S.fibre(m) ? 'tm:fibre' : 'tm:unfilled', tmCovariate(m));
     return x;
   };
   const sdOf = (c, hp) => (c === '1' ? 10 * scale : c[0] === 'g' ? hp.tg : c[0] === 'p' ? hp.tp : c.startsWith('fx:') ? hp.tfx
-    : c[0] === 'f' ? hp.tf : c[0] === 'v' ? hp.tv : c.startsWith('tm:') ? hp.ttm : c[0] === 's' ? hp.tm : 0);
+    : c[0] === 'f' ? hp.tf : c.startsWith('v:grade:') ? model.gradeVariants.spreadInScaleUnits * scale : c[0] === 'v' ? hp.tv : c.startsWith('tm:') ? hp.ttm : c[0] === 's' ? hp.tm : 0);
   const productSd = (m, hp) => (S.info(m).morphology === 'elastomer' ? hp.we : hp.w);
-  const point = (m, f, manufacturer) => ({ m, f, x: columns(m, manufacturer) });
+  const point = (m, f, manufacturer) => ({ m, f, x: columns(m, f, manufacturer) });
   const cov = (a, b, hp) => {
     let s = 0;
     for (const [c, v] of a.x) { const w = b.x.get(c); if (w !== undefined) { const t = sdOf(c, hp); s += v * w * t * t; } }
@@ -677,7 +683,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
         kind: o.kind, gradeId: o.gradeId, sameGrade: !!f && o.f === f,
         items: o.items, converted: sig3(inv(o.y)), conversion: o.conversion.why, conflict: !!o.conflict,
       }));
-      const family = [identityOf(m), m.facets.reinforcement.value !== 'unfilled' ? m.facets.reinforcement.value : null,
+      const family = [identityOf(m), m.facets.reinforcement.value !== 'unfilled' ? m.facets.reinforcement.value : null, S.variantOf(f),
         manufacturer ? `tested by ${manufacturer}` : null].filter(Boolean).join(', ');
       h.estimate = {
         kind: 'model', strength, precision, unit: h.unit,

@@ -541,6 +541,7 @@ export function compile(wb, { snapshot, build }) {
   const grades = wb.Grades.rows.map((r) => ({
     id: r.GradeID, materialId: r.MaterialID, manufacturer: r.Manufacturer, product: r['Product name'],
     formulationKey: r['Shared formulation key'], composition: r['Composition / filler'],
+    variant: r.Variant && r.Variant !== 'Not applicable' ? r.Variant : null,
     colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
     rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
     diameters: r['Diameter compatibility'],

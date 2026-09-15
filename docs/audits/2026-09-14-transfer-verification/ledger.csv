@@ -7,6 +7,8 @@ Materials,57,M051,Environmental evidence,"derived: own environmental records, ta
 Materials,76,M070,Price CAD/kg,"derived: median rounded to the cent (m03, listed)",254.65333333333334,254.65,254.65,
 Materials,79,M073,Price CAD/kg,"derived: median rounded to the cent (m03, listed)",221.32000000000002,221.32,221.32,
 Grades,89,G067-01,Composition / filler,text cleanup (m07),Polyethylene terephthalate，carbon fiber,Polyethylene terephthalate，carbon fiber,"Polyethylene terephthalate, carbon fiber",
+Grades,106,G082-01,Composition / filler,variant composition recorded from the source (m11),Not published,Not published,"Specialty additive for ultra low density; the manufacturer states 0.75 g/cc (""HyperLite PP HGB1"", R-TRINITY3DS-HYPERLITE-PP). A lightweight variant, not unfilled PP.",
+Grades,110,G085-01,Composition / filler,variant composition recorded from the source (m11),Not published,Not published,"Not published by the manufacturer (""Low Warp technology""). Its 1.1 g/cm³ exceeds fully crystalline polyethylene (about 1.00 g/cm³) and its 3.5 GPa modulus is about three times neat HDPE's, so the formulation contains a dense filler.",
 Grades,136,G031-R1,Source locator,text cleanup (m07),Table 2; §§2.2–2.3,Table 2; §§2.2–2.3,Table 2; §§2.2-2.3,
 Grades,137,G035-R1,Source locator,text cleanup (m07),Table 2; §§2.2–2.3,Table 2; §§2.2–2.3,Table 2; §§2.2-2.3,
 Grades,138,G052-R1,Source locator,text cleanup (m07),Table 2; §§2.2–2.3,Table 2; §§2.2–2.3,Table 2; §§2.2-2.3,
@@ -848,6 +850,10 @@ Properties,1948,V001945,Raw uncertainty ±,number stored as text made canonical 
 Properties,2020,V002017,Raw numeric,number stored as text made canonical (m01),1.20,1.20,1.2,
 Properties,,V002050,(row),published value added from the source (m10),,,added,p. 4: Notched Charpy impact strength (Z)
 Properties,,V002051,(row),published value added from the source (m10),,,added,"p. 4: Low temperature impact strength (X-Y), -30°C"
+Properties,,V002052,(row),published value added from the source (m11),,,added,Product description: ultra low density (0.75g/cc)
+Properties,,V002053,(row),published value added from the source (m11),,,added,p. 1: Density
+Properties,,V002054,(row),published value added from the source (m11),,,added,p. 1: Tensile Strength
+Properties,,V002055,(row),published value added from the source (m11),,,added,p. 1: Notched Izod Impact Strength
 Use & durability,69,Q00066,Finding,text cleanup (m07),All the specimens were annealed and dried at 55 °C for8 h before testing,All the specimens were annealed and dried at 55 °C for8 h before testing,All the specimens were annealed and dried at 55 °C for 8 h before testing,
 Use & durability,334,Q00331,Finding,text cleanup (m07),Store sealed; source specifies drying at 90–100°C for 6–8 h when wet.,Store sealed; source specifies drying at 90–100°C for 6–8 h when wet.,Store sealed; source specifies drying at 90-100°C for 6-8 h when wet.,
 Use & durability,348,Q00345,Exposure / conditions,text cleanup (m07),"Tables 5–8; 10 Hz, R=0.05, 1,000,000-cycle run-out.","Tables 5–8; 10 Hz, R=0.05, 1,000,000-cycle run-out.","Tables 5-8; 10 Hz, R=0.05, 1,000,000-cycle run-out.",
@@ -864,18 +870,23 @@ Prices CA,101,CA0098,Regular CAD/kg,derived: list price / net mass to the cent (
 Prices CA,101,CA0098,Headline sample,boolean made canonical (m01),0,0,FALSE,
 Prices CA,102,CA0099,Regular CAD/kg,derived: list price / net mass to the cent (display showed the same),162.65333333333334,162.65,162.65,
 Sources,4,H2C-MANUAL,Locator,text cleanup (m07),Chapter8 Filament; pp123–139; see printed page numbering,Chapter8 Filament; pp123–139; see printed page numbering,Chapter8 Filament; pp123-139; see printed page numbering,
-Sources,13,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Access date,test condition corrected against the source (m10),46275.5,2026-09-10,2026-09-14,
-Sources,30,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,Access date,test condition corrected against the source (m10),46275.5,2026-09-10,2026-09-14,
+Sources,13,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
+Sources,30,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
 Sources,41,S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,Revision,text cleanup (m07),"Technical Data Sheet  
            V5.3","Technical Data Sheet  
            V5.3",Technical Data Sheet V5.3,
-Sources,70,S-POLYCN-PolyMide-CoPA-TDS-V5-2,Access date,test condition corrected against the source (m10),46275.5,2026-09-10,2026-09-14,
-Sources,78,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Access date,test condition corrected against the source (m10),46275.5,2026-09-10,2026-09-14,
-Sources,84,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Access date,test condition corrected against the source (m10),46275.5,2026-09-10,2026-09-14,
+Sources,70,S-POLYCN-PolyMide-CoPA-TDS-V5-2,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
+Sources,78,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
+Sources,84,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
 Sources,90,S-PPA-TDS,Revision,text cleanup (m07),Version：1.0,Version：1.0,Version: 1.0,
 Sources,92,D-IPCON-PPA,Revision,text cleanup (m07),Version：1.0,Version：1.0,Version: 1.0,
 Sources,96,S-PPSGF-TDS-0,Revision,text cleanup (m07),Version：2.0,Version：2.0,Version: 2.0,
+Sources,105,X-Hyperlite-PP-TDS-v1,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
+Sources,106,I-PP-TDS,Title,source title corrected against the document (m11),意可曼PHA EM40010,意可曼PHA EM40010,PP Filament Technical Data Sheet,
+Sources,106,I-PP-TDS,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
+Sources,109,S-SPECTRUM-en-tds-spectrum-hdpe,Access date,"source re-read (m10, m11)",46275.5,2026-09-10,2026-09-14,
 Sources,214,R-POLYMAKER-WIKI-HTPLAGF,Access date,date made canonical (m01),2026-09-11 00:00:00,2026-09-11 00:00:00,2026-09-11,
 Sources,215,R-STRATASYS-ULTEM9085,Access date,date made canonical (m01),2026-09-11 00:00:00,2026-09-11 00:00:00,2026-09-11,
 Sources,216,R-H2C-SPECS,Access date,date made canonical (m01),2026-09-11 00:00:00,2026-09-11 00:00:00,2026-09-11,
 Sources,217,R-MDPI-FATIGUE,Access date,date made canonical (m01),2026-09-11 00:00:00,2026-09-11 00:00:00,2026-09-11,
+Sources,,R-TRINITY3DS-HYPERLITE-PP,(row),source added (m11),,,added,Product description

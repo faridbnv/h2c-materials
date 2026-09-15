@@ -1,8 +1,8 @@
 {
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
-  "cells": 99366,
+  "cells": 99371,
   "totals": {
-    "equal": 87547,
+    "equal": 87544,
     "derived: first cited profile, equal": 290,
     "derived or linked: same identifiers, same order": 918,
     "derived: headline read from its measurement, equal": 353,
@@ -16,18 +16,23 @@
     "text cleanup (m07)": 427,
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
+    "variant composition recorded from the source (m11)": 2,
     "formula cached text, current": 2864,
-    "test condition corrected against the source (m10)": 287,
+    "test condition corrected against the source (m10)": 282,
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
     "number stored as text made canonical (m01)": 4,
     "published value added from the source (m10)": 2,
+    "published value added from the source (m11)": 4,
     "derived: list price / net mass, equal": 53,
-    "date serial written as a date": 312,
+    "date serial written as a date": 309,
     "derived: not eligible, no per-kg price": 44,
     "derived: list price / net mass to the cent (display showed the same)": 7,
     "boolean made canonical (m01)": 2,
-    "date made canonical (m01)": 4
+    "source re-read (m10, m11)": 8,
+    "source title corrected against the document (m11)": 1,
+    "date made canonical (m01)": 4,
+    "source added (m11)": 1
   },
   "bySheet": {
     "Materials": {
@@ -47,10 +52,12 @@
       "derived: median rounded to the cent (m03, listed)": 4
     },
     "Grades": {
-      "equal": 2010,
+      "equal": 2008,
       "text cleanup (m07)": 5,
+      "variant composition recorded from the source (m11)": 2,
       "added column: Role": 155,
-      "added column: Status": 155
+      "added column: Status": 155,
+      "added column: Variant": 155
     },
     "Print setup": {
       "equal": 6424,
@@ -84,8 +91,9 @@
       "text cleanup (m07)": 336,
       "number stored as text made canonical (m01)": 4,
       "published value added from the source (m10)": 2,
-      "added column: Test load MPa": 2051,
-      "added column: Parse review": 2051
+      "published value added from the source (m11)": 4,
+      "added column: Test load MPa": 2055,
+      "added column: Parse review": 2055
     },
     "Use & durability": {
       "equal": 5720,
@@ -102,11 +110,13 @@
       "boolean made canonical (m01)": 2
     },
     "Sources": {
-      "equal": 2694,
-      "date serial written as a date": 208,
+      "equal": 2693,
+      "date serial written as a date": 205,
       "text cleanup (m07)": 5,
-      "test condition corrected against the source (m10)": 5,
-      "date made canonical (m01)": 4
+      "source re-read (m10, m11)": 8,
+      "source title corrected against the document (m11)": 1,
+      "date made canonical (m01)": 4,
+      "source added (m11)": 1
     },
     "Coverage": {
       "equal": 5940

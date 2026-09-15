@@ -113,7 +113,8 @@
           "sourceId",
           "locator",
           "diameters",
-          "retired"
+          "retired",
+          "variant"
         ],
         "properties": {
           "id": {
@@ -158,6 +159,12 @@
           },
           "retired": {
             "type": "boolean"
+          },
+          "variant": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }

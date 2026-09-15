@@ -645,3 +645,20 @@ test('no estimate reaches past a physical limit, and calibration still holds', (
     assert.ok(p.calibration.plausibleCoverage >= 0.9, `${key} plausible coverage ${p.calibration.plausibleCoverage}`);
   }
 });
+
+// 2026-09-14: a grade declared a variant of its material (grades.csv Variant) explains its own offset. HyperLite
+// PP's 0.81 g/cc (a lightweight additive) was a model outlier and pulled PP's family; declared, it is neither.
+test('a declared grade variant explains its own offset instead of being an outlier', async () => {
+  const { loadTables, snapshotDate } = await import('../build/src/load.js');
+  const { compile } = await import('../build/src/compile.js');
+  const flagged = (edit) => {
+    const wb = loadTables(join(root, 'data'));
+    edit(wb);
+    const d = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db;
+    const em = d.meta.estimateModel;
+    return [...em.outliers, ...em.conflicts].filter((o) => o.materialId === 'M082' && o.key === 'density').length;
+  };
+  assert.equal(flagged(() => {}), 0);
+  assert.ok(flagged((wb) => { wb.Grades.rows.find((g) => g.GradeID === 'G082-01').Variant = 'Not applicable'; }) > 0, 'without the declaration the lightweight product is flagged');
+  assert.deepEqual(db.grades.filter((g) => g.variant).map((g) => `${g.id} ${g.variant}`), ['G082-01 lightweight additive', 'G085-01 undisclosed dense filler']);
+});

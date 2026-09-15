@@ -325,6 +325,10 @@
       "PLA Glow"
     ]
   },
+  "_gradeVariantsComment": "A grade declared a variant of its material (grades.csv Variant: a lightweight additive, an undisclosed dense filler) gets its own covariate. One product per variant cannot teach its spread, so the spread is fixed, in the property's scale units, at the top of the grid learned spreads may take: the product's offset is explained by its variant and does not move its polymer family's estimates.",
+  "gradeVariants": {
+    "spreadInScaleUnits": 4
+  },
   "_hardnessComment": [
     "Nominal Shore hardness from a grade's product designation or data sheet. For an elastomer it is converted",
     "to a stiffness estimate: Gent (1958) for Shore A, Qi, Joyce and Boyce (2003) for Shore D, and then the",

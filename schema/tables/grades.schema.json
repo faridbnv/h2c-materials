@@ -85,6 +85,19 @@
       }
     },
     {
+      "name": "Variant",
+      "type": "string",
+      "role": "editorial",
+      "vocabulary": "grade-variants",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      },
+      "description": "The product is a variant its material's Modifier / filler does not describe (schema/vocab/grade-variants.csv). Its values stay its own; the estimate model gives it a variant covariate so it does not pull its family. Say why in Composition / filler."
+    },
+    {
       "name": "Colour caveat",
       "type": "string",
       "role": "prose",

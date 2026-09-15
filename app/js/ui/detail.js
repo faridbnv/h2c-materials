@@ -434,6 +434,7 @@ function tabBody(tab, c) {
         <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
         <dt>Product</dt><dd>${esc(g.product ?? '')}</dd>
         <dt>Composition</dt><dd>${esc(g.composition ?? '')}</dd>
+        ${g.variant ? `<dt>Variant</dt><dd>${esc(g.variant)}: its numbers describe this product, not the polymer in general</dd>` : ''}
         <dt>Availability</dt><dd>${esc(g.availability ?? '')}</dd>
         <dt>Certifications</dt><dd>${esc(g.certifications ?? '')}</dd>
         <dt>Colour</dt><dd>${colourLine(g)}</dd>
