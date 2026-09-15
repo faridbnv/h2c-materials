@@ -84,8 +84,8 @@ plotting library, not the data, is what the file weighs.
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition and its state (printed, dry, as printed, not flagged implausible); implied bounds come from printed values only (D55). |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
-| `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43, D53), following printing physics (crystallisation while printing, water uptake, rule-of-mixtures density, Vicat caps, elastomers; D56) and bounded by what the material's own printed data prove (D55); and the screening back-test that certifies which evidence may screen (D48). |
-| `print-estimates.js` | Nozzle and bed windows inferred from peers where no source publishes one. They decide nothing. |
+| `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
+| `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43, D53), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `calibration.js`, `bounds.js` ranges and their limits, `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. |
 | `chamber-estimates.js` | The research's chamber bands, from `data/tables/chamber_bands.csv`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
@@ -193,8 +193,8 @@ tab for its domain, counts as coverage evidence, and is checked for unit and app
 value row in `headlines.csv` for each material that has one. The filter rail, charts, table, export,
 drawer and engine pick it up from the registry; materials outside "Applies to" show it as not
 applicable with the reason. `test/new-property.test.js` does exactly this for an elastomer-only
-Shore A hardness. Only estimation needs code: mark it Estimated only after adding `HEAD` and `kindOf`
-cases in `estimates.js` and its scale, floors, precision thresholds and conversions in
+Shore A hardness. Only estimation needs code: mark it Estimated only after adding `HEAD` (`estimate/model.js`) and `kindOf`
+(`estimate/observations.js`) cases and its scale, floors, precision thresholds and conversions in
 `build/mappings/estimate-model.json`; the build refuses the flag otherwise, and the calibration check
 says at once whether the model holds.
 

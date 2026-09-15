@@ -21,8 +21,7 @@ import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped } from './typed-values.js';
-import { buildEstimates, summariseEstimates, ESTIMATE_MODEL } from './estimates.js';
-import { attachPrintEstimates } from './print-estimates.js';
+import { ESTIMATE_MODEL } from './estimate/model.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 
 // Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an
@@ -757,12 +756,10 @@ export function compile(wb, { snapshot, build }) {
 
   resolveFamilyEntries(familyEntries, materials, grades, issues);
 
-  // Estimates are attached last, once every headline is known, and only to headlines that have no
-  // value of their own. The model's calibration and diagnostics travel in meta (DECISIONS D43).
-  const estimateModel = buildEstimates(materials, { grades, measurements, registry });
+  // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
+  // are not compiled here: the estimate stage (build/src/estimate/) adds them to the finished database.
   const chamberEstimates = attachChamberEstimates(materials, chamberBandsFromTables(wb));
   issues.push(...chamberEstimates.issues);
-  const printEstimates = attachPrintEstimates(materials);
 
   const environmentCategories = countUsableByCategory(evidenceRows);
 
@@ -787,10 +784,7 @@ export function compile(wb, { snapshot, build }) {
           sources: sources.length, coverage: coverage.length,
         },
         environmentCategories,
-        estimateCoverage: summariseEstimates(materials, registry),
-        estimateModel,
         chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },
-        printEstimates,
         headlineCoverage: Object.fromEntries(
           registry.headlines.map((h) => [h.key, materials.filter((m) => m.headline[h.key]?.known).length]),
         ),

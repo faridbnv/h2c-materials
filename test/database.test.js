@@ -9,6 +9,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { validate } from '../build/src/validate.js';
+import { validateEstimates } from '../build/src/estimate/validate.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
@@ -578,7 +579,7 @@ test('an estimated chamber band never sits beside published evidence and never d
 const errorsFor = (mutate) => {
   const copy = structuredClone(db);
   mutate(copy);
-  return validate(copy).filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`);
+  return [...validate(copy), ...validateEstimates(copy)].filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`);
 };
 const mat = (copy, name) => copy.materials.find((m) => m.name === name);
 
@@ -632,7 +633,8 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
 // Systematic data audit: use the actual source tables, then introduce independent corruption.
 import { loadTables } from '../build/src/load.js';
 import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js';
-import { normalQuantile, boundedQuantile, modulusFromShore, kindOf } from '../build/src/estimates.js';
+import { normalQuantile, boundedQuantile } from '../build/src/estimate/numerics.js';
+import { modulusFromShore, kindOf } from '../build/src/estimate/observations.js';
 import { annealedBesideAsPrinted } from '../build/src/normalize/specimen.js';
 import { moistureState } from '../build/src/normalize/moisture.js';
 
@@ -743,11 +745,11 @@ test('no estimate reaches past a physical limit, and calibration still holds', (
 // PP's 0.81 g/cc (a lightweight additive) was a model outlier and pulled PP's family; declared, it is neither.
 test('a declared grade variant explains its own offset instead of moving its family', async () => {
   const { loadTables, snapshotDate } = await import('../build/src/load.js');
-  const { compile } = await import('../build/src/compile.js');
+  const { buildDatabase } = await import('../build/src/pipeline.js');
   const pa66Stiffness = (edit) => {
     const wb = loadTables(join(root, 'data'));
     edit(wb);
-    return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db.materials.find((m) => m.name === 'PA66').headline.tensileModulusXY.estimate.centre;
+    return buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db.materials.find((m) => m.name === 'PA66').headline.tensileModulusXY.estimate.centre;
   };
   // Spectrum PA6 Neat (3.4 GPa, 1.25 g/cm³) is a compound. Declared, it explains its own offset; undeclared, it lifts
   // the unfilled polyamides' stiffness (audit 2026-09-15, B-11). HyperLite PP, once the test case, is its own material.

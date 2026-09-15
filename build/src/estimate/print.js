@@ -14,11 +14,10 @@
 // Like a chamber band, an estimated window decides nothing: the nozzle and bed gates stay unknown
 // (DECISIONS D6, D43). It is shown beside the gate, marked as an estimate.
 
-import { ESTIMATE_MODEL } from './estimates.js';
+import { ESTIMATE_MODEL, identityOf } from './model.js';
+import { median } from './numerics.js';
 
-const identityOf = (m) => (m.family === 'Polymer Blends' ? m.normalizedName : m.basePolymer);
 const FIBRE = new Set(['carbon-fibre', 'glass-fibre']);
-const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
 const MELT_MARGIN = 5;
 const MIN_WIDTH = 15;
 

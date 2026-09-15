@@ -10,8 +10,7 @@ import { join } from 'node:path';
 import { synthesize } from '../scripts/data/synthesize.mjs';
 import { checkData } from '../build/src/schema.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
-import { validate } from '../build/src/validate.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 
 test('twice the entries pass the gate, compile and validate within budget', () => {
   const dir = mkdtempSync(join(tmpdir(), 'h2c-2x-'));
@@ -21,8 +20,7 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     const schemaIssues = checkData(join(dir, 'data'), join(dir, 'schema')).issues;
     const t1 = performance.now();
     const wb = loadTables(join(dir, 'data'));
-    const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'scale' });
-    issues.push(...validate(db, wb));
+    const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'scale' });
     const t2 = performance.now();
 
     assert.deepEqual(schemaIssues, []);

@@ -5,8 +5,7 @@
 import { resolve } from 'node:path';
 import { snapshotDate } from '../../build/src/load.js';
 import { readSource } from '../../build/src/source.js';
-import { compile } from '../../build/src/compile.js';
-import { validate } from '../../build/src/validate.js';
+import { buildDatabase } from '../../build/src/pipeline.js';
 
 export const REVIEW_CODES = ['EST-OUTLIER', 'EST-WIDE', 'EST-FAMILY-ORDER', 'HDT-LOAD-UNSTATED', 'NO-MEASUREMENTS'];
 
@@ -19,6 +18,5 @@ export function reviewFindings(issues) {
 /** Compile the tables as the build does and return its issues. */
 export function compileIssues(root = resolve('.')) {
   const { wb } = readSource(root);
-  const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'review' });
-  return [...issues, ...validate(db, wb)];
+  return buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'review' }).issues;
 }

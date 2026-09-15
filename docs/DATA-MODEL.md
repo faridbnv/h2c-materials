@@ -271,7 +271,7 @@ headed "HDT at 0.45 MPa". The Method table keeps those quantities distinct.
 ### Estimates
 
 Where a headline is missing, the build attaches an estimate. Its design is DECISIONS D43, its code
-`build/src/estimates.js`, and its structure, conversions and limits are reviewed like code in
+`build/src/estimate/`, and its structure, conversions and limits are reviewed like code in
 `build/mappings/estimate-model.json`.
 
 The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PET, BVOH, PVA, unfilled PPA)
@@ -410,7 +410,7 @@ A chamber band is marked the same way, `~80–120†` in the Printing table whil
 a card in the drawer's chamber line, but unlike a property estimate it never screens: it rules nothing out
 and nothing in. It appears in the CSV's estimated-fields column with "decides nothing" beside it.
 
-An estimated nozzle or bed window (`build/src/print-estimates.js`) is marked the same way and decides
+An estimated nozzle or bed window (`build/src/estimate/print.js`) is marked the same way and decides
 nothing either. It is the median window of the same polymer's materials, or of its chemical group and
 matrix when the polymer has none, shifted by the snapshot's median fibre offset (9 °C nozzle), and a
 semicrystalline nozzle window starts above the melting point. PA66 reads `~270–285†` °C.

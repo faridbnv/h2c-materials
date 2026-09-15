@@ -12,7 +12,7 @@
 import { resolve } from 'node:path';
 import { readSource } from '../build/src/source.js';
 import { snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 
 const [query, key] = process.argv.slice(2);
 if (!query) {
@@ -22,7 +22,7 @@ if (!query) {
 
 const root = resolve('.');
 const { wb } = readSource(root);
-const { db } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'trace' });
+const { db } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'trace' });
 const byId = (rows, field) => new Map(rows.map((r) => [r[field], r]));
 const measurementRows = byId(wb.Properties.rows, 'MeasurementID');
 const gradeRows = byId(wb.Grades.rows, 'GradeID');

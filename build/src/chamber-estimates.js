@@ -1,7 +1,7 @@
 // Estimated chamber bands: what the 2026-09-13 research inferred for materials whose sources
 // publish no chamber temperature.
 //
-// These differ from the property estimates in estimates.js in two ways, and both matter.
+// These differ from the property estimates of build/src/estimate/ in two ways, and both matter.
 //
 // They are authored, not computed. A researcher chose each band from peer profiles, so they live in
 // data/tables/chamber_bands.csv, one row per material by MaterialID, with the basis and caution the

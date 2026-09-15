@@ -16,8 +16,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { csvText } from '../build/src/csv.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
-import { validate } from '../build/src/validate.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 import { runSelection, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 
@@ -25,8 +24,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dir = join(root, 'build/snapshot');
 
 const wb = loadTables(join(root, 'data'));
-const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'snapshot' });
-issues.push(...validate(db, wb));
+const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'snapshot' });
 const errors = issues.filter((i) => i.level === 'error');
 if (errors.length) { console.error(`${errors.length} build error(s); fix them before the snapshot (npm run build)`); process.exit(1); }
 

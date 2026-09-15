@@ -10,8 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { openTables } from '../scripts/data/table-io.mjs';
 import { checkData } from '../build/src/schema.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
-import { validate } from '../build/src/validate.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 import { useRegistry, numericFilters, exportHeadlines, propertiesInDomain, propertyApplies } from '../app/js/ui/registry.js';
 import { PROPERTY } from '../app/js/ui/labels.js';
 import { AXIS_DEFS } from '../app/js/ui/axes.js';
@@ -67,8 +66,7 @@ function withShoreA({ misfile = false } = {}) {
 function compiled(dir) {
   const schemaIssues = checkData(join(dir, 'data'), join(dir, 'schema')).issues;
   const wb = loadTables(join(dir, 'data'));
-  const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
-  issues.push(...validate(db, wb));
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
   return { db, schemaIssues, errors: issues.filter((i) => i.level === 'error') };
 }
 

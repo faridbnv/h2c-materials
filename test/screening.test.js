@@ -7,7 +7,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
-import { certifyScreening, ESTIMATE_MODEL } from '../build/src/estimates.js';
+import { certifyScreening } from '../build/src/estimate/screening.js';
+import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');

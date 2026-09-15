@@ -11,7 +11,8 @@ npm run validate       stops after the report; writes no dist artefacts
 npm test               builds, then engine, data, registry, contract, scale and database tests
 ```
 
-Everything runs from `build/src/index.js`. The build is deterministic and **fails on any validation
+Everything runs from `build/src/index.js`, and every caller (the build, the snapshot, the audit, the trace and the tests)
+runs the stages through `build/src/pipeline.js`. The build is deterministic and **fails on any validation
 error**, so a database that has drifted cannot reach a distributable file.
 
 ---
@@ -147,7 +148,7 @@ Compile also derives, each tagged with its origin so the interface can tell them
   resistance") and a sentence form ("acids"), so the engine can name a category in a reason string
   without importing anything from the interface, and so there is one place to change a name.
 
-## 4. Estimates — `estimates.js`, `print-estimates.js` and `chamber-estimates.js`
+## 4. Estimates — `estimate/` and `chamber-estimates.js`
 
 Runs after every headline is known, in about two seconds. For each headline it rejects physically
 impossible values, converts every observation of every in-scope material to the headline's semantics
@@ -170,7 +171,7 @@ headline gets an estimate with its evidence, precision and the range it may scre
 evidence, outlying headlines) go to `meta.estimateModel`. `docs/DATA-MODEL.md` explains the model
 under "Estimates"; DECISIONS D43 says why.
 
-`print-estimates.js` then infers a nozzle and bed window for a material that publishes neither, from
+`estimate/print.js` then infers a nozzle and bed window for a material that publishes neither, from
 the same polymer or its chemical group, shifted for fibre and kept above the melting point.
 
 Chamber bands are not computed. They are read from `data/tables/chamber_bands.csv`, one row per material by MaterialID, where

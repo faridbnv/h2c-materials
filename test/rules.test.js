@@ -7,13 +7,13 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RULES } from '../build/src/rules.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
-import { validate } from '../build/src/validate.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 import { checkData } from '../build/src/schema.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const sources = [
   ...readdirSync(join(root, 'build/src')).filter((f) => f.endsWith('.js')).map((f) => `build/src/${f}`),
+  ...readdirSync(join(root, 'build/src/estimate')).map((f) => `build/src/estimate/${f}`),
   'scripts/audit-data.mjs',
 ];
 
@@ -43,8 +43,7 @@ test('every issue site names a catalogued code with the catalogue level', () => 
 
 test('a real build raises only catalogued codes at their catalogued level', () => {
   const wb = loadTables(join(root, 'data'));
-  const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
-  issues.push(...validate(db, wb));
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
   for (const i of issues) {
     assert.ok(RULES[i.code], `${i.where}: no code for "${i.message}"`);
     assert.equal(i.level, RULES[i.code].level, `${i.code} level`);
@@ -56,8 +55,7 @@ test('provoked errors carry the code a reader looks up', () => {
   const wb = loadTables(join(root, 'data'));
   wb.Headlines.rows.find((r) => r.MaterialID === 'M020' && r.HeadlineKey === 'density').MeasurementID = 'V000384';
   wb.Grades.rows.find((g) => g.GradeID === 'G020-01').Role = 'study';
-  const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
-  issues.push(...validate(db, wb));
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
   const codes = new Set(issues.filter((i) => i.level === 'error').map((i) => i.code));
   assert.ok(codes.has('HEADLINE-SELECTION-INVALID'), [...codes].join(' '));
   assert.ok(codes.has('GRADE-ROLE-ID'), [...codes].join(' '));

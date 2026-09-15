@@ -53,7 +53,7 @@ export const CHAMBER_GUIDANCE = {
 };
 
 /**
- * Estimates, by what they rest on (build/src/estimates.js, DECISIONS D43). One wording, used by the
+ * Estimates, by what they rest on (build/src/estimate/, DECISIONS D43). One wording, used by the
  * table cell, the drawer, Compare, the chart and the export.
  */
 export const ESTIMATE_STRENGTH = {

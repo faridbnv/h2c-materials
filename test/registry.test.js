@@ -6,10 +6,9 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
-import { validate } from '../build/src/validate.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 import { compileRegistry, parseAppliesTo, applies, propertiesInDomain } from '../build/src/registry.js';
-import { estimateKeys } from '../build/src/estimates.js';
+import { estimateKeys } from '../build/src/estimate/model.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const legacy = JSON.parse(readFileSync(join(root, 'test/fixtures/legacy-constants.json'), 'utf8')).build;
@@ -20,8 +19,7 @@ const measured = registry.headlines.filter((h) => h.kind === 'measurement');
 function build(edit = () => {}) {
   const wb = structuredClone(base);
   edit(wb);
-  const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
-  issues.push(...validate(db, wb));
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
   return { db, errors: issues.filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`) };
 }
 

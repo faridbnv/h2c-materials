@@ -5,9 +5,10 @@
 //
 //   check      every table against its declared schema             schema.js
 //   load       read the CSV tables into raw rows                  load.js
-//   normalize  free text -> canonical values, each tagged         normalize/
-//   compile    assemble the relational runtime database           compile.js
-//   validate   schema, references, citations, consistency         validate.js
+//   compile    assemble the relational runtime database           compile.js (normalize/ reads free text)
+//   estimate   inference for missing headlines, as an overlay     estimate/
+//   validate   references, citations, consistency; estimates      validate.js, estimate/validate.js
+//   (pipeline.js runs compile, estimate and validate for the build, the snapshot, the audit and the tests)
 //   bundle     gzip the data, inline the libraries, emit HTML     bundle.js
 //
 // `npm run validate` stops after the report; `npm run build` continues to the bundle.
@@ -22,9 +23,10 @@ import { snapshotDate } from './load.js';
 import { readSource } from './source.js';
 import { checkData } from './schema.js';
 import { contractIssues } from './contract.js';
-import { compile } from './compile.js';
+import { buildDatabase } from './pipeline.js';
 import { compileReference } from './reference.js';
-import { validate, formatReport } from './validate.js';
+import { formatReport } from './validate.js';
+import { estimateReportLines } from './estimate/validate.js';
 import { bundle } from './bundle.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -61,14 +63,13 @@ async function main() {
   const { wb, referenceRows, referenceWhere } = readSource(projectRoot);
   const SNAPSHOT = snapshotDate(wb.Method.rows);
 
-  const { db, issues: compileIssues } = compile(wb, { snapshot: SNAPSHOT, build: BUILD });
-  issues.push(...compileIssues);
+  const { db, issues: buildIssues } = buildDatabase(wb, { snapshot: SNAPSHOT, build: BUILD });
+  issues.push(...buildIssues);
 
   const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
-  issues.push(...validate(db, wb));
   issues.push(...contractIssues({ db, reference }));
 
-  const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD });
+  const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD, sections: { estimates: estimateReportLines(db) } });
   mkdirSync(join(buildRoot, 'reports'), { recursive: true });
   writeFileSync(join(buildRoot, 'reports/validation-report.md'), report);
 

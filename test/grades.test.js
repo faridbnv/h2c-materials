@@ -4,8 +4,7 @@ import assert from 'node:assert/strict';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../build/src/load.js';
-import { compile } from '../build/src/compile.js';
-import { validate } from '../build/src/validate.js';
+import { buildDatabase } from '../build/src/pipeline.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = loadTables(join(root, 'data'));
@@ -13,8 +12,7 @@ const base = loadTables(join(root, 'data'));
 function build(edit = () => {}) {
   const wb = structuredClone(base);
   edit(wb);
-  const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
-  issues.push(...validate(db, wb));
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
   return { db, errors: issues.filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`) };
 }
 const grade = (wb, id) => wb.Grades.rows.find((g) => g.GradeID === id);

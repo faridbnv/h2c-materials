@@ -159,7 +159,7 @@ function evaluateNumeric(material, c, ctx = {}) {
   }
   // A headline whose load was never stated cannot back a load-specific thermal claim outright. It is
   // not unbounded either: measured at 0.45 or 1.8 MPa, the 0.45 MPa value lies in a bracket whose top
-  // is the largest load gap its matrix shows (build/src/estimates.js). That top is inference, so it
+  // is the largest load gap its matrix shows (build/src/estimate/screening.js). That top is inference, so it
   // decides only what an estimate may: in Explore with estimates on, a requirement the whole bracket
   // fails screens the material out, and the verdict stays INDETERMINATE (D26, D43).
   // Keyed on the headline's own flag, not its name: any headline defined at a load can lose it (D46 registry).
