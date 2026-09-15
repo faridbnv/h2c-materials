@@ -133,13 +133,11 @@ Compile also derives, each tagged with its origin so the interface can tell them
   A moulded, film, filament or unstated specimen, an annealed twin and a conditioned elongation bound nothing.
 - **Facets** the Materials table does not carry directly, marked `derived`.
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
-  profiles, with the number of profiles behind each. 93 materials have a nozzle window, 93 a bed
-  window and 58 a chamber window. It answers "what do I set it to", which was otherwise only in free
-  text one tab deep. Where the chamber is answered in words, the strongest statement across the
+  profiles, with the number of profiles behind each. It answers "what do I set it to", which was otherwise only in
+  free text one tab deep. Where the chamber is answered in words, the strongest statement across the
   profiles is kept as `chamberGuidance`: not required, then recommended, then no setpoint.
 - **A buy summary** per material: one offer chosen from the price observations, ranked by in stock,
-  then the observation behind the headline, then anything with a price. 48 materials have one and
-  42 had stock on the price sampling date. Quarantined observations are skipped. The retailer URLs were in the data from the start and were
+  then the observation behind the headline, then anything with a price. Quarantined observations are skipped. The retailer URLs were in the data from the start and were
   rendered nowhere.
 - **The registry** (`db.registry`): every property's domain, units and applicability, and every
   headline's definition and labels, so the interface builds its filters, axes, table, export and

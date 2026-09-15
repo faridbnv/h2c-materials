@@ -24,6 +24,7 @@ npm run build:diff             # what a change did to the compiled database, aga
 npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
+npm run data:new-material -- --name PA11 --polymer PA11   # a material and its first grade, and what it still needs
 npm run data:export-xlsx       # read-only review workbook in dist/review/
 ```
 

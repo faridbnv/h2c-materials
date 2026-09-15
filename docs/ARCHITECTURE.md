@@ -95,7 +95,6 @@ plotting library, not the data, is what the file weighs.
 | `measurement-rules.js` | Independent raw-value, uncertainty, upper-bound, unit and endpoint checks, and no use of a replaced property, used by validation and the systematic audit. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
 | `review-workbook.js` | The generated, read-only Excel review workbook (`npm run data:export-xlsx`). |
-| `legacy/extract-workbook.js` | The retired workbook reader, kept only so the conversion can be replayed (`npm run migration:verify`). |
 | `bundle.js` | One HTML file. |
 | `index.js` | Runs the stages, decides whether the build may proceed, and writes the release manifest. |
 
@@ -107,6 +106,9 @@ plotting library, not the data, is what the file weighs.
 | `data/fmt.mjs` | `npm run data:fmt`: rewrite tables and vocabularies canonically and refresh `data/manifest.json`; `--check` changes nothing. |
 | `data/check.mjs` | `npm run data:check`: the schema gate on its own, in under a second. |
 | `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
+| `data/new-material.mjs` | `npm run data:new-material`: a material and its first grade in one write, and a list of the records it still needs. |
+| `lib/cdp.mjs` | Headless Chrome for `ui-probe.mjs` and `ui-fuzz.mjs`: where it is, how it is launched, the debugging port. |
+| `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision and whether it still holds. |
 | `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). |
@@ -114,12 +116,12 @@ plotting library, not the data, is what the file weighs.
 | `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, and prints every difference in `dist/db.json`. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
 | `ui-fuzz.mjs` | `npm run ui:fuzz`: seeded random scenarios through the built page in headless Chrome, in every Strict/Explore/estimates setting, table and chart compared with the engine in Node (D57). |
-| `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. |
+| `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. Both are checked by `verify:fast`, with the decisions index. |
 | `data/diff.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses deletions. A keyless table's declared `identity` and `replacedWithin` make a re-pointed citation an edit. It replaces hand-written audit changelogs. |
 | `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line. |
 | `data/synthesize.mjs` | A multiple of today's data under new IDs, for the scale test. |
 | `data/export-xlsx.mjs` | The read-only review workbook. |
-| `migrate/` | The one-time conversion from the workbooks (dump, then m01..m09), its transfer ledger, and the source corrections m10..m22 and m24..m26 (`source-edits.mjs` guards each edit). |
+| `migrate/` | The source corrections and table changes, m10 onwards; each names the value it replaces through `source-edits.mjs`, so a re-run is a no-op. The 2026-09-14 workbook conversion (m01 to m09, its ledger and replay) is in `archive/workbook-conversion/`, which no longer runs: the workbooks were deleted with the cutover. |
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 
 `npm run verify:fast` runs format, schema, lint, generated docs, build and tests, in about 25 seconds, while you work.

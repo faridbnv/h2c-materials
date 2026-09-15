@@ -22,6 +22,14 @@ const MISSING_TEXT = new Map([
 // Data status values seen in the Properties sheet, mapped to whether the row may be used numerically.
 // "Published value (transcription corrected)" re-enters numeric summaries per the Method sheet;
 // "Unresolved unit / layout" stays quarantined.
+/** The middle value, or null for nothing. One definition: the price median, the estimate model and the print windows share it. */
+export const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
+
+// Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an active grade. Its
+// Availability conventionally reads this phrase; the validator flags any active grade whose Availability still talks
+// about retirement, because that is a half-finished retirement.
+export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
+
 export const DATA_STATUS = {
   'Published value': { numeric: true, corrected: false },
   'Published value (transcription corrected)': { numeric: true, corrected: true },

@@ -9,49 +9,49 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 **Records**
 
-| Table | Rows | What it holds |
-|---|---:|---|
-| `materials.csv` | 102 | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
-| `grades.csv` | 155 | Exact commercial, study and resin-reference grades, each with a Role and a Status |
-| `profiles.csv` | 171 | Processing guidance and H2C routing, per grade |
-| `measurements.csv` | 2,222 | Individual property measurements, the unit of quantitative evidence |
-| `evidence.csv` | 478 | Chemical, environmental and application evidence |
-| `prices.csv` | 104 | Canadian price observations |
-| `sources.csv` | 244 | The source register, with access dates, hashes and a Citation role |
-| `coverage.csv` | 1,188 | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
-| `method.csv` | 48 | The rules the database was built under |
-| `reference.csv` | 114 | Generic reference envelopes, a drawing layer only |
+| Table | What it holds |
+|---|---|
+| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
+| `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
+| `profiles.csv` | Processing guidance and H2C routing, per grade |
+| `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
+| `evidence.csv` | Chemical, environmental and application evidence |
+| `prices.csv` | Canadian price observations |
+| `sources.csv` | The source register, with access dates, hashes and a Citation role |
+| `coverage.csv` | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
+| `method.csv` | The rules the database was built under |
+| `reference.csv` | Generic reference envelopes, a drawing layer only |
 
 **Selections and citations**
 
-| Table | Rows | What it holds |
-|---|---:|---|
-| `headlines.csv` | 366 | Which measurement each headline shows (Use `value`), and measurements cited for a headline without being its value (Use `context`) |
-| `material_links.csv` | 702 | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
+| Table | What it holds |
+|---|---|
+| `headlines.csv` | Which measurement each headline shows (Use `value`), and measurements cited for a headline without being its value (Use `context`) |
+| `material_links.csv` | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
 
 **Registry**
 
-| Table | Rows | What it holds |
-|---|---:|---|
-| `properties.csv` | 32 | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
-| `headline_definitions.csv` | 6 | Every headline: kind, unit, value and related properties, direction, test load, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
+| Table | What it holds |
+|---|---|
+| `properties.csv` | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
+| `headline_definitions.csv` | Every headline: kind, unit, value and related properties, direction, test load, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
 
 **Mappings**
 
-| Table | Rows | What it holds |
-|---|---:|---|
-| `family_entries.csv` | 5 | Canonical names that are families or aliases, not materials (D44), with why |
-| `family_members.csv` | 22 | The materials each family entry stands for, in search order |
-| `chamber_bands.csv` | 43 | Research chamber bands for materials whose sources publish no window, or why none is given |
-| `fatigue_tests.csv` | 42 | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
-| `polymers.csv` | 36 | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
+| Table | What it holds |
+|---|---|
+| `family_entries.csv` | Canonical names that are families or aliases, not materials (D44), with why |
+| `family_members.csv` | The materials each family entry stands for, in search order |
+| `chamber_bands.csv` | Research chamber bands for materials whose sources publish no window, or why none is given |
+| `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
+| `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
 Every column of every table, and every vocabulary, is listed in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).
 
-Counts are for snapshot 2026-09-13 after the 2026-09-15 source corrections; `data/manifest.json` holds the current count and SHA-256 of every
-table, and the build refuses to run when a table and the manifest disagree, so a count change is
-always visible in the commit that makes it.
+`data/manifest.json` holds the current count and SHA-256 of every table, and the build refuses to run when a table and
+the manifest disagree, so a count change is always visible in the commit that makes it. What each build holds is in
+`build/reports/validation-report.md` and `build/snapshot/`; the counts are not repeated here, where they would go stale.
 
 ### One fact, one home
 
@@ -184,14 +184,12 @@ registry           { properties, headlines }: what every property and headline m
 ```
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
-every profile that published one, with the count behind it. 94 materials have a nozzle window, 94 a
-bed window and 58 a chamber window. The four with no product at all (PA66, PA66-CF, PA612, PA612-GF)
-carry an estimated nozzle and bed window (below); a chamber the sources answer only in words is
-shown in words.
+every profile that published one, with the count behind it. A material with no product at all (PA66, PA66-CF, PA612,
+PA612-GF) carries an estimated nozzle and bed window (below); a chamber the sources answer only in words is shown in
+words. How many materials publish each is in the validation report.
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
-in stock first, then the observation behind the headline, then whatever carries a price. 46 of 103
-materials have one and 40 had stock on the price sampling date, 2026-09-10. A quarantined observation,
+in stock first, then the observation behind the headline, then whatever carries a price. A quarantined observation,
 such as CA0069 (a PLA Pure listing once filed under ABS), is never the buy link or the evidence of
 stock.
 

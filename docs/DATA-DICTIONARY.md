@@ -424,7 +424,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
-| SourceID | key | string | yes |  | `^[A-Za-z0-9][A-Za-z0-9._-]*$` | Stable source identifier. |
+| SourceID | key | string | yes |  | `^[A-Za-z0-9][A-Za-z0-9._-]*$` | Stable source identifier, never reused. The prefix says where it came from, and the rest names the document: B Bambu Lab, S Polymaker, X and XP 3DXTECH, I iSANMATE, PR Prusa Research, D other manufacturers' pages, R a reference or web datasheet, CA a Canadian retailer, P a paper, H2C the printer's own documentation, NIOSH and other bodies their own name, LOCAL a user-supplied reference. Keep a publisher's existing prefix rather than inventing a second one for it. |
 | Publisher | raw | string | yes |  |  | Publisher. |
 | Title | raw | string | yes |  |  | Title. |
 | Revision | raw | string | yes |  |  | Document revision. |

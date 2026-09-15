@@ -5,7 +5,7 @@ import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
 import { measurementHeadlines, applies } from './registry.js';
-import { RETIRED_AVAILABILITY } from './compile.js';
+import { RETIRED_AVAILABILITY } from './normalize/values.js';
 import {
   ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
 } from './coverage-rules.js';

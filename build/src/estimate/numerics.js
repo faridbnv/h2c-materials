@@ -68,7 +68,7 @@ export function boundedCdf(mu, sd, bounds, x) {
   return Math.min(1, acc);
 }
 
-export const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
+export { median } from '../normalize/values.js';
 export const quantile = (xs, q) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.max(0, Math.ceil(q * s.length) - 1))] : null; };
 
 export function cholesky(K, n) {

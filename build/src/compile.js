@@ -5,10 +5,8 @@
 // the measurement must be the material's own, on its representative grade, with the headline's
 // property, unit and direction. A selection that fails any of these is a build error.
 
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { parseValue, parseOperator, parseBoolean, toInterval, MISSING, DATA_STATUS } from './normalize/values.js';
-import { normalizeDirection, DIRECTION } from './normalize/direction.js';
+import { parseValue, parseOperator, parseBoolean, toInterval, median, DATA_STATUS, RETIRED_AVAILABILITY } from './normalize/values.js';
+import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
 import { specimenForm, postProcessingState, isPartSpecimen, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
@@ -23,18 +21,7 @@ import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped, applyAnnealTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 
-// Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an
-// active grade. Its Availability conventionally reads this phrase; the validator flags any active
-// grade whose Availability still talks about retirement, because that is a half-finished retirement.
-export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
-
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
-const median = (xs) => {
-  const s = [...xs].sort((a, b) => a - b);
-  if (!s.length) return null;
-  const m = s.length >> 1;
-  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
-};
 
 // Plausibility windows keep a stray number in a sentence from being read as a temperature.
 export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200] };
@@ -360,18 +347,6 @@ function headlineEvidence(selections, registry) {
     thermal: selections.filter((s) => group[s.HeadlineKey] === 'thermal').map((s) => s.MeasurementID),
   };
 }
-
-/**
- * Related evidence for a headline that has no value.
- *
- * 45 materials have no tensile-strength XY headline, yet 31 of them do have a tensile-strength
- * measurement on record. It was not promoted to the headline because the source never stated a
- * direction, or because it measures a different endpoint. Showing a blank cell hides real evidence
- * and invites the reader to assume nothing is known.
- *
- * This never becomes the headline and never satisfies a constraint. It is labelled with exactly
- * why it is not the headline, so the engineer can judge it.
- */
 
 // There is deliberately NO cross-property fallback.
 //

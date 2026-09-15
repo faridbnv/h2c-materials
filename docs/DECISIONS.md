@@ -3,6 +3,73 @@
 The choices that are not obvious, and the bugs that forced several of them. Each says what would
 break if it were reversed, because that is the part that gets lost.
 
+<!-- index: npm run docs:decisions -->
+
+| | Decision | Status |
+|---|---|---|
+| D1 | Excel is the authoring format; JSON is the runtime | Authoring superseded by D45 |
+| D2 | Headline values are verified, never recomputed | In force |
+| D3 | Missing data is four states, never zero | In force |
+| D4 | INDETERMINATE is not UNKNOWN | In force |
+| D5 | Evidence outranks silence in gate aggregation | In force |
+| D6 | A recommendation is not a requirement | In force |
+| D7 | Only gates that can discriminate become filters | In force |
+| D8 | Related evidence reports one measurement, never a cross-grade range | In force |
+| D9 | No cross-property fallback | In force |
+| D10 | A family estimate may rule out, never rule in | Superseded by D40, D42, then D43 |
+| D11 | Estimates never pool across behaviour classes | Narrowed by D40, D42 and D43 |
+| D12 | Peers sharing a formulation key count once | In force |
+| D13 | The reference layer is separate and off by default | In force |
+| D14 | The engine never imports from the interface | In force |
+| D15 | Tabulator was dropped; Plotly kept | In force |
+| D16 | The data is embedded gzipped | In force |
+| D17 | One vocabulary module, and no second way to name anything | In force |
+| D18 | The familiar baseline is a reference, never a candidate | In force |
+| D19 | No sampled offer is UNKNOWN, not FAIL | In force |
+| D20 | Category names are authored with the rules that create them | In force |
+| D21 | One control for how much evidence the chart draws | In force |
+| D22 | Search matches words, never substrings | In force |
+| D23 | An estimate is drawn as a range, never as a point | In force |
+| D24 | A relaxed condition and an unstated fact are different things | In force |
+| D25 | In the measurement plot, a dot is a test and must say so | In force |
+| D26 | The verdict describes the evidence; the policy decides eligibility | In force |
+| D27 | The nozzle question asks what the user lacks | In force |
+| D28 | Limited resistance is not resistance | In force |
+| D29 | A template names what it cannot check | In force |
+| D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | In force |
+| D31 | A quarantined observation backs nothing | In force |
+| D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | In force |
+| D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | In force |
+| D34 | An estimated chamber band decides nothing | In force |
+| D35 | A research report is re-read against its sources, never transcribed | In force |
+| D36 | Referential integrity includes ownership, not just existence | In force |
+| D37 | A headline belongs to the representative grade; study grades are not procurement grades | In force |
+| D38 | Environmental evidence is owned by the material; family evidence stays context | In force |
+| D39 | Coverage is terminal, but it must agree with the records | In force |
+| D40 | Peer observations are context, not exclusion bounds | Superseded by D42, then D43 |
+| D41 | Raw values, endpoints and archived identities are enforced | In force |
+| D42 | An estimate is a prediction interval from like-for-like evidence, and may only screen | Superseded by D43 |
+| D43 | An estimate is a calibrated model of every observation, and says how far to trust it | In force |
+| D44 | Each product has one home; a family is an entry, not a material | In force |
+| D45 | The source of truth is CSV tables under a declared schema | In force |
+| D46 | A property is a registry row, and may apply to some filaments only | In force |
+| D47 | What can be calculated is not stored | In force |
+| D48 | Evidence screens only where a back-test shows it screens reliably | Amended by D55, D59 |
+| D49 | The values the build decides on are typed columns; raw text stays, and the parsers check it | In force |
+| D50 | Every check has a code, and quality findings are fixed or accepted with a reason | In force |
+| D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | In force |
+| D52 | The transfer is proven cell by cell; every later correction is re-read, guarded and replayable | In force |
+| D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | In force |
+| D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | In force |
+| D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | In force |
+| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | In force |
+| D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | In force |
+| D58 | Estimates are an overlay on a complete core, and grow by data, not by special cases | In force |
+| D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | In force |
+| D60 | What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables | In force |
+
+<!-- end index -->
+
 ---
 
 ## D1. Excel is the authoring format; JSON is the runtime (authoring superseded by D45)
@@ -651,7 +718,7 @@ with no import path, so there is still exactly one place data is changed.
 
 The conversion was proven, not assumed: the first CSV build reproduced the workbook build byte for byte,
 and every later step either left the compiled database unchanged or listed each difference with its
-reason. `npm run migration:verify` replays it from the workbooks in git history. See
+reason. The replay, and the workbook reader it used, are in `archive/workbook-conversion/`; they stopped running when the workbooks were deleted with the cutover. See
 [the migration record](audits/2026-09-14-csv-source-migration/REPORT.md).
 
 Reversing it brings back unreviewable changes and errors found only at build time, by a message that
@@ -847,7 +914,7 @@ Reversing it makes a rename a silent break.
 The migration proved the first CSV build equal to the workbook build. That proved the conversion, not that the
 workbook matched its sources, and not that every cell reached the tables.
 
-**The transfer.** `npm run migration:ledger` reads the retired workbook from git with native cell values and classes
+**The transfer.** The transfer ledger (`archive/workbook-conversion/transfer-ledger.mjs`, which ran against the workbooks in git history) read the retired workbook with native cell values and classed
 every one of its 99,538 cells against its CSV cell or the derivation that replaced it: equal, a named mechanical
 change, a stale formula cache kept as the build read it, a reproduced derivation, precision lost, or unexplained. It
 found one precision loss (`V000731`, restored) and leaves 0 unexplained. The ledger proves the state at the end of

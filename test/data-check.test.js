@@ -3,6 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { cpSync, mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -204,3 +205,33 @@ test('retiring a grade sets both fields and lists every record left to resolve',
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// A material is a row in materials.csv and records in six other tables (AGENTS.md). The scaffold writes what needs no
+// judgement, refuses to invent the prose a reader is told, and lists the rest.
+test('the material scaffold writes a material and its grade, and names what it cannot write', () => {
+  const dir = copy();
+  try {
+    const run = (extra) => spawnSync(process.execPath, [join(root, 'scripts/data/new-material.mjs'), '--root', dir, '--name', 'PA11', '--polymer', 'PA11',
+      '--family', 'Nylon / Polyamide', '--manufacturer', 'Arkema', '--product', 'Rilsan PA11', '--source', 'H2C-MANUAL', ...extra], { encoding: 'utf8' });
+    const refused = run([]);
+    assert.equal(refused.status, 1);
+    assert.match(refused.stderr, /--set "Modifier \/ filler=\.\.\."/);
+    assert.match(refused.stdout, /"PA11" has no row in polymers.csv/);
+    const prose = ['Measurement conditions', 'Price basis', 'Best uses', 'Limitations', 'Identity notes', 'Headline basis',
+      'Impact / toughness', 'Fatigue / creep', 'Shared formulation key', 'Composition / filler', 'Colour caveat', 'Availability',
+      'Certification claims', 'Selected-grade rationale', 'Source locator', 'Diameter compatibility'].flatMap((c) => ['--set', `${c}=recorded by the test`]);
+    // The columns a vocabulary or a reference governs take a real value, as any row does.
+    prose.push('--set', 'Modifier / filler=Unfilled / unspecified', '--set', 'Role=Structural / functional / appearance',
+      '--set', 'Identity source=H2C-MANUAL', '--set', 'Printability rubric=R-PRINT');
+    const written = run(prose);
+    assert.equal(written.status, 0, written.stderr);
+    const t = openTables(dir);
+    const material = t.rows('materials').at(-1);
+    assert.equal(material['Original name'], 'PA11');
+    assert.equal(material['Estimate identity'], 'Not applicable');
+    assert.equal(t.rows('grades').at(-1).GradeID, material['Representative grade']);
+    assert.deepEqual(check(dir), []);
+    assert.match(written.stdout, /Still needed before it is a candidate/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
