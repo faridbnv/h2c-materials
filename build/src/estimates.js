@@ -176,7 +176,7 @@ function snapshot(materials, gradeList, measurements, model) {
   const amorphousAsPrinted = (m) => info(m).printsAmorphous === true || (info(m).printsAmorphous === 'unfilled' && !fibre(m));
   const matrix = (m) => (info(m).morphology === 'semicrystalline' && !amorphousAsPrinted(m) ? (fibre(m) ? 'semi-filled' : 'semi-unfilled')
     : info(m).morphology === 'elastomer' ? 'elastomer' : 'amorphous');
-  const usable = measurements.filter((x) => inPool.has(x.materialId) && x.numeric && !x.quarantined && !grades.get(x.gradeId)?.retired
+  const usable = measurements.filter((x) => inPool.has(x.materialId) && x.numeric && !x.quarantined && !x.implausible && !grades.get(x.gradeId)?.retired
     // A film or a filament strand is not a part; a moulded bar is, through its documented conversion.
     && !['film', 'filament'].includes(specimenForm(x.specimenType ?? 'Not published')));
   const byMaterial = new Map();

@@ -48,7 +48,9 @@ test('every numeric headline equals the measurement it cites', () => {
   // compiler dropped, or one it invented, still fails here; adding a headline row no longer does.
   const selections = readFileSync(join(root, 'data/tables/headlines.csv'), 'utf8').split('\n').filter((l) => l.endsWith(',value')).length;
   assert.equal(checked, selections);
-  assert.ok(checked >= 361, 'no audited headline has gone missing since the duplicate-products fix');
+  // 359 since audit 2026-09-15 (m24): PLA and PC heat deflection and TPU for AMS stiffness selected physically
+  // implausible values; those selections are context citations and the headlines are estimated.
+  assert.ok(checked >= 359, 'no audited headline has gone missing since the physically implausible values were flagged');
 });
 
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a
@@ -333,7 +335,10 @@ test('values the registered sources publish are recorded as published', () => {
   assert.equal(x('V000039').value, 110.3);
   assert.match(x('V000039').specimenType, /^Film specimen/);
   assert.equal(x('V000507').value, 72, 'Vicat A/120 at 72 °C');
-  for (const n of ['PLA', 'PP', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
+  // PLA's 3DXTECH value (V000008, 80 °C) states its load but is flagged physically implausible (m24): PLA's heat
+  // deflection is estimated.
+  assert.equal(x('V000008').implausible, true);
+  for (const n of ['PP', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
     const h = byName(n).headline.hdt045;
     assert.ok(h.loadStated && h.loadMPa === 0.45, `${n}: 3DXTECH prints "at 0.45 MPa (66psi)"`);
   }
@@ -477,6 +482,22 @@ test('an annealed value is not averaged with its as-printed twin, and mixed sche
   for (const id of ['V001933', 'V001932', 'V000353', 'V000352']) assert.ok(!flagged.includes(id), `${id} (annealed) is still averaged into an observation`);
   assert.ok(!conflicts.some((c) => ['PLA-GF', 'PPS-GF'].includes(c.material) && c.key === 'hdt045'), 'a mixed-state HDT group still conflicts');
   assert.ok(!outliers.some((o) => o.material === 'PET-GF'), 'PET-GF is still an outlier');
+});
+
+test('a physically implausible value is kept and flagged, and backs no headline, bound or estimate', () => {
+  const flagged = db.measurements.filter((m) => m.implausible);
+  assert.ok(flagged.length >= 10);
+  const ids = new Set(flagged.map((m) => m.id));
+  for (const m of db.materials) {
+    for (const [key, h] of Object.entries(m.headline)) {
+      assert.ok(!ids.has(h.measurementId), `${m.name} ${key} headline is flagged ${h.measurementId}`);
+      for (const b of h.impliedBounds ?? []) assert.ok(!ids.has(b.measurementId), `${m.name} ${key} bound ${b.measurementId}`);
+      for (const e of h.estimate?.evidence ?? []) for (const i of e.items) assert.ok(!ids.has(i.measurementId), `${m.name} ${key} estimate uses ${i.measurementId}`);
+    }
+  }
+  // TPU for AMS's 1.19 GPa on a 68D elastomer no longer passes a rigid-part stiffness requirement.
+  const ams = db.materials.find((m) => m.name === 'TPU for AMS').headline.tensileModulusXY;
+  assert.ok(!ams.known && (ams.estimate?.plausible.hi ?? 0) < 1, `TPU for AMS stiffness ${JSON.stringify(ams.estimate?.plausible)}`);
 });
 
 test('PPA headlines its as-printed heat deflection, and its annealed value stays evidence', () => {

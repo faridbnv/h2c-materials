@@ -32,16 +32,16 @@ not applicable, such as heat deflection of an elastomer.
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 CPE
 Copolyesters
- UNKNOWN 1,250 ~1.18–2.75† ~41.6–65.1† ~18.3–87.6† 80 — ☆
+ UNKNOWN 1,250 ~1.2–2.73† ~41.6–65.1† ~18.3–87.6† 80 — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.0122–1.22† ~13.8–29.6† ~727–1,380† n/a — ☆
+ UNKNOWN 905 ~0.0109–0.214† ~13.8–29.6† ~727–1,380† n/a — ☆
 PEBA
 Flexible Elastomers
- PASS 1,010 ~0.042–0.165† ~17.3–25.2† 520 n/a — ☆
+ PASS 1,010 ~0.0388–0.138† ~17.3–25.2† 520 n/a — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.0159–0.113† ~10.6–41.1† ~195–1,030† n/a — ☆
+ UNKNOWN 1,150 ~0.00856–0.0481† ~10.6–41.1† ~195–1,030† n/a — ☆
 TPU
 Flexible Elastomers
  PASS 1,200 0.029 ~31.6–64.6† 330 n/a — ☆
@@ -56,4 +56,4 @@ Flexible Elastomers
  PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
 TPU for AMS
 Flexible Elastomers
- PASS 1,260 1.19 22.4 650 n/a 47.5↗ ☆
+ PASS 1,260 ~0.0211–0.118† 22.4 650 n/a 47.5↗ ☆

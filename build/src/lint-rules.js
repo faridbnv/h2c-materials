@@ -16,6 +16,9 @@ export const LINT_RULES = {
   'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
   'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
   'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY.',
+  'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
+  'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
+  'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
   'SOURCE-UNCITED': 'A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has.',
   'SOURCE-ROLE-CITED': 'A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
@@ -107,6 +110,42 @@ export function lintData(tables, schemas) {
     const named = NAMED.filter(([, re]) => re.test(r.Locator ?? '')).map(([d]) => d);
     if (named.length !== 1 || /X-?Z|Z-?X/.test(r.Locator ?? '')) continue;
     if (r.Direction !== named[0]) add('MEAS-LOCATOR-DIRECTION', 'measurements', r.MeasurementID, 'Direction', `${r.Locator} is recorded as ${r.Direction}`);
+  }
+
+  // Physics the tables must not contradict within one grade, source and test state (audit 2026-09-15, B-10). A value
+  // flagged "Published value (physically implausible)" has been dealt with and is left out.
+  const active = (tables.measurements?.rows ?? []).filter((r) => /^Published value( \(transcription corrected\))?$/.test(r['Data status'] ?? '') && Number.isFinite(Number(r['Normalized value'])));
+  const groups = new Map();
+  for (const r of active) {
+    const k = [r.GradeID, r.SourceID, r['Moisture condition'], r['Post-processing']].join('\u0000');
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(r);
+  }
+  const num = (r) => Number(r['Normalized value']);
+  for (const rows of groups.values()) {
+    const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
+    const load = (r) => Number(r['Test load MPa']);
+    for (const lo of of('HDT', (r) => Math.abs(load(r) - 0.45) < 0.02)) {
+      for (const hi of of('HDT', (r) => Math.abs(load(r) - 1.8) < 0.05)) {
+        if (num(lo) < num(hi)) add('MEAS-PHYSICS-HDT-LOADS', 'measurements', lo.MeasurementID, 'Normalized value', `${num(lo)} °C at 0.45 MPa < ${num(hi)} °C at 1.8 MPa (${hi.MeasurementID})`);
+      }
+    }
+    for (const property of ['Tensile modulus', 'Flexural modulus', 'Tensile strength (endpoint unspecified)', 'Tensile break strength', 'Flexural strength', 'Charpy strength', 'Izod strength', 'Izod impact strength']) {
+      const stiffness = /modulus/.test(property);
+      for (const z of of(property, (r) => r.Direction === 'Z')) {
+        for (const xy of of(property, (r) => r.Direction === 'XY' && r['Normalized unit'] === z['Normalized unit'] && r.Notch === z.Notch)) {
+          if (num(z) > num(xy) * (stiffness ? 1.15 : 1)) add('MEAS-PHYSICS-Z-ABOVE-XY', 'measurements', z.MeasurementID, 'Direction', `${property} Z ${num(z)} > XY ${num(xy)} ${xy['Normalized unit']} (${xy.MeasurementID})`);
+        }
+      }
+    }
+    for (const e of of('Elongation at break', (r) => r.Operator === '=' || !r.Operator)) {
+      const same = (r) => r.Direction === e.Direction;
+      const strength = of('Tensile strength (endpoint unspecified)', same)[0] ?? of('Tensile break strength', same)[0];
+      const modulus = of('Tensile modulus', same)[0];
+      if (!strength || !modulus || !(num(modulus) > 0)) continue;
+      const linear = (num(strength) / (num(modulus) * 1000)) * 100;
+      if (num(e) < linear * 0.9) add('MEAS-PHYSICS-STRAIN', 'measurements', e.MeasurementID, 'Normalized value', `${num(e)} % < stress / modulus ${linear.toFixed(2)} % (${strength.MeasurementID} / ${modulus.MeasurementID})`);
+    }
   }
 
   // Sources.

@@ -186,6 +186,7 @@
           "operator",
           "dataStatus",
           "corrected",
+          "implausible",
           "qualitative",
           "quarantined",
           "numeric",
@@ -254,6 +255,9 @@
             "type": "string"
           },
           "corrected": {
+            "type": "boolean"
+          },
+          "implausible": {
             "type": "boolean"
           },
           "qualitative": {

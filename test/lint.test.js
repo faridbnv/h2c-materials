@@ -59,3 +59,12 @@ test('a locator that names one direction must agree with the Direction column; m
   ]).filter((c) => c.startsWith('MEAS-LOCATOR-DIRECTION'));
   assert.deepEqual(found, ['MEAS-LOCATOR-DIRECTION V1', 'MEAS-LOCATOR-DIRECTION V3']);
 });
+
+test('HDT at 0.45 MPa below HDT at 1.8 MPa on one grade and state is caught, unless the pair is flagged implausible', () => {
+  const hdt = (id, load, value, o = {}) => row({ MeasurementID: id, Property: 'HDT', Direction: 'Not applicable', 'Test load MPa': String(load), 'Normalized value': String(value), 'Normalized unit': '°C', Locator: `p. 2: HDT ${load}`, ...o });
+  const physics = (rows) => codes(rows).filter((c) => c.startsWith('MEAS-PHYSICS'));
+  assert.deepEqual(physics([hdt('V1', 0.45, 112), hdt('V2', 1.8, 117)]), ['MEAS-PHYSICS-HDT-LOADS V1']);
+  assert.deepEqual(physics([hdt('V1', 0.45, 112), hdt('V2', 1.8, 117, { 'Post-processing': 'Annealed (schedule not stated)' })]), []);
+  const flagged = { 'Data status': 'Published value (physically implausible)' };
+  assert.deepEqual(physics([hdt('V1', 0.45, 112, flagged), hdt('V2', 1.8, 117, flagged)]), []);
+});

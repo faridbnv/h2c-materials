@@ -1,7 +1,7 @@
-COUNT 23 shown PASS
-STATUS PASS 23 | UNKNOWN 34 | FAIL 40
-23 of the 97 materials in this database meet these requirements
-34 more could not be checked for missing data, and are left out. From the Warm environment template. Click any criterion to remove it.
+COUNT 21 shown PASS
+STATUS PASS 21 | UNKNOWN 36 | FAIL 40
+21 of the 97 materials in this database meet these requirements
+36 more could not be checked for missing data, and are left out. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -65,9 +65,6 @@ Nylon / Polyamide
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
-PC
-Polycarbonate
- PASS 1,200 2.11 62 3.8 112 51↗ ☆
 PC FR
 Polycarbonate
  PASS 1,180 1.67 60 2.4 113 70↗ ☆
@@ -80,7 +77,6 @@ PET Engineering
 PET-GF
 PET Engineering
  PASS 1,430 4.14 59.9 4 81.6 — ☆
-PLA PASS 1,240 2.87 56* 8 80 — ☆
 PP-CF
 Polyolefins
  PASS 1,100 6.15 78* 1.5 124 — ☆

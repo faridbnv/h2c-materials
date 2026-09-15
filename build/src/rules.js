@@ -31,7 +31,7 @@ export const RULES = {
   'HEADLINE-KEY-UNKNOWN': r('error', 'compile', 'headlines.csv selects for a key that is not a measurement headline.', 'Use a key from headline_definitions.csv.'),
   'HEADLINE-SELECTION-MULTIPLE': r('error', 'compile', 'A headline selects more than one value measurement.', 'Keep one value row; mark the others Use context.'),
   'HEADLINE-NOT-APPLICABLE': r('error', 'compile', 'A headline selects a value for a material outside its Applies to.', 'Remove the selection, or widen Applies to.'),
-  'HEADLINE-SELECTION-INVALID': r('error', 'compile', 'A selected measurement cannot be the headline (inactive, non-numeric, another material or grade, wrong property, unit or direction; a moulded, film or filament specimen; conditioned; annealed where the grade publishes it as printed).', 'Select a measurement that fits the headline definition, or fix the measurement.'),
+  'HEADLINE-SELECTION-INVALID': r('error', 'compile', 'A selected measurement cannot be the headline (inactive, non-numeric, another material or grade, wrong property, unit or direction; a physically implausible value; a moulded, film or filament specimen; conditioned; annealed where the grade publishes it as printed).', 'Select a measurement that fits the headline definition, or fix the measurement.'),
   'FAMILY-ENTRY-MAPPING': r('error', 'compile', 'Family entries in materials.csv and their member mapping disagree.', 'Make the family entry and its members agree.'),
   'FAMILY-ENTRY-OWNS': r('error', 'compile', 'A family entry owns an active grade.', 'File the product under the material it is (D44).'),
   'GRADE-ROLE-ID': r('error', 'compile', 'A grade Role disagrees with its -R# ID suffix.', 'Study and reference grades, and only they, end in -R#.'),

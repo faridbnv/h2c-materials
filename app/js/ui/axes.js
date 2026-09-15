@@ -32,7 +32,7 @@ export const axisByKey = (k) => AXIS_DEFS.find((a) => a.key === k) ?? AXIS_DEFS[
  * trust.
  */
 export function measurementMatches(m, axis, mode) {
-  if (!axis.measurement || !m.numeric || m.quarantined) return null;
+  if (!axis.measurement || !m.numeric || m.quarantined || m.implausible) return null;
   if (!axis.measurement.properties.includes(m.property)) return null;
 
   const relaxed = [];

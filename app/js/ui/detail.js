@@ -70,7 +70,8 @@ function measurementRow(m, highlight) {
   return `<div class="evidence-row${highlight === m.id ? ' target' : ''}" data-mid="${esc(m.id)}">
     <div><strong>${esc(m.property)}</strong> — ${op}${v}
       ${m.corrected ? '<span class="chip chip-neutral" style="font-size:10px">transcription corrected</span>' : ''}
-      ${m.quarantined ? '<span class="chip chip-FAIL" style="font-size:10px">quarantined</span>' : ''}</div>
+      ${m.quarantined ? '<span class="chip chip-FAIL" style="font-size:10px">quarantined</span>' : ''}
+      ${m.implausible ? '<span class="chip chip-FAIL" style="font-size:10px" title="The source publishes this number, but physics rules it out; see Notes. It decides nothing.">physically implausible</span>' : ''}</div>
     <div class="cond">${esc(cond)}</div>
     ${more.length ? `<dl class="kv small cond-more">${more.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : ''}
     <div class="cond">${esc(m.id)} · ${esc(m.gradeId)} · ${esc(m.sourceId)}${m.locator ? ' · ' + esc(m.locator) : ''}</div>

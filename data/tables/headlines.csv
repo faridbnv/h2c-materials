@@ -2,7 +2,7 @@ MaterialID,HeadlineKey,MeasurementID,Use
 M001,density,V000001,value
 M001,tensileModulusXY,V000003,value
 M001,elongationXY,V000004,value
-M001,hdt045,V000008,value
+M001,hdt045,V000008,context
 M002,density,V000042,value
 M002,tensileModulusXY,V000050,value
 M002,tensileStrengthXY,V000052,value
@@ -165,7 +165,7 @@ M035,density,V000677,value
 M035,tensileModulusXY,V000685,value
 M035,tensileStrengthXY,V000687,value
 M035,elongationXY,V000689,value
-M035,hdt045,V000683,value
+M035,hdt045,V000683,context
 M036,density,V000698,value
 M036,tensileModulusXY,V000706,value
 M036,tensileStrengthXY,V000708,value
@@ -181,7 +181,7 @@ M039,density,V000752,value
 M039,tensileModulusXY,V000753,value
 M039,elongationXY,V000754,value
 M040,density,V000768,value
-M040,tensileModulusXY,V000775,value
+M040,tensileModulusXY,V000775,context
 M040,tensileStrengthXY,V000777,value
 M040,elongationXY,V000779,value
 M041,density,V000784,value

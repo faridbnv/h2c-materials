@@ -68,6 +68,7 @@ function compileMeasurements(rows, issues) {
       operator,
       dataStatus: r['Data status'],
       corrected: !!status?.corrected,
+      implausible: !!status?.implausible,
       qualitative: !!status?.qualitative,
       quarantined,
       numeric,
@@ -303,6 +304,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       : !def.valueProperties.includes(m.property) ? `${id} measures ${m.property}`
       : m.unit !== unit ? `${id} is in ${m.unit}, not ${unit}`
       : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
+      : m.implausible ? `${id} is flagged physically implausible (Data status); see its Notes`
       : !isPartSpecimen(m.specimenType) ? `${id} is a ${m.specimenForm} specimen, not a printed part`
       : moistureState(m.moisture ?? 'Not published') === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
       : annealedBesideAsPrinted(m, measurementsByMaterial.get(mat.MaterialID) ?? []) ? `${id} is annealed, and grade ${m.gradeId} publishes the property as printed`
@@ -417,7 +419,7 @@ function impliedBounds(mat, key, measurementsByMaterial) {
   // A state the headline is not in bounds nothing either: an annealed value where the grade publishes the
   // as-printed one, or a moisture state the rule excludes (conditioning raises a nylon's strain at break).
   return own
-    .filter((m) => m.numeric && !m.quarantined && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
+    .filter((m) => m.numeric && !m.quarantined && !m.implausible && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
     .filter((m) => !annealedBesideAsPrinted(m, own))
     .filter((m) => !(rel.excludeMoisture ?? []).includes(moistureState(m.moisture ?? 'Not published')))
     .filter((m) => rel.lowerFrom.some((r) => r.property === m.property && (r.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - r.loadMPa) < 0.05))))
@@ -448,7 +450,8 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
       direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
       loadMPa: m.thermal?.loadMPa ?? null,
       printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
-      why: FORM_NOTE[m.specimenForm]
+      why: (m.implausible ? 'flagged physically implausible; see its notes' : null)
+        || FORM_NOTE[m.specimenForm]
         || (annealedBesideAsPrinted(m, measurementsByMaterial.get(materialId)) ? 'annealed; the grade also publishes the as-printed value' : null)
         || DIRECTION_NOTE[m.direction]
         || (def.loadMPa != null && m.thermal && m.thermal.loadMPa !== def.loadMPa

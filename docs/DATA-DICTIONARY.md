@@ -471,6 +471,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Not published | No number was published for this property and grade. |
 | Published qualitative result | A result stated in words, such as "No break"; evidence, never a number. |
 | Published value | A usable published number. |
+| Published value (physically implausible) | A number the source publishes that contradicts physics (the reason is in Notes). Kept and shown, flagged; it backs no headline, estimate or bound. |
 | Published value (transcription corrected) | A usable number corrected against the source; the normalized value is authoritative. |
 | Retired duplicate record | An identical twin exists under another material; kept as an audit trail and left out of the database. |
 | Unresolved unit / layout | Quarantined: the unit or layout could not be resolved. |

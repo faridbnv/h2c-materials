@@ -45,4 +45,4 @@ Flexible Elastomers
  PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
 TPU for AMS
 Flexible Elastomers
- PASS 1,260 1.19 22.4 650 n/a 47.5↗ ☆
+ PASS 1,260 1.19* 22.4 650 n/a 47.5↗ ☆

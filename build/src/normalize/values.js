@@ -25,6 +25,9 @@ const MISSING_TEXT = new Map([
 export const DATA_STATUS = {
   'Published value': { numeric: true, corrected: false },
   'Published value (transcription corrected)': { numeric: true, corrected: true },
+  // A number the source really publishes that physics rules out: PC's HDT at 0.45 MPa below its HDT at 1.8 MPa, a
+  // 1.19 GPa modulus on a 68D elastomer. It stays evidence, flagged, and decides nothing (audit 2026-09-15, B-09, B-10).
+  'Published value (physically implausible)': { numeric: true, corrected: false, implausible: true },
   'Not published': { numeric: false, missing: MISSING.NOT_PUBLISHED },
   'Unresolved unit / layout': { numeric: false, missing: MISSING.QUARANTINED, quarantined: true },
   // A result the source states in words, such as "No break" for a Charpy test on PEBA-S. It is
