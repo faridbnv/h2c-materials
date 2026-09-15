@@ -1202,6 +1202,12 @@
             }
           ]
         },
+        "impliedBounds": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
         "estimate": {
           "type": "object"
         },

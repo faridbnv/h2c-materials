@@ -40,6 +40,10 @@ export function referenceIssues({ registry, materials, grades, model }) {
     if (tag.startsWith('_')) continue;
     for (const n of list) if (!names.has(n)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `variants.${tag} names "${n}", which is not a material`));
   }
+  for (const [key, rel] of Object.entries(model.impliedBounds ?? {})) {
+    if (key.startsWith('_')) continue;
+    for (const { property } of rel.lowerFrom ?? []) if (!properties.has(property)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `impliedBounds.${key} names property "${property}", which is not in properties.csv`));
+  }
   const gradeIds = new Set(grades.map((g) => g.id));
   for (const id of Object.keys(model.hardness ?? {})) {
     if (!id.startsWith('_') && !gradeIds.has(id)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `hardness names grade "${id}", which does not exist`));

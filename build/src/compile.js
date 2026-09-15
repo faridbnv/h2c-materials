@@ -19,7 +19,7 @@ import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped } from './typed-values.js';
-import { buildEstimates, summariseEstimates } from './estimates.js';
+import { buildEstimates, summariseEstimates, ESTIMATE_MODEL } from './estimates.js';
 import { attachPrintEstimates } from './print-estimates.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 
@@ -285,6 +285,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       headline[key] = {
         known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
         related: relatedEvidence(mat, def, measurementsByMaterial),
+        impliedBounds: impliedBounds(mat, key, measurementsByMaterial),
       };
       continue;
     }
@@ -394,6 +395,22 @@ const DIRECTION_NOTE = {
  *
  * This never becomes the headline and never satisfies a constraint.
  */
+/**
+ * Measurements of the material that bound a missing headline from below (estimate-model.json impliedBounds). The
+ * engine lets one veto an estimate's screen when it meets the requirement: the headline is at least that value.
+ */
+function impliedBounds(mat, key, measurementsByMaterial) {
+  const rel = ESTIMATE_MODEL.impliedBounds?.[key];
+  if (!rel) return [];
+  return (measurementsByMaterial.get(mat.MaterialID) ?? [])
+    .filter((m) => m.numeric && !m.quarantined && !m.specimenType?.startsWith('Raw material'))
+    .filter((m) => rel.lowerFrom.some((r) => r.property === m.property && (r.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - r.loadMPa) < 0.05))))
+    .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
+      // The largest value the measurement allows: a bound that could meet the requirement keeps the material.
+      lo: m.interval?.hi ?? m.interval?.lo ?? m.value, unit: m.unit }))
+    .filter((b) => Number.isFinite(b.lo));
+}
+
 function relatedEvidence(mat, def, measurementsByMaterial) {
   const props = def.relatedProperties;
   if (!props.length) return null;

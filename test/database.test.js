@@ -250,14 +250,21 @@ test('an unstated-load heat headline carries a bracket from its matrix\'s load g
 });
 
 // Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".
-test('a resin reference never vetoes a screen: related intervals are the filament\'s own', () => {
+test('a resin reference never vetoes a screen: implied bounds are the filament\'s own', () => {
+  const model = JSON.parse(readFileSync(join(root, 'build/mappings/estimate-model.json'), 'utf8'));
+  let bounds = 0;
   for (const m of db.materials) {
-    for (const h of Object.values(m.headline)) {
-      for (const i of h?.related?.intervals ?? []) {
-        assert.ok(!db.measurements.find((x) => x.id === i.measurementId)?.specimenType?.startsWith('Raw material'), `${m.name} ${i.measurementId}`);
+    for (const [key, h] of Object.entries(m.headline)) {
+      for (const b of h?.impliedBounds ?? []) {
+        const x = db.measurements.find((y) => y.id === b.measurementId);
+        assert.ok(!x.specimenType?.startsWith('Raw material'), `${m.name} ${b.measurementId}`);
+        assert.equal(x.materialId, m.id, `${m.name} ${key} bound ${b.measurementId} is another material's`);
+        assert.ok(model.impliedBounds[key].lowerFrom.some((r) => r.property === x.property), `${m.name} ${key}: ${x.property} does not bound it`);
+        bounds++;
       }
     }
   }
+  assert.ok(bounds > 0);
 });
 
 test('the validator rejects a family entry that owns a product or that the mapping does not describe', () => {

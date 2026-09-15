@@ -105,11 +105,11 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| density | 7 | 1 | 4 | 2 | 0 | 0 | 6 |
-| tensileModulusXY | 23 | 12 | 3 | 3 | 5 | 0 | 16 |
-| tensileStrengthXY | 38 | 26 | 4 | 3 | 5 | 0 | 31 |
-| elongationXY | 22 | 9 | 3 | 5 | 5 | 0 | 14 |
-| hdt045 | 29 | 8 | 6 | 3 | 12 | 0 | 15 |
+| density | 7 | 1 | 4 | 2 | 0 | 0 | 7 |
+| tensileModulusXY | 23 | 12 | 3 | 3 | 5 | 0 | 18 |
+| tensileStrengthXY | 38 | 26 | 4 | 3 | 5 | 0 | 33 |
+| elongationXY | 22 | 9 | 3 | 5 | 5 | 0 | 17 |
+| hdt045 | 29 | 8 | 6 | 3 | 12 | 0 | 17 |
 
 Evidence that contradicts everything else and was down-weighted:
 
@@ -162,7 +162,7 @@ interface can say so rather than implying a certainty it does not have.
 
 - `IMPACT-UNITS` **measurements** — Impact data uses two incompatible units. 10 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
 - `HDT-LOAD-UNSTATED` **materials** — 6 of 67 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
-- `EST-SUMMARY` **materials** — Missing headlines: 56 estimated from the grade's own related measurements, 20 from the material's other grades, 16 from the family model alone (14 of all estimates imprecise), 27 not applicable. 82 estimates may screen a material out in Explore; none can pass one.
+- `EST-SUMMARY` **materials** — Missing headlines: 56 estimated from the grade's own related measurements, 20 from the material's other grades, 16 from the family model alone (14 of all estimates imprecise), 27 not applicable. 92 estimates may screen a material out in Explore; none can pass one.
 - `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: OBC density 905 (expected about 1130); PPA-CF tensileModulusXY 11.8 (expected about 7.28); PC-ABS elongationXY 75 (expected about 9.35); PET-GF hdt045 81.6 (expected about 114)
 - `EST-WIDE` **materials** — 14 estimates are too imprecise to guide a choice: PLA Silk elongationXY 1.15-8.12 % (plausible 0.783-12, family); TPU tensileStrengthXY 15.1-52.9 MPa (plausible 12.7-62.9, this-material); PEBA tensileModulusXY 0.0678-0.231 GPa (plausible 0.0526-0.298, this-grade); TPC / TPEE tensileModulusXY 0.00938-0.106 GPa (plausible 0.00568-0.175, this-grade); TPC / TPEE tensileStrengthXY 10.6-42 MPa (plausible 8.77-50.8, family); TPC / TPEE elongationXY 174-1140 % (plausible 119-1650, family); PA12 elongationXY 5.33-32.9 % (plausible 3.72-47.1, this-material); BVOH hdt045 54.7-117 °C (plausible 46.6-158, this-grade); PE tensileStrengthXY 21.5-54.1 MPa (plausible 18.9-61.5, this-grade); PE hdt045 52.2-124 °C (plausible 45.7-134, family); OBC tensileModulusXY 0.0161-1.14 GPa (plausible 0.00671-2.75, family); POM / Acetal hdt045 77.8-151 °C (plausible 52-163, this-material); CoPE elongationXY 5.01-39.4 % (plausible 3.33-59.2, family); PVB elongationXY 6.19-31.5 % (plausible 4.49-43.4, this-grade)
 - `EST-FAMILY-ORDER` **materials** — 1 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865

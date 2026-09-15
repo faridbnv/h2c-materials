@@ -148,12 +148,12 @@ test('an unrecognised unknown-data policy falls back to strict, consistently', (
 // out, unless one of the material's own measurements of that property could meet the requirement (D43).
 // The likely range is what the reader sees; the plausible range is what decides.
 
-const estimated = (lo, hi, { canScreen = true, related = null, plausible = null } = {}) => ({
+const estimated = (lo, hi, { canScreen = true, impliedBounds = [], plausible = null } = {}) => ({
   id: 'M1', excluded: false, gates: {},
-  headline: { elongationXY: { known: false, missing: 'not-published', unit: '%', related,
+  headline: { elongationXY: { known: false, missing: 'not-published', unit: '%', impliedBounds,
     estimate: { kind: 'model', strength: 'family', precision: 'fair', lo, hi, centre: (lo + hi) / 2, plausible: plausible ?? { lo, hi },
       unit: '%', basis: 'the family model only: PLA', method: 'Gaussian model', evidence: [],
-      canScreen, screenLimit: canScreen ? null : 'no evidence of this material, and PLA is measured on fewer than 2 products' } } },
+      canScreen, screenLimit: canScreen ? null : 'family-model estimates of this property are not certified to screen: only 3 held cases (20 needed)' } } },
 });
 const elongation = (value, operator = '>=') => ({ kind: 'numeric', property: 'elongationXY', operator, value });
 const explore = { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.EXPLORATION };
@@ -187,20 +187,23 @@ test('an estimate that may not screen only informs', () => {
   const e = evaluateMaterial(estimated(2.2, 32.9, { canScreen: false }), [elongation(100)], explore);
   assert.equal(e.screened, false);
   assert.equal(e.eligible, true);
-  assert.match(e.results[0].reason, /fewer than 2 products/);
+  assert.match(e.results[0].reason, /not certified to screen/);
 });
 
 // Regression, found while designing this model: a class envelope screened CPE out of "elongation at
 // least 100%" although its own data sheet reports 150% in an unstated direction.
-test('the material\'s own measurement vetoes a screen, whatever its direction or endpoint', () => {
-  const related = { intervals: [{ measurementId: 'V9', lo: 150, hi: 150 }] };
-  const e = evaluateMaterial(estimated(2.2, 32.9, { related }), [elongation(100)], explore);
+test('a measurement that bounds the headline from below and meets the requirement vetoes a screen', () => {
+  const impliedBounds = [{ measurementId: 'V9', property: 'Elongation at break', direction: 'unknown', lo: 150, unit: '%' }];
+  const e = evaluateMaterial(estimated(2.2, 32.9, { impliedBounds }), [elongation(100)], explore);
   assert.equal(e.screened, false);
   assert.equal(e.eligible, true);
   assert.deepEqual(e.results[0].vetoedBy, ['V9']);
   // A failing own measurement vetoes nothing.
-  const low = evaluateMaterial(estimated(2.2, 32.9, { related: { intervals: [{ measurementId: 'V8', lo: 40, hi: 40 }] } }), [elongation(100)], explore);
+  const low = evaluateMaterial(estimated(2.2, 32.9, { impliedBounds: [{ measurementId: 'V8', property: 'Elongation at break', lo: 40, unit: '%' }] }), [elongation(100)], explore);
   assert.equal(low.screened, true);
+  // A lower bound says nothing about an upper requirement: at most 10% is still screened by a range of 20-40%.
+  const upper = evaluateMaterial(estimated(20, 40, { impliedBounds }), [elongation(10, '<=')], explore);
+  assert.equal(upper.screened, true);
 });
 
 test('estimates are invisible unless enabled, and never screen in Strict', () => {

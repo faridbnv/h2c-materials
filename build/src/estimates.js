@@ -518,6 +518,36 @@ function hyperparameters(key, obs, S, model, fixedW) {
   return hp;
 }
 
+// ---------------------------------------------------------------------------- screening back-test
+
+/** P(X >= k) for X ~ Binomial(n, p). */
+function binomialTail(n, p, k) {
+  if (k <= 0) return 1;
+  let term = Math.pow(1 - p, n), cdf = 0;
+  for (let i = 0; i < k; i++) { cdf += term; term = term * ((n - i) / (i + 1)) * (p / (1 - p)); }
+  return Math.max(0, 1 - cdf);
+}
+
+/**
+ * Whether an evidence class may screen (DECISIONS D48). cases: [{ y, lo, hi }] in the headline's units, the true
+ * value and the plausible range predicted with the class's information hidden. Certified when there are at
+ * least minHeldCases and neither side misses significantly more often than maxOneSidedMiss.
+ */
+export function certifyScreening(cases, { maxOneSidedMiss, testLevel, minHeldCases }) {
+  const n = cases.length;
+  const high = cases.filter((c) => c.y > c.hi).length, low = cases.filter((c) => c.y < c.lo).length;
+  const pHigh = binomialTail(n, maxOneSidedMiss, high), pLow = binomialTail(n, maxOneSidedMiss, low);
+  const enough = n >= minHeldCases;
+  const certified = enough && pHigh >= testLevel && pLow >= testLevel;
+  const r = (x) => Math.round(x * 1000) / 1000;
+  return {
+    held: n, missHigh: high, missLow: low, missHighRate: n ? r(high / n) : null, missLowRate: n ? r(low / n) : null, pHigh: r(pHigh), pLow: r(pLow), certified,
+    why: !enough ? `only ${n} held cases (${minHeldCases} needed)`
+      : certified ? `ranges hold on both sides (${high} above, ${low} below of ${n})`
+      : `plausible ranges are too narrow: ${pHigh < testLevel ? `${high} of ${n} true values above the range` : `${low} of ${n} below it`} (${Math.round(maxOneSidedMiss * 1000) / 10}% per side allowed)`,
+  };
+}
+
 // --------------------------------------------------------------------------------------- building
 
 const sig3 = (v, dir = 0) => {
@@ -607,6 +637,22 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     // Lite's 53 °C means 53 to about 63 °C, not "53 or anything above". Treated as unbounded, it kept a
     // PLA among candidates for "heat resistance at least 100 °C".
     if (key === 'hdt045') {
+      // Back-test the bracket on every formulation publishing both loads: read the 1.8 MPa value as if its load were
+      // unstated, and check the 0.45 MPa value lies under the bracket's top (it lies above its bottom by physics).
+      const byF = new Map();
+      for (const o of raw) { if (!byF.has(o.f)) byF.set(o.f, { m: o.m, kinds: new Map() }); byF.get(o.f).kinds.set(o.kind, o.yRaw); }
+      // The gap between the loads depends on the matrix (an amorphous bar a few degrees, an unfilled semicrystalline
+      // one up to 120 °C), so each matrix class is certified on its own pairs.
+      const bracketCases = new Map();
+      for (const { m, kinds } of byF.values()) {
+        const matrix = S.matrix(m);
+        const y = kinds.get('HDT 0.45'), v = kinds.get(`HDT 1.8 ${matrix}`), c = conv[`HDT 1.8 ${matrix}`];
+        if (y == null || v == null || !c) continue;
+        if (!bracketCases.has(matrix)) bracketCases.set(matrix, []);
+        bracketCases.get(matrix).push({ materialId: m.id, y, lo: v, hi: v + c.offset + zPlausible * c.sd });
+      }
+      diagnostics.bracketScreening = Object.fromEntries(['amorphous', 'semi-unfilled', 'semi-filled', 'elastomer']
+        .map((matrix) => [matrix, certifyScreening(bracketCases.get(matrix) ?? [], model.screening)]));
       for (const m of S.pool) {
         const h = m.headline.hdt045;
         const c = conv[`HDT 1.8 ${S.matrix(m)}`];
@@ -614,34 +660,16 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
         h.loadBracket = {
           lo: h.value, hi: sig3(h.value + c.offset + zPlausible * c.sd, 1), unit: h.unit,
           why: `at 0.45 MPa the value itself; at 1.8 MPa up to ${sig3(c.offset + zPlausible * c.sd, 1)} °C lower than the 0.45 MPa value, the ${Math.round(plausible * 100)}% gap ${c.pairs} ${S.matrix(m)} grades publishing both loads show`,
+          canScreen: diagnostics.bracketScreening[S.matrix(m)].certified,
+          screenLimit: diagnostics.bracketScreening[S.matrix(m)].certified ? null : `the unstated-load bracket for ${S.matrix(m)} matrices is not certified to screen: ${diagnostics.bracketScreening[S.matrix(m)].why}`,
         };
       }
     }
 
-    // Identities measured on at least this many products may screen without the material's own evidence.
-    const identityProducts = new Map();
-    for (const o of obs) { const id = identityOf(o.m); if (!identityProducts.has(id)) identityProducts.set(id, new Set()); identityProducts.get(id).add(o.f); }
-
-    for (const m of S.pool) {
-      const h = m.headline[key];
-      if (!h || h.known || h.notApplicable) continue;
-      const rep = m.representativeGrade && S.grades.has(m.representativeGrade) ? m.representativeGrade : null;
-      const f = rep ? S.fkey(rep) : null;
-      // Its own measurements, and those of its representative product filed under another material.
-      const mine = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.m.id === m.id || (f && o.f === f));
-      const support = m.facets.supportMaterial?.value === true;
-      if (!mine.length && (support || (key === 'hdt045' && S.info(m).morphology === 'elastomer'))) {
-        h.notApplicable = { reason: support ? model.notApplicable.support : model.notApplicable.elastomerHdt };
-        continue;
-      }
-      const manufacturer = rep ? S.grades.get(rep).manufacturer ?? null : null;
-      // One product has one value: a representative product filed under another material is predicted
-      // as that material's, so PA-CF and PA12-CF cannot disagree about CarbonX CF PA12.
-      const owner = f && ownerOfF.get(f) && ownerOfF.get(f) !== m.id ? S.inPool.get(ownerOfF.get(f)) : null;
-      const subject = owner ?? m;
-      const p = predict(P, hp, subject, f, manufacturer);
-      p.mu += tmMean(subject);
-
+    // The likely and plausible ranges of a prediction, with the physical and semantic limits that apply to the
+    // material. Shared by the estimates and the screening back-test, so the back-test judges the ranges shown.
+    const rangeFor = (m, subject, p, unit, { ownBounds = true } = {}) => {
+      const h = { unit };
       const bounds = [];
       // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer
       // plausibleValues, and for heat deflection a floor near room temperature. They are published with the
@@ -658,7 +686,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       // For strength and elongation a printed part is strongest in XY, so a lower bound in an unstated direction
       // bounds the XY value too; an upper bound does only with the headline's own semantics.
       const limits = (b) => b.kind === HEAD[key] || (b.side === 'lower' && key !== 'hdt045' && key !== 'density' && b.kind === HEAD[key].replace(' XY', ' unk'));
-      for (const b of oneSided.filter((b) => b.materialId === subject.id && limits(b))) {
+      for (const b of ownBounds ? oneSided.filter((b) => b.materialId === subject.id && limits(b)) : []) {
         const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
         bounds.push({ side: b.side, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
       }
@@ -687,15 +715,82 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       const range = [q(0.5 - likely / 2, calLikely), q(0.5 + likely / 2, calLikely)];
       const wide = [q(0.5 - plausible / 2, calPlausible), q(0.5 + plausible / 2, calPlausible)];
 
+      return { bounds, centre, range, wide };
+    };
+
+    // Screening back-test (D48): hide what each evidence class lacks from every measured headline, predict it with
+    // the production ranges, and certify the class only if those ranges are honest on both sides.
+    const classCases = { 'this-grade': [], 'this-material': [], family: [] };
+    for (const m of S.pool) {
+      const h = m.headline[key];
+      if (!h?.known || (key === 'hdt045' && !(h.loadStated && h.loadMPa === 0.45))) continue;
+      const f = S.fkey(h.gradeId);
+      const headline = obs.map((o, i) => (o.m.id === m.id && o.f === f && o.kind === HEAD[key] ? i : -1)).filter((i) => i >= 0);
+      if (!headline.length) continue;
+      const rest = obs.map((o, i) => ((o.m.id === m.id || o.f === f) && !headline.includes(i) ? i : -1)).filter((i) => i >= 0);
+      const manufacturer = S.grades.get(h.gradeId)?.manufacturer;
+      const held = (hide) => {
+        const p = predict(P, hp, m, f, manufacturer, hide);
+        p.mu += tmMean(m);
+        // Own published bounds are left out: in the back-test they would be the hidden evidence itself.
+        const { wide } = rangeFor(m, m, p, h.unit, { ownBounds: false });
+        return { materialId: m.id, y: h.value, lo: wide[0], hi: wide[1] };
+      };
+      // This grade: its other published kinds remain. This material: the whole grade is hidden, its other grades
+      // remain. Family: everything of the material and its product is hidden.
+      const sameGrade = rest.filter((i) => obs[i].f === f), otherGrades = rest.filter((i) => obs[i].f !== f);
+      if (sameGrade.length) classCases['this-grade'].push(held(headline));
+      if (otherGrades.length) classCases['this-material'].push(held([...headline, ...sameGrade]));
+      classCases.family.push(held([...headline, ...rest]));
+    }
+    const certification = Object.fromEntries(Object.entries(classCases).map(([c, cases]) => [c, certifyScreening(cases, model.screening)]));
+    diagnostics.properties[key].screening = certification;
+
+    for (const m of S.pool) {
+      const h = m.headline[key];
+      if (!h || h.known || h.notApplicable) continue;
+      const rep = m.representativeGrade && S.grades.has(m.representativeGrade) ? m.representativeGrade : null;
+      const f = rep ? S.fkey(rep) : null;
+      // Its own measurements, and those of its representative product filed under another material.
+      const mine = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.m.id === m.id || (f && o.f === f));
+      const support = m.facets.supportMaterial?.value === true;
+      if (!mine.length && (support || (key === 'hdt045' && S.info(m).morphology === 'elastomer'))) {
+        h.notApplicable = { reason: support ? model.notApplicable.support : model.notApplicable.elastomerHdt };
+        continue;
+      }
+      const manufacturer = rep ? S.grades.get(rep).manufacturer ?? null : null;
+      // One product has one value: a representative product filed under another material is predicted
+      // as that material's, so PA-CF and PA12-CF cannot disagree about CarbonX CF PA12.
+      const owner = f && ownerOfF.get(f) && ownerOfF.get(f) !== m.id ? S.inPool.get(ownerOfF.get(f)) : null;
+      const subject = owner ?? m;
+      const p = predict(P, hp, subject, f, manufacturer);
+      p.mu += tmMean(subject);
+
+      const { bounds, centre, range, wide } = rangeFor(m, subject, p, h.unit);
+
       const onThisGrade = mine.some(({ o }) => o.f === f && f);
       const strength = onThisGrade ? 'this-grade' : mine.length ? 'this-material' : 'family';
       const totalWeight = p.weights.reduce((a, v) => a + v, 0);
       const ownWeight = mine.reduce((a, { i }) => a + p.weights[i], 0);
       const ownShare = totalWeight > 0 ? Math.max(0, Math.min(1, ownWeight / totalWeight)) : 0;
-      const products = identityProducts.get(identityOf(m))?.size ?? 0;
       const spread = model.properties[key].scale === 'log' ? range[1] / range[0] : range[1] - range[0];
       const precision = spread <= model.properties[key].precision.good ? 'good' : spread <= model.properties[key].precision.fair ? 'fair' : 'poor';
-      const canScreen = strength !== 'family' || products >= model.screening.minIdentityProducts;
+      // The range that decides a screen (D48). A certified class screens on its own plausible range. A class the
+      // back-test could not certify screens only where the certified family model agrees: on the union of its own
+      // range and the family-only range (the material's own evidence hidden), which is never narrower than a
+      // certified family screen.
+      let screenRange = null, screenBasis = null;
+      if (certification[strength].certified) {
+        screenRange = { lo: wide[0], hi: wide[1] };
+        screenBasis = `${strength} estimates are certified to screen: ${certification[strength].why}`;
+      } else if (strength !== 'family' && certification.family.certified) {
+        const pf = predict(P, hp, subject, f, manufacturer, mine.map(({ i }) => i));
+        pf.mu += tmMean(subject);
+        const familyWide = rangeFor(m, subject, pf, h.unit, { ownBounds: false }).wide;
+        screenRange = { lo: Math.min(wide[0], familyWide[0]), hi: Math.max(wide[1], familyWide[1]) };
+        screenBasis = `${strength} estimates are not certified (${certification[strength].why}); screens only where the certified family-only range, ${sig3(familyWide[0], -1)} to ${sig3(familyWide[1], 1)} ${h.unit}, fails too`;
+      }
+      const canScreen = !!screenRange;
 
       const evidence = mine.map(({ o }) => ({
         kind: o.kind, gradeId: o.gradeId, sameGrade: !!f && o.f === f,
@@ -715,7 +810,9 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
           : `the family model only: ${family}`,
         method: `Gaussian model of every observation in the snapshot, each converted to this headline; ${Math.round(likely * 100)}% and ${Math.round(plausible * 100)}% ranges calibrated by predicting ${loo.length} hidden measured headlines`,
         canScreen,
-        screenLimit: canScreen ? null : `no evidence of this material, and ${identityOf(m)} is measured on fewer than ${model.screening.minIdentityProducts} products`,
+        screenRange: screenRange && { lo: sig3(screenRange.lo, -1), hi: sig3(screenRange.hi, 1) },
+        screenBasis,
+        screenLimit: canScreen ? null : `${strength === 'family' ? 'family-model' : strength} estimates of this property are not certified to screen: ${certification[strength].why}`,
       };
     }
   }

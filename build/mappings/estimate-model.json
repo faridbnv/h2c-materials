@@ -672,7 +672,50 @@
     "support": "A support product is not characterised as a structural material. Its values are shown only where its own sources publish them."
   },
   "screening": {
-    "_comment": "An estimate never passes a material. In Explore it may screen one out when its plausible range wholly fails, no own measurement of the material could meet the requirement, and the estimate rests on the material's own evidence or on an identity measured on at least two products.",
-    "minIdentityProducts": 2
+    "_comment": "An estimate never passes a material. In Explore it may screen one out when its plausible range wholly fails and no measurement of the material logically bounds the headline to meet the requirement (impliedBounds). Whether an evidence class may screen at all is decided every build by the screening back-test (DECISIONS D48): every measured headline is hidden as far as the class requires and predicted, and the class screens only if its plausible ranges are not detectably too narrow on either side.",
+    "maxOneSidedMiss": 0.025,
+    "testLevel": 0.05,
+    "minHeldCases": 20,
+    "why": "A screen removes a material when its plausible range wholly fails the requirement; it is wrong only when the true value lies beyond the range on the side the requirement tests. A 95% range allows 2.5% per side. A class is certified when, over at least minHeldCases hidden headlines, neither side's misses are significantly more than maxOneSidedMiss (exact one-sided binomial test at testLevel): a calibrated class is not revoked by sampling noise, a too-narrow class is."
+  },
+  "impliedBounds": {
+    "_comment": "Measurements that logically bound a headline from below. An estimate that would screen a material out is vetoed when such a measurement of the material itself meets the requirement: the headline is at least that value, so the screen would be wrong. Moulded (raw material) values are not bounds of a printed part.",
+    "tensileStrengthXY": {
+      "lowerFrom": [
+        {
+          "property": "Tensile yield strength"
+        },
+        {
+          "property": "Tensile break strength"
+        },
+        {
+          "property": "Tensile strength (endpoint unspecified)"
+        }
+      ],
+      "why": "The ultimate strength is the maximum stress, so it is at least the yield and break stress; a printed part is strongest in XY, so a value in any direction bounds the XY one."
+    },
+    "elongationXY": {
+      "lowerFrom": [
+        {
+          "property": "Elongation at break"
+        },
+        {
+          "property": "Elongation at yield"
+        },
+        {
+          "property": "Tensile strain at strength"
+        }
+      ],
+      "why": "A bar breaks after it yields and after it reaches its maximum stress; XY strain at break is at least the strain in any other direction."
+    },
+    "hdt045": {
+      "lowerFrom": [
+        {
+          "property": "HDT",
+          "loadMPa": 1.8
+        }
+      ],
+      "why": "A bar deflects at a lower temperature under a heavier load, so the value at 0.45 MPa is at least the value at 1.8 MPa."
+    }
   }
 }

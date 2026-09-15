@@ -96,14 +96,23 @@ function evaluateNumeric(material, c, ctx = {}) {
       const est = h.estimate;
       const wide = est.plausible ?? { lo: est.lo, hi: est.hi };
       const plausible = compareInterval({ lo: wide.lo, hi: wide.hi, kind: 'range' }, c.operator, c.value);
+      // The build's back-test decides which range may screen (D48): the plausible range of a certified class, or its
+      // union with the certified family-only range. An older snapshot without screenRange screens on the plausible range.
+      const decides = est.screenRange ?? wide;
+      const screenFails = compareInterval({ lo: decides.lo, hi: decides.hi, kind: 'range' }, c.operator, c.value) === STATUS.FAIL;
       const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
-      const veto = (h.related?.intervals ?? []).filter((r) => compareInterval({ lo: r.lo, hi: r.hi }, c.operator, c.value) !== STATUS.FAIL);
-      const screened = plausible === STATUS.FAIL && est.canScreen && !veto.length;
+      // A measurement of the material that bounds this headline from below and meets the requirement vetoes the
+      // screen: the headline is at least that value (estimate-model.json impliedBounds, D48). Other related values,
+      // other endpoints and moulded resin values do not bound it; the estimate already carries them.
+      const veto = (h.impliedBounds ?? []).filter((b) => compareInterval({ lo: b.lo, hi: null }, c.operator, c.value) === STATUS.PASS);
+      const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && !veto.length;
       const reason = plausible === STATUS.FAIL
         ? screened
           ? `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
+          : est.canScreen && !screenFails && !veto.length
+            ? `Not published. Estimated ${span} would fail, but the family model alone (${fmt(decides.lo)} to ${fmt(decides.hi)} ${est.unit}) could meet it, and this estimate class is not certified to screen on its own`
           : veto.length
-            ? `Not published. Estimated ${span} would fail, but its own measurement ${veto[0].measurementId} could meet it, so it is not screened`
+            ? `Not published. Estimated ${span} would fail, but its own ${veto[0].property} ${veto[0].measurementId} (${fmt(veto[0].lo)} ${veto[0].unit}) bounds it from below and meets the requirement, so it is not screened`
             : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
         : `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
       return {
@@ -148,7 +157,8 @@ function evaluateNumeric(material, c, ctx = {}) {
   if (c.property === 'hdt045' && h.loadStated === false) {
     const b = h.loadBracket;
     const bracket = b ? compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, c.operator, c.value) : null;
-    const screened = !!(ctx.useEstimates && bracket === STATUS.FAIL);
+    // The bracket screens only if the build's back-test certified it (D48); an older snapshot without the flag screens as before.
+    const screened = !!(ctx.useEstimates && bracket === STATUS.FAIL && b?.canScreen !== false);
     return {
       status: STATUS.INDETERMINATE,
       reason: b

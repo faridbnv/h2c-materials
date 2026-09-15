@@ -576,7 +576,7 @@ characterises an identity, a resin supplier data sheet is recorded as a study gr
 windows nobody publishes are estimated from same-polymer or same-group products, above the melting
 point; like a chamber band, they decide nothing.
 
-**What it may do.** Unchanged in principle from D42. Never pass. In Explore with Estimates on, screen a
+**What it may do.** (Which estimates may screen, and what vetoes a screen, are decided by D48.) Unchanged in principle from D42. Never pass. In Explore with Estimates on, screen a
 material out only when the plausible range wholly fails, no own measurement could meet the
 requirement, and the estimate rests on the material's own evidence or an identity measured on at
 least two products. Not applicable screens the same way. Strict neither shows nor uses estimates.
@@ -672,3 +672,69 @@ Two compiled values moved, and both are listed in the migration record. PAHT-CF'
 (the median 124.485 rounded half up, where the typed 124.48 was a floating-point display). Two materials
 list the same environmental records in table order rather than typed order.
 
+
+## D48. Evidence screens only where a back-test shows it screens reliably
+
+D42 and D43 decided by rule which estimates may screen: the material's own evidence, or an identity
+measured on at least two products. The rule was a judgement, and the leak sweep of the 2026-09-14
+filtering audit showed its cost: 1,266 (material, requirement) pairs where a range that wholly failed
+left the material in, because the rule forbade the screen; and 789 more where any raw related value of
+the material, of any endpoint or direction, vetoed it. Neither was measured. The owner asked for the most
+reliable method, over earlier rulings.
+
+**A back-test, every build.** For every measured headline the build hides what an evidence class lacks
+and predicts it with the production ranges and limits (`build/src/estimates.js`): this grade (the
+headline hidden, the grade's other published kinds kept), this material (the whole grade hidden, other
+grades kept), and the family model (everything of the material and its product hidden). A screen is wrong
+only when the true value lies beyond the plausible range on the side the requirement tests, which a 95%
+range allows 2.5% of the time per side. A class is **certified** when it has at least 20 held cases and
+neither side misses significantly more often (exact one-sided binomial test at 5%). A calibrated class is
+not revoked by sampling noise; a class whose ranges are too narrow is. The result travels in
+`meta.estimateModel.properties.*.screening`.
+
+**What screens.** A certified class screens on its plausible range. A class the back-test cannot certify
+(too few held cases) screens only where the certified family model agrees: on the union of its range and
+the family-only range with the material's own evidence hidden, which is never narrower than a certified
+family screen. An estimate carries the range that decides (`screenRange`) and why (`screenBasis`).
+
+**The unstated-load bracket is certified per matrix.** Read as a 1.8 MPa value, a heat deflection with no
+stated load brackets the 0.45 MPa value up to the gap grades publishing both loads show. One Gaussian gap
+for all matrices failed its back-test (4 of 54 true values above the top): the gap is a few degrees for
+an amorphous bar and up to 120 °C for an unfilled semicrystalline one. Each matrix is certified on its
+own pairs; today only amorphous (38 pairs) screens, which keeps PLA Lite's case (D43's regression).
+
+**Vetoes are implied bounds.** A measurement vetoes a screen only when it logically bounds the headline
+from below and meets the requirement (`estimate-model.json impliedBounds`): ultimate strength is at least
+the yield and break stress in any printed direction; strain at break is at least the strain at yield or at
+maximum stress; heat deflection at 0.45 MPa is at least the value at 1.8 MPa. A bound never passes. Other
+endpoints, flexural values and moulded resin values no longer veto: the estimate carries them through
+documented conversions, and the back-test judges the result.
+
+**Measured 2026-09-15** (held cases, true values above and below the plausible range, certified):
+
+| Headline | Class | Held | Above | Below | Certified |
+|---|---|---|---|---|---|
+| density | this-grade | 0 | 0 | 0 | no (only 0 held cases (20 needed)) |
+| density | this-material | 24 | 1 | 0 | yes |
+| density | family | 84 | 4 | 1 | yes |
+| tensileModulusXY | this-grade | 65 | 2 | 1 | yes |
+| tensileModulusXY | this-material | 21 | 1 | 2 | yes |
+| tensileModulusXY | family | 68 | 1 | 0 | yes |
+| tensileStrengthXY | this-grade | 52 | 1 | 2 | yes |
+| tensileStrengthXY | this-material | 10 | 0 | 0 | no (only 10 held cases (20 needed)) |
+| tensileStrengthXY | family | 53 | 1 | 1 | yes |
+| elongationXY | this-grade | 51 | 1 | 0 | yes |
+| elongationXY | this-material | 24 | 2 | 2 | yes |
+| elongationXY | family | 69 | 1 | 1 | yes |
+| hdt045 | this-grade | 53 | 1 | 1 | yes |
+| hdt045 | this-material | 18 | 1 | 1 | no (only 18 held cases (20 needed)) |
+| hdt045 | family | 61 | 3 | 2 | yes |
+| hdt045 bracket | amorphous | 38 | 2 | 1 | yes |
+| hdt045 bracket | semi-unfilled | 3 | 0 | 0 | no (only 3 held cases (20 needed)) |
+| hdt045 bracket | semi-filled | 12 | 2 | 0 | no (only 12 held cases (20 needed)) |
+| hdt045 bracket | elastomer | 1 | 0 | 0 | no (only 1 held cases (20 needed)) |
+
+The leak sweep that motivated this is a permanent test (`test/screening.test.js`): no material stays a
+candidate for a requirement its defended range wholly fails, except by a verified implied bound; the
+structural invariants hold; and the certification rule revokes ranges made too narrow. Estimates still
+never pass, and Strict still neither shows nor uses them (D43).
