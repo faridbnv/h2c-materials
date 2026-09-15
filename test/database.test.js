@@ -40,18 +40,11 @@ test('every numeric headline equals the measurement it cites', () => {
       checked++;
     }
   }
-  // 369 since the 2026-09-13 missing-data research: PLA Lite 4, PLA Silk 3, CoPE 3, PET-GF 5, CPE 2
-  // and nGen 3 on top of the manufacturer audit's 349.
-  // 380 since the 2026-09-13 estimate-evidence research: PETG-GF +3, ASA-GF +4, POM +4.
-  // 361 since the duplicate-products fix: PA, CoPA, PA-CF, PA-GF and TPE became family entries, and the
-  // 19 headlines they held were copies of headlines PA6/66, PA12-CF, PA6-GF and TPC / TPEE still hold.
-  // The count follows the data: one per value selection in data/tables/headlines.csv. A headline the
-  // compiler dropped, or one it invented, still fails here; adding a headline row no longer does.
+  // The count follows the data: one per value selection in data/tables/headlines.csv. A headline the compiler dropped,
+  // or one it invented, fails here; adding a headline row does not. What each build selects is in build/snapshot/.
   const selections = readFileSync(join(root, 'data/tables/headlines.csv'), 'utf8').split('\n').filter((l) => l.endsWith(',value')).length;
   assert.equal(checked, selections);
-  // 359 since audit 2026-09-15 (m24): PLA and PC heat deflection and TPU for AMS stiffness selected physically
-  // implausible values; those selections are context citations and the headlines are estimated.
-  assert.ok(checked >= 359, 'no audited headline has gone missing since the physically implausible values were flagged');
+  assert.ok(checked >= 359, 'headlines have gone missing since the 2026-09-15 audit flagged physically implausible values');
 });
 
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a

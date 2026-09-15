@@ -2,7 +2,8 @@
 // Every finding has a stable rule code and a record, so an accepted finding can be baselined
 // (data/review/accepted-findings.csv) and a new one stops `npm run verify`.
 //
-// Findings: { code, table, record, field, message }. The baseline key is code + table + record + field.
+// A finding has the one shape rules.js issue() builds: { level, code, table, record, field, where, message }. The
+// acceptance baseline is keyed on code + table + record + field.
 
 import { DATA_STATUS } from './normalize/values.js';
 
@@ -37,7 +38,8 @@ const TEXT_TABLES = ['materials', 'grades', 'profiles', 'measurements', 'evidenc
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 export function lintData(tables, schemas) {
   const findings = [];
-  const add = (code, table, record, field, message) => findings.push({ code, table, record, field: field ?? '', message });
+  // The shape issue() builds (rules.js), written here because the catalogue reads LINT_RULES from this file.
+  const add = (code, table, record, field, message) => findings.push({ level: 'lint', code, table, record, field: field ?? '', where: [table, record, field].filter(Boolean).join(' '), message });
   const pkOf = (t) => schemas[t]?.primaryKey;
   const idOf = (t, r) => (pkOf(t) ? r[pkOf(t)] : (schemas[t]?.uniqueKeys?.[0] ?? []).map((f) => r[f]).join(' | '));
 

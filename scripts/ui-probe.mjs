@@ -11,7 +11,7 @@
 // Needs `npm run build` first and Chrome (CHROME=/path, or the usual install paths); without Chrome it reports
 // "skipped" and exits 0, unless --require is given (CI).
 
-import { spawn } from 'node:child_process';
+import { findChrome, launchChrome, skipWithoutChrome } from './lib/cdp.mjs';
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
@@ -22,18 +22,14 @@ const outDir = join(root, 'build/snapshot/ui');
 const write = process.argv.includes('--write');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const CHROMES = [process.env.CHROME, '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser'].filter(Boolean);
-const chrome = CHROMES.find((p) => existsSync(p));
-if (!chrome) {
-  console.log('ui:check skipped: no Chrome found (set CHROME=/path)');
-  process.exit(process.argv.includes('--require') ? 1 : 0);
-}
+const chrome = findChrome();
+if (!chrome) skipWithoutChrome('ui:check');
 const html = readdirSync(join(root, 'dist')).find((f) => /^H2C_Material_Selector_.*\.html$/.test(f));
 if (!html) { console.error('No built page in dist/; run npm run build'); process.exit(1); }
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 
 const profile = mkdtempSync(join(tmpdir(), 'h2c-ui-'));
-const proc = spawn(chrome, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--remote-debugging-port=0', `--user-data-dir=${profile}`, '--window-size=1400,1000', 'about:blank'], { stdio: 'ignore' });
+const { proc, port } = await launchChrome(chrome, profile);
 
 let ws, nextId = 0;
 const pending = new Map(), errors = [];
@@ -67,13 +63,6 @@ const view = () => evaluate(`(() => {
 
 const results = {};
 try {
-  let port;
-  for (let i = 0; i < 100 && !port; i++) {
-    const file = join(profile, 'DevToolsActivePort');
-    if (existsSync(file)) port = readFileSync(file, 'utf8').split('\n')[0];
-    else await sleep(100);
-  }
-  if (!port) throw new Error('Chrome did not open a debugging port');
   const target = (await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()).find((t) => t.type === 'page');
   ws = new WebSocket(target.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });

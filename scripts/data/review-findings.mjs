@@ -6,8 +6,10 @@ import { resolve } from 'node:path';
 import { snapshotDate } from '../../build/src/load.js';
 import { readSource } from '../../build/src/source.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
+import { REVIEWED_CODES } from '../../build/src/rules.js';
 
-export const REVIEW_CODES = ['EST-OUTLIER', 'EST-WIDE', 'EST-FAMILY-ORDER', 'HDT-LOAD-UNSTATED', 'NO-MEASUREMENTS'];
+/** The codes the catalogue marks reviewed (build/src/rules.js), so a new one needs no list here. */
+export const REVIEW_CODES = REVIEWED_CODES;
 
 /** One finding per record the build names: { code, table, record, field, message }. */
 export function reviewFindings(issues) {

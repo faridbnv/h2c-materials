@@ -22,7 +22,8 @@
 // switch, I4 Ashby points/envelopes/front/legend, I5 display rounding against thresholds, I6 exceptions, bad tokens
 // and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory requirement is added.
 
-import { spawn } from 'node:child_process';
+import { findChrome, launchChrome, skipWithoutChrome } from './lib/cdp.mjs';
+import { fmtNumber } from '../app/js/ui/format.js';
 import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -161,13 +162,6 @@ const urlFor = (s, setting, lens, n = s.i) => `${pageUrl}?n=${n}#${hashFor(s, se
 // ------------------------------------------------------------------ oracle (the engine, as main.js composes it)
 
 const fmtEngine = (v) => (Number.isFinite(v) ? String(Number(v.toFixed(6))) : String(v));
-function fmtNumber(v) {
-  if (v === null || v === undefined || !Number.isFinite(v)) return '—';
-  const abs = Math.abs(v); let s;
-  if (abs >= 1000) s = v.toLocaleString('en-CA', { maximumFractionDigits: 0 });
-  else if (abs >= 100) s = v.toFixed(0); else if (abs >= 10) s = v.toFixed(1); else if (abs >= 1) s = v.toFixed(2); else s = v.toPrecision(3);
-  return s.replace(/\.0+$/, '').replace(/(\.\d*?)0+$/, '$1');
-}
 function oracle(s, setting, { screened = false, fail = false } = {}) {
   const { u, e } = SETTINGS[setting];
   const explore = u === UNKNOWN_POLICY.EXPLORATION;
@@ -476,15 +470,9 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
 
 const tmpRoot = TMP_BASE ? (mkdirSync(TMP_BASE, { recursive: true }), mkdtempSync(join(TMP_BASE, 'fz-'))) : mkdtempSync(join(tmpdir(), 'h2c-fuzz-'));
 const profile = join(tmpRoot, 'profile'); mkdirSync(profile);
-const chromePath = [process.env.CHROME, '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/chromium'].filter(Boolean).find((p) => existsSync(p));
-if (!chromePath) {
-  console.log('ui:fuzz skipped: no Chrome found (set CHROME=/path)');
-  process.exit(process.argv.includes('--require') ? 1 : 0);
-}
-const proc = spawn(chromePath, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--remote-debugging-port=0', `--user-data-dir=${profile}`, '--window-size=1400,1000', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', 'about:blank'], { stdio: 'ignore' });
-let port;
-for (let i = 0; i < 150 && !port; i++) { const f = join(profile, 'DevToolsActivePort'); if (existsSync(f)) port = readFileSync(f, 'utf8').split('\n')[0]; else await sleep(100); }
-if (!port) { console.error('Chrome did not open a debugging port'); process.exit(2); }
+const chromePath = findChrome();
+if (!chromePath) skipWithoutChrome('ui:fuzz');
+const { proc, port } = await launchChrome(chromePath, profile, ['--disable-background-timer-throttling', '--disable-renderer-backgrounding']);
 const ws = new WebSocket((await (await fetch(`http://127.0.0.1:${port}/json/version`)).json()).webSocketDebuggerUrl);
 await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
 let nid = 0; const pending = new Map(); const sessions = new Map();

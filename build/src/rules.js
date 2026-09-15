@@ -6,7 +6,8 @@
 
 import { LINT_RULES } from './lint-rules.js';
 
-const r = (level, area, meaning, fix) => ({ level, area, meaning, fix });
+// `reviewed`: the finding names a record, and a reviewer fixes it or accepts it with a reason (D57).
+const r = (level, area, meaning, fix, { reviewed = false } = {}) => ({ level, area, meaning, fix, reviewed });
 
 export const RULES = {
   // ---- schema gate (build/src/schema.js) ---------------------------------------------------------------
@@ -74,22 +75,22 @@ export const RULES = {
   'QUARANTINE-NUMERIC': r('error', 'integrity', 'A quarantined measurement carries a number, or backs a headline.', 'Quarantined values back nothing.'),
   'EXCLUSION': r('error', 'integrity', 'Scope and H2C status disagree about exclusion, or an excluded material lacks its gate.', 'Set Scope Excluded and H2C status Excluded together.'),
   'HDT-LOAD-WRONG': r('error', 'comparability', 'An HDT headline at 0.45 MPa cites a measurement at another stated load.', 'Select a 0.45 MPa measurement.'),
-  'HDT-LOAD-UNSTATED': r('warn', 'comparability', 'HDT headlines whose source names the standard but not the load.', 'Re-read the source for the load; the value stays flagged until then. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).'),
+  'HDT-LOAD-UNSTATED': r('warn', 'comparability', 'HDT headlines whose source names the standard but not the load.', 'Re-read the source for the load; the value stays flagged until then. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
   'IMPACT-UNITS': r('info', 'comparability', 'Impact data in J/m and kJ/m², which cannot share an axis.', 'Informational; no conversion without specimen geometry.'),
   'HEADLINE-BLANK': r('error', 'estimates', 'An in-scope headline has no value, no estimate and no not-applicable statement.', 'Record a value, or give the model what it needs (the message names it).'),
   'NA-INVALID': r('error', 'estimates', 'A not-applicable headline sits beside a value or estimate, or has no reason.', 'A headline is a value, an estimate, or not applicable with a reason.'),
   'EST-INVALID': r('error', 'estimates', 'An estimate is malformed: beside a value, out of scope, unknown kind, strength or precision, no basis, ranges not nested, or evidence misattributed.', 'Fix the estimate model or its inputs; estimates are never authored.'),
   'EST-CALIBRATION': r('error', 'estimates', 'An estimate model\'s likely or plausible range no longer holds hidden headlines as often as it claims.', 'Review recent data and conversions; the model must stay calibrated (D43).'),
   'EST-MODEL-REFERENCE': r('error', 'estimates', 'Retired 2026-09-15 (m28, m29): the estimate model configuration named a material or grade that did not exist. It names none now; polymers, variant classes and hardness are tables the schema gate checks.', 'Nothing to do; the code stays out of use.'),
-  'EST-WIDE': r('warn', 'estimates', 'Estimates too imprecise to guide a choice (their likely range is poor precision).', 'Find a published value for the material or a close sibling; accept with the reason if none exists. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).'),
-  'EST-FAMILY-ORDER': r('warn', 'estimates', 'A reinforced material sits below its unfilled sibling where reinforcement raises the property (stiffness; heat deflection of a semicrystalline matrix).', 'Check both values and grades; accept with the reason if the sources genuinely differ. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).'),
+  'EST-WIDE': r('warn', 'estimates', 'Estimates too imprecise to guide a choice (their likely range is poor precision).', 'Find a published value for the material or a close sibling; accept with the reason if none exists. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
+  'EST-FAMILY-ORDER': r('warn', 'estimates', 'A reinforced material sits below its unfilled sibling where reinforcement raises the property (stiffness; heat deflection of a semicrystalline matrix).', 'Check both values and grades; accept with the reason if the sources genuinely differ. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
   'EST-CALIBRATION-FEW': r('info', 'estimates', 'Too few measured headlines to calibrate a model; it uses a default scale.', 'Informational; grows with data.'),
   'EST-SUMMARY': r('info', 'estimates', 'How missing headlines are covered by estimates.', 'Informational.'),
   'EST-REJECTED': r('warn', 'estimates', 'Physically impossible observations kept out of the estimate model.', 'Re-read the source; correct or quarantine the measurement.'),
-  'EST-OUTLIER': r('warn', 'estimates', 'Measured headlines far outside what every other observation predicts.', 'Re-read the source and check the grade is the right product. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).'),
+  'EST-OUTLIER': r('warn', 'estimates', 'Measured headlines far outside what every other observation predicts.', 'Re-read the source and check the grade is the right product. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
   'TOPIC-UNMAPPED': r('error', 'evidence', 'An evidence topic with no category mapping.', 'Add the topic to schema/vocab/environment-topics.csv with its category.'),
   'FAMILY-ENTRIES': r('info', 'materials', 'Canonical names that are family entries, not candidates.', 'Informational (D44).'),
-  'NO-MEASUREMENTS': r('warn', 'materials', 'Materials with no property measurements at all.', 'Research a grade with published data. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).'),
+  'NO-MEASUREMENTS': r('warn', 'materials', 'Materials with no property measurements at all.', 'Research a grade with published data. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
 
   // ---- audit (scripts/audit-data.mjs) ---------------------------------------------------------------------
   'AUDIT-PARITY': r('error', 'audit', 'The fresh compile, dist/ files and the data embedded in the HTML are not identical, or the HTML loads something from the network.', 'Rebuild; if it persists, the bundler or the build is not deterministic.'),
@@ -105,9 +106,17 @@ export const RULES = {
   ...Object.fromEntries(Object.entries(LINT_RULES).map(([code, meaning]) => [code, r('lint', 'lint', meaning, 'Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason".')])),
 };
 
-/** Build an issue; an unknown code or a level that disagrees with the catalogue is a programming error. */
-export function issue(code, where, message, extra = {}) {
+/**
+ * Build an issue; an unknown code is a programming error and the catalogue decides the level. `at` is the record it is
+ * about, { table, record, field }, or a string where no record names it. A finding is one shape everywhere: level, code,
+ * where, message, and the record it names, which is what the acceptance baseline is keyed on.
+ */
+export function issue(code, at, message, extra = {}) {
   const rule = RULES[code];
   if (!rule) throw new Error(`Unknown rule code ${code}`);
-  return { level: rule.level, code, where, message, ...extra };
+  const record = typeof at === 'string' ? { where: at } : { table: at.table, record: at.record, field: at.field ?? '', where: [at.table, at.record, at.field].filter(Boolean).join(' ') };
+  return { level: rule.level, code, ...record, message, ...extra };
 }
+
+/** The codes whose findings a reviewer decides on, one record at a time (data/review/accepted-findings.csv, D57). */
+export const REVIEWED_CODES = Object.entries(RULES).filter(([, r]) => r.reviewed).map(([code]) => code);
