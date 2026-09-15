@@ -8,7 +8,7 @@ import { matchesQuery } from './engine/search.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
-import { renderAshby, purgePlots } from './ui/ashby.js';
+import { renderAshby } from './ui/ashby.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
 import { renderCompare } from './ui/compare.js';
@@ -294,7 +294,6 @@ const actions = {
 
 function renderLens() {
   const host = document.getElementById('lens');
-  purgePlots(host);
   switch (state.lens) {
     case 'table': {
       // A header is always present: the start panel while nothing is set, and a statement of the

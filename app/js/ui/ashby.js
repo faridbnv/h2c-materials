@@ -55,10 +55,22 @@ export function detailLevel(p) {
 }
 
 
-/** Release every Plotly plot inside a host before its markup is replaced. */
-export function purgePlots(host) {
-  if (typeof Plotly === 'undefined') return;
-  host.querySelectorAll('.js-plotly-plot').forEach((gd) => Plotly.purge(gd));
+// Plotly's own responsive mode adds a window resize listener per plot, which holds every replaced plot alive: 800
+// redraws once left 1,408 listeners and a 569 MB heap (audit 2026-09-15, A-04). Purging a replaced plot instead races
+// Plotly's asynchronous auto-margin redraw and throws. So plots are not responsive on their own: one listener, added
+// once, resizes whichever plot is on screen, and a replaced plot has nothing left holding it.
+let resizeWired = false;
+function wireResize() {
+  if (resizeWired || typeof window === 'undefined') return;
+  resizeWired = true;
+  let t;
+  window.addEventListener('resize', () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      const gd = document.querySelector('#plot.js-plotly-plot');
+      if (gd && typeof Plotly !== 'undefined') Plotly.Plots.resize(gd);
+    }, 100);
+  });
 }
 
 export function renderAshby(host, state, actions) {
@@ -140,9 +152,6 @@ export function renderAshby(host, state, actions) {
       a headline.</span></div>` : '',
   ].join('').trim();
 
-  // Plotly keeps a window resize listener, and the plot it holds, until purged: 800 redraws once left 1,408
-  // listeners and a 569 MB heap (audit 2026-09-15, A-04).
-  purgePlots(host);
   host.innerHTML = `
     <div class="ashby-axes">
       ${axisPicker('y', yDef, p.yLog)}
@@ -662,8 +671,9 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   };
 
   const gd = host.querySelector('#plot');
+  wireResize();
   Plotly.newPlot(gd, traces, layout, {
-    displaylogo: false, responsive: true,
+    displaylogo: false, responsive: false,
     modeBarButtonsToRemove: ['select2d'],
     modeBarButtonsToAdd: [],
   });
