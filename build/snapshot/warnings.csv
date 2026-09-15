@@ -19,12 +19,10 @@ EST-SUMMARY,materials
 EST-OUTLIER,M086 density
 EST-OUTLIER,M094 elongationXY
 EST-WIDE,M008 elongationXY
-EST-WIDE,M039 tensileStrengthXY
 EST-WIDE,M045 tensileModulusXY
 EST-WIDE,M046 tensileModulusXY
 EST-WIDE,M046 tensileStrengthXY
 EST-WIDE,M046 elongationXY
-EST-WIDE,M052 elongationXY
 EST-WIDE,M064 elongationXY
 EST-WIDE,M076 elongationXY
 EST-WIDE,M085 tensileStrengthXY

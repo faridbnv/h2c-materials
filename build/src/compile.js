@@ -411,18 +411,20 @@ function impliedBounds(mat, key, measurementsByMaterial) {
   const rel = ESTIMATE_MODEL.impliedBounds?.[key];
   if (!rel) return [];
   const own = measurementsByMaterial.get(mat.MaterialID) ?? [];
-  // Only a printed part (or an unstated specimen) bounds a printed headline: a moulded bar, a drawn film or a
-  // filament strand is another specimen, and ASTM D882 film strengths once kept PLA a candidate for 140 MPa.
+  // Only a printed part bounds a printed headline. A moulded bar, a drawn film or a filament strand is another
+  // specimen (ASTM D882 film strengths once kept PLA a candidate for 140 MPa), and so, often, is a filament sheet's
+  // unstated specimen (Spectrum PA12-CF's 125 MPa kept it in searches for 95 MPa; printed PA12-CF is 70-90 MPa).
   // A state the headline is not in bounds nothing either: an annealed value where the grade publishes the
   // as-printed one, or a moisture state the rule excludes (conditioning raises a nylon's strain at break).
   return own
-    .filter((m) => m.numeric && !m.quarantined && isPartSpecimen(m.specimenType))
+    .filter((m) => m.numeric && !m.quarantined && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
     .filter((m) => !annealedBesideAsPrinted(m, own))
     .filter((m) => !(rel.excludeMoisture ?? []).includes(moistureState(m.moisture ?? 'Not published')))
     .filter((m) => rel.lowerFrom.some((r) => r.property === m.property && (r.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - r.loadMPa) < 0.05))))
     .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
-      // The largest value the measurement allows: a bound that could meet the requirement keeps the material.
-      lo: m.interval?.hi ?? m.interval?.lo ?? m.value, unit: m.unit }))
+      // The published value (the low end of a published range, the bound of a "> x"), never value + SD: a spread of
+      // specimens is not a guarantee, and 30 ± 23 % once read as "at least 53 %" (audit 2026-09-15, B-02).
+      lo: m.value, unit: m.unit }))
     .filter((b) => Number.isFinite(b.lo));
 }
 

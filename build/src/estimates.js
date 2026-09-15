@@ -703,6 +703,17 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
         const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
         bounds.push({ side: b.side, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
       }
+      // What the material's own printed measurements prove (compile.js impliedBounds: a yield or break stress under
+      // the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa) limits its
+      // estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down to 72 °C though
+      // its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).
+      if (ownBounds) {
+        const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
+        for (const b of m.headline[key]?.impliedBounds ?? []) {
+          if (!(b.lo > 0) && scaleName === 'log') continue;
+          bounds.push({ side: 'lower', value: toModel(b.lo), sd: model.bounds.oneSided.sd[scaleName], why: `at least ${b.lo} ${h.unit}: its own ${b.property.toLowerCase()} (${b.measurementId}) bounds it` });
+        }
+      }
       if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
         bounds.push({ side: 'upper', value: S.tmOf(m), sd: model.bounds.meltingSd, why: `melting point ${S.tmOf(m)} °C: ${model.bounds.hdtAboveMelting}` });
       }

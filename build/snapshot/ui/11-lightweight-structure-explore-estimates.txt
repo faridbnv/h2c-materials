@@ -32,7 +32,7 @@ an estimate: the likely range, not a measurement. Hover it for what it rests on.
 ?
 heat test load not stated, so it never passes a heat requirement; with estimates on, one far above it screens the material out.
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-ABS-CF PASS 1,110 5.21 ~42–56.7† 2 76 — ☆
+ABS-CF PASS 1,110 5.21 ~47–58† 2 76 — ☆
 ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
 ASA UNKNOWN 1,050 2.45 37 9.2 100 39↗ ☆
 ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
@@ -52,13 +52,13 @@ Nylon / Polyamide
  UNKNOWN 1,140 ~4.05–8.58† ~54.5–95.9† ~2.51–12.9† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~1,040–1,180† ~1.28–2.69† ~39.4–81.9† ~5.37–32.4† ~79.9–113† — ☆
+ UNKNOWN ~1,040–1,180† ~1.28–2.69† ~51.9–86.8† ~31.4–64† ~87.8–114† — ☆
 PA12-CF
 Nylon / Polyamide
- PASS 1,160 8 ~67.8–91.3† 2.1 150 — ☆
+ PASS 1,160 8 ~75.5–93.3† 2.1 150 — ☆
 PA12-GF
 Nylon / Polyamide
- PASS 1,230 7.8 ~72.3–97.7† 4.5 150 — ☆
+ PASS 1,230 7.8 ~83.2–102† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
  UNKNOWN 1,250 ~1.76–3.82† ~53.8–98.8† ~7.25–33.6† ~97.3–134† 163↗ ☆
@@ -91,13 +91,13 @@ Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
 PC-GF
 Polycarbonate
- UNKNOWN ~1,150–1,330† ~1.84–3.03† 40 9.5 ~118–144† — ☆
+ UNKNOWN ~1,150–1,330† ~1.84–3.03† 40 9.5 ~126–146† — ☆
 PE
 Polyolefins
  UNKNOWN 1,100 ~2.34–5.85† ~21.2–54.6† ~4.97–37.9† ~53.3–123† — ☆
 PETG Basic PASS 1,250 2.78 51 9.5 71 25↗ ☆
 PETG-CF UNKNOWN 1,250 2.46 35 10.4 74 41↗ ☆
-PLA PASS 1,240 2.87 ~48.4–65.1† 8 80 — ☆
+PLA PASS 1,240 2.87 ~56.6–67.8† 8 80 — ☆
 PLA Basic UNKNOWN 1,240 2.58 35 12.2 57 28↗ ☆
 PLA Basic Gradient UNKNOWN 1,240 2.58 36 15.2 57 —↗
 out of stock
@@ -109,10 +109,10 @@ PLA Wood UNKNOWN 1,210 2.36 26 15.3 60 32↗ ☆
 PLA-CF PASS 1,220 2.79 38 8.4 55 41↗ ☆
 PP-CF
 Polyolefins
- PASS 1,100 6.15 ~67.6–91.6† 1.5 124 — ☆
+ PASS 1,100 6.15 ~78.9–95.2† 1.5 124 — ☆
 PP-GF
 Polyolefins
- PASS 1,120 6.75 ~56.1–76.1† 1.7 139 — ☆
+ PASS 1,120 6.75 ~65.7–79.2† 1.7 139 — ☆
 PPA
 High-Performance Engineering
  PASS 1,140 2.86 76 3.4 103 — ☆
@@ -121,4 +121,4 @@ High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆
 PVB
 PVB / Specialty Polymers
- UNKNOWN 1,100 ~1.33–3.37† ~38.8–72† ~4.01–35.8† 63 — ☆
+ UNKNOWN 1,100 ~1.33–3.37† ~51.9–77.3† ~6.12–38.5† 63 — ☆

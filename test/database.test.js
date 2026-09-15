@@ -259,7 +259,10 @@ test('a resin reference never vetoes a screen: implied bounds are the filament\'
         const x = db.measurements.find((y) => y.id === b.measurementId);
         // Only a printed part or an unstated specimen bounds a printed headline: film strengths once kept PLA a
         // candidate for 140 MPa (audit 2026-09-15, C-02). A state the headline is not in bounds nothing either.
-        assert.ok(['printed', 'not-stated'].includes(x.specimenForm), `${m.name} ${b.measurementId} is a ${x.specimenForm} specimen`);
+        assert.equal(x.specimenForm, 'printed', `${m.name} ${b.measurementId} is a ${x.specimenForm} specimen`);
+        assert.equal(b.lo, x.value, `${m.name} ${b.measurementId} bounds at ${b.lo}, not its published value ${x.value}`);
+        // The estimate respects what the material's own data prove (B-16).
+        if (h.estimate) assert.ok(h.estimate.plausible.lo >= b.lo * 0.98, `${m.name} ${key} plausible from ${h.estimate.plausible.lo}, below its own ${b.measurementId} ${b.lo}`);
         assert.ok(!annealedBesideAsPrinted(x, db.measurements), `${m.name} ${b.measurementId} is annealed beside an as-printed value`);
         if (key === 'elongationXY') assert.notEqual(moistureState(x.moisture), 'conditioned', `${m.name} ${b.measurementId} is conditioned`);
         assert.equal(x.materialId, m.id, `${m.name} ${key} bound ${b.measurementId} is another material's`);
