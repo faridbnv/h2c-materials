@@ -17,7 +17,7 @@
     "data:diff": "node scripts/data/diff.mjs",
     "trace": "node scripts/trace.mjs",
     "hooks": "git config core.hooksPath .githooks",
-    "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/data/lint.mjs && node scripts/docs-rules.mjs --check && npm test && node scripts/audit-data.mjs",
+    "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/data/lint.mjs && node scripts/docs-rules.mjs --check && node scripts/docs-dictionary.mjs --check && npm test && node scripts/audit-data.mjs && node scripts/snapshot.mjs --check",
     "data:export-xlsx": "node scripts/data/export-xlsx.mjs",
     "migration:verify": "node scripts/migrate/verify-migration.mjs",
     "migration:ledger": "node scripts/migrate/transfer-ledger.mjs",
@@ -25,7 +25,9 @@
     "docs:rules": "node scripts/docs-rules.mjs",
     "audit:sources": "node scripts/audit/source-completeness.mjs",
     "data:new": "node scripts/data/new.mjs",
-    "data:retire": "node scripts/data/retire.mjs"
+    "data:retire": "node scripts/data/retire.mjs",
+    "docs:dictionary": "node scripts/docs-dictionary.mjs",
+    "snapshot": "node scripts/snapshot.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38"
