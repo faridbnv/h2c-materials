@@ -83,13 +83,32 @@ async function pdfLines(bytes) {
 // Extraction splits digits ("1 05 °C", "2 433 .4 ± 79.4"); join them before reading numbers.
 // A standard's designation ("ISO 75", "GB/T 1633") is not a value; it is taken out first so that joining split
 // digits cannot glue it onto the number that follows.
-const STANDARD = /\b(?:ISO|ASTM|GB\s?\/\s?T|DIN|IEC|UL)\s?\d+(?:\s?[-–.:/]\s?\d+)*/g;
+const STANDARD = /\b(?:I\s?S\s?O|ASTM\s?D?|GB\s?\/\s?T|DIN|IEC|UL|D(?=\s?\d{3}))\s?\d+(?:\s?[-–.:/]\s?\d+)*/g;
 const joinDigits = (s) => s.replace(STANDARD, ' § ').replace(/(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/\bO\.(?=\d)/g, '0.');
-const UNIT = String.raw`(°\s?C|˚\s?C|℃|MPa|Mpa|GPa|%|g\s?/\s?cm\s?3|g\s?/\s?cm³|g\s?/\s?cc|kJ\s?/\s?m|J\s?/\s?m|HRM|Shore)`;
+const UNIT = String.raw`([°˚º]\s?C|℃|MPa|Mpa|MP\s?a|GPa|%|g\s?/\s?cm\s?3|g\s?/\s?cm³|g\s?/\s?cc|kJ\s?/\s?m|J\s?/\s?m|HRM|Shore)`;
 // A rate ("10°C/min"), a humidity ("70% RH") or a condition ("at 23°C") is not a result.
 const STATEMENT = new RegExp(String.raw`(?<![\d.\-–])(\d+(?:\.\d+)?)(?:\s?±\s?(\d+(?:\.\d+)?))?\s?(?:\(\s?)?${UNIT}(?!\s?\/\s?min|\s?RH|\w)`, 'g');
 const CONDITION_BEFORE = /\bat\s?$/i;
 const RANGE = /\d\s?[-–~]\s?\d/;
+
+// Label pass: numbers can be printed in any order or without a unit ("ISO 527 MPa 48", "Specific Gravity 1.22"),
+// so a property the document names but the source has no row of is listed too, whatever its number looks like.
+const LABELS = [
+  ['density', /\b(density|specific\s?gravity)\b/i, /^Density$/],
+  ['tensile strength', /tensile\s?(strength|stress)|stress\s?at\s?(yield|break)/i, /^Tensile (strength|yield|break)/],
+  ['tensile modulus', /(tensile|young'?’?s|elastic)\s?(e-)?modulus|modulus\s?of\s?elasticity/i, /^Tensile modulus$/],
+  ['elongation', /elongation|strain\s?at/i, /^(Elongation|Tensile strain)/],
+  ['flexural', /flexural|bending/i, /^Flexural/],
+  ['impact', /impact|charpy|izod/i, /(Charpy|Izod|Impact)/],
+  ['heat deflection', /heat\s?(deflection|distortion)|deflection\s?temp|\bHDT\b/i, /^HDT$/],
+  ['vicat', /vicat|vicar/i, /^Vicat/],
+  ['glass transition', /glass\s?transition|\bTg\b/i, /^Glass transition/],
+  ['melting', /melting\s?(temp|point)|\bTm\b/i, /^Melting temperature$/],
+  ['hardness', /hardness|shore\s?[AD]\b/i, /^Hardness$/],
+  ['water absorption', /water\s?absorp|moisture\s?absorp/i, /^Water absorption$/],
+  ['melt flow', /melt\s?(flow|index|volume)|\bMFR\b|\bMFI\b|\bMVR\b/i, /^Melt (mass|volume)-flow rate$/],
+];
+const labelFindings = [];
 
 const findings = [];
 const summary = [];
@@ -111,13 +130,24 @@ for (const source of sources.filter((s) => (!only || s.SourceID === only) && /\.
       findings.push({ SourceID: source.SourceID, Page: page, Value: m[1], Uncertainty: m[2] ?? '', Unit: m[3].replace(/\s/g, ''), Line: line.slice(0, 200) });
     }
   }
+  const text = (await pdfLines(doc.bytes)).map((l) => l.text.replace(/(\p{L}) (?=\p{L})/gu, '$1 ')).join('\n');
+  const properties = new Set(measurements.filter((m) => m.SourceID === source.SourceID).map((m) => m.Property));
+  for (const [label, inText, property] of LABELS) {
+    const squeezed = text.replace(/(?<=\b\p{L}) (?=\p{L}{1,3}\b)/gu, ''); // "T ensile", "Den sity"
+    if ((inText.test(text) || inText.test(squeezed)) && ![...properties].some((p) => property.test(p))) {
+      const line = text.split('\n').find((l) => inText.test(l)) ?? squeezed.split('\n').find((l) => inText.test(l)) ?? '';
+      labelFindings.push({ SourceID: source.SourceID, Label: label, Line: line.slice(0, 160) });
+    }
+  }
   summary.push({ source: source.SourceID, status: 'read', statements, unmatched });
 }
 
 if (!only) {
   writeFileSync(join(outDir, 'source-completeness.csv'), csvText(['SourceID', 'Page', 'Value', 'Uncertainty', 'Unit', 'Line'], findings));
+  writeFileSync(join(outDir, 'source-completeness-labels.csv'), csvText(['SourceID', 'Label', 'Line'], labelFindings));
 }
+if (only) for (const f of labelFindings) console.log(`  label "${f.Label}" named but no row: ${f.Line}`);
 for (const s of summary.filter((x) => x.status !== 'read' || x.unmatched)) console.log(`${String(s.unmatched).padStart(4)} of ${String(s.statements).padStart(3)}  ${s.source}${s.status === 'read' ? '' : `  (${s.status})`}`);
 if (only) for (const f of findings) console.log(`  p. ${f.Page}  ${f.Value}${f.Uncertainty ? ` ± ${f.Uncertainty}` : ''} ${f.Unit}  | ${f.Line}`);
 const read = summary.filter((s) => s.status === 'read');
-console.log(`${read.length} documents read, ${summary.length - read.length} not read; ${read.reduce((a, s) => a + s.statements, 0)} statements, ${findings.length} not in the tables`);
+console.log(`${read.length} documents read, ${summary.length - read.length} not read; ${read.reduce((a, s) => a + s.statements, 0)} statements, ${findings.length} not in the tables; ${labelFindings.length} named properties with no row`);

@@ -14,8 +14,8 @@ Database snapshot 2026-09-13 · build 2026-09-14
 | retiredDuplicates | [object Object] |
 | excluded | 6 |
 | grades | 155 |
-| measurements | 1955 |
-| numericMeasurements | 1800 |
+| measurements | 2003 |
+| numericMeasurements | 1848 |
 | quarantined | 2 |
 | profiles | 171 |
 | evidence | 462 |

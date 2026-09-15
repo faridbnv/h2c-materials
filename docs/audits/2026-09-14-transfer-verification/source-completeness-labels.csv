@@ -1,0 +1,123 @@
+SourceID,Label,Line
+S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,water absorption,Equilibrium water absorption (%)= 0. 40
+I-PLA-TDS,impact,"low environmental impact . It is a derivative of starch , green and renewable , a"
+B-pla-basic-filament-TDS,melt flow,"Melt Index 210 °C, 2.16 kg 23.2 ± 3.5 g/10 min"
+B-pla-matte-TDS,melt flow,"Melt Index 210 °C, 2.16 kg 18.0 ± 3.2 g/ 10 min"
+B-pla-basic-gradient-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 4 5 . 8 ± 6 . 6 g/ 10 min"
+B-pla-tough-upgrade-TDS,melt flow,"Melt Index 2 10 ° C, 2.16 kg 18.0 ± 2.5 g/10 min"
+B-pla-translucent-TDS,melt flow,"Melt Index 210 ° C, 2.16 kg 4.08 ± 1.5 g/10 min"
+B-pla-silk-upgrade-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 14.5 ± 1.2 g/10 min"
+B-pla-silk-dual-color-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 20.5 ± 1.2 g/10 min"
+B-pla-metal-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 38.6 ± 3.7 g/10 min"
+B-pla-marble-TDS,melt flow,"Melt Index 210 °C, 2.16 kg 32.2 ± 4.5 g/10 min"
+B-pla-sparkle-TDS,melt flow,"Melt Index 210 °C, 2.16 kg 34.2 ± 3.3 g/10 min"
+B-pla-wood-TDS,melt flow,"Melt Index 210 °C, 2.16 kg 29.4 ± 1.7 g/10 min"
+B-pla-galaxy-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 11.0 ± 1.7 g/10 min"
+B-pla-glow-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 23.3± 2.4 g/10 min"
+B-pla-aero-TDS,melt flow,"Melt Index 260 ° C, 2.16 kg 7.7 ± 0.6 g/10 min"
+B-pla-cf-TDS,hardness,hardness and bending modulus while still retaining the easy printing and dimensional
+B-pla-cf-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 3 . 7 ± 0 . 6 g/ 10 min"
+S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,melt flow,"Melt index 210°C, 2.16 kg 22.9 g/10min"
+I-PLA-Glass-Fiber-Technical-Data-Sheet,melt flow,"Melt Flow Index （ 2 20 ℃ , 10K g ） g/10min"
+S-POLYCN-PolyLite-PETG-TDS-V5-3,water absorption,Equilibrium water absorption (%)= 0.54%
+I-PETG-TDS,heat deflection,He at Deflection Temperature
+I-PETG-TDS,melting,AS TM
+B-petg-basic-TDS,melt flow,"Melt Index 2 45 °C, 2.16 kg 22.9 ± 2 . 4 g/10 min"
+B-petg-hf-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 28.2 ± 2.7 g/10 min"
+B-petg-translucent-TDS,melt flow,"Melt Index 230 °C, 2.16 kg 11.7 ± 1.5 g/10 min"
+I-PETG-Glass-Fiber-Technical-Data-Sheet,melt flow,"Melt Index （ 210 ℃ , 2160g ） g/10min ASTM D-1238 2-9"
+S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,water absorption,MOISTURE ABSORPTION CURVE
+B-abs-filament-TDS,melt flow,"Melt Index 260 °C, 2.16 kg 34.2 ± 3.8 g/10 min"
+B-abs-gf-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 7.56 ± 1.4 g/10 min"
+I-CF-ABS-TDS,heat deflection,Deflection Temperature at 0 .45
+I-CF-ABS-TDS,glass transition,(Tg )
+B-asa-filament-TDS,melt flow,"Melt Index 260 °C, 2.16 kg 7.0 ± 0.8 g/10 min"
+B-asa-aero-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 1.56 ± 0.5 g/10 min"
+B-asa-cf-TDS,glass transition,"Glass Transition Temperature DSC , 10 ° C /min /"
+B-asa-cf-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 1 .74 ± 0.3 g/10 min"
+I-ASA-Glass-Fiber-Technical-Data-Sheet,tensile strength,Tensile Strength MPa ISO 527-2/50 55
+I-ASA-Glass-Fiber-Technical-Data-Sheet,melt flow,"Melt Flow Index （ 2 20 ℃ , 10K g ） g/10min"
+B-PC-TDS,melt flow,"Melt Index 260 ° C , 2.16 kg 32.2 ± 2.9 g/10 min"
+B-pc-fr-TDS,melt flow,"Melt Index 260 ° C, 2.16 kg 26.4 ± 2.7 g/10 min"
+S-PCGF-TDS-1,melt flow,Melt flow rate (MFR) 8±3 g/10min GB/T 3682.1-2018
+S-POLYCN-PolyFlex-TPU95-TDS-V5-1,hardness,engineered to work on most desktop 3D printers. It has a shore hardness of 95A and
+S-POLYCN-PolyFlex-TPU95-TDS-V5-1,water absorption,Equili brium water absorption (%)= 0.82 %
+I-TPU-TDS,glass transition,Glass Transition - 24 C
+I-TPU-TDS,melting,Melting Temperature D SC
+I-TPU-TDS,hardness,95 ( Shore A ) ASTM D2240
+I-TPU-TDS,melt flow,Melt Mass Flow Rate (MFR)
+B-tpu-for-ams-TDS,hardness,"exciting possibilities in flexible material printing. With a Shore hardness of 68D, Bambu TPU"
+B-tpu-for-ams-TDS,melt flow,"Melt Index 210 ° C, 2.16 kg 21.8 ± 0.3 g/10 min"
+B-tpu-95a-hf-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 36.5 ± 2.6 g/10 min"
+B-TPU-SOFT-TDS-4,hardness,"Bambu TPU 90A – With a higher hardness, it provides greater structural integrity, making it"
+B-TPU-SOFT-TDS-4,melt flow,"Melt Index 210 ° C , 2.16 kg 9.36 ± 2.6 g/10 min"
+B-TPU-SOFT-TDS-5,melt flow,"Melt Index 210 ° C , 2.16 kg 8.76 ± 2.6 g/10 min"
+S-POLYCN-PolyFlex-TPU90-TDS-V5-1,hardness,"Shore hardness ISO 7619 - 1, GB/T 531.1 9 0 A"
+S-POLYCN-PolyFlex-TPU90-TDS-V5-1,water absorption,Equili brium water absorption (%)= 0.67 %
+S-PEBA-PEBA90A-TDS-en,impact,IZOD Impact Strength ( XY -axis) GB/T 1843 NB
+S-PEBA-PEBA90A-TDS-en,melt flow,Melt Flow Index （ 1 90 ℃ ， 2 .16kg ） GB/T 3682 10~16 g/10min
+S-POLYCN-PolyMide-CoPA-TDS-V5-2,water absorption,Equili brium water absorption (%)= 2.82 %
+B-pa6-cf-TDS,melt flow,"Melt Index 280 °C, 2.16 kg 6.8 ± 0.6 g/10 min"
+B-pa6-gf-TDS,melt flow,"Melt Index 280 ° C, 2.16 kg 9.0 ± 0.8 g/10 min"
+S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,water absorption,Estimated e quilibrium water absorption (%)= ~ 1 . 5 %
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,water absorption,0.45 MPa 170°C ISO 75-1/2 • reduced moisture absorption compared to
+S-FIBER-PA612,glass transition,"Glass transition temp. DSC, 10°C/min N/A"
+S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,water absorption,Equili brium water absorption (%)= 3.22 %
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,water absorption,Water Absorp
+B-pet-cf-TDS,hardness,Bambu PET-CF is a blend of tough PET and carbon fiber. Carbon fiber improves hardness and
+B-pet-cf-TDS,melt flow,"Melt Index 280 ° C , 2.16 kg 25.3 ± 2.5 g/10 min"
+S-PPA-TDS,melt flow,Melt Index 2 9 0 ° C ， 2.16 kg 15.6 g/ 10 min
+B-ppa-cf-TDS,melt flow,"Melt Index 2 8 0 ° C , 2.16 kg 8.4 ± 0.7 g/10 min"
+D-IPCON-PPA,melt flow,Melt Index 290 ° C ， 2.16 kg 13.2 g/ 10 min
+B-pps-cf-TDS,melt flow,"Melt Index 320 ° C, 2.16 kg 11.48 ± 1.23 g/10 min"
+S-PPSGF-TDS-0,hardness,Surface Hardness Shore hardness 83D
+S-PPSGF-TDS-0,melt flow,"Melt Index 34 0 ° C , 2.16 kg 22.3 g/10 min"
+B-pva-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 7.2 ± 1.1 g/10 min"
+B-support-for-pla-petg-TDS,melt flow,"Melt Index 210 ° C, 2.16 kg 14.3 ± 1.2 g/10 min"
+B-support-for-abs-TDS,melt flow,"Melt Index 210 ° C , 2.16 kg 11. 6 ± 0 .7 g/10 min"
+B-support-for-pa-pet-TDS,melt flow,"Melt Index 280 °C, 2.16 kg 29.2 ± 2.1 g/10 min"
+S-SPECTRUM-en-tds-spectrum-hdpe,water absorption,• Very low moisture absorption
+X-EVOLV3D-OBC-TDS,melt flow,Melt Flow Rate
+S-CPECF,heat deflection,"resistance, heat distortion temperature,"
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,hardness,increased hardness and tensile strength compared
+S-PVB-PVB-Prusament-TDS-2021-10-EN,melt flow,MFR [g/10 min](1) 6–7 ISO 1133
+S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,water absorption,Equili brium water absorption (%)= 0.352 %
+S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,water absorption,Equilibrium water absorption (%)= 0.257 %
+X-Thermax-PEKK-A-TDS-v2-1,melting,Melt Temperature (Tm) DSC °C 305
+X-Thermax-PEKK-C-TDS-v3-3,melting,Melt Temperature (Tm) DSC °C 335
+I-PPSU-TDS,elongation,Tens ile Elongation ASTM D638
+I-PPSU-TDS,melt flow,Melt volume - Flow Rate
+R-POLYMAKER-PANCHROMA-TDS-V2-1,melting,TM
+R-FILLAMENTUM-CPE-HG100-TDS,hardness,Rockwell hardness 115 ASTM D785 R - Scale
+R-FILLAMENTUM-CPE-HG100-TDS,melt flow,Melt flow index
+R-COLORFABB-NGEN-TDS-V2,melting,"Melting Temp. DSC, ISO 11357 N /A ˚ C"
+R-COLORFABB-NGEN-TDS-V2,melt flow,"Mel t Flow Index MFI , ISO 1133 - A N /A g/10 min"
+R-ERYONE-PETG-GF-TDS,impact,models that require high impact resistance and durability against drops. It is important
+R-ERYONE-PETG-GF-TDS,melt flow,"Melt Index(g/10 min) 220 ° C, 10 kg 240 ° C, 2.16 kg g/10min"
+R-IPCON-ASA-GF-TDS,impact,"Impact Strength XY ISO 179 , GB/T 1043 23.5 kJ/m ²"
+R-IPCON-ASA-GF-TDS,melting,"Melting Temperature DSC , 10 ° C/min 2 2 1 ° C"
+R-IPCON-ASA-GF-TDS,hardness,Surface Hardness Shore hardness 80D
+R-IPCON-ASA-GF-TDS,water absorption,"Saturated Water Absorption Rate 25 ° C , 55% RH , room air 0. 31 %"
+R-IPCON-ASA-GF-TDS,melt flow,"Melt Index 2 7 0 ° C , 2.16 kg 19.5 g/10 min"
+R-FLASHFORGE-ASA-GF10-TDS,flexural,"reinforced with 10% glass fiber. It offers excellent dimensional stability, flexural strength,"
+R-FLASHFORGE-ASA-GF10-TDS,impact,Izod Impact Strength (X-Y) 6.3~6.9
+R-FLASHFORGE-ASA-GF10-TDS,water absorption,Water Absorption (23 ℃ /24h) ISO 62 %
+R-FLASHFORGE-ASA-GF10-TDS,melt flow,Melt Index (MFR) (2 2 0 ℃ / 5 Kg)
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,flexural,Flexural st rength MPa - -
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,impact,Charpy impact strength kJ/m - - -
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,heat deflection,Heat deflection temperature
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,vicat,Vicat softening point
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,water absorption,Water absorption 23  C/sat.
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,melt flow,Melt volume - flow rate MVR 275°C/5 kg
+R-STRATASYS-FDM-NYLON12-MDS,impact,"thermoplastic, it exhibits toughness and high impact strength, without being brittle. Its excellent fatigue properties make it a good"
+R-DUPONT-DELRIN-100P,impact,Notched Charpy Impact Strength ISO 179/1eA kJ/m
+R-DUPONT-DELRIN-100P,hardness,"Hardness, Rockwell ISO 2039/2"
+R-DUPONT-DELRIN-100P,water absorption,"Water Absorption ISO 62, Similar to %"
+R-CELANESE-ZYTEL-101L,impact,"Charpy impact strength, 23°C N / N kJ/m² ISO 179/1eU"
+R-CELANESE-ZYTEL-101L,vicat,"Vicat softening temperature, 50°C/h, 50N 240 / * °C ISO 306"
+R-CELANESE-ZYTEL-101L,hardness,"Hardness, Rockwell, M-scale 79 / 59 ISO 2039-2"
+R-CELANESE-ZYTEL-101L,water absorption,"Water absorption, 2mm 8.5 / * % Sim. to ISO 62"
+R-DUPONT-ZYTEL-GUIDE,flexural,"1) Notched Izod impact, DAM 2) Flexural modulus, 50% RH 3) Preliminary data"
+R-DUPONT-ZYTEL-GUIDE,impact,"1) Notched Izod impact, DAM 2) Flexural modulus, 50% RH 3) Preliminary data"
+R-DUPONT-ZYTEL-GUIDE,hardness,"Rockwell hardness Scale M, 23 ° C 2039/2 79 59 71"
+R-DUPONT-ZYTEL-GUIDE,water absorption,"Properties such as melting point, moisture absorption"

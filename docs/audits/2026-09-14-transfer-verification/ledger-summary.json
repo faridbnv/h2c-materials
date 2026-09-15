@@ -1,8 +1,8 @@
 {
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
-  "cells": 99418,
+  "cells": 99466,
   "totals": {
-    "equal": 87233,
+    "equal": 87217,
     "derived: first cited profile, equal": 290,
     "derived or linked: same identifiers, same order": 917,
     "derived: headline read from its measurement, equal": 353,
@@ -17,12 +17,12 @@
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
     "derived from a headline selection edited after the conversion (npm run data:diff -- 0a61cee)": 2,
-    "edited after the conversion (npm run data:diff -- 0a61cee)": 604,
+    "edited after the conversion (npm run data:diff -- 0a61cee)": 620,
     "formula cached text, current": 2864,
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
     "number stored as text made canonical (m01)": 4,
-    "added after the conversion (npm run data:diff -- 0a61cee)": 54,
+    "added after the conversion (npm run data:diff -- 0a61cee)": 102,
     "derived: list price / net mass, equal": 53,
     "date serial written as a date": 309,
     "derived: not eligible, no per-kg price": 44,
@@ -79,17 +79,17 @@
       "added column: Parse review": 171
     },
     "Properties": {
-      "equal": 58063,
+      "equal": 58047,
       "display padding removed (m01)": 5546,
       "formula cached text, current": 2864,
-      "edited after the conversion (npm run data:diff -- 0a61cee)": 591,
+      "edited after the conversion (npm run data:diff -- 0a61cee)": 607,
       "formula cached text, STALE: kept as the build read it": 139,
       "equal but for floating-point noise in the formula result": 74,
       "text cleanup (m07)": 336,
       "number stored as text made canonical (m01)": 4,
-      "added after the conversion (npm run data:diff -- 0a61cee)": 53,
-      "added column: Test load MPa": 2102,
-      "added column: Parse review": 2102
+      "added after the conversion (npm run data:diff -- 0a61cee)": 101,
+      "added column: Test load MPa": 2150,
+      "added column: Parse review": 2150
     },
     "Use & durability": {
       "equal": 5720,
