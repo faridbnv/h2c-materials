@@ -98,7 +98,13 @@ test('HDT load is recovered across every spelling, and never invented', () => {
   assert.equal(parseHdtStandard('ASTM D648, 0.455 MPa load').loadMPa, 0.45);
   assert.equal(parseHdtStandard('ISO 75 1.8 MPa').loadMPa, 1.8);
   assert.equal(parseHdtStandard('ASTM D648; 1.82 MPa; 3.2 mm; unannealed').loadMPa, 1.8);
-  for (const bare of ['ISO 75', 'Deflection', 'ASTM', 'ISO 75-2/B', 'Not published']) {
+  // Spellings the transcription dropped (2026-09-14): 1.81 MN/m², 1.820 MPa, and ISO 75-2's method letters, which
+  // the standard defines as loads (A 1.80 MPa, B 0.45 MPa), so a letter states the load rather than implying it.
+  assert.equal(parseHdtStandard('1.81mn/m2').loadMPa, 1.8);
+  assert.equal(parseHdtStandard('@ 1.820 Mpa').loadMPa, 1.8);
+  assert.equal(parseHdtStandard('ISO 75-2/B').loadMPa, 0.45);
+  assert.equal(parseHdtStandard('ISO 75-2, HDT A').loadMPa, 1.8);
+  for (const bare of ['ISO 75', 'Deflection', 'ASTM', 'ISO 75-1/2', 'D 648', '1.85 MPa', 'Not published']) {
     const h = parseHdtStandard(bare);
     assert.equal(h.loadStated, false, bare);
     assert.equal(h.loadMPa, null, bare);

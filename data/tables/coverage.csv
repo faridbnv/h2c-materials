@@ -545,7 +545,7 @@ C00543,M049,Identity,Evidence recorded,Original canonical entry retained once; a
 C00544,M049,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00545,M049,Print setup,Evidence recorded,Published nozzle and bed profile available; check other setup fields individually.
 C00546,M049,Mechanical,Evidence recorded,"See specimen, direction, moisture, preparation and standard before comparing."
-C00547,M049,Thermal,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00547,M049,Thermal,Evidence recorded,"Spectrum PA6 Neat publishes HDT A (1.8 MPa) 90 °C and a continuous service temperature of 120 °C (20,000 h); no 0.45 MPa value. HDT, Tg and Vicat are not continuous-service ratings."
 C00548,M049,Moisture / environmental,Gap,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00549,M049,Post-processing / application,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00550,M049,Canadian price,Evidence recorded,"1 in-stock regular-price observation(s), before tax/shipping"
