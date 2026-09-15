@@ -6,6 +6,7 @@
   "description": "Self-contained FDM material selection tool for the Bambu Lab H2C",
   "scripts": {
     "build": "npm --prefix build run build",
+    "build:diff": "node scripts/build-diff.mjs",
     "validate": "npm --prefix build run validate",
     "test": "node --test test/*.test.js",
     "pretest": "node scripts/ensure-db.mjs",
@@ -17,7 +18,8 @@
     "data:diff": "node scripts/data/diff.mjs",
     "trace": "node scripts/trace.mjs",
     "hooks": "git config core.hooksPath .githooks",
-    "verify": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/data/lint.mjs && node scripts/docs-rules.mjs --check && node scripts/docs-dictionary.mjs --check && npm test && node scripts/audit-data.mjs && node scripts/snapshot.mjs --check && node scripts/ui-probe.mjs && node scripts/ui-fuzz.mjs",
+    "verify:fast": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/data/lint.mjs && node scripts/docs-rules.mjs --check && node scripts/docs-dictionary.mjs --check && npm test",
+    "verify": "npm run verify:fast && node scripts/audit-data.mjs && node scripts/snapshot.mjs --check && node scripts/ui-probe.mjs && node scripts/ui-fuzz.mjs --n 300",
     "data:export-xlsx": "node scripts/data/export-xlsx.mjs",
     "migration:verify": "node scripts/migrate/verify-migration.mjs",
     "migration:ledger": "node scripts/migrate/transfer-ledger.mjs",
@@ -29,7 +31,8 @@
     "docs:dictionary": "node scripts/docs-dictionary.mjs",
     "snapshot": "node scripts/snapshot.mjs",
     "ui:check": "node scripts/ui-probe.mjs",
-    "ui:fuzz": "node scripts/ui-fuzz.mjs"
+    "ui:fuzz": "node scripts/ui-fuzz.mjs",
+    "ui:fuzz:full": "node scripts/ui-fuzz.mjs --n 2000"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38"

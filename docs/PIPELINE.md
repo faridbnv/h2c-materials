@@ -1,8 +1,10 @@
 # The build pipeline
 
 ```
-npm run verify         everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz
-npm run ui:fuzz        2,000 random scenarios through the built page, compared with the engine (about 3 minutes)
+npm run verify:fast    while you work: format, schema, lint, generated docs, build and tests
+npm run verify         before a commit: verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
+npm run ui:fuzz:full   2,000 random scenarios through the built page, compared with the engine (nightly in CI)
+npm run build:diff     every difference a change made to dist/db.json, against HEAD or --ref
 npm run data:check     the schema gate alone, in under a second
 npm run build          full build, ending in a distributable HTML file and its manifest
 npm run validate       stops after the report; writes no dist artefacts
@@ -254,7 +256,8 @@ output. Pages publishes it beside the page.
 ## Verifying a build
 
 ```bash
-npm run verify                   # format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz
+npm run verify                   # verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
+npm run build:diff               # what the change did to dist/db.json
 open dist/H2C_Material_Selector_2026-09-13.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
@@ -298,11 +301,11 @@ with estimates, and every build warning by record. `npm run ui:check` drives the
 through the default view, every template in both modes, each shared link reopened, and Compare, and compares what
 a reader sees with `build/snapshot/ui/`. Both are checked by `verify`; a change commits its diff.
 
-`npm run ui:fuzz`, the last step of `verify`, runs 2,000 seeded random scenarios through the built page (every
+`npm run ui:fuzz`, the last step of `verify` (300 scenarios; 2,000 on a new seed nightly in CI), runs seeded random scenarios through the built page (every
 requirement kind and operator, thresholds at the evidence itself, assumptions, searches, templates) in Strict and
 Explore with estimates on and off, reads the table and the Ashby chart, and compares rows, verdicts, count, chips,
-points, envelopes, front, legend, rounding, reasons and link round trips with the engine run in Node. It takes about
-3 minutes; `--n 3000 --seed N` runs more. Examples of any violation, each with its seed, scenario and link, go to
+points, envelopes, front, legend, rounding, reasons and link round trips with the engine run in Node. 300 scenarios
+take about 20 seconds and 2,000 about 2 minutes; `--n 3000 --seed N` runs more. Examples of any violation, each with its seed, scenario and link, go to
 `$TMPDIR/h2c-ui-fuzz/violations.jsonl`. The method is in `docs/audits/2026-09-15-filtering-estimates-data/ui-fuzz/NOTES.md`.
 
 `npm run audit:data` also reviews the per-record build findings against `data/review/accepted-findings.csv`

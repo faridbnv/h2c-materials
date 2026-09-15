@@ -18,8 +18,10 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
-npm run verify                 # everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz (about 4 min)
-npm run ui:fuzz                # 2,000 random scenarios through the built page, compared with the engine
+npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about 25 s)
+npm run verify                 # before a commit: verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
+npm run build:diff             # what a change did to the compiled database, against HEAD
+npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
 npm run data:export-xlsx       # read-only review workbook in dist/review/

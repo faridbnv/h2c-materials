@@ -111,6 +111,7 @@ plotting library, not the data, is what the file weighs.
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
+| `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, and prints every difference in `dist/db.json`. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
 | `ui-fuzz.mjs` | `npm run ui:fuzz`: seeded random scenarios through the built page in headless Chrome, in every Strict/Explore/estimates setting, table and chart compared with the engine in Node (D57). |
 | `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. |
@@ -121,9 +122,11 @@ plotting library, not the data, is what the file weighs.
 | `migrate/` | The one-time conversion from the workbooks (dump, then m01..m09), its transfer ledger, and the source corrections m10..m22 and m24..m26 (`source-edits.mjs` guards each edit). |
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 
-`npm run verify` runs them in the order a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz. The
+`npm run verify:fast` runs format, schema, lint, generated docs, build and tests, in about 25 seconds, while you work.
+`npm run verify` adds the audit, review snapshot, interface views and 300 rendered scenarios, before a commit. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
-`schema/`, and CI runs `verify` on every push. `AGENTS.md` is the editing guide.
+`schema/`, CI runs `verify` on every push and 2,000 rendered scenarios on a new seed every night, and
+`npm run build:diff` shows what a change did to the compiled database. `AGENTS.md` is the editing guide.
 
 ### Engine, `app/js/engine/`
 

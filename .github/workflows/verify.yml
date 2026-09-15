@@ -1,14 +1,19 @@
-# Verify every push on every branch: data format, schema, build, tests and the source-to-HTML audit.
-# Publishing stays in pages.yml, which runs the same gate on main before deploying.
+# Verify every push on every branch: data format, schema, build, tests, the source-to-HTML audit, the review
+# snapshot, the interface views and 300 random rendered scenarios. Publishing stays in pages.yml, which runs the
+# same gate on main before deploying. Every night, and on demand, 2,000 rendered scenarios run on a new seed.
 
 name: Verify
 
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
 
 jobs:
   verify:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,3 +38,31 @@ jobs:
       - name: No deleted records since the previous commit
         run: |
           if git rev-parse HEAD~1 >/dev/null 2>&1; then node scripts/data/diff.mjs HEAD~1 HEAD --fail-on-removed; fi
+
+  fuzz-full:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: build/package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Build
+        run: npm run build
+
+      # A new seed each run, so the nightly runs cover different scenarios; a failure names its seed and link.
+      - name: 2,000 random rendered scenarios compared with the engine
+        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/ui-fuzz.mjs --n 2000 --seed ${{ github.run_number }} --require --out fuzz-out
+
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-fuzz-violations
+          path: fuzz-out/
