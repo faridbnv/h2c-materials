@@ -7,7 +7,7 @@
 
 import { renderValue, chip, esc, fmtNumber, wireEvidence } from './format.js';
 import { renderWhy } from './explain.js';
-import { materialName, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION } from './labels.js';
+import { materialName, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
@@ -137,8 +137,8 @@ function estimateBlock(h, label) {
       ${e.sharedWith ? `Its representative product is also recorded under ${esc(e.sharedWith.name)}, so both show the same estimate.` : ''}
       The ranges are calibrated: when each measured value in the database is hidden and predicted from the rest, ranges like these contain it that often.
       It is never enough to pass a requirement. ${e.canScreen
-        ? 'With "Include uncertain" and Estimates on, it screens this material out of a requirement its plausible range wholly fails, unless one of the material\'s own measurements could meet it.'
-        : `It cannot screen this material out: ${esc(e.screenLimit)}.`}</div>
+        ? `With "Include uncertain" and Estimates on, it screens this material out of ${esc(screenRangeText(e, fmtNumber))}, unless one of the material's own measurements could meet it.`
+        : ''} ${e.screenLimit ? esc(`${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}`) : ''}</div>
     ${evidence}
   </div>`;
 }

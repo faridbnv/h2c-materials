@@ -22,12 +22,15 @@ function documentedConversion(key, kind, model) {
 /**
  * Conversions: the documented offset and spread, refined by formulations that publish both the
  * headline's semantics and the related kind. The median difference and a MAD spread are used, so one
- * odd data sheet cannot move a conversion; the documented value counts as three pairs.
+ * odd data sheet cannot move a conversion; the documented value counts as fitting.documentedPairs pairs.
+ *
+ * `without` leaves out the pairs of these products (a Set of `${materialId}|${formulation}`): a hold-out that hides a
+ * headline must not convert the remaining values with an offset its own hidden headlines helped learn.
  */
-export function conversions(key, raw, model) {
+export function conversions(key, raw, model, { without = null } = {}) {
   const byF = new Map();
   // A bound is not an exact value, so it cannot calibrate a conversion.
-  for (const o of raw.filter((r) => !r.bound && !r.mixedStates)) { const g = `${o.m.id}|${o.f}`; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
+  for (const o of raw.filter((r) => !r.bound && !r.mixedStates)) { const g = `${o.m.id}|${o.f}`; if (without?.has(g)) continue; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
   const diffs = new Map();
   for (const kinds of byF.values()) {
     if (!kinds.has(HEAD[key])) continue;

@@ -126,6 +126,20 @@ export function validateEstimates(db) {
 /** The Estimates section of the validation report. */
 export function estimateReportLines(db) {
   const L = [];
+  const screeningLines = () => {
+    const S = ESTIMATE_MODEL.screening;
+    L.push(`Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most ${Math.round(S.maxWrongRate * 100)}% of the time with ${Math.round(S.confidence * 100)}% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.`);
+    L.push('');
+    L.push('| Headline | Class | Held | Top: beyond plausible | Top taken at | Bottom: beyond plausible | Bottom taken at |');
+    L.push('|---|---|---:|---:|---:|---:|---:|');
+    const at = (s) => (s.certified ? `${Math.round(s.quantile * 10000) / 100}% point` : 'cannot screen');
+    for (const [k, p] of Object.entries(db.meta.estimateModel?.properties ?? {})) {
+      for (const [cls, c] of Object.entries(p.screening ?? {})) L.push(`| ${k} | ${cls} | ${c.held} | ${c.above.beyondPlausible} | ${at(c.above)} | ${c.below.beyondPlausible} | ${at(c.below)} |`);
+    }
+    L.push('');
+    for (const [matrix, s] of Object.entries(db.meta.estimateModel?.bracketScreening ?? {})) L.push(`- Unstated-load bracket, ${matrix}: ${s.certified ? `top at the published value + ${s.topGap} °C` : 'its top cannot screen'} (${s.why}).`);
+    L.push('');
+  };
   L.push('## Estimates');
   L.push('');
   L.push('A missing headline carries an estimate from one Gaussian model per property that takes every observation');
@@ -150,6 +164,7 @@ export function estimateReportLines(db) {
     L.push(`| ${k} | ${v.missing} | ${v['this-grade']} | ${v['this-material']} | ${v.family} | ${v.notApplicable} | ${v.none} | ${v.canScreen} |`);
   }
   L.push('');
+  screeningLines();
   if (mdl.conflicts?.length) {
     L.push('Evidence that contradicts everything else and was down-weighted:');
     L.push('');

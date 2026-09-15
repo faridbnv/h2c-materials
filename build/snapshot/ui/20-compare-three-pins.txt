@@ -30,31 +30,31 @@ Stiffness GPa
 ASA-CF
 4.2
 CPE-CF
-~1.95–4.17†
+~1.9–4.25†
 PA-ESD
-~3.86–7.92†
+~3.79–8.08†
 ASA-CF: XY · Printed specimen
 Strength MPa
 ASA-CF
 34
 CPE-CF
-~41.3–69.2†
+~41.7–68.6†
 PA-ESD
-~54.3–95.1†
+~54.8–94.2†
 ASA-CF: XY · Printed specimen
 Stretch before breaking %
 ASA-CF
 9.6
 CPE-CF
-~4.52–21.9†
+~4.53–21.9†
 PA-ESD
-~2.46–12.9†
+~2.47–12.9†
 ASA-CF: XY · Printed specimen
 Heat resistance °C
 ASA-CF
 110
 CPE-CF
-~62.3–91.2†
+~61–92.5†
 PA-ESD
 142
 ASA-CF: Printed specimen | PA-ESD: specimen not stated — conditions differ across columns

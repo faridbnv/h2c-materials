@@ -75,7 +75,7 @@ const edges = Object.fromEntries(KEYS.map((k) => {
   const add = (v) => { if (Number.isFinite(v)) s.add(v); };
   for (const m of candidates) {
     const h = m.headline[k]; if (!h) continue;
-    add(h.value); add(h.interval?.lo); add(h.interval?.hi); add(h.loadBracket?.lo); add(h.loadBracket?.hi);
+    add(h.value); add(h.interval?.lo); add(h.interval?.hi); add(h.loadBracket?.lo); add(h.loadBracket?.hi); add(h.loadBracket?.screenRange?.hi);
     const e = h.estimate; if (e) { add(e.lo); add(e.hi); add(e.plausible?.lo); add(e.plausible?.hi); add(e.screenRange?.lo); add(e.screenRange?.hi); }
     for (const b of h.impliedBounds ?? []) add(b.lo);
   }

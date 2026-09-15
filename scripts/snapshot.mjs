@@ -7,6 +7,7 @@
 //   build/snapshot/gates.csv       every material's process gates
 //   build/snapshot/templates.csv   each application template's candidates in Strict, Explore, and Explore with estimates
 //   build/snapshot/warnings.csv    every build warning, one row per record
+//   build/snapshot/screening.csv   for every headline, evidence class and end, whether it may screen and where (D59)
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -28,6 +29,8 @@ const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows
 const errors = issues.filter((i) => i.level === 'error');
 if (errors.length) { console.error(`${errors.length} build error(s); fix them before the snapshot (npm run build)`); process.exit(1); }
 
+// An end of a screening range may be open: it screens nothing on that side.
+const span = (r) => `${r.lo ?? 'open'}-${r.hi ?? 'open'}`;
 const headlines = [];
 for (const m of db.materials) {
   for (const [key, h] of Object.entries(m.headline)) {
@@ -37,7 +40,7 @@ for (const m of db.materials) {
       Kind: h.known ? 'value' : h.notApplicable ? 'not applicable' : e ? 'estimate' : 'none',
       Value: h.known ? h.value : e?.centre ?? '', Unit: h.unit ?? '',
       Likely: e ? `${e.lo}-${e.hi}` : '', Plausible: e ? `${e.plausible.lo}-${e.plausible.hi}` : '',
-      Screens: e ? (e.canScreen ? `${e.screenRange.lo}-${e.screenRange.hi}` : 'no') : h.loadBracket ? (h.loadBracket.canScreen ? `bracket ${h.loadBracket.lo}-${h.loadBracket.hi}` : 'no') : '',
+      Screens: e ? (e.canScreen ? span(e.screenRange) : 'no') : h.loadBracket ? (h.loadBracket.screenRange ? `bracket ${span(h.loadBracket.screenRange)}` : 'no') : '',
       Strength: e?.strength ?? '', Measurement: h.measurementId ?? '', LoadStated: h.loadStated === false ? 'no' : '',
     });
   }
@@ -65,11 +68,24 @@ for (const t of TEMPLATES) {
 const warnings = issues.filter((i) => i.level === 'warn').flatMap((i) => (i.records?.length ? i.records : [i.where]).map((r) => ({ Code: i.code, Record: r })))
   .sort((a, b) => a.Code.localeCompare(b.Code) || a.Record.localeCompare(b.Record, 'en', { numeric: true }));
 
+const screening = [];
+for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
+  for (const [cls, c] of Object.entries(p.screening)) {
+    for (const [side, s] of Object.entries({ top: c.above, bottom: c.below })) {
+      screening.push({ Headline: key, Class: cls, End: side, Held: s.held, BeyondPlausible: s.beyondPlausible, Rank: s.rank ?? '', Quantile: s.quantile ?? '', Screens: s.certified ? 'yes' : 'no' });
+    }
+  }
+}
+for (const [matrix, s] of Object.entries(db.meta.estimateModel.bracketScreening)) {
+  screening.push({ Headline: 'hdt045 unstated-load bracket', Class: matrix, End: 'top', Held: s.held, BeyondPlausible: '', Rank: s.rank ?? '', Quantile: s.topGap == null ? '' : `gap ${s.topGap}`, Screens: s.certified ? 'yes' : 'no' });
+}
+
 const files = {
   'headlines.csv': csvText(Object.keys(headlines[0]), headlines),
   'gates.csv': csvText([...new Set(gates.flatMap((g) => Object.keys(g)))], gates),
   'templates.csv': csvText(Object.keys(templates[0]), templates),
   'warnings.csv': csvText(['Code', 'Record'], warnings),
+  'screening.csv': csvText(Object.keys(screening[0]), screening),
 };
 
 if (process.argv.includes('--check')) {
@@ -79,5 +95,5 @@ if (process.argv.includes('--check')) {
 } else {
   mkdirSync(dir, { recursive: true });
   for (const [f, text] of Object.entries(files)) writeFileSync(join(dir, f), text);
-  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings`);
+  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends`);
 }

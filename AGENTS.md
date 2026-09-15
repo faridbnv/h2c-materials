@@ -177,8 +177,8 @@ the model cannot express is not a new branch in code.** Make it a not-applicable
 the data (a vocabulary State, a grade Variant, a Data status), or a reviewed finding that says more data is needed. A
 new conversion kind or physical rule needs a DECISIONS entry that says why the data cannot carry it, and a back-test
 row that shows it helps. The build back-tests which evidence may screen a material out, and
-records the result in `meta.estimateModel.properties.*.screening`. A change that makes a class uncertified
-shows in the snapshot's Screens column; `test/screening.test.js` fails if a material stays a candidate for
+records, end by end, where each class may screen in `meta.estimateModel.properties.*.screening` and
+`build/snapshot/screening.csv` (D59). A change that moves an end shows there and in the snapshot's Screens column; `test/screening.test.js` fails if a material stays a candidate for
 a requirement its defended range wholly fails.
 
 If `verify` fails, read the first error: it names the file and line, or the material and the rule. Do

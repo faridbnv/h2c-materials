@@ -36,6 +36,9 @@ export function normalizePolicy(value) {
 
 const fmt = (n) => (Number.isFinite(n) ? String(Number(n.toFixed(6))) : String(n));
 
+/** A range whose ends may be open (null): "40 to 60", "at least 40", "at most 60". */
+export const rangeText = (lo, hi, unit = '') => `${lo != null && hi != null ? `${fmt(lo)} to ${fmt(hi)}` : lo != null ? `at least ${fmt(lo)}` : `at most ${fmt(hi)}`}${unit ? ` ${unit}` : ''}`;
+
 /**
  * Compare an asserted interval against a threshold.
  * An unbounded end is null. A point value is lo === hi.
@@ -90,14 +93,15 @@ function evaluateNumeric(material, c, ctx = {}) {
     // the evidence (D26). What an estimate may change is eligibility, and only in one direction. It
     // screens a material out of Explore when its plausible (95%) range and the range the build's back-test
     // lets it screen on both wholly fail the requirement, and no measurement of the material bounds the
-    // headline from below and meets it (D48). The likely (80%) range is what the reader sees; the wider
-    // ones decide, so a screen is never closer to the threshold than the evidence allows.
+    // headline from below and meets it (D48). Each end of the screening range is set on its own (D59): an end
+    // the back-test cannot set, or that the material's own evidence lies beyond, is open and screens nothing. The
+    // likely (80%) range is what the reader sees; the wider ones decide.
     if (ctx.useEstimates && h?.estimate) {
       const est = h.estimate;
       const wide = est.plausible ?? { lo: est.lo, hi: est.hi };
       const plausible = compareInterval({ lo: wide.lo, hi: wide.hi, kind: 'range' }, c.operator, c.value);
-      // The build's back-test decides which range may screen (D48): the plausible range of a certified class, or its
-      // union with the certified family-only range. An older snapshot without screenRange screens on the plausible range.
+      // The build's back-test decides the range that may screen, end by end (D48, D59). An older snapshot without
+      // screenRange screens on the plausible range.
       const decides = est.screenRange ?? wide;
       const screenFails = compareInterval({ lo: decides.lo, hi: decides.hi, kind: 'range' }, c.operator, c.value) === STATUS.FAIL;
       const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
@@ -109,11 +113,11 @@ function evaluateNumeric(material, c, ctx = {}) {
       const reason = plausible === STATUS.FAIL
         ? screened
           ? `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
-          : est.canScreen && !screenFails && !veto.length
-            ? `Not published. Estimated ${span} would fail, but the family model alone (${fmt(decides.lo)} to ${fmt(decides.hi)} ${est.unit}) could meet it, and this estimate class is not certified to screen on its own`
           : veto.length
             ? `Not published. Estimated ${span} would fail, but its own ${veto[0].property} ${veto[0].measurementId} (${fmt(veto[0].lo)} ${veto[0].unit}) bounds it from below and meets the requirement, so it is not screened`
-            : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
+            : est.canScreen && (c.operator.startsWith('>') ? decides.hi != null : decides.lo != null)
+              ? `Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`
+              : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
         : `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
       return {
         status: STATUS.UNKNOWN,
@@ -166,12 +170,15 @@ function evaluateNumeric(material, c, ctx = {}) {
   if (h.loadStated === false) {
     const b = h.loadBracket;
     const bracket = b ? compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, c.operator, c.value) : null;
-    // The bracket screens only if the build's back-test certified it (D48); an older snapshot without the flag screens as before.
-    const screened = !!(ctx.useEstimates && bracket === STATUS.FAIL && b?.canScreen !== false);
+    // The range that screens is set by the build, end by end (D48, D59): the bottom is the published value, the top
+    // only where the gaps grades publish show it. An older snapshot without screenRange screens on the bracket.
+    const decides = b?.screenRange ?? (b?.canScreen === false ? null : b);
+    const fails = !!decides && compareInterval({ lo: decides.lo, hi: decides.hi, kind: 'range' }, c.operator, c.value) === STATUS.FAIL;
+    const screened = !!(ctx.useEstimates && fails);
     return {
       status: STATUS.INDETERMINATE,
       reason: b
-        ? `${reason}, but the source states the standard without the load, so at 0.45 MPa it is ${fmt(b.lo)} to ${fmt(b.hi)} ${h.unit}${bracket === STATUS.FAIL ? `, which cannot meet this requirement${screened ? '. Screened out; the load is not stated' : ''}` : ''}`
+        ? `${reason}, but the source states the standard without the load, so at 0.45 MPa it is ${fmt(b.lo)} to ${fmt(b.hi)} ${h.unit}${fails ? `, which cannot meet this requirement${screened ? '. Screened out; the load is not stated' : ''}` : bracket === STATUS.FAIL ? `; ${b.screenLimit ?? `the top it may screen on, ${fmt(decides?.hi)} ${h.unit}, could still meet it`}` : ''}`
         : `${reason}, but the source states the standard without the load`,
       criterion: label, observed: h.value, unit: h.unit,
       measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,

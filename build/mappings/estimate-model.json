@@ -13,7 +13,8 @@
     "test house; for heat deflection of fast-crystallising polymers, the melting point. Each material and",
     "each product adds its own deviation. Every spread that cannot be measured directly is estimated from",
     "the data (empirical Bayes) with the floors below, and the whole model is checked by hiding every",
-    "measured headline and predicting it back: the stated coverage is the coverage achieved."
+    "measured headline and predicting it back: the stated coverage is the coverage achieved.",
+    "Every spread has a floor, so no fit, and no hold-out refit without a fold of materials, can claim a spread of zero: with TPU and PEBA hidden, an elastomer's product-to-product spread fell to 0.003 and a hold-out claimed near-certainty (DECISIONS D59)."
   ],
   "levels": {
     "likely": 0.8,
@@ -37,7 +38,11 @@
         "tf": 0.02,
         "sm": 0.01,
         "w": 0.015,
-        "tg": 0.03
+        "tg": 0.03,
+        "we": 0.015,
+        "tv": 0.02,
+        "tfx": 0.02,
+        "tm": 0.01
       }
     },
     "tensileModulusXY": {
@@ -58,7 +63,9 @@
         "sm": 0.04,
         "w": 0.06,
         "tg": 0.1,
-        "tm": 0.03
+        "tm": 0.03,
+        "we": 0.06,
+        "tv": 0.08
       }
     },
     "tensileStrengthXY": {
@@ -79,7 +86,9 @@
         "sm": 0.04,
         "w": 0.06,
         "tg": 0.1,
-        "tm": 0.03
+        "tm": 0.03,
+        "we": 0.06,
+        "tv": 0.08
       }
     },
     "elongationXY": {
@@ -100,7 +109,9 @@
         "sm": 0.04,
         "w": 0.06,
         "tg": 0.1,
-        "tm": 0.03
+        "tm": 0.03,
+        "we": 0.06,
+        "tv": 0.08
       }
     },
     "hdt045": {
@@ -122,7 +133,9 @@
         "w": 4,
         "tg": 10,
         "tm": 3,
-        "ttm": 10
+        "ttm": 10,
+        "we": 4,
+        "tv": 8
       },
       "_ttm": "ttm is fixed, not a floor: the spread of the melting-point slope, °C per 50 °C of melting point"
     }
@@ -859,6 +872,8 @@
   },
   "calibration": {
     "_comment": "How the likely and plausible ranges are scaled to hold hidden measured headlines as often as they claim, and when the build refuses the result.",
+    "folds": 5,
+    "foldsWhy": "Every hold-out (calibration and the screening back-test) predicts a material with spreads fitted without its fold of materials, one fold in this many, so the ranges are judged on what the fit never saw.",
     "minHeld": 20,
     "defaultScale": 1.3,
     "likelyScale": [
@@ -877,11 +892,10 @@
     "toleranceWhy": "The build fails if the likely range's coverage drifts more than likelyTolerance from its level, or the plausible range's coverage falls more than plausibleShortfall below its level (EST-CALIBRATION)."
   },
   "screening": {
-    "_comment": "An estimate never passes a material. In Explore it may screen one out when its plausible range wholly fails and no measurement of the material logically bounds the headline to meet the requirement (impliedBounds). Whether an evidence class may screen at all is decided every build by the screening back-test (DECISIONS D48): every measured headline is hidden as far as the class requires and predicted, and the class screens only if its plausible ranges are not detectably too narrow on either side.",
-    "maxOneSidedMiss": 0.025,
-    "testLevel": 0.05,
-    "minHeldCases": 20,
-    "why": "A screen removes a material when its plausible range wholly fails the requirement; it is wrong only when the true value lies beyond the range on the side the requirement tests. A 95% range allows 2.5% per side. A class is certified when, over at least minHeldCases hidden headlines, neither side's misses are significantly more than maxOneSidedMiss (exact one-sided binomial test at testLevel): a calibrated class is not revoked by sampling noise, a too-narrow class is."
+    "_comment": "An estimate never passes a material. In Explore it may screen one out when the range it screens on wholly fails a requirement and no printed measurement of the material bounds the headline to meet it (headline_definitions.csv Lower bound). Each end of that range is set by the back-test every build runs (DECISIONS D59, build/src/estimate/screening.js).",
+    "maxWrongRate": 0.1,
+    "confidence": 0.9,
+    "why": "Each end of an evidence class's screening ranges is a distribution-free tolerance limit of where the honestly predicted true values of that class fell: a new true value lies beyond it at most maxWrongRate of the time, with this confidence. It is never inside the plausible range shown, and moves outwards only where the back-test shows the model's tail is too thin. Setting a limit at all takes 22 back-tested cases at 10% and 90%. How often a true value lies beyond an end bounds how often a screen on it is wrong, since a screen is wrong only when the requirement also lies between the end and the true value."
   },
   "_directionComment": "An unknown direction may not convert a value upwards more than its documented offset: a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04). The build refines an unknown-direction offset downwards from pairs, never above the documented value."
 }

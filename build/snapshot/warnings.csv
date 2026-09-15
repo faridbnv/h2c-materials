@@ -1,6 +1,9 @@
 Code,Record
 EST-FAMILY-ORDER,M018 tensileModulusXY
+EST-OUTLIER,M039 elongationXY
 EST-OUTLIER,M070 tensileModulusXY
+EST-OUTLIER,M072 hdt045
+EST-OUTLIER,M086 density
 EST-OUTLIER,M094 elongationXY
 EST-WIDE,M008 elongationXY
 EST-WIDE,M040 tensileModulusXY
@@ -12,6 +15,7 @@ EST-WIDE,M049 elongationXY
 EST-WIDE,M049 tensileModulusXY
 EST-WIDE,M064 elongationXY
 EST-WIDE,M076 elongationXY
+EST-WIDE,M076 tensileModulusXY
 EST-WIDE,M085 elongationXY
 EST-WIDE,M085 hdt045
 EST-WIDE,M086 tensileModulusXY

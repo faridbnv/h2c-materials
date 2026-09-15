@@ -581,7 +581,7 @@ Flexible component,Explore with estimates,M043,TPU 85A,PASS,yes,
 Flexible component,Explore with estimates,M045,PEBA,PASS,yes,
 Flexible component,Explore with estimates,M046,TPC / TPEE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M049,PA6,UNKNOWN,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M052,PA12,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M052,PA12,UNKNOWN,yes,
 Flexible component,Explore with estimates,M055,PA66,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M056,PA66-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M058,PA612,UNKNOWN,screened,elongationXY >= 100

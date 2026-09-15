@@ -34,8 +34,8 @@ import { normalQuantile } from './numerics.js';
 import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, untransform, sig3 } from './model.js';
 import { snapshot, rawObservations } from './observations.js';
 import { conversions, convert, betweenProductSpread } from './conversions.js';
-import { meltingPoint, hyperparameters, predict } from './gaussian.js';
-import { fitWithConflicts, calibrate } from './calibration.js';
+import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.js';
+import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
 import { attachLoadBrackets, backTest, screenDecision } from './screening.js';
 import { attachPrintEstimates } from './print.js';
@@ -62,15 +62,13 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     const between = betweenProductSpread(key, raw, S);
     const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, floors.w) : null;
 
-    // The spreads are estimated on the headline and the single most direct kind per formulation, which
-    // identifies them as well as the full set does at a fraction of the cost.
-    const hasHead = new Set(converted.filter((o) => o.kind === HEAD[key]).map((o) => `${o.m.id}|${o.f}`));
-    const hp = hyperparameters(key, converted.filter((o) => o.kind === HEAD[key] || !hasHead.has(`${o.m.id}|${o.f}`)), S, model, fixedW);
+    const hp = hyperparameters(key, spreadObservations(key, converted), S, model, fixedW);
 
     const { P, obs, conflicts } = fitWithConflicts(key, converted, S, model, hp);
     diagnostics.conflicts.push(...conflicts);
+    const holdOut = makeHoldOut({ key, raw, model, conv, obs, S, hp });
 
-    const { loo, calLikely, calPlausible, outliers, calibration } = calibrate({ key, model, S, obs, P, hp, tmMean, inv, zLikely, zPlausible });
+    const { loo, calLikely, calPlausible, outliers, calibration } = calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible, holdOut });
     diagnostics.outliers.push(...outliers);
     const r3 = (v) => (v == null ? null : Number(v.toPrecision(3)));
     diagnostics.properties[key] = {
@@ -84,7 +82,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     if (key === 'hdt045') diagnostics.bracketScreening = attachLoadBrackets({ raw, conv, S, model, zPlausible });
 
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
-    const certification = backTest({ key, model, S, obs, P, hp, tmMean, rangeFor });
+    const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
     diagnostics.properties[key].screening = certification;
 
     for (const m of S.pool) {
@@ -107,7 +105,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       const p = predict(P, hp, subject, f, manufacturer);
       p.mu += tmMean(subject);
 
-      const { bounds, centre, range, wide } = rangeFor(m, subject, p, h.unit);
+      const { bounds, centre, range, wide, at } = rangeFor(m, subject, p, h.unit);
 
       const onThisGrade = mine.some(({ o }) => o.f === f && f);
       const strength = onThisGrade ? 'this-grade' : mine.length ? 'this-material' : 'family';
@@ -116,16 +114,24 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       const ownShare = totalWeight > 0 ? Math.max(0, Math.min(1, ownWeight / totalWeight)) : 0;
       const spread = model.properties[key].scale === 'log' ? range[1] / range[0] : range[1] - range[0];
       const precision = spread <= model.properties[key].precision.good ? 'good' : spread <= model.properties[key].precision.fair ? 'fair' : 'poor';
-      const familyWide = () => {
-        const pf = predict(P, hp, subject, f, manufacturer, mine.map(({ i }) => i));
-        pf.mu += tmMean(subject);
-        return rangeFor(m, subject, pf, h.unit, { ownBounds: false }).wide;
+      // Converted to the headline's own scale: the melting-point term the model subtracts is added back (it was left
+      // out, so PA12's own 94.7 °C read as converted to 108 °C).
+      const convertedValue = (o) => inv(o.y + tmMean(o.m));
+      let familyRange = null;
+      const familyAt = (q) => {
+        if (!familyRange) {
+          const pf = predict(P, hp, subject, f, manufacturer, mine.map(({ i }) => i));
+          pf.mu += tmMean(subject);
+          familyRange = rangeFor(m, subject, pf, h.unit, { ownBounds: false });
+        }
+        return familyRange.at(q);
       };
-      const screen = screenDecision({ strength, certification, wide, familyWide, unit: h.unit });
+      const own = mine.map(({ o }) => ({ value: convertedValue(o), bound: o.items.find((x) => x.bound)?.bound, measurementId: o.items.map((x) => x.measurementId).find(Boolean) }));
+      const screen = screenDecision({ strength, certification, at, familyAt, own, unit: h.unit });
 
       const evidence = mine.map(({ o }) => ({
         kind: o.kind, gradeId: o.gradeId, sameGrade: !!f && o.f === f,
-        items: o.items, converted: sig3(inv(o.y)), conversion: o.conversion.why, conflict: !!o.conflict,
+        items: o.items, converted: sig3(convertedValue(o)), conversion: o.conversion.why, conflict: !!o.conflict,
       }));
       const family = [identityOf(m), m.facets.reinforcement.value !== 'unfilled' ? m.facets.reinforcement.value : null, S.variantOf(f),
         manufacturer ? `tested by ${manufacturer}` : null].filter(Boolean).join(', ');

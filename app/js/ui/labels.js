@@ -79,7 +79,20 @@ export function estimateTitle(e, fmt) {
   return `Estimated, not measured: likely ${fmt(e.lo)} to ${fmt(e.hi)} ${e.unit ?? ''} (${percent(levels.likely)} of hidden measured values fell inside ranges like this), centred on ${fmt(e.centre)}.${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its representative product is also recorded under ${e.sharedWith.name}.` : ''}`
     + ` Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`
-    + ` Never enough to pass a requirement. ${e.canScreen ? 'With "Include uncertain", it screens this material out when its plausible range wholly fails.' : `It cannot screen: ${e.screenLimit}.`}`;
+    + ` Never enough to pass a requirement. ${e.canScreen ? `With "Include uncertain", it screens this material out of ${screenRangeText(e, fmt)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+}
+
+/**
+ * What an estimate may screen a material out of, from the range the build lets it screen on (D59), whose ends may be
+ * open: "a requirement its screening range, 12 to 40 %, wholly fails", "a maximum requirement below 12 %", "a minimum
+ * requirement above 40 %".
+ */
+export function screenRangeText(e, fmt) {
+  const r = e.screenRange ?? e.plausible;
+  if (!r) return '';
+  const unit = e.unit ? ` ${e.unit}` : '';
+  if (r.lo != null && r.hi != null) return `a requirement its screening range, ${fmt(r.lo)} to ${fmt(r.hi)}${unit}, wholly fails`;
+  return r.lo != null ? `a maximum requirement below ${fmt(r.lo)}${unit}` : `a minimum requirement above ${fmt(r.hi)}${unit}`;
 }
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };

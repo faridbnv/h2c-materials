@@ -1,13 +1,15 @@
 // The likely and plausible ranges of a prediction, with the physical and semantic limits that apply to the material.
 // Shared by the estimates and the screening back-test, so the back-test judges the ranges shown.
 
-import { boundedQuantile } from './numerics.js';
+import { boundedQuantile, boundedCdf } from './numerics.js';
 import { HEAD, transform } from './model.js';
 
 /**
- * A range function for one headline: (m, subject, p, unit, { ownBounds }) => { bounds, centre, range, wide }, where p is
+ * A range function for one headline: (m, subject, p, unit, { ownBounds }) => { bounds, centre, range, wide, at }, where p is
  * the prediction on the model scale with the melting-point offset already added, and subject the material whose
- * product is predicted (itself, or the material its representative product is filed under).
+ * product is predicted (itself, or the material its representative product is filed under). at(pr) is the quantile pr
+ * with the plausible range's calibration and the same limits, for a range wider than the plausible one; cdf(value)
+ * is where a value falls in that distribution, which the screening back-test records.
  */
 export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible }) {
   const { likely, plausible } = model.levels;
@@ -81,6 +83,6 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
     const range = [q(0.5 - likely / 2, calLikely), q(0.5 + likely / 2, calLikely)];
     const wide = [q(0.5 - plausible / 2, calPlausible), q(0.5 + plausible / 2, calPlausible)];
 
-    return { bounds, centre, range, wide };
+    return { bounds, centre, range, wide, at: (pr) => q(pr, calPlausible), cdf: (value) => boundedCdf(p.mu, p.sd * calPlausible, bounds, toModel(value)) };
   };
 }

@@ -29,7 +29,11 @@ export function normalQuantile(p) {
  * is itself approximate. A hard truncation would pile an estimate against the limit with no width.
  */
 export function boundedQuantile(mu, sd, bounds, p) {
-  if (!bounds.length) return mu + sd * normalQuantile(p);
+  return boundedQuantiles(mu, sd, bounds, [p])[0];
+}
+
+/** The soft-bounded density of boundedQuantile on its integration grid. */
+function boundedDensity(mu, sd, bounds) {
   const n = 801, lo = mu - 7 * sd, step = (14 * sd) / (n - 1);
   const dens = new Float64Array(n);
   let total = 0;
@@ -39,10 +43,29 @@ export function boundedQuantile(mu, sd, bounds, p) {
     for (const b of bounds) d *= b.side === 'upper' ? normalCdf((b.value - x) / b.sd) : normalCdf((x - b.value) / b.sd);
     dens[i] = d; total += d;
   }
-  if (!(total > 0)) return mu + sd * normalQuantile(p);
+  return { n, lo, step, dens, total };
+}
+
+/** Several quantiles of the same soft-bounded distribution, integrating it once. */
+export function boundedQuantiles(mu, sd, bounds, ps) {
+  if (!bounds.length) return ps.map((p) => mu + sd * normalQuantile(p));
+  const { n, lo, step, dens, total } = boundedDensity(mu, sd, bounds);
+  if (!(total > 0)) return ps.map((p) => mu + sd * normalQuantile(p));
+  return ps.map((p) => {
+    let acc = 0;
+    for (let i = 0; i < n; i++) { acc += dens[i] / total; if (acc >= p) return lo + i * step; }
+    return lo + (n - 1) * step;
+  });
+}
+
+/** P(X <= x) under the soft-bounded distribution of boundedQuantile: where a true value falls in a prediction. */
+export function boundedCdf(mu, sd, bounds, x) {
+  if (!bounds.length) return normalCdf((x - mu) / sd);
+  const { n, lo, step, dens, total } = boundedDensity(mu, sd, bounds);
+  if (!(total > 0)) return normalCdf((x - mu) / sd);
   let acc = 0;
-  for (let i = 0; i < n; i++) { acc += dens[i] / total; if (acc >= p) return lo + i * step; }
-  return lo + (n - 1) * step;
+  for (let i = 0; i < n && lo + i * step <= x; i++) acc += dens[i] / total;
+  return Math.min(1, acc);
 }
 
 export const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
@@ -85,4 +108,25 @@ export function binomialTail(n, p, k) {
   let term = Math.pow(1 - p, n), cdf = 0;
   for (let i = 0; i < k; i++) { cdf += term; term = term * ((n - i) / (i + 1)) * (p / (1 - p)); }
   return Math.max(0, 1 - cdf);
+}
+
+/** P(X <= k) for X ~ Binomial(n, p). */
+export function binomialCdf(k, n, p) {
+  if (k < 0) return 0;
+  if (k >= n || p <= 0) return 1;
+  if (p >= 1) return 0;
+  let term = Math.pow(1 - p, n), cdf = 0;
+  for (let i = 0; i <= k; i++) { cdf += term; term = term * ((n - i) / (i + 1)) * (p / (1 - p)); }
+  return Math.min(1, cdf);
+}
+
+/**
+ * The one-sided Clopper-Pearson upper confidence bound on a rate: the largest p that k events in n trials do not rule
+ * out at the given confidence, i.e. P(X <= k | n, p) = 1 - confidence. With no events it is 1 - (1 - confidence)^(1/n).
+ */
+export function binomialUpperBound(k, n, confidence) {
+  if (!(n > 0) || k >= n) return 1;
+  let lo = k / n, hi = 1;
+  for (let i = 0; i < 60; i++) { const mid = (lo + hi) / 2; if (binomialCdf(k, n, mid) > 1 - confidence) lo = mid; else hi = mid; }
+  return hi;
 }

@@ -4,7 +4,66 @@
 
 import { median, quantile } from './numerics.js';
 import { HEAD, transform, sig3 } from './model.js';
-import { fitModel, posterior, predict } from './gaussian.js';
+import { fitModel, posterior, predict, hyperparameters, spreadObservations } from './gaussian.js';
+import { conversions, betweenProductSpread } from './conversions.js';
+
+/**
+ * A prediction of material m's product f with observations `hide` hidden, as if the hidden headlines had never been
+ * published (audit 2026-09-15, C-09). Hiding observations in the posterior is exact, but what the model learns from all
+ * data had seen them:
+ *
+ *   The spreads. The materials are split into calibration.folds folds, and a hold-out of a material is predicted with
+ *   spreads refitted without its fold's headlines, the between-product spread included. The refit starts from the full
+ *   fit's spreads and makes one sweep of the grid, which matched a full three-sweep search to within 0.01 on every
+ *   calibration scale. With the spreads fitted once on all data, elongation's hold-out errors were 25% narrower in the tail.
+ *   The conversion offsets that turn the remaining values into the headline's semantics. They are refitted without the
+ *   hidden products' pairs (the product, or with `wholeMaterial` every product of the material), and the prediction is
+ *   corrected exactly for the shift: every observation of a changed kind moves by the change in its offset, and the
+ *   prediction moves by those shifts weighted as the posterior weights them, plus the shift of the fit's mean.
+ *
+ * Conflict down-weighting is still decided once, on all data.
+ */
+export function makeHoldOut({ key, raw, model, conv, obs, S, hp: fullSpreads }) {
+  const k = model.calibration.folds;
+  const foldOf = new Map([...S.pool].sort((a, b) => a.id.localeCompare(b.id)).map((m, i) => [m.id, i % k]));
+  const fits = new Map();
+  const fitFor = (fold) => {
+    if (!fits.has(fold)) {
+      const hidden = (o) => foldOf.get(o.m.id) === fold && o.kind === HEAD[key];
+      const between = betweenProductSpread(key, raw.filter((o) => !hidden(o)), S);
+      const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, model.properties[key].floors.w) : null;
+      const hp = hyperparameters(key, spreadObservations(key, obs.filter((o) => !hidden(o))), S, model, fixedW, { start: { ...fullSpreads, ...(fixedW != null ? { w: fixedW } : {}) }, sweeps: 1 });
+      fits.set(fold, { hp, P: posterior(fitModel(key, obs, S, model, hp)) });
+    }
+    return fits.get(fold);
+  };
+  const productsOf = new Map();
+  for (const o of raw) { if (!productsOf.has(o.m.id)) productsOf.set(o.m.id, new Set()); productsOf.get(o.m.id).add(`${o.m.id}|${o.f}`); }
+  const refitted = new Map();
+  return (m, f, manufacturer, hide, { wholeMaterial = false } = {}) => {
+    const { P, hp } = fitFor(foldOf.get(m.id));
+    const p = predict(P, hp, m, f, manufacturer, hide);
+    const groups = wholeMaterial ? new Set([...(productsOf.get(m.id) ?? []), `${m.id}|${f}`]) : new Set([`${m.id}|${f}`]);
+    const cacheKey = [...groups].sort().join(' ');
+    if (!refitted.has(cacheKey)) {
+      const without = conversions(key, raw, model, { without: groups });
+      const shift = new Map();
+      for (const [kind, c] of Object.entries(conv)) if (without[kind] && without[kind].offset !== c.offset) shift.set(kind, without[kind].offset - c.offset);
+      refitted.set(cacheKey, shift);
+    }
+    const shift = refitted.get(cacheKey);
+    if (!shift.size) return p;
+    let meanShift = 0, weighted = 0, weightSum = 0;
+    for (let i = 0; i < obs.length; i++) {
+      const d = shift.get(obs[i].kind) ?? 0;
+      meanShift += d;
+      weighted += p.weights[i] * d;
+      weightSum += p.weights[i];
+    }
+    meanShift /= obs.length;
+    return { ...p, mu: p.mu + meanShift * (1 - weightSum) + weighted };
+  };
+}
 
 /** The posterior of a headline's model, with evidence that contradicts everything else down-weighted and reported, twice at most. */
 export function fitWithConflicts(key, observations, S, model, hp) {
@@ -31,7 +90,7 @@ export function fitWithConflicts(key, observations, S, model, hp) {
  * make the likely and plausible ranges hold as often as they claim, the measured headlines far from their prediction,
  * and the calibration record the validation report and the build check read.
  */
-export function calibrate({ key, model, S, obs, P, hp, tmMean, inv, zLikely, zPlausible }) {
+export function calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible, holdOut }) {
   const { likely, plausible } = model.levels;
   const cfg = model.calibration;
   const loo = [];
@@ -41,7 +100,7 @@ export function calibrate({ key, model, S, obs, P, hp, tmMean, inv, zLikely, zPl
     const f = S.fkey(h.gradeId);
     const hide = obs.map((o, i) => (o.m.id === m.id && o.f === f && o.kind === HEAD[key] ? i : -1)).filter((i) => i >= 0);
     if (!hide.length) continue;
-    const p = predict(P, hp, m, f, S.grades.get(h.gradeId)?.manufacturer, hide);
+    const p = holdOut(m, f, S.grades.get(h.gradeId)?.manufacturer, hide);
     const rest = obs.some((o, i) => o.m.id === m.id && !hide.includes(i));
     loo.push({ m, y: transform(key, model)(h.value) - tmMean(m), p, rest });
   }

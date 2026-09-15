@@ -3,7 +3,7 @@
 // prediction with observations hidden, and the empirical-Bayes spreads.
 
 import { cholesky, inverseFromCholesky, invertSmall } from './numerics.js';
-import { identityOf } from './model.js';
+import { identityOf, HEAD } from './model.js';
 
 /**
  * Heat deflection of a polymer that crystallises while printing rises with its melting point: a fibre
@@ -120,10 +120,22 @@ export function predict(P, hp, m, f, manufacturer, hide = []) {
   return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q2)), weights: w };
 }
 
-/** Empirical Bayes: each free spread in turn over a grid, three sweeps, above its documented floor. */
-export function hyperparameters(key, obs, S, model, fixedW) {
+/**
+ * The observations the spreads are estimated on: the headline and the single most direct kind per formulation, which
+ * identifies them as well as the full set does at a fraction of the cost.
+ */
+export function spreadObservations(key, obs) {
+  const hasHead = new Set(obs.filter((o) => o.kind === HEAD[key]).map((o) => `${o.m.id}|${o.f}`));
+  return obs.filter((o) => o.kind === HEAD[key] || !hasHead.has(`${o.m.id}|${o.f}`));
+}
+
+/**
+ * Empirical Bayes: each free spread in turn over a grid, three sweeps, above its documented floor. `start` (a fit's
+ * spreads) and `sweeps` let a refit on nearly the same data start from where the full fit ended.
+ */
+export function hyperparameters(key, obs, S, model, fixedW, { start = null, sweeps = 3 } = {}) {
   const scale = model.properties[key].scaleUnit, floors = model.properties[key].floors;
-  const hp = { tg: scale, tp: scale / 2, tf: scale, tfx: scale / 2, tv: scale / 2, tm: scale / 3, ttm: scale / 2, sm: scale / 3, w: fixedW ?? scale / 2, we: scale };
+  const hp = start ? { ...start } : { tg: scale, tp: scale / 2, tf: scale, tfx: scale / 2, tv: scale / 2, tm: scale / 3, ttm: scale / 2, sm: scale / 3, w: fixedW ?? scale / 2, we: scale };
   for (const [k, v] of Object.entries(floors)) if (k in hp) hp[k] = Math.max(hp[k], v);
   // The melting-point slope's spread is documented, not learned: a handful of unfilled polymers cannot
   // be allowed to reverse a physical relation (PVDF deflects near its melting point, PA66 far below).
@@ -132,7 +144,7 @@ export function hyperparameters(key, obs, S, model, fixedW) {
   const grid = [0.01, 0.05, 0.12, 0.25, 0.4, 0.6, 0.85, 1.2, 1.7, 2.5, 4].map((g) => g * scale);
   const score = (h) => fitModel(key, obs, S, model, h)?.logLik ?? -Infinity;
   let best = score(hp);
-  for (let sweep = 0; sweep < 3; sweep++) {
+  for (let sweep = 0; sweep < sweeps; sweep++) {
     for (const k of free) {
       for (const v of grid) {
         if (v < (floors[k] ?? 0)) continue;

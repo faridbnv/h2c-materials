@@ -7,8 +7,9 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
-import { certifyScreening } from '../build/src/estimate/screening.js';
+import { certifyScreening, toleranceRank, minimumCases } from '../build/src/estimate/screening.js';
 import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
+import { normalCdf, normalQuantile } from '../build/src/estimate/numerics.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
@@ -86,7 +87,7 @@ test('no material stays a candidate for a requirement its defended range fails, 
   const ctx = { useEstimates: true, unknownPolicy: UNKNOWN_POLICY.EXPLORATION };
   const defended = (m, k) => {
     const h = m.headline[k];
-    if (h.known) return h.loadStated === false ? (h.loadBracket?.canScreen ? h.loadBracket : null) : (h.interval ?? { lo: h.value, hi: h.value });
+    if (h.known) return h.loadStated === false ? (h.loadBracket?.screenRange ?? null) : (h.interval ?? { lo: h.value, hi: h.value });
     if (h.notApplicable) return 'na';
     return h.estimate?.canScreen ? h.estimate.screenRange : null;
   };
@@ -116,18 +117,47 @@ test('no material stays a candidate for a requirement its defended range fails, 
   assert.ok(vetoes >= 0);
 });
 
-test('the back-test certifies calibrated ranges, and revokes certification from ranges made too narrow', () => {
+// D59: each end of a screening range is a distribution-free tolerance limit of where hidden true values fell in their
+// predictions. It is never inside the plausible range, it widens where the tail is too thin, and too few cases set nothing.
+test('screening ends are tolerance limits: at the plausible range when calibrated, wider when not, absent when too few', () => {
   const cfg = ESTIMATE_MODEL.screening;
-  // 100 cases whose true values fall beyond a symmetric range 1 and 3 times on each side: calibrated for 95%.
-  const calibrated = Array.from({ length: 100 }, (_, i) => ({ y: i < 2 ? 12 : i < 5 ? -2 : 5, lo: 0, hi: 10 }));
-  assert.equal(certifyScreening(calibrated, cfg).certified, true);
-  // The same class with ranges shrunk to a third: many true values now fall outside.
-  const shrunk = Array.from({ length: 100 }, (_, i) => ({ y: (i % 10), lo: 3.3, hi: 6.7 }));
-  const r = certifyScreening(shrunk, cfg);
-  assert.equal(r.certified, false);
-  assert.match(r.why, /too narrow/);
-  // Too few cases never certify, however good they look.
-  assert.equal(certifyScreening(calibrated.slice(0, cfg.minHeldCases - 1).map((c) => ({ ...c, y: 5 })), cfg).certified, false);
+  const nominal = 0.5 + ESTIMATE_MODEL.levels.plausible / 2;
+  const cases = (us) => us.map((u) => ({ u, beyond: { above: u > nominal, below: u < 1 - nominal } }));
+  const uniform = (n) => Array.from({ length: n }, (_, i) => (i + 0.5) / n);
+  // Calibrated: positions spread evenly. The ends stay at the plausible range.
+  const calibrated = certifyScreening(cases(uniform(100)), cfg, nominal);
+  assert.equal(calibrated.above.quantile, nominal);
+  assert.equal(calibrated.below.quantile, Number((1 - nominal).toPrecision(6)));
+  // Too narrow: true values pile into the tails. The ends move out, and still hold at the stated rate.
+  const narrow = certifyScreening(cases(uniform(100).map((u) => (u < 0.2 ? u / 50 : u > 0.8 ? 1 - (1 - u) / 50 : u))), cfg, nominal);
+  assert.ok(narrow.above.certified && narrow.above.quantile > nominal, JSON.stringify(narrow.above));
+  assert.ok(narrow.below.certified && narrow.below.quantile < 1 - nominal, JSON.stringify(narrow.below));
+  // The guarantee: a model whose standard deviation is half the truth (true positions u = Φ(2Z)) needs its top at the
+  // 99.48% point to be beyond at most 10%. Over many classes of 40 cases, the top the build takes is beyond at most 10%
+  // (exactly: 1 - Φ(Φ⁻¹(q)/2)) in at least `confidence` of classes; one rank narrower, it is clearly not.
+  let state = 0x9e3779b9;
+  const rnd = () => { state = (state + 0x6d2b79f5) | 0; let t = Math.imul(state ^ (state >>> 15), 1 | state); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const gauss = () => Math.sqrt(-2 * Math.log(1 - rnd())) * Math.cos(2 * Math.PI * rnd());
+  const wrongRate = (q) => 1 - normalCdf(normalQuantile(q) / 2);
+  const n = 40, r = toleranceRank(n, cfg), classes = 2000;
+  // An end the build refuses to set (a hold-out beyond anything the model reaches) screens nothing, so it cannot be wrong.
+  let held = 0, set = 0, heldNarrower = 0;
+  for (let k = 0; k < classes; k++) {
+    const us = Array.from({ length: n }, () => normalCdf(2 * gauss()));
+    const side = certifyScreening(cases(us), cfg, nominal).above;
+    if (side.certified) set++;
+    if (!side.certified || wrongRate(side.quantile) <= cfg.maxWrongRate) held++;
+    const narrower = Math.max(nominal, [...us].sort((a, b) => b - a)[r]);
+    if (wrongRate(narrower) <= cfg.maxWrongRate) heldNarrower++;
+  }
+  assert.ok(set / classes >= 0.9, `an end was set in only ${set} of ${classes} classes`);
+  assert.ok(held / classes >= cfg.confidence - 0.015, `the top held in ${held} of ${classes} classes`);
+  assert.ok(heldNarrower / classes <= cfg.confidence - 0.08, `one rank narrower still held in ${heldNarrower} of ${classes} classes`);
+  // Too few cases never set an end, however good they look.
+  const few = minimumCases(cfg) - 1;
+  assert.equal(toleranceRank(few, cfg), null);
+  assert.equal(certifyScreening(cases(uniform(few)), cfg, nominal).certified, false);
+  assert.ok(toleranceRank(few + 1, cfg) >= 1);
 });
 
 test('every estimate that may screen names the range and the reason, and the range is never narrower than it shows', () => {
@@ -139,7 +169,13 @@ test('every estimate that may screen names the range and the reason, and the ran
       if (!e.canScreen) { assert.ok(e.screenLimit, `${m.name} ${k} cannot screen without a reason`); continue; }
       screening++;
       assert.ok(e.screenRange && e.screenBasis, `${m.name} ${k}`);
-      assert.ok(e.screenRange.lo <= e.plausible.lo && e.screenRange.hi >= e.plausible.hi, `${m.name} ${k} screens on a range narrower than its plausible range`);
+      // An open end (null) screens nothing on that side; a closed one is never inside the plausible range.
+      assert.ok((e.screenRange.lo == null || e.screenRange.lo <= e.plausible.lo) && (e.screenRange.hi == null || e.screenRange.hi >= e.plausible.hi), `${m.name} ${k} screens on a range narrower than its plausible range`);
+      // An end never screens against the material's own evidence.
+      for (const ev of e.evidence) {
+        if (e.screenRange.hi != null && !ev.items.some((i) => i.bound === 'upper')) assert.ok(ev.converted <= e.screenRange.hi * 1.001, `${m.name} ${k}: own ${ev.kind} ${ev.converted} above the screen top ${e.screenRange.hi}`);
+        if (e.screenRange.lo != null && !ev.items.some((i) => i.bound === 'lower')) assert.ok(ev.converted >= e.screenRange.lo * 0.999, `${m.name} ${k}: own ${ev.kind} ${ev.converted} below the screen bottom ${e.screenRange.lo}`);
+      }
     }
   }
   assert.ok(screening > 0);

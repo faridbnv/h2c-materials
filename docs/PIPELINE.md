@@ -165,8 +165,11 @@ neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vica
 estimate; an unknown direction never converts upwards past its documented offset; a material's only evidence is never
 down-weighted; its implied bounds limit its range from below (D55). Film, filament and physically implausible values
 enter nothing. Every build then back-tests screening: each measured headline is hidden as far as an evidence
-class requires (this grade, this material, family) and predicted with the production ranges, and a class may screen
-only if its ranges are not significantly too narrow on either side over at least 20 cases (D48). Every missing
+class requires (this grade, this material, family) and predicted honestly with the production ranges, the conversions
+refitted without it, and each end of the class's screening range is set at a distribution-free tolerance limit of where
+the true values fell (at most 10% beyond it, with 90% confidence; never inside the plausible range). A class with fewer
+than 22 cases screens an end only where the family model agrees, and no end screens against the material's own
+evidence (D48, D59). Every missing
 headline gets an estimate with its evidence, precision and the range it may screen on, or a not-applicable reason. Diagnostics (calibration, conversions, spreads, rejected values, conflicting
 evidence, outlying headlines) go to `meta.estimateModel`. `docs/DATA-MODEL.md` explains the model
 under "Estimates"; DECISIONS D43 says why.

@@ -345,32 +345,37 @@ with their reasons.
 `strength` (`this-grade`, `this-material` or `family`: what it rests on), `precision` (`good`, `fair`
 or `poor`, by per-property width thresholds), every piece of its own evidence with the converted value
 and the reason for the conversion, the soft limits applied, `sharedWith` where its representative
-product is filed under another material (both then show one estimate), `canScreen`, and where it may screen, `screenRange` (the range that decides) and `screenBasis` (why).
+product is filed under another material (both then show one estimate), `canScreen`, and where it may screen, `screenRange` (the range that decides, either end of which may be open: `null` screens nothing on that side), `screenBasis` (why each end screens) and `screenLimit` (why an end cannot).
 
 **Unstated heat loads.** A heat deflection headline whose source names no load was measured at
 0.45 MPa or at 1.8 MPa, so its 0.45 MPa value lies between the value and the value plus the largest
 (95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer (38 grades), 37 °C
 for a fibre-filled semicrystalline one. `hdt045.loadBracket` carries it. It never passes a requirement;
-in Explore with estimates on, a requirement the whole bracket fails screens the material out.
+in Explore with estimates on, a requirement its `screenRange` wholly fails screens the material out. The bottom of that
+range is the published value, which physics guarantees; its top is set from the gaps grades publishing both loads show,
+like an estimate's end (below), and is open for a matrix with too few of them.
 
 **Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
 reason. Heat deflection of an elastomer is not applicable and never estimated (ISO 75 ends at 0.2 % outer-fibre
 strain, which needs a modulus near 225 MPa); a value its own source publishes is shown only as that measurement. Any
 value of a support product is not applicable unless the material's own sources publish one. On this snapshot: 94
 estimates (60 from the grade's own related measurements, 18 from other grades or resin references, 16 from the family
-model alone; 17 imprecise) and 28 not applicable. 94 estimates may screen.
+model alone; 17 imprecise) and 28 not applicable. The review snapshot's `screening.csv` lists which ends may screen.
 
-**What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. Which estimates may
-screen is measured every build (D48): each measured headline is hidden as far as an evidence class requires
-(this grade, this material, family) and predicted, and a class is certified when its plausible ranges are not
-significantly too narrow on either side over at least 20 cases (`meta.estimateModel.properties.*.screening`).
-In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails
-(its plausible range if its class is certified, else the union with the certified family-only range), and no
+**What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. Where it may screen is set
+every build, end by end (D48, D59). Each measured headline is hidden as far as an evidence class requires (this grade,
+this material, family) and predicted honestly: the conversions that turn its product's other values into the headline
+are refitted without it. Each end of the class's screening range is then a distribution-free tolerance limit of where
+those true values fell: a new true value lies beyond it at most 10% of the time with 90% confidence. The end is never
+inside the plausible range and moves outwards only where the tail proved too thin. A class needs 22 cases to set an
+end; with fewer, an end screens only where the family model's end agrees. An end the material's own evidence lies beyond
+never screens (`meta.estimateModel.properties.*.screening`, `build/snapshot/screening.csv`).
+In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails, and no
 printed measurement of the material bounds the headline from below and meets the requirement (`impliedBounds`: yield or
 break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
 published value; D55). The same bounds limit the estimate's own range from below. Not
-applicable screens the same way; the unstated-load bracket screens only for matrix classes whose bracket is
-certified (today amorphous). Strict neither shows nor uses estimates. The earlier models are recorded in D10,
+applicable screens the same way; the top of the unstated-load bracket screens only for a matrix whose gaps can set it
+(today amorphous). Strict neither shows nor uses estimates. The earlier models are recorded in D10,
 D11, D40, D42 and D43.
 
 **Moisture, variants and bounds.** A value measured after conditioning (the Moisture condition vocabulary's
@@ -583,8 +588,9 @@ Carried as warnings in `build/reports/validation-report.md`, and surfaced in the
   those products', not the neat polymers'. HyperLite PP is its own material, PP Lightweight.
 - Whether a published density is of the filament, a printed part or the resin is not recorded; several filled
   grades publish densities below their neat polymer.
-- Where a polymer has little data of its own, its screens rest on family-driven ranges (PP's elongation, 14–118 %,
-  excludes its own 460 %, which states no direction or specimen).
+- Where a polymer has little data of its own, its estimates rest on family-driven ranges (PP's elongation, 14–118 %,
+  excludes its own 460 %, which states no direction or specimen). Such an estimate no longer screens on the side its own
+  evidence contradicts (D59): PP is not screened out of a minimum elongation.
 - PLA Lite and PLA Silk carry third-party technical grade samples, not the original products their
   entries were opened for. Their grade rationale says so.
 - A property the source states in words, such as "No break" for a Charpy test, has the data status

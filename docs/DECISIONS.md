@@ -769,6 +769,11 @@ from a film, filament, moulded or unstated specimen, value + SD, an annealed twi
 also limits the estimate's own range. The certification table above is the 2026-09-14 snapshot; the build records
 the current one in `meta.estimateModel.properties.*.screening`.
 
+*Amended by D59 (2026-09-15):* a class is no longer certified by failing to disprove it. Each end of its screening
+range is a distribution-free tolerance limit of honest hold-outs (at most 10% beyond it, with 90% confidence; 22 cases
+at least), an end the material's own evidence lies beyond never screens, and the unstated-load bracket's top is set
+the same way.
+
 ## D49. The values the build decides on are typed columns; raw text stays, and the parsers check it
 
 The build read decisions out of free text on every run: a nozzle window from "Classic: 190 - 210 °C", an HDT
@@ -1011,3 +1016,61 @@ decision saying why the data cannot carry it, and a back-test showing it helps.
 
 Reversing it lets a data defect become a model branch again, and lets the core's verdicts depend on inference nobody
 can switch off to check.
+
+## D59. A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence
+
+The owner kept screening and asked that its weaknesses be resolved (2026-09-15). D48's back-test certified an evidence
+class unless it could *disprove* it: over at least 20 hidden headlines, neither side missed significantly more than
+2.5%. With few cases that test cannot reject much. The stiffness estimates resting on a material's other grades missed
+on 4 of 21 held cases (19%) and screened; a class with a true 10% miss rate passed about two times in three; and one
+case more or less flipped a class on or off. It had three further gaps:
+
+- **The hold-outs saw what they hid.** A hidden headline had helped learn the conversion offsets that turned its own
+  product's other values into its prediction, so calibration and the back-test were optimistic (audit C-09).
+- **Both ends were judged together.** A screen on a minimum requirement is wrong only if the true value lies above the
+  top; one on a maximum, only below the bottom. A class too narrow on one side lost both, or kept both.
+- **The model could overrule the material's own sheet.** PP's elongation screened on 14–118 % against its own 460 %.
+
+**Honest hold-outs.** A hold-out of a material is predicted with spreads refitted without its fold of materials (one in
+five; the between-product spread too), and with the conversions refitted without the hidden products (for the family
+class, every product of the material), the prediction corrected exactly for the shift in every observation of a changed
+kind (`build/src/estimate/calibration.js`, `makeHoldOut`). An independent review checked the algebra. Fitted once on all data, the spreads
+had made elongation's hold-out errors 25% narrower in the tail. Every spread now has a documented floor
+(`estimate-model.json` floors): without TPU and PEBA, an elastomer's product-to-product spread fell to 0.003 and a
+hold-out claimed near-certainty. The corrections widened elongation's plausible ranges by 9%, heat deflection's likely
+ranges by 8% and stiffness's by 3%, the size of the leak; calibration still holds. Conflict down-weighting is still
+decided once, on all data.
+
+**An end is shown, not merely not disproved.** For each class and each end, the build records where every honestly
+predicted true value fell in its prediction, and takes the end at a distribution-free tolerance limit of those positions:
+the r-th most extreme, with r the largest count for which a new true value lies beyond the end at most 10% of the time
+with 90% confidence (`estimate-model.json screening`). The end is never inside the plausible range the reader sees, and
+moves outwards only where the tail proved too thin. It needs no distribution to be right, and no fixed level: a
+calibrated class screens where it did, a class with a thin tail screens further out, and with fewer than 22 cases no end
+can be shown at all. The unstated-load bracket's top is set the same way from the gaps grades publishing both loads show
+(amorphous: 15.8 °C, the second largest of 38), which keeps PLA Lite out of "at least 100 °C".
+
+A 10% bound on how often the true value lies beyond an end is a bound on how often a screen on that end is wrong, and a
+loose one: the screen is wrong only if the requirement also lies between the end and the true value. The guarantee
+assumes a material whose headline is missing is like the measured ones its class was back-tested on, and it holds per
+end at 90% confidence: of the thirty or so ends a build sets, about three may be expected to exceed 10%. Five percent at
+90% confidence was considered; it needs 45 cases, which only the family classes have, and it would have reopened the
+unstated-load PLA Lite case.
+
+**Open ends.** An end its class cannot show screens only where the family model's end, shown on its own, agrees (their
+union), else it is open (`null`) and screens nothing on that side. An end the material's own evidence, converted to the
+headline, lies beyond is open too, and the estimate says why (`screenLimit`). The bottom of an unstated-load bracket is
+the published value, which the 0.45 MPa value cannot lie below, so a maximum requirement below it now screens for every
+matrix, not only a certified one.
+
+**Measured 2026-09-15.** Of 94 estimates, 77 screen on both ends, 13 on one and 4 on neither. Twenty ends no longer
+screen against the material's own evidence (PP's elongation among them). One template result changed: PA12 stays a
+flagged candidate for the flexible component's 100% elongation, because its class set its top at 174%. Three measured
+headlines the honest hold-outs flag as far from their prediction (OBC's density, TPU's elongation, PPS's heat
+deflection) are accepted for review with their physical reasons. The per-end table is `build/snapshot/screening.csv`.
+
+The estimate display was also corrected: evidence converted to a heat deflection headline omitted the melting-point
+term, so PA12's own 94.7 °C read as "about 108 °C as this headline".
+
+Reversing it lets a thin class screen on the strength of a test that cannot fail it, lets a material's own data sheet be
+overruled by its family, and lets calibration grade itself on values it has seen.
