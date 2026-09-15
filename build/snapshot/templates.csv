@@ -65,7 +65,7 @@ Outdoor structural part,Explore with estimates,M059,PA612-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M060,PA612-GF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M064,PA-ESD,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M065,PA612-ESD,PASS,yes,
-Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,yes,
+Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M067,PET-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M070,PPA-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M071,PPA-GF,PASS,yes,
@@ -333,7 +333,7 @@ Lightweight structure,Explore with estimates,M070,PPA-CF,PASS,yes,
 Lightweight structure,Explore with estimates,M083,PP-CF,PASS,yes,
 Lightweight structure,Explore with estimates,M084,PP-GF,PASS,yes,
 Lightweight structure,Explore with estimates,M085,PE,UNKNOWN,yes,
-Lightweight structure,Explore with estimates,M086,OBC,UNKNOWN,screened,tensileModulusXY >= 2.5
+Lightweight structure,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M090,CPE-CF,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M093,PVB,UNKNOWN,yes,
@@ -432,7 +432,7 @@ Warm environment,Explore with estimates,M035,PC,PASS,yes,
 Warm environment,Explore with estimates,M036,PC FR,PASS,yes,
 Warm environment,Explore with estimates,M037,PC-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M038,PC-GF,UNKNOWN,yes,
-Warm environment,Explore with estimates,M039,TPU,UNKNOWN,yes,
+Warm environment,Explore with estimates,M039,TPU,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M040,TPU for AMS,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M041,TPU 95A HF,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M042,TPU 90A,UNKNOWN,screened,hdt045 >= 80
@@ -453,7 +453,7 @@ Warm environment,Explore with estimates,M059,PA612-CF,PASS,yes,
 Warm environment,Explore with estimates,M060,PA612-GF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M064,PA-ESD,UNKNOWN,yes,
 Warm environment,Explore with estimates,M065,PA612-ESD,PASS,yes,
-Warm environment,Explore with estimates,M066,PET,UNKNOWN,yes,
+Warm environment,Explore with estimates,M066,PET,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M067,PET-CF,PASS,yes,
 Warm environment,Explore with estimates,M068,PET-GF,PASS,yes,
 Warm environment,Explore with estimates,M069,PPA,UNKNOWN,yes,
@@ -470,7 +470,7 @@ Warm environment,Explore with estimates,M085,PE,UNKNOWN,yes,
 Warm environment,Explore with estimates,M086,OBC,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M089,CPE,PASS,yes,
 Warm environment,Explore with estimates,M090,CPE-CF,UNKNOWN,yes,
-Warm environment,Explore with estimates,M091,CoPE,UNKNOWN,yes,
+Warm environment,Explore with estimates,M091,CoPE,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M092,nGen / Amphora,UNKNOWN,yes,
 Warm environment,Explore with estimates,M094,PC-ABS,PASS,yes,
 Warm environment,Explore with estimates,M096,PVDF,UNKNOWN,yes,
@@ -538,7 +538,7 @@ High-stiffness fixture,Explore with estimates,M084,PP-GF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M085,PE,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M086,OBC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,screened,tensileModulusXY >= 5
-High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,yes,
+High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M093,PVB,UNKNOWN,screened,tensileModulusXY >= 5
 Flexible component,Strict,M039,TPU,PASS,yes,
 Flexible component,Strict,M040,TPU for AMS,PASS,yes,

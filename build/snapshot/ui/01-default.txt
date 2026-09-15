@@ -270,7 +270,7 @@ also called TPEE · Flexible Elastomers
  not tested 1,150 — — — n/a — ☆
 TPU
 Flexible Elastomers
- not tested 1,200 0.029 30* 330 74* — ☆
+ not tested 1,200 0.029 30* 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  not tested 1,180 0.0068 12 700 n/a —↗ ☆

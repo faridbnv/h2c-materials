@@ -279,6 +279,19 @@ test('the validator rejects a family entry that owns a product or that the mappi
 });
 
 // Estimates must make sense in tandem across a family, not only one at a time.
+test('estimates follow the physics of printing: slow crystallisers deflect near Tg, a Vicat caps an unfilled bar, density mixes', () => {
+  const est = (n, k) => byName(n).headline[k].estimate;
+  // PET prints amorphous: its as-printed heat deflection sits near its own Vicat (65.9 °C), not near a crystalline bar's.
+  assert.ok(est('PET', 'hdt045').plausible.hi < 90, `PET plausible to ${est('PET', 'hdt045').plausible.hi}`);
+  // BVOH's own Vicat is 90 °C.
+  assert.ok(est('BVOH', 'hdt045').plausible.hi <= 100, `BVOH plausible to ${est('BVOH', 'hdt045').plausible.hi}`);
+  // PA12's own reference grade publishes 1010 kg/m³; neat PA12 is 990-1040.
+  const pa12 = est('PA12', 'density');
+  assert.ok(pa12.lo <= 1010 && pa12.plausible.hi <= 1100, `PA12 density ${pa12.lo}-${pa12.hi}`);
+  // Carbon fibre cannot make PA66 lighter than PA66.
+  assert.ok(est('PA66-CF', 'density').centre >= est('PA66', 'density').centre, 'PA66-CF lighter than PA66');
+});
+
 test('polyamide estimates follow the physics: melting point orders heat resistance, fibre raises stiffness', () => {
   const hdt = (n) => valueOf(byName(n), 'hdt045');
   assert.ok(hdt('PA66') > hdt('PA612') && hdt('PA612') > hdt('PA12'), `PA66 ${hdt('PA66')}, PA612 ${hdt('PA612')}, PA12 ${hdt('PA12')}`);
@@ -293,8 +306,11 @@ test('polyamide estimates follow the physics: melting point orders heat resistan
 test('an elastomer\'s heat deflection and a support product\'s properties are not applicable, not estimated', () => {
   for (const n of ['TPU 85A', 'TPU 90A', 'TPC / TPEE', 'PEBA', 'OBC']) assert.ok(byName(n).headline.hdt045.notApplicable, n);
   for (const n of ['Support for PLA', 'PVA']) assert.ok(ESTIMATED.filter((k) => !byName(n).headline[k].known).every((k) => byName(n).headline[k].notApplicable), n);
-  // A published value beats the rule: TPU has an HDT of its own on record, so it is estimated.
-  assert.ok(byName('TPU').headline.hdt045.estimate);
+  // A published value no longer beats the rule (owner ruling, audit 2026-09-15, B-08): ISO 75 ends at 0.2 % outer-fibre
+  // strain, which needs a modulus near 225 MPa. TPU's sheet gives 74 °C on a 26 MPa elastomer; it is evidence, not an estimate.
+  for (const m of db.materials.filter((x) => ['TPU', 'TPU for AMS', 'TPU 95A HF', 'PEBA', 'TPC / TPEE', 'OBC'].includes(x.name))) {
+    assert.ok(m.headline.hdt045.known || m.headline.hdt045.notApplicable, `${m.name} has a heat deflection estimate`);
+  }
 });
 
 test('estimated nozzle and bed windows appear only where nothing is published, and decide nothing', () => {
@@ -653,6 +669,12 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
   assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Wet (conditioning specified in source)' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
   assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Dry as moulded', specimenType: 'Raw material value' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile moulded');
   assert.throws(() => kindOf(x({ property: 'Tensile modulus', moisture: 'Soaked' }), 'tensileModulusXY', 'semi-unfilled'), /not in schema\/vocab\/moisture-conditions\.csv/);
+  // How far a conditioned value converts depends on the polymer's water uptake; a polymer that takes up none reads as dry (B-14).
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH' }), 'tensileModulusXY', 'semi-unfilled', 'low'), 'tensile XY wet-low');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH' }), 'tensileModulusXY', 'amorphous', null), 'tensile XY');
+  // An elastomer's yield says nothing about its ultimate strength, and its heat deflection informs nothing (B-17, B-08).
+  assert.equal(kindOf(x({ property: 'Tensile yield strength' }), 'tensileStrengthXY', 'elastomer'), null);
+  assert.equal(kindOf(x({ property: 'HDT', thermal: { loadStated: true, loadMPa: 0.45 } }), 'hdt045', 'elastomer'), null);
 });
 
 test('the validator rejects a blank headline, a range that does not nest, and evidence from another material', () => {

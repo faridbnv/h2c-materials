@@ -37,7 +37,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { moistureState } from './normalize/moisture.js';
-import { specimenForm, annealedBesideAsPrinted } from './normalize/specimen.js';
+import { specimenForm, postProcessingState, annealedBesideAsPrinted } from './normalize/specimen.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const ESTIMATE_MODEL = JSON.parse(readFileSync(join(here, '../mappings/estimate-model.json'), 'utf8'));
@@ -172,7 +172,10 @@ function snapshot(materials, gradeList, measurements, model) {
   const info = (m) => model.identities[identityOf(m)];
   const reinforcement = (m) => m.facets.reinforcement.value;
   const fibre = (m) => reinforcement(m) === 'carbon-fibre' || reinforcement(m) === 'glass-fibre';
-  const matrix = (m) => (info(m).morphology === 'semicrystalline' ? (fibre(m) ? 'semi-filled' : 'semi-unfilled') : info(m).morphology);
+  // A semicrystalline polymer that prints amorphous deflects as an amorphous bar does (identities printsAmorphous).
+  const amorphousAsPrinted = (m) => info(m).printsAmorphous === true || (info(m).printsAmorphous === 'unfilled' && !fibre(m));
+  const matrix = (m) => (info(m).morphology === 'semicrystalline' && !amorphousAsPrinted(m) ? (fibre(m) ? 'semi-filled' : 'semi-unfilled')
+    : info(m).morphology === 'elastomer' ? 'elastomer' : 'amorphous');
   const usable = measurements.filter((x) => inPool.has(x.materialId) && x.numeric && !x.quarantined && !grades.get(x.gradeId)?.retired
     // A film or a filament strand is not a part; a moulded bar is, through its documented conversion.
     && !['film', 'filament'].includes(specimenForm(x.specimenType ?? 'Not published')));
@@ -184,11 +187,15 @@ function snapshot(materials, gradeList, measurements, model) {
   const own = (m, property, lo, hi) => median((byMaterial.get(m.id) ?? [])
     .filter((x) => x.property === property && x.value > lo && x.value < hi && !mouldedValue(x)).map((x) => x.value));
   const tmOf = (m) => own(m, 'Melting temperature', 60, 420) ?? info(m).tm ?? null;
+  // The highest Vicat its own grades publish, as printed or unstated (an annealed Vicat describes another state).
+  const max = (xs) => (xs.length ? Math.max(...xs) : null);
+  const vicatOf = (m) => max((byMaterial.get(m.id) ?? []).filter((x) => x.property === 'Vicat softening temperature' && x.value > 30 && x.value < 420
+    && !mouldedValue(x) && postProcessingState(x.postProcessing ?? 'Not published') !== 'annealed').map((x) => x.value));
   const tgOf = (m) => own(m, 'Glass transition temperature', -150, 420)
     ?? median(pool.filter((p) => identityOf(p) === identityOf(m)).flatMap((p) => (byMaterial.get(p.id) ?? [])
       .filter((x) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !mouldedValue(x)).map((x) => x.value)));
 
-  return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf };
+  return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf, vicatOf };
 }
 
 // --------------------------------------------------------------------------------- evidence kinds
@@ -204,11 +211,14 @@ const STRENGTH_ENDPOINT = {
 };
 
 /** The conversion kind of a measurement for a headline, or null when it says nothing about it. */
-export function kindOf(x, key, matrixClass) {
+export function kindOf(x, key, matrixClass, waterUptake = 'high') {
   const moulded = mouldedValue(x) ? ' moulded' : '';
   const dir = moulded ? '' : ` ${DIRECTION_CLASS[x.direction] ?? 'unk'}`;
   // The vocabulary declares each moisture wording's state (normalize/moisture.js); a conditioned value converts to dry.
-  const wet = moistureState(x.moisture ?? 'Not published') === 'conditioned' ? ' wet' : '';
+  // How far it converts depends on the polymer's water uptake (identities waterUptake); a polymer that takes up
+  // almost none is read as dry.
+  const conditioned = moistureState(x.moisture ?? 'Not published') === 'conditioned';
+  const wet = conditioned && waterUptake === 'high' ? ' wet' : conditioned && waterUptake === 'low' ? ' wet-low' : '';
   const kind = (base) => `${base}${dir}${wet}${moulded}`;
   switch (key) {
     case 'density': return x.property === 'Density' ? `density${moulded}` : null;
@@ -216,13 +226,19 @@ export function kindOf(x, key, matrixClass) {
       if (x.property === 'Tensile modulus') return kind('tensile');
       if (x.property === 'Flexural modulus') return kind('flexural');
       return null;
-    case 'tensileStrengthXY': return STRENGTH_ENDPOINT[x.property] ? kind(STRENGTH_ENDPOINT[x.property]) : null;
+    // An elastomer strain-hardens after it yields (TPU yield 8.6 MPa, break 39 MPa): its yield says little about its
+    // ultimate strength, and its strain at yield little about its strain at break.
+    case 'tensileStrengthXY': return STRENGTH_ENDPOINT[x.property] && !(matrixClass === 'elastomer' && x.property === 'Tensile yield strength') ? kind(STRENGTH_ENDPOINT[x.property]) : null;
     case 'elongationXY':
       if (x.property === 'Elongation at break') return kind('break');
       // A break strain is never below the strain at yield or at maximum stress.
-      if (x.property === 'Elongation at yield' || x.property === 'Tensile strain at strength') return kind('yield');
+      if ((x.property === 'Elongation at yield' || x.property === 'Tensile strain at strength') && matrixClass !== 'elastomer') return kind('yield');
       return null;
     case 'hdt045': {
+      // ISO 75 stops at 0.2 % outer-fibre strain, so a bar deflects where its modulus falls to about 225 MPa (0.45 MPa)
+      // or 900 MPa (1.8 MPa). An elastomer is below that at room temperature: a published HDT describes no bar, and it
+      // informs no estimate (TPU's 74 °C from a 26 MPa sheet was estimated and allowed to screen).
+      if (matrixClass === 'elastomer') return null;
       if (x.property === 'HDT') {
         const load = x.thermal?.loadMPa;
         // A moulded bar of an amorphous polymer deflects near Tg as a printed one does; a semicrystalline
@@ -249,9 +265,11 @@ function documentedConversion(key, kind, model) {
   const table = model.conversions[key] ?? {};
   if (table[kind]) return table[kind];
   if (kind === 'HDT 0.45') return null;
-  if (kind.endsWith(' wet') && model.wet[key]) {
-    const dry = table[kind.slice(0, -4)];
-    if (dry) return { offset: dry.offset + model.wet[key].offset, sd: Math.hypot(dry.sd, model.wet[key].sd), why: `${dry.why}; measured after moisture conditioning` };
+  const wetClass = kind.endsWith(' wet') ? 'high' : kind.endsWith(' wet-low') ? 'low' : null;
+  const wet = wetClass && model.wet[wetClass]?.[key];
+  if (wet) {
+    const dry = table[kind.replace(/ wet(-low)?$/, '')];
+    if (dry) return { offset: dry.offset + wet.offset, sd: Math.hypot(dry.sd, wet.sd), why: `${dry.why}; measured after moisture conditioning (${wetClass} water uptake)` };
   }
   return null;
 }
@@ -273,8 +291,11 @@ function rawObservations(key, S, model) {
       e.ys.push(entry.y); e.half.push(entry.half); e.items.push(entry.item); e.states.add(entry.state ?? '');
     };
     for (const x of S.byMaterial.get(m.id) ?? []) {
-      const kind = kindOf(x, key, S.matrix(m));
+      const kind = kindOf(x, key, S.matrix(m), S.info(m).waterUptake ?? null);
       if (!kind) continue;
+      // A polymer that prints amorphous and was annealed is crystallised: another state, which no estimate of an
+      // as-printed part may learn from.
+      if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.info(m).morphology === 'semicrystalline' && postProcessingState(x.postProcessing ?? 'Not published') === 'annealed') continue;
       // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
       // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C.
       if (annealedBesideAsPrinted(x, S.byMaterial.get(m.id))) continue;
@@ -298,7 +319,7 @@ function rawObservations(key, S, model) {
         const h = model.hardness[gid];
         const e = h && modulusFromShore(h.shore);
         if (!e || S.grades.get(gid)?.retired) continue;
-        add({ f: S.fkey(gid), gradeId: gid, kind: 'hardness', y: Math.log(e / 1000), half: 0,
+        add({ f: S.fkey(gid), gradeId: gid, kind: `hardness ${/A$/i.test(h.shore) ? 'A' : 'D'}`, y: Math.log(e / 1000), half: 0,
           item: { gradeId: gid, property: `Shore hardness ${h.shore}`, value: Number((e / 1000).toPrecision(3)), unit: 'GPa', from: h.from } });
       }
     }
@@ -342,8 +363,10 @@ function conversions(key, raw, model) {
     const centre = n ? median(ds) : 0;
     const spread = n >= 3 ? 1.4826 * median(ds.map((d) => Math.abs(d - centre))) : 0;
     const df = n >= 3 ? n - 1 : 0;
+    const refined = (n * centre + n0 * doc.offset) / (n + n0);
     out[k] = {
-      offset: (n * centre + n0 * doc.offset) / (n + n0),
+      // An unknown direction may move below its documented offset, never above it (estimate-model.json _directionComment).
+      offset: / unk( |$)/.test(k) ? Math.min(refined, doc.offset) : refined,
       sd: Math.sqrt((df * spread * spread + n0 * doc.sd * doc.sd) / (df + n0)),
       pairs: n, why: doc.why,
     };
@@ -717,7 +740,19 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
         bounds.push({ side: 'upper', value: S.tmOf(m), sd: model.bounds.meltingSd, why: `melting point ${S.tmOf(m)} °C: ${model.bounds.hdtAboveMelting}` });
       }
-      if (key === 'hdt045' && S.info(m).morphology === 'amorphous' && S.tgOf(m) != null) {
+      if (key === 'hdt045' && !S.fibre(m) && S.vicatOf(m) != null) {
+        const { lift, sd, why } = model.bounds.ownVicat;
+        bounds.push({ side: 'upper', value: S.vicatOf(m) + lift, sd, why: `its own Vicat ${S.vicatOf(m)} °C + ${lift} °C: ${why}` });
+      }
+      if (key === 'density' && S.info(m).density && !S.variantOf(m.representativeGrade && S.fkey(m.representativeGrade)) && !S.grades.get(m.representativeGrade)?.variant) {
+        const [dlo, dhi] = S.info(m).density, cfg = model.bounds.density;
+        const r = S.reinforcement(m), rf = cfg.fibreDensity[r];
+        const hi = rf ? 1 / ((1 - cfg.maxFibreWeight) / dhi + cfg.maxFibreWeight / rf) : dhi;
+        const lo = dlo * (1 - cfg.porosity);
+        bounds.push({ side: 'lower', value: toModel(lo), sd: cfg.sd, why: `${Math.round(lo)} kg/m³: the neat polymer's ${dlo} kg/m³ less ${cfg.porosity * 100} % porosity; ${cfg.why}` });
+        bounds.push({ side: 'upper', value: toModel(hi), sd: cfg.sd, why: `${Math.round(hi)} kg/m³: ${rf ? `the rule of mixtures at ${cfg.maxFibreWeight * 100} wt% ${r}` : 'the neat polymer\'s upper value'}; ${cfg.why}` });
+      }
+      if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.tgOf(m) != null) {
         const lift = S.fibre(m) ? model.bounds.amorphousAboveTg.fibre : model.bounds.amorphousAboveTg.unfilled;
         bounds.push({ side: 'upper', value: S.tgOf(m) + lift, sd: model.bounds.amorphousAboveTg.sd, why: `glass transition ${S.tgOf(m)} °C + ${lift} °C: ${model.bounds.amorphousAboveTg.why}` });
       }
@@ -778,7 +813,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       // Its own measurements, and those of its representative product filed under another material.
       const mine = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.m.id === m.id || (f && o.f === f));
       const support = m.facets.supportMaterial?.value === true;
-      if (!mine.length && (support || (key === 'hdt045' && S.info(m).morphology === 'elastomer'))) {
+      if ((!mine.length && support) || (key === 'hdt045' && S.info(m).morphology === 'elastomer')) {
         h.notApplicable = { reason: support ? model.notApplicable.support : model.notApplicable.elastomerHdt };
         continue;
       }

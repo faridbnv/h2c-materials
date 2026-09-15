@@ -132,24 +132,43 @@
     "morphology: amorphous, semicrystalline or elastomer; reinforcement acts differently in each.",
     "tm: typical DSC melting point of the unfilled polymer, °C, used where the material publishes none. It",
     "caps heat deflection and, for polymers that crystallise during printing (fastCrystallising), drives it.",
-    "PET and PPS crystallise slowly and print largely amorphous, so their melting point does not drive it."
+    "A polymer that prints amorphous (printsAmorphous: PET, PPA, BVOH, PVA) is not driven by it.",
+    "printsAmorphous: a semicrystalline polymer that crystallises too slowly to crystallise while printing: true (PET, BVOH, PVA), or \"unfilled\" where fibres nucleate it in a hot print (PPA). As printed it deflects near its glass transition, as an amorphous bar does: PET-GF15 81.6 °C as printed and 133.7 °C annealed; IPCON PPA 103 °C as printed and 131 °C annealed, while Bambu PPA-CF reaches 227 °C unannealed. Its heat deflection converts with the amorphous class and is capped at Tg plus a lift; its annealed values describe another state and inform no estimate. PPS is not one: printed hot it crystallises (IPCON PPS GF 241 °C, Bambu PPS-CF 264 °C unannealed).",
+    "waterUptake: high (PA6, PA66, PA6/66, PPA: conditioned modulus about half the dry value) or low (PA12, PA612, PAHT). A conditioned value converts to dry with that class's offset; a conditioned value of a polymer with neither is read as dry.",
+    "density: the neat polymer's handbook range, kg/m³ (audit 2026-09-15 physics envelopes: handbook and resin data sheets). It bounds an unfilled product's density estimate softly, and with bounds.density a fibre-filled one's by the rule of mixtures. Not applied to a declared variant."
   ],
   "identities": {
     "PLA": {
       "group": "polylactide",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1170,
+        1330
+      ]
     },
     "PETG": {
       "group": "copolyester",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1220,
+        1300
+      ]
     },
     "PCTG": {
       "group": "copolyester",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1190,
+        1260
+      ]
     },
     "CPE": {
       "group": "copolyester",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1150,
+        1330
+      ]
     },
     "CoPE": {
       "group": "copolyester",
@@ -162,147 +181,268 @@
     "PET": {
       "group": "aromatic polyester",
       "morphology": "semicrystalline",
-      "tm": 252
+      "tm": 252,
+      "printsAmorphous": true,
+      "density": [
+        1300,
+        1420
+      ]
     },
     "ABS": {
       "group": "styrenic",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1000,
+        1110
+      ]
     },
     "ASA": {
       "group": "styrenic",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1030,
+        1110
+      ]
     },
     "HIPS": {
       "group": "styrenic",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1030,
+        1090
+      ]
     },
     "PC": {
       "group": "polycarbonate",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1180,
+        1230
+      ]
     },
     "PC-ABS": {
       "group": "polycarbonate",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1100,
+        1220
+      ]
     },
     "PC-PBT": {
       "group": "polycarbonate",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1170,
+        1280
+      ]
     },
     "PA": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 210,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "high"
     },
     "PA6": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 222,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "high",
+      "density": [
+        1110,
+        1180
+      ]
     },
     "PA66": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 262,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "high",
+      "density": [
+        1120,
+        1170
+      ]
     },
     "PA6/66": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 200,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "high",
+      "density": [
+        1100,
+        1160
+      ]
     },
     "CoPA": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 200,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "high"
     },
     "PA12": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 178,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "low",
+      "density": [
+        990,
+        1040
+      ]
     },
     "PA612": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 218,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "low",
+      "density": [
+        1040,
+        1080
+      ]
     },
     "PAHT": {
       "group": "aliphatic polyamide",
       "morphology": "semicrystalline",
       "tm": 225,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "waterUptake": "low",
+      "density": [
+        1000,
+        1200
+      ]
     },
     "PPA": {
       "group": "semi-aromatic polyamide",
       "morphology": "semicrystalline",
-      "tm": 290
+      "tm": 290,
+      "printsAmorphous": "unfilled",
+      "waterUptake": "high",
+      "density": [
+        1100,
+        1220
+      ]
     },
     "PP": {
       "group": "polyolefin",
       "morphology": "semicrystalline",
       "tm": 165,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "density": [
+        880,
+        960
+      ]
     },
     "PE": {
       "group": "polyolefin",
       "morphology": "semicrystalline",
       "tm": 132,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "density": [
+        900,
+        980
+      ]
     },
     "PPS": {
       "group": "polysulfide",
       "morphology": "semicrystalline",
-      "tm": 283
+      "tm": 283,
+      "density": [
+        1280,
+        1380
+      ]
     },
     "PVDF": {
       "group": "fluoropolymer",
       "morphology": "semicrystalline",
       "tm": 170,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "density": [
+        1700,
+        1810
+      ]
     },
     "POM": {
       "group": "acetal",
       "morphology": "semicrystalline",
       "tm": 175,
-      "fastCrystallising": true
+      "fastCrystallising": true,
+      "density": [
+        1380,
+        1440
+      ]
     },
     "PVA": {
       "group": "vinyl alcohol",
       "morphology": "semicrystalline",
-      "tm": 220
+      "tm": 220,
+      "printsAmorphous": true,
+      "density": [
+        1180,
+        1340
+      ]
     },
     "BVOH": {
       "group": "vinyl alcohol",
       "morphology": "semicrystalline",
-      "tm": 190
+      "tm": 190,
+      "printsAmorphous": true,
+      "density": [
+        1120,
+        1250
+      ]
     },
     "PVB": {
       "group": "vinyl acetal",
-      "morphology": "amorphous"
+      "morphology": "amorphous",
+      "density": [
+        1050,
+        1130
+      ]
     },
     "TPU": {
       "group": "elastomer",
-      "morphology": "elastomer"
+      "morphology": "elastomer",
+      "density": [
+        1050,
+        1300
+      ]
     },
     "TPE": {
       "group": "elastomer",
-      "morphology": "elastomer"
+      "morphology": "elastomer",
+      "density": [
+        850,
+        1250
+      ]
     },
     "PEBA": {
       "group": "elastomer",
-      "morphology": "elastomer"
+      "morphology": "elastomer",
+      "density": [
+        990,
+        1040
+      ]
     },
     "TPC": {
       "group": "elastomer",
-      "morphology": "elastomer"
+      "morphology": "elastomer",
+      "density": [
+        1080,
+        1280
+      ]
     },
     "OBC": {
       "group": "elastomer",
-      "morphology": "elastomer"
+      "morphology": "elastomer",
+      "density": [
+        860,
+        900
+      ]
     },
     "Support": {
       "group": "support product",
@@ -430,10 +570,15 @@
         "sd": 0.3,
         "why": "Moulded flexural modulus, converted as a moulded tensile one"
       },
-      "hardness": {
+      "hardness A": {
+        "offset": -0.4,
+        "sd": 0.7,
+        "why": "Shore A through Gent (1958). Printed data-sheet moduli scatter on both sides of it: Gent under-predicts above about 90A (PEBA 90A flexural 80 MPa is 3.8 times Gent)."
+      },
+      "hardness D": {
         "offset": -0.8,
         "sd": 0.6,
-        "why": "Elastomers only. Printed data-sheet moduli sit below the Gent and Qi hardness relations, and vary with how each lab defines an elastomer's modulus"
+        "why": "Shore D through Qi, Joyce and Boyce (2003). Elastomers only. Printed data-sheet moduli sit below the Gent and Qi hardness relations, and vary with how each lab defines an elastomer's modulus"
       }
     },
     "tensileStrengthXY": {
@@ -556,11 +701,6 @@
         "sd": 8,
         "why": "Amorphous bars soften over a narrow range near Tg, so the two loads sit close"
       },
-      "HDT 1.8 elastomer": {
-        "offset": 10,
-        "sd": 15,
-        "why": "Rarely published; wide"
-      },
       "HDT unstated": {
         "offset": 5,
         "sd": 15,
@@ -614,18 +754,34 @@
     }
   },
   "wet": {
-    "_comment": "A value measured after moisture conditioning, converted to dry: added to the dry conversion's offset, spreads combined.",
-    "tensileModulusXY": {
-      "offset": 0.25,
-      "sd": 0.15
+    "_comment": "A value measured after moisture conditioning, converted to dry: added to the dry conversion's offset, spreads combined. The offset depends on how much water the polymer takes up (identities waterUptake). High: printed PolyMide PA6-GF modulus 4.431 GPa dry, 2.053 conditioned (ln 0.77); CoPA 2.223 and 1.053 (0.75); strength 84.5 and 50.8 (0.51), 66.2 and 31.4 (0.75); elongation 3.4 and 19.4 % (-1.74). Low: PA12-CF strength 71.6 dry and 73.4 conditioned (about 0). The build refines each from the pairs it finds.",
+    "high": {
+      "tensileModulusXY": {
+        "offset": 0.7,
+        "sd": 0.2
+      },
+      "tensileStrengthXY": {
+        "offset": 0.5,
+        "sd": 0.2
+      },
+      "elongationXY": {
+        "offset": -1.2,
+        "sd": 0.5
+      }
     },
-    "tensileStrengthXY": {
-      "offset": 0.12,
-      "sd": 0.1
-    },
-    "elongationXY": {
-      "offset": -0.4,
-      "sd": 0.3
+    "low": {
+      "tensileModulusXY": {
+        "offset": 0.05,
+        "sd": 0.1
+      },
+      "tensileStrengthXY": {
+        "offset": 0.02,
+        "sd": 0.08
+      },
+      "elongationXY": {
+        "offset": -0.1,
+        "sd": 0.3
+      }
     }
   },
   "bounds": {
@@ -664,11 +820,26 @@
         "linear": 1
       },
       "why": "A published bound (\"> 500 %\", \"> 16.5 MPa\") says the value lies beyond it. In the model it is an observation at the bound with this half-width (in the property's scale), so it informs its family without counting as an exact value; in the material's own estimate it is also a soft limit with this spread, so no range crosses a limit its own grade publishes."
+    },
+    "ownVicat": {
+      "lift": 5,
+      "sd": 6,
+      "why": "Vicat softening (a 10 N needle, 1 mm penetration) is reached at or above HDT at 0.45 MPa for an unfilled bar; the highest Vicat the material's own grades publish caps its unfilled heat deflection estimate softly (BVOH's estimate reached 158 °C against its own Vicat of 90 °C). No melting-point margin is applied below the melting point itself: PVDF publishes 158 °C, 12 °C under its melting point."
+    },
+    "density": {
+      "porosity": 0.05,
+      "maxFibreWeight": 0.35,
+      "fibreDensity": {
+        "carbon-fibre": 1800,
+        "glass-fibre": 2550
+      },
+      "sd": 0.02,
+      "why": "Fibre is denser than any matrix here, so a filled compound cannot be lighter than its polymer except by porosity (filament and printed-part densities sit a few percent below the resin's), nor heavier than the rule of mixtures at the most fibre a printable filament carries: 1/rho = (1 - w)/rho_polymer + w/rho_fibre."
     }
   },
   "_precisionComment": "How a likely range is described, per property: its high-to-low ratio on a log scale, its width in °C for heat deflection. Good: narrow enough to decide on. Fair: indicative. Poor: an order of magnitude only. Elongation of printed parts varies far more than stiffness, so its thresholds are wider.",
   "notApplicable": {
-    "elastomerHdt": "Heat deflection is a rigid-bar test and is not meaningful for an elastomer. Manufacturers list it as N/A (Bambu Lab, TPU for AMS). Shown only where the material's own sources publish one.",
+    "elastomerHdt": "Heat deflection is a rigid-bar test and is not meaningful for an elastomer: ISO 75 ends at 0.2 % outer-fibre strain, which a bar reaches where its modulus falls to about 225 MPa at 0.45 MPa. Manufacturers list it as N/A (Bambu Lab, TPU for AMS). Never estimated; a value an elastomer's own source publishes is shown only as that source's measurement.",
     "support": "A support product is not characterised as a structural material. Its values are shown only where its own sources publish them."
   },
   "screening": {
@@ -707,9 +878,9 @@
         }
       ],
       "excludeMoisture": [
-      "conditioned"
-    ],
-    "why": "A bar breaks after it yields and after it reaches its maximum stress; XY strain at break is at least the strain in any other direction. A conditioned value bounds nothing: absorbed water plasticises a nylon and raises its strain, so it can exceed the dry headline."
+        "conditioned"
+      ],
+      "why": "A bar breaks after it yields and after it reaches its maximum stress; XY strain at break is at least the strain in any other direction. A conditioned value bounds nothing: absorbed water plasticises a nylon and raises its strain, so it can exceed the dry headline."
     },
     "hdt045": {
       "lowerFrom": [
@@ -720,5 +891,6 @@
       ],
       "why": "A bar deflects at a lower temperature under a heavier load, so the value at 0.45 MPa is at least the value at 1.8 MPa."
     }
-  }
+  },
+  "_directionComment": "An unknown direction may not convert a value upwards more than its documented offset: a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04). The build refines an unknown-direction offset downwards from pairs, never above the documented value."
 }
