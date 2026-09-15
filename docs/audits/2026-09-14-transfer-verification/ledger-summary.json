@@ -16,24 +16,18 @@
     "text cleanup (m07)": 427,
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
-    "variant composition recorded from the source (m11)": 2,
+    "edited after the conversion (npm run data:diff -- 0a61cee)": 297,
     "formula cached text, current": 2864,
-    "test condition corrected against the source (m10)": 281,
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
-    "direction recorded from the source (m12)": 5,
     "number stored as text made canonical (m01)": 4,
-    "published value added from the source (m10)": 2,
-    "published value added from the source (m11)": 4,
+    "added after the conversion (npm run data:diff -- 0a61cee)": 7,
     "derived: list price / net mass, equal": 53,
     "date serial written as a date": 309,
     "derived: not eligible, no per-kg price": 44,
     "derived: list price / net mass to the cent (display showed the same)": 7,
     "boolean made canonical (m01)": 2,
-    "source re-read (m10, m11)": 8,
-    "source title corrected against the document (m11)": 1,
-    "date made canonical (m01)": 4,
-    "source added (m11)": 1
+    "date made canonical (m01)": 4
   },
   "bySheet": {
     "Materials": {
@@ -55,7 +49,7 @@
     "Grades": {
       "equal": 2008,
       "text cleanup (m07)": 5,
-      "variant composition recorded from the source (m11)": 2,
+      "edited after the conversion (npm run data:diff -- 0a61cee)": 2,
       "added column: Role": 155,
       "added column: Status": 155,
       "added column: Variant": 155
@@ -86,14 +80,12 @@
       "equal": 58368,
       "display padding removed (m01)": 5546,
       "formula cached text, current": 2864,
-      "test condition corrected against the source (m10)": 281,
+      "edited after the conversion (npm run data:diff -- 0a61cee)": 286,
       "formula cached text, STALE: kept as the build read it": 139,
       "equal but for floating-point noise in the formula result": 74,
       "text cleanup (m07)": 336,
-      "direction recorded from the source (m12)": 5,
       "number stored as text made canonical (m01)": 4,
-      "published value added from the source (m10)": 2,
-      "published value added from the source (m11)": 4,
+      "added after the conversion (npm run data:diff -- 0a61cee)": 6,
       "added column: Test load MPa": 2055,
       "added column: Parse review": 2055
     },
@@ -115,10 +107,9 @@
       "equal": 2693,
       "date serial written as a date": 205,
       "text cleanup (m07)": 5,
-      "source re-read (m10, m11)": 8,
-      "source title corrected against the document (m11)": 1,
+      "edited after the conversion (npm run data:diff -- 0a61cee)": 9,
       "date made canonical (m01)": 4,
-      "source added (m11)": 1
+      "added after the conversion (npm run data:diff -- 0a61cee)": 1
     },
     "Coverage": {
       "equal": 5940

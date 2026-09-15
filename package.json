@@ -22,6 +22,10 @@
     "migration:verify": "node scripts/migrate/verify-migration.mjs",
     "migration:ledger": "node scripts/migrate/transfer-ledger.mjs",
     "data:lint": "node scripts/data/lint.mjs",
-    "docs:rules": "node scripts/docs-rules.mjs"
+    "docs:rules": "node scripts/docs-rules.mjs",
+    "audit:sources": "node scripts/audit/source-completeness.mjs"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "4.10.38"
   }
 }

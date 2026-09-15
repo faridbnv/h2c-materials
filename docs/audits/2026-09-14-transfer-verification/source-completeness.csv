@@ -1,0 +1,782 @@
+SourceID,Page,Value,Uncertainty,Unit,Line
+S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,3,370,,°C,"D ecomposition temperature TGA, 20°C/min 370 °C"
+S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,4,55,,˚C,D rying setting 55˚C for 6h
+I-PLA-TDS,1,7,,MPa,"T D 144 ,7 MPa"
+I-PLA-TDS,1,882160,,%,Elongation at Break MD ASTM D882160%
+I-PLA-TDS,1,882100,,%,T D ASTM D882100%
+I-PLA-TDS,2,10032.10,,%,ASTM D10032.10%
+B-pla-basic-filament-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
+B-pla-basic-filament-TDS,1,70,,°C,"X1 Series Printer Heatbed: 60 - 70 °C, 12 h"
+B-pla-basic-filament-TDS,2,210,,°C,"Melt Index 210 °C, 2.16 kg 23.2 ± 3.5 g/10 min"
+B-pla-matte-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
+B-pla-matte-TDS,1,70,,°C,"X1 Series Printer Heatbed: 60 - 70 °C, 12 h"
+B-pla-basic-gradient-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-basic-gradient-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 45.8 ± 6.6 g/ 10 min"
+B-pla-basic-gradient-TDS,2,401980,100,MPa,"Young's Modulus ( Z )  §  7 ,  §  401980 ± 100 MPa"
+B-pla-basic-gradient-TDS,2,320.3,1.2,kJ/m,"Impact Strength ( X - Y )  §  ,  §  320.3 ± 1.2 kJ/m²"
+B-pla-tough-upgrade-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 18.0 ± 2.5 g/10 min"
+B-pla-tough-upgrade-TDS,2,25.9,3.3,kJ/m,25.9 ± 3.3 kJ/m ²
+B-pla-translucent-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C)
+B-pla-translucent-TDS,1,70,,°C,"X1 Series Printer Heatbed: 60 - 70 ° C, 12 h"
+B-pla-translucent-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 4.08 ± 1.5 g/10 min"
+B-pla-silk-upgrade-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-silk-dual-color-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-silk-dual-color-TDS,2,8.2,0.5,kJ/m,8.2 ± 0.5 kJ/m ² (notched)
+B-pla-metal-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-marble-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-marble-TDS,2,12920,180,MPa,"Bending Modulus ( X - Y )  §  ,  §  12920 ± 180 MPa"
+B-pla-sparkle-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
+B-pla-wood-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-wood-TDS,2,210,,°C,"Melt Index 210 °C, 2.16 kg 29.4 ± 1.7 g/10 min"
+B-pla-galaxy-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-galaxy-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 11.0 ± 1.7 g/10 min"
+B-pla-galaxy-TDS,2,17.6,2.2,kJ/m,17.6 ± 2.2 kJ/m ² (notched)
+B-pla-galaxy-TDS,3,60,,°C,"annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 ° C, and"
+B-pla-glow-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C )
+B-pla-aero-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-cf-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 ° C )
+B-pla-cf-TDS,3,60,,°C,"annealing temperature of models printed with Bambu PLA - CF is 55 to 60 °C, and the"
+S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,3,348.15,,°C,"Decomposition temperature TGA, 20°C/min 348.15°C"
+S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,5,12,,%,HT-PLA-GF contains 12% glass fiber in the composition.
+I-PLA-Glass-Fiber-Technical-Data-Sheet,1,220,,℃,"Melt Flow Index （ 220 ℃ , 10K g ） g/10min"
+S-POLYCN-PolyLite-PETG-TDS-V5-3,2,90,,%,Light t ransmission  §  90%
+S-POLYCN-PolyLite-PETG-TDS-V5-3,2,0.54,,%,Equilibrium water absorption (%)= 0.54%
+I-PETG-TDS,1,5700.12,,%,Water Absorption ASTM D5700.12%
+I-PETG-TDS,1,31,,%,Nominal Elongation at Break  §  31 %
+I-PETG-TDS,1,78171,,MPa, §  78171 MPa
+I-PETG-TDS,2,1.8,,MPa,1.8 MPa I SO 75-262 º C
+B-petg-basic-TDS,1,80,,°C,"Heatbed: 80 °C, 12 h"
+B-petg-basic-TDS,2,245,,°C,"Melt Index 245 °C, 2.16 kg 22.9 ± 2.4 g/10 min"
+B-petg-hf-TDS,1,85,,°C,"X1 Series Printer Heatbed: 75 - 85 ° C, 12 h"
+B-petg-hf-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 28.2 ± 2.7 g/10 min"
+B-petg-hf-TDS,2,6.2,1.8,kJ/m,6.2 ± 1.8 kJ/m ² (notched)
+B-petg-hf-TDS,3,80,,°C,"80 ° C, and the time is 4 to 8 hours. When drying the filament and annealing the prints,"
+B-petg-translucent-TDS,1,85,,°C,"X1 Series Printer Heatbed: 75 - 85 °C, 12 h"
+B-petg-cf-TDS,2,250,,°C,"Melt Inde x 250 ° C , 2.16 kg 19.3 ± 2.4 g/ 10 min"
+I-PETG-Glass-Fiber-Technical-Data-Sheet,1,210,,℃,"Melt Index （ 210 ℃ , 2160g ） g/10min ASTM D-12382-9"
+S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,2,280,,°C,"Melt i ndex 280°C, 5 kg 14 g/10min"
+S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,3,373,,°C,"D ecomposition temperature TGA, 20°C/min 373 °C"
+S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,4,65,,˚C,Drying temperature 65 ( ˚C )
+S-SPECTRUM-en-tds-spectrum-petg-esd,1,00,,%,"Elongation at Break 58,00% D 638"
+S-SPECTRUM-en-tds-spectrum-petg-esd,1,30,,%,"Elongation at Yield 4,30% D 638"
+B-abs-gf-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 7.56 ± 1.4 g/10 min"
+B-abs-gf-TDS,2,4.2,1.1,kJ/m,4.2 ± 1.1 kJ/m ² (notched)
+I-ESD-ABS-TDS,1,280,,°C,"Me l t I nde x 280°C, 5kg 2 g/10min 280°C, 5kg 2 g/10min"
+I-ESD-ABS-TDS,1,280,,°C,"Me l t I nde x 280°C, 5kg 2 g/10min 280°C, 5kg 2 g/10min"
+I-ESD-ABS-TDS,1,0.45,,MPa, § : Method A (0.45 MPa) 70℃
+I-ESD-ABS-TDS,1,70,,℃, § : Method A (0.45 MPa) 70℃
+I-ESD-ABS-TDS,1,1.80,,MPa, § : Method B (1.80 MPa) 75℃
+I-ESD-ABS-TDS,1,75,,℃, § : Method B (1.80 MPa) 75℃
+I-ESD-ABS-TDS,1,34.00,0.16,MPa,Tensi l e Br eaking S t r ength (X-Y)  §  34.00±0.16 MPa
+I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
+I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
+I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
+I-ESD-ABS-TDS,1,240,,°C,S urf a c e R esisti v it y Ω/sq 240°C 240°C 240°C 240°C
+B-asa-aero-TDS,1,280,,°C,Nozzle Temperature 240 - 280 °C
+B-asa-aero-TDS,2,8.2,1.6,kJ/m,8.2 ± 1.6 kJ/m² (notched)
+B-asa-cf-TDS,2,6.2,1.4,kJ/m,6.2 ± 1.4 kJ/m² （ notched ）
+S-SPECTRUM-en-tds-spectrum-asax-x-gf10,1,25,,kJ/m,unnotched (at 23°C) 25 kJ/m 2  § eU
+S-SPECTRUM-en-tds-spectrum-asax-x-gf10,1,8.3,,kJ/m,notched (at 23°C) 8.3 kJ/m 2  § eA
+S-SPECTRUM-en-tds-spectrum-pc-cf,1,10,,%,reinforcement with 10% carbon fiber. This unique
+S-SPECTRUM-en-tds-spectrum-pc-cf,1,23,,°C,@ 23°C 70 kg∙cm/cm D 256
+S-SPECTRUM-en-tds-spectrum-pc-cf,1,10,,%,• 10% CF
+S-SPECTRUM-en-tds-spectrum-pc-cf,1,2140,,°C,0.45mn/m2140°C D 648
+S-SPECTRUM-en-tds-spectrum-pc-cf,1,2129,,°C,1.81mn/m2129°C D 648
+I-PC-CF-TDS,1,20,,%,"1. High strength, the strength is more than 20% higher than ordinary PC;"
+S-PCGF-TDS-1,1,0.2,,%,Moisture content <0.2 %  § 
+S-POLYCN-PolyFlex-TPU95-TDS-V5-1,2,0.82,,%,Equili brium water absorption (%)= 0.82 %
+S-POLYCN-PolyFlex-TPU95-TDS-V5-1,3,9.4,0.3,MPa,"100% modulus (X - Y)  §  ,  §  9.4 ± 0.3 MPa"
+I-TPU-TDS,1,95,,Shore,95 ( Shore A ) ASTM D2240
+B-tpu-for-ams-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C)
+B-tpu-for-ams-TDS,1,90,,°C,"X1 Series Printer Heatbed: 80 - 90 ° C, 12 h"
+B-tpu-for-ams-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 21.8 ± 0.3 g/10 min"
+B-tpu-for-ams-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
+B-tpu-for-ams-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+B-tpu-95a-hf-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 36.5 ± 2.6 g/10 min"
+B-tpu-95a-hf-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+B-TPU-SOFT-TDS-4,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 9.36 ± 2.6 g/10 min"
+B-TPU-SOFT-TDS-4,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
+B-TPU-SOFT-TDS-4,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+B-TPU-SOFT-TDS-5,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 8.76 ± 2.6 g/10 min"
+B-TPU-SOFT-TDS-5,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
+B-TPU-SOFT-TDS-5,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+S-POLYCN-PolyFlex-TPU90-TDS-V5-1,2,185,,°C,"Melt i ndex 185 °C, 1.2 kg 6.1 g/10min"
+S-POLYCN-PolyFlex-TPU90-TDS-V5-1,2,0.67,,%,Equili brium water absorption (%)= 0.67 %
+S-POLYCN-PolyFlex-TPU90-TDS-V5-1,3,6.17,0.19,MPa,"100% modulus (X - Y)  §  ,  §  6.17 ± 0.19 MPa"
+S-PEBA-PEBA90A-TDS-en,1,190,,℃,Melt Flow Index （ 190 ℃ ， 2.16kg ）  §  10~16 g/10min
+S-PEBA-PEBA90A-TDS-en,1,120,,℃,Vicat Softening Point （ 120 ℃ ， 10 N ）  §  110 ℃
+S-PEBA-PEBA90A-TDS-en,1,40150,,%,Elongation at Break (Z-axis)  §  40150 %
+S-PEBA-PEBA90A-TDS-en,2,263270,,%,Maximum Resilience ASTM D263270 %
+S-PEBA-PEBA90A-TDS-en,3,100,,%,Infill Density 100%
+S-SPECTRUM-en-tds-spectrum-peba,1,23,,°C,"Tensile modulus, 23°C, injection moulding 100 Mpa  § /-2"
+S-SPECTRUM-en-tds-spectrum-peba,1,23,,°C,"Tensile strength, 23°C, injection moulding 25 MPa  § /-2"
+S-SPECTRUM-en-tds-spectrum-peba,1,23,,°C,"Elongation at break, 23°C, injection moulding >500 %  § /-2"
+S-SPECTRUM-en-tds-spectrum-peba,1,23,,°C,"Flexural modulus, 23°C, injection moulding 90 Mpa  § "
+S-SPECTRUM-en-tds-spectrum-peba,1,23,,°C,"Flexural strength, 23°C, injection moulding 5 Mpa  §  FEAUTURES"
+S-POLYCN-PolyMide-CoPA-TDS-V5-2,2,260,,°C,"Melt i ndex 260°C, 1.2 kg 12 g/10min"
+S-POLYCN-PolyMide-CoPA-TDS-V5-2,2,2.82,,%,Equili brium water absorption (%)= 2.82 %
+S-POLYCN-PolyMide-CoPA-TDS-V5-2,3,370,,°C,"D ecomposition temperature TGA, 20°C/min 370 °C"
+S-POLYCN-PolyMide-CoPA-TDS-V5-2,5,20,,%,used under dry conditions (relative humidity below 20%).
+S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,40,,%,"Elongation at max. force (dry, at 50 mm/min) 4,40%  § "
+S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,3.4,,GPa,"Modulus of elasticity (dry, at 1 mm/min) 3.4 GPa  § "
+S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,120,,°C,Continous service temperature (20.000h) 120°C  § 
+S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,160,,°C,Service temperature (max. 200h) 160°C
+B-paht-cf-TDS,1,90,,°C,Spool Material PC + ABS ( Temperature resistance 90 °C )
+B-paht-cf-TDS,2,280,,°C,"Melt Inde x 280 ° C , 2.16 kg 14.4 ± 2.0 g/ 10 min"
+B-paht-cf-TDS,2,411820,170,MPa,"Bending Modulus ( Z )  §  ,  §  411820 ± 170 MPa"
+B-paht-cf-TDS,2,04313.3,0.8,kJ/m,Impact Strength (Z)  §  ，  §  04313.3 ± 0.8 kJ/m²
+B-pa6-cf-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resist ance 90 ° C )
+B-pa6-cf-TDS,3,130,,°C,"130 °C, and the tim e is 6 to 12 hours. The annealing effect depends on the annealing"
+B-pa6-gf-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C )
+B-pa6-gf-TDS,2,280,,°C,"Melt Index 280 ° C, 2.16 kg 9.0 ± 0.8 g/10 min"
+S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,2,280,,°C,"Melt i ndex 280°C, 2.16 kg 25 g/10min"
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,210,,°C,"MFR (210°C, 2.16kg) 3 g/10min  § "
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,170,,°C,• high thermal resistance up to 170°C
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,0.45,,MPa,0.45 MPa 170°C  §  • reduced moisture absorption compared to
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,170,,°C,0.45 MPa 170°C  §  • reduced moisture absorption compared to
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,1.8,,MPa,1.8 MPa 150°C  § 
+S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,150,,°C,1.8 MPa 150°C  § 
+S-FIBER-PA612,1,23,,°C,"70% RH, 23°C"
+S-FIBER-PA612,1,260,,°C,"Melt index 260°C, 2.16 kg 9.9 g/10min 1.4"
+S-FIBER-PA612,1,1.8,,MPa,1.8 MPa
+S-FIBER-PA612,1,210,,°C,"Melting temperature DSC, 10°C/min 210 °C"
+S-FIBER-PA612,1,448.4,,°C,"Decomposition temp. TGA, 20°C/min 448.4 °C"
+S-FIBER-PA612,1,206.2,,°C,"Vicat softening temp.  § ,  §  206.2 °C"
+S-FIBER-PA612,1,1.8,,MPa,Heat deflection temp.  §  1.8MPa 114 °C
+S-FIBER-PA612,1,2.57,,%,average moisture content of specimens is 2.57%
+S-FIBER-PA612,1,30,,%,*Model infill 30%
+S-FIBER-PA612,1,20,,%,humidity below 20%).
+S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,2,3.22,,%,Equili brium water absorption (%)= 3.22 %
+S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,3,370,,°C,"D ecomposition temperature TGA, 20°C/min > 370 °C"
+S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,5,20,,%,used under dry conditions (relative humidity below 20%).
+X-3DXSTAT-ESD-PA12-TDS-v1,1,60,,%,Layer Height: 0.25mm or 60% of nozzle diameter
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,23,,°C,"70% RH, 23°C"
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,275,,°C,"Melt index 275°C, 5 kg 17.4 g/10min"
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,0.45,,MPa,0.45 MPa
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,1.8,,MPa,1.8 MPa
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,41.8,,°C,"Glass transition temp. DSC, 10°C/min 41.8 °C"
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,187.3,,°C,"Melting temperature DSC, 10°C/min 187.3 °C"
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,441.0,,°C,"Decomposition temp. TGA, 20°C/min 441.0 °C"
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,190.0,,°C,"Vicat softening temp.  § ,  §  190.0 °C"
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,1.8,,MPa,Heat deflection temp.  §  1.8MPa 125.4 °C
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,125.4,,°C,Heat deflection temp.  §  1.8MPa 125.4 °C
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,0.45,,MPa,Heat deflection temp.  §  0.45MPa 157.0 °C
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,157.0,,°C,Heat deflection temp.  §  0.45MPa 157.0 °C
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,4.64,,%,average moisture content of specimens is 4.64%
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,320,,°C,280°C 320°C
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,290,,°C,290°C 300°C
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,30,,%,*Model infill 30%
+S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,20,,%,humidity below 20%).
+B-pet-cf-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C )
+B-pet-cf-TDS,2,280,,°C,"Melt Index 280 ° C , 2.16 kg 25.3 ± 2.5 g/10 min"
+B-pet-cf-TDS,3,140,,°C,"annealing temperature of models printed with Bambu PET-CF is 80 to 140 ° C, and the time"
+S-PPA-TDS,1,0.5,,%,Net Filament Weight 1 kg ± 0.5%
+S-PPA-TDS,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C )
+S-PPA-TDS,1,290,,°C,Melt Index 290 ° C ， 2.16 kg 15.6 g/ 10 min
+S-PPA-TDS,1,290,,°C,"290 ° C, bed temperature: 100 ° C, printing speed: 150 mm/s, infill density: 100%, infill pattern: concentric) and black PPA"
+B-ppa-cf-TDS,1,145,,°C,(Temperature resistance 145 ° C )
+B-ppa-cf-TDS,1,140,,°C,"Blast Drying Oven: 100 - 140 °C, 8 - 12 h"
+B-ppa-cf-TDS,2,6.5,2.3,kJ/m,6.5 ± 2.3 kJ/m² (notched)
+B-ppa-cf-TDS,3,140,,°C,"annealing temperature of models printed with Bambu PPA - CF is 120 to 140 °C, and the"
+D-IPCON-PPA,1,0.5,,%,Net Filament Weight 1 kg ± 0.5%
+D-IPCON-PPA,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C)
+D-IPCON-PPA,1,290,,°C,Melt Index 290 ° C ， 2.16 kg 13.2 g/ 10 min
+D-IPCON-PPA,1,290,,°C,"290 ° C, bed temperature: 100 ° C, printing speed: 150 mm/s, infill density: 100%, infill pattern: concentric) and black PPA GF"
+D-IPCON-PPA,2,220,,°C,1 . Extreme temperature and humidity resistance (short-term peak of temperature resistance reaches 220 ° C);
+S-SPECTRUM-en-tds-spectrum-pps-am230,1,23,,°C,"Charpy impact strength, unnotched* (23°C) 18 kJ/m 2  § eU"
+S-SPECTRUM-en-tds-spectrum-pps-am230,1,23,,°C,"Charpy impact strength, notched* (23°C) 1,3 kJ/m 2  § eA"
+S-SPECTRUM-en-tds-spectrum-pps-am230,1,3650,,MPa,Elastic modulus tensile* (speed 1mm/min) 3650 MPa  §  (1)
+S-SPECTRUM-en-tds-spectrum-pps-am230,1,129,,°C,0.45mn/m 2 * 129°C  §  • excellent chemical resistance
+S-SPECTRUM-en-tds-spectrum-pps-am230,1,107,,°C,1.81mn/m 2 * 107°C  § 
+B-pps-cf-TDS,1,145,,°C,(Temperature resistance 145 ° C )
+B-pps-cf-TDS,3,335,,°C,"° C and 335 ° C), higher mechanical properties would be obtained, especially the Z-direction's. All"
+B-pps-cf-TDS,3,220,,°C,"models printed with Bambu PPS-CF is 180 to 220 ° C, and the time is 6 to 12 hours. The"
+S-PPSGF-TDS-0,1,0.5,,%,Net Filament Weight 0.75 kg ± 0.5%
+S-PPSGF-TDS-0,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C )
+S-PPSGF-TDS-0,1,0.21,,%,Shrinkage Rate* Specially-defined 0.21% - 0.42%
+S-PPSGF-TDS-0,1,0.42,,%,Shrinkage Rate* Specially-defined 0.21% - 0.42%
+S-PPSGF-TDS-0,1,340,,°C,"Melt Index 340 ° C , 2.16 kg 22.3 g/10 min"
+S-PPSGF-TDS-0,1,345,,°C,"temperature: 345 ° C, bed temperature: 120 ° C, printing speed: 100 mm/s ) and IPCON P P S G F (Grey) filament . The parameters"
+S-PPSGF-TDS-0,2,15,,%,"respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill pattern — grid . The data is for user"
+S-PPSGF-TDS-0,2,350,,°C,"Q1 Pro and other printers that have 350 ° C nozzle temperature and positive chamber temperature, as well as AMS"
+S-PPSGF-TDS-0,2,200,,°C,"(long-term temperature resistance of 200 ° C ), superb water resistance and solvent resistance"
+S-FIBER-PPSGF-TDS-2,1,20,,%,Fiberon™ PPS-GF20 is a 20% glass fiber-reinforced
+S-FIBER-PPSGF-TDS-2,1,23,,°C,"70% RH, 23°C"
+S-FIBER-PPSGF-TDS-2,1,0.45,,MPa,0.45 MPa
+S-FIBER-PPSGF-TDS-2,1,279.6,,°C,"Melting temperature DSC, 10°C/min 279.6 °C"
+S-FIBER-PPSGF-TDS-2,1,225.8,,°C,"Crystallization temp. DSC, 10°C/min 225.8 °C"
+S-FIBER-PPSGF-TDS-2,1,0.45,,MPa,0.45 MPa
+S-FIBER-PPSGF-TDS-2,1,230,,°C,Annealing temp.= 230°C
+S-FIBER-PPSGF-TDS-2,1,440.2,,°C,"Decomposition temp. TGA, 20°C/min 440.2 °C"
+S-FIBER-PPSGF-TDS-2,1,272.5,,°C,"Vicat softening temp.  § ,  §  272.5 °C"
+S-FIBER-PPSGF-TDS-2,1,0.45,,MPa,Heat deflection temp.  §  0.45MPa 236.3 °C
+S-FIBER-PPSGF-TDS-2,1,236.3,,°C,Heat deflection temp.  §  0.45MPa 236.3 °C
+S-FIBER-PPSGF-TDS-2,1,230,,°C,"increased to 230°C, the HDT (0.45MPa/1.8MPa) is increased to 248.9°C/219.6°C."
+S-FIBER-PPSGF-TDS-2,1,0.45,,MPa,"increased to 230°C, the HDT (0.45MPa/1.8MPa) is increased to 248.9°C/219.6°C."
+S-FIBER-PPSGF-TDS-2,1,248.9,,°C,"increased to 230°C, the HDT (0.45MPa/1.8MPa) is increased to 248.9°C/219.6°C."
+S-FIBER-PPSGF-TDS-2,1,219.6,,°C,"increased to 230°C, the HDT (0.45MPa/1.8MPa) is increased to 248.9°C/219.6°C."
+S-FIBER-PPSGF-TDS-2,1,30,,%,X-Y *Model infill 30%
+S-FIBER-PPSGF-TDS-2,1,20,,%,Fiberon™ PPS-GF20 should always be stored and used under dry conditions (relative humidity below 20%).
+B-pva-TDS,1,90,,°C,Spool Material PC+ ABS (Temperature resistance 90 ° C )
+B-pva-TDS,1,100,,°C,"X1 Series Printer Heatbed: 90 - 100 ° C, 12 h"
+B-pva-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 7.2 ± 1.1 g/10 min"
+B-pva-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
+B-pva-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+B-support-for-pla-petg-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C)
+B-support-for-pla-petg-TDS,2,210,,°C,"Melt Index 210 ° C, 2.16 kg 14.3 ± 1.2 g/10 min"
+B-support-for-pla-petg-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
+B-support-for-pla-petg-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+B-support-for-abs-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 °C)
+B-support-for-abs-TDS,1,95,,°C,"X1 Se ries Printer Heatbed: 85 - 95 °C, 6 h"
+B-support-for-abs-TDS,2,210,,°C,"Melt Index 210 ° C , 2.16 kg 11.6 ± 0.7 g/10 min"
+B-support-for-abs-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+B-support-for-pa-pet-TDS,2,280,,°C,"Melt Index 280 °C, 2.16 kg 29.2 ± 2.1 g/10 min"
+B-support-for-pa-pet-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
+B-support-for-pa-pet-TDS,2,0.45,,MPa,Heat Deflection Temperature  §  0.45 MPa N / A
+S-SPECTRUM-en-tds-spectrum-hipsx,1,200,,°C,"Melt Flow Rate, (200°C/5.0kg) 12 g/10min  § "
+S-SPECTRUM-en-tds-spectrum-hdpe,1,110,,°C,Heat Resistance 110 °C
+S-SPECTRUM-en-tds-spectrum-hdpe,1,110,,°C,• Heat resistance above 110°C
+X-EVOLV3D-OBC-TDS,2,80,,%,Ethanol (60 °C) + + Acetic Acid (80%) ++
+X-EVOLV3D-OBC-TDS,2,70,,%,Methanol + + Sulfuric Acid (70%) + +
+S-SPECTRUM-en-tds-spectrum-pctg,1,23,,°C,Izod Impact Strength Notched @ 23°C 93°C KJ/m 2  § 
+S-SPECTRUM-en-tds-spectrum-pctg,1,0.455,,MPa,@ 0.455MPa 76°C  § 
+S-SPECTRUM-en-tds-spectrum-pctg,1,76,,°C,@ 0.455MPa 76°C  § 
+S-SPECTRUM-en-tds-spectrum-pctg,1,1.820,,Mpa,@ 1.820 Mpa 64°C  § 
+S-SPECTRUM-en-tds-spectrum-pctg,1,64,,°C,@ 1.820 Mpa 64°C  § 
+S-CPECF,1,4,,MPa,"52,4 MPa  §  at yield , 50 mm/min"
+S-CPECF,1,7,,MPa,"37,7 MPa  §  at break , 50 mm/min"
+S-CPECF,1,9,,kJ/m,"Charpy impact strength 105 ,9 kJ/m  §  25 °C, unnotched"
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,00,,%,"Elongation at Break 5,00%  § "
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,23,,°C,Unnotched @ 23°C 45kJ/m 2  § eU
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,23,,°C,Notched @ 23°C 4kJ/m 2  § eU
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,4,,kJ/m,Notched @ 23°C 4kJ/m 2  § eU
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,0.455,,MPa,@ 0.455MPa 78°C • 10% carbon fiber
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,78,,°C,@ 0.455MPa 78°C • 10% carbon fiber
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,1.820,,MPa,@ 1.820 MPa 68°C
+S-SPECTRUM-en-tds-spectrum-pctg-cf10,1,68,,°C,@ 1.820 MPa 68°C
+S-PVB-PVB-Prusament-TDS-2021-10-EN,2,230,,°C,(1) 2.16 kg; 230 °C
+S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,2,0.352,,%,Equili brium water absorption (%)= 0.352 %
+S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,4,13,2,kJ/m,"Low temperature impact  §  e A:2010, 13 ± 2 kJ /m"
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,23,,°C,"unnotched, 23°C NB  § "
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,23,,°C,Notched Izod Impact Strength (23°C) 35 kJ/m 2  § A
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,1.8,,MPa,1.8 MPa 90°C  § /A
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,960,,°C,1.5mm 960°C
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,960,,°C,3.0mm 960°C
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,750,,°C,1.5mm 750°C
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,1,725,,°C,3.0mm 725°C
+S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,2,20,,˚C,and toughness at low temperature ( - 20˚C/ - 30˚C). Polymaker™ PC - PBT also features
+S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,2,0.257,,%,Equilibrium water absorption (%)= 0.257 %
+S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,15,3,kJ/m,"Low temperature impact  §  e A:2010, 15 ± 3 kJ /m"
+S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,7.3,2,kJ/m,"Low temperature impact  §  e A:2010, 7.3 ± 2 kJ /m"
+S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,90,,˚C,release the residual internal stress. Annealing settings: 90˚C for 2h
+I-PEEK-TDS,1,52740,,%,"Tensile E longation Break , 23 ° C I SO 52740%"
+I-PEEK-TDS,1,357343,,°C,Me lting Point  §  357343 ° C
+I-PEEK-TDS,1,357143,,°C,Glass Tran sition Onse t  §  357143 ° C
+I-PEI-9085-TDS,1,370,,°C,"technology , with a diameter of 1.75 mm, 370 ° C -390 ° C printin g"
+I-PPSU-TDS,1,9550.70,,%,Molding Shrinkage - Flow ASTM D9550.70%
+I-PPSU-TDS,1,5700.37,,%,Water Absorption ASTM D5700.37%
+I-PPSU-TDS,1,6382340,,Mpa,ASTM D6382340 Mpa
+I-PPSU-TDS,1,7.20,,%,7.20%
+I-PPSU-TDS,1,120,,%,B reak 3.18 mm 60 to 120 %
+I-PPSU-TDS,1,7902410,,Mpa,ASTM D7902410 Mpa
+I-PPSU-TDS,1,399,,kJ/m,3.18 mm 399 kJ / m ^ 2
+I-PPSU-TDS,2,1.8,,MPa,"1.8MPa,"
+R-BAMBU-SUPPORT-PLA-NEW-TDS,1,70,,°C,Spool Material ABS (Temperature resistance 70 °C)
+R-ESSENTIUM-PPSCF-TDS,1,15,,%,Essentium PPS-CF is a 15% carbon fiber reinforced polyphenylene sulfide (PPS) filament made with LUVOCOM® 3F resin from
+R-POLYMAKER-PANCHROMA-TDS-V2-1,1,63,,°C,Matte 63°C
+R-POLYMAKER-PANCHROMA-TDS-V2-1,1,62,,°C,Satin 62°C
+R-POLYMAKER-PANCHROMA-TDS-V2-1,1,64,,°C,Silk 64°C
+R-POLYMAKER-PANCHROMA-TDS-V2-1,1,63,,°C,63°C
+R-POLYMAKER-PANCHROMA-TDS-V2-1,1,55,,°C,Recommended drying setting 55 °C for 6h
+R-FIBERON-PETGF15-TDS,1,201.4,,°C,"DSC, 10°C/min 201.4°C"
+R-FIBERON-PETGF15-TDS,1,422.8,,°C,"GA, 20°C/min T 422.8°C"
+R-FIBERON-PETGF15-TDS,1,30,,%,*Model infill 30%
+R-FILLAMENTUM-CPE-HG100-TDS,1,1238230,,°C,"1,6 g/10 min ASTM D1238230 °C, 1,2 kg"
+R-FILLAMENTUM-CPE-HG100-TDS,1,1238230,,°C,"5,9 g/10 min ASTM D1238230 °C, 3,8 kg"
+R-FILLAMENTUM-CPE-HG100-TDS,1,25623,,°C,"Izod impact strength no break ASTM D25623 °C, notched"
+R-FILLAMENTUM-CPE-HG100-TDS,1,0,,%,"Haze < 1,0 % ASTM D1003"
+R-FILLAMENTUM-CPE-HG100-TDS,1,275,,°C,Print temperature 255 – 275 °C
+R-FILLAMENTUM-CPE-HG100-TDS,1,85,,°C,"tolerance +/ - 0,05 mm , which is strictly Hot pad 70 – 85 °C"
+R-FILLAMENTUM-CPE-HG100-TDS,1,60,,°C,"Conditions to re - dry 60 °C, 3 – 4 hours"
+R-COLORFABB-NGEN-TDS-V2,1,93.3,,kJ/m,"Impact S trength Cha rp y Notc h ,  §  93.3 kJ/m"
+R-COLORFABB-NGEN-TDS-V2,1,638190,,%,"Elongation at break Tensile , AS T M D638190 %"
+R-COLORFABB-NGEN-TDS-V2,1,7901800,,MPa,"Flexural Modu lus Flexural , AS T M D 7901800 MPa"
+R-ERYONE-PETG-GF-TDS,1,6481.8,,MPa,Heat distortion temperature( ° C) ASTM D6481.8MPa 0.45MPa
+R-ERYONE-PETG-GF-TDS,1,220,,°C,"Melt Index(g/10 min) 220 ° C, 10 kg 240 ° C, 2.16 kg g/10min"
+R-ERYONE-PETG-GF-TDS,1,240,,°C,"Melt Index(g/10 min) 220 ° C, 10 kg 240 ° C, 2.16 kg g/10min"
+R-IPCON-ASA-GF-TDS,1,0.5,,%,Net Filament Weight 0.75 kg ± 0.5%
+R-IPCON-ASA-GF-TDS,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C )
+R-IPCON-ASA-GF-TDS,1,0.13,,%,Shrinkage Rate* Specially-defined 0.13% - 0.37%
+R-IPCON-ASA-GF-TDS,1,0.37,,%,Shrinkage Rate* Specially-defined 0.13% - 0.37%
+R-IPCON-ASA-GF-TDS,1,25,,°C,"Saturated Water Absorption Rate 25 ° C , 55% RH , room air 0.31 %"
+R-IPCON-ASA-GF-TDS,1,0.31,,%,"Saturated Water Absorption Rate 25 ° C , 55% RH , room air 0.31 %"
+R-IPCON-ASA-GF-TDS,1,270,,°C,"Melt Index 270 ° C , 2.16 kg 19.5 g/10 min"
+R-IPCON-ASA-GF-TDS,1,221,,°C,"Melting Temperature DSC , 10 ° C/min 221 ° C"
+R-IPCON-ASA-GF-TDS,1,23.5,,kJ/m,"Impact Strength XY  §  ,  §  23.5 kJ/m ²"
+R-IPCON-ASA-GF-TDS,1,8.2,,kJ/m," §  ,  §  8.2 kJ/m ²"
+R-IPCON-ASA-GF-TDS,2,15,,%,"lengths of 100.00 and 150.00 mm respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill"
+R-IPCON-ASA-GF-TDS,2,25,,%,"lengths of 100.00 and 150.00 mm respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill"
+R-IPCON-ASA-GF-TDS,2,80,,℃,"≤ 80 ℃ , ≤ 20 % RH"
+R-IPCON-ASA-GF-TDS,2,35,,℃,"≤ 35 ℃ , ≤ 20 % RH"
+R-FLASHFORGE-ASA-GF10-TDS,1,220,,℃,Melt Index (MFR) (220 ℃ / 5 Kg)
+R-FLASHFORGE-ASA-GF10-TDS,1,23,,℃,Water Absorption (23 ℃ /24h)  §  %
+R-FLASHFORGE-ASA-GF10-TDS,2,110,,℃,Build Platform Temperature 100 ~ 120 ℃ (110 ℃ recommended )
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,2,275,,°C,Melt volume - flow rate MVR 275°C/5 kg
+R-GRUPA-AZOTY-TARFUSE-POM-TDS,2,230,,°C,Nozzle temperature 230°C
+R-STRATASYS-FDM-NYLON12-MDS,4,10,,°C,(-50 °C to 10 °C) 46.86 μin/[in*°F] 47.53 μin/[in*°F]
+R-STRATASYS-FDM-NYLON12-MDS,4,10,,°C,(10 °C to 45 °C) 49.51 μin/[in*°F]
+R-STRATASYS-FDM-NYLON12-MDS,4,45,,°C,(10 °C to 45 °C) 49.51 μin/[in*°F]
+R-STRATASYS-FDM-NYLON12-MDS,4,45,,°C,(45 °C to 70 °C) 55.83 μin/[in*°F]
+R-STRATASYS-FDM-NYLON12-MDS,4,70,,°C,(45 °C to 70 °C) 55.83 μin/[in*°F]
+R-STRATASYS-FDM-NYLON12-MDS,4,70,,°C,(70 °C to 95 °C) (33.38 μin/[in*°F])
+R-STRATASYS-FDM-NYLON12-MDS,4,95,,°C,(70 °C to 95 °C) (33.38 μin/[in*°F])
+R-STRATASYS-FDM-NYLON12-MDS,6,5,,%,Strength @ 5% Strain
+R-DUPONT-DELRIN-100P,1,3.5,,%,@ 3.5% Strain 74 (10.7)
+R-CELANESE-ZYTEL-101L,1,96,,%,[1]: Sulfuric acid 96%
+R-CELANESE-ZYTEL-101L,1,1400,,MPa,Tensile Modulus 3100 / 1400 MPa  § /-2
+R-CELANESE-ZYTEL-101L,1,55,,MPa,"Yield stress, 50mm/min 82 / 55 MPa  § /-2"
+R-CELANESE-ZYTEL-101L,1,25,,%,"Yield strain, 50mm/min 4.5 / 25 %  § /-2"
+R-CELANESE-ZYTEL-101L,1,1200,,MPa,Flexural Modulus 2800 / 1200 MPa  § 
+R-CELANESE-ZYTEL-101L,1,54,,MPa,Flexural Strength 90 / 54 MPa  § 
+R-CELANESE-ZYTEL-101L,1,1400,,MPa,"Tensile creep modulus, 1h * / 1400 MPa  § "
+R-CELANESE-ZYTEL-101L,1,820,,MPa,"Tensile creep modulus, 1000h * / 820 MPa  § "
+R-CELANESE-ZYTEL-101L,1,23,,°C,"Charpy impact strength, 23°C N / N kJ/m²  § eU"
+R-CELANESE-ZYTEL-101L,1,23,,°C,"Charpy notched impact strength, 23°C 5.5 / 15 kJ/m²  § eA"
+R-CELANESE-ZYTEL-101L,1,15,,kJ/m,"Charpy notched impact strength, 23°C 5.5 / 15 kJ/m²  § eA"
+R-CELANESE-ZYTEL-101L,1,23,,°C,"Izod notched impact strength, 23°C 5.5 / 12 kJ/m²  § A"
+R-CELANESE-ZYTEL-101L,1,12,,kJ/m,"Izod notched impact strength, 23°C 5.5 / 12 kJ/m²  § A"
+R-CELANESE-ZYTEL-101L,2,23,,°C,"Izod impact strength, 23°C N / N kJ/m²  § U"
+R-CELANESE-ZYTEL-101L,2,85,,MPa,"Ball indentation hardness, H 358/30180 / 85 MPa  § "
+R-CELANESE-ZYTEL-101L,2,40,,°C,"Glass transition temperature, 10°C/min 70 / 40 °C  § /-3"
+R-CELANESE-ZYTEL-101L,2,130,,°C,"RTI, electrical, 0.75mm 130 °C  § B"
+R-CELANESE-ZYTEL-101L,2,130,,°C,"RTI, electrical, 1.5mm 130 °C  § B"
+R-CELANESE-ZYTEL-101L,2,130,,°C,"RTI, electrical, 3mm 130 °C  § B"
+R-CELANESE-ZYTEL-101L,2,130,,°C,"RTI, electrical, 6mm 130 °C  § B"
+R-CELANESE-ZYTEL-101L,2,85,,°C,"RTI, strength, 0.75mm 85 °C  § B"
+R-CELANESE-ZYTEL-101L,2,85,,°C,"RTI, strength, 3mm 85 °C  § B"
+R-CELANESE-ZYTEL-101L,2,85,,°C,"RTI, strength, 6mm 85 °C  § B"
+R-CELANESE-ZYTEL-101L,4,80,,°C,Drying Temperature 80 °C
+R-CELANESE-ZYTEL-101L,4,0.2,,%,Processing Moisture Content ≤0.2 %
+R-CELANESE-ZYTEL-101L,4,290,,°C,Melt Temperature Optimum 290 °C Internal
+R-CELANESE-ZYTEL-101L,4,280,,°C,Min. melt temperature 280 °C
+R-CELANESE-ZYTEL-101L,4,300,,°C,Max. melt temperature 300 °C
+R-CELANESE-ZYTEL-101L,4,90,,°C,Max. mould temperature 90 °C
+R-CELANESE-ZYTEL-101L,4,100,,MPa,Hold pressure range 50 - 100 MPa
+R-CELANESE-ZYTEL-101L,5,280,,°C,280 °C
+R-CELANESE-ZYTEL-101L,5,290,,°C,290 °C
+R-CELANESE-ZYTEL-101L,5,300,,°C,300 °C
+R-CELANESE-ZYTEL-101L,6,280,,°C,280 °C
+R-CELANESE-ZYTEL-101L,6,290,,°C,290 °C
+R-CELANESE-ZYTEL-101L,6,300,,°C,300 °C
+R-CELANESE-ZYTEL-101L,8,0,,°C,0 °C
+R-CELANESE-ZYTEL-101L,8,23,,°C,23 °C
+R-CELANESE-ZYTEL-101L,8,40,,°C,40 °C
+R-CELANESE-ZYTEL-101L,8,60,,°C,60 °C
+R-CELANESE-ZYTEL-101L,8,90,,°C,90 °C
+R-CELANESE-ZYTEL-101L,8,120,,°C,Y 120 °C
+R-CELANESE-ZYTEL-101L,8,150,,°C,150 °C
+R-CELANESE-ZYTEL-101L,9,0,,°C,0 °C
+R-CELANESE-ZYTEL-101L,9,23,,°C,23 °C
+R-CELANESE-ZYTEL-101L,9,40,,°C,40 °C
+R-CELANESE-ZYTEL-101L,9,60,,°C,60 °C
+R-CELANESE-ZYTEL-101L,9,90,,°C,90 °C
+R-CELANESE-ZYTEL-101L,9,120,,°C,120 °C
+R-CELANESE-ZYTEL-101L,9,150,,°C,150 °C
+R-CELANESE-ZYTEL-101L,10,0,,°C,0 °C
+R-CELANESE-ZYTEL-101L,10,23,,°C,23 °C
+R-CELANESE-ZYTEL-101L,10,40,,°C,40 °C
+R-CELANESE-ZYTEL-101L,10,60,,°C,60 °C
+R-CELANESE-ZYTEL-101L,10,90,,°C,90 °C
+R-CELANESE-ZYTEL-101L,10,120,,°C,120 °C
+R-CELANESE-ZYTEL-101L,10,150,,°C,150 °C
+R-CELANESE-ZYTEL-101L,11,0,,°C,0 °C
+R-CELANESE-ZYTEL-101L,11,23,,°C,23 °C
+R-CELANESE-ZYTEL-101L,11,40,,°C,40 °C
+R-CELANESE-ZYTEL-101L,11,60,,°C,60 °C
+R-CELANESE-ZYTEL-101L,11,90,,°C,90 °C
+R-CELANESE-ZYTEL-101L,11,120,,°C,120 °C
+R-CELANESE-ZYTEL-101L,11,150,,°C,150 °C
+R-CELANESE-ZYTEL-101L,12,23,,°C,Stress-strain (isochronous) 23°C (cond.)
+R-CELANESE-ZYTEL-101L,13,23,,°C,Creep modulus-time 23°C (cond.)
+R-CELANESE-ZYTEL-101L,13,5,,MPa,5 MPa
+R-CELANESE-ZYTEL-101L,13,15,,MPa,15 MPa
+R-CELANESE-ZYTEL-101L,13,20,,MPa,20 MPa
+R-CELANESE-ZYTEL-101L,13,24,,MPa,24 MPa
+R-CELANESE-ZYTEL-101L,14,60,,°C,Stress-strain (isochronous) 60°C (cond.)
+R-CELANESE-ZYTEL-101L,15,60,,°C,Creep modulus-time 60°C (cond.)
+R-CELANESE-ZYTEL-101L,15,4,,MPa,4 MPa
+R-CELANESE-ZYTEL-101L,15,6,,MPa,6 MPa
+R-CELANESE-ZYTEL-101L,15,8,,MPa,8 MPa
+R-CELANESE-ZYTEL-101L,15,12,,MPa,12 MPa
+R-CELANESE-ZYTEL-101L,15,14,,MPa,14 MPa
+R-CELANESE-ZYTEL-101L,15,15,,MPa,15 MPa
+R-CELANESE-ZYTEL-101L,16,90,,°C,Stress-strain (isochronous) 90°C (cond.)
+R-CELANESE-ZYTEL-101L,17,90,,°C,Creep modulus-time 90°C (cond.)
+R-CELANESE-ZYTEL-101L,17,4,,MPa,4 MPa
+R-CELANESE-ZYTEL-101L,17,6,,MPa,6 MPa
+R-CELANESE-ZYTEL-101L,17,8,,MPa,8 MPa
+R-CELANESE-ZYTEL-101L,17,12,,MPa,12 MPa
+R-CELANESE-ZYTEL-101L,20,5,,%,"Acetic Acid (5% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Acetic Acid (5% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Citric Acid solution (10% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Lactic Acid (10% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,36,,%,"Hydrochloric Acid (36% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Hydrochloric Acid (36% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,40,,%,"Nitric Acid (40% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Nitric Acid (40% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,38,,%,"Sulfuric Acid (38% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Sulfuric Acid (38% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,5,,%,"Sulfuric Acid (5% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Sulfuric Acid (5% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,40,,%,"Chromic Acid solution (40% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Chromic Acid solution (40% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,35,,%,"Sodium Hydroxide solution (35% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Sodium Hydroxide solution (35% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Sodium Hydroxide solution (1% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Ammonium Hydroxide solution (10% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Isopropyl alcohol, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Methanol, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Ethanol, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"n-Hexane, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Toluene, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"iso-Octane, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Acetone, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Diethyl ether, 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"SAE 10W40 multigrade motor oil, 23°C"
+R-CELANESE-ZYTEL-101L,20,130,,°C,"SAE 10W40 multigrade motor oil, 130°C"
+R-CELANESE-ZYTEL-101L,20,130,,°C,"SAE 80/90 hypoid-gear oil, 130°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Insulating Oil, 23°C"
+R-CELANESE-ZYTEL-101L,20,60,,°C," §  Liquid 1 - E5, 60°C"
+R-CELANESE-ZYTEL-101L,20,60,,°C," §  Liquid 2 - M15E4, 60°C"
+R-CELANESE-ZYTEL-101L,20,60,,°C," §  Liquid 3 - M3E7, 60°C"
+R-CELANESE-ZYTEL-101L,20,60,,°C," §  Liquid 4 - M15, 60°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Standard fuel without alcohol (pref.  §  Liquid C), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Standard fuel with alcohol (pref.  §  Liquid 4), 23°C"
+R-CELANESE-ZYTEL-101L,20,23,,°C,"Diesel fuel (pref.  §  Liquid F), 23°C"
+R-CELANESE-ZYTEL-101L,20,90,,°C,"Diesel fuel (pref.  §  Liquid F), 90°C"
+R-CELANESE-ZYTEL-101L,20,90,,°C,"Diesel fuel (pref.  §  Liquid F), >90°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Sodium Chloride solution (10% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Sodium Hypochlorite solution (10% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,20,,%,"Sodium Carbonate solution (20% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Sodium Carbonate solution (20% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Sodium Carbonate solution (2% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Zinc Chloride solution (50% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Ethyl Acetate, 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Hydrogen peroxide, 23°C"
+R-CELANESE-ZYTEL-101L,21,130,,°C,"DOT No. 4 Brake fluid, 130°C"
+R-CELANESE-ZYTEL-101L,21,108,,°C,"Ethylene Glycol (50% by mass) in water, 108°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"1% nonylphenoxy-polyethyleneoxy ethanol in water, 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"50% Oleic acid + 50% Olive Oil, 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Water, 23°C"
+R-CELANESE-ZYTEL-101L,21,90,,°C,"Water, 90°C"
+R-CELANESE-ZYTEL-101L,21,5,,%,"Phenol solution (5% by mass), 23°C"
+R-CELANESE-ZYTEL-101L,21,23,,°C,"Phenol solution (5% by mass), 23°C"
+R-DUPONT-ZYTEL-GUIDE,4,20,,%,Z YTEL 70G20HSL 20% glass reinforced heat stabilised and lubricated PA66
+R-DUPONT-ZYTEL-GUIDE,4,25,,%,Z YTEL 70G25HSL 25% glass reinforced heat stabilised PA66
+R-DUPONT-ZYTEL-GUIDE,4,30,,%,Z YTEL 70G30HSL 30% glass reinforced heat stabilised PA66
+R-DUPONT-ZYTEL-GUIDE,4,35,,%,Z YTEL 70G35HSL 35% glass reinforced heat stabilised PA66
+R-DUPONT-ZYTEL-GUIDE,4,43,,%,Z YTEL 70G43HSL 43% glass reinforced heat stabilised PA66
+R-DUPONT-ZYTEL-GUIDE,4,15,,%,Z YTEL 73G15L/HSL 15% glass reinforced PA6
+R-DUPONT-ZYTEL-GUIDE,4,20,,%,Z YTEL 73G20L 20% glass reinforced PA6
+R-DUPONT-ZYTEL-GUIDE,4,30,,%,Z YTEL 73G30L/HSL 30% glass reinforced PA6
+R-DUPONT-ZYTEL-GUIDE,4,35,,%,Z YTEL 73G35L/HSL 35% glass reinforced PA6
+R-DUPONT-ZYTEL-GUIDE,4,45,,%,Z YTEL 73G45L/HSL 45% glass reinforced PA6
+R-DUPONT-ZYTEL-GUIDE,4,25,,%,"Z YTEL 70G25HSLR 25% glass reinforced, hydrolysis resistant PA66, heat stabilised and lubricated"
+R-DUPONT-ZYTEL-GUIDE,4,30,,%,"Z YTEL 70G30HSLR 30% glass reinforced, hydrolysis resistant PA66, heat stabilised and lubricated"
+R-DUPONT-ZYTEL-GUIDE,4,230,,%,"Z YTEL 70G30HSR230% glass reinforced, ultra-high hydrolysis resistant PA66, heat stabilised and lubricated"
+R-DUPONT-ZYTEL-GUIDE,5,35,,%,Z YTEL 70G35HSLX 35% glass reinforced hot oil and grease resistant PA66
+R-DUPONT-ZYTEL-GUIDE,5,40,,%,Z YTEL 70GB40HSL 40% glass bead reinforced heat stabilised PA66
+R-DUPONT-ZYTEL-GUIDE,5,33,,%,Z YTEL 74G33EHSL 33% glass reinforced heat stabilised PA66/6 blend
+R-DUPONT-ZYTEL-GUIDE,5,33,,%,Z YTEL 74G33EL 33% glass reinforced PA66/6 blend
+R-DUPONT-ZYTEL-GUIDE,5,33,,%,Z YTEL 77G33L 33% glass reinforced PA612
+R-DUPONT-ZYTEL-GUIDE,5,20,,%,Z YTEL 70K20HSL 20% K EVLAR reinforced PA66
+R-DUPONT-ZYTEL-GUIDE,5,14,,%,Z YTEL 80G14 Toughened 14% glass reinforced PA66
+R-DUPONT-ZYTEL-GUIDE,5,25,,%,Z YTEL 80G25 Toughened 25% glass reinforced PA66
+R-DUPONT-ZYTEL-GUIDE,5,33,,%,Z YTEL 80G33HS1L Toughened 33% glass reinforced heat stabilised PA66
+R-DUPONT-ZYTEL-GUIDE,5,30,,%,Z YTEL 73G30T Toughened 30% glass reinforced PA6
+R-DUPONT-ZYTEL-GUIDE,5,025,,%,"Z YTEL FR72G25V025% glass reinforced PA66/6 copolymer,  §  V0 (0,5 mm)"
+R-DUPONT-ZYTEL-GUIDE,5,25,,%,Z YTEL FR70G25GW 25% glass reinforced glow wire 850 ° C PA66 at 1 mm
+R-DUPONT-ZYTEL-GUIDE,5,850,,°C,Z YTEL FR70G25GW 25% glass reinforced glow wire 850 ° C PA66 at 1 mm
+R-DUPONT-ZYTEL-GUIDE,5,025,,%,"Z YTEL FR70G25V025% glass reinforced PA66,  §  V0 (0,5 mm)"
+R-DUPONT-ZYTEL-GUIDE,5,030,,%,"Z YTEL FR70M30V030% mineral reinforced PA66,  §  V0 (1,6 mm)"
+R-DUPONT-ZYTEL-GUIDE,5,40,,%,"Z YTEL FR70M40GW 40% mineral reinforced glow wire 960 ° C PA66 at 1,5 mm"
+R-DUPONT-ZYTEL-GUIDE,5,960,,°C,"Z YTEL FR70M40GW 40% mineral reinforced glow wire 960 ° C PA66 at 1,5 mm"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa 83538353"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 % 4,5254,525"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"50 mm/min, 23 ° C 40 >5040 >50"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 % 22 >10018 >100"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 3100120031001200"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,6,30,,°C,– 30 ° C NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 515515
+R-DUPONT-ZYTEL-GUIDE,6,30,,°C,– 30 ° C 4444
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 513513
+R-DUPONT-ZYTEL-GUIDE,6,30,,°C,– 30 ° C 5454
+R-DUPONT-ZYTEL-GUIDE,6,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 200200"
+R-DUPONT-ZYTEL-GUIDE,6,8,,MPa,"1,8 MPa 7070"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 11
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 1,11,1"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Comparative tracking index 23 ° C  §  V 600600
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm 31283126"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Surface resistivity 23 ° C  §  ohm 10 >101010
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,Volume resistivity 23 ° C  §  ohm · m 10101010
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  3,810,93,810,9"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"10 Hz, 1 mm, 23 ° C 3,543,54,6"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  108021001402100"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"10 Hz, 1 mm, 23 ° C 1807501801000"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 2,72,7"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Saturation, immersed, 23 ° C to  §  8,58,5"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2795971"
+R-DUPONT-ZYTEL-GUIDE,6,23,,°C,"Scale R, 23 ° C 121108113"
+R-DUPONT-ZYTEL-GUIDE,6,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa 85
+R-DUPONT-ZYTEL-GUIDE,6,3023,,°C,H 961/3023 ° C 160
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa 62546253"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 % 4,5184,419"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"50 mm/min, 23 ° C 100 >100"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 % 17 >5030 >50"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 2400170024001600"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,8,30,,°C,– 30 ° C NB 40 NB NB
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 3,5447"
+R-DUPONT-ZYTEL-GUIDE,8,30,,°C,"– 30 ° C 3,5354"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Izod impact strength (notched) 23 ° C 180/1A kJ/m 44,546"
+R-DUPONT-ZYTEL-GUIDE,8,30,,°C,"– 30 ° C 4,5355"
+R-DUPONT-ZYTEL-GUIDE,8,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 135135"
+R-DUPONT-ZYTEL-GUIDE,8,8,,MPa,"1,8 MPa 6262"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 1,11,2"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 1,21,2"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,Comparative tracking index 23 ° C  §  V
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,Surface resistivity 23 ° C  §  ohm 101010
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,Volume resistivity 23 ° C  §  ohm · m 10101010
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  3,653,65,3"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"10 Hz, 1 mm, 23 ° C 3,243,23,4"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  101357001401000"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"10 Hz, 1 mm, 23 ° C 160400160400"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 1,31,3"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Saturation, immersed, 23 ° C to  §  33"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
+R-DUPONT-ZYTEL-GUIDE,8,23,,°C,"Scale R, 23 ° C 114103114"
+R-DUPONT-ZYTEL-GUIDE,8,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,8,3023,,°C,H 961/3023 ° C
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa 50434830"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 % 5,737432"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"50 mm/min, 23 ° C 60 >10090 >200"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 % 40 >50 >30 >200"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 20009001900660"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,10,30,,°C,– 30 ° C NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 8011580125
+R-DUPONT-ZYTEL-GUIDE,10,30,,°C,– 30 ° C 18171918
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 80946090
+R-DUPONT-ZYTEL-GUIDE,10,30,,°C,– 30 ° C 2020
+R-DUPONT-ZYTEL-GUIDE,10,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 13075"
+R-DUPONT-ZYTEL-GUIDE,10,8,,MPa,"1,8 MPa 6550"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 1,2"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 0,9"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,Comparative tracking index 23 ° C  §  V 600
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm 3139"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,Surface resistivity 23 ° C  §  ohm 1010
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,Volume resistivity 23 ° C  §  ohm · m 1010
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  3,28"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"10 Hz, 1 mm, 23 ° C 2,93,6"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  10801800"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"10 Hz, 1 mm, 23 ° C 140550"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 2,2"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Saturation, immersed, 23 ° C to  §  6,7"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
+R-DUPONT-ZYTEL-GUIDE,10,23,,°C,"Scale R, 23 ° C 11289"
+R-DUPONT-ZYTEL-GUIDE,10,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,10,3023,,°C,H 961/3023 ° C
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa 200140215150"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 % 3,453,24,6"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"50 mm/min, 23 ° C 35"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 100007200112008300"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m 829595100
+R-DUPONT-ZYTEL-GUIDE,12,30,,°C,– 30 ° C 80738875
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 14151517
+R-DUPONT-ZYTEL-GUIDE,12,30,,°C,– 30 ° C 10101010
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 13171215
+R-DUPONT-ZYTEL-GUIDE,12,30,,°C,– 30 ° C 12101010
+R-DUPONT-ZYTEL-GUIDE,12,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 260260, 261"
+R-DUPONT-ZYTEL-GUIDE,12,8,,MPa,"1,8 MPa 250250"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 0,220,2"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 1,071"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,Comparative tracking index 23 ° C  §  V 400400
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm 3832"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,Surface resistivity 23 ° C  §  ohm >1010 >1010
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,Volume resistivity 23 ° C  §  ohm · m >10101010
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  4,410,8"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"10 Hz, 1 mm, 23 ° C 4,14,64,14,7"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  10704600"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"10 Hz, 1 mm, 23 ° C 150650140620"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 21,7"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Saturation, immersed, 23 ° C to  §  65,5"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/21048810589"
+R-DUPONT-ZYTEL-GUIDE,12,23,,°C,"Scale R, 23 ° C 124117125117"
+R-DUPONT-ZYTEL-GUIDE,12,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,12,3023,,°C,H 961/3023 ° C 275187285203
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa 200130220150"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 % 352,54"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"50 mm/min, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 11100750014009800"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m 100102105111
+R-DUPONT-ZYTEL-GUIDE,14,30,,°C,– 30 ° C 100102115101
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 18212123
+R-DUPONT-ZYTEL-GUIDE,14,30,,°C,– 30 ° C 18212123
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 16241822
+R-DUPONT-ZYTEL-GUIDE,14,30,,°C,– 30 ° C 12131514
+R-DUPONT-ZYTEL-GUIDE,14,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 222221"
+R-DUPONT-ZYTEL-GUIDE,14,8,,MPa,"1,8 MPa 212213"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 0,20,16"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 1,061"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,Comparative tracking index 23 ° C  §  V
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,Surface resistivity 23 ° C  §  ohm
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,Volume resistivity 23 ° C  §  ohm · m
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  § "
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"ELECTRICAL 10 Hz, 1 mm, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  10"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"10 Hz, 1 mm, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 1,81,5"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Saturation, immersed, 23 ° C to  §  5,84,9"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
+R-DUPONT-ZYTEL-GUIDE,14,23,,°C,"Scale R, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,14,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,14,3023,,°C,H 961/3023 ° C
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa 190135210150"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 % 2,5434, 5"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"50 mm/min, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 125008500115008500"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m 80908892
+R-DUPONT-ZYTEL-GUIDE,16,30,,°C,– 30 ° C 7566
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 12161317
+R-DUPONT-ZYTEL-GUIDE,16,30,,°C,– 30 ° C 1110
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 12141215
+R-DUPONT-ZYTEL-GUIDE,16,30,,°C,– 30 ° C
+R-DUPONT-ZYTEL-GUIDE,16,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 255260"
+R-DUPONT-ZYTEL-GUIDE,16,8,,MPa,"1,8 MPa 250252"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 0,2"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 0,8"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,Comparative tracking index 23 ° C  §  V
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,Surface resistivity 23 ° C  §  ohm
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,Volume resistivity 23 ° C  §  ohm · m 10
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  4,3"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"10 Hz, 1 mm, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  1060"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"10 Hz, 1 mm, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 1,7"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Saturation, immersed, 23 ° C to  §  5,5"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
+R-DUPONT-ZYTEL-GUIDE,16,23,,°C,"Scale R, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,16,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,16,3023,,°C,H 961/3023 ° C
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa 1187011070"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 % 410410"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"50 mm/min, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 5100370051003400"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m 67607075
+R-DUPONT-ZYTEL-GUIDE,18,30,,°C,– 30 ° C 59548590
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 8141820
+R-DUPONT-ZYTEL-GUIDE,18,30,,°C,– 30 ° C 66109
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 891420
+R-DUPONT-ZYTEL-GUIDE,18,30,,°C,– 30 ° C 6477
+R-DUPONT-ZYTEL-GUIDE,18,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 260255"
+R-DUPONT-ZYTEL-GUIDE,18,8,,MPa,"1,8 MPa 242240"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 0,50,39"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 1,31,2"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,Comparative tracking index 23 ° C  §  V 475600
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm 37353636,5"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,Surface resistivity 23 ° C  §  ohm >1010 >1010
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,Volume resistivity 23 ° C  §  ohm · m >10101010
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  3,99,83,87,3"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"ELECTRICAL 10 Hz, 1 mm, 23 ° C 3,74,53,53,9"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  1065250070180"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"10 Hz, 1 mm, 23 ° C 130660150580"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 2,22"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Saturation, immersed, 23 ° C to  §  6,56,2"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/29074103"
+R-DUPONT-ZYTEL-GUIDE,18,23,,°C,"Scale R, 23 ° C 120110"
+R-DUPONT-ZYTEL-GUIDE,18,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,18,3023,,°C,H 961/3023 ° C 180100
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa 8510135100"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 % 14852,53,5"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"50 mm/min, 23 ° C 10"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 % 745"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 3750190092006500"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m 805560
+R-DUPONT-ZYTEL-GUIDE,20,30,,°C,– 30 ° C 7060
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 491214
+R-DUPONT-ZYTEL-GUIDE,20,30,,°C,– 30 ° C 119
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,Izod impact strength (notched) 23 ° C 180/1A kJ/m 44913
+R-DUPONT-ZYTEL-GUIDE,20,30,,°C,– 30 ° C 88
+R-DUPONT-ZYTEL-GUIDE,20,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 230240"
+R-DUPONT-ZYTEL-GUIDE,20,8,,MPa,"1,8 MPa 70215"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 0,2"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Normal (perpendicular to flow) 23 ° C-55 ° C 1,06"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,Comparative tracking index 23 ° C  §  V 325
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm 3525"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,Surface resistivity 23 ° C  §  ohm
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,Volume resistivity 23 ° C  §  ohm · m >10
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  4,5"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"10 Hz, 1 mm, 23 ° C 4,4"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  10180"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"10 Hz, 1 mm, 23 ° C 130"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 2,61,1"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Saturation, immersed, 23 ° C to  §  6,44,1"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
+R-DUPONT-ZYTEL-GUIDE,20,23,,°C,"Scale R, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,20,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,20,3023,,°C,H 961/3023 ° C 213106
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Yield stress 50 mm/min, 23 ° C 527-1/-2 MPa 85558652"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Yield strain 50 mm/min, 23 ° C 527-1/-2 % 4,428527"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Stress at break (tensile) 5 mm/min, 23 ° C 527-1/-2 MPa"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Strain at break (tensile) 5 mm/min, 23 ° C 527-1/-2 %"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"50 mm/min, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Nominal strain at break 50 mm/min, 23 ° C 527-1/-2 % 50 >50 >50 >50"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Tensile modulus 1 mm/min, 23 ° C 527-1/-2 MPa 3000120031001200"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Charpy impact strength (unnotched) 23 ° C 179/1eU kJ/m NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,22,30,,°C,– 30 ° C NB NB NB NB
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Charpy impact strength (notched) 23 ° C 179/1eA kJ/m 620620
+R-DUPONT-ZYTEL-GUIDE,22,30,,°C,– 30 ° C 4354
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Izod impact strength (notched) 23 ° C 180/1A kJ/m 5,612,65,512"
+R-DUPONT-ZYTEL-GUIDE,22,30,,°C,"– 30 ° C 324,54"
+R-DUPONT-ZYTEL-GUIDE,22,45,,MPa,"Temperature of deflection under load 0,45 MPa 75-1/-2 ° C 205205"
+R-DUPONT-ZYTEL-GUIDE,22,8,,MPa,"1,8 MPa 7272"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Parallel (in flow direction) 23 ° C-55 ° C 11359-210 / ° C 111
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Normal (perpendicular to flow) 23 ° C-55 ° C 111
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Comparative tracking index 23 ° C  §  V 600
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Electric strength (dielectric strength) 1 mm, 23 ° C  §  kV/mm 30,5"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Surface resistivity 23 ° C  §  ohm 10
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,Volume resistivity 23 ° C  §  ohm · m 101010
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Relative permittivity 10 Hz, 1 mm, 23 ° C  §  3,94,310,3"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"ELECTRICAL 10 Hz, 1 mm, 23 ° C 3,64,2"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Dissipation factor 10 Hz, 1 mm, 23 ° C  §  101001502000"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"10 Hz, 1 mm, 23 ° C 240750"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Water absorption Equilibrium, 50% RH, 23 ° C Similar % 2,72,7"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Saturation, immersed, 23 ° C to  §  8,58,5"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
+R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Scale R, 23 ° C"
+R-DUPONT-ZYTEL-GUIDE,22,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
+R-DUPONT-ZYTEL-GUIDE,22,3023,,°C,H 961/3023 ° C

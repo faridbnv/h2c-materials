@@ -5,3 +5,7 @@ export const BASE_COMMIT = '60f7392e2ae3e3c6dce67424a3d05052a1361731';
 export const MIGRATED_COMMIT = '35ba8d2';
 /** The conversion from the workbooks: the steps a replay runs. Later mNN scripts change live data. */
 export const CONVERSION_STEPS = ['m01-types.mjs', 'm02-headlines.mjs', 'm03-prices.mjs', 'm04-grade-roles.mjs', 'm05-material-links.mjs', 'm06-registry.mjs'];
+// The last commit of the mechanical conversion (m07-m09). The transfer ledger proves the workbook reached the tables
+// as of this commit; later commits are data edits (source corrections, additions), reviewed with
+// `npm run data:diff -- 0a61cee`.
+export const CONVERSION_END_COMMIT = '0a61cee';

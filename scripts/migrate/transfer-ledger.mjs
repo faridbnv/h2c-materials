@@ -12,7 +12,7 @@
 //   (default docs/audits/2026-09-14-transfer-verification)
 
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { readWorkbookNative, readReferenceNative } from '../../build/src/legacy/extract-workbook.js';
 import { REFERENCE_PROPERTIES } from '../../build/src/reference-properties.js';
@@ -20,27 +20,24 @@ import { loadTables, loadReference, snapshotDate, TABLES } from '../../build/src
 import { compile } from '../../build/src/compile.js';
 import { csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { BASE_COMMIT } from './commits.mjs';
+import { BASE_COMMIT, CONVERSION_END_COMMIT } from './commits.mjs';
 import { cleanText } from './text-cleanup.mjs';
-import { CORRECTIONS as M10_CORRECTIONS, ADDITIONS as M10_ADDITIONS } from './m10-source-conditions.mjs';
-import { CORRECTIONS as M12_CORRECTIONS } from './m12-directions.mjs';
-import { GRADES as M11_GRADES, ADDITIONS as M11_ADDITIONS, ADDED_SOURCE as M11_SOURCE } from './m11-grade-variants.mjs';
+import { diffTables } from '../data/diff-lib.mjs';
+import { loadSchemas } from '../../build/src/schema.js';
 
-// Cells later migrations changed against re-read sources, with the class each is reported under.
-const DOCUMENTED = new Map([
-  ...M10_CORRECTIONS.flatMap((c) => c.ids.flatMap((id) => [...Object.keys(c.set), 'Notes'].map((f) => [`Properties\u0000${id}\u0000${f}`, 'test condition corrected against the source (m10)']))),
-  ...M12_CORRECTIONS.flatMap((c) => c.ids.flatMap((id) => [...Object.keys(c.set), 'Notes'].map((f) => [`Properties\u0000${id}\u0000${f}`, 'direction recorded from the source (m12)']))),
-  ...Object.keys(M11_GRADES).map((id) => [`Grades\u0000${id}\u0000Composition / filler`, 'variant composition recorded from the source (m11)']),
-  ['Sources\u0000I-PP-TDS\u0000Title', 'source title corrected against the document (m11)'],
-  ...['I-PP-TDS', 'X-Hyperlite-PP-TDS-v1', 'S-SPECTRUM-en-tds-spectrum-hdpe', ...new Set([...M10_CORRECTIONS, ...M10_ADDITIONS].map((c) => c.source))]
-    .map((id) => [`Sources\u0000${id}\u0000Access date`, 'source re-read (m10, m11)']),
-]);
-// Rows added from re-read sources: Properties by source and locator, Sources by ID.
-const ADDED = new Map([
-  ...M10_ADDITIONS.map((a) => [`Properties\u0000${a.source}\u0000${a.set.Locator}`, 'published value added from the source (m10)']),
-  ...M11_ADDITIONS.map((a) => [`Properties\u0000${a.source}\u0000${a.set.Locator}`, 'published value added from the source (m11)']),
-  [`Sources\u0000${M11_SOURCE.SourceID}\u0000`, 'source added (m11)'],
-]);
+// Data edits after the conversion (source corrections and additions) are not transfer differences. They are
+// listed by `npm run data:diff -- <CONVERSION_END_COMMIT>` and classed here by that diff, not one by one.
+const editedAfter = new Map();
+{
+  const { tables: schemas } = loadSchemas(join(projectRoot, 'schema'));
+  const read = (side, name) => {
+    if (side === 'to') { try { return readFileSync(join(projectRoot, 'data/tables', `${name}.csv`), 'utf8'); } catch { return null; } }
+    try { return execFileSync('git', ['show', `${CONVERSION_END_COMMIT}:data/tables/${name}.csv`], { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch { return null; }
+  };
+  for (const c of diffTables(schemas, read)) editedAfter.set(`${c.table}\u0000${c.record}\u0000${c.field ?? ''}`, c.action);
+}
+const EDITED_CLASS = `edited after the conversion (npm run data:diff -- ${CONVERSION_END_COMMIT})`;
+const ADDED_CLASS = `added after the conversion (npm run data:diff -- ${CONVERSION_END_COMMIT})`;
 
 const outDir = resolve(process.argv[2] ?? join(projectRoot, 'docs/audits/2026-09-14-transfer-verification'));
 const git = (args) => execFileSync('git', args, { cwd: projectRoot, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
@@ -167,6 +164,7 @@ function classifyReplaced(sheet, column, cell, id) {
 // ------------------------------------------------------------------ walk every cell
 
 const csvBySheet = Object.fromEntries(TABLES.map(({ sheet }) => [sheet, wb[sheet]]));
+const fileOf = Object.fromEntries(TABLES.map(({ file, sheet }) => [sheet, file]));
 for (const [sheet, { header, rows }] of Object.entries(native)) {
   const csv = csvBySheet[sheet];
   const key = sheet === 'Method' ? 'Topic' : header[0];
@@ -181,7 +179,7 @@ for (const [sheet, { header, rows }] of Object.entries(native)) {
       const cell = row.cells[column];
       if (csv.header.includes(column)) {
         let cls = classifyKept(sheet, column, cell, now[column], row.cells);
-        if (cls === 'unexplained') cls = DOCUMENTED.get(`${sheet}\u0000${id}\u0000${column}`) ?? cls;
+        if (cls === 'unexplained' && editedAfter.get(`${fileOf[sheet]}\u0000${id}\u0000${column}`) === 'Edited') cls = EDITED_CLASS;
         record(sheet, row.__row, id, column, cell, now[column], cls);
       } else {
         const [cls, value] = classifyReplaced(sheet, column, cell, id);
@@ -191,8 +189,8 @@ for (const [sheet, { header, rows }] of Object.entries(native)) {
   }
   for (const r of csv.rows) {
     if (nativeIds.has(r[key])) continue;
-    const added = ADDED.get(sheet === 'Properties' ? `${sheet}\u0000${r.SourceID}\u0000${r.Locator}` : `${sheet}\u0000${r[key]}\u0000`);
-    record(sheet, '', r[key], '(row)', null, 'added', added ?? 'unexplained', added ? (r.Locator ?? '') : 'CSV row not in the workbook');
+    const added = editedAfter.get(`${fileOf[sheet]}\u0000${r[key]}\u0000`) === 'Added';
+    record(sheet, '', r[key], '(row)', null, 'added', added ? ADDED_CLASS : 'unexplained', added ? '' : 'CSV row not in the workbook');
   }
   for (const column of csv.header.filter((h) => !header.includes(h))) {
     counts[`${sheet}\u0000added column: ${column}`] = csv.rows.length;

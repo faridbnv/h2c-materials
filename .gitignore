@@ -20,3 +20,6 @@ build/reports/data-audit/
 !.migration/baseline/HASHES.json
 !.migration/baseline/db.json.gz
 !.migration/baseline/reference.json.gz
+
+# Documents fetched by `npm run audit:sources`; each is checked against its SHA-256 in sources.csv.
+.cache/
