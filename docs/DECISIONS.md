@@ -468,6 +468,16 @@ answers rather than failing.
 | A decimal comma and a film method | iSANMATE PLA "110,3 MPa" under ASTM D882, a thin-film test, was recorded as 3 MPa for a printed part | `database.test.js` |
 | A method designation read as the value | iSANMATE PETG-GF "Vicat A/120 … 72" was recorded as 120 °C | `database.test.js` |
 | An unstated heat load read as open-ended | PLA Lite's 53 °C stayed a candidate for "heat resistance at least 100 °C": a value at an unknown load was bounded below only, though the 0.45 and 1.8 MPa values of an amorphous polymer sit within about 10 °C | `constraints.test.js`, `database.test.js` |
+| A conditioned value read as dry | The wet conversion matched the word "wet", so 84 "Conditioned: 70% RH" rows counted as dry; dry nylon stiffness was estimated about 10% low | `database.test.js` (kindOf), D53 |
+| Two tables of one data sheet given one set of conditions | PolyMide PA6-GF's dry values said "Conditioned" and its conditioned values carried the dry note; the lint's "duplicate" was the dry and the conditioned result | lint MEAS-CONDITIONS-INDISTINCT, `lint.test.js` |
+| Un-notched impacts filed as notched | Every Fiberon block prints notched, then un-notched X-Y and Z; 18 un-notched rows said Notched | m13; source audit |
+| Values printed after a separator never transcribed | Bambu's "32.0 kJ/m²; 8.2 kJ/m² (notched)" kept only the first; no Bambu melt index and many Spectrum and Fiberon heat deflections were entered | `npm run audit:sources` |
+| A bound treated as an exact value | "> 16.5 MPa" pinned PEBA's strength estimate to 16.4–16.6 MPa; excluding bounds instead dropped OBC's elongation from 868% to 38% | `database.test.js`, D53 |
+| A lightweight grade pulling its family | HyperLite PP's 0.81 g/cc was a model outlier and lifted nothing but noise into polypropylene | `database.test.js` (grade variant), D53 |
+| HDT load spellings missed | "1.81 MN/m²", "1.820 MPa", "ISO 75-2, HDT A" and "0,45 MPa" read as load not stated | `normalize.test.js`, D49 |
+| Moulded values filed as printed | Spectrum PPS AM230 and PEBA values marked "*injection moulding" entered the model as printed specimens | m14; source audit |
+| A single bracket gap for every matrix | The unstated-load bracket's top missed 4 of 54 true values, all semicrystalline | screening back-test, D48 |
+| Number-only completeness scan | Values printed "ISO 527 MPa 48" or "Specific Gravity 1.22" were invisible; iSANMATE CF-ABS had one of its eight values | label pass in `audit:sources` |
 | A resin reference vetoing a screen | Zytel 101L's moulded 3.1 GPa kept PA66, estimated at 1.5–2.6 GPa, among candidates for "stiffness at least 3 GPa" | `database.test.js` |
 | One data sheet under two or three materials | PolyMide CoPA's numbers shown for PA, PA6/66 and CoPA; PA-CF's headline was PA12-CF's; PLA Silk and CoPE shared one formulation key, so the estimate model read CoPE's evidence as PLA Silk's product | `database.test.js`, D44 |
 | Heat-deflection physics learned backwards | With too few unfilled nylons, the model's melting-point slope fitted negative and put PA66 at 15–91 °C; found in development, never shipped | `database.test.js` |
@@ -738,3 +748,132 @@ The leak sweep that motivated this is a permanent test (`test/screening.test.js`
 candidate for a requirement its defended range wholly fails, except by a verified implied bound; the
 structural invariants hold; and the certification rule revokes ranges made too narrow. Estimates still
 never pass, and Strict still neither shows nor uses them (D43).
+
+## D49. The values the build decides on are typed columns; raw text stays, and the parsers check it
+
+The build read decisions out of free text on every run: a nozzle window from "Classic: 190 - 210 °C", an HDT
+load from about twenty spellings, a drying schedule from a sentence. A parser change could move a verdict with no
+data change and no diff, and a mis-parse looked like data.
+
+Migration m08 stores what the parsers read in typed columns beside the raw text: for each profile axis the state,
+minimum, maximum and whether it is a requirement; the enclosure and drying state, drying temperature and hours; the
+hardened-nozzle requirement; and each measurement's Test load MPa. Compile reads the typed columns. The parsers
+still run, as a check: if a parser reads the raw text differently from the typed value, the build stops
+(PARSE-MISMATCH), unless Parse review explains a deliberate override. m08 was proven to leave the compiled database
+byte-identical.
+
+The raw text is kept verbatim, cleaned only of extraction artefacts (m07: ligatures, full-width punctuation in
+non-Chinese text, dashes between numbers, run-together words, whitespace), with every parsed value proven unchanged.
+Raw columns may therefore spell one thing several ways ("25 - 45 °C", "25-45°C"); the near-duplicate spelling lint
+skips them, because their typed columns are what is checked.
+
+Improving a parser is now a visible change. On 2026-09-15 the HDT load parser learned 1.81 and 1.820 MPa, MN/m²,
+a decimal comma beside the unit, and ISO 75-2's method letters; the check showed exactly two stored rows affected,
+and both were synced in the same migration. The letters are read as loads because ISO 75-2 defines them (A 1.80 MPa,
+B 0.45 MPa, C 8.00 MPa); a bare standard with no load stays unstated.
+
+Reversing it lets a parser edit change verdicts silently and hides a mis-parse behind a plausible number.
+
+## D50. Every check has a code, and quality findings are fixed or accepted with a reason
+
+Issues were messages. A test asserted on wording, a reader could not look a message up, and warnings could not be
+baselined, so a doubling of the data would bury a new problem among old ones.
+
+Every schema, build, validation, audit, contract and lint issue now carries a stable code from one catalogue
+(`build/src/rules.js`, generated into `docs/RULES.md` and checked current by verify), with its level, meaning and
+fix. Codes never change meaning; a retired check keeps its code out of use.
+
+The data lint (`build/src/lint-rules.js`, `npm run data:lint`) reports what the schema cannot express: extraction
+artefacts, near-duplicate spellings outside raw columns, duplicate measurements, rows from one place in one source
+with different values and identical conditions (the two-table error, MEAS-CONDITIONS-INDISTINCT), printed mechanical
+rows with no direction, uncited sources, local paths, and duplicate or overlapping coverage. `npm run verify` fails
+on any finding not in `data/review/accepted-findings.csv`, where each accepted finding has a reason per record, and
+on an acceptance that no longer occurs.
+
+Two classes keep deliberate records from reading as defects. A source's Citation role says why it is registered
+(cited, corroboration, register, provenance, not-retrieved), and a source recorded as not retrieved may never be
+cited. A coverage finding that a later row replaces takes the status Superseded, keeps its text after
+"Superseded by C#####", and leaves the views, the coverage checks and the lint; nothing is deleted.
+
+Build warnings are baselined by the review snapshot (D53): each warning is a row with its record.
+
+Reversing it brings back message-matching tests, and warnings nobody can tell apart from last month's.
+
+## D51. Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on
+
+Three mappings were JSON keyed by material name: family entries and their members, chamber bands, and the
+environment topic vocabulary. A renamed material broke them, and only the build noticed, by a name.
+
+Migration m09 moved them to `family_entries.csv`, `family_members.csv` and `chamber_bands.csv` keyed by MaterialID,
+and to `schema/vocab/environment-categories.csv` and `environment-topics.csv`, which `evidence.Topic` must match. The
+schema gate now reports a wrong reference with its file and line, and m09 was proven to leave the compiled database
+byte-identical. The estimate model stays configuration (`build/mappings/estimate-model.json`), because conversions
+between properties are physics, not data.
+
+Some code is about a specific property by name (HDT's load, the strength endpoints, elongation's locator rule). Every
+such name is declared in `build/src/property-references.js`; the build fails if one is not a registered property
+(REGISTRY-CODE-REFERENCE), a test fails if code uses a registered name not declared there, and every material, grade
+and property the estimate model names is checked the same way (EST-MODEL-REFERENCE).
+
+Reversing it makes a rename a silent break.
+
+## D52. The transfer is proven cell by cell; every later correction is re-read, guarded and replayable
+
+The migration proved the first CSV build equal to the workbook build. That proved the conversion, not that the
+workbook matched its sources, and not that every cell reached the tables.
+
+**The transfer.** `npm run migration:ledger` reads the retired workbook from git with native cell values and classes
+every one of its 99,538 cells against its CSV cell or the derivation that replaced it: equal, a named mechanical
+change, a stale formula cache kept as the build read it, a reproduced derivation, precision lost, or unexplained. It
+found one precision loss (`V000731`, restored) and leaves 0 unexplained. The ledger proves the state at the end of
+the mechanical conversion (`CONVERSION_END_COMMIT`); later edits are classed from the record-level data diff, so a
+correction never needs a ledger rule of its own.
+
+**The sources.** `npm run audit:sources` fetches every PDF source cited by measurements, checks its SHA-256, and
+lists every printed "number unit" with no matching value in the tables, and every property the document names that
+the source has no row of (values printed unit-first or without a unit escape a number search). Doubtful layouts are
+checked on the rendered page, not the extracted text. Its first run found 173 published values never transcribed,
+and the defects in the bug table below.
+
+**The corrections.** Each batch is a migration (m10 to m18) that writes through `scripts/migrate/source-edits.mjs`:
+every edit names the value it replaces, so a re-run is a no-op and a run after the data moved stops; every changed
+measurement gets a dated note saying what changed and where the source says so. A value is never typed from a
+report. Where a sheet contradicts itself (iSANMATE ESD-ABS pairs Method A with 0.45 MPa, and by its loads the higher
+load gives the higher temperature), the rows are recorded quarantined with the reason. Where a label and a value
+disagree (Eryone's and Flashforge's "X-Z" results at half the X-Y value), the direction is recorded as not published
+with the reason.
+
+Reversing it lets a transcription error that looks like data stand, and makes a correction unrepeatable.
+
+## D53. The estimate model reads declared states, not wording; and every change shows its downstream effect
+
+**Moisture.** A value was converted from wet to dry only if its moisture label contained "wet", so 84 rows labelled
+"Conditioned: 70% RH", nylons among them, were read as dry. Each Moisture condition value now declares its State
+(dry, conditioned, not-stated) in its vocabulary, `build/src/normalize/moisture.js` reads it, and an undeclared
+wording stops the build.
+
+**Variants.** A product its material's Modifier / filler does not describe (3DXTECH HyperLite PP, with an additive
+for 0.75 g/cc; Spectrum HDPE, whose 1.1 g/cm³ is beyond unfilled polyethylene) pulled its family's estimates. A
+grade's Variant now gives its product a covariate with a fixed, loose spread (`gradeVariants`), so its offset is its
+own. Its values stay its own, and it may still be a representative grade, because a headline is a single-grade
+observation; whether such a product deserves its own material is a scope decision.
+
+**Bounds.** A published bound ("> 16.5 MPa") had no spread and became the most precise observation there was;
+leaving bounds out lost the only evidence that elastomers stretch hundreds of percent. A bound now enters at its
+value with a documented half-width (`bounds.oneSided`), never calibrates a conversion or the between-product spread,
+and limits its own material's estimate; a lower bound in an unstated direction also bounds XY strength and strain.
+
+**Physical limits.** Every estimate is softly bounded by its property's physical range, and heat deflection by a
+45 °C floor, published only where a limit moves the plausible range. Estimates too wide to guide a choice
+(EST-WIDE) and reinforced materials estimated below their unfilled sibling (EST-FAMILY-ORDER) are warnings with
+records.
+
+**Downstream effects.** `npm run snapshot` commits every headline (value, likely and plausible ranges, the range that
+may screen), process gate, template result and warning under `build/snapshot/`, and `npm run ui:check` commits what
+a reader sees in headless Chrome (every template in Strict and Explore with estimates, each shared link reopened,
+Compare) under `build/snapshot/ui/`. Verify fails if either is stale, so a data or rule change carries its effect in
+its own diff. `npm run data:new` and `npm run data:retire` make complete records and finished retirements the easy
+path.
+
+Reversing any part brings back a failure seen in this snapshot: wet nylon read as dry, a lightweight PP pulling
+polypropylene's density, PEBA's strength pinned to its bound, or a change whose effect nobody saw until a user did.

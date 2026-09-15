@@ -2,7 +2,7 @@
 
 This file is for anyone changing the H2C material database: the owner and the AI agents alike. It says
 where data lives, how to change it without breaking anything, and what the build will refuse. The
-reasons behind the rules are in `docs/DECISIONS.md` (D35, D45, D46, D47, D48). Every column and vocabulary
+reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D53). Every column and vocabulary
 is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by code, in `docs/RULES.md`.
 
 ## The one rule

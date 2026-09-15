@@ -78,14 +78,20 @@ plotting library, not the data, is what the file weighs.
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text. |
 | `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window and its answers in words. |
 | `normalize/chemical.js` | 73 environment topics onto canonical categories; findings onto verdicts. |
+| `normalize/moisture.js` | The declared State (dry, conditioned, not-stated) of each Moisture condition wording, from its vocabulary (D53). |
+| `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
-| `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43). |
+| `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43, D53); and the screening back-test that certifies which evidence may screen (D48). |
 | `print-estimates.js` | Nozzle and bed windows inferred from peers where no source publishes one. They decide nothing. |
 | `chamber-estimates.js` | The research's chamber bands, from `data/tables/chamber_bands.csv`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
+| `rules.js` | The catalogue of every issue code, its level, meaning and fix (D50); generates `docs/RULES.md`. |
+| `lint-rules.js` | Data quality the schema cannot express, as coded findings with a record each (D50). |
+| `property-references.js` | Property names the code relies on, checked against the registry, and the estimate model's references (D51). |
+| `measurement-rules.js` | Independent raw-value, unit and endpoint checks used by validation and the systematic audit. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
 | `review-workbook.js` | The generated, read-only Excel review workbook (`npm run data:export-xlsx`). |
 | `legacy/extract-workbook.js` | The retired workbook reader, kept only so the conversion can be replayed (`npm run migration:verify`). |

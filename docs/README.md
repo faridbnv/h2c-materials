@@ -11,6 +11,8 @@ Start with [ARCHITECTURE.md](ARCHITECTURE.md) if you are going to change code, o
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, and how much should I trust it? |
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
+| [DATA-DICTIONARY.md](DATA-DICTIONARY.md) | What does this column mean, what may it hold, and where does it point? (generated) |
+| [RULES.md](RULES.md) | What does this error or warning code mean, and how do I fix it? (generated) |
 | [audits/](audits/) | Where did this fail its users or its evidence, and what happened to each finding? |
 | [background/](background/) | What was this built from? |
 
@@ -20,9 +22,9 @@ Three places, in the order to try them.
 
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
-2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D44, each saying what would break if it were
+2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D53, each saying what would break if it were
    reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[audits/](audits/).** Eleven audit passes so far, each in its own dated folder: the report as it was
+3. **[audits/](audits/).** Thirteen audit passes so far, each in its own dated folder: the report as it was
    delivered, and the outcome of every finding.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
@@ -50,3 +52,5 @@ does not look wrong where you write it; it looks wrong three screens away, to a 
 doubts the number beside it.
 
 The [systematic data audit](audits/2026-09-13-systematic-data/REPORT.md) includes every filament and family, all source/record locators and reproducible validation. D40 supersedes the old peer-exclusion rule.
+
+The [transfer verification](audits/2026-09-14-transfer-verification/REPORT.md) proves the workbook reached the tables cell by cell, records every source correction since (m10 to m18), and explains the screening back-test (D48) and the checks `npm run verify` now runs.

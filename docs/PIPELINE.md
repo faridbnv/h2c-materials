@@ -47,8 +47,15 @@ own words rather than a confirmed build orientation, so `Horizontal (source labe
 value and never merges into XY. The Method table's rule: an unknown direction is not XY.
 
 **Thermal** (`thermal.js`). About twenty spellings of HDT standard and load, including full-width
-commas from Chinese-language datasheets. A load that was never stated stays unstated; 25 of 69 HDT
-headlines are in that position and carry `loadStated: false`.
+commas from Chinese-language datasheets, 1.81 and 1.820 MPa, MN/m², a decimal comma beside the unit, and
+ISO 75-2's method letters (A 1.80 MPa, B 0.45 MPa). A load that was never stated stays unstated, and every HDT
+headline in that position carries `loadStated: false` (HDT-LOAD-UNSTATED lists them).
+
+**Moisture** (`moisture.js`). The State of each Moisture condition wording, declared in its vocabulary; an
+undeclared wording stops the build.
+
+**Typed values** (`typed-values.js`). The parsers above no longer feed compile directly: the typed columns do, and
+the parsers check them (PARSE-MISMATCH unless Parse review explains the difference; D49).
 
 **Process** (`process.js`). Temperatures, nozzle diameters, drying schedules, abrasion. Two bugs
 here shipped and are now pinned by tests:
@@ -133,8 +140,12 @@ impossible values, converts every observation of every in-scope material to the 
 measures the spread between products of one material directly, estimates the remaining spreads from
 the data above documented floors, and fits one Gaussian model. It then hides each measured headline,
 predicts it, and scales the likely (80%) and plausible (95%) ranges to the coverage actually achieved.
-Every missing headline gets an estimate with its evidence, precision and screening ability, or a
-not-applicable reason. Diagnostics (calibration, conversions, spreads, rejected values, conflicting
+Declared grade variants get their own covariate, conditioned values convert to dry through the documented wet
+offset, published bounds enter with a half-width and limit their own material, and physical limits bound every
+range softly (D53). Every build then back-tests screening: each measured headline is hidden as far as an evidence
+class requires (this grade, this material, family) and predicted with the production ranges, and a class may screen
+only if its ranges are not significantly too narrow on either side over at least 20 cases (D48). Every missing
+headline gets an estimate with its evidence, precision and the range it may screen on, or a not-applicable reason. Diagnostics (calibration, conversions, spreads, rejected values, conflicting
 evidence, outlying headlines) go to `meta.estimateModel`. `docs/DATA-MODEL.md` explains the model
 under "Estimates"; DECISIONS D43 says why.
 
@@ -150,7 +161,8 @@ see `docs/DATA-MODEL.md` under "Chamber evidence".
 ## 5. Validate — `validate.js`
 
 Errors stop the build. Warnings do not: they record what the compiled database cannot support, so
-the interface can say so rather than implying a certainty it does not have.
+the interface can say so rather than implying a certainty it does not have. Every issue carries a code from
+`rules.js` (`docs/RULES.md`), and warnings name their records, which the review snapshot commits (D50, D53).
 
 Checked: identifier uniqueness; referential integrity across every table; every measurement of a
 registered property, in one of its units, of a material the property applies to; quarantined measurements
@@ -163,6 +175,10 @@ headlines; a retirement finished on both Status and Availability; grade roles ag
 ID suffix; every chamber band naming a real, in-scope material
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
+
+It also checks that every property name the code relies on and every name the estimate model uses still
+resolves (D51); flags estimates too wide to guide a choice (EST-WIDE) and reinforced materials estimated below
+their unfilled sibling (EST-FAMILY-ORDER); and lists measured headlines far from their prediction (EST-OUTLIER).
 
 It also checks **cross-record consistency**, not just whether referenced identifiers exist:
 

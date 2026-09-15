@@ -14,11 +14,11 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `materials.csv` | 102 | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
 | `grades.csv` | 155 | Exact commercial, study and resin-reference grades, each with a Role and a Status |
 | `profiles.csv` | 171 | Processing guidance and H2C routing, per grade |
-| `measurements.csv` | 2,049 | Individual property measurements, the unit of quantitative evidence |
+| `measurements.csv` | 2,222 | Individual property measurements, the unit of quantitative evidence |
 | `evidence.csv` | 478 | Chemical, environmental and application evidence |
 | `prices.csv` | 104 | Canadian price observations |
-| `sources.csv` | 243 | The source register, with access dates and hashes |
-| `coverage.csv` | 1,188 | Gaps, conflicts and unresolved items |
+| `sources.csv` | 244 | The source register, with access dates, hashes and a Citation role |
+| `coverage.csv` | 1,188 | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
 | `method.csv` | 48 | The rules the database was built under |
 | `reference.csv` | 114 | Generic reference envelopes, a drawing layer only |
 
@@ -26,7 +26,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 | Table | Rows | What it holds |
 |---|---:|---|
-| `headlines.csv` | 365 | Which measurement each headline shows (Use `value`), and measurements cited for a headline without being its value (Use `context`) |
+| `headlines.csv` | 366 | Which measurement each headline shows (Use `value`), and measurements cited for a headline without being its value (Use `context`) |
 | `material_links.csv` | 702 | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
 
 **Registry**
@@ -36,7 +36,18 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `properties.csv` | 32 | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
 | `headline_definitions.csv` | 6 | Every headline: kind, unit, value and related properties, direction, test load, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
 
-Counts are for snapshot 2026-09-13; `data/manifest.json` holds the current count and SHA-256 of every
+**Mappings**
+
+| Table | Rows | What it holds |
+|---|---:|---|
+| `family_entries.csv` | 5 | Canonical names that are families or aliases, not materials (D44), with why |
+| `family_members.csv` | 22 | The materials each family entry stands for, in search order |
+| `chamber_bands.csv` | 43 | Research chamber bands for materials whose sources publish no window, or why none is given |
+
+`data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
+Every column of every table, and every vocabulary, is listed in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).
+
+Counts are for snapshot 2026-09-13 after the 2026-09-15 source corrections; `data/manifest.json` holds the current count and SHA-256 of every
 table, and the build refuses to run when a table and the manifest disagree, so a count change is
 always visible in the commit that makes it.
 
@@ -65,6 +76,26 @@ Every column is declared with a type, a **role** and a meaning:
 A field also names the explicit missing states it accepts ("Not published", "Not applicable" and the
 others in `schema/vocab/missing-states.csv`), so a blank cell is never a value: nothing becomes zero,
 and nothing is silently empty.
+
+### Raw text and typed values
+
+What the build decides on is a typed column beside the raw text it came from (D49). A profile carries, per axis,
+the source's words ("Classic: 190 - 210 °C") and the state, minimum, maximum and requirement read from them; drying,
+enclosure and the hardened-nozzle requirement likewise; a measurement carries its Standard / load text and Test load
+MPa. The parsers check every typed value against its raw text on every build, and Parse review explains a deliberate
+difference. A vocabulary can carry what the build needs about a wording: each Moisture condition declares its State.
+
+### Classes that record intent
+
+- **Grade Variant** (`grade-variants.csv`): the product is a variant its material's Modifier / filler does not
+  describe (a lightweight additive; an undisclosed dense filler). Composition / filler says why. Its values stay
+  its own; the estimate model keeps them from pulling the family (D53).
+- **Source Citation role** (`citation-roles.csv`): cited, corroboration, register, provenance or not-retrieved
+  (D50). Nothing may cite a source that was not retrieved.
+- **Coverage Superseded**: a finding a later row for the same material and domain replaces; its text starts
+  "Superseded by C#####", and it leaves the views and the checks.
+- **Quarantined measurements** (Data status "Unresolved unit / layout"): kept with the reason, never a number, for
+  example a heat deflection pair whose methods and loads contradict each other.
 
 ### Properties that apply to some filaments only
 

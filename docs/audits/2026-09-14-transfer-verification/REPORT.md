@@ -1,6 +1,6 @@
 # Transfer verification, data cleanliness, estimates and screening (2026-09-14 to 2026-09-15)
 
-Branch `data/csv-source`, commits `38d6f75` to `4b00f90`. Not merged or pushed. The owner asked for four things:
+Branch `data/csv-source`, commits `38d6f75` onward (listed in the appendix). Pushed to the branch; not merged into `main`. The owner asked for four things:
 proof that the workbook reached the tables correctly; clean data; estimates and the other features working, with
 fixes; and a pipeline that stays robust, reviewable and debuggable as entries double on the same criteria.
 
@@ -139,3 +139,36 @@ At twice today's entries the gate takes about 0.3 s and compile with validation 
 4. **HyperLite PP** stays PP's representative grade, declared a variant. Whether a lightweight PP deserves its own
    material, as PLA Aero and ASA Aero have, is a scope decision for the owner.
 5. **Kimya PEBA-S** (R-KIMYA-PEBA-S-TDS) no longer downloads (HTTP 404); its recorded hash is the only copy.
+
+## Appendix: migrations
+
+Each is a script under `scripts/migrate/`, re-runnable, and each changed the data only through `table-io.mjs` with
+expected-value guards. m01 to m06 are the conversion (`npm run migration:verify` replays them); m07 to m09 were
+proven to leave the compiled database unchanged apart from listed display strings; m10 onwards are corrections
+against re-read sources, reviewable with `npm run data:diff -- 0a61cee`.
+
+| Migration | Commit | What it does |
+|---|---|---|
+| m01 types | conversion | Numbers, dates and booleans written canonically |
+| m02 headlines | conversion | Headline values become selections in `headlines.csv` |
+| m03 prices | conversion | Price medians and per-kg prices calculated, not stored |
+| m04 grade roles | conversion | Grade Role and Status |
+| m05 material links | conversion | A material's citations as rows |
+| m06 registry | conversion | `properties.csv` and `headline_definitions.csv` |
+| m07 text cleanup | `29c7d13` | Extraction artefacts out of text; 427 cells, every parsed value unchanged |
+| m08 typed columns | `3c587bb` | Typed process windows, drying, enclosure, hardened nozzle, test load (D49) |
+| m09 mappings | `f9f97ff` | Family entries, chamber bands and environment topics keyed by ID (D51) |
+| m10 source conditions | `3130bef` | Two-table data sheets' conditions; conditioned values convert to dry |
+| m11 grade variants | `ee02db8` | Variant column; HyperLite PP and Spectrum HDPE; iSANMATE PP's missing values |
+| m12 directions | `2b17bb5` | Two printed directions |
+| m13 Fiberon | `a9cd982` | Un-notched impacts, preparation notes, 22 values |
+| m14 Spectrum | `2d865d1` | 25 values, moulded specimens, notch states, HDT load spellings |
+| m15 Bambu Lab | `f441be7` | Notched impacts, a Silver-only value, 40 melt indices |
+| m16 other sources | `495fd09` | 68 values, 8 corrections; one quarantined HDT pair |
+| m17 iSANMATE ASA-GF | `8ade8fb` | Four values left out of m16 |
+| m18 review classes | `57574de` | Citation role, Superseded coverage, two spacing fixes |
+
+Other commits of the round: `38d6f75` transfer ledger; `999474c` rule codes; `f6b3f24` name references;
+`0a61cee` physical limits and estimate flags; `db4c35b` source-completeness audit; `ecf7d7d` screening back-test
+(D48); `f77c3bb` data:new, data:retire and interface fixes; `68df025` data dictionary and review snapshot;
+`4b00f90` interface check; `a4ce100` documentation.
