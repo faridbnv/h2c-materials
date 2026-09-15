@@ -14,10 +14,11 @@ const NORMALISE_PUNCT = (s) => String(s)
 
 // Nominal loads, with the spellings each accepts. 0.455 MPa is ASTM D648's low load and is the
 // same test point as ISO's 0.45; 1.80, 1.81, 1.82 and 1.820 are the same high load (MN/m² is MPa).
+// A decimal comma is read only beside the unit ("0,45 MPa"), never alone.
 // ISO 75-2 names its methods by letter ("ISO 75-2/A", "HDT A"): A is 1.80 MPa, B is 0.45 MPa.
 const LOAD_CLASSES = [
-  { load: 0.45, label: '0.45 MPa', patterns: [/0\.45[05]?\s*(?:MPa|MN\s*\/\s*m)/i, /0\.45[05]?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*B\b/i, /\bHDT\s*B\b/] },
-  { load: 1.8,  label: '1.8 MPa',  patterns: [/1\.8(?:[0-2]0?)?\s*(?:MPa|MN\s*\/\s*m)/i, /1\.8(?:[0-2]0?)?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*A\b/i, /\bHDT\s*A\b/] },
+  { load: 0.45, label: '0.45 MPa', patterns: [/0[.,]45[05]?\s*(?:MPa|MN\s*\/\s*m)/i, /0\.45[05]?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*B\b/i, /\bHDT\s*B\b/] },
+  { load: 1.8,  label: '1.8 MPa',  patterns: [/1[.,]8(?:[0-2]0?)?\s*(?:MPa|MN\s*\/\s*m)/i, /1\.8(?:[0-2]0?)?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*A\b/i, /\bHDT\s*A\b/] },
 ];
 
 const STANDARDS = [

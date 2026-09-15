@@ -104,6 +104,7 @@ test('HDT load is recovered across every spelling, and never invented', () => {
   assert.equal(parseHdtStandard('@ 1.820 Mpa').loadMPa, 1.8);
   assert.equal(parseHdtStandard('ISO 75-2/B').loadMPa, 0.45);
   assert.equal(parseHdtStandard('ISO 75-2, HDT A').loadMPa, 1.8);
+  assert.equal(parseHdtStandard('ISO 75-2, 0,45 MPa').loadMPa, 0.45, 'decimal comma beside the unit');
   for (const bare of ['ISO 75', 'Deflection', 'ASTM', 'ISO 75-1/2', 'D 648', '1.85 MPa', 'Not published']) {
     const h = parseHdtStandard(bare);
     assert.equal(h.loadStated, false, bare);

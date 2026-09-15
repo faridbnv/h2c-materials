@@ -258,7 +258,7 @@ function documentedConversion(key, kind, model) {
 function rawObservations(key, S, model) {
   const [pl, ph] = model.properties[key].plausibleValues;
   const t = transform(key, model);
-  const groups = new Map(), rejected = [];
+  const groups = new Map(), rejected = [], bounds = [];
   for (const m of S.pool) {
     const add = (entry) => {
       const g = `${m.id}|${entry.f}|${entry.kind}`;
@@ -270,10 +270,18 @@ function rawObservations(key, S, model) {
       const kind = kindOf(x, key, S.matrix(m));
       if (!kind) continue;
       if (x.value < pl || x.value > ph) { rejected.push({ key, materialId: m.id, material: m.name, measurementId: x.id, property: x.property, value: x.value, unit: x.unit }); continue; }
+      // A one-sided bound ("> 16.5 MPa", "< 0.8 %") says the value lies beyond it. Read as an exact point it became
+      // the most precise observation of all (PEBA's strength estimate 16.4-16.6 MPa); left out, elastomers lost
+      // the only evidence that they stretch hundreds of percent. It is kept at the bound with a documented
+      // half-width (estimate-model.json bounds.oneSided), and it limits its own material's estimate.
+      const side = x.interval && x.interval.hi == null ? 'lower' : x.interval && x.interval.lo == null ? 'upper' : null;
+      if (model.properties[key].scale === 'log' && !(x.value > 0)) continue;
+      if (side) bounds.push({ key, materialId: m.id, measurementId: x.id, gradeId: x.gradeId, kind, side, value: x.value });
       const lo = x.interval?.lo ?? x.value, hi = x.interval?.hi ?? x.value;
-      if (model.properties[key].scale === 'log' && !(x.value > 0 && lo > 0)) continue;
-      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, y: t(x.value), half: hi == null ? 0 : (t(hi) - t(lo)) / 2,
-        item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit } });
+      if (model.properties[key].scale === 'log' && !side && !(lo > 0)) continue;
+      const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
+      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
+        item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
     }
     // An elastomer's nominal hardness, from its product designation, informs its stiffness.
     if (key === 'tensileModulusXY' && S.info(m).morphology === 'elastomer') {
@@ -292,9 +300,9 @@ function rawObservations(key, S, model) {
   for (const e of groups.values()) {
     if (!ownerOfF.has(e.f)) ownerOfF.set(e.f, e.m.id);
     if (ownerOfF.get(e.f) !== e.m.id) continue;
-    out.push({ ...e, yRaw: e.ys.reduce((a, b) => a + b, 0) / e.ys.length, half: Math.max(...e.half) });
+    out.push({ ...e, yRaw: e.ys.reduce((a, b) => a + b, 0) / e.ys.length, half: Math.max(...e.half), bound: e.items.some((i) => i.bound) });
   }
-  return { raw: out, rejected, ownerOfF };
+  return { raw: out, rejected, bounds, ownerOfF };
 }
 
 /**
@@ -304,7 +312,8 @@ function rawObservations(key, S, model) {
  */
 function conversions(key, raw, model) {
   const byF = new Map();
-  for (const o of raw) { const g = `${o.m.id}|${o.f}`; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
+  // A bound is not an exact value, so it cannot calibrate a conversion.
+  for (const o of raw.filter((r) => !r.bound)) { const g = `${o.m.id}|${o.f}`; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
   const diffs = new Map();
   for (const kinds of byF.values()) {
     if (!kinds.has(HEAD[key])) continue;
@@ -356,7 +365,7 @@ function betweenProductSpread(key, raw, S) {
   const diffs = [];
   const byMaterial = new Map();
   for (const o of raw) {
-    if (!direct.has(o.kind) || S.info(o.m).morphology === 'elastomer') continue;
+    if (!direct.has(o.kind) || o.bound || S.info(o.m).morphology === 'elastomer') continue;
     if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, new Map());
     const fs = byMaterial.get(o.m.id); if (!fs.has(o.f)) fs.set(o.f, []); fs.get(o.f).push(o.yRaw);
   }
@@ -522,12 +531,13 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
   const zLikely = normalQuantile(0.5 + likely / 2), zPlausible = normalQuantile(0.5 + plausible / 2);
-  const diagnostics = { levels: model.levels, properties: {}, rejected: [], conflicts: [], outliers: [] };
+  const diagnostics = { levels: model.levels, properties: {}, rejected: [], bounds: [], conflicts: [], outliers: [] };
 
   for (const key of ESTIMATE_KEYS) {
     const inv = untransform(key, model);
-    const { raw, rejected, ownerOfF } = rawObservations(key, S, model);
+    const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model);
     diagnostics.rejected.push(...rejected);
+    diagnostics.bounds.push(...oneSided);
     const conv = conversions(key, raw, model);
     let obs = convert(key, raw, conv, S, model);
     const tmMean = meltingPoint(key, S, model).offset;
@@ -644,6 +654,14 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
         { side: 'upper', value: toModel(phi), sd: outerSd, why: `physical upper limit ${phi} ${h.unit}: ${model.bounds.plausibleValuesSd.why}` },
         ...(key === 'hdt045' ? [{ side: 'lower', value: model.bounds.hdtFloor.value, sd: model.bounds.hdtFloor.sd, why: `${model.bounds.hdtFloor.value} °C floor: ${model.bounds.hdtFloor.why}` }] : []),
       ];
+      // A bound its own grades publish with the headline's own semantics limits its estimate.
+      // For strength and elongation a printed part is strongest in XY, so a lower bound in an unstated direction
+      // bounds the XY value too; an upper bound does only with the headline's own semantics.
+      const limits = (b) => b.kind === HEAD[key] || (b.side === 'lower' && key !== 'hdt045' && key !== 'density' && b.kind === HEAD[key].replace(' XY', ' unk'));
+      for (const b of oneSided.filter((b) => b.materialId === subject.id && limits(b))) {
+        const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
+        bounds.push({ side: b.side, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
+      }
       if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
         bounds.push({ side: 'upper', value: S.tmOf(m), sd: model.bounds.meltingSd, why: `melting point ${S.tmOf(m)} °C: ${model.bounds.hdtAboveMelting}` });
       }

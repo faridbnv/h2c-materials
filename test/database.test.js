@@ -662,3 +662,30 @@ test('a declared grade variant explains its own offset instead of being an outli
   assert.ok(flagged((wb) => { wb.Grades.rows.find((g) => g.GradeID === 'G082-01').Variant = 'Not applicable'; }) > 0, 'without the declaration the lightweight product is flagged');
   assert.deepEqual(db.grades.filter((g) => g.variant).map((g) => `${g.id} ${g.variant}`), ['G082-01 lightweight additive', 'G085-01 undisclosed dense filler']);
 });
+
+// 2026-09-14: a one-sided bound is evidence of a limit, not an exact value. Read as a point, "> 16.5 MPa" pinned PEBA's
+// strength to 16.4-16.6 MPa; left out, elastomers lost the evidence that they stretch hundreds of percent.
+test('a one-sided bound informs its family, is marked, and limits its own material\'s estimate', () => {
+  const bounds = new Map(db.measurements.filter((m) => m.interval && (m.interval.lo == null || m.interval.hi == null)).map((m) => [m.id, m]));
+  assert.ok(bounds.size > 0);
+  let limited = 0;
+  for (const m of db.materials) {
+    for (const [key, h] of Object.entries(m.headline)) {
+      const e = h.estimate;
+      if (!e) continue;
+      for (const ev of e.evidence ?? []) {
+        for (const i of ev.items) {
+          const b = bounds.get(i.measurementId);
+          if (!b) continue;
+          assert.ok(i.bound, `${m.name} ${key}: ${i.measurementId} is a bound but not marked`);
+          // A lower bound on this material's own XY or unstated-direction strength or strain limits the estimate.
+          if (b.interval.hi == null && key !== 'density' && key !== 'hdt045' && ['XY', 'unknown'].includes(i.direction) && b.materialId === m.id) {
+            assert.ok(e.plausible.lo >= b.value * 0.97, `${m.name} ${key} plausible from ${e.plausible.lo}, below its published "> ${b.value}"`);
+            limited++;
+          }
+        }
+      }
+    }
+  }
+  assert.ok(limited > 0, 'at least one estimate is limited by its own bound');
+});

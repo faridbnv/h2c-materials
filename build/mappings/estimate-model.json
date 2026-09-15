@@ -653,6 +653,17 @@
       "log": 0.15,
       "linear": 10,
       "why": "properties.*.plausibleValues are physical outer limits. They reject impossible observations, and they bound every estimate softly, so a range cannot extend past what the property can physically be."
+    },
+    "oneSided": {
+      "half": {
+        "log": 0.25,
+        "linear": 10
+      },
+      "sd": {
+        "log": 0.02,
+        "linear": 1
+      },
+      "why": "A published bound (\"> 500 %\", \"> 16.5 MPa\") says the value lies beyond it. In the model it is an observation at the bound with this half-width (in the property's scale), so it informs its family without counting as an exact value; in the material's own estimate it is also a soft limit with this spread, so no range crosses a limit its own grade publishes."
     }
   },
   "_precisionComment": "How a likely range is described, per property: its high-to-low ratio on a log scale, its width in °C for heat deflection. Good: narrow enough to decide on. Fair: indicative. Poor: an order of magnitude only. Elongation of printed parts varies far more than stiffness, so its thresholds are wider.",
