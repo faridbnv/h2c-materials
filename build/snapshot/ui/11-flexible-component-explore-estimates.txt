@@ -1,7 +1,7 @@
-COUNT 9 shown PASS + UNKNOWN
-STATUS PASS 6 | UNKNOWN 16 | FAIL 75 | SCREENED 13
-6 of the 97 materials in this database meet these requirements
-16 more could not be checked for missing data, and are listed flagged. From the Flexible component template. Click any criterion to remove it.
+COUNT 10 shown PASS + UNKNOWN
+STATUS PASS 6 | UNKNOWN 17 | FAIL 75 | SCREENED 13
+6 of the 98 materials in this database meet these requirements
+17 more could not be checked for missing data, and are listed flagged. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -29,22 +29,27 @@ a measurement that was never made the headline. Hover for why.
 an estimate: the likely range, not a measurement. Hover it for what it rests on.
 n/a
 not applicable, such as heat deflection of an elastomer.
+?
+heat test load not stated, so it never passes a heat requirement; with estimates on, one far above it screens the material out.
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 CPE
 Copolyesters
- UNKNOWN 1,250 ~1.2–2.73† ~41.6–65.1† ~18.3–87.6† 80 — ☆
+ UNKNOWN 1,250 ~1.2–2.61† ~41.4–65.5† ~18.9–89.8† 80 — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.0109–0.214† ~13.8–29.6† ~727–1,380† n/a — ☆
+ UNKNOWN 905 ~0.0109–0.214† ~13.6–29.8† ~731–1,390† n/a — ☆
 PEBA
 Flexible Elastomers
- PASS 1,010 ~0.0388–0.138† ~17.3–25.2† 520 n/a — ☆
+ PASS 1,010 ~0.0384–0.138† ~17.3–25.4† 520 n/a — ☆
+PP
+Polyolefins
+ UNKNOWN 890 ~0.938–2.07† ~16.4–28.1† ~18.7–90† 92? — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.00856–0.0481† ~10.6–41.1† ~195–1,030† n/a — ☆
+ UNKNOWN 1,150 ~0.00856–0.0487† ~10.4–41.8† ~196–1,030† n/a — ☆
 TPU
 Flexible Elastomers
- PASS 1,200 0.029 ~31.6–64.6† 330 n/a — ☆
+ PASS 1,200 0.029 ~31.6–65.8† 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  PASS 1,180 0.0068 12 700 n/a —↗ ☆
@@ -56,4 +61,4 @@ Flexible Elastomers
  PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
 TPU for AMS
 Flexible Elastomers
- PASS 1,260 ~0.0211–0.118† 22.4 650 n/a 47.5↗ ☆
+ PASS 1,260 ~0.0206–0.116† 22.4 650 n/a 47.5↗ ☆

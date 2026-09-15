@@ -34,7 +34,7 @@ C00032,M074,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. 
 C00033,M076,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00034,M077,Grades,Superseded,"Superseded by C01111 (2026-09-14; was ""Resolved""): Exact current Bambu Support for PLA (New Version) grade and TDS recorded as G077-01 on 2026-09-13."
 C00035,M081,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
-C00036,M082,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
+C00036,M082,Grades,Gap,"1 distinct manufacturer (iSANMATE) documented against target 3. HyperLite PP is filed as PP Lightweight since 2026-09-15. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00037,M083,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00038,M084,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00039,M085,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
@@ -877,7 +877,7 @@ C00875,M081,Sparse properties,Gap,"Not published in sampled selected-grade evide
 C00876,M081,Comparability,Limited comparability,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00877,M082,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
 C00878,M082,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00879,M082,Print setup,Evidence recorded,iSANMATE PP recommends a 240-260 °C nozzle (recovered 2026-09-13 from the hash-matched TDS) and a 40-60 °C bed (P0104). HyperLite PP specimens were printed at 235 °C nozzle and 60 °C bed (P0103). No chamber temperature is published.
+C00879,M082,Print setup,Evidence recorded,iSANMATE PP recommends a 240-260 °C nozzle (recovered 2026-09-13 from the hash-matched TDS) and a 40-60 °C bed (P0104). No chamber temperature is published. HyperLite PP is filed as PP Lightweight since 2026-09-15.
 C00880,M082,Mechanical,Evidence recorded,"See specimen, direction, moisture, preparation and standard before comparing."
 C00881,M082,Thermal,Evidence recorded,"HDT, Tg and Vicat are not continuous-service ratings."
 C00882,M082,Moisture / environmental,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -1187,3 +1187,14 @@ C01185,M051,Grades,Evidence recorded,"G051-03 re-filed 2026-09-13 from G063-02 u
 C01186,M039,Grades,Evidence recorded,"G039-03 re-filed 2026-09-13 from G044-02 under M044: Polymaker PolyFlex TPU90 is a TPU. Its measurements, profiles, prices and evidence moved with it."
 C01187,M064,Print setup,Evidence recorded,"3DXSTAT ESD PA12 TDS: extrusion 265-285 °C, bed 90-110 °C (P0082), recovered 2026-09-13 from the hash-matched data sheet. The earlier window came from the retired Fiberon PA612-ESD duplicate."
 C01188,M008,Identity,Resolved,G008-01 and CoPE G091-02 are two columns of the Panchroma TDS V2.1 and shared one formulation key; separated 2026-09-13.
+C01189,M103,Grades,Gap,1 distinct manufacturer documented (3DXTECH HyperLite PP) against target 3.
+C01190,M103,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
+C01191,M103,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01192,M103,Print setup,Evidence recorded,HyperLite PP specimens were printed at 235 °C nozzle and 60 °C bed (P0172). No recommended window or chamber temperature is published.
+C01193,M103,Mechanical,Evidence recorded,"See specimen, direction, moisture, preparation and standard before comparing."
+C01194,M103,Thermal,Evidence recorded,"HDT, Tg and Vicat are not continuous-service ratings."
+C01195,M103,Moisture / environmental,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C01196,M103,Post-processing / application,Evidence recorded,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
+C01197,M103,Canadian price,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C01198,M103,Sparse properties,Gap,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
+C01199,M103,Comparability,Limited comparability,At least one observation lacks specimen or conditioning information; no family aggregation performed.

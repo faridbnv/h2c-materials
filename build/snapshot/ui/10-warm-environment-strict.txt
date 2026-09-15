@@ -1,6 +1,6 @@
-COUNT 21 shown PASS
-STATUS PASS 21 | UNKNOWN 36 | FAIL 40
-21 of the 97 materials in this database meet these requirements
+COUNT 22 shown PASS
+STATUS PASS 22 | UNKNOWN 36 | FAIL 40
+22 of the 98 materials in this database meet these requirements
 36 more could not be checked for missing data, and are left out. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -71,6 +71,9 @@ Polycarbonate
 PC-ABS
 Polymer Blends
  PASS 1,140 2.2 59* 75 126 — ☆
+PC-GF
+Polycarbonate
+ PASS 1,176 2.67 36.1 2.4 134 — ☆
 PET-CF
 PET Engineering
  PASS 1,290 4.73 74 4.5 205 116↗ ☆

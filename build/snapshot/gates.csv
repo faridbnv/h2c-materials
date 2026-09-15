@@ -101,3 +101,4 @@ M099,PEI / ULTEM,excluded,exceeds,exceeds,exceeds,unknown,required
 M100,PSU,excluded,exceeds,exceeds,unknown,unknown,required
 M101,PESU / PES,excluded,exceeds,exceeds,unknown,unknown,required
 M102,PPSU,excluded,exceeds,exceeds,exceeds,unknown,required
+M103,PP Lightweight,within,within,within,unknown,unknown,unknown

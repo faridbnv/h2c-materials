@@ -304,6 +304,7 @@ function tabBody(tab, c) {
         }).join('')}
       </div>
       <p class="fine">${esc((m.headlineBasis ?? '').replace(/[.\s]*$/, ''))}. Click any number to see the measurement behind it.</p>
+      ${m.identity?.notes && m.identity.notes !== 'Not applicable' ? `<p class="fine"><strong>About this entry:</strong> ${esc(m.identity.notes)}</p>` : ''}
       ${HEAD.map(([label, k]) => estimateBlock(m.headline[k], label)).join('')}
 
       <h3 class="sec">Can the H2C print it?</h3>

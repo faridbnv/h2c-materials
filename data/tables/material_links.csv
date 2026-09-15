@@ -564,7 +564,7 @@ M081,use,Q00308
 M081,use,Q00309
 M081,durability,Q00318
 M081,safety,Q00320
-M082,printing,P0103
+M082,printing,P0104
 M082,printing,Q00360
 M082,h2c-status,H2C-WIKI
 M082,h2c-status,H2C-MANUAL
@@ -701,3 +701,8 @@ M102,h2c-status,H2C-MANUAL
 M102,use,Q00343
 M102,durability,Q00318
 M102,safety,Q00320
+M103,printing,P0172
+M103,h2c-status,H2C-WIKI
+M103,h2c-status,H2C-MANUAL
+M103,durability,Q00318
+M103,safety,Q00320

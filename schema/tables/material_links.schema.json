@@ -3,6 +3,10 @@
   "title": "Material links",
   "description": "Records a material cites, one per row, in citation order. printing cites print profiles or evidence records (the first profile supplies the material's nozzle, bed and chamber guidance); h2c-status cites sources for its H2C status; use, durability and safety cite evidence records, which may be family context from another material. Environmental evidence is not listed: it is always the material's own environmental records.",
   "primaryKey": null,
+  "replacedWithin": [
+    "MaterialID",
+    "Link"
+  ],
   "uniqueKeys": [["MaterialID", "Link", "RecordID"]],
   "fields": [
     { "name": "MaterialID", "type": "string", "role": "editorial", "description": "Material that cites the record.", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true } },

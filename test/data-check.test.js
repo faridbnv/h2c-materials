@@ -55,7 +55,8 @@ test('a repeated primary key is caught', () => {
     const text = readFileSync(path, 'utf8');
     writeFileSync(path, text + text.split('\n')[2] + '\n');
     const m = messages(check(dir));
-    assert.ok(m.some((x) => /^data\/tables\/coverage\.csv:1190  C00002 CoverageID "C00002" repeats line 3; it must be unique$/.test(x)), m.join('\n'));
+    const line = text.split('\n').length;
+    assert.ok(m.some((x) => x === `data/tables/coverage.csv:${line}  C00002 CoverageID "C00002" repeats line 3; it must be unique`), m.join('\n'));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -144,6 +145,10 @@ test('replacing a headline\'s value measurement is an edit, not a deletion; drop
   assert.deepEqual(diffTables(schemas, (side) => (side === 'from' ? from : replaced)), [
     { table: 'headlines', record: 'M1 | hdt045 | value', action: 'Edited', field: 'MeasurementID', before: 'V1', after: 'V9' },
   ]);
+  // One citation of a headline replaced by another, in a different role, is an edit too.
+  const withReplace = { headlines: { ...schemas.headlines, replacedWithin: ['MaterialID', 'HeadlineKey'] } };
+  const repointed = 'MaterialID,HeadlineKey,MeasurementID,Use\nM1,hdt045,V8,context\nM1,hdt045,V2,context\nM1,hdt045,V3,context\n';
+  assert.deepEqual(diffTables(withReplace, (side) => (side === 'from' ? from : repointed)).map((c) => `${c.action} ${c.field}`), ['Edited MeasurementID', 'Edited Use']);
   const dropped = 'MaterialID,HeadlineKey,MeasurementID,Use\nM1,hdt045,V1,value\nM1,hdt045,V2,context\n';
   assert.deepEqual(diffTables(schemas, (side) => (side === 'from' ? from : dropped)).map((c) => c.action), ['Removed']);
 });

@@ -239,7 +239,8 @@ test('mis-filed products moved to the material they are, with everything recorde
   // PA-ESD keeps its own product, and the print window it gets is that product's.
   assert.deepEqual(byName('PA-ESD').gradeIds, ['G064-01']);
   assert.deepEqual([byName('PA-ESD').print.nozzleC.min, byName('PA-ESD').print.nozzleC.max], [265, 285]);
-  assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 147, evidence: 16 });
+  // 155 since audit 2026-09-15 (m25): HyperLite PP's eight measurements were re-filed under PP Lightweight.
+  assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 155, evidence: 16 });
 });
 
 test('an unstated-load heat headline carries a bracket from its matrix\'s load gap', () => {
@@ -338,7 +339,8 @@ test('values the registered sources publish are recorded as published', () => {
   // PLA's 3DXTECH value (V000008, 80 °C) states its load but is flagged physically implausible (m24): PLA's heat
   // deflection is estimated.
   assert.equal(x('V000008').implausible, true);
-  for (const n of ['PP', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
+  // HyperLite PP's 3DXTECH value belongs to PP Lightweight since m25; PP's heat deflection is iSANMATE's, load unstated.
+  for (const n of ['PP Lightweight', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
     const h = byName(n).headline.hdt045;
     assert.ok(h.loadStated && h.loadMPa === 0.45, `${n}: 3DXTECH prints "at 0.45 MPa (66psi)"`);
   }
@@ -498,6 +500,16 @@ test('a physically implausible value is kept and flagged, and backs no headline,
   // TPU for AMS's 1.19 GPa on a 68D elastomer no longer passes a rigid-part stiffness requirement.
   const ams = db.materials.find((m) => m.name === 'TPU for AMS').headline.tensileModulusXY;
   assert.ok(!ams.known && (ams.estimate?.plausible.hi ?? 0) < 1, `TPU for AMS stiffness ${JSON.stringify(ams.estimate?.plausible)}`);
+});
+
+test('HyperLite PP is its own material, PP describes unfilled polypropylene, and PC-GF headlines printed dry data', () => {
+  const pp = byName('PP'), light = byName('PP Lightweight'), pcgf = byName('PC-GF');
+  assert.equal(pp.representativeGrade, 'G082-02');
+  assert.equal(pp.headline.density.value, 890);
+  assert.ok(pp.headline.tensileModulusXY.estimate.plausible.hi < 2.5, 'unfilled PP stiffness estimate');
+  assert.equal(light.headline.density.value, 810);
+  assert.ok(!db.measurements.some((m) => m.gradeId === 'G082-01'), 'the retired HyperLite grade still holds active measurements');
+  assert.deepEqual(['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'].map((k) => pcgf.headline[k].value), [1176, 2.665, 36.1, 2.4, 134]);
 });
 
 test('PPA headlines its as-printed heat deflection, and its annealed value stays evidence', () => {
@@ -729,19 +741,20 @@ test('no estimate reaches past a physical limit, and calibration still holds', (
 
 // 2026-09-14: a grade declared a variant of its material (grades.csv Variant) explains its own offset. HyperLite
 // PP's 0.81 g/cc (a lightweight additive) was a model outlier and pulled PP's family; declared, it is neither.
-test('a declared grade variant explains its own offset instead of being an outlier', async () => {
+test('a declared grade variant explains its own offset instead of moving its family', async () => {
   const { loadTables, snapshotDate } = await import('../build/src/load.js');
   const { compile } = await import('../build/src/compile.js');
-  const flagged = (edit) => {
+  const pa66Stiffness = (edit) => {
     const wb = loadTables(join(root, 'data'));
     edit(wb);
-    const d = compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db;
-    const em = d.meta.estimateModel;
-    return [...em.outliers, ...em.conflicts].filter((o) => o.materialId === 'M082' && o.key === 'density').length;
+    return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db.materials.find((m) => m.name === 'PA66').headline.tensileModulusXY.estimate.centre;
   };
-  assert.equal(flagged(() => {}), 0);
-  assert.ok(flagged((wb) => { wb.Grades.rows.find((g) => g.GradeID === 'G082-01').Variant = 'Not applicable'; }) > 0, 'without the declaration the lightweight product is flagged');
-  assert.deepEqual(db.grades.filter((g) => g.variant).map((g) => `${g.id} ${g.variant}`), ['G082-01 lightweight additive', 'G085-01 undisclosed dense filler']);
+  // Spectrum PA6 Neat (3.4 GPa, 1.25 g/cm³) is a compound. Declared, it explains its own offset; undeclared, it lifts
+  // the unfilled polyamides' stiffness (audit 2026-09-15, B-11). HyperLite PP, once the test case, is its own material.
+  const declared = pa66Stiffness(() => {});
+  const undeclared = pa66Stiffness((wb) => { wb.Grades.rows.find((g) => g.GradeID === 'G049-01').Variant = 'Not applicable'; });
+  assert.ok(undeclared > declared * 1.05, `PA66 stiffness ${declared} declared, ${undeclared} undeclared`);
+  assert.deepEqual(db.grades.filter((g) => g.variant).map((g) => `${g.id} ${g.variant}`), ['G049-01 undisclosed dense filler', 'G082-01 lightweight additive', 'G085-01 undisclosed dense filler', 'G103-01 lightweight additive']);
 });
 
 // 2026-09-14: a one-sided bound is evidence of a limit, not an exact value. Read as a point, "> 16.5 MPa" pinned PEBA's

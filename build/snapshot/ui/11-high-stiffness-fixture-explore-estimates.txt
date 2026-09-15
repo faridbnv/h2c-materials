@@ -1,6 +1,6 @@
-COUNT 15 shown PASS + UNKNOWN
-STATUS PASS 10 | UNKNOWN 19 | FAIL 68 | SCREENED 14
-10 of the 97 materials in this database meet these requirements
+COUNT 16 shown PASS + UNKNOWN
+STATUS PASS 10 | UNKNOWN 19 | FAIL 69 | SCREENED 13
+10 of the 98 materials in this database meet these requirements
 19 more could not be checked for missing data, and are listed flagged. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -31,37 +31,40 @@ a measurement that was never made the headline. Hover for why.
 †
 an estimate: the likely range, not a measurement. Hover it for what it rests on.
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-ABS-CF PASS 1,110 5.21 ~46.9–57.5† 2 76 — ☆
+ABS-CF PASS 1,110 5.21 ~46.9–57.8† 2 76 — ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~3.85–8.12† ~54.8–94.6† ~2.47–13† 142 — ☆
+ UNKNOWN 1,140 ~3.86–7.92† ~54.3–95.1† ~2.46–12.9† 142 — ☆
 PA12-CF
 Nylon / Polyamide
- PASS 1,160 8 ~75.5–92.5† 2.1 150 — ☆
+ PASS 1,160 8 ~75.5–93.2† 2.1 150 — ☆
 PA12-GF
 Nylon / Polyamide
  PASS 1,230 7.8 ~83.1–101† 4.5 150 — ☆
+PA6
+Nylon / Polyamide
+ UNKNOWN 1,250 ~1.96–5.15† ~48.9–108† ~6.16–43.7† ~99.3–142† 163↗ ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN 1,030 5.14 91.9 2.6 175 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,180† ~2.95–6.78† ~60.4–97.8† ~2.48–7.25† ~172–209† — ☆
+ UNKNOWN ~1,090–1,190† ~3.24–6.23† ~60.2–98.6† ~2.4–6.98† ~172–209† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,080–1,200† ~3.44–7.93† ~71.7–120† ~2.94–9.77† ~216–257† — ☆
+ UNKNOWN ~1,070–1,160† ~3.93–7.72† ~71.4–121† ~2.83–9.35† ~217–258† — ☆
 PC-CF
 Polycarbonate
- PASS 1,360 6.2 ~71–85.5† 2 135 — ☆
+ PASS 1,360 6.2 ~71–85.9† 2 135 — ☆
 PE
 Polyolefins
- UNKNOWN 1,100 ~2.12–5.24† ~21.6–53.4† ~4.79–37.6† ~53.6–123† — ☆
+ UNKNOWN 1,100 ~2.26–5.14† ~26.5–58.9† ~5.1–34.7† ~55.1–117† — ☆
 PP-CF
 Polyolefins
  PASS 1,100 6.15 ~78.9–94.6† 1.5 124 — ☆
 PP-GF
 Polyolefins
- PASS 1,120 6.75 ~65.7–78.6† 1.7 139 — ☆
+ PASS 1,120 6.75 ~65.7–78.8† 1.7 139 — ☆
 PPA-CF
 High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆

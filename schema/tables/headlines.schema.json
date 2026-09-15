@@ -8,6 +8,10 @@
     "HeadlineKey",
     "Use"
   ],
+  "replacedWithin": [
+    "MaterialID",
+    "HeadlineKey"
+  ],
   "uniqueKeys": [
     [
       "MaterialID",

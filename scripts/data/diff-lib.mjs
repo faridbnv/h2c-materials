@@ -38,7 +38,26 @@ export function diffTables(schemas, readVersion) {
         if (a.header.includes(h) && (old[h] ?? null) !== (r[h] ?? null)) log.push({ table: name, record: id, action: 'Edited', field: h, before: old[h], after: r[h] });
       }
     }
-    for (const id of before.keys()) if (!after.has(id)) log.push({ table: name, record: id, action: 'Removed', field: null, before: null, after: null });
+    const removed = [...before.keys()].filter((id) => !after.has(id));
+    // A table may declare the fields within which one row replaces another (headlines: MaterialID and HeadlineKey).
+    // One citation removed and one added for the same material and headline is that citation replaced, not a
+    // deletion: re-pointing a headline at another measurement, as a context citation, must not read as data lost.
+    if (schema.replacedWithin && !schema.primaryKey) {
+      const within = (r) => schema.replacedWithin.map((f) => r[f]).join(' | ');
+      const addedIds = new Set(log.filter((c) => c.table === name && c.action === 'Added').map((c) => c.record));
+      const groups = new Map();
+      for (const id of removed) { const g = within(before.get(id)); if (!groups.has(g)) groups.set(g, { removed: [], added: [] }); groups.get(g).removed.push(id); }
+      for (const id of addedIds) { const g = within(after.get(id)); groups.get(g)?.added.push(id); }
+      for (const [g, { removed: [r, ...moreRemoved], added: [a, ...moreAdded] }] of groups) {
+        if (!r || !a || moreRemoved.length || moreAdded.length) continue;
+        removed.splice(removed.indexOf(r), 1);
+        const i = log.findIndex((c) => c.table === name && c.action === 'Added' && c.record === a);
+        const edits = b.header.filter((h) => (before.get(r)[h] ?? null) !== (after.get(a)[h] ?? null))
+          .map((h) => ({ table: name, record: `${g} (replaced)`, action: 'Edited', field: h, before: before.get(r)[h], after: after.get(a)[h] }));
+        log.splice(i, 1, ...edits);
+      }
+    }
+    for (const id of removed) log.push({ table: name, record: id, action: 'Removed', field: null, before: null, after: null });
   }
   return log;
 }

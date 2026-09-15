@@ -175,8 +175,8 @@ M037,density,V000719,value
 M037,tensileModulusXY,V000721,value
 M037,elongationXY,V000722,value
 M037,hdt045,V000726,value
-M038,tensileStrengthXY,V000740,value
-M038,elongationXY,V000742,value
+M038,tensileStrengthXY,V001835,value
+M038,elongationXY,V001837,value
 M039,density,V000752,value
 M039,tensileModulusXY,V000753,value
 M039,elongationXY,V000754,value
@@ -290,10 +290,10 @@ M081,density,V001470,value
 M081,tensileModulusXY,V001472,value
 M081,elongationXY,V001473,value
 M081,hdt045,V001477,value
-M082,density,V001490,value
-M082,tensileModulusXY,V001492,value
-M082,elongationXY,V001493,value
-M082,hdt045,V001496,value
+M082,density,V002053,value
+M082,tensileModulusXY,V001499,context
+M082,elongationXY,V001497,context
+M082,hdt045,V001501,value
 M083,density,V001502,value
 M083,tensileModulusXY,V001504,value
 M083,elongationXY,V001505,value
@@ -365,3 +365,10 @@ M102,tensileStrengthXY,V001660,value
 M102,elongationXY,V001662,value
 M102,hdt045,V001666,value
 M065,hdt045,V002065,value
+M103,density,V002226,value
+M103,tensileModulusXY,V002228,value
+M103,elongationXY,V002229,value
+M103,hdt045,V002232,value
+M038,density,V001829,value
+M038,tensileModulusXY,V001839,value
+M038,hdt045,V001831,value

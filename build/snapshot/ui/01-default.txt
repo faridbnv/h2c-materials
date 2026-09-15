@@ -1,4 +1,4 @@
-COUNT 97 materials no requirements set
+COUNT 98 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-91 materials in H2C scope
+92 materials in H2C scope
 2078 measurements, each traceable to a source
-90 have a density, 72 a modulus, 38 a Canadian price
+92 have a density, 73 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -140,7 +140,7 @@ Polycarbonate
  not tested 1,360 6.2 70* 2 135 — ☆
 PC-GF
 Polycarbonate
- not tested 1,176* 2.67* 40 9.5 125* — ☆
+ not tested 1,176 2.67 36.1 2.4 134 — ☆
 PC-PBT
 Polymer Blends
  not tested 1,200 1.85 43.2 4.6 107 — ☆
@@ -208,6 +208,9 @@ POM
 also called Acetal · Acetals
  not tested 1,420 1.87 50 11 160* — ☆
 PP
+Polyolefins
+ not tested 890 — 13.9* 460* 92? — ☆
+PP Lightweight
 Polyolefins
  not tested 810 1.65 38* 13 94 — ☆
 PP-CF

@@ -1,6 +1,6 @@
-COUNT 19 shown PASS
-STATUS PASS 19 | UNKNOWN 22 | FAIL 56
-19 of the 97 materials in this database meet these requirements
+COUNT 20 shown PASS
+STATUS PASS 20 | UNKNOWN 22 | FAIL 56
+20 of the 98 materials in this database meet these requirements
 22 more could not be checked for missing data, and are left out. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -55,6 +55,9 @@ Nylon / Polyamide
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
+PC-GF
+Polycarbonate
+ PASS 1,176 2.67 36.1 2.4 134 — ☆
 PETG Basic PASS 1,250 2.78 51 9.5 71 25↗ ☆
 PLA PASS 1,240 2.87 56* 8 80* — ☆
 PLA Translucent PASS 1,220 2.88 55.4 11 60 30↗ ☆
