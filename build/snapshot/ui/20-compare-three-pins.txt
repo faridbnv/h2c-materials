@@ -1,0 +1,73 @@
+COUNT 27 shown PASS + UNKNOWN
+STATUS PASS 15 | UNKNOWN 16 | FAIL 66 | SCREENED 4
+Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
+Template: Outdoor structural part. Missing data kept and flagged, estimates on (they never pass a material and may screen one out). Database snapshot 2026-09-13, build 2026-09-15. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
+Shortlisted 3, with each one's result against the requirements above:
+ASA-CF
+PASS
+CPE-CF
+UNKNOWN
+PA-ESD
+UNKNOWN
+Compare against
+nothing
+PLA
+PETG
+ABS
+ASA
+PC
+Print summary
+The |—| marks on a bar are the range or uncertainty the source reported. A * value is a measurement that was never made the headline, drawn as a tick, not a bar; hover it for why.
+Density kg/m³
+ASA-CF
+1,020
+CPE-CF
+1,160
+PA-ESD
+1,140
+ASA-CF: specimen not stated | CPE-CF: unknown · specimen not stated | PA-ESD: specimen not stated — conditions differ across columns
+Stiffness GPa
+ASA-CF
+4.2
+CPE-CF
+~2.29–5.22†
+PA-ESD
+~4.87–10.3†
+ASA-CF: XY · Printed specimen
+Strength MPa
+ASA-CF
+34
+CPE-CF
+~42–70.2†
+PA-ESD
+~58.8–104†
+ASA-CF: XY · Printed specimen
+Stretch before breaking %
+ASA-CF
+9.6
+CPE-CF
+~8.3–29.7†
+PA-ESD
+~3.46–12.6†
+ASA-CF: XY · Printed specimen
+Heat resistance °C
+ASA-CF
+110
+CPE-CF
+~58–93.2†
+PA-ESD
+142
+ASA-CF: Printed specimen | PA-ESD: specimen not stated — conditions differ across columns
+Price CAD/kg
+Not published for any pinned material.
+PROCESS REQUIREMENTS
+Material Nozzle within H2C Bed within H2C Chamber within H2C Hardened nozzle Drying
+ASA-CF yes yes yes required guidance published
+CPE-CF yes yes yes required guidance published
+PA-ESD yes yes not recorded not recorded not recorded
+EVIDENCE COMPLETENESS
+Material Measured Estimated Grades Measurements
+ASA-CF 5 of 6 — 1 20
+CPE-CF 1 of 6 4† 2 16
+PA-ESD 2 of 6 3† 1 8
+A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; hover it for what it rests on and whether it can screen.

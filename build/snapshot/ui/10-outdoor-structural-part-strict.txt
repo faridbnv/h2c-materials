@@ -1,0 +1,80 @@
+COUNT 15 shown PASS
+STATUS PASS 15 | UNKNOWN 16 | FAIL 66
+15 of the 97 materials in this database meet these requirements
+16 more could not be checked for missing data, and are left out. From the Outdoor structural part template. Click any criterion to remove it.
+Why the rest were excluded
+Clear requirements
+Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
+In the H2C research scope
+×
+A build material, not a support
+×
+Heat resistance at least 100 °C
+×
+Stiffness at least 3 GPa
+×
+Density at most 1500 kg/m³
+×
+TRACKED ONLY
+Price at most 100 CAD/kg
+×
+What this database cannot answer
+Properties
+Printing
+Compare against
+nothing
+PLA
+PETG
+ABS
+ASA
+PC
+—
+not published. Not zero, and not a low value.
+*
+a measurement that was never made the headline. Hover for why.
+Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
+out of stock
+ ☆
+PA12-CF
+Nylon / Polyamide
+ PASS 1,160 8 72* 2.1 150 — ☆
+PA12-GF
+Nylon / Polyamide
+ PASS 1,230 7.8 82* 4.5 150 — ☆
+PA6-CF
+Nylon / Polyamide
+ PASS 1,090 4.43 102 5.8 186 110↗ ☆
+PA612-CF
+Nylon / Polyamide
+ PASS 1,030 5.14 91.9 2.6 175 — ☆
+PA612-ESD
+Nylon / Polyamide
+ PASS 1,100 4.29 84.3 3 157 — ☆
+PAHT-CF
+Nylon / Polyamide
+ PASS 1,060 3.86 92 8.4 194 124↗ ☆
+PC-CF
+Polycarbonate
+ PASS 1,360 6.2 70* 2 135 — ☆
+PET-CF
+PET Engineering
+ PASS 1,290 4.73 74 4.5 205 116↗ ☆
+PP-CF
+Polyolefins
+ PASS 1,100 6.15 78* 1.5 124 — ☆
+PP-GF
+Polyolefins
+ PASS 1,120 6.75 65* 1.7 139 — ☆
+PPA-CF
+High-Performance Engineering
+ PASS 1,250 11.8 168 3.2 227 255↗ ☆
+PPA-GF
+High-Performance Engineering
+ PASS 1,280 6.56 106 2.1 227 — ☆
+PPS-CF
+High-Performance Engineering
+ PASS 1,260 8.23 87 1.2 264 221↗ ☆
+PPS-GF
+High-Performance Engineering
+ PASS 1,360 5.76 72 1.6 241 — ☆

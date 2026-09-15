@@ -1,0 +1,59 @@
+COUNT 10 shown PASS
+STATUS PASS 10 | UNKNOWN 18 | FAIL 69
+10 of the 97 materials in this database meet these requirements
+18 more could not be checked for missing data, and are left out. From the High-stiffness fixture template. Click any criterion to remove it.
+Why the rest were excluded
+Clear requirements
+Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
+In the H2C research scope
+×
+A build material, not a support
+×
+Stiffness at least 5 GPa
+×
+TRACKED ONLY
+Heat resistance at least 90 °C
+×
+What this database cannot answer
+Properties
+Printing
+Compare against
+nothing
+PLA
+PETG
+ABS
+ASA
+PC
+—
+not published. Not zero, and not a low value.
+*
+a measurement that was never made the headline. Hover for why.
+Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+ABS-CF PASS 1,110 5.21 46* 2 76 — ☆
+PA12-CF
+Nylon / Polyamide
+ PASS 1,160 8 72* 2.1 150 — ☆
+PA12-GF
+Nylon / Polyamide
+ PASS 1,230 7.8 82* 4.5 150 — ☆
+PC-CF
+Polycarbonate
+ PASS 1,360 6.2 70* 2 135 — ☆
+PP-CF
+Polyolefins
+ PASS 1,100 6.15 78* 1.5 124 — ☆
+PP-GF
+Polyolefins
+ PASS 1,120 6.75 65* 1.7 139 — ☆
+PPA-CF
+High-Performance Engineering
+ PASS 1,250 11.8 168 3.2 227 255↗ ☆
+PPA-GF
+High-Performance Engineering
+ PASS 1,280 6.56 106 2.1 227 — ☆
+PPS-CF
+High-Performance Engineering
+ PASS 1,260 8.23 87 1.2 264 221↗ ☆
+PPS-GF
+High-Performance Engineering
+ PASS 1,360 5.76 72 1.6 241 — ☆

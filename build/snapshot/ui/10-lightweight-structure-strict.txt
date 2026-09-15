@@ -1,0 +1,73 @@
+COUNT 19 shown PASS
+STATUS PASS 19 | UNKNOWN 22 | FAIL 56
+19 of the 97 materials in this database meet these requirements
+22 more could not be checked for missing data, and are left out. From the Lightweight structure template. Click any criterion to remove it.
+Why the rest were excluded
+Clear requirements
+Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
+In the H2C research scope
+×
+A build material, not a support
+×
+Density at most 1250 kg/m³
+×
+Stiffness at least 2.5 GPa
+×
+What this database cannot answer
+Properties
+Printing
+Compare against
+nothing
+PLA
+PETG
+ABS
+ASA
+PC
+—
+not published. Not zero, and not a low value.
+*
+a measurement that was never made the headline. Hover for why.
+Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+ABS-CF PASS 1,110 5.21 46* 2 76 — ☆
+ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
+ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
+out of stock
+ ☆
+ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
+PA12-CF
+Nylon / Polyamide
+ PASS 1,160 8 72* 2.1 150 — ☆
+PA12-GF
+Nylon / Polyamide
+ PASS 1,230 7.8 82* 4.5 150 — ☆
+PA6-CF
+Nylon / Polyamide
+ PASS 1,090 4.43 102 5.8 186 110↗ ☆
+PA6-GF
+Nylon / Polyamide
+ PASS 1,140 2.85 75 3.9 182 77↗ ☆
+PA612-CF
+Nylon / Polyamide
+ PASS 1,030 5.14 91.9 2.6 175 — ☆
+PA612-ESD
+Nylon / Polyamide
+ PASS 1,100 4.29 84.3 3 157 — ☆
+PAHT-CF
+Nylon / Polyamide
+ PASS 1,060 3.86 92 8.4 194 124↗ ☆
+PETG Basic PASS 1,250 2.78 51 9.5 71 25↗ ☆
+PLA PASS 1,240 2.87 56* 8 80 — ☆
+PLA Translucent PASS 1,220 2.88 55.4 11 60 30↗ ☆
+PLA-CF PASS 1,220 2.79 38 8.4 55 41↗ ☆
+PP-CF
+Polyolefins
+ PASS 1,100 6.15 78* 1.5 124 — ☆
+PP-GF
+Polyolefins
+ PASS 1,120 6.75 65* 1.7 139 — ☆
+PPA
+High-Performance Engineering
+ PASS 1,140 2.86 76 3.4 131 — ☆
+PPA-CF
+High-Performance Engineering
+ PASS 1,250 11.8 168 3.2 227 255↗ ☆

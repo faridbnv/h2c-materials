@@ -1,0 +1,89 @@
+COUNT 23 shown PASS
+STATUS PASS 23 | UNKNOWN 34 | FAIL 40
+23 of the 97 materials in this database meet these requirements
+34 more could not be checked for missing data, and are left out. From the Warm environment template. Click any criterion to remove it.
+Why the rest were excluded
+Clear requirements
+Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
+In the H2C research scope
+×
+A build material, not a support
+×
+Chamber temperature is within range
+×
+Nozzle temperature is within range
+×
+Heat resistance at least 80 °C
+×
+What this database cannot answer
+Properties
+Printing
+Compare against
+nothing
+PLA
+PETG
+ABS
+ASA
+PC
+—
+not published. Not zero, and not a low value.
+*
+a measurement that was never made the headline. Hover for why.
+Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+ABS PASS 1,050 2.2 33 10.5 87 26↗ ☆
+ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
+ASA PASS 1,050 2.45 37 9.2 100 39↗ ☆
+ASA Aero PASS 990 2.01 32 1.6 85 64↗ ☆
+ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
+out of stock
+ ☆
+ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
+CPE
+Copolyesters
+ PASS 1,250 — 47* 150* 80 — ☆
+HIPS
+Styrenics
+ PASS 1,040 1.35 40* 18 80 43↗ ☆
+PA12-CF
+Nylon / Polyamide
+ PASS 1,160 8 72* 2.1 150 — ☆
+PA6-CF
+Nylon / Polyamide
+ PASS 1,090 4.43 102 5.8 186 110↗ ☆
+PA6-GF
+Nylon / Polyamide
+ PASS 1,140 2.85 75 3.9 182 77↗ ☆
+PA6/66
+Nylon / Polyamide
+ PASS 1,120 2.22 66.2 9.9 111 — ☆
+PA612-CF
+Nylon / Polyamide
+ PASS 1,030 5.14 91.9 2.6 175 — ☆
+PA612-ESD
+Nylon / Polyamide
+ PASS 1,100 4.29 84.3 3 157 — ☆
+PAHT-CF
+Nylon / Polyamide
+ PASS 1,060 3.86 92 8.4 194 124↗ ☆
+PC
+Polycarbonate
+ PASS 1,200 2.11 62 3.8 112 51↗ ☆
+PC FR
+Polycarbonate
+ PASS 1,180 1.67 60 2.4 113 70↗ ☆
+PC-ABS
+Polymer Blends
+ PASS 1,140 2.2 59* 75 126 — ☆
+PET-CF
+PET Engineering
+ PASS 1,290 4.73 74 4.5 205 116↗ ☆
+PET-GF
+PET Engineering
+ PASS 1,430 4.14 59.9 4 81.6 — ☆
+PLA PASS 1,240 2.87 56* 8 80 — ☆
+PP-CF
+Polyolefins
+ PASS 1,100 6.15 78* 1.5 124 — ☆
+PPS-GF
+High-Performance Engineering
+ PASS 1,360 5.76 72 1.6 241 — ☆

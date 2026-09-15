@@ -1,0 +1,48 @@
+COUNT 6 shown PASS
+STATUS PASS 6 | UNKNOWN 16 | FAIL 75
+6 of the 97 materials in this database meet these requirements
+16 more could not be checked for missing data, and are left out. From the Flexible component template. Click any criterion to remove it.
+Why the rest were excluded
+Clear requirements
+Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
+In the H2C research scope
+×
+A build material, not a support
+×
+Stretch before breaking at least 100 %
+×
+What this database cannot answer
+Properties
+Printing
+Compare against
+nothing
+PLA
+PETG
+ABS
+ASA
+PC
+—
+not published. Not zero, and not a low value.
+*
+a measurement that was never made the headline. Hover for why.
+n/a
+not applicable, such as heat deflection of an elastomer.
+Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+PEBA
+Flexible Elastomers
+ PASS 1,010 0.1* 16.5* 520 n/a — ☆
+TPU
+Flexible Elastomers
+ PASS 1,200 0.029 30* 330 74* — ☆
+TPU 85A
+Flexible Elastomers
+ PASS 1,180 0.0068 12 700 n/a —↗ ☆
+TPU 90A
+Flexible Elastomers
+ PASS 1,240 0.0053 12.5 650 n/a 54↗ ☆
+TPU 95A HF
+Flexible Elastomers
+ PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
+TPU for AMS
+Flexible Elastomers
+ PASS 1,260 1.19 22.4 650 n/a 47.5↗ ☆

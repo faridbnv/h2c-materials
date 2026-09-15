@@ -25,7 +25,10 @@ jobs:
         run: npm ci --prefix build
 
       - name: Verify
-        run: npm run verify
+        run: CHROME=$(command -v google-chrome || command -v chromium) npm run verify
+
+      - name: Interface views match the committed snapshot (Chrome is on ubuntu-latest)
+        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/ui-probe.mjs --require
 
       - name: No deleted records since the previous commit
         run: |
