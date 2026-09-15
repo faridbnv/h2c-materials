@@ -851,7 +851,8 @@
         "appliesTo",
         "appliesToText",
         "notApplicableReason",
-        "description"
+        "description",
+        "replacedBy"
       ],
       "properties": {
         "name": {
@@ -886,6 +887,12 @@
           ]
         },
         "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "replacedBy": {
           "type": [
             "string",
             "null"

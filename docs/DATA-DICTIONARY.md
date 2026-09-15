@@ -355,6 +355,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Applies to | canonical | string |  |  |  | Which materials the property applies to, as 'Field: value \| value; Field: value' over Family, Base polymer, Modifier / filler, Role, Scope or H2C status. Blank: all materials. A measurement of a material outside it is a build error. |
 | Not applicable reason | prose | string |  |  |  | Why the property does not apply outside 'Applies to'; required when it is set. |
 | Description | prose | string |  |  |  | What the property measures, where that is not obvious from its name. |
+| Replaced by | canonical | string |  |  | → properties.Property | The property that replaces this one, when two names turned out to be one test. Blank: current. A replaced property keeps its record (nothing is deleted) and no measurement or headline may use it. |
 
 ### reference
 

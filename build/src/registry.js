@@ -67,9 +67,15 @@ export function compileRegistry(wb, issues) {
       name: r.Property, domain: r.Domain, units: list(r.Units),
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
       description: r.Description ?? null,
+      replacedBy: r['Replaced by'] ?? null,
     };
   });
   const propertyByName = new Map(properties.map((p) => [p.name, p]));
+  // A replaced property names a current one (audit 2026-09-15: the two Izod names are one test, migration m22).
+  for (const p of properties.filter((x) => x.replacedBy)) {
+    const next = propertyByName.get(p.replacedBy);
+    if (!next || next.replacedBy) err('REGISTRY-REPLACED', `properties ${p.name}`, `Replaced by "${p.replacedBy}", which is ${next ? 'itself replaced' : 'not a property'}`);
+  }
 
   const headlines = wb['Headline definitions'].rows.map((r) => {
     const where = `headline_definitions ${r.HeadlineKey}`;
@@ -86,6 +92,9 @@ export function compileRegistry(wb, issues) {
       tableColumn: bool(r['Table column']), estimated: bool(r.Estimated), referenceProperty: orNull(r['Reference property']),
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
+    for (const name of [...h.valueProperties, ...h.relatedProperties]) {
+      if (propertyByName.get(name)?.replacedBy) err('REGISTRY-REPLACED', where, `${name} is replaced by ${propertyByName.get(name).replacedBy}; name that instead`);
+    }
     if (h.kind === 'measurement') {
       if (!h.valueProperties.length) err('REGISTRY-HEADLINE', where, 'A measurement headline needs at least one value property');
       if (!h.evidenceGroup) err('REGISTRY-HEADLINE', where, 'A measurement headline needs an evidence group');

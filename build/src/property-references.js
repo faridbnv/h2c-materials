@@ -24,7 +24,6 @@ export const CODE_PROPERTY_NAMES = {
   'Tensile yield strength': 'estimates.js (strength endpoint)',
   'Flexural strength': 'estimates.js (strength conversion)',
   'Charpy strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
-  'Izod strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
   'Izod impact strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
   'Elongation at break': 'estimates.js (elongation kind), measurement-rules.js (endpoint locator rule)',
   'Elongation at yield': 'estimates.js (elongation bound)',

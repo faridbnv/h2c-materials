@@ -90,3 +90,16 @@ test('a registry row cannot switch on estimation for a headline the model does n
   r.headlines.find((h) => h.key === 'priceCADkg').estimated = true;
   assert.throws(() => estimateKeys(r), /marks priceCADkg Estimated, but the estimate model has no entry for it/);
 });
+
+test('a replaced property keeps its record, and no measurement or headline may use it (Izod merge, m22)', () => {
+  const izod = registry.properties.find((p) => p.name === 'Izod strength');
+  assert.equal(izod.replacedBy, 'Izod impact strength');
+  assert.ok(!build().errors.some((e) => /replaced by/.test(e)), 'the tables use no replaced property');
+  const reused = build((wb) => { wb.Properties.rows.find((r) => r.Property === 'Izod impact strength').Property = 'Izod strength'; }).errors;
+  assert.ok(reused.some((e) => /^measurements V\d+: Izod strength is replaced by Izod impact strength$/.test(e)), reused.slice(0, 5).join(' | '));
+  const chained = build((wb) => {
+    wb['Property registry'].rows.find((r) => r.Property === 'Izod impact strength')['Replaced by'] = 'Charpy strength';
+    wb['Property registry'].rows.find((r) => r.Property === 'Charpy strength')['Replaced by'] = 'Izod impact strength';
+  }).errors;
+  assert.ok(chained.some((e) => /itself replaced/.test(e)), chained.slice(0, 5).join(' | '));
+});

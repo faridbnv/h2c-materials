@@ -43,6 +43,7 @@ export const RULES = {
   'REGISTRY-APPLIES-TO': r('error', 'registry', 'An Applies to rule is malformed, tests an unknown field, or names a value no material has.', 'Write "Field: value | value" over Family, Base polymer, Modifier / filler, Role, Scope or H2C status.'),
   'REGISTRY-NA-REASON': r('error', 'registry', 'Applies to is set without a Not applicable reason.', 'Say why the property does not apply elsewhere.'),
   'REGISTRY-CODE-REFERENCE': r('error', 'registry', 'Code relies on a property name that is not in properties.csv.', 'Rename the property in build/src/property-references.js and the code that uses it, or restore the property.'),
+  'REGISTRY-REPLACED': r('error', 'registry', 'A property replaced by another is still used by a measurement or a headline, or its replacement is missing or itself replaced.', 'Move the rows to the replacement with a migration; keep the replaced record.'),
   'REGISTRY-HEADLINE': r('error', 'registry', 'A headline definition is inconsistent (value properties, evidence group, unit, price kind).', 'Correct the definition in headline_definitions.csv.'),
 
   // ---- measurements (build/src/measurement-rules.js) -----------------------------------------------------

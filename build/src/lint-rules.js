@@ -130,7 +130,7 @@ export function lintData(tables, schemas) {
         if (num(lo) < num(hi)) add('MEAS-PHYSICS-HDT-LOADS', 'measurements', lo.MeasurementID, 'Normalized value', `${num(lo)} °C at 0.45 MPa < ${num(hi)} °C at 1.8 MPa (${hi.MeasurementID})`);
       }
     }
-    for (const property of ['Tensile modulus', 'Flexural modulus', 'Tensile strength (endpoint unspecified)', 'Tensile break strength', 'Flexural strength', 'Charpy strength', 'Izod strength', 'Izod impact strength']) {
+    for (const property of ['Tensile modulus', 'Flexural modulus', 'Tensile strength (endpoint unspecified)', 'Tensile break strength', 'Flexural strength', 'Charpy strength', 'Izod impact strength']) {
       const stiffness = /modulus/.test(property);
       for (const z of of(property, (r) => r.Direction === 'Z')) {
         for (const xy of of(property, (r) => r.Direction === 'XY' && r['Normalized unit'] === z['Normalized unit'] && r.Notch === z.Notch)) {

@@ -9,6 +9,7 @@
     { "name": "Units", "type": "list", "role": "canonical", "description": "Canonical units a numeric measurement of this property may carry. Different entries are not interconvertible (J/m and kJ/m², Shore A and Shore D).", "delimiter": ";", "item": { "vocabulary": "units" }, "constraints": { "required": true } },
     { "name": "Applies to", "type": "string", "role": "canonical", "description": "Which materials the property applies to, as 'Field: value | value; Field: value' over Family, Base polymer, Modifier / filler, Role, Scope or H2C status. Blank: all materials. A measurement of a material outside it is a build error.", "constraints": {} },
     { "name": "Not applicable reason", "type": "string", "role": "prose", "description": "Why the property does not apply outside 'Applies to'; required when it is set.", "constraints": {} },
-    { "name": "Description", "type": "string", "role": "prose", "description": "What the property measures, where that is not obvious from its name.", "constraints": {} }
+    { "name": "Description", "type": "string", "role": "prose", "description": "What the property measures, where that is not obvious from its name.", "constraints": {} },
+    { "name": "Replaced by", "type": "string", "role": "canonical", "description": "The property that replaces this one, when two names turned out to be one test. Blank: current. A replaced property keeps its record (nothing is deleted) and no measurement or headline may use it.", "reference": { "table": "properties", "field": "Property" }, "constraints": {} }
   ]
 }

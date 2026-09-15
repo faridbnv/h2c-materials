@@ -71,6 +71,7 @@ export function measurementIssues(db, wb) {
   for (const m of db.measurements) {
     const p = properties.get(m.property);
     if (!p) { error('MEAS-PROPERTY-UNREGISTERED', `measurements ${m.id}`, `Property "${m.property}" is not in properties.csv`); continue; }
+    if (p.replacedBy) error('REGISTRY-REPLACED', `measurements ${m.id}`, `${m.property} is replaced by ${p.replacedBy}`);
     if (m.numeric && !p.units.includes(m.unit)) error('MEAS-UNIT', `measurements ${m.id}`, `${m.property} in ${m.unit}; properties.csv allows ${p.units.join(', ')}`);
     const mat = materials.get(m.materialId);
     if (mat && !applies(p.appliesTo, mat)) error('MEAS-NOT-APPLICABLE', `measurements ${m.id}`, `${m.property} does not apply to ${mat.name} (${p.appliesToText}); file it under the right material or widen Applies to`);

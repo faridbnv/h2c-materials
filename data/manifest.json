@@ -27,7 +27,7 @@
     },
     "measurements": {
       "rows": 2233,
-      "sha256": "f3c237198217b40bbe661e600d31fbe16f93193fcd1ef2ba3f58291cae5c25e2"
+      "sha256": "2b4d5a2eb65ad41239962e6ec1df81d54839e16a80affc27bec20ebb38d6b07a"
     },
     "evidence": {
       "rows": 478,
@@ -63,7 +63,7 @@
     },
     "properties": {
       "rows": 32,
-      "sha256": "cd5cdb7669dd2d0e32482cd2bc93ab68af7b87b339d4fe466868d931fe284f84"
+      "sha256": "16a9218bae5b2aa2e5b05e7ec737d65751c053290d10eeb67ee53c0a34dfa987"
     },
     "headline_definitions": {
       "rows": 6,
