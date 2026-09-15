@@ -72,8 +72,10 @@ export function lintData(tables, schemas) {
 
   // Measurements.
   const measurements = (tables.measurements?.rows ?? []).filter((r) => !DATA_STATUS[r['Data status']]?.retiredDuplicate);
-  const dupKey = (r) => ['GradeID', 'Property', 'Normalized value', 'Normalized unit', 'Direction', 'Standard / load', 'Notch', 'Moisture condition',
-    'Post-processing', 'Specimen type', 'Specimen / print parameters', 'SourceID', 'Locator', 'Stress max MPa', 'Stress min MPa'].map((f) => r[f]).join('\u0000');
+  // A fatigue measurement's stresses are part of what makes it distinct (data/tables/fatigue_tests.csv).
+  const fatigue = new Map((tables.fatigue_tests?.rows ?? []).map((f) => [f.MeasurementID, f]));
+  const dupKey = (r) => [...['GradeID', 'Property', 'Normalized value', 'Normalized unit', 'Direction', 'Standard / load', 'Notch', 'Moisture condition',
+    'Post-processing', 'Specimen type', 'Specimen / print parameters', 'SourceID', 'Locator'].map((f) => r[f]), ...['Stress max MPa', 'Stress min MPa'].map((f) => fatigue.get(r.MeasurementID)?.[f] ?? 'Not applicable')].join('\u0000');
   const seen = new Map();
   for (const r of measurements) {
     const k = dupKey(r);

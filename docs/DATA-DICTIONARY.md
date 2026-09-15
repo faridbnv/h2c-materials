@@ -16,6 +16,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [evidence](#evidence) | EvidenceID | One row per finding: chemical exposure, flammability, application, durability, safety and similar evidence. |
 | [family_entries](#family_entries) | MaterialID | Canonical names that are families or aliases, not materials (D44). Each is a materials.csv row with Scope Family entry; it owns no product, carries no value, and search answers with its members (family_members.csv). The build fails if this table and the Scope disagree. |
 | [family_members](#family_members) | FamilyMaterialID + MemberMaterialID | The materials a family entry stands for, in the order search lists them. A member must be an in-scope material, not another family entry (checked by the build). |
+| [fatigue_tests](#fatigue_tests) | MeasurementID | The loading of a fatigue life measurement: one row per Fatigue life measurement in measurements.csv, which holds its cycles, source and conditions. A property family with its own test parameters is a child table like this one, not a block of columns every measurement carries. |
 | [grades](#grades) | GradeID | One row per exact commercial, study or resin-reference grade. A grade belongs to exactly one material. |
 | [headline_definitions](#headline_definitions) | HeadlineKey | One row per headline the selector compares materials on. The build and the app read everything about a headline from here: which measurements may back it, its unit, direction and load, its labels, filter, chart axis, table column and export header. A new headline is a new row plus its selections in headlines.csv. |
 | [headlines](#headlines) | MaterialID + HeadlineKey + MeasurementID | Which measurement each material's headline shows. One row per citation: Use value selects the measurement whose value is the headline; Use context keeps a measurement cited for that headline without being its value. No value row means the headline is Not published. The number lives only in the measurement. |
@@ -54,6 +55,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | MaterialID | canonical | string | yes |  | → materials.MaterialID | Material reviewed. |
 | Domain | canonical | string | yes |  | [coverage-domains](#vocab-coverage-domains) | Domain reviewed. |
 | Status | editorial | string | yes |  | [coverage-status](#vocab-coverage-status) | Coverage status; must agree with the records. |
+| Manufacturer count | canonical | number | yes | Not applicable |  | For a current Grades finding: how many distinct manufacturers its procurement grades name. The validator checks it against the grades, and checks the Finding's own words against it. Not applicable elsewhere. |
 | Finding | prose | string | yes |  |  | Finding. |
 
 ### evidence
@@ -93,6 +95,20 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|---|---|---|---|
 | FamilyMaterialID | editorial | string | yes |  | → family_entries.MaterialID | The family entry. |
 | MemberMaterialID | editorial | string | yes |  | → materials.MaterialID | A material it stands for. |
+
+### fatigue_tests
+
+`data/tables/fatigue_tests.csv` (Fatigue tests). The loading of a fatigue life measurement: one row per Fatigue life measurement in measurements.csv, which holds its cycles, source and conditions. A property family with its own test parameters is a child table like this one, not a block of columns every measurement carries.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| MeasurementID | key | string | yes |  | → measurements.MeasurementID | The Fatigue life measurement. |
+| Stress max MPa | raw | number | yes | Not applicable |  | Maximum stress. |
+| Stress min MPa | raw | number | yes | Not applicable |  | Minimum stress. |
+| Stress amplitude MPa | raw | number | yes | Not applicable |  | Stress amplitude. |
+| Frequency Hz | raw | number | yes | Not applicable |  | Loading frequency. |
+| Load ratio R | raw | number | yes | Not applicable |  | Load ratio. |
+| Run-out | raw | boolean | yes | Not applicable |  | Specimen reached run-out without failure. |
 
 ### grades
 
@@ -190,7 +206,6 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Best uses | prose | string | yes |  |  | Documented best uses. |
 | Limitations | prose | string | yes |  |  | Documented limitations. |
 | Full name | canonical | string | yes |  |  | Expanded polymer name. |
-| Original category | canonical | string | yes |  | [families](#vocab-families) | Category from the canonical master list. |
 | Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. |
 | Abbreviation | canonical | string | yes |  |  | Short display name. |
 | Normalized name | canonical | string | yes |  |  | Search-normalized name. |
@@ -233,6 +248,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Direction | canonical | string | yes |  | [directions](#vocab-directions) | Print direction of the specimen. |
 | Moisture condition | canonical | string | yes |  | [moisture-conditions](#vocab-moisture-conditions) | Moisture state at test. |
 | Post-processing | raw | string | yes |  | [post-processing](#vocab-post-processing) | Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary. |
+| Anneal °C | canonical | number | yes | Not published, Not applicable |  | Annealing temperature the Post-processing wording states; the build decides on this column and the parser checks it (PARSE-MISMATCH). Not published: annealed, temperature not stated. Not applicable: not annealed, or post-processing not stated. |
+| Anneal h | canonical | number | yes | Not published, Not applicable |  | Annealing time in hours the wording states (30 min is 0.5). Not published: annealed, time not stated. Not applicable: not annealed, or post-processing not stated. |
 | Test temperature | raw | string | yes |  |  | Test temperature as published. |
 | Standard / load | raw | string | yes |  |  | Test standard and load as published. |
 | Test load MPa | canonical | number | yes | Not applicable, Not published |  | Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties. |
@@ -242,12 +259,6 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Locator | raw | string | yes |  |  | Where in the source. |
 | Notes | prose | string | yes |  |  | Review notes. |
 | Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build. |
-| Stress max MPa | raw | number | yes | Not applicable |  | Fatigue: maximum stress. |
-| Stress min MPa | raw | number | yes | Not applicable |  | Fatigue: minimum stress. |
-| Stress amplitude MPa | raw | number | yes | Not applicable |  | Fatigue: stress amplitude. |
-| Frequency Hz | raw | number | yes | Not applicable |  | Fatigue: loading frequency. |
-| Load ratio R | raw | number | yes | Not applicable |  | Fatigue: load ratio. |
-| Run-out | raw | boolean | yes | Not applicable |  | Fatigue: specimen reached run-out without failure. |
 
 ### method
 
@@ -299,6 +310,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Market | raw | string | yes |  |  | Market. |
 | Tax / shipping | raw | string | yes |  |  | Tax and shipping basis. |
 | Regular price basis | editorial | string | yes |  |  | Why the regular price is regular; "Quarantined" excludes the row. |
+| Quarantined | canonical | boolean | yes |  |  | A listing kept only as an audit trail (a wrong product, a duplicate): it backs no headline, buy link or stock claim. The Regular price basis says why. |
 | URL | raw | string | yes |  | `^https?://` | Listing URL. |
 | SourceID | canonical | string | yes |  | → sources.SourceID | Catalogue source. |
 | Access date | raw | date | yes |  |  | Date the listing was read. |
@@ -702,7 +714,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-families"></a>
 ### families
 
-`schema/vocab/families.csv`, used by materials.Family, materials.Original category.
+`schema/vocab/families.csv`, used by materials.Family.
 
 | Value | Meaning |
 |---|---|

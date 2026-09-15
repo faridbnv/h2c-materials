@@ -108,7 +108,9 @@ and locator, the direction, specimen, moisture and standard as published. A shee
 from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as injection moulded is Specimen type
 "Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form). Post-processing
 is copied as printed ("As printed", the sheet's annealing sentence) and each wording declares its State in
-`schema/vocab/post-processing.csv`; a new wording is added there, or the build stops. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
+`schema/vocab/post-processing.csv`; a new wording is added there, or the build stops. Anneal °C and Anneal h carry the
+schedule the wording states (Not published when it states none); the parser checks them. A Fatigue life measurement
+also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
 **Make a measurement a headline.** A row in `headlines.csv`: MaterialID, HeadlineKey, MeasurementID,
@@ -138,7 +140,7 @@ mapping; audit trail only" and lists every record still on it, with what must ha
 
 **Retire a duplicate record.** Data status (measurements) or Evidence type (evidence) "Retired
 duplicate record", with a note naming the twin that stays. Quarantine a wrong price listing by
-starting its Regular price basis with "Quarantined". A coverage finding a later row replaces gets Status
+setting Quarantined `TRUE` and saying why in its Regular price basis. A coverage finding a later row replaces gets Status
 "Superseded" and a Finding that starts "Superseded by C#####".
 
 **Flag a value physics rules out.** When a sheet publishes what cannot be (HDT at 0.45 MPa below HDT at 1.8 MPa, a

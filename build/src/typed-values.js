@@ -93,6 +93,23 @@ export function applyProfileTyped(r, parsed, issues) {
   return out;
 }
 
+/**
+ * The typed annealing schedule of a measurement (Anneal °C, Anneal h), checked against its Post-processing wording: a
+ * number, Not published (annealed, schedule not stated) or Not applicable (not annealed).
+ */
+export function applyAnnealTyped(r, parsed, issues) {
+  const typed = { tempC: value(r['Anneal °C']), hours: value(r['Anneal h']) };
+  const read = parsed ?? { tempC: null, hours: null };
+  const stateCell = (v, annealed) => (v != null ? String(v) : annealed ? NP : NA);
+  for (const [k, column] of [['tempC', 'Anneal °C'], ['hours', 'Anneal h']]) {
+    const expected = stateCell(read[k], !!parsed);
+    if (r[column] !== expected && typed[k] !== read[k] && !reviewed(r)) {
+      issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${column} is ${r[column] ?? 'empty'} but the parser reads "${r['Post-processing']}" as ${expected}; correct the typed value, or explain it in Parse review` });
+    }
+  }
+  return parsed ? typed : null;
+}
+
 /** Overlay the stored test load on the HDT parser's reading. */
 export function applyLoadTyped(r, h, issues) {
   const load = value(r['Test load MPa']);

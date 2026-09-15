@@ -40,6 +40,7 @@ what it means and how to fix it.
 | `FAMILY-ENTRY-OWNS` | error | A family entry owns an active grade. | File the product under the material it is (D44). |
 | `GRADE-ROLE-ID` | error | A grade Role disagrees with its -R# ID suffix. | Study and reference grades, and only they, end in -R#. |
 | `PRICE-INCOMPLETE` | error | A price eligible for a median has no list price or net mass. | Record both, or set Eligible for median FALSE. |
+| `FATIGUE-LOADING` | error | A Fatigue life measurement has no loading row in fatigue_tests.csv. | Add its row to data/tables/fatigue_tests.csv (stresses, frequency, load ratio, run-out). |
 | `CHAMBER-BAND` | error | A chamber estimate band is malformed or names a material wrongly. | Fix the band: a real range, a basis, and in-scope materials listed once. |
 | `REFERENCE-DEFAULT` | error | A default reference material is missing from reference.csv. | Restore the row or update the default selection. |
 

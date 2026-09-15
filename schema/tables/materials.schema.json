@@ -107,16 +107,6 @@
       }
     },
     {
-      "name": "Original category",
-      "type": "string",
-      "role": "canonical",
-      "description": "Category from the canonical master list.",
-      "vocabulary": "families",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Scope",
       "type": "string",
       "role": "canonical",

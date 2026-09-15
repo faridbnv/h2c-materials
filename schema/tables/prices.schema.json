@@ -196,6 +196,21 @@
       }
     },
     {
+      "name": "Quarantined",
+      "type": "boolean",
+      "role": "canonical",
+      "description": "A listing kept only as an audit trail (a wrong product, a duplicate): it backs no headline, buy link or stock claim. The Regular price basis says why.",
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "URL",
       "type": "string",
       "role": "raw",

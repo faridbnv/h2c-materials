@@ -13,13 +13,17 @@
       "rows": 22,
       "sha256": "7fb05c14ee58a0eedfca12f1951223234212255833fe117de1dcca53b6689809"
     },
+    "fatigue_tests": {
+      "rows": 42,
+      "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
+    },
     "polymers": {
       "rows": 36,
       "sha256": "488e05886a34917db04b226426e1b1b19c94fcf87344463f016d5cefdb255f79"
     },
     "materials": {
       "rows": 103,
-      "sha256": "1da0dcf726102f18541d8fd656a7064c13ad9d079bcd8dc9a45856ecdc4cd228"
+      "sha256": "17efce15d8e40248700c19607887d707c5d58a8826075c064128d6e6c2f3f8fe"
     },
     "grades": {
       "rows": 156,
@@ -31,7 +35,7 @@
     },
     "measurements": {
       "rows": 2240,
-      "sha256": "10e53713f18ba473954fe5a3c2a1decf2705be105cce94884e434c5b70ef5e33"
+      "sha256": "cdb5c95a0d6051ccd8bb6da25d283f5fbfa627fdf081e2bed8e9955ed1b25336"
     },
     "evidence": {
       "rows": 478,
@@ -39,7 +43,7 @@
     },
     "prices": {
       "rows": 104,
-      "sha256": "179accfce9dce88115fdd38f7ddcb032eba31e3c976d5589c0e62d59167f0ea8"
+      "sha256": "490c13bcfc668287ed10685f2b8b5b871d32df2e959931c59fd5e63cb4e3330f"
     },
     "sources": {
       "rows": 244,
@@ -47,7 +51,7 @@
     },
     "coverage": {
       "rows": 1200,
-      "sha256": "37f5341d789e4e4c2745aac02d8581a506e6be28cbdbae751ca03f49e145f127"
+      "sha256": "ba90824e11c07afda1287dfb8ac0d27df5bbcaafa234b5c3cd09d69213146dcb"
     },
     "method": {
       "rows": 48,

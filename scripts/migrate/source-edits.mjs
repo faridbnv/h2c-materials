@@ -45,14 +45,15 @@ export function addValue(t, { like, set, note, migration, date = '2026-09-14', w
   if (rows.some((r) => r.SourceID === template.SourceID && r.Locator === set.Locator && r['Data status'] !== 'Retired duplicate record')) return null;
   const row = {
     ...template,
-    Direction: NA, Notch: NA, 'Moisture condition': 'Not published', 'Test temperature': 'Not published', 'Test load MPa': NA,
+    Direction: NA, Notch: NA, 'Moisture condition': 'Not published', 'Test temperature': 'Not published', 'Test load MPa': NA, 'Anneal °C': NA, 'Anneal h': NA,
     'Raw uncertainty ±': NA, 'Normalized uncertainty ±': NA, 'Raw upper bound': NA, 'Normalized upper bound': NA,
     Operator: '=', 'Conversion factor': '1', 'Data status': 'Published value', 'Parse review': NA,
     ...set,
     MeasurementID: nextId('measurements', rows.map((r) => r.MeasurementID)),
     Notes: `Added ${date} (${migration}): ${why}${note ? ` ${note}` : ''}`,
   };
-  for (const k of ['Stress max MPa', 'Stress min MPa', 'Stress amplitude MPa', 'Frequency Hz', 'Load ratio R', 'Run-out']) if (!(k in set)) row[k] = NA;
+  // Fatigue loading lives in fatigue_tests.csv since m31; an added row carries none.
+  for (const k of ['Stress max MPa', 'Stress min MPa', 'Stress amplitude MPa', 'Frequency Hz', 'Load ratio R', 'Run-out']) delete row[k];
   t.append('measurements', row);
   return row.MeasurementID;
 }

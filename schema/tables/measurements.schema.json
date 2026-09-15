@@ -226,6 +226,32 @@
       }
     },
     {
+      "name": "Anneal °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "Annealing temperature the Post-processing wording states; the build decides on this column and the parser checks it (PARSE-MISMATCH). Not published: annealed, temperature not stated. Not applicable: not annealed, or post-processing not stated.",
+      "missing": [
+        "Not published",
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Anneal h",
+      "type": "number",
+      "role": "canonical",
+      "description": "Annealing time in hours the wording states (30 min is 0.5). Not published: annealed, time not stated. Not applicable: not annealed, or post-processing not stated.",
+      "missing": [
+        "Not published",
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Test temperature",
       "type": "string",
       "role": "raw",
@@ -311,84 +337,6 @@
       "type": "string",
       "role": "editorial",
       "description": "Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Stress max MPa",
-      "type": "number",
-      "role": "raw",
-      "description": "Fatigue: maximum stress.",
-      "missing": [
-        "Not applicable"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Stress min MPa",
-      "type": "number",
-      "role": "raw",
-      "description": "Fatigue: minimum stress.",
-      "missing": [
-        "Not applicable"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Stress amplitude MPa",
-      "type": "number",
-      "role": "raw",
-      "description": "Fatigue: stress amplitude.",
-      "missing": [
-        "Not applicable"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Frequency Hz",
-      "type": "number",
-      "role": "raw",
-      "description": "Fatigue: loading frequency.",
-      "missing": [
-        "Not applicable"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Load ratio R",
-      "type": "number",
-      "role": "raw",
-      "description": "Fatigue: load ratio.",
-      "missing": [
-        "Not applicable"
-      ],
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Run-out",
-      "type": "boolean",
-      "role": "raw",
-      "description": "Fatigue: specimen reached run-out without failure.",
-      "missing": [
-        "Not applicable"
-      ],
-      "trueValues": [
-        "TRUE"
-      ],
-      "falseValues": [
-        "FALSE"
-      ],
       "constraints": {
         "required": true
       }

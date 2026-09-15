@@ -53,6 +53,8 @@ export function synthesize(factor, outRoot) {
     copy('coverage', originals.coverage.filter(own), ['CoverageID', 'MaterialID']);
     copy('headlines', originals.headlines.filter(own), ['MaterialID', 'MeasurementID']);
     copy('material_links', originals.material_links.filter(own), ['MaterialID', 'RecordID']);
+    const materialOf = new Map(originals.measurements.map((m) => [m.MeasurementID, m.MaterialID]));
+    copy('fatigue_tests', originals.fatigue_tests.filter((r) => !familyEntries.has(materialOf.get(r.MeasurementID))), ['MeasurementID']);
   }
   t.save();
   return Object.fromEntries(t.tables().map((n) => [n, t.rows(n).length]));

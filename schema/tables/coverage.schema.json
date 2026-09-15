@@ -49,6 +49,18 @@
       }
     },
     {
+      "name": "Manufacturer count",
+      "type": "number",
+      "role": "canonical",
+      "description": "For a current Grades finding: how many distinct manufacturers its procurement grades name. The validator checks it against the grades, and checks the Finding's own words against it. Not applicable elsewhere.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Finding",
       "type": "string",
       "role": "prose",

@@ -162,8 +162,10 @@ export function validate(db, wb) {
         if (has && CLAIMS_ABSENCE.has(c.status)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" beside ${data[c.domain].length} record(s) of its own, e.g. ${data[c.domain][0]}`));
         if (!has && CLAIMS_EVIDENCE.has(c.status)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" but it has no record of its own in that domain`));
       }
-      const n = c.domain === 'Grades' && c.finding?.match(/^(\d+) distinct manufacturer\(s\)/);
-      if (n && Number(n[1]) !== manufacturerCount(db, mat)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} Grades quotes ${n[1]} manufacturers; its procurement grades name ${manufacturerCount(db, mat)}`));
+      // The count is a column (m32); the Finding's words are checked against it, as a parser checks a typed value.
+      if (c.manufacturerCount != null && c.manufacturerCount !== manufacturerCount(db, mat)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} Grades records ${c.manufacturerCount} manufacturers; its procurement grades name ${manufacturerCount(db, mat)}`));
+      const words = c.domain === 'Grades' && /^(\d+) distinct manufacturer/.exec(c.finding ?? '');
+      if (words && Number(words[1]) !== c.manufacturerCount) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} Grades says "${words[0]}" but its Manufacturer count is ${c.manufacturerCount ?? 'Not applicable'}`));
     }
   }
   db.meta.consistency = { materials: db.materials.length, headlineCitations: citationsChecked };

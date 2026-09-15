@@ -27,6 +27,7 @@ export const TABLES = [
   { file: 'family_members', sheet: 'Family members' },
   { file: 'chamber_bands', sheet: 'Chamber bands' },
   { file: 'polymers', sheet: 'Polymers' },
+  { file: 'fatigue_tests', sheet: 'Fatigue tests' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;

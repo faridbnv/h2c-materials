@@ -195,6 +195,7 @@
           "moisture",
           "postProcessing",
           "postProcessingState",
+          "anneal",
           "testTemperature",
           "standardText",
           "notch",
@@ -296,6 +297,36 @@
               "as-printed",
               "annealed",
               "not-stated"
+            ]
+          },
+          "anneal": {
+            "description": "The annealing schedule (Anneal °C, Anneal h), or null when not annealed.",
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "tempC",
+                  "hours"
+                ],
+                "properties": {
+                  "tempC": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "hours": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              }
             ]
           },
           "testTemperature": {
@@ -736,6 +767,7 @@
           "materialId",
           "domain",
           "status",
+          "manufacturerCount",
           "finding"
         ],
         "properties": {
@@ -751,6 +783,12 @@
           },
           "status": {
             "type": "string"
+          },
+          "manufacturerCount": {
+            "type": [
+              "number",
+              "null"
+            ]
           },
           "finding": {
             "type": "string"

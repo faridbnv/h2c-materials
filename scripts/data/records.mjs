@@ -50,7 +50,7 @@ export function retireGrade(t, gradeId) {
   const ownMeasurements = onGrade('measurements').filter((r) => !['Retired duplicate record', 'Unresolved unit / layout'].includes(r['Data status']));
   for (const r of ownMeasurements) todo.push({ table: 'measurements', record: r.MeasurementID, action: 'retire as a duplicate (Data status "Retired duplicate record") if its twin exists under the active grade, else re-file it under the grade that is its product' });
   for (const r of onGrade('profiles')) todo.push({ table: 'profiles', record: r.ProfileID, action: 'retire the profile or move it to the active grade (an active profile may not use a retired grade)' });
-  for (const r of onGrade('prices').filter((p) => !/^quarantined/i.test(p['Regular price basis'] ?? ''))) todo.push({ table: 'prices', record: r.PriceID, action: 'quarantine the offer (Regular price basis "Quarantined: ...") or move it to the active grade' });
+  for (const r of onGrade('prices').filter((p) => p.Quarantined !== 'TRUE')) todo.push({ table: 'prices', record: r.PriceID, action: 'quarantine the offer (Regular price basis "Quarantined: ...") or move it to the active grade' });
   for (const r of onGrade('evidence')) todo.push({ table: 'evidence', record: r.EvidenceID ?? r[t.schemas.evidence.primaryKey], action: 'move the record to the active grade or quarantine it' });
   const measurementIds = new Set(onGrade('measurements').map((r) => r.MeasurementID));
   for (const h of t.rows('headlines').filter((h) => measurementIds.has(h.MeasurementID))) todo.push({ table: 'headlines', record: `${h.MaterialID} ${h.HeadlineKey}`, action: `select a measurement of the representative grade instead of ${h.MeasurementID}` });

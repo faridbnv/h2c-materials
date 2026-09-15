@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { parseValue, parseOperator, parseBoolean, toInterval, MISSING, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection, DIRECTION } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
-import { specimenForm, postProcessingState, isPartSpecimen, annealedBesideAsPrinted } from './normalize/specimen.js';
+import { specimenForm, postProcessingState, isPartSpecimen, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
 import {
   parseTemperature, withinH2C, parseNozzleDiameters, parseAbrasion, parseDrying, parseEnclosure,
@@ -20,7 +20,7 @@ import { classifyTopic, classifyFinding, countUsableByCategory } from './normali
 import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyProfileTyped, applyLoadTyped } from './typed-values.js';
+import { applyProfileTyped, applyLoadTyped, applyAnnealTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 
 // Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an
@@ -41,7 +41,8 @@ export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200
 
 // ---------------------------------------------------------------------------- measurements
 
-function compileMeasurements(rows, issues) {
+function compileMeasurements(rows, fatigueRows, issues) {
+  const fatigueById = new Map(fatigueRows.map((f) => [f.MeasurementID, f]));
   return rows.map((r) => {
     const status = DATA_STATUS[r['Data status']] ?? null;
     if (!status) issues.push({ level: 'error', code: 'DATA-STATUS-UNKNOWN', where: `Properties row ${r.__row}`, message: `Unknown Data status "${r['Data status']}"` });
@@ -77,6 +78,8 @@ function compileMeasurements(rows, issues) {
       moisture: r['Moisture condition'],
       postProcessing: r['Post-processing'],
       postProcessingState: postProcessingState(r['Post-processing']),
+      // The annealing schedule, from the typed columns; null when the value was not annealed.
+      anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing']), issues),
       testTemperature: r['Test temperature'],
       standardText: r['Standard / load'],
       notch: r.Notch,
@@ -92,10 +95,13 @@ function compileMeasurements(rows, issues) {
       m.thermal = { standard: h.standard, loadMPa: h.loadMPa, loadStated: h.loadStated, label: h.label, origin: ORIGIN.PARSED };
     }
     if (r.Property === 'Fatigue life') {
+      // The loading lives in data/tables/fatigue_tests.csv, one row per fatigue measurement (m31).
+      const f = fatigueById.get(r.MeasurementID);
+      if (!f) issues.push({ level: 'error', code: 'FATIGUE-LOADING', where: `measurements ${r.MeasurementID}`, message: 'A Fatigue life measurement has no row in fatigue_tests.csv' });
       m.fatigue = {
-        stressMax: num(r['Stress max MPa']), stressMin: num(r['Stress min MPa']),
-        amplitude: num(r['Stress amplitude MPa']), frequencyHz: num(r['Frequency Hz']),
-        loadRatioR: num(r['Load ratio R']), runOut: r['Run-out'],
+        stressMax: num(f?.['Stress max MPa']), stressMin: num(f?.['Stress min MPa']),
+        amplitude: num(f?.['Stress amplitude MPa']), frequencyHz: num(f?.['Frequency Hz']),
+        loadRatioR: num(f?.['Load ratio R']), runOut: f?.['Run-out'] ?? 'Not applicable',
       };
     }
     return m;
@@ -605,7 +611,7 @@ export function compile(wb, { snapshot, build }) {
     measurements: wb.Properties.rows.filter((r) => isRetiredDuplicate(r['Data status'])).length,
     evidence: wb['Use & durability'].rows.filter((r) => isRetiredDuplicate(r['Evidence type'])).length,
   };
-  const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), issues);
+  const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues);
   const measurementsById = new Map(measurements.map((m) => [m.id, m]));
 
   const profiles = compileProfiles(wb['Print setup'].rows, issues);
@@ -635,9 +641,9 @@ export function compile(wb, { snapshot, build }) {
     displayedPrice: num(r['Displayed price CAD']), currency: r.Currency, market: r.Market,
     taxShipping: r['Tax / shipping'], basis: r['Regular price basis'], url: r.URL,
     sourceId: r.SourceID, accessDate: r['Access date'], notes: r.Notes,
-    // The data marks a wrong-product listing by writing "Quarantined" into its price basis
-    // (CA0069, a PLA Pure spool filed under ABS). It stays as an audit trail and nothing else.
-    quarantined: /^quarantined\b/i.test(String(r['Regular price basis'] ?? '')),
+    // A wrong-product or duplicate listing (CA0069, a PLA Pure spool filed under ABS) stays as an audit trail and nothing
+    // else; the Regular price basis says why.
+    quarantined: parseBoolean(r.Quarantined) === true,
     };
   });
   const pricesByMaterial = new Map();
@@ -661,7 +667,7 @@ export function compile(wb, { snapshot, build }) {
   });
 
   const coverage = wb.Coverage.rows.map((r) => ({
-    id: r.CoverageID, materialId: r.MaterialID, domain: r.Domain, status: r.Status, finding: r.Finding,
+    id: r.CoverageID, materialId: r.MaterialID, domain: r.Domain, status: r.Status, manufacturerCount: num(r['Manufacturer count']), finding: r.Finding,
   }));
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));

@@ -1,0 +1,100 @@
+{
+  "$comment": "Contract for data/tables/fatigue_tests.csv. Checked by build/src/schema.js.",
+  "title": "Fatigue tests",
+  "description": "The loading of a fatigue life measurement: one row per Fatigue life measurement in measurements.csv, which holds its cycles, source and conditions. A property family with its own test parameters is a child table like this one, not a block of columns every measurement carries.",
+  "primaryKey": "MeasurementID",
+  "fields": [
+    {
+      "name": "MeasurementID",
+      "type": "string",
+      "role": "key",
+      "description": "The Fatigue life measurement.",
+      "reference": {
+        "table": "measurements",
+        "field": "MeasurementID"
+      },
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "Stress max MPa",
+      "type": "number",
+      "role": "raw",
+      "description": "Maximum stress.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Stress min MPa",
+      "type": "number",
+      "role": "raw",
+      "description": "Minimum stress.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Stress amplitude MPa",
+      "type": "number",
+      "role": "raw",
+      "description": "Stress amplitude.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Frequency Hz",
+      "type": "number",
+      "role": "raw",
+      "description": "Loading frequency.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Load ratio R",
+      "type": "number",
+      "role": "raw",
+      "description": "Load ratio.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Run-out",
+      "type": "boolean",
+      "role": "raw",
+      "description": "Specimen reached run-out without failure.",
+      "missing": [
+        "Not applicable"
+      ],
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE"
+      ],
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

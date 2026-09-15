@@ -152,7 +152,9 @@ export function rawObservations(key, S, model) {
       const lo = x.interval?.lo ?? x.value, hi = x.interval?.hi ?? x.value;
       if (model.properties[key].scale === 'log' && !side && !(lo > 0)) continue;
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
-      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state: x.postProcessing ?? 'Not published', y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
+      // The post-processing state and schedule, not its wording: three spellings of one schedule are one state.
+      const state = `${postProcessingState(x.postProcessing ?? 'Not published')}|${x.anneal?.tempC ?? ''}|${x.anneal?.hours ?? ''}`;
+      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
         item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
     }
     // An elastomer's Shore hardness (measurements.csv Hardness in Shore A or D, published or nominal from its product
