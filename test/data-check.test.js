@@ -150,3 +150,41 @@ test('mappings are checked at the gate: an unmapped topic, a family member or a 
   assert.ok(m.some((x) => /evidence\.csv:\d+  Q00001 Topic "Resistance to Kryptonite" is not in schema\/vocab\/environment-topics\.csv/.test(x)), m.join('\n'));
   assert.ok(m.some((x) => /family_members\.csv:\d+  MemberMaterialID "M999" is not a MaterialID in materials\.csv/.test(x)), m.join('\n'));
 });
+
+test('a new record gets the next ID, its template\'s columns and declared missing states, and passes the gate', async () => {
+  const { newRecord } = await import('../scripts/data/records.mjs');
+  const dir = copy();
+  try {
+    const t = openTables(dir);
+    const { row, unset } = newRecord(t, 'measurements', { like: 'V000384', set: { 'Raw value': '2.1 GPa' } });
+    assert.deepEqual(unset, []);
+    assert.equal(row.MeasurementID, nextId('measurements', t.rows('measurements').map((r) => r.MeasurementID)));
+    assert.equal(row.GradeID, 'G020-01');
+    t.append('measurements', row);
+    t.save();
+    assert.deepEqual(messages(check(dir)), []);
+    // Without a template, required columns with no missing state are reported, not guessed.
+    const bare = newRecord(t, 'grades', { material: 'M020' });
+    assert.equal(bare.row.GradeID, 'G020-04');
+    assert.ok(bare.unset.includes('Manufacturer') && bare.unset.includes('Product name'), bare.unset.join(', '));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('retiring a grade sets both fields and lists every record left to resolve', async () => {
+  const { retireGrade, RETIRED_AVAILABILITY } = await import('../scripts/data/records.mjs');
+  const dir = copy();
+  try {
+    const t = openTables(dir);
+    const todo = retireGrade(t, 'G020-03');
+    assert.equal(t.get('grades', 'G020-03').Status, 'retired');
+    assert.equal(t.get('grades', 'G020-03').Availability, RETIRED_AVAILABILITY);
+    const tables = new Set(todo.map((x) => x.table));
+    assert.ok(tables.has('measurements') && tables.has('profiles') && tables.has('sources'), [...tables].join(', '));
+    assert.ok(todo.every((x) => x.action.length > 10));
+    assert.deepEqual(retireGrade(t, 'G020-03').length, todo.length, 'a second run changes nothing and lists the same');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

@@ -7,7 +7,7 @@ import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constrai
 import { matchesQuery } from './engine/search.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
-import { renderTable, toCSV, download, sortRows } from './ui/table.js';
+import { renderTable, toCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
 import { renderAshby } from './ui/ashby.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
@@ -238,7 +238,7 @@ const actions = {
     state.columnSet = which;
     state.scenario.columnSet = which;
     // Sorting by a column that no longer exists would silently fall back to the first one.
-    if (!['name', 'verdict', 'priceCADkg'].includes(state.sort.key)) state.sort = { key: 'name', dir: 'asc' };
+    state.sort = sortForColumnSet(state.sort, which);
     renderLens(); pushHash();
   },
   // Back to the results the policy counts as candidates. This used to switch on FAIL as well, so

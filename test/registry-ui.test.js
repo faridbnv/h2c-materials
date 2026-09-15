@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { useRegistry, numericFilters, nonNegativeKeys, exportHeadlines, propertiesInDomain, propertyApplies, REGISTRY } from '../app/js/ui/registry.js';
 import { PROPERTY } from '../app/js/ui/labels.js';
 import { AXIS_DEFS } from '../app/js/ui/axes.js';
-import { COLUMN_SETS } from '../app/js/ui/table.js';
+import { COLUMN_SETS, sortForColumnSet } from '../app/js/ui/table.js';
 import { availability } from '../app/js/engine/coverage.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -56,4 +56,16 @@ test('a scoped property is listed only for the materials it applies to, and coun
   assert.equal(a.total, db.materials.filter((m) => m.family === 'Flexible Elastomers').length);
   assert.equal(a.notApplicable, db.materials.length - a.total);
   useRegistry(db.registry);
+});
+
+test('switching column sets keeps a sort the new set can show, and only then', () => {
+  useRegistry(JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'dist/db.json'), 'utf8')).registry);
+  const price = { key: 'priceCADkg', dir: 'desc' };
+  assert.deepEqual(sortForColumnSet(price, 'printing'), price);
+  const nozzle = { key: 'nozzleC', dir: 'asc' };
+  assert.deepEqual(sortForColumnSet(nozzle, 'printing'), nozzle);
+  assert.deepEqual(sortForColumnSet(nozzle, 'properties'), { key: 'name', dir: 'asc' });
+  const density = { key: 'density', dir: 'desc' };
+  assert.deepEqual(sortForColumnSet(density, 'properties'), density);
+  assert.deepEqual(sortForColumnSet({ key: 'pin', dir: 'asc' }, 'printing'), { key: 'name', dir: 'asc' });
 });

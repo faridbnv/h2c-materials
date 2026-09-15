@@ -88,10 +88,10 @@ function evaluateNumeric(material, c, ctx = {}) {
     }
     // An estimate is inference, so the verdict stays UNKNOWN whatever it says: the verdict describes
     // the evidence (D26). What an estimate may change is eligibility, and only in one direction. It
-    // screens a material out of Explore when it may screen, its plausible (95%) range wholly fails
-    // the requirement, and none of the material's own measurements of this property, in any
-    // direction or at any endpoint, could meet it. The likely (80%) range is what the reader sees;
-    // the wider one decides, so a screen is never closer to the threshold than the evidence allows.
+    // screens a material out of Explore when its plausible (95%) range and the range the build's back-test
+    // lets it screen on both wholly fail the requirement, and no measurement of the material bounds the
+    // headline from below and meets it (D48). The likely (80%) range is what the reader sees; the wider
+    // ones decide, so a screen is never closer to the threshold than the evidence allows.
     if (ctx.useEstimates && h?.estimate) {
       const est = h.estimate;
       const wide = est.plausible ?? { lo: est.lo, hi: est.hi };
@@ -154,7 +154,8 @@ function evaluateNumeric(material, c, ctx = {}) {
   // is the largest load gap its matrix shows (build/src/estimates.js). That top is inference, so it
   // decides only what an estimate may: in Explore with estimates on, a requirement the whole bracket
   // fails screens the material out, and the verdict stays INDETERMINATE (D26, D43).
-  if (c.property === 'hdt045' && h.loadStated === false) {
+  // Keyed on the headline's own flag, not its name: any headline defined at a load can lose it (D46 registry).
+  if (h.loadStated === false) {
     const b = h.loadBracket;
     const bracket = b ? compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, c.operator, c.value) : null;
     // The bracket screens only if the build's back-test certified it (D48); an older snapshot without the flag screens as before.

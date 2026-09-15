@@ -23,7 +23,9 @@
     "migration:ledger": "node scripts/migrate/transfer-ledger.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
-    "audit:sources": "node scripts/audit/source-completeness.mjs"
+    "audit:sources": "node scripts/audit/source-completeness.mjs",
+    "data:new": "node scripts/data/new.mjs",
+    "data:retire": "node scripts/data/retire.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38"

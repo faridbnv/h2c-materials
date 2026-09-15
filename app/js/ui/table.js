@@ -52,6 +52,15 @@ export const COLUMN_SETS = {
   },
 };
 
+/**
+ * The sort after switching column sets: kept when the new set shows the sorted column (name, result, price, or a
+ * property both sets carry), else by name. It used to reset to name for anything but name, result or price.
+ */
+export function sortForColumnSet(sort, columnSet) {
+  const columns = (COLUMN_SETS[columnSet] ?? COLUMN_SETS.properties).columns;
+  return columns.some((c) => c.key === sort.key && c.kind !== 'pin') ? sort : { key: 'name', dir: 'asc' };
+}
+
 const STATE_ORDER = { PASS: 0, INDETERMINATE: 1, UNKNOWN: 2, FAIL: 3 };
 
 function cellValue(row, col) {
