@@ -72,26 +72,27 @@ plotting library, not the data, is what the file weighs.
 | `csv.js` | The canonical CSV format: parse, and write in the one form every table is kept in. |
 | `schema.js` | Check every table against `schema/tables/`: columns, types, missing states, patterns, vocabularies, uniqueness, references (including IDs inside lists and prose), canonical format and `data/manifest.json`. |
 | `load.js` / `source.js` | Read the tables into raw row objects. No interpretation. |
-| `registry.js` | The property registry: what each property and headline means, and which materials it applies to (`properties.csv`, `headline_definitions.csv`). |
+| `registry.js` | The property registry: what each property and headline means, which materials it applies to, and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
-| `normalize/direction.js` | The nine spellings of build direction, and which may be compared with which. |
-| `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text. |
+| `normalize/direction.js` | The ten spellings of build direction (a source's own label and a ±45° raster get their own values), and which may be compared with which. |
+| `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm²; a text naming both loads states neither. |
 | `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window and its answers in words. |
 | `normalize/chemical.js` | 73 environment topics onto canonical categories; findings onto verdicts. |
 | `normalize/moisture.js` | The declared State (dry, conditioned, not-stated) of each Moisture condition wording, from its vocabulary (D53). |
+| `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament) and State of each Post-processing wording (as-printed, annealed, not-stated), and whether an annealed value has an as-printed twin (D56). |
 | `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
-| `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition. |
+| `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition and its state (printed, dry, as printed, not flagged implausible); implied bounds come from printed values only (D55). |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
-| `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43, D53); and the screening back-test that certifies which evidence may screen (D48). |
+| `estimates.js` | Estimates for missing headlines: one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (D43, D53), following printing physics (crystallisation while printing, water uptake, rule-of-mixtures density, Vicat caps, elastomers; D56) and bounded by what the material's own printed data prove (D55); and the screening back-test that certifies which evidence may screen (D48). |
 | `print-estimates.js` | Nozzle and bed windows inferred from peers where no source publishes one. They decide nothing. |
 | `chamber-estimates.js` | The research's chamber bands, from `data/tables/chamber_bands.csv`. Attached only where nothing better exists; they decide nothing. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
 | `validate.js` | Every invariant, plus the human-readable report. |
-| `rules.js` | The catalogue of every issue code, its level, meaning and fix (D50); generates `docs/RULES.md`. |
-| `lint-rules.js` | Data quality the schema cannot express, as coded findings with a record each (D50). |
+| `rules.js` | The catalogue of every issue code, its level (error, warn, info, lint), meaning and fix (D50); generates `docs/RULES.md`. |
+| `lint-rules.js` | Data quality the schema cannot express, as coded findings with a record each (D50): text artefacts, duplicates, indistinct conditions, directions named in locators, and physics one sheet must not contradict (MEAS-PHYSICS-*, D55). |
 | `property-references.js` | Property names the code relies on, checked against the registry, and the estimate model's references (D51). |
-| `measurement-rules.js` | Independent raw-value, unit and endpoint checks used by validation and the systematic audit. |
+| `measurement-rules.js` | Independent raw-value, uncertainty, upper-bound, unit and endpoint checks, and no use of a replaced property, used by validation and the systematic audit. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
 | `review-workbook.js` | The generated, read-only Excel review workbook (`npm run data:export-xlsx`). |
 | `legacy/extract-workbook.js` | The retired workbook reader, kept only so the conversion can be replayed (`npm run migration:verify`). |
@@ -102,23 +103,25 @@ plotting library, not the data, is what the file weighs.
 
 | Script | Responsibility |
 |---|---|
-| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), append, add or drop a column, save in canonical form with a fresh manifest. Nothing is deleted. |
+| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), update a row of a keyless table by its fields, append, add or drop a column, save in canonical form with a fresh manifest. Nothing is deleted. |
 | `data/fmt.mjs` | `npm run data:fmt`: rewrite tables and vocabularies canonically and refresh `data/manifest.json`; `--check` changes nothing. |
 | `data/check.mjs` | `npm run data:check`: the schema gate on its own, in under a second. |
 | `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
 | `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
-| `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`. |
+| `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
+| `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
+| `ui-fuzz.mjs` | `npm run ui:fuzz`: seeded random scenarios through the built page in headless Chrome, in every Strict/Explore/estimates setting, table and chart compared with the engine in Node (D57). |
 | `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. |
-| `data/diff.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses deletions. It replaces hand-written audit changelogs. |
+| `data/diff.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses deletions. A keyless table's declared `identity` and `replacedWithin` make a re-pointed citation an edit. It replaces hand-written audit changelogs. |
 | `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line. |
 | `data/synthesize.mjs` | A multiple of today's data under new IDs, for the scale test. |
 | `data/export-xlsx.mjs` | The read-only review workbook. |
-| `migrate/` | The one-time conversion from the workbooks (dump, then m01..m09), its transfer ledger, and the source corrections m10..m18 (`source-edits.mjs` guards each edit). |
-| `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories. |
+| `migrate/` | The one-time conversion from the workbooks (dump, then m01..m09), its transfer ledger, and the source corrections m10..m22 and m24..m26 (`source-edits.mjs` guards each edit). |
+| `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 
-`npm run verify` runs them in the order a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views. The
+`npm run verify` runs them in the order a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, and CI runs `verify` on every push. `AGENTS.md` is the editing guide.
 
@@ -130,7 +133,7 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 | `indices.js` | The Ashby performance-index library, their slopes and their caveats. |
 | `pareto.js` | Non-dominated sets over the current candidates and axes. |
 | `coverage.js` | What the database knows and does not, per material and per domain. |
-| `scenario.js` | The user's question, serialised: shareable link, saved file, user assumptions. |
+| `scenario.js` | The user's question, serialised: shareable link, saved file, user assumptions. Validation leaves out, with a warning, what the build cannot evaluate. |
 | `search.js` | Catalogue search. Its own module because the obvious implementation matches "PLA" inside "thermoplastic". |
 
 ### Interface, `app/js/ui/`
@@ -139,7 +142,7 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 |---|---|
 | `registry.js` | Builds the interface's property definitions from the database's registry at start-up: labels, filters, axes, table columns, export headers and the drawer's property tabs. |
 | `labels.js` | The single vocabulary. What every property, criterion, gate verdict and chamber statement is called, in plain words with the technical name behind it. Nothing else names them. |
-| `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated. |
+| `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated, and never rounds a value across a requirement's threshold (D54). |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
 | `table.js` | The results grid and the client-side export. |
 | `ashby.js` / `axes.js` | Property-property plots, constraint overlays, index lines, the reference layer. |

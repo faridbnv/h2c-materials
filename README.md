@@ -18,7 +18,8 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
-npm run verify                 # everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views
+npm run verify                 # everything a commit needs: format, schema, lint, docs, build, tests, audit, review snapshot, interface views, UI fuzz (about 4 min)
+npm run ui:fuzz                # 2,000 random scenarios through the built page, compared with the engine
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
 npm run data:export-xlsx       # read-only review workbook in dist/review/
@@ -79,12 +80,13 @@ app/js/ui/labels.js                     the one vocabulary: what every criterion
 app/js/main.js                          the only place that holds state
 
 test/                                   engine, data gate, registry, contract, scale and database tests
-scripts/data/                           fmt, check, lint, new, retire, new-id, diff, the edit API, review workbook, scale data
+scripts/data/                           fmt, check, lint and build-finding review, new, retire, new-id, diff, the edit API, review workbook, scale data
 scripts/audit/                          source completeness: every PDF source re-read for values not in the tables
 scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interface views (build/snapshot/)
+scripts/ui-fuzz.mjs                     random scenarios through the built page, checked against the engine
 scripts/trace.mjs                       a headline back to its source
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
-scripts/migrate/                        the 2026-09-14 conversion (m01-m09) and the source corrections that followed (m10-m18)
+scripts/migrate/                        the 2026-09-14 conversion (m01-m09) and the source corrections that followed (m10-m22, m24-m26)
 .githooks/pre-commit                    format, schema and no-deletion check on data commits
 .github/workflows/                      verify on every push; build, verify, publish on main
 dist/                                   build output, not committed
@@ -104,13 +106,15 @@ preferences: changing one changes what the tool asserts.
    fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
-3. **Four constraint states.** A range straddling a threshold is INDETERMINATE, not a lucky PASS.
+3. **Four constraint states.** A published range straddling a threshold is INDETERMINATE, not a lucky PASS. A
+   published mean ± spread is judged on its mean and says when the threshold lies within the spread (D54).
 4. **Hard constraints decide eligibility; a preference never removes a candidate.** It is reported
    on each material as "tracked only". It does not reorder the list yet, and the interface does not
    claim it does.
 5. **XY and Z never merge**, and an unstated direction is not XY.
 6. **Impact in J/m is never converted to kJ/m²** without specimen geometry.
-7. **Quarantined measurements stay out of every numeric summary.**
+7. **Quarantined measurements stay out of every numeric summary**, and a value physics rules out is kept, flagged
+   "physically implausible", and backs no headline, estimate or bound (D55).
 8. **A load that was never stated is never assumed.** An HDT headline whose source names no load says so,
    and the build lists every one (HDT-LOAD-UNSTATED).
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
@@ -119,7 +123,7 @@ preferences: changing one changes what the tool asserts.
 11. **An estimate never passes a material, and screens only where a back-test shows it screens reliably.**
     Every build hides each measured headline as far as an evidence class requires and checks the calibrated
     ranges would have held (D48). In Explore it may screen a material out when the range its class may screen
-    on wholly fails, never when the material's own measurement bounds the headline and meets the requirement.
+    on wholly fails, never when the material's own printed measurement bounds the headline and meets the requirement.
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
 13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot
@@ -137,6 +141,10 @@ preferences: changing one changes what the tool asserts.
 18. **Coverage is terminal, but it must be true.** A coverage row cannot say `Gap` beside the
     material's own data or claim evidence that belongs only to another material. Family citations
     may remain as context in use, durability and safety notes; they are not grade evidence.
+19. **A headline describes a dry, as-printed, printed part.** A moulded bar, a film, a filament strand, a conditioned
+    value or an annealed value beside its as-printed twin never becomes one, and none of them bounds one (D55, D56).
+20. **A compound does not speak for its polymer.** A product whose density or stiffness no unfilled grade can reach is
+    declared a variant, or filed as its own material, and says so (D57).
 
 ## Three kinds of number
 
@@ -178,5 +186,6 @@ is reported as partly reachable rather than as a failure.
 
 `build/reports/validation-report.md` is a deliverable, not console noise. It records what the
 compiled database cannot support, so the interface can say so rather than implying a certainty it
-does not have. It currently carries four standing warnings, each of which is a real limit of the
-snapshot rather than a defect in the build.
+does not have. Its warnings name their records: unstated heat loads, outlying headlines, imprecise estimates,
+family-order breaks and materials without measurements. Each record is fixed or accepted with a reason in
+`data/review/accepted-findings.csv`, and `verify` fails on one that is neither (D57).

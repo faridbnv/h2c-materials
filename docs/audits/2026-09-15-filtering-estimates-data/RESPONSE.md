@@ -19,6 +19,7 @@ finding's outcome is in [findings.csv](findings.csv). Decisions D54 to D57 recor
 | `fd58bb3` | "Replaced by" in the property registry; m22 gives the Izod test one name; V002055's source error noted | C-16, C-17, D-06 |
 | `534c9ca` | `npm run ui:fuzz` (2,000 rendered scenarios) is the last step of `verify`. The chart resizes through one listener, which fixes the leak without the purge race the fuzz found | A-04, workstream A |
 | docs | D54 to D57; AGENTS.md recipes (flag an implausible value, replace a property, accept a build finding); DATA-MODEL, PIPELINE and INTERFACE; this audit | |
+| docs, completed | README (what the code enforces, commands, layout), docs/README, ARCHITECTURE (module and script maps), PIPELINE (stages 2 to 5, validation levels, audit review), DATA-MODEL (counts, headline states, conversions, calibration, estimate coverage, constraint states, known limits), INTERFACE (rail, states, Ashby), D48 and D53 amendments, and this audit's bugs in the shipped-bugs table | |
 
 ## What changed for a reader
 

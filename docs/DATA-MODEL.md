@@ -145,14 +145,15 @@ shape; nothing is flattened into one wide table.
 meta         snapshot, build, price sampling date, counts, H2C baseline, coverage
              summaries, environment category names and what each can decide,
              which chamber bands were used and which the evidence superseded
-materials    102   the selection-level object
-grades       155   materials 1 -- N grades
-measurements 1902  materials 1 -- N, grades 1 -- N, sources N -- 1 (147 retired duplicates excluded)
-profiles     171   print setup, with parsed temperatures, enclosure wording and gate verdicts
+materials    103   the selection-level object
+grades       156   materials 1 -- N grades
+measurements 2078  materials 1 -- N, grades 1 -- N, sources N -- 1 (155 retired duplicates excluded;
+                   1,920 numeric, 4 quarantined, 10 flagged physically implausible)
+profiles     172   print setup, with parsed temperatures, enclosure wording and gate verdicts
 evidence     462   use and durability, classified (16 retired duplicates excluded)
 prices       104   quarantined observations kept as an audit trail, backing nothing
-sources      243
-coverage     1188  terminal: reports gaps, never feeds selection
+sources      244
+coverage     1199  terminal: reports gaps, never feeds selection
 method        48   the rules, verbatim
 registry           { properties, headlines }: what every property and headline means
 ```
@@ -181,14 +182,14 @@ registry           { properties, headlines }: what every property and headline m
 ```
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
-every profile that published one, with the count behind it. 93 materials have a nozzle window, 93 a
+every profile that published one, with the count behind it. 94 materials have a nozzle window, 94 a
 bed window and 58 a chamber window. The four with no product at all (PA66, PA66-CF, PA612, PA612-GF)
 carry an estimated nozzle and bed window (below); a chamber the sources answer only in words is
 shown in words.
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
-in stock first, then the observation behind the headline, then whatever carries a price. 48 of 102
-materials have one and 42 had stock on the price sampling date, 2026-09-10. A quarantined observation,
+in stock first, then the observation behind the headline, then whatever carries a price. 46 of 103
+materials have one and 40 had stock on the price sampling date, 2026-09-10. A quarantined observation,
 such as CA0069 (a PLA Pure listing once filed under ABS), is never the buy link or the evidence of
 stock.
 
@@ -209,7 +210,7 @@ Measured:
   known: true, value: 1090, unit: 'kg/m³',
   origin: 'source', verified: true,        // verified against the citation below
   measurementId: 'V000922', gradeId: 'G050-01', sourceId: 'B-pa6-cf-TDS',
-  direction: 'not-applicable', specimenType: '…', moisture: '…',
+  direction: 'not-applicable', specimenType: '…', moisture: '…', postProcessing: '…',
   interval: { lo: 1090, hi: 1090, kind: 'point' }, uncertainty: null
 }
 ```
@@ -219,13 +220,19 @@ Not measured:
 ```js
 {
   known: false, missing: 'not-published', unit: '%',
-  related: { … } | null,      // a real measurement of this property, never promoted
-  estimate: { … } | null      // the span of its closest measured relatives
+  related: { … } | null,      // a real measurement of this property, never promoted, with why
+  impliedBounds: [ … ],       // its own printed values that bound it from below (D55)
+  estimate: { … } | null      // the calibrated estimate (below)
 }
 ```
 
 `interval` is what the measurement actually asserts, and is what constraint evaluation works on.
-An unbounded end is `null`, never `Infinity`.
+An unbounded end is `null`, never `Infinity`. A value with a published uncertainty is judged on the value, and the
+interval says whether a threshold lies within its spread (D54).
+
+A measured headline is always a printed or unstated specimen, dry or unstated, and as printed where the grade
+publishes both states; a moulded, film, filament, conditioned, annealed-beside-as-printed or physically implausible
+measurement is refused as a headline at build time (D55, D56).
 
 ---
 
@@ -253,7 +260,9 @@ the case that forced it: its three grades measure 7.5, 25 and 30 MPa, and "7.5 t
 material's uncertainty rather than three different products.
 
 A value the source itself marks as raw-material supplier data, such as nGen's density and HDT,
-is related evidence and says so. It is not a printed or product specimen, whatever its standard.
+is related evidence and says so. It is not a printed or product specimen, whatever its standard. So, with their own
+reason, are a film or a filament-strand test, an annealed value whose grade publishes the as-printed one, and a value
+flagged physically implausible.
 
 There is deliberately **no cross-property fallback**. An earlier version fell back to Vicat or glass
 transition when a material had no HDT, which surfaced TPE's glass transition of −35 °C in a column
@@ -293,14 +302,20 @@ semantics with an offset and a spread:
 | Break or yield strength, XY | about +5% and +2%, spread 0.1 and 0.08 |
 | Flexural modulus, XY | about equal, spread 0.2 (learned from 70 grades publishing both) |
 | Tensile value in Z | XY about 1.4 times Z for stiffness, 1.6 times for strength, spread 0.35 |
-| Direction not stated | centred, spread 0.3 to 0.9 |
+| Direction not stated, or only the source's own label | centred, spread 0.3 to 0.9; data may lower the offset, never raise it above the documented value |
+| Measured after conditioning | dry equals conditioned plus a wet offset by water uptake: high (PA6, PA66, PA6/66, PPA; modulus ×2) or low (PA12, PA612, PAHT); other polymers read as dry |
 | Moulded resin value | printed stiffness about 85%, strength 70 to 85%, elongation a small fraction; semicrystalline heat deflection about 30 °C lower, amorphous about the same |
 | Heat deflection at 1.8 MPa | +24 °C fibre-filled semicrystalline, +8 °C amorphous |
 | Glass transition (amorphous), Vicat, melting point (fibre-filled semicrystalline) | −3, −8 and −38 °C, spreads 14 to 25 °C |
-| Shore hardness (elastomers) | Gent (1958) or Qi et al. (2003), then about 45% of that, spread 0.6 |
+| Shore hardness (elastomers) | Gent (1958) for Shore A, Qi et al. (2003) for Shore D, each with its own offset (about 45% of the relation), spread 0.6 to 0.7 |
+| Yield strength or strain of an elastomer | not converted: an elastomer strain-hardens after it yields |
+| Film, filament strand, physically implausible value | not used |
 
 Each documented offset is refined by the median of grades that publish both, and each spread by their
-MAD; the documented value counts as three pairs. On each product only the most direct kinds are kept.
+MAD; the documented value counts as three pairs. On each product only the most direct kinds are kept. An annealed
+value of a grade that publishes the as-printed one is left out; repeats under different annealing schedules keep a
+half-width that spans them and calibrate no conversion. A polymer that prints amorphous (`printsAmorphous`: PET,
+BVOH, PVA, unfilled PPA) converts heat values with the amorphous class and learns nothing from annealed ones.
 
 **How wide, and how it is checked.** The spread between two products of the same material is
 measured directly from materials with several products (median pairwise difference). The rest are
@@ -310,18 +325,21 @@ claim. On this snapshot:
 
 | Headline | Hidden headlines | Likely (80%) holds | Plausible (95%) holds | Median likely width |
 |---|---:|---:|---:|---:|
-| Density | 84 | 81% | 95% | ×1.14 |
-| Stiffness | 68 | 81% | 96% | ×1.55 |
-| Strength | 53 | 81% | 96% | ×1.56 |
-| Elongation | 69 | 81% | 96% | ×2.60 |
-| Heat deflection | 60 | 80% | 95% | 15 °C |
+| Density | 86 | 80% | 95% | ×1.13 |
+| Stiffness | 68 | 81% | 96% | ×1.54 |
+| Strength | 53 | 81% | 96% | ×1.58 |
+| Elongation | 69 | 81% | 96% | ×2.48 |
+| Heat deflection | 59 | 81% | 97% | 8.7 °C |
 
 The build fails if a likely range drifts more than 0.1 from 80%, or a plausible range falls more than
-0.05 below 95%. Heat deflection is softly capped by the melting point of a semicrystalline polymer and
-by Tg plus 10 °C (20 °C with fibre) for an amorphous one. Values outside a physical range are rejected
-and listed; evidence that contradicts everything else is down-weighted and listed; measured headlines
-far from their prediction (PP's HyperLite density of 810 kg/m³, PC-ABS elongation of 75%) are listed
-in the validation report for a second look.
+0.05 below 95%. Heat deflection is softly capped by the melting point of a semicrystalline polymer, by Tg plus
+10 °C (20 °C with fibre) for an amorphous one or one that prints amorphous, and for an unfilled bar by the highest
+Vicat its own grades publish. Density is softly bounded by the neat polymer's handbook range, and for a filled
+compound by the rule of mixtures at 35 wt% fibre and 5 % porosity (not for a declared variant). Values outside a
+physical range are rejected and listed; evidence that contradicts everything else is down-weighted and listed, unless
+it is the material's only evidence for that headline; measured headlines far from their prediction (PPA-CF stiffness
+of 11.8 GPa, PC-ABS elongation of 75%, both re-read and correct) are listed in the validation report and accepted
+with their reasons.
 
 **What each estimate carries.** `centre`, `lo`/`hi` (likely), `plausible.lo`/`plausible.hi`,
 `strength` (`this-grade`, `this-material` or `family`: what it rests on), `precision` (`good`, `fair`
@@ -331,15 +349,16 @@ product is filed under another material (both then show one estimate), `canScree
 
 **Unstated heat loads.** A heat deflection headline whose source names no load was measured at
 0.45 MPa or at 1.8 MPa, so its 0.45 MPa value lies between the value and the value plus the largest
-(95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer (34 grades), 37 °C
+(95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer (38 grades), 37 °C
 for a fibre-filled semicrystalline one. `hdt045.loadBracket` carries it. It never passes a requirement;
 in Explore with estimates on, a requirement the whole bracket fails screens the material out.
 
 **Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
-reason. Heat deflection of an elastomer and any value of a support product are not applicable unless
-the material's own sources publish one. On this snapshot: 93 estimates (54 from the grade's own related
-measurements, 20 from other grades or resin references, 19 from the family model alone; 13 imprecise)
-and 27 not applicable. 83 estimates may screen.
+reason. Heat deflection of an elastomer is not applicable and never estimated (ISO 75 ends at 0.2 % outer-fibre
+strain, which needs a modulus near 225 MPa); a value its own source publishes is shown only as that measurement. Any
+value of a support product is not applicable unless the material's own sources publish one. On this snapshot: 94
+estimates (60 from the grade's own related measurements, 18 from other grades or resin references, 16 from the family
+model alone; 17 imprecise) and 28 not applicable. 94 estimates may screen.
 
 **What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. Which estimates may
 screen is measured every build (D48): each measured headline is hidden as far as an evidence class requires
@@ -347,14 +366,15 @@ screen is measured every build (D48): each measured headline is hidden as far as
 significantly too narrow on either side over at least 20 cases (`meta.estimateModel.properties.*.screening`).
 In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails
 (its plausible range if its class is certified, else the union with the certified family-only range), and no
-measurement of the material bounds the headline from below and meets the requirement (`impliedBounds`: yield or
-break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa). Not
+printed measurement of the material bounds the headline from below and meets the requirement (`impliedBounds`: yield or
+break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
+published value; D55). The same bounds limit the estimate's own range from below. Not
 applicable screens the same way; the unstated-load bracket screens only for matrix classes whose bracket is
 certified (today amorphous). Strict neither shows nor uses estimates. The earlier models are recorded in D10,
 D11, D40, D42 and D43.
 
 **Moisture, variants and bounds.** A value measured after conditioning (the Moisture condition vocabulary's
-State says which) converts to dry through the documented wet offset. A grade whose Variant is set gets its own
+State says which) converts to dry through the wet offset for its polymer's water uptake. A grade whose Variant is set gets its own
 covariate with a loose documented spread, so a lightweight or densely filled product does not pull its family.
 A one-sided bound ("> 700 %") enters at the bound with a documented half-width, never calibrates a conversion,
 and limits its own material's estimate.
@@ -405,8 +425,8 @@ The chamber question has three kinds of answer, and only the first is a temperat
 | A statement in words | "Not required", "enclosure not necessary", "Recommended", a data sheet's "-" | `print.chamberGuidance`: `not-required`, `recommended` or `no-setpoint` | within for `not-required`; unknown for the other two |
 | An estimated band | PPA, ~80–120 °C† | `print.chamberEstimate` | **none**: a band changes no verdict |
 
-Of the 91 in-scope candidates, 54 publish a window, 16 say no heated chamber is needed, 3 recommend
-one without a temperature, 1 lists no setpoint and 17 publish nothing. 19 carry a band.
+Of the 97 in-scope materials, 54 publish a window, 16 say no heated chamber is needed, 3 recommend
+one without a temperature, 1 lists no setpoint and 23 publish nothing. 20 carry a band.
 
 A **partial** window (DECISIONS D32) is chamber-only. PPS-CF publishes 60–90 °C; the H2C reaches 60–65 °C
 of it, which is neither within nor a failure, so a chamber requirement reports INDETERMINATE.
@@ -417,7 +437,7 @@ own state: not zero, and not "not required".
 
 **Bands** come from the 2026-09-13 research, authored in `data/tables/chamber_bands.csv` with
 the basis and caution the research wrote. A band is attached only where no window is published and
-no source says no heated chamber is needed; the validation report lists the 22 the evidence
+no source says no heated chamber is needed; the validation report lists the 23 the evidence
 superseded. Unlike a property estimate, a band cannot even screen a material out (D34, D42): it describes a
 plausible setpoint, and a setpoint is a recommendation at most.
 
@@ -516,7 +536,9 @@ Four, and `INDETERMINATE` is not a synonym for `UNKNOWN`.
 | `INDETERMINATE` | Evidence exists and the threshold cuts through it, so the source cannot settle it |
 
 A source range of 110–130 °C against "at least 100" passes. 70–90 fails. 90–120 is indeterminate.
-So is a value of 2.98 ± 0.09 GPa against a 3 GPa floor.
+A published mean with its spread is not a range (D54): 2.98 ± 0.09 GPa against a 3 GPa floor fails on its mean and is
+marked close to the limit, and 35 ± 4 MPa against 33 MPa passes, also close. A physically implausible value decides
+nothing: the headline it would have backed is estimated.
 
 ## The reference layer
 
@@ -550,12 +572,19 @@ they can buy wants. In Explore the unsampled ones stay visible and flagged.
 
 Carried as warnings in `build/reports/validation-report.md`, and surfaced in the interface:
 
-- 25 of 69 HDT headlines cite a source naming the standard but not the load.
-- 9 impact measurements are in J/m and cannot share an axis with the kJ/m² rows without specimen
-  geometry the sources never published.
-- 5 materials have no property measurements at all: PA66, PA66-CF, PA612, PA612-GF and POM. None has
-  a defensible exact commercial grade. PLA Lite, PLA Silk, PET-GF, CPE, CoPE and nGen left the list
-  with the missing-data research.
+- 7 of 67 HDT headlines cite a source naming the standard but not the load: PLA Lite, PP, and PEEK, PEKK, PEI, PSU
+  and PPSU, whose 3DXTECH sheets were not re-read because they are outside the estimate model.
+- 10 impact measurements are in J/m and cannot share an axis with the kJ/m² rows without specimen
+  geometry the sources never published. Izod results are one property, "Izod impact strength", since m22.
+- 2 materials have no property measurements at all: PA66-CF and PA612-GF. Neither has a defensible exact commercial
+  grade.
+- 10 published values are flagged physically implausible (m24), and 4 are quarantined; each keeps its reason.
+- PA6 and PE are represented by compounds (Spectrum PA6 Neat, Spectrum HDPE) declared as variants: their values are
+  those products', not the neat polymers'. HyperLite PP is its own material, PP Lightweight.
+- Whether a published density is of the filament, a printed part or the resin is not recorded; several filled
+  grades publish densities below their neat polymer.
+- Where a polymer has little data of its own, its screens rest on family-driven ranges (PP's elongation, 14–118 %,
+  excludes its own 460 %, which states no direction or specimen).
 - PLA Lite and PLA Silk carry third-party technical grade samples, not the original products their
   entries were opened for. Their grade rationale says so.
 - A property the source states in words, such as "No break" for a Charpy test, has the data status
@@ -573,8 +602,8 @@ G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only 
 
 ## Raw-value reconciliation
 
-`build/src/measurement-rules.js` independently checks all 1,806 numeric observations against raw
-values and unit conversions. Decimal commas are retained, thousands-separated cycle counts remain
+`build/src/measurement-rules.js` independently checks all 1,913 numeric observations against raw
+values and unit conversions, including each uncertainty and upper bound. Decimal commas are retained, thousands-separated cycle counts remain
 integers, and qualitative outcomes use their own status. Headline verification also enforces property,
 unit, value, direction and representative-grade ownership. An unstated HDT load is indeterminate
 for both apparent passes and apparent failures of a load-specific criterion.

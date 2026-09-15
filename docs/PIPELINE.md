@@ -40,20 +40,26 @@ not published, insufficient comparable data, not applicable, quarantined. Plus a
 where "not available in the sampled Canadian market" is a different statement from "not published".
 
 **Intervals** (`values.js`). What a measurement actually asserts: a point, a range, a value plus
-uncertainty, or a bound from a `>` or `<` operator. Unbounded ends are `null`, not `Infinity`,
+uncertainty, or a bound from a `>` or `<` operator. The engine judges a value plus uncertainty on its value and
+flags a threshold inside the spread (D54); a range and a bound stay intervals. Unbounded ends are `null`, not `Infinity`,
 because this is serialised to JSON and `JSON.stringify` would turn Infinity into null anyway.
 
-**Direction** (`direction.js`). Nine spellings onto canonical values. Three of them are the source's
+**Direction** (`direction.js`). Ten spellings onto canonical values. Three of them are the source's
 own words rather than a confirmed build orientation, so `Horizontal (source label)` gets its own
-value and never merges into XY. The Method table's rule: an unknown direction is not XY.
+value and never merges into XY, in the engine or in the estimate model; `45/45` is a ±45° raster, its own value.
+The Method table's rule: an unknown direction is not XY. A locator naming a direction the Direction column does not
+record is a lint finding (MEAS-LOCATOR-DIRECTION): 18 Z results coded unknown once skewed every estimate.
 
 **Thermal** (`thermal.js`). About twenty spellings of HDT standard and load, including full-width
 commas from Chinese-language datasheets, 1.81 and 1.820 MPa, MN/m², a decimal comma beside the unit, and
-ISO 75-2's method letters (A 1.80 MPa, B 0.45 MPa). A load that was never stated stays unstated, and every HDT
-headline in that position carries `loadStated: false` (HDT-LOAD-UNSTATED lists them).
+ISO 75-2's method letters (A 1.80 MPa, B 0.45 MPa), ASTM D648's psi (66, 264) and kgf/cm² (4.6, 18.5). A text naming
+both loads states neither. A load that was never stated stays unstated, and every HDT headline in that position carries
+`loadStated: false` (HDT-LOAD-UNSTATED lists them, each reviewed).
 
-**Moisture** (`moisture.js`). The State of each Moisture condition wording, declared in its vocabulary; an
-undeclared wording stops the build.
+**Declared states** (`moisture.js`, `specimen.js`). Each Moisture condition wording declares its State (dry,
+conditioned, not-stated), each Post-processing wording its State (as-printed, annealed, not-stated), and each Specimen
+type its Form (printed, not-stated, moulded, film, filament), in their vocabularies; an undeclared wording stops the
+build. Nothing downstream reads the words themselves (D53, D56).
 
 **Typed values** (`typed-values.js`). The parsers above no longer feed compile directly: the typed columns do, and
 the parsers check them (PARSE-MISMATCH unless Parse review explains the difference; D49).
@@ -95,8 +101,9 @@ Assembles the relational runtime database, and does the one thing that matters m
 `headlines.csv` names the MeasurementID behind each headline; the value is read from that
 measurement. The build checks the selection against the headline's definition in
 `headline_definitions.csv`: an active numeric measurement of this material, on its representative
-grade, of an allowed property, in the headline's unit and direction. A selection that fails any of
-these is a build error naming the material and the reason. A headline limited by "Applies to" is not
+grade, of an allowed property, in the headline's unit and direction, from a printed or unstated specimen, not
+conditioned, not flagged physically implausible, and not annealed where the grade publishes the property as printed.
+A selection that fails any of these is a build error naming the material and the reason (HEADLINE-SELECTION-INVALID). A headline limited by "Applies to" is not
 applicable, with its reason, for every other material.
 
 The price headline is calculated: the median regular CAD/kg (list price over net mass, to the cent)
@@ -115,7 +122,12 @@ Compile also derives, each tagged with its origin so the interface can tell them
   would have reported PEEK as "unknown". Among unknowns, a profile that said something in words
   supplies the reason.
 - **Related evidence** for headlines with no value: one real measurement of the same property that
-  was never promoted, with the reason. Never a cross-grade range.
+  was never promoted, with the reason (another direction or endpoint, a moulded, film or filament specimen, an
+  annealed twin, a physically implausible value). Never a cross-grade range.
+- **Implied bounds** for headlines with no value: the material's own printed measurements that bound the headline from
+  below (a yield or break strength under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa
+  under 0.45 MPa), at their published value. They veto a screen that would be wrong and limit the estimate (D55).
+  A moulded, film, filament or unstated specimen, an annealed twin and a conditioned elongation bound nothing.
 - **Facets** the Materials table does not carry directly, marked `derived`.
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
   profiles, with the number of profiles behind each. 93 materials have a nozzle window, 93 a bed
@@ -143,7 +155,13 @@ the data above documented floors, and fits one Gaussian model. It then hides eac
 predicts it, and scales the likely (80%) and plausible (95%) ranges to the coverage actually achieved.
 Declared grade variants get their own covariate, conditioned values convert to dry through the documented wet
 offset, published bounds enter with a half-width and limit their own material, and physical limits bound every
-range softly (D53). Every build then back-tests screening: each measured headline is hidden as far as an evidence
+range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous deflects near its glass
+transition and learns nothing from annealed values; an annealed value is never averaged with its as-printed twin, and
+repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
+neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
+estimate; an unknown direction never converts upwards past its documented offset; a material's only evidence is never
+down-weighted; its implied bounds limit its range from below (D55). Film, filament and physically implausible values
+enter nothing. Every build then back-tests screening: each measured headline is hidden as far as an evidence
 class requires (this grade, this material, family) and predicted with the production ranges, and a class may screen
 only if its ranges are not significantly too narrow on either side over at least 20 cases (D48). Every missing
 headline gets an estimate with its evidence, precision and the range it may screen on, or a not-applicable reason. Diagnostics (calibration, conversions, spreads, rejected values, conflicting
@@ -163,10 +181,14 @@ see `docs/DATA-MODEL.md` under "Chamber evidence".
 
 Errors stop the build. Warnings do not: they record what the compiled database cannot support, so
 the interface can say so rather than implying a certainty it does not have. Every issue carries a code from
-`rules.js` (`docs/RULES.md`), and warnings name their records, which the review snapshot commits (D50, D53).
+`rules.js` (`docs/RULES.md`), and warnings name their records, which the review snapshot commits (D50, D53). A
+per-record warning (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) must be fixed or
+accepted with a reason in `data/review/accepted-findings.csv`; `npm run audit:data` fails otherwise (D57). Summaries
+that only describe the snapshot (EST-SUMMARY, FAMILY-ENTRIES, IMPACT-UNITS, EST-CALIBRATION-FEW) are level info.
 
 Checked: identifier uniqueness; referential integrity across every table; every measurement of a
-registered property, in one of its units, of a material the property applies to; quarantined measurements
+registered property that no other property replaces, in one of its units, of a material the property applies to;
+raw value, uncertainty and upper bound each reconciled with the conversion factor; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
 kJ/m² without specimen geometry; scope and H2C status agreeing about exclusion; HDT loads either stated at 0.45 MPa or flagged; every in-scope headline carrying a value,
 an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
@@ -258,9 +280,10 @@ URLs is not a substitute for actually running it without a network.
 then reuses the production loader/compiler/validator and writes `build/reports/data-audit/`.
 Pass an output directory to archive a review. The audit independently reconciles numeric raw values,
 checks explicit source-grade scope, recompiles both payloads from the tables, and decompresses the HTML
-to prove it embeds those exact payloads. It produces a full record index and 102-filament / 19-family
+to prove it embeds those exact payloads. It produces a full record index and 103-filament / 19-family
 matrix. It does not assert that all external documents were re-read; live checks belong in the
-review's source log. `measurement-rules.js` adds build-stopping numeric and endpoint checks.
+review's source log. `measurement-rules.js` adds build-stopping numeric and endpoint checks. It also reviews every
+per-record build finding against `data/review/accepted-findings.csv` (AUDIT-REVIEW-FINDING, AUDIT-REVIEW-STALE).
 
 `npm run audit:sources` goes further on demand (it needs the network once): it fetches every PDF source cited
 by measurements into `.cache/sources/`, checks its SHA-256, and lists every published number and every named

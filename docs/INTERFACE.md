@@ -6,7 +6,7 @@ Two readers share one screen: someone who wants a shortlist, and an engineer who
 behind it. Progressive disclosure answers that.
 
 This dataset adds a harder problem. It is sparse, and deliberately honest about being sparse.
-Tensile strength exists for 57 of 102 materials, price for 40, and most process fields for almost
+Tensile strength exists for 58 of 98 candidate materials, price for 38, and most process fields for almost
 none. A conventional filter interface renders that as a tool that looks broken. **Making absence
 legible and useful, rather than invisible, is the design problem.** Most of what follows is
 downstream of it.
@@ -79,9 +79,9 @@ first made the whole rail look like it did nothing.
 **Every numeric control states its own data availability before it is touched.**
 
 ```
-HDT at 0.45 MPa                          69 of 102 have data
+HDT at 0.45 MPa                          67 of 98 have data
 [>=] [ 100 ] °C
-     25 of those 69 cite a source that states the standard but not the load
+     7 of those 67 cite a source that states the standard but not the load
 ```
 
 This single pattern does most of the work. It says what a criterion can and cannot decide before
@@ -95,6 +95,11 @@ trust something that checked nothing.
 The rail is rebuilt on every change, and keeps what the user was doing: which groups are open,
 which control has focus, and an operator chosen before a number was typed. A number the property
 cannot take, such as a negative density, is refused inline and the applied requirement is left alone.
+
+The rail holds one requirement per property. A link or file carrying a second one on the same property, or a
+requirement this build cannot evaluate (an unknown property, gate, facet or environment, an empty list), is left out
+when it loads, with a warning that names it: a second requirement used to be invisible in the rail and dropped by
+editing the first, and a typo read as a gap in every material's data.
 
 The nozzle question is asked as the hardware you lack, **"I don't have a hardened nozzle"**. Owning
 one removes nothing, so there is nothing to ask. The criterion fails materials a source says need a
@@ -111,7 +116,7 @@ used to say "Printable on an H2C", a promise about temperatures and feed paths i
 Environment criteria split by what the data can answer. Six categories carry reducible verdicts and
 are offered as filters. Six others have records but no reducible verdict among them, UV and outdoor
 being the sharpest at seven records and zero verdicts; offering those as constraints would return
-UNKNOWN for all 102 materials while looking like a working filter. Among the six that are offered,
+UNKNOWN for all 98 candidate materials while looking like a working filter. Among the six that are offered,
 only an unqualified record passes: "limited resistance" is unresolved, never a PASS.
 
 ## What to do with missing data
@@ -165,7 +170,10 @@ exports. Always icon plus text, never colour alone.
 | PASS | check | Evidence satisfies the criterion |
 | FAIL | cross | Evidence violates it |
 | UNKNOWN | question | No comparable evidence |
-| INDETERMINATE | half circle | A range straddles the threshold |
+| INDETERMINATE | half circle | A published range straddles the threshold, or the source leaves it unsettled (a load not stated, a chamber window only partly reachable) |
+
+A published mean with its spread is not a range: it passes or fails on its mean, and a threshold inside the spread
+marks the value `≈` "close to the limit" (D54).
 
 The status bar chips are **buttons**: they choose which verdicts the table shows. The last one
 switched on stays on, and says so.
@@ -293,6 +301,10 @@ warnings and banners · the chart · the guide-line card · reading this chart
   and was three: comparability could do nothing in headline mode, because a headline is one fixed
   value with no measurement conditions left to match. Its "Strict" also meant measurement
   conditions, an unrelated idea to the "Strict" in the top bar, which is about missing data.
+- **A scenario assumption** is drawn as a faint point that says so on hover, and never joins the Pareto front: nobody
+  measured it. Its reason reads "Assumed", never "Published".
+- The chart is not responsive on its own: one window listener resizes whichever plot is on screen, because a
+  listener per plot kept every replaced plot alive (800 redraws once held 569 MB).
 - **Compare with** adds one familiar filament, PLA by default, as a labelled cross. It is a
   reference, not a candidate: excluded from the front, from the counts and from the index tally,
   exactly like the steel and aluminium envelopes.
