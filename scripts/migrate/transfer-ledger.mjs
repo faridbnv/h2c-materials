@@ -22,6 +22,14 @@ import { csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { BASE_COMMIT } from './commits.mjs';
 import { cleanText } from './text-cleanup.mjs';
+import { CORRECTIONS as M10_CORRECTIONS, ADDITIONS as M10_ADDITIONS } from './m10-source-conditions.mjs';
+
+// Cells m10 corrected against the re-read data sheets, and the values it added (scripts/migrate/m10-source-conditions.mjs).
+const M10_CELLS = new Set([
+  ...M10_CORRECTIONS.flatMap((c) => c.ids.flatMap((id) => [...Object.keys(c.set), 'Notes'].map((f) => `Properties\u0000${id}\u0000${f}`))),
+  ...[...new Set([...M10_CORRECTIONS, ...M10_ADDITIONS].map((c) => c.source))].map((id) => `Sources\u0000${id}\u0000Access date`),
+]);
+const M10_ADDED = new Set(M10_ADDITIONS.map((a) => `${a.source}\u0000${a.set.Locator}`));
 
 const outDir = resolve(process.argv[2] ?? join(projectRoot, 'docs/audits/2026-09-14-transfer-verification'));
 const git = (args) => execFileSync('git', args, { cwd: projectRoot, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
@@ -161,7 +169,8 @@ for (const [sheet, { header, rows }] of Object.entries(native)) {
     for (const column of header) {
       const cell = row.cells[column];
       if (csv.header.includes(column)) {
-        const cls = classifyKept(sheet, column, cell, now[column], row.cells);
+        let cls = classifyKept(sheet, column, cell, now[column], row.cells);
+        if (cls === 'unexplained' && M10_CELLS.has(`${sheet}\u0000${id}\u0000${column}`)) cls = 'test condition corrected against the source (m10)';
         record(sheet, row.__row, id, column, cell, now[column], cls);
       } else {
         const [cls, value] = classifyReplaced(sheet, column, cell, id);
@@ -169,7 +178,11 @@ for (const [sheet, { header, rows }] of Object.entries(native)) {
       }
     }
   }
-  for (const r of csv.rows) if (!nativeIds.has(r[key])) record(sheet, '', r[key], '(row)', null, 'added', 'unexplained', 'CSV row not in the workbook');
+  for (const r of csv.rows) {
+    if (nativeIds.has(r[key])) continue;
+    const added = sheet === 'Properties' && M10_ADDED.has(`${r.SourceID}\u0000${r.Locator}`);
+    record(sheet, '', r[key], '(row)', null, 'added', added ? 'published value added from the source (m10)' : 'unexplained', added ? r.Locator : 'CSV row not in the workbook');
+  }
   for (const column of csv.header.filter((h) => !header.includes(h))) {
     counts[`${sheet}\u0000added column: ${column}`] = csv.rows.length;
   }

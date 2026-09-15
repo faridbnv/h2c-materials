@@ -26,8 +26,8 @@
       "sha256": "9acf5af99c18ef4538ab403a3bfa3827b55e6ffc5c401295f4307e246e4caabc"
     },
     "measurements": {
-      "rows": 2049,
-      "sha256": "6108c76d4ef0a32ed7be0c12ed8917a5df682db6fe0610441804520c70494b75"
+      "rows": 2051,
+      "sha256": "585a6bb12030606347640ae3df8c14c8bd67b8ec48b9c17d6b39093ba2f96025"
     },
     "evidence": {
       "rows": 478,
@@ -39,7 +39,7 @@
     },
     "sources": {
       "rows": 243,
-      "sha256": "952019fb70420e3ca5d3217d4fe5c940045001b49b668fb5e955a0ffce439296"
+      "sha256": "41a2c8a7fadaf0c6eb92443d9d7b0211d15bd9280f201d699782bf71d2806263"
     },
     "coverage": {
       "rows": 1188,

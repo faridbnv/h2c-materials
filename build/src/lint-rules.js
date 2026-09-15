@@ -13,6 +13,7 @@ export const LINT_RULES = {
   'TEXT-SPACING': 'Two or more spaces in a row.',
   'VOCAB-NEAR-DUPLICATE': 'Values that differ only in case, spacing or punctuation in a short-list column; pick one spelling.',
   'MEAS-DUPLICATE': 'Two active measurements with the same grade, property, value, unit, direction, conditions, source and locator; retire the copy.',
+  'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
   'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
   'SOURCE-UNCITED': 'A source no record cites; cite it, or say why it is registered.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
@@ -72,6 +73,21 @@ export function lintData(tables, schemas) {
     if (seen.has(k)) add('MEAS-DUPLICATE', 'measurements', r.MeasurementID, '', `same as ${seen.get(k)}`);
     else seen.set(k, r.MeasurementID);
   }
+  // Rows the source lists separately must differ in a stated condition, or the table they came from is lost.
+  const CONDITION_FIELDS = ['GradeID', 'Property', 'Direction', 'Notch', 'Standard / load', 'Test load MPa', 'Test temperature', 'Moisture condition',
+    'Post-processing', 'Specimen type', 'Specimen / print parameters', 'SourceID'];
+  const locator = (s) => String(s ?? '').normalize('NFKC').replace(/[\s'’"]/g, '').toLowerCase();
+  const byConditions = new Map();
+  for (const r of measurements.filter((m) => DATA_STATUS[m['Data status']]?.numeric)) {
+    const k = [...CONDITION_FIELDS.map((f) => r[f]), locator(r.Locator)].join('\u0000');
+    if (!byConditions.has(k)) byConditions.set(k, []);
+    byConditions.get(k).push(r);
+  }
+  for (const rows of byConditions.values()) {
+    if (new Set(rows.map((r) => r['Normalized value'])).size < 2) continue;
+    for (const r of rows.slice(1)) add('MEAS-CONDITIONS-INDISTINCT', 'measurements', r.MeasurementID, '', `${r.Property} ${r['Normalized value']} vs ${rows[0].MeasurementID} ${rows[0]['Normalized value']} (${r.SourceID}, ${r.Locator})`);
+  }
+
   const mechanical = new Set((tables.properties?.rows ?? []).filter((p) => p.Domain === 'mechanical').map((p) => p.Property));
   for (const r of measurements) {
     if (mechanical.has(r.Property) && /^Printed specimen/.test(r['Specimen type'] ?? '') && r.Direction === 'Not published' && /^Published value/.test(r['Data status'])) {

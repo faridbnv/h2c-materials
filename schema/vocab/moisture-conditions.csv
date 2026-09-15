@@ -1,12 +1,13 @@
-Value,Meaning
-<20% RH during printing/storage,
-50% RH,
-Conditioned: 70% RH,
-Dried before testing (see preparation),
-Dry,
-Dry (source row); table heading 50% RH,
-Dry as moulded,
-Keep vacuum sealed; dry at 120 °C for 3-8 h if >200 ppm,
-Kept dry; TDS recommends drying before printing,
-Not published,
-Wet (conditioning specified in source),
+Value,Meaning,State
+<20% RH during printing/storage,Storage or printing humidity; the moisture state at test is not stated,not-stated
+50% RH,Tested at 50% relative humidity,conditioned
+Conditioned: 70% RH,Conditioned at 70% relative humidity before testing,conditioned
+Conditioned: water immersion,Immersed in water before testing,conditioned
+Dried before testing (see preparation),Dried before testing; the Post-processing column says how,dry
+Dry,Tested dry,dry
+Dry (source row); table heading 50% RH,The row is dry although its table heading names 50% RH,dry
+Dry as moulded,Moulded specimens tested dry as moulded,dry
+Keep vacuum sealed; dry at 120 °C for 3-8 h if >200 ppm,Storage and drying guidance; the moisture state at test is not stated,not-stated
+Kept dry; TDS recommends drying before printing,Storage guidance; the moisture state at test is not stated,not-stated
+Not published,The source does not state the moisture state at test,not-stated
+Wet (conditioning specified in source),Conditioned wet as the source specifies,conditioned

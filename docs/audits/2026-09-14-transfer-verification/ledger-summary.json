@@ -1,8 +1,8 @@
 {
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
-  "cells": 99364,
+  "cells": 99366,
   "totals": {
-    "equal": 87829,
+    "equal": 87547,
     "derived: first cited profile, equal": 290,
     "derived or linked: same identifiers, same order": 918,
     "derived: headline read from its measurement, equal": 353,
@@ -17,11 +17,13 @@
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
     "formula cached text, current": 2864,
+    "test condition corrected against the source (m10)": 287,
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
     "number stored as text made canonical (m01)": 4,
+    "published value added from the source (m10)": 2,
     "derived: list price / net mass, equal": 53,
-    "date serial written as a date": 317,
+    "date serial written as a date": 312,
     "derived: not eligible, no per-kg price": 44,
     "derived: list price / net mass to the cent (display showed the same)": 7,
     "boolean made canonical (m01)": 2,
@@ -52,16 +54,38 @@
     },
     "Print setup": {
       "equal": 6424,
-      "text cleanup (m07)": 74
+      "text cleanup (m07)": 74,
+      "added column: Nozzle state": 171,
+      "added column: Nozzle min °C": 171,
+      "added column: Nozzle max °C": 171,
+      "added column: Nozzle requirement": 171,
+      "added column: Bed state": 171,
+      "added column: Bed min °C": 171,
+      "added column: Bed max °C": 171,
+      "added column: Bed requirement": 171,
+      "added column: Chamber state": 171,
+      "added column: Chamber min °C": 171,
+      "added column: Chamber max °C": 171,
+      "added column: Chamber requirement": 171,
+      "added column: Enclosure state": 171,
+      "added column: Drying state": 171,
+      "added column: Drying °C": 171,
+      "added column: Drying hours": 171,
+      "added column: Hardened nozzle": 171,
+      "added column: Parse review": 171
     },
     "Properties": {
-      "equal": 58654,
+      "equal": 58372,
       "display padding removed (m01)": 5546,
       "formula cached text, current": 2864,
+      "test condition corrected against the source (m10)": 282,
       "formula cached text, STALE: kept as the build read it": 139,
       "equal but for floating-point noise in the formula result": 74,
       "text cleanup (m07)": 336,
-      "number stored as text made canonical (m01)": 4
+      "number stored as text made canonical (m01)": 4,
+      "published value added from the source (m10)": 2,
+      "added column: Test load MPa": 2051,
+      "added column: Parse review": 2051
     },
     "Use & durability": {
       "equal": 5720,
@@ -79,8 +103,9 @@
     },
     "Sources": {
       "equal": 2694,
-      "date serial written as a date": 213,
+      "date serial written as a date": 208,
       "text cleanup (m07)": 5,
+      "test condition corrected against the source (m10)": 5,
       "date made canonical (m01)": 4
     },
     "Coverage": {

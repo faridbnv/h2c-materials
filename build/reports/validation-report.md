@@ -14,8 +14,8 @@ Database snapshot 2026-09-13 · build 2026-09-14
 | retiredDuplicates | [object Object] |
 | excluded | 6 |
 | grades | 155 |
-| measurements | 1902 |
-| numericMeasurements | 1750 |
+| measurements | 1904 |
+| numericMeasurements | 1752 |
 | quarantined | 2 |
 | profiles | 171 |
 | evidence | 462 |
@@ -98,9 +98,9 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
 | density | 121 | 84 | 81% | 95% | ×1.14 | 0.0371 (37 pairs) |
-| tensileModulusXY | 252 | 68 | 81% | 96% | ×1.55 | 0.219 (12 pairs) |
-| tensileStrengthXY | 207 | 53 | 81% | 96% | ×1.56 | 0.142 (13 pairs) |
-| elongationXY | 176 | 69 | 81% | 96% | ×2.6 | 0.629 (14 pairs) |
+| tensileModulusXY | 250 | 68 | 79% | 96% | ×1.55 | 0.156 (12 pairs) |
+| tensileStrengthXY | 210 | 53 | 79% | 96% | ×1.58 | 0.186 (13 pairs) |
+| elongationXY | 176 | 69 | 80% | 96% | ×2.68 | 0.6 (14 pairs) |
 | hdt045 | 162 | 60 | 80% | 95% | 15 °C | 9.43 (11 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
@@ -114,20 +114,13 @@ passes a material; in Explore it may screen one out only when its plausible rang
 Evidence that contradicts everything else and was down-weighted:
 
 - PP, density: density 810 (V001490)
-- PA612-ESD, tensileModulusXY: tensile Z 1.7844 (V001239)
-- PPA-CF, tensileModulusXY: tensile XY 11.8 (V001310)
-- PPA-CF, tensileModulusXY: tensile Z 4.3 (V001311)
-- PPS-CF, tensileModulusXY: tensile XY 8.23 (V001361)
 - PPS-CF, tensileModulusXY: tensile Z 2.85 (V001362)
 - PPS-CF, tensileModulusXY: tensile Z 2.72 (V001867)
 - TPU, tensileStrengthXY: yield unk 8.6 (V000756)
 - PEBA, tensileStrengthXY: ultimate unk 25 (V000850)
 - PEBA, tensileStrengthXY: flexural unk 5 (V000853)
-- PP, tensileStrengthXY: flexural unk 13.9 (V001498)
 - TPU for AMS, elongationXY: break XY 650 (V000779)
 - TPU for AMS, elongationXY: break Z 31 (V000780)
-- PA6/66, elongationXY: break XY 9.9, 216.5 (V001027, V001039)
-- PA6/66, elongationXY: break Z 1.8, 4.6 (V001028, V001040)
 - PP, elongationXY: break unk 460 (V001497)
 - PLA-GF, hdt045: HDT 1.8 amorphous 59.7, 84 (V000349, V000352)
 - PLA-GF, hdt045: HDT 0.45 75.5, 114.7 (V000350, V000353)
@@ -140,7 +133,7 @@ Evidence that contradicts everything else and was down-weighted:
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
 - PP, density: 810 kg/m³, expected about 1100
-- PC-ABS, elongationXY: 75 %, expected about 8.89
+- PPA-CF, tensileModulusXY: 11.8 GPa, expected about 7.29
 
 ## Consistency
 
@@ -165,9 +158,9 @@ interface can say so rather than implying a certainty it does not have.
 
 - `IMPACT-UNITS` **measurements** — Impact data uses two incompatible units. 9 rows are J/m (energy per width) and cannot be compared with the kJ/m² rows without specimen geometry. They must not share a chart axis.
 - `HDT-LOAD-UNSTATED` **materials** — 6 of 66 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
-- `EST-SUMMARY` **materials** — Missing headlines: 54 estimated from the grade's own related measurements, 20 from the material's other grades, 19 from the family model alone (11 of all estimates imprecise), 27 not applicable. 83 estimates may screen a material out in Explore; none can pass one.
-- `EST-OUTLIER` **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PP density 810 (expected about 1100); PC-ABS elongationXY 75 (expected about 8.89)
-- `EST-WIDE` **materials** — 11 estimates are too imprecise to guide a choice: PLA Silk elongationXY 1.31-9.39 % (plausible 0.919-13.4, family); TPU tensileStrengthXY 15.2-53.2 MPa (plausible 12.3-65.9, this-material); PEBA tensileModulusXY 0.0682-0.232 GPa (plausible 0.0574-0.276, this-grade); TPC / TPEE tensileModulusXY 0.00944-0.106 GPa (plausible 0.00673-0.149, this-grade); TPC / TPEE tensileStrengthXY 10.2-41.8 MPa (plausible 8.04-53.2, family); TPC / TPEE elongationXY 167-1290 % (plausible 116-1840, family); PA12 elongationXY 4.98-31.9 % (plausible 3.56-44.6, this-material); PA612-ESD hdt045 88.2-158 °C (plausible 55.4-201, family); OBC tensileModulusXY 0.0171-1.17 GPa (plausible 0.00952-2.1, family); POM / Acetal hdt045 73.9-148 °C (plausible 50.3-163, this-material); CoPE elongationXY 4.54-45.8 % (plausible 2.99-69.6, family)
+- `EST-SUMMARY` **materials** — Missing headlines: 54 estimated from the grade's own related measurements, 20 from the material's other grades, 19 from the family model alone (13 of all estimates imprecise), 27 not applicable. 83 estimates may screen a material out in Explore; none can pass one.
+- `EST-OUTLIER` **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PP density 810 (expected about 1100); PPA-CF tensileModulusXY 11.8 (expected about 7.29)
+- `EST-WIDE` **materials** — 13 estimates are too imprecise to guide a choice: PLA Silk elongationXY 1.12-8.53 % (plausible 0.753-12.8, family); TPU tensileStrengthXY 15.7-55.7 MPa (plausible 13.2-66.4, this-material); PEBA tensileModulusXY 0.0681-0.233 GPa (plausible 0.0529-0.299, this-grade); TPC / TPEE tensileModulusXY 0.00943-0.107 GPa (plausible 0.00572-0.177, this-grade); TPC / TPEE tensileStrengthXY 10.6-43 MPa (plausible 8.74-52.2, family); TPC / TPEE elongationXY 178-1250 % (plausible 122-1780, family); PA6 tensileModulusXY 1.27-3.25 GPa (plausible 1.04-3.94, family); PA12 elongationXY 5.3-34.7 % (plausible 3.66-50.2, this-material); PA612-ESD hdt045 88.2-158 °C (plausible 55.4-201, family); OBC tensileModulusXY 0.017-1.21 GPa (plausible 0.00708-2.9, family); POM / Acetal hdt045 73.9-148 °C (plausible 50.3-163, this-material); CoPE elongationXY 4.47-37.8 % (plausible 2.94-57.4, family); PVB elongationXY 6.11-32 % (plausible 4.41-44.4, this-grade)
 - `EST-FAMILY-ORDER` **materials** — 1 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865
 - `FAMILY-ENTRIES` **materials** — 5 canonical names are family entries with no product of their own and are not candidates: TPE (TPU, TPU for AMS, TPU 95A HF, TPU 90A, TPU 85A, PEBA, TPC / TPEE, OBC); PA (PA6, PA6/66, PA66, PA12, PA612); CoPA (PA6/66); PA-CF (PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF); PA-GF (PA6-GF, PA12-GF, PA612-GF)
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF

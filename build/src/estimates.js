@@ -36,6 +36,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { moistureState } from './normalize/moisture.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const ESTIMATE_MODEL = JSON.parse(readFileSync(join(here, '../mappings/estimate-model.json'), 'utf8'));
@@ -196,7 +197,8 @@ const STRENGTH_ENDPOINT = {
 export function kindOf(x, key, matrixClass) {
   const moulded = x.specimenType?.startsWith('Raw material') ? ' moulded' : '';
   const dir = moulded ? '' : ` ${DIRECTION_CLASS[x.direction] ?? 'unk'}`;
-  const wet = /wet/i.test(x.moisture ?? '') ? ' wet' : '';
+  // The vocabulary declares each moisture wording's state (normalize/moisture.js); a conditioned value converts to dry.
+  const wet = moistureState(x.moisture ?? 'Not published') === 'conditioned' ? ' wet' : '';
   const kind = (base) => `${base}${dir}${wet}${moulded}`;
   switch (key) {
     case 'density': return x.property === 'Density' ? `density${moulded}` : null;

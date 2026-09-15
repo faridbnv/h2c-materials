@@ -610,6 +610,11 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
   assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'XZ' }), 'tensileModulusXY', 'amorphous'), 'tensile XY');
   assert.equal(kindOf(x({ property: 'HDT', specimenType: 'Raw material value', thermal: { loadStated: true, loadMPa: 0.455 } }), 'hdt045', 'amorphous'), 'HDT 0.45 moulded amorphous');
   assert.equal(kindOf(x({ property: 'Glass transition temperature' }), 'hdt045', 'semi-unfilled'), null);
+  // The moisture state comes from the vocabulary's declared State, not from the wording.
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Wet (conditioning specified in source)' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Dry as moulded', specimenType: 'Raw material value' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile moulded');
+  assert.throws(() => kindOf(x({ property: 'Tensile modulus', moisture: 'Soaked' }), 'tensileModulusXY', 'semi-unfilled'), /not in schema\/vocab\/moisture-conditions\.csv/);
 });
 
 test('the validator rejects a blank headline, a range that does not nest, and evidence from another material', () => {
