@@ -21,7 +21,6 @@ import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped } from './typed-values.js';
-import { ESTIMATE_MODEL } from './estimate/model.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 
 // Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an
@@ -289,7 +288,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       headline[key] = {
         known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
         related: relatedEvidence(mat, def, measurementsByMaterial),
-        impliedBounds: impliedBounds(mat, key, measurementsByMaterial),
+        impliedBounds: impliedBounds(mat, def, measurementsByMaterial),
       };
       continue;
     }
@@ -406,11 +405,11 @@ const DIRECTION_NOTE = {
  * This never becomes the headline and never satisfies a constraint.
  */
 /**
- * Measurements of the material that bound a missing headline from below (estimate-model.json impliedBounds). The
+ * Measurements of the material that bound a missing headline from below (headline_definitions.csv Lower bound). The
  * engine lets one veto an estimate's screen when it meets the requirement: the headline is at least that value.
  */
-function impliedBounds(mat, key, measurementsByMaterial) {
-  const rel = ESTIMATE_MODEL.impliedBounds?.[key];
+function impliedBounds(mat, def, measurementsByMaterial) {
+  const rel = def.lowerBounds;
   if (!rel) return [];
   const own = measurementsByMaterial.get(mat.MaterialID) ?? [];
   // Only a printed part bounds a printed headline. A moulded bar, a drawn film or a filament strand is another
@@ -422,7 +421,7 @@ function impliedBounds(mat, key, measurementsByMaterial) {
     .filter((m) => m.numeric && !m.quarantined && !m.implausible && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
     .filter((m) => !annealedBesideAsPrinted(m, own))
     .filter((m) => !(rel.excludeMoisture ?? []).includes(moistureState(m.moisture ?? 'Not published')))
-    .filter((m) => rel.lowerFrom.some((r) => r.property === m.property && (r.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - r.loadMPa) < 0.05))))
+    .filter((m) => rel.properties.includes(m.property) && (rel.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - rel.loadMPa) < 0.05)))
     .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
       // The published value (the low end of a published range, the bound of a "> x"), never value + SD: a spread of
       // specimens is not a guarantee, and 30 ± 23 % once read as "at least 53 %" (audit 2026-09-15, B-02).

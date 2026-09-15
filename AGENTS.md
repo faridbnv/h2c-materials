@@ -171,7 +171,12 @@ git diff build/snapshot                  # what the change did to headlines, est
 npm run ui:fuzz -- --n 3000 --seed 7     # the rendered page against the engine, more scenarios or another seed
 ```
 
-Estimates and screening (D43, D48): the build back-tests which evidence may screen a material out, and
+Estimates and screening (D43, D48, D58): estimates are a stage of their own (`build/src/estimate/`) applied to a
+complete core database; `node build/src/index.js --no-estimates` builds the core alone, and it must validate. **A case
+the model cannot express is not a new branch in code.** Make it a not-applicable reason, a declared state or class in
+the data (a vocabulary State, a grade Variant, a Data status), or a reviewed finding that says more data is needed. A
+new conversion kind or physical rule needs a DECISIONS entry that says why the data cannot carry it, and a back-test
+row that shows it helps. The build back-tests which evidence may screen a material out, and
 records the result in `meta.estimateModel.properties.*.screening`. A change that makes a class uncertified
 shows in the snapshot's Screens column; `test/screening.test.js` fails if a material stays a candidate for
 a requirement its defended range wholly fails.

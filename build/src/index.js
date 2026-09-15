@@ -11,7 +11,8 @@
 //   (pipeline.js runs compile, estimate and validate for the build, the snapshot, the audit and the tests)
 //   bundle     gzip the data, inline the libraries, emit HTML     bundle.js
 //
-// `npm run validate` stops after the report; `npm run build` continues to the bundle.
+// `npm run validate` stops after the report; `npm run build` continues to the bundle; `--no-estimates` builds the core
+// database without the estimate stage.
 // See docs/PIPELINE.md.
 
 import { writeFileSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
@@ -46,6 +47,8 @@ function buildDate() {
 const BUILD = buildDate();
 
 const validateOnly = process.argv.includes('--validate-only');
+// The core database alone, without the estimate stage: it must validate, because nothing in the core may rest on inference.
+const withEstimates = !process.argv.includes('--no-estimates');
 
 async function main() {
   const issues = [];
@@ -63,13 +66,13 @@ async function main() {
   const { wb, referenceRows, referenceWhere } = readSource(projectRoot);
   const SNAPSHOT = snapshotDate(wb.Method.rows);
 
-  const { db, issues: buildIssues } = buildDatabase(wb, { snapshot: SNAPSHOT, build: BUILD });
+  const { db, issues: buildIssues } = buildDatabase(wb, { snapshot: SNAPSHOT, build: BUILD, estimates: withEstimates });
   issues.push(...buildIssues);
 
   const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
   issues.push(...contractIssues({ db, reference }));
 
-  const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD, sections: { estimates: estimateReportLines(db) } });
+  const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD, sections: { estimates: withEstimates ? estimateReportLines(db) : [] } });
   mkdirSync(join(buildRoot, 'reports'), { recursive: true });
   writeFileSync(join(buildRoot, 'reports/validation-report.md'), report);
 

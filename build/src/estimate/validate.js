@@ -18,10 +18,6 @@ export function modelReferenceIssues({ registry, materials, grades, model = ESTI
     if (tag.startsWith('_')) continue;
     for (const n of list) if (!names.has(n)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `variants.${tag} names "${n}", which is not a material`));
   }
-  for (const [key, rel] of Object.entries(model.impliedBounds ?? {})) {
-    if (key.startsWith('_')) continue;
-    for (const { property } of rel.lowerFrom ?? []) if (!properties.has(property)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `impliedBounds.${key} names property "${property}", which is not in properties.csv`));
-  }
   const gradeIds = new Set(grades.map((g) => g.id));
   for (const id of Object.keys(model.hardness ?? {})) {
     if (!id.startsWith('_') && !gradeIds.has(id)) issues.push(issue('EST-MODEL-REFERENCE', 'build/mappings/estimate-model.json', `hardness names grade "${id}", which does not exist`));
@@ -86,10 +82,10 @@ export function validateEstimates(db) {
   const model = db.meta.estimateModel ?? { properties: {}, rejected: [], conflicts: [], outliers: [] };
   for (const [key, p] of Object.entries(model.properties)) {
     const c = p.calibration;
-    if (c.held < 20) { issues.push(warn('EST-CALIBRATION-FEW', `estimate model ${key}`, `Only ${c.held} measured headlines to calibrate against; the ranges use a default scale`)); continue; }
-    const tolerance = 0.1;
-    if (Math.abs(c.likelyCoverage - LEVELS.likely) > tolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
-    if (c.plausibleCoverage < LEVELS.plausible - 0.05) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
+    const cal = ESTIMATE_MODEL.calibration;
+    if (c.held < cal.minHeld) { issues.push(warn('EST-CALIBRATION-FEW', `estimate model ${key}`, `Only ${c.held} measured headlines to calibrate against; the ranges use a default scale`)); continue; }
+    if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
+    if (c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
   }
   db.meta.estimateTally = tally;
   issues.push(warn('EST-SUMMARY', 'materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));

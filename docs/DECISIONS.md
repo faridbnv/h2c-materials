@@ -987,3 +987,27 @@ any item brings back a failure seen in this snapshot.
 
 Reversing any of these lets a lightweight or filled product speak for its polymer, a duplicate property name split
 evidence, a new outlier reach the page unreviewed, or an interface defect pass every unit test.
+
+## D58. Estimates are an overlay on a complete core, and grow by data, not by special cases
+
+The estimate model absorbed every data discovery as code. Of the eight revisions to estimates and screening between
+2026-09-13 and 2026-09-15 (D40 to D56), four were forced by classes of data nobody had declared: Z results coded
+unknown, annealed twins, moulded resin sheets, conditioned nylons. Each fix was a branch in a 901-line file, a block in
+its configuration, a decision and an accepted finding, and the compiler, the validator and the model's configuration
+had grown into one another: compile read the model to find implied bounds, and the validator read it to check
+headlines.
+
+**A stage.** `build/src/estimate/` is applied to the compiled database and only adds to it: estimates, not-applicable
+statements the model makes, load brackets, estimated print windows and their diagnostics. `build/src/pipeline.js` runs
+compile, the stage and validation for every caller. Built with `--no-estimates`, the core database validates and meets
+the contract (`test/contract.test.js`), so no headline, gate or check of the core rests on inference. Which measurements
+bound a headline from below is a fact about the headline, so it is a registry column (`headline_definitions.csv`
+Lower bound, m27), not model configuration. The model's judgements (conflict threshold, calibration clamps, prior
+weight of a documented conversion) are named in `estimate-model.json` with their reasons, not literals in code.
+
+**Growth by data.** A case the model cannot express becomes a not-applicable reason, a declared state or class in the
+data, or a reviewed finding that says more data is needed. A new conversion kind or physical rule needs its own
+decision saying why the data cannot carry it, and a back-test showing it helps.
+
+Reversing it lets a data defect become a model branch again, and lets the core's verdicts depend on inference nobody
+can switch off to check.

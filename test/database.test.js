@@ -255,7 +255,7 @@ test('an unstated-load heat headline carries a bracket from its matrix\'s load g
 
 // Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".
 test('a resin reference never vetoes a screen: implied bounds are the filament\'s own', () => {
-  const model = JSON.parse(readFileSync(join(root, 'build/mappings/estimate-model.json'), 'utf8'));
+  const lowerBounds = Object.fromEntries(db.registry.headlines.map((d) => [d.key, d.lowerBounds]));
   let bounds = 0;
   for (const m of db.materials) {
     for (const [key, h] of Object.entries(m.headline)) {
@@ -270,7 +270,7 @@ test('a resin reference never vetoes a screen: implied bounds are the filament\'
         assert.ok(!annealedBesideAsPrinted(x, db.measurements), `${m.name} ${b.measurementId} is annealed beside an as-printed value`);
         if (key === 'elongationXY') assert.notEqual(moistureState(x.moisture), 'conditioned', `${m.name} ${b.measurementId} is conditioned`);
         assert.equal(x.materialId, m.id, `${m.name} ${key} bound ${b.measurementId} is another material's`);
-        assert.ok(model.impliedBounds[key].lowerFrom.some((r) => r.property === x.property), `${m.name} ${key}: ${x.property} does not bound it`);
+        assert.ok(lowerBounds[key]?.properties.includes(x.property), `${m.name} ${key}: ${x.property} does not bound it`);
         bounds++;
       }
     }

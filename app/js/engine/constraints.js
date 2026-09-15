@@ -102,7 +102,7 @@ function evaluateNumeric(material, c, ctx = {}) {
       const screenFails = compareInterval({ lo: decides.lo, hi: decides.hi, kind: 'range' }, c.operator, c.value) === STATUS.FAIL;
       const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
       // A measurement of the material that bounds this headline from below and meets the requirement vetoes the
-      // screen: the headline is at least that value (estimate-model.json impliedBounds, D48). Other related values,
+      // screen: the headline is at least that value (headline_definitions.csv Lower bound, D48). Other related values,
       // other endpoints and moulded resin values do not bound it; the estimate already carries them.
       const veto = (h.impliedBounds ?? []).filter((b) => compareInterval({ lo: b.lo, hi: null }, c.operator, c.value) === STATUS.PASS);
       const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && !veto.length;

@@ -10,15 +10,16 @@ import { fitModel, posterior, predict } from './gaussian.js';
 export function fitWithConflicts(key, observations, S, model, hp) {
   let obs = observations;
   let P = posterior(fitModel(key, obs, S, model, hp));
-  for (let pass = 0; pass < 2; pass++) {
+  const { conflictZ, conflictNoiseFactor, conflictPasses } = model.fitting;
+  for (let pass = 0; pass < conflictPasses; pass++) {
     const flagged = [];
     // A material's only evidence for this headline is never down-weighted: the check stops one odd sheet pulling
     // other materials, not a material's own data yielding to a family made of other compounds (PP's own 0.39 GPa and
     // 460 %, a soft copolymer, once gave way to PP-CF, PP-GF and two variants: 1.5-4.5 GPa; audit 2026-09-15).
     const sole = (i) => !obs.some((o, j) => j !== i && o.m.id === obs[i].m.id);
-    for (let i = 0; i < P.n; i++) if (!obs[i].conflict && !sole(i) && Math.abs(P.alpha[i] / Math.sqrt(P.Ki[i * P.n + i])) > 3.5) flagged.push(i);
+    for (let i = 0; i < P.n; i++) if (!obs[i].conflict && !sole(i) && Math.abs(P.alpha[i] / Math.sqrt(P.Ki[i * P.n + i])) > conflictZ) flagged.push(i);
     if (!flagged.length) break;
-    obs = obs.map((o, i) => (flagged.includes(i) ? { ...o, conflict: true, noise2: o.noise2 * 25 } : o));
+    obs = obs.map((o, i) => (flagged.includes(i) ? { ...o, conflict: true, noise2: o.noise2 * conflictNoiseFactor } : o));
     P = posterior(fitModel(key, obs, S, model, hp));
   }
   const conflicts = obs.filter((o) => o.conflict).map((o) => ({ key, materialId: o.m.id, material: o.m.name, kind: o.kind, measurementIds: o.items.map((i) => i.measurementId).filter(Boolean), values: o.items.map((i) => i.value) }));
@@ -32,6 +33,7 @@ export function fitWithConflicts(key, observations, S, model, hp) {
  */
 export function calibrate({ key, model, S, obs, P, hp, tmMean, inv, zLikely, zPlausible }) {
   const { likely, plausible } = model.levels;
+  const cfg = model.calibration;
   const loo = [];
   for (const m of S.pool) {
     const h = m.headline[key];
@@ -44,14 +46,15 @@ export function calibrate({ key, model, S, obs, P, hp, tmMean, inv, zLikely, zPl
     loo.push({ m, y: transform(key, model)(h.value) - tmMean(m), p, rest });
   }
   const zs = loo.map((l) => Math.abs((l.y - l.p.mu) / l.p.sd));
-  const calLikely = loo.length >= 20 ? Math.min(3, Math.max(0.6, quantile(zs, likely) / zLikely)) : 1.3;
-  const calPlausible = loo.length >= 20 ? Math.min(3, Math.max(0.75, quantile(zs, plausible) / zPlausible)) : 1.3;
+  const clamp = (x, [lo, hi]) => Math.min(hi, Math.max(lo, x));
+  const calLikely = loo.length >= cfg.minHeld ? clamp(quantile(zs, likely) / zLikely, cfg.likelyScale) : cfg.defaultScale;
+  const calPlausible = loo.length >= cfg.minHeld ? clamp(quantile(zs, plausible) / zPlausible, cfg.plausibleScale) : cfg.defaultScale;
   const within = (l, z, cal) => Math.abs(l.y - l.p.mu) <= z * cal * l.p.sd;
   const width = (l) => (model.properties[key].scale === 'log' ? Math.exp(2 * zLikely * calLikely * l.p.sd) : 2 * zLikely * calLikely * l.p.sd);
   const outliers = [];
   for (const l of loo) {
     const z = (l.y - l.p.mu) / (l.p.sd * calPlausible);
-    if (Math.abs(z) > 3) {
+    if (Math.abs(z) > cfg.outlierZ) {
       outliers.push({ key, materialId: l.m.id, material: l.m.name, measured: l.m.headline[key].value, expected: sig3(inv(l.p.mu + tmMean(l.m))), unit: l.m.headline[key].unit, z: Math.round(z * 10) / 10 });
     }
   }

@@ -20,7 +20,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const arg = (name, def) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 ? process.argv[i + 1] : def; };
 const ref = arg('ref', 'HEAD');
 const expect = arg('expect', null);
-const run = (cmd, args, cwd) => execFileSync(cmd, args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, SOURCE_DATE_EPOCH: '0' } });
+const run = (cmd, args, cwd) => execFileSync(cmd, args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
 
 function buildAt(dir, label) {
   try {

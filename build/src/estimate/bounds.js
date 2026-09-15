@@ -33,7 +33,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       bounds.push({ side: b.side, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
     }
-    // What the material's own printed measurements prove (compile.js impliedBounds: a yield or break stress under
+    // What the material's own printed measurements prove (compile.js impliedBounds, from headline_definitions.csv Lower bound: a yield or break stress under
     // the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa) limits its
     // estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down to 72 °C though
     // its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).

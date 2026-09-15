@@ -127,6 +127,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Unit | canonical | string | yes |  |  | The headline's unit; a backing measurement must carry it. |
 | Value properties | canonical | list (";") | yes | Not applicable | list of → properties.Property | Properties whose measurement may be the headline value. |
 | Related properties | canonical | list (";") | yes | Not applicable | list of → properties.Property | Properties shown as related evidence when the headline has no value; the first is the headline's own endpoint. |
+| Lower bound properties | canonical | list (";") | yes | Not applicable | list of → properties.Property | Properties whose printed measurement of a material bounds its headline from below (an implied bound). It vetoes a screen it meets, limits the estimate from below, and never passes a requirement (DECISIONS D48, D55). |
+| Lower bound load MPa | canonical | number | yes | Not applicable |  | Test load a bounding measurement must state (HDT at 1.8 MPa bounds HDT at 0.45 MPa). |
+| Lower bound excludes | canonical | string | yes | Not applicable | conditioned | Moisture state whose measurements bound nothing (a conditioned nylon stretches further than a dry one). |
+| Lower bound basis | prose | string | yes | Not applicable |  | Why the bound holds. |
 | Direction | canonical | string | yes | Not applicable | [directions](#vocab-directions) | Print direction a backing measurement must have. |
 | Load MPa | canonical | number | yes | Not applicable |  | Test load the headline is defined at; a backing measurement with an unstated load is flagged. |
 | Evidence group | canonical | string | yes | Not applicable | mechanical, thermal | Which citation list the headline's evidence joins. |

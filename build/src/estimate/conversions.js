@@ -39,10 +39,10 @@ export function conversions(key, raw, model) {
     if (k === HEAD[key]) continue;
     const doc = documentedConversion(key, k, model);
     if (!doc) continue;
-    const ds = diffs.get(k) ?? [], n = ds.length, n0 = 3;
+    const ds = diffs.get(k) ?? [], n = ds.length, n0 = model.fitting.documentedPairs, nMin = model.fitting.minPairsForSpread;
     const centre = n ? median(ds) : 0;
-    const spread = n >= 3 ? 1.4826 * median(ds.map((d) => Math.abs(d - centre))) : 0;
-    const df = n >= 3 ? n - 1 : 0;
+    const spread = n >= nMin ? 1.4826 * median(ds.map((d) => Math.abs(d - centre))) : 0;
+    const df = n >= nMin ? n - 1 : 0;
     const refined = (n * centre + n0 * doc.offset) / (n + n0);
     out[k] = {
       // An unknown direction may move below its documented offset, never above it (estimate-model.json _directionComment).
@@ -67,7 +67,7 @@ export function convert(key, raw, conv, S, model) {
   }
   const best = new Map();
   for (const o of out) { if (o.kind === HEAD[key]) continue; const g = `${o.m.id}|${o.f}`; best.set(g, Math.min(best.get(g) ?? Infinity, o.conversion.sd)); }
-  return out.filter((o) => o.kind === HEAD[key] || o.conversion.sd <= 1.5 * best.get(`${o.m.id}|${o.f}`) + 1e-12);
+  return out.filter((o) => o.kind === HEAD[key] || o.conversion.sd <= model.fitting.keepKindsWithinSpread * best.get(`${o.m.id}|${o.f}`) + 1e-12);
 }
 
 /**

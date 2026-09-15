@@ -842,55 +842,46 @@
     "elastomerHdt": "Heat deflection is a rigid-bar test and is not meaningful for an elastomer: ISO 75 ends at 0.2 % outer-fibre strain, which a bar reaches where its modulus falls to about 225 MPa at 0.45 MPa. Manufacturers list it as N/A (Bambu Lab, TPU for AMS). Never estimated; a value an elastomer's own source publishes is shown only as that source's measurement.",
     "support": "A support product is not characterised as a structural material. Its values are shown only where its own sources publish them."
   },
+  "fitting": {
+    "_comment": "Judgements the fit makes, reviewed here rather than buried in code (build/src/estimate/). Numerical method settings (the hyperparameter grid, the quantile integration) stay in code.",
+    "documentedPairs": 3,
+    "documentedPairsWhy": "A documented conversion offset counts as this many grades publishing both kinds, so a few odd pairs refine it and cannot overturn it.",
+    "minPairsForSpread": 3,
+    "minPairsForSpreadWhy": "A conversion's spread is learned (MAD of the pairs) only from at least this many pairs; below it the documented spread stands.",
+    "keepKindsWithinSpread": 1.5,
+    "keepKindsWithinSpreadWhy": "On each product only the most direct related kinds are kept: those whose conversion spread is within this factor of the tightest. Stacking a flexural and a break strength double-counted one test house's ratio.",
+    "minBetweenProductPairs": 6,
+    "minBetweenProductPairsWhy": "The spread between two products of one material is measured directly once this many same-material pairs exist; below it, it is estimated with the other spreads.",
+    "conflictZ": 3.5,
+    "conflictNoiseFactor": 25,
+    "conflictPasses": 2,
+    "conflictWhy": "An observation whose leave-one-out residual exceeds conflictZ standard deviations has its noise variance multiplied by conflictNoiseFactor (its spread by 5), at most conflictPasses times, and is reported. A material's only evidence for a headline is never down-weighted."
+  },
+  "calibration": {
+    "_comment": "How the likely and plausible ranges are scaled to hold hidden measured headlines as often as they claim, and when the build refuses the result.",
+    "minHeld": 20,
+    "defaultScale": 1.3,
+    "likelyScale": [
+      0.6,
+      3
+    ],
+    "plausibleScale": [
+      0.75,
+      3
+    ],
+    "scaleWhy": "With at least minHeld hidden headlines, each range's scale is the observed quantile of the standardised errors over the nominal one, clamped to the interval given; with fewer, defaultScale.",
+    "outlierZ": 3,
+    "outlierWhy": "A measured headline more than outlierZ calibrated plausible standard deviations from its prediction is listed (EST-OUTLIER) for a reviewer.",
+    "likelyTolerance": 0.1,
+    "plausibleShortfall": 0.05,
+    "toleranceWhy": "The build fails if the likely range's coverage drifts more than likelyTolerance from its level, or the plausible range's coverage falls more than plausibleShortfall below its level (EST-CALIBRATION)."
+  },
   "screening": {
     "_comment": "An estimate never passes a material. In Explore it may screen one out when its plausible range wholly fails and no measurement of the material logically bounds the headline to meet the requirement (impliedBounds). Whether an evidence class may screen at all is decided every build by the screening back-test (DECISIONS D48): every measured headline is hidden as far as the class requires and predicted, and the class screens only if its plausible ranges are not detectably too narrow on either side.",
     "maxOneSidedMiss": 0.025,
     "testLevel": 0.05,
     "minHeldCases": 20,
     "why": "A screen removes a material when its plausible range wholly fails the requirement; it is wrong only when the true value lies beyond the range on the side the requirement tests. A 95% range allows 2.5% per side. A class is certified when, over at least minHeldCases hidden headlines, neither side's misses are significantly more than maxOneSidedMiss (exact one-sided binomial test at testLevel): a calibrated class is not revoked by sampling noise, a too-narrow class is."
-  },
-  "impliedBounds": {
-    "_comment": "Measurements that logically bound a headline from below. An estimate that would screen a material out is vetoed when such a measurement of the material itself meets the requirement: the headline is at least that value, so the screen would be wrong. Moulded (raw material) values are not bounds of a printed part.",
-    "tensileStrengthXY": {
-      "lowerFrom": [
-        {
-          "property": "Tensile yield strength"
-        },
-        {
-          "property": "Tensile break strength"
-        },
-        {
-          "property": "Tensile strength (endpoint unspecified)"
-        }
-      ],
-      "why": "The ultimate strength is the maximum stress, so it is at least the yield and break stress; a printed part is strongest in XY, so a value in any direction bounds the XY one."
-    },
-    "elongationXY": {
-      "lowerFrom": [
-        {
-          "property": "Elongation at break"
-        },
-        {
-          "property": "Elongation at yield"
-        },
-        {
-          "property": "Tensile strain at strength"
-        }
-      ],
-      "excludeMoisture": [
-        "conditioned"
-      ],
-      "why": "A bar breaks after it yields and after it reaches its maximum stress; XY strain at break is at least the strain in any other direction. A conditioned value bounds nothing: absorbed water plasticises a nylon and raises its strain, so it can exceed the dry headline."
-    },
-    "hdt045": {
-      "lowerFrom": [
-        {
-          "property": "HDT",
-          "loadMPa": 1.8
-        }
-      ],
-      "why": "A bar deflects at a lower temperature under a heavier load, so the value at 0.45 MPa is at least the value at 1.8 MPa."
-    }
   },
   "_directionComment": "An unknown direction may not convert a value upwards more than its documented offset: a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04). The build refines an unknown-direction offset downwards from pairs, never above the documented value."
 }

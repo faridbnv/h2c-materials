@@ -28,13 +28,9 @@
         "h2cBaseline",
         "counts",
         "environmentCategories",
-        "estimateCoverage",
-        "estimateModel",
         "chamberEstimates",
-        "printEstimates",
         "headlineCoverage",
-        "consistency",
-        "estimateTally"
+        "consistency"
       ],
       "properties": {
         "snapshot": {
@@ -85,7 +81,8 @@
         "estimateTally": {
           "type": "object"
         }
-      }
+      },
+      "description": "estimateCoverage, estimateModel, printEstimates and estimateTally are written by the estimate stage and absent from a core build (--no-estimates)."
     },
     "materials": {
       "type": "array",
@@ -909,6 +906,7 @@
         "unit",
         "valueProperties",
         "relatedProperties",
+        "lowerBounds",
         "direction",
         "loadMPa",
         "evidenceGroup",
@@ -947,6 +945,51 @@
           "items": {
             "type": "string"
           }
+        },
+        "lowerBounds": {
+          "description": "Measurements of a material that bound this headline from below, or null.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "properties",
+                "loadMPa",
+                "excludeMoisture",
+                "why"
+              ],
+              "properties": {
+                "properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                },
+                "loadMPa": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "excludeMoisture": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "why": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          ]
         },
         "direction": {
           "type": [

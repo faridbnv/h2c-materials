@@ -60,7 +60,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     const tmMean = meltingPoint(key, S, model).offset;
     const floors = model.properties[key].floors;
     const between = betweenProductSpread(key, raw, S);
-    const fixedW = between.pairs >= 6 ? Math.max(between.sd, floors.w) : null;
+    const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, floors.w) : null;
 
     // The spreads are estimated on the headline and the single most direct kind per formulation, which
     // identifies them as well as the full set does at a fraction of the cost.

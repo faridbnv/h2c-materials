@@ -84,6 +84,11 @@ export function compileRegistry(wb, issues) {
     const h = {
       key: r.HeadlineKey, kind: r.Kind, unit: r.Unit,
       valueProperties: list(r['Value properties']), relatedProperties: list(r['Related properties']),
+      // Measurements of a material that bound the headline from below (an implied bound, D48 and D55): core, not inference.
+      lowerBounds: list(r['Lower bound properties']).length ? {
+        properties: list(r['Lower bound properties']), loadMPa: numOrNull(r['Lower bound load MPa']),
+        excludeMoisture: list(r['Lower bound excludes']), why: orNull(r['Lower bound basis']),
+      } : null,
       direction: orNull(r.Direction), loadMPa: numOrNull(r['Load MPa']), evidenceGroup: orNull(r['Evidence group']),
       endpointNote: bool(r['Endpoint note']),
       labels: { short: r.Short, plain: r.Plain, technical: r.Technical, hint: r.Hint, axis: r['Axis label'], export: r['Export header'] },
@@ -92,7 +97,7 @@ export function compileRegistry(wb, issues) {
       tableColumn: bool(r['Table column']), estimated: bool(r.Estimated), referenceProperty: orNull(r['Reference property']),
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
-    for (const name of [...h.valueProperties, ...h.relatedProperties]) {
+    for (const name of [...h.valueProperties, ...h.relatedProperties, ...(h.lowerBounds?.properties ?? [])]) {
       if (propertyByName.get(name)?.replacedBy) err('REGISTRY-REPLACED', where, `${name} is replaced by ${propertyByName.get(name).replacedBy}; name that instead`);
     }
     if (h.kind === 'measurement') {
