@@ -659,7 +659,8 @@
           "locator",
           "applicableGrades",
           "accessStatus",
-          "sha256"
+          "sha256",
+          "citationRole"
         ],
         "properties": {
           "id": {
@@ -697,6 +698,9 @@
             "type": "string"
           },
           "sha256": {
+            "type": "string"
+          },
+          "citationRole": {
             "type": "string"
           }
         }

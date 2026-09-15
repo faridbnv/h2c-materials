@@ -8,3 +8,4 @@ Partially resolved,
 Quarantined,
 Resolved,
 Reviewed with limitations,
+Superseded,An earlier finding replaced by a later row for the same material and domain; kept as an audit trail.

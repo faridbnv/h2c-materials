@@ -2,7 +2,7 @@
   "baseCommit": "60f7392e2ae3e3c6dce67424a3d05052a1361731",
   "cells": 99538,
   "totals": {
-    "equal": 87205,
+    "equal": 87178,
     "derived: first cited profile, equal": 290,
     "derived or linked: same identifiers, same order": 917,
     "derived: headline read from its measurement, equal": 353,
@@ -17,7 +17,7 @@
     "derived: own environmental records, table order (m05, listed)": 2,
     "derived: median rounded to the cent (m03, listed)": 4,
     "derived from a headline selection edited after the conversion (npm run data:diff -- 0a61cee)": 2,
-    "edited after the conversion (npm run data:diff -- 0a61cee)": 632,
+    "edited after the conversion (npm run data:diff -- 0a61cee)": 659,
     "formula cached text, current": 2864,
     "formula cached text, STALE: kept as the build read it": 139,
     "equal but for floating-point noise in the formula result": 74,
@@ -111,11 +111,12 @@
       "text cleanup (m07)": 5,
       "edited after the conversion (npm run data:diff -- 0a61cee)": 9,
       "date made canonical (m01)": 4,
-      "added after the conversion (npm run data:diff -- 0a61cee)": 1
+      "added after the conversion (npm run data:diff -- 0a61cee)": 1,
+      "added column: Citation role": 244
     },
     "Coverage": {
-      "equal": 5938,
-      "edited after the conversion (npm run data:diff -- 0a61cee)": 2
+      "equal": 5911,
+      "edited after the conversion (npm run data:diff -- 0a61cee)": 29
     },
     "Method": {
       "equal": 144

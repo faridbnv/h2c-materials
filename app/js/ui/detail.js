@@ -186,7 +186,8 @@ export function renderDrawer(host, state, actions) {
 
   const ms = ctx.measurementsByMaterial.get(m.id) ?? [];
   const ev = ctx.evidenceByMaterial.get(m.id) ?? [];
-  const cov = ctx.coverageByMaterial.get(m.id) ?? [];
+  // A superseded coverage row is an audit trail; the later row that replaces it is shown.
+  const cov = (ctx.coverageByMaterial.get(m.id) ?? []).filter((r) => r.status !== 'Superseded');
   const profiles = db.profiles.filter((p) => p.materialId === m.id && !p.retired);
   const grades = db.grades.filter((g) => g.materialId === m.id && !g.retired);
   const prices = db.prices.filter((p) => p.materialId === m.id && !p.retired);

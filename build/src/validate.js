@@ -157,7 +157,7 @@ export function validate(db, wb) {
 
     // Coverage. Terminal, but it has to be true: no Gap beside data, no claimed evidence without it.
     const data = domainData(db, mat);
-    for (const c of db.coverage.filter((x) => x.materialId === mat.id)) {
+    for (const c of db.coverage.filter((x) => x.materialId === mat.id && x.status !== 'Superseded')) {
       if (data[c.domain] !== undefined) {
         const has = data[c.domain].length > 0;
         if (has && CLAIMS_ABSENCE.has(c.status)) issues.push(err('COVERAGE-UNTRUE', `coverage ${c.id}`, `${mat.name} ${c.domain} says "${c.status}" beside ${data[c.domain].length} record(s) of its own, e.g. ${data[c.domain][0]}`));

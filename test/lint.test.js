@@ -24,3 +24,28 @@ test('HDT at two stated loads, and a retired copy, are not indistinct', () => {
   assert.deepEqual(codes([hdt('V1', '1.8', '105'), hdt('V2', '0.45', '131')]), []);
   assert.deepEqual(codes([row({ MeasurementID: 'V1' }), row({ MeasurementID: 'V2', 'Normalized value': '2.053', 'Data status': 'Retired duplicate record' })]), []);
 });
+
+test('raw columns keep their spelling; a short-list column that is not raw must pick one', () => {
+  const schema = { primaryKey: 'ProfileID', fields: [{ name: 'ProfileID', role: 'key' }, { name: 'Cooling', role: 'raw' }, { name: 'Kind', role: 'canonical' }] };
+  const rows = [{ ProfileID: 'P1', Cooling: 'OFF', Kind: 'Guide' }, { ProfileID: 'P2', Cooling: 'Off', Kind: 'guide' }];
+  const found = lintData({ profiles: { header: ['ProfileID', 'Cooling', 'Kind'], rows } }, { profiles: schema }).filter((f) => f.code === 'VOCAB-NEAR-DUPLICATE');
+  assert.deepEqual(found.map((f) => f.field), ['Kind']);
+});
+
+test('a source needs a citation only when its role says it is cited; a source never read must not be cited', () => {
+  const sources = (role, id = 'S1') => ({ SourceID: id, 'Source class': 'Manufacturer TDS', 'Citation role': role, 'Access status': 'Retrieved', URL: 'https://example.com' });
+  const run = (rows, measurements = []) => lintData({
+    sources: { header: Object.keys(rows[0]), rows },
+    measurements: { header: ['MeasurementID', 'SourceID'], rows: measurements },
+  }, { sources: { primaryKey: 'SourceID', fields: [] }, measurements: { primaryKey: 'MeasurementID', fields: [] } }).map((f) => `${f.code} ${f.record}`);
+  assert.deepEqual(run([sources('cited')]), ['SOURCE-UNCITED S1']);
+  assert.deepEqual(run([sources('corroboration')]), []);
+  assert.deepEqual(run([sources('not-retrieved')], [{ MeasurementID: 'V1', SourceID: 'S1' }]), ['SOURCE-ROLE-CITED S1']);
+});
+
+test('a superseded coverage row is history, not a duplicate', () => {
+  const row = (id, status, finding) => ({ CoverageID: id, MaterialID: 'M1', Domain: 'Thermal', Status: status, Finding: finding });
+  const run = (rows) => lintData({ coverage: { header: Object.keys(rows[0]), rows } }, { coverage: { primaryKey: 'CoverageID', fields: [] } }).map((f) => f.code);
+  assert.deepEqual(run([row('C1', 'Gap', 'x'), row('C2', 'Gap', 'x')]), ['COVERAGE-DUPLICATE']);
+  assert.deepEqual(run([row('C1', 'Superseded', 'Superseded by C2: x'), row('C2', 'Gap', 'x')]), []);
+});

@@ -11,11 +11,12 @@ export const LINT_RULES = {
   'TEXT-FULLWIDTH': 'Full-width punctuation (，＜：) in text that is not Chinese or Japanese; write the ASCII character.',
   'TEXT-INVISIBLE': 'A zero-width, control or line-break character inside a cell.',
   'TEXT-SPACING': 'Two or more spaces in a row.',
-  'VOCAB-NEAR-DUPLICATE': 'Values that differ only in case, spacing or punctuation in a short-list column; pick one spelling.',
+  'VOCAB-NEAR-DUPLICATE': 'Values that differ only in case, spacing or punctuation in a short-list column that is not raw source text; pick one spelling.',
   'MEAS-DUPLICATE': 'Two active measurements with the same grade, property, value, unit, direction, conditions, source and locator; retire the copy.',
   'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
   'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
-  'SOURCE-UNCITED': 'A source no record cites; cite it, or say why it is registered.',
+  'SOURCE-UNCITED': 'A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has.',
+  'SOURCE-ROLE-CITED': 'A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one.',
@@ -55,6 +56,8 @@ export function lintData(tables, schemas) {
   for (const t of ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources']) {
     const rows = tables[t]?.rows ?? [];
     for (const field of tables[t]?.header ?? []) {
+      // Raw columns keep the source's own spelling by design (m07 changes no wording); their typed columns are checked.
+      if (schemas[t]?.fields?.find((f) => f.name === field)?.role === 'raw') continue;
       const values = [...new Set(rows.map((r) => r[field]).filter((v) => typeof v === 'string'))];
       if (values.length < 2 || values.length > 60) continue;
       const groups = new Map();
@@ -102,13 +105,15 @@ export function lintData(tables, schemas) {
   for (const r of tables.materials?.rows ?? []) cited.add(r['Identity source']);
   for (const r of tables.material_links?.rows ?? []) cited.add(r.RecordID);
   for (const r of tables.sources?.rows ?? []) {
-    if (!cited.has(r.SourceID)) add('SOURCE-UNCITED', 'sources', r.SourceID, '', `${r['Source class']}; ${r['Access status']}`);
+    const role = r['Citation role'] ?? 'cited';
+    if (role === 'cited' && !cited.has(r.SourceID)) add('SOURCE-UNCITED', 'sources', r.SourceID, '', `${r['Source class']}; ${r['Access status']}`);
+    if (role === 'not-retrieved' && cited.has(r.SourceID)) add('SOURCE-ROLE-CITED', 'sources', r.SourceID, 'Citation role', r['Access status']);
     if (r.URL && !/^https?:\/\//.test(r.URL)) add('SOURCE-LOCAL-PATH', 'sources', r.SourceID, 'URL', r.URL);
   }
 
   // Coverage.
   const byMaterialDomain = new Map();
-  for (const r of tables.coverage?.rows ?? []) {
+  for (const r of (tables.coverage?.rows ?? []).filter((c) => c.Status !== 'Superseded')) {
     const k = `${r.MaterialID} ${r.Domain}`;
     if (!byMaterialDomain.has(k)) byMaterialDomain.set(k, []);
     byMaterialDomain.get(k).push(r);

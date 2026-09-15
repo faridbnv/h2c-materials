@@ -72,6 +72,16 @@
       }
     },
     {
+      "name": "Citation role",
+      "type": "string",
+      "role": "editorial",
+      "vocabulary": "citation-roles",
+      "constraints": {
+        "required": true
+      },
+      "description": "Why the source is registered: cited by records, or kept to corroborate, to register scope or prices, as provenance, or recorded as not retrieved."
+    },
+    {
       "name": "URL",
       "type": "string",
       "role": "raw",

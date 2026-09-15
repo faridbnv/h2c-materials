@@ -7,10 +7,10 @@ C00005,M025,Grades,Gap,2 distinct manufacturer(s) documented against target 3. E
 C00006,M029,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00007,M030,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00008,M034,Grades,Evidence recorded,"4 distinct manufacturer(s) documented against target 3. IPCON ASA GF (G034-03, representative) and Flashforge ASAGF10 (G034-04) added 2026-09-13."
-C00009,M038,Grades,Gap,2 distinct manufacturer(s) documented against target 3 after the 2026-09-13 audit. One additional independent exact formulation remains desirable.
+C00009,M038,Grades,Superseded,"Superseded by C01113 (2026-09-14; was ""Gap""): 2 distinct manufacturer(s) documented against target 3 after the 2026-09-13 audit. One additional independent exact formulation remains desirable."
 C00010,M039,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00011,M044,Grades,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
-C00012,M045,Grades,Resolved,3 distinct manufacturer(s) documented after adding Kimya PEBA-S on 2026-09-13.
+C00012,M045,Grades,Superseded,"Superseded by C01114 (2026-09-14; was ""Resolved""): 3 distinct manufacturer(s) documented after adding Kimya PEBA-S on 2026-09-13."
 C00013,M046,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00014,M049,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00015,M052,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
@@ -32,7 +32,7 @@ C00030,M071,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. 
 C00031,M072,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00032,M074,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00033,M076,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
-C00034,M077,Grades,Resolved,Exact current Bambu Support for PLA (New Version) grade and TDS recorded as G077-01 on 2026-09-13.
+C00034,M077,Grades,Superseded,"Superseded by C01111 (2026-09-14; was ""Resolved""): Exact current Bambu Support for PLA (New Version) grade and TDS recorded as G077-01 on 2026-09-13."
 C00035,M081,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00036,M082,Grades,Gap,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00037,M083,Grades,Gap,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
@@ -400,7 +400,7 @@ C00398,M034,Moisture / environmental,Gap,Insufficient grade-specific evidence in
 C00399,M034,Post-processing / application,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00400,M034,Canadian price,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00401,M034,Sparse properties,Gap,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00402,M034,Comparability,Limited comparability,At least one observation lacks specimen or conditioning information; no family aggregation performed.
+C00402,M034,Comparability,Superseded,"Superseded by C01173 (2026-09-14; was ""Limited comparability""): At least one observation lacks specimen or conditioning information; no family aggregation performed."
 C00403,M035,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
 C00404,M035,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00405,M035,Print setup,Evidence recorded,Published nozzle and bed profile available; check other setup fields individually.
@@ -692,7 +692,7 @@ C00690,M063,Sparse properties,Not applicable,"Family entry since 2026-09-13: no 
 C00691,M063,Comparability,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
 C00692,M064,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
 C00693,M064,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00694,M064,Print setup,Evidence recorded,Published nozzle and bed profile available; check other setup fields individually.
+C00694,M064,Print setup,Superseded,"Superseded by C01187 (2026-09-14; was ""Evidence recorded""): Published nozzle and bed profile available; check other setup fields individually."
 C00695,M064,Mechanical,Evidence recorded,"See specimen, direction, moisture, preparation and standard before comparing."
 C00696,M064,Thermal,Evidence recorded,"HDT, Tg and Vicat are not continuous-service ratings."
 C00697,M064,Moisture / environmental,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -825,11 +825,11 @@ C00823,M076,Mandatory review,Reviewed with limitations,"Reviewed for exclusion, 
 C00824,M077,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
 C00825,M077,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00826,M077,Print setup,Evidence recorded,"Exact grade-specific nozzle, bed, chamber, drying, cooling, speed, overhang and bridging guidance recorded from the Bambu TDS."
-C00827,M077,Mechanical,Gap,Exact TDS reviewed; every mechanical field is explicitly N/A. No adjacent-product values substituted.
+C00827,M077,Mechanical,Superseded,"Superseded by C01112 (2026-09-14; was ""Gap""): Exact TDS reviewed; every mechanical field is explicitly N/A. No adjacent-product values substituted."
 C00828,M077,Thermal,Evidence recorded,"Melting temperature recorded; Tg, crystallization, Vicat and HDT are explicitly N/A in the exact TDS."
 C00829,M077,Moisture / environmental,Evidence recorded,"Storage humidity, water absorption, stability and qualitative chemical-resistance statements recorded from the exact TDS."
 C00830,M077,Post-processing / application,Evidence recorded,Support-interface purpose and pairing limitation recorded from official Bambu evidence.
-C00831,M077,Canadian price,Gap,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00831,M077,Canadian price,Superseded,"Superseded by C01116 (2026-09-14; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00832,M077,Sparse properties,Gap,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00833,M077,Mandatory review,Reviewed with limitations,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
 C00834,M078,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
@@ -957,7 +957,7 @@ C00955,M089,Canadian price,Gap,Insufficient grade-specific evidence in sampled s
 C00956,M089,Sparse properties,Gap,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00957,M090,Identity,Evidence recorded,Original canonical entry retained once; aliases and disputed entries are visible.
 C00958,M090,H2C status,Evidence recorded,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00959,M090,Print setup,Evidence recorded,Published nozzle and bed profile available; check other setup fields individually.
+C00959,M090,Print setup,Superseded,"Superseded by C01135 (2026-09-14; was ""Evidence recorded""): Published nozzle and bed profile available; check other setup fields individually."
 C00960,M090,Mechanical,Evidence recorded,"See specimen, direction, moisture, preparation and standard before comparing."
 C00961,M090,Thermal,Evidence recorded,"HDT, Tg and Vicat are not continuous-service ratings."
 C00962,M090,Moisture / environmental,Evidence recorded,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
@@ -1130,7 +1130,7 @@ C01128,M070,Print setup,Resolved,"P0089 chamber temperature ""50 - 80 °C"" reco
 C01129,M073,Print setup,Resolved,"P0093 chamber temperature ""60 - 90 °C"" recovered 2026-09-13 from B-pps-cf-TDS. The re-fetched file matches the recorded SHA-256; the row follows a page break and was missed in transcription."
 C01130,M080,Print setup,Resolved,"P0100 chamber temperature ""45-60 °C"" recovered 2026-09-13 from B-support-for-pa-pet-TDS. The re-fetched file matches the recorded SHA-256; the row follows a page break and was missed in transcription."
 C01131,M001,Print setup,Resolved,"P0002 PolySonic PLA TDS states ""Closure Chamber: No needed""; recorded 2026-09-13 as not required."
-C01132,M044,Print setup,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
+C01132,M044,Print setup,Superseded,"Superseded by C00495 (2026-09-14; was ""Not applicable""): Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C01133,M046,Print setup,Reviewed with limitations,"BASF Ultrafuse TPC 45D lists build chamber temperature as ""-"". Recorded 2026-09-13 as no setpoint published: not zero and not ""not required""."
 C01134,M072,Print setup,Resolved,"Spectrum PPS AM230 ""Closed chamber: active heated (60-80°C)"" was held only in the Enclosure column of P0092; recorded 2026-09-13 as the chamber window as well."
 C01135,M090,Print setup,Evidence recorded,Fillamentum CPE CF112 Carbon printing guide recorded as P0166: heated chamber / enclosure not needed; wear-resistant nozzle necessary.
@@ -1151,13 +1151,13 @@ C01149,M026,Thermal,Resolved,"V000517: the hash-matched 3DXTECH TDS prints ""Def
 C01150,M029,Thermal,Resolved,"V000594: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
 C01151,M030,Thermal,Resolved,"V000603: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
 C01152,M037,Thermal,Resolved,"V000726: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
-C01153,M047,Thermal,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
+C01153,M047,Thermal,Superseded,"Superseded by C00527 (2026-09-14; was ""Not applicable""): Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
 C01154,M053,Thermal,Resolved,"V000971: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
 C01155,M054,Thermal,Resolved,"V001014: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
 C01156,M057,Thermal,Resolved,"V001051: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
-C01157,M061,Thermal,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
-C01158,M062,Thermal,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
-C01159,M063,Thermal,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
+C01157,M061,Thermal,Superseded,"Superseded by C00666 (2026-09-14; was ""Not applicable""): Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
+C01158,M062,Thermal,Superseded,"Superseded by C00676 (2026-09-14; was ""Not applicable""): Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
+C01159,M063,Thermal,Superseded,"Superseded by C00686 (2026-09-14; was ""Not applicable""): Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
 C01160,M064,Thermal,Resolved,"V001207: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
 C01161,M072,Thermal,Resolved,"V001346: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
 C01162,M081,Thermal,Resolved,"V001477: the hash-matched 3DXTECH TDS prints ""Deflection Temperature at 0.45 MPa (66psi)""; the load had been lost at a line break and is recorded 2026-09-13."
@@ -1171,7 +1171,7 @@ C01169,M081,Thermal,Resolved,V001489: ISO 75-2 method B is the 0.45 MPa load; re
 C01170,M030,Research conflict,Resolved,"V000605 corrected 2026-09-13: the iSANMATE ESD-ABS TDS prints ""ISO 11357 80°C"", read as 1135780 °C."
 C01171,M001,Research conflict,Resolved,"V000039-V000041 are ASTM D882 thin-film values in the iSANMATE PLA TDS, not printed bars; V000039 corrected from 3 to 110.3 MPa (decimal comma) on 2026-09-13."
 C01172,M025,Research conflict,Resolved,"V000507 corrected 2026-09-13: iSANMATE ""Vicat softening point A/120 ... 72"" is method A/120 at 72 °C, read as 120 °C."
-C01173,M034,Comparability,Limited comparability,Spectrum ASA-X GF10 mechanical and HDT values are injection moulded (TDS footnote); IPCON and Flashforge values are printed. Flashforge labels its flexural rows the wrong way round; not entered.
+C01173,M034,Comparability,Limited comparability,"Spectrum ASA-X GF10 mechanical, impact and HDT values are injection moulded (TDS footnote); IPCON and Flashforge values are printed. Flashforge labels its flexural rows the wrong way round; they are entered by value, with the swap noted (m16), and its X-Z results carry no direction."
 C01174,M047,Identity,Resolved,G047-01 (Polymaker PolyMide CoPA) retired 2026-09-13: the same data sheet is G057-01 under M057. Its records were identical to those of G057-01.
 C01175,M047,Identity,Resolved,G047-02 (3DXTECH AMIDEX PA6 Copolymer v1 0) retired 2026-09-13: the same data sheet is G057-02 under M057. Its records were identical to those of G057-02.
 C01176,M047,Identity,Resolved,G047-03 (Spectrum pa6 neat bk) retired 2026-09-13: the same data sheet is G049-01 under M049. Its records were identical to those of G049-01.
