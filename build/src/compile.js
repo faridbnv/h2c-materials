@@ -10,6 +10,8 @@ import { fileURLToPath } from 'node:url';
 import { parseValue, parseOperator, parseBoolean, toInterval, MISSING, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection, DIRECTION } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
+import { specimenForm, postProcessingState, isPartSpecimen, annealedBesideAsPrinted } from './normalize/specimen.js';
+import { moistureState } from './normalize/moisture.js';
 import {
   parseTemperature, withinH2C, parseNozzleDiameters, parseAbrasion, parseDrying, parseEnclosure,
   H2C_BASELINE, PROCESS_STATE, REQUIREMENT,
@@ -70,10 +72,12 @@ function compileMeasurements(rows, issues) {
       quarantined,
       numeric,
       specimenType: r['Specimen type'],
+      specimenForm: specimenForm(r['Specimen type']),
       direction: direction.canonical,
       directionText: direction.text,
       moisture: r['Moisture condition'],
       postProcessing: r['Post-processing'],
+      postProcessingState: postProcessingState(r['Post-processing']),
       testTemperature: r['Test temperature'],
       standardText: r['Standard / load'],
       notch: r.Notch,
@@ -299,6 +303,9 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       : !def.valueProperties.includes(m.property) ? `${id} measures ${m.property}`
       : m.unit !== unit ? `${id} is in ${m.unit}, not ${unit}`
       : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
+      : !isPartSpecimen(m.specimenType) ? `${id} is a ${m.specimenForm} specimen, not a printed part`
+      : moistureState(m.moisture ?? 'Not published') === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
+      : annealedBesideAsPrinted(m, measurementsByMaterial.get(mat.MaterialID) ?? []) ? `${id} is annealed, and grade ${m.gradeId} publishes the property as printed`
       : null;
     if (problem) {
       issues.push({ level: 'error', code: 'HEADLINE-SELECTION-INVALID', where, message: `Headline ${key} cannot show ${problem}` });
@@ -318,6 +325,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       direction: m.direction,
       specimenType: m.specimenType,
       moisture: m.moisture,
+      postProcessing: m.postProcessing,
       interval: m.interval,
       uncertainty: m.uncertainty,
     };
@@ -402,14 +410,27 @@ const DIRECTION_NOTE = {
 function impliedBounds(mat, key, measurementsByMaterial) {
   const rel = ESTIMATE_MODEL.impliedBounds?.[key];
   if (!rel) return [];
-  return (measurementsByMaterial.get(mat.MaterialID) ?? [])
-    .filter((m) => m.numeric && !m.quarantined && !m.specimenType?.startsWith('Raw material'))
+  const own = measurementsByMaterial.get(mat.MaterialID) ?? [];
+  // Only a printed part (or an unstated specimen) bounds a printed headline: a moulded bar, a drawn film or a
+  // filament strand is another specimen, and ASTM D882 film strengths once kept PLA a candidate for 140 MPa.
+  // A state the headline is not in bounds nothing either: an annealed value where the grade publishes the
+  // as-printed one, or a moisture state the rule excludes (conditioning raises a nylon's strain at break).
+  return own
+    .filter((m) => m.numeric && !m.quarantined && isPartSpecimen(m.specimenType))
+    .filter((m) => !annealedBesideAsPrinted(m, own))
+    .filter((m) => !(rel.excludeMoisture ?? []).includes(moistureState(m.moisture ?? 'Not published')))
     .filter((m) => rel.lowerFrom.some((r) => r.property === m.property && (r.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - r.loadMPa) < 0.05))))
     .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
       // The largest value the measurement allows: a bound that could meet the requirement keeps the material.
       lo: m.interval?.hi ?? m.interval?.lo ?? m.value, unit: m.unit }))
     .filter((b) => Number.isFinite(b.lo));
 }
+
+const FORM_NOTE = {
+  moulded: 'raw-material supplier value, not a printed or product specimen',
+  film: 'film specimen, not a printed part',
+  filament: 'filament strand, not a printed part',
+};
 
 function relatedEvidence(mat, def, measurementsByMaterial) {
   const props = def.relatedProperties;
@@ -425,7 +446,8 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
       direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
       loadMPa: m.thermal?.loadMPa ?? null,
       printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
-      why: (m.specimenType?.startsWith('Raw material') ? 'raw-material supplier value, not a printed or product specimen' : null)
+      why: FORM_NOTE[m.specimenForm]
+        || (annealedBesideAsPrinted(m, measurementsByMaterial.get(materialId)) ? 'annealed; the grade also publishes the as-printed value' : null)
         || DIRECTION_NOTE[m.direction]
         || (def.loadMPa != null && m.thermal && m.thermal.loadMPa !== def.loadMPa
             ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa` : 'load not stated by the source')
@@ -448,13 +470,6 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
   return {
     count: items.length,
     best,
-    // Every related interval, not only the ten listed. An estimate may not screen a material out of a
-    // requirement that any of its own measurements of this property could meet (engine, D42).
-    // A resin supplier's moulded value is not a measurement of this material's filament, so it vetoes
-    // nothing; the estimate already carries it through the moulded conversion. Zytel 101L's 3.1 GPa
-    // once kept PA66 among candidates for "stiffness at least 3 GPa".
-    intervals: sorted.filter((i) => !i.specimenType?.startsWith('Raw material'))
-      .map((i) => ({ measurementId: i.measurementId, lo: i.interval?.lo ?? null, hi: i.interval?.hi ?? null })),
     grades: new Set(items.map((i) => i.gradeId)).size,
     unit: best.unit,
     items: sorted.slice(0, 10),

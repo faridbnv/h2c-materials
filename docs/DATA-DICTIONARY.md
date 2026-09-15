@@ -225,7 +225,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Specimen type | canonical | string | yes |  | [specimen-types](#vocab-specimen-types) | Specimen form. |
 | Direction | canonical | string | yes |  | [directions](#vocab-directions) | Print direction of the specimen. |
 | Moisture condition | canonical | string | yes |  | [moisture-conditions](#vocab-moisture-conditions) | Moisture state at test. |
-| Post-processing | raw | string | yes |  |  | Annealing or other post-processing. |
+| Post-processing | raw | string | yes |  | [post-processing](#vocab-post-processing) | Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary. |
 | Test temperature | raw | string | yes |  |  | Test temperature as published. |
 | Standard / load | raw | string | yes |  |  | Test standard and load as published. |
 | Test load MPa | canonical | number | yes | Not applicable, Not published |  | Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties. |
@@ -882,6 +882,41 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Refill |  |
 | Spool |  |
 
+<a id="vocab-post-processing"></a>
+### post-processing
+
+`schema/vocab/post-processing.csv`, used by measurements.Post-processing.
+
+| Value | Meaning | State |
+|---|---|---|
+| After annealing | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 100 °C for 16 h | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%) | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 4.64%) | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 120 °C for 16 h (TDS note under the mechanical table) | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 130 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 80 °C for 24 h, and immersed in ambient-temperature water for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 80 °C for 30 min, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 80 °C for 6 h, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 80˚C for 24h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 80˚C for 6h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 55 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 55 °C for 8 h ours before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 65 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 70 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 75 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 80 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 80 °C for 12 hours before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were not annealed before testing | Tested as printed, without annealing | as-printed |
+| Annealed (per TDS annealed block) | Annealed before testing (the schedule is in the wording) | annealed |
+| Annealed (schedule not stated beside the HDT row) | Annealed before testing (the schedule is in the wording) | annealed |
+| As printed | Tested as printed, without annealing | as-printed |
+| HDT specimens annealed at 130 °C | Annealed before testing (the schedule is in the wording) | annealed |
+| HDT specimens annealed at 230 °C (deeper coloration) | Annealed before testing (the schedule is in the wording) | annealed |
+| Not published | The source does not state post-processing | not-stated |
+| Unannealed | Tested as printed, without annealing | as-printed |
+
 <a id="vocab-process-requirements"></a>
 ### process-requirements
 
@@ -982,18 +1017,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 `schema/vocab/specimen-types.csv`, used by measurements.Specimen type.
 
-| Value | Meaning |
-|---|---|
-| Filament |  |
-| Film specimen (ASTM D882); not a printed or moulded bar |  |
-| Not published |  |
-| Not published (density specimen form not explicitly established) |  |
-| Not published (do not assume printed) |  |
-| Printed part |  |
-| Printed part / TDS material-property section |  |
-| Printed specimen |  |
-| Printed specimen; TDS reports N/A |  |
-| Raw material value |  |
+| Value | Meaning | Form |
+|---|---|---|
+| Filament |  | filament |
+| Film specimen (ASTM D882); not a printed or moulded bar |  | film |
+| Not published |  | not-stated |
+| Not published (density specimen form not explicitly established) |  | not-stated |
+| Not published (do not assume printed) |  | not-stated |
+| Printed part |  | printed |
+| Printed part / TDS material-property section |  | printed |
+| Printed specimen |  | printed |
+| Printed specimen; TDS reports N/A |  | printed |
+| Raw material value |  | moulded |
 
 <a id="vocab-stock"></a>
 ### stock

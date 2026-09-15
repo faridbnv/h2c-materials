@@ -257,7 +257,11 @@ test('a resin reference never vetoes a screen: implied bounds are the filament\'
     for (const [key, h] of Object.entries(m.headline)) {
       for (const b of h?.impliedBounds ?? []) {
         const x = db.measurements.find((y) => y.id === b.measurementId);
-        assert.ok(!x.specimenType?.startsWith('Raw material'), `${m.name} ${b.measurementId}`);
+        // Only a printed part or an unstated specimen bounds a printed headline: film strengths once kept PLA a
+        // candidate for 140 MPa (audit 2026-09-15, C-02). A state the headline is not in bounds nothing either.
+        assert.ok(['printed', 'not-stated'].includes(x.specimenForm), `${m.name} ${b.measurementId} is a ${x.specimenForm} specimen`);
+        assert.ok(!annealedBesideAsPrinted(x, db.measurements), `${m.name} ${b.measurementId} is annealed beside an as-printed value`);
+        if (key === 'elongationXY') assert.notEqual(moistureState(x.moisture), 'conditioned', `${m.name} ${b.measurementId} is conditioned`);
         assert.equal(x.materialId, m.id, `${m.name} ${key} bound ${b.measurementId} is another material's`);
         assert.ok(model.impliedBounds[key].lowerFrom.some((r) => r.property === x.property), `${m.name} ${key}: ${x.property} does not bound it`);
         bounds++;
@@ -446,6 +450,16 @@ test('CoPE is its own grade, no longer a copy of CPE', () => {
 
 // The Fiberon page headlines 133.7 °C. That figure is annealed; as printed it is 81.6 °C. Both are
 // on record and the headline is the one a printed part has.
+test('an annealed value is not averaged with its as-printed twin, and mixed schedules are not a precise mean', () => {
+  // PET-GF15's 81.6 and 133.7 °C once became one observation of 107.65 °C, an outlier warning and a conflict; PPS-GF's
+  // HDT after annealing at 130 and at 230 °C became one precise mean (audit 2026-09-15, C-01).
+  const { conflicts, outliers } = db.meta.estimateModel;
+  const flagged = conflicts.flatMap((c) => c.measurementIds);
+  for (const id of ['V001933', 'V001932', 'V000353', 'V000352']) assert.ok(!flagged.includes(id), `${id} (annealed) is still averaged into an observation`);
+  assert.ok(!conflicts.some((c) => ['PLA-GF', 'PPS-GF'].includes(c.material) && c.key === 'hdt045'), 'a mixed-state HDT group still conflicts');
+  assert.ok(!outliers.some((o) => o.material === 'PET-GF'), 'PET-GF is still an outlier');
+});
+
 test('PET-GF15 keeps its as-printed and annealed HDT apart, and headlines the as-printed one', () => {
   const petgf = db.materials.find((m) => m.name === 'PET-GF');
   assert.equal(petgf.representativeGrade, 'G068-02');
@@ -558,6 +572,8 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
 import { loadTables } from '../build/src/load.js';
 import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js';
 import { normalQuantile, boundedQuantile, modulusFromShore, kindOf } from '../build/src/estimates.js';
+import { annealedBesideAsPrinted } from '../build/src/normalize/specimen.js';
+import { moistureState } from '../build/src/normalize/moisture.js';
 
 test('raw values reconcile, including decimal commas and grouped cycle counts', () => {
   const wb=loadTables(join(root,'data'));
@@ -615,6 +631,9 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
   assert.equal(kindOf(x({ property: 'Tensile break strength' }), 'tensileStrengthXY', 'amorphous'), 'break XY');
   assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'Z' }), 'tensileModulusXY', 'amorphous'), 'tensile Z');
   assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'XZ' }), 'tensileModulusXY', 'amorphous'), 'tensile XY');
+  // A source's own orientation label never merges into XY or Z (Method, Comparison / Directions; audit 2026-09-15, C-03).
+  assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'horizontal-source-label' }), 'tensileModulusXY', 'amorphous'), 'tensile unk');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'vertical-xz-source-label' }), 'tensileModulusXY', 'amorphous'), 'tensile unk');
   assert.equal(kindOf(x({ property: 'HDT', specimenType: 'Raw material value', thermal: { loadStated: true, loadMPa: 0.455 } }), 'hdt045', 'amorphous'), 'HDT 0.45 moulded amorphous');
   assert.equal(kindOf(x({ property: 'Glass transition temperature' }), 'hdt045', 'semi-unfilled'), null);
   // The moisture state comes from the vocabulary's declared State, not from the wording.

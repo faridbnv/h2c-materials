@@ -706,7 +706,10 @@
           "property": "Tensile strain at strength"
         }
       ],
-      "why": "A bar breaks after it yields and after it reaches its maximum stress; XY strain at break is at least the strain in any other direction."
+      "excludeMoisture": [
+      "conditioned"
+    ],
+    "why": "A bar breaks after it yields and after it reaches its maximum stress; XY strain at break is at least the strain in any other direction. A conditioned value bounds nothing: absorbed water plasticises a nylon and raises its strain, so it can exceed the dry headline."
     },
     "hdt045": {
       "lowerFrom": [

@@ -1,11 +1,11 @@
-Value,Meaning
-Filament,
-Film specimen (ASTM D882); not a printed or moulded bar,
-Not published,
-Not published (density specimen form not explicitly established),
-Not published (do not assume printed),
-Printed part,
-Printed part / TDS material-property section,
-Printed specimen,
-Printed specimen; TDS reports N/A,
-Raw material value,
+Value,Meaning,Form
+Filament,,filament
+Film specimen (ASTM D882); not a printed or moulded bar,,film
+Not published,,not-stated
+Not published (density specimen form not explicitly established),,not-stated
+Not published (do not assume printed),,not-stated
+Printed part,,printed
+Printed part / TDS material-property section,,printed
+Printed specimen,,printed
+Printed specimen; TDS reports N/A,,printed
+Raw material value,,moulded

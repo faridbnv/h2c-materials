@@ -13,7 +13,7 @@ export const withNote = (before, text) => (before == null || before === NA || be
  * Set fields of measurement rows. `set` maps field -> [expected, value]; expected may be a RegExp. Rows must
  * cite `source`. Returns the number of rows changed.
  */
-export function correct(t, { source, ids, set, note, migration }) {
+export function correct(t, { source, ids, set, note, migration, date = '2026-09-14' }) {
   let changed = 0;
   for (const id of ids) {
     const row = t.get('measurements', id);
@@ -27,7 +27,7 @@ export function correct(t, { source, ids, set, note, migration }) {
       edited = true;
     }
     if (edited) {
-      t.set('measurements', id, 'Notes', withNote(row.Notes, `Corrected 2026-09-14 (${migration}) against the source: ${note}`), { expect: row.Notes });
+      t.set('measurements', id, 'Notes', withNote(row.Notes, `Corrected ${date} (${migration}) against the source: ${note}`), { expect: row.Notes });
       changed++;
     }
   }

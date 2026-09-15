@@ -219,7 +219,8 @@
       "name": "Post-processing",
       "type": "string",
       "role": "raw",
-      "description": "Annealing or other post-processing.",
+      "description": "Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary.",
+      "vocabulary": "post-processing",
       "constraints": {
         "required": true
       }

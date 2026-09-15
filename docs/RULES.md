@@ -35,7 +35,7 @@ what it means and how to fix it.
 | `HEADLINE-KEY-UNKNOWN` | error | headlines.csv selects for a key that is not a measurement headline. | Use a key from headline_definitions.csv. |
 | `HEADLINE-SELECTION-MULTIPLE` | error | A headline selects more than one value measurement. | Keep one value row; mark the others Use context. |
 | `HEADLINE-NOT-APPLICABLE` | error | A headline selects a value for a material outside its Applies to. | Remove the selection, or widen Applies to. |
-| `HEADLINE-SELECTION-INVALID` | error | A selected measurement cannot be the headline (inactive, non-numeric, another material or grade, wrong property, unit or direction). | Select a measurement that fits the headline definition, or fix the measurement. |
+| `HEADLINE-SELECTION-INVALID` | error | A selected measurement cannot be the headline (inactive, non-numeric, another material or grade, wrong property, unit or direction; a moulded, film or filament specimen; conditioned; annealed where the grade publishes it as printed). | Select a measurement that fits the headline definition, or fix the measurement. |
 | `FAMILY-ENTRY-MAPPING` | error | Family entries in materials.csv and their member mapping disagree. | Make the family entry and its members agree. |
 | `FAMILY-ENTRY-OWNS` | error | A family entry owns an active grade. | File the product under the material it is (D44). |
 | `GRADE-ROLE-ID` | error | A grade Role disagrees with its -R# ID suffix. | Study and reference grades, and only they, end in -R#. |

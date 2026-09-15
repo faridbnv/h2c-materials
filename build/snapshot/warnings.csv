@@ -17,9 +17,7 @@ HDT-LOAD-UNSTATED,M100 hdt045
 HDT-LOAD-UNSTATED,M102 hdt045
 EST-SUMMARY,materials
 EST-OUTLIER,M086 density
-EST-OUTLIER,M070 tensileModulusXY
 EST-OUTLIER,M094 elongationXY
-EST-OUTLIER,M068 hdt045
 EST-WIDE,M008 elongationXY
 EST-WIDE,M039 tensileStrengthXY
 EST-WIDE,M045 tensileModulusXY
@@ -27,7 +25,7 @@ EST-WIDE,M046 tensileModulusXY
 EST-WIDE,M046 tensileStrengthXY
 EST-WIDE,M046 elongationXY
 EST-WIDE,M052 elongationXY
-EST-WIDE,M076 hdt045
+EST-WIDE,M085 tensileModulusXY
 EST-WIDE,M085 tensileStrengthXY
 EST-WIDE,M085 hdt045
 EST-WIDE,M086 tensileModulusXY

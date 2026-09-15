@@ -37,6 +37,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { moistureState } from './normalize/moisture.js';
+import { specimenForm, annealedBesideAsPrinted } from './normalize/specimen.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const ESTIMATE_MODEL = JSON.parse(readFileSync(join(here, '../mappings/estimate-model.json'), 'utf8'));
@@ -173,25 +174,30 @@ function snapshot(materials, gradeList, measurements, model) {
   const fibre = (m) => reinforcement(m) === 'carbon-fibre' || reinforcement(m) === 'glass-fibre';
   const matrix = (m) => (info(m).morphology === 'semicrystalline' ? (fibre(m) ? 'semi-filled' : 'semi-unfilled') : info(m).morphology);
   const usable = measurements.filter((x) => inPool.has(x.materialId) && x.numeric && !x.quarantined && !grades.get(x.gradeId)?.retired
-    && !/^Film/i.test(x.specimenType ?? ''));
+    // A film or a filament strand is not a part; a moulded bar is, through its documented conversion.
+    && !['film', 'filament'].includes(specimenForm(x.specimenType ?? 'Not published')));
   const byMaterial = new Map();
   for (const x of usable) { if (!byMaterial.has(x.materialId)) byMaterial.set(x.materialId, []); byMaterial.get(x.materialId).push(x); }
 
   // Melting point and glass transition of a material: its own printed or product values, else its
   // identity's. Supplier resin values describe another specimen and are not used here.
   const own = (m, property, lo, hi) => median((byMaterial.get(m.id) ?? [])
-    .filter((x) => x.property === property && x.value > lo && x.value < hi && !x.specimenType?.startsWith('Raw material')).map((x) => x.value));
+    .filter((x) => x.property === property && x.value > lo && x.value < hi && !mouldedValue(x)).map((x) => x.value));
   const tmOf = (m) => own(m, 'Melting temperature', 60, 420) ?? info(m).tm ?? null;
   const tgOf = (m) => own(m, 'Glass transition temperature', -150, 420)
     ?? median(pool.filter((p) => identityOf(p) === identityOf(m)).flatMap((p) => (byMaterial.get(p.id) ?? [])
-      .filter((x) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !x.specimenType?.startsWith('Raw material')).map((x) => x.value)));
+      .filter((x) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !mouldedValue(x)).map((x) => x.value)));
 
   return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf };
 }
 
 // --------------------------------------------------------------------------------- evidence kinds
 
-const DIRECTION_CLASS = { XY: 'XY', XZ: 'XY', 'horizontal-source-label': 'XY', 'along-flow': 'XY', Z: 'Z', ZX: 'Z', 'vertical-xz-source-label': 'Z' };
+// XZ (on edge) is loaded in the build plane, as XY is. A source's own label ("Horizontal", "Vertical XZ", "along
+// flow") is not a confirmed build orientation and never merges into XY or Z (Method, Comparison / Directions): it is
+// read as an unknown direction, with that conversion's wider spread.
+const DIRECTION_CLASS = { XY: 'XY', XZ: 'XY', Z: 'Z', ZX: 'Z' };
+const mouldedValue = (x) => specimenForm(x.specimenType ?? 'Not published') === 'moulded';
 const STRENGTH_ENDPOINT = {
   'Tensile strength (endpoint unspecified)': 'ultimate', 'Tensile break strength': 'break',
   'Tensile yield strength': 'yield', 'Flexural strength': 'flexural',
@@ -199,7 +205,7 @@ const STRENGTH_ENDPOINT = {
 
 /** The conversion kind of a measurement for a headline, or null when it says nothing about it. */
 export function kindOf(x, key, matrixClass) {
-  const moulded = x.specimenType?.startsWith('Raw material') ? ' moulded' : '';
+  const moulded = mouldedValue(x) ? ' moulded' : '';
   const dir = moulded ? '' : ` ${DIRECTION_CLASS[x.direction] ?? 'unk'}`;
   // The vocabulary declares each moisture wording's state (normalize/moisture.js); a conditioned value converts to dry.
   const wet = moistureState(x.moisture ?? 'Not published') === 'conditioned' ? ' wet' : '';
@@ -262,13 +268,16 @@ function rawObservations(key, S, model) {
   for (const m of S.pool) {
     const add = (entry) => {
       const g = `${m.id}|${entry.f}|${entry.kind}`;
-      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, kind: entry.kind, ys: [], half: [], items: [] });
+      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, kind: entry.kind, ys: [], half: [], items: [], states: new Set() });
       const e = groups.get(g);
-      e.ys.push(entry.y); e.half.push(entry.half); e.items.push(entry.item);
+      e.ys.push(entry.y); e.half.push(entry.half); e.items.push(entry.item); e.states.add(entry.state ?? '');
     };
     for (const x of S.byMaterial.get(m.id) ?? []) {
       const kind = kindOf(x, key, S.matrix(m));
       if (!kind) continue;
+      // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
+      // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C.
+      if (annealedBesideAsPrinted(x, S.byMaterial.get(m.id))) continue;
       if (x.value < pl || x.value > ph) { rejected.push({ key, materialId: m.id, material: m.name, measurementId: x.id, property: x.property, value: x.value, unit: x.unit }); continue; }
       // A one-sided bound ("> 16.5 MPa", "< 0.8 %") says the value lies beyond it. Read as an exact point it became
       // the most precise observation of all (PEBA's strength estimate 16.4-16.6 MPa); left out, elastomers lost
@@ -280,7 +289,7 @@ function rawObservations(key, S, model) {
       const lo = x.interval?.lo ?? x.value, hi = x.interval?.hi ?? x.value;
       if (model.properties[key].scale === 'log' && !side && !(lo > 0)) continue;
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
-      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
+      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state: x.postProcessing ?? 'Not published', y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
         item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
     }
     // An elastomer's nominal hardness, from its product designation, informs its stiffness.
@@ -300,7 +309,11 @@ function rawObservations(key, S, model) {
   for (const e of groups.values()) {
     if (!ownerOfF.has(e.f)) ownerOfF.set(e.f, e.m.id);
     if (ownerOfF.get(e.f) !== e.m.id) continue;
-    out.push({ ...e, yRaw: e.ys.reduce((a, b) => a + b, 0) / e.ys.length, half: Math.max(...e.half), bound: e.items.some((i) => i.bound) });
+    // Repeats under different post-processing (PPS-GF's HDT after annealing at 130 and at 230 °C: 125.8 and 219.6 °C)
+    // are not a precise mean: the observation's half-width spans them, and it calibrates no conversion.
+    const mixed = e.states.size > 1;
+    const spread = mixed ? (Math.max(...e.ys) - Math.min(...e.ys)) / 2 : 0;
+    out.push({ ...e, states: undefined, mixedStates: mixed, yRaw: e.ys.reduce((a, b) => a + b, 0) / e.ys.length, half: Math.max(...e.half, spread), bound: e.items.some((i) => i.bound) });
   }
   return { raw: out, rejected, bounds, ownerOfF };
 }
@@ -313,7 +326,7 @@ function rawObservations(key, S, model) {
 function conversions(key, raw, model) {
   const byF = new Map();
   // A bound is not an exact value, so it cannot calibrate a conversion.
-  for (const o of raw.filter((r) => !r.bound)) { const g = `${o.m.id}|${o.f}`; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
+  for (const o of raw.filter((r) => !r.bound && !r.mixedStates)) { const g = `${o.m.id}|${o.f}`; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
   const diffs = new Map();
   for (const kinds of byF.values()) {
     if (!kinds.has(HEAD[key])) continue;

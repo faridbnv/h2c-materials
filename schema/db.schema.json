@@ -190,10 +190,12 @@
           "quarantined",
           "numeric",
           "specimenType",
+          "specimenForm",
           "direction",
           "directionText",
           "moisture",
           "postProcessing",
+          "postProcessingState",
           "testTemperature",
           "standardText",
           "notch",
@@ -266,6 +268,15 @@
           "specimenType": {
             "type": "string"
           },
+          "specimenForm": {
+            "enum": [
+              "printed",
+              "not-stated",
+              "moulded",
+              "film",
+              "filament"
+            ]
+          },
           "direction": {
             "type": "string"
           },
@@ -277,6 +288,13 @@
           },
           "postProcessing": {
             "type": "string"
+          },
+          "postProcessingState": {
+            "enum": [
+              "as-printed",
+              "annealed",
+              "not-stated"
+            ]
           },
           "testTemperature": {
             "type": "string"
@@ -1047,6 +1065,7 @@
         "direction",
         "specimenType",
         "moisture",
+        "postProcessing",
         "interval",
         "uncertainty"
       ],
@@ -1083,6 +1102,9 @@
           "type": "string"
         },
         "moisture": {
+          "type": "string"
+        },
+        "postProcessing": {
           "type": "string"
         },
         "interval": {
