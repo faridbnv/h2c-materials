@@ -23,11 +23,13 @@ import { projectRoot } from '../data/table-io.mjs';
 import { BASE_COMMIT } from './commits.mjs';
 import { cleanText } from './text-cleanup.mjs';
 import { CORRECTIONS as M10_CORRECTIONS, ADDITIONS as M10_ADDITIONS } from './m10-source-conditions.mjs';
+import { CORRECTIONS as M12_CORRECTIONS } from './m12-directions.mjs';
 import { GRADES as M11_GRADES, ADDITIONS as M11_ADDITIONS, ADDED_SOURCE as M11_SOURCE } from './m11-grade-variants.mjs';
 
 // Cells later migrations changed against re-read sources, with the class each is reported under.
 const DOCUMENTED = new Map([
   ...M10_CORRECTIONS.flatMap((c) => c.ids.flatMap((id) => [...Object.keys(c.set), 'Notes'].map((f) => [`Properties\u0000${id}\u0000${f}`, 'test condition corrected against the source (m10)']))),
+  ...M12_CORRECTIONS.flatMap((c) => c.ids.flatMap((id) => [...Object.keys(c.set), 'Notes'].map((f) => [`Properties\u0000${id}\u0000${f}`, 'direction recorded from the source (m12)']))),
   ...Object.keys(M11_GRADES).map((id) => [`Grades\u0000${id}\u0000Composition / filler`, 'variant composition recorded from the source (m11)']),
   ['Sources\u0000I-PP-TDS\u0000Title', 'source title corrected against the document (m11)'],
   ...['I-PP-TDS', 'X-Hyperlite-PP-TDS-v1', 'S-SPECTRUM-en-tds-spectrum-hdpe', ...new Set([...M10_CORRECTIONS, ...M10_ADDITIONS].map((c) => c.source))]
