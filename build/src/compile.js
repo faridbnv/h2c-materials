@@ -386,6 +386,7 @@ const DIRECTION_NOTE = {
   'horizontal-source-label': 'source says "horizontal" without defining the build orientation',
   'vertical-xz-source-label': 'source says "vertical XZ" without defining the build orientation',
   'along-flow': 'measured along flow',
+  'raster-45': 'printed with a ±45° raster, not a build direction',
   'not-applicable': null,
   unknown: 'direction not stated by the source, so it cannot be read as XY',
 };

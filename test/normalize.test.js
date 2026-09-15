@@ -199,3 +199,21 @@ test('limonene support cannot back water-solubility evidence', () => {
   assert.equal(topic.category,'organic-solvent');
   assert.equal(topic.agent,'d-Limonene');
 });
+
+test('HDT loads in psi and kgf/cm² are read; a text naming both loads states neither (C-08)', () => {
+  assert.equal(parseHdtStandard('ASTM D648, 264 psi').loadMPa, 1.8);
+  assert.equal(parseHdtStandard('ASTM D648 @ 66psi').loadMPa, 0.45);
+  assert.equal(parseHdtStandard('ISO 75, 18.5 kgf/cm²').loadMPa, 1.8);
+  assert.equal(parseHdtStandard('ISO 75, 0.45 MPa (66 psi)').loadMPa, 0.45);
+  const both = parseHdtStandard('ISO 75 1.8 MPa / 0.45 MPa');
+  assert.equal(both.loadStated, false);
+  assert.equal(both.ambiguous, true);
+  assert.equal(both.label, 'both loads named');
+});
+
+test('a ±45° raster is its own orientation, comparable only with itself (C-06)', () => {
+  const d = normalizeDirection('45/45');
+  assert.equal(d.mapped, true);
+  assert.equal(d.canonical, 'raster-45');
+  assert.equal(directionsComparable('raster-45', 'XY'), false);
+});

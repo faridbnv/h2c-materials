@@ -13,6 +13,7 @@ import { readCsv, writeCsv } from '../../build/src/csv.js';
 import { loadSchemas } from '../../build/src/schema.js';
 import { lintData, findingKey, LINT_RULES } from '../../build/src/lint-rules.js';
 import { projectRoot } from './table-io.mjs';
+import { REVIEW_CODES, reviewFindings, compileIssues } from './review-findings.mjs';
 
 export const BASELINE = join(projectRoot, 'data/review/accepted-findings.csv');
 const HEADER = ['Code', 'Table', 'Record', 'Field', 'Reason', 'Accepted'];
@@ -47,16 +48,19 @@ if (process.argv[1]?.endsWith('lint.mjs')) {
     for (const [code, meaning] of Object.entries(LINT_RULES)) console.log(`${code.padEnd(28)} ${meaning}`);
     process.exit(0);
   }
-  const findings = currentFindings();
-  const baseline = readBaseline();
+  const all = readBaseline();
   const acceptAt = args.indexOf('--accept');
+  // Build findings are checked by npm run audit:data, which compiles; the lint accepts them too.
+  const review = acceptAt >= 0 && REVIEW_CODES.includes(args[acceptAt + 1]);
+  const findings = review ? reviewFindings(compileIssues(projectRoot)) : currentFindings();
+  const baseline = all.filter((b) => REVIEW_CODES.includes(b.Code) === review);
   if (acceptAt >= 0) {
     const [code, reason] = args.slice(acceptAt + 1);
-    if (!LINT_RULES[code] || !reason) { console.error('usage: npm run data:lint -- --accept CODE "reason"'); process.exit(2); }
+    if (!(LINT_RULES[code] || REVIEW_CODES.includes(code)) || !reason) { console.error('usage: npm run data:lint -- --accept CODE "reason"'); process.exit(2); }
     const { fresh } = compareWithBaseline(findings, baseline);
     const today = new Date().toISOString().slice(0, 10);
     const added = fresh.filter((f) => f.code === code).map((f) => ({ Code: f.code, Table: f.table, Record: f.record, Field: f.field || null, Reason: reason, Accepted: today }));
-    const rows = [...baseline, ...added].sort((a, b) => `${a.Code}${a.Table}${a.Record}${a.Field ?? ''}`.localeCompare(`${b.Code}${b.Table}${b.Record}${b.Field ?? ''}`));
+    const rows = [...all, ...added].sort((a, b) => `${a.Code}${a.Table}${a.Record}${a.Field ?? ''}`.localeCompare(`${b.Code}${b.Table}${b.Record}${b.Field ?? ''}`));
     writeCsv(BASELINE, HEADER, rows);
     console.log(`accepted ${added.length} ${code} finding(s)`);
     process.exit(0);

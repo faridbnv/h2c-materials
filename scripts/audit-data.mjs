@@ -12,6 +12,9 @@ import { compile } from '../build/src/compile.js';
 import { validate } from '../build/src/validate.js';
 import { normalizedRawValue } from '../build/src/measurement-rules.js';
 import { compileReference } from '../build/src/reference.js';
+import { issue } from '../build/src/rules.js';
+import { REVIEW_CODES, reviewFindings } from './data/review-findings.mjs';
+import { readBaseline, compareWithBaseline } from './data/lint.mjs';
 
 const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const out = resolve(args[0] ?? 'build/reports/data-audit');
@@ -23,6 +26,11 @@ const { db, issues } = compile(wb, { snapshot: snapshotDate(wb.Method.rows), bui
 issues.push(...validate(db, wb));
 issues.push(...checkData(resolve('data'), resolve('schema')).issues);
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+{
+  const { fresh, stale } = compareWithBaseline(reviewFindings(issues), readBaseline().filter((b) => REVIEW_CODES.includes(b.Code)));
+  for (const f of fresh) issues.push(issue('AUDIT-REVIEW-FINDING', `${f.code} ${f.record}`, `${f.message}. Fix it, or: npm run data:lint -- --accept ${f.code} "reason"`));
+  for (const b of stale) issues.push(issue('AUDIT-REVIEW-STALE', `${b.Code} ${b.Record}`, 'No longer occurs; remove it from data/review/accepted-findings.csv'));
+}
 const htmlPath = `dist/H2C_Material_Selector_${db.meta.snapshot}.html`;
 const html = readFileSync(htmlPath, 'utf8');
 const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);

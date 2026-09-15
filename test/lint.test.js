@@ -68,3 +68,20 @@ test('HDT at 0.45 MPa below HDT at 1.8 MPa on one grade and state is caught, unl
   const flagged = { 'Data status': 'Published value (physically implausible)' };
   assert.deepEqual(physics([hdt('V1', 0.45, 112, flagged), hdt('V2', 1.8, 117, flagged)]), []);
 });
+
+test('a per-record build finding needs an acceptance, and an acceptance that no longer occurs is stale (C-10)', async () => {
+  const { reviewFindings } = await import('../scripts/data/review-findings.mjs');
+  const { compareWithBaseline } = await import('../scripts/data/lint.mjs');
+  const issues = [
+    { level: 'warn', code: 'EST-OUTLIER', where: 'materials', message: '2 outliers', records: ['M070 tensileModulusXY', 'M094 elongationXY'] },
+    { level: 'info', code: 'EST-SUMMARY', where: 'materials', message: 'summary' },
+  ];
+  const findings = reviewFindings(issues);
+  assert.deepEqual(findings.map((f) => f.record), ['M070 tensileModulusXY', 'M094 elongationXY']);
+  const { fresh, stale } = compareWithBaseline(findings, [
+    { Code: 'EST-OUTLIER', Table: 'materials', Record: 'M070 tensileModulusXY', Field: null },
+    { Code: 'EST-OUTLIER', Table: 'materials', Record: 'M019 hdt045', Field: null },
+  ]);
+  assert.deepEqual(fresh.map((f) => f.record), ['M094 elongationXY']);
+  assert.deepEqual(stale.map((b) => b.Record), ['M019 hdt045']);
+});

@@ -10,6 +10,8 @@ export const DIRECTION = {
   HORIZONTAL_LABEL: 'horizontal-source-label',
   VERTICAL_XZ_LABEL: 'vertical-xz-source-label',
   ALONG_FLOW: 'along-flow',
+  // An alternating ±45° raster (Essentium PPS-CF) is its own orientation, neither XY nor Z (audit 2026-09-15, C-06).
+  RASTER_45: 'raster-45',
   NOT_APPLICABLE: 'not-applicable',
   UNKNOWN: 'unknown',
 };
@@ -22,6 +24,7 @@ const MAP = new Map([
   ['Horizontal (source label)', DIRECTION.HORIZONTAL_LABEL],
   ['Vertical XZ (source label)', DIRECTION.VERTICAL_XZ_LABEL],
   ['Along flow', DIRECTION.ALONG_FLOW],
+  ['45/45', DIRECTION.RASTER_45],
   ['Not applicable', DIRECTION.NOT_APPLICABLE],
   ['Not published', DIRECTION.UNKNOWN],
 ]);
@@ -36,6 +39,7 @@ const STRICT_EQUIVALENCE = {
   [DIRECTION.HORIZONTAL_LABEL]: [DIRECTION.HORIZONTAL_LABEL],
   [DIRECTION.VERTICAL_XZ_LABEL]: [DIRECTION.VERTICAL_XZ_LABEL],
   [DIRECTION.ALONG_FLOW]: [DIRECTION.ALONG_FLOW],
+  [DIRECTION.RASTER_45]: [DIRECTION.RASTER_45],
   [DIRECTION.NOT_APPLICABLE]: [DIRECTION.NOT_APPLICABLE],
   [DIRECTION.UNKNOWN]: [DIRECTION.UNKNOWN],
 };

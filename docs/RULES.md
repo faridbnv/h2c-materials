@@ -94,8 +94,8 @@ what it means and how to fix it.
 |---|---|---|---|
 | `HEADLINE-DIRECTION` | error | An XY headline cites a measurement of another direction. | Select an XY measurement; an unstated direction is not XY. |
 | `HDT-LOAD-WRONG` | error | An HDT headline at 0.45 MPa cites a measurement at another stated load. | Select a 0.45 MPa measurement. |
-| `HDT-LOAD-UNSTATED` | warn | HDT headlines whose source names the standard but not the load. | Re-read the source for the load; the value stays flagged until then. |
-| `IMPACT-UNITS` | warn | Impact data in J/m and kJ/m², which cannot share an axis. | Informational; no conversion without specimen geometry. |
+| `HDT-LOAD-UNSTATED` | warn | HDT headlines whose source names the standard but not the load. | Re-read the source for the load; the value stays flagged until then. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
+| `IMPACT-UNITS` | info | Impact data in J/m and kJ/m², which cannot share an axis. | Informational; no conversion without specimen geometry. |
 
 ## Coverage
 
@@ -112,12 +112,12 @@ what it means and how to fix it.
 | `EST-INVALID` | error | An estimate is malformed: beside a value, out of scope, unknown kind, strength or precision, no basis, ranges not nested, or evidence misattributed. | Fix the estimate model or its inputs; estimates are never authored. |
 | `EST-CALIBRATION` | error | An estimate model's likely or plausible range no longer holds hidden headlines as often as it claims. | Review recent data and conversions; the model must stay calibrated (D43). |
 | `EST-MODEL-REFERENCE` | error | The estimate model configuration names a material or grade that does not exist. | Update build/mappings/estimate-model.json to the current name or ID. |
-| `EST-WIDE` | warn | Estimates too imprecise to guide a choice (their likely range is poor precision). | Find a published value for the material or a close sibling; accept with the reason if none exists. |
-| `EST-FAMILY-ORDER` | warn | A reinforced material sits below its unfilled sibling where reinforcement raises the property (stiffness; heat deflection of a semicrystalline matrix). | Check both values and grades; accept with the reason if the sources genuinely differ. |
-| `EST-CALIBRATION-FEW` | warn | Too few measured headlines to calibrate a model; it uses a default scale. | Informational; grows with data. |
-| `EST-SUMMARY` | warn | How missing headlines are covered by estimates. | Informational. |
+| `EST-WIDE` | warn | Estimates too imprecise to guide a choice (their likely range is poor precision). | Find a published value for the material or a close sibling; accept with the reason if none exists. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
+| `EST-FAMILY-ORDER` | warn | A reinforced material sits below its unfilled sibling where reinforcement raises the property (stiffness; heat deflection of a semicrystalline matrix). | Check both values and grades; accept with the reason if the sources genuinely differ. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
+| `EST-CALIBRATION-FEW` | info | Too few measured headlines to calibrate a model; it uses a default scale. | Informational; grows with data. |
+| `EST-SUMMARY` | info | How missing headlines are covered by estimates. | Informational. |
 | `EST-REJECTED` | warn | Physically impossible observations kept out of the estimate model. | Re-read the source; correct or quarantine the measurement. |
-| `EST-OUTLIER` | warn | Measured headlines far outside what every other observation predicts. | Re-read the source and check the grade is the right product. |
+| `EST-OUTLIER` | warn | Measured headlines far outside what every other observation predicts. | Re-read the source and check the grade is the right product. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
 
 ## Evidence
 
@@ -129,8 +129,8 @@ what it means and how to fix it.
 
 | Code | Level | Means | Fix |
 |---|---|---|---|
-| `FAMILY-ENTRIES` | warn | Canonical names that are family entries, not candidates. | Informational (D44). |
-| `NO-MEASUREMENTS` | warn | Materials with no property measurements at all. | Research a grade with published data. |
+| `FAMILY-ENTRIES` | info | Canonical names that are family entries, not candidates. | Informational (D44). |
+| `NO-MEASUREMENTS` | warn | Materials with no property measurements at all. | Research a grade with published data. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
 
 ## Audit
 
@@ -138,6 +138,8 @@ what it means and how to fix it.
 |---|---|---|---|
 | `AUDIT-PARITY` | error | The fresh compile, dist/ files and the data embedded in the HTML are not identical, or the HTML loads something from the network. | Rebuild; if it persists, the bundler or the build is not deterministic. |
 | `AUDIT-REFERENCE-INTERVAL` | error | A reference envelope has a non-numeric or inverted interval. | Correct reference.csv. |
+| `AUDIT-REVIEW-FINDING` | error | A per-record build finding (an outlier, an imprecise estimate, a reinforced material below its sibling, an unstated HDT load, a material with no measurements) is neither fixed nor accepted with a reason. | Fix it, or accept it: npm run data:lint -- --accept CODE "reason". |
+| `AUDIT-REVIEW-STALE` | error | An accepted build finding no longer occurs. | Remove its row from data/review/accepted-findings.csv. |
 | `AUDIT-SOURCE-SCOPE` | error | A record uses a grade its source does not list under Applicable grades. | Add the grade to the source scope, or cite the right source. |
 
 ## Contract

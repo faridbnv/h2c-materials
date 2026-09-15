@@ -48,6 +48,14 @@ export function measurementIssues(db, wb) {
     if (!Number.isFinite(rawNumeric) || !Number.isFinite(factor) || Math.abs(rawNumeric * factor - actual) > Math.max(0.00001, Math.abs(actual) * 0.00001)) {
       error('MEAS-RAW-RECONCILE', `Properties ${r.MeasurementID} row ${r.__row}`, 'Raw numeric and conversion factor disagree with the cached normalized formula result');
     }
+    // The spread and the upper end convert with the same factor as the value (audit 2026-09-15, C-12).
+    for (const [raw, normalized] of [['Raw uncertainty ±', 'Normalized uncertainty ±'], ['Raw upper bound', 'Normalized upper bound']]) {
+      const a = Number(r[raw]), b = Number(r[normalized]);
+      if (!Number.isFinite(a) && !Number.isFinite(b)) continue;
+      if (!Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(factor) || Math.abs(a * factor - b) > Math.max(0.00001, Math.abs(b) * 0.00001)) {
+        error('MEAS-RAW-RECONCILE', `Properties ${r.MeasurementID} row ${r.__row}`, `${raw} ${r[raw]} × ${r['Conversion factor']} disagrees with ${normalized} ${r[normalized]}`);
+      }
+    }
   }
   const byId = new Map(db.measurements.map((m) => [m.id, m]));
   for (const mat of db.materials) for (const def of db.registry.headlines.filter((h) => h.kind === 'measurement')) {

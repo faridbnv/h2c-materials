@@ -16,9 +16,11 @@ const NORMALISE_PUNCT = (s) => String(s)
 // same test point as ISO's 0.45; 1.80, 1.81, 1.82 and 1.820 are the same high load (MN/m² is MPa).
 // A decimal comma is read only beside the unit ("0,45 MPa"), never alone.
 // ISO 75-2 names its methods by letter ("ISO 75-2/A", "HDT A"): A is 1.80 MPa, B is 0.45 MPa.
+// ASTM D648 states its loads in psi as often as in MPa (66 psi = 0.455 MPa, 264 psi = 1.82 MPa), and older sheets in
+// kgf/cm² (4.6 = 0.45 MPa, 18.5 = 1.8 MPa) (audit 2026-09-15, C-08).
 const LOAD_CLASSES = [
-  { load: 0.45, label: '0.45 MPa', patterns: [/0[.,]45[05]?\s*(?:MPa|MN\s*\/\s*m)/i, /0\.45[05]?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*B\b/i, /\bHDT\s*B\b/] },
-  { load: 1.8,  label: '1.8 MPa',  patterns: [/1[.,]8(?:[0-2]0?)?\s*(?:MPa|MN\s*\/\s*m)/i, /1\.8(?:[0-2]0?)?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*A\b/i, /\bHDT\s*A\b/] },
+  { load: 0.45, label: '0.45 MPa', patterns: [/0[.,]45[05]?\s*(?:MPa|MN\s*\/\s*m)/i, /0\.45[05]?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*B\b/i, /\bHDT\s*B\b/, /(?<![\d.])66\s*psi/i, /(?<![\d.])4[.,]6\s*kgf/i] },
+  { load: 1.8,  label: '1.8 MPa',  patterns: [/1[.,]8(?:[0-2]0?)?\s*(?:MPa|MN\s*\/\s*m)/i, /1\.8(?:[0-2]0?)?(?!\d)/, /ISO\s*75(?:-2)?\s*\/\s*A\b/i, /\bHDT\s*A\b/, /(?<![\d.])264\s*psi/i, /(?<![\d.])18[.,]5\s*kgf/i] },
 ];
 
 const STANDARDS = [
@@ -33,15 +35,15 @@ export function parseHdtStandard(raw) {
   const text = raw == null ? '' : String(raw).trim();
   const s = NORMALISE_PUNCT(text);
   const standard = STANDARDS.find((x) => x.re.test(s))?.key ?? null;
-  let loadMPa = null, label = null;
-  for (const c of LOAD_CLASSES) {
-    if (c.patterns.some((p) => p.test(s))) { loadMPa = c.load; label = c.label; break; }
-  }
+  // A text naming both loads says which row it belongs to no more than one naming neither: it used to resolve to 0.45.
+  const named = LOAD_CLASSES.filter((c) => c.patterns.some((p) => p.test(s)));
+  const [c] = named.length === 1 ? named : [];
   return {
     standard,
-    loadMPa,
-    loadStated: loadMPa !== null,
-    label: label ?? 'load not stated',
+    loadMPa: c?.load ?? null,
+    loadStated: !!c,
+    label: c?.label ?? (named.length > 1 ? 'both loads named' : 'load not stated'),
+    ambiguous: named.length > 1,
     text,
   };
 }
