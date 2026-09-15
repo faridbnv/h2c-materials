@@ -84,3 +84,8 @@ ranges moved.
   Both scripts are self-contained and tested by `verify`.
 - **Agents E and F.** Two fixer agents stopped on the account's spend limit before starting; the lead implemented
   their work.
+
+*Since then (2026-09-15, [architecture review](../2026-09-15-architecture-review/RESPONSE.md)):* C-09 is closed, hold-outs
+refit spreads and conversions without the material they hide (D59); the shared Chrome plumbing is `scripts/lib/cdp.mjs`.
+B-12, B-19 and D-09 still need data.
+

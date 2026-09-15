@@ -1,5 +1,5 @@
 // The migration oracle: the database and reference the workbook build produced at the branch base
-// (.migration/baseline/*.json.gz). Every migration step must reproduce them, except for the exact
+// (archive/workbook-conversion/baseline/*.json.gz). Every migration step must reproduce them, except for the exact
 // differences listed in explained-differences.json, each with the step that made it and why.
 
 import { readFileSync } from 'node:fs';
@@ -8,7 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const baseline = (f) => JSON.parse(gunzipSync(readFileSync(join(root, '.migration/baseline', `${f}.gz`))).toString('utf8'));
+const baseline = (f) => JSON.parse(gunzipSync(readFileSync(join(root, 'archive/workbook-conversion/baseline', `${f}.gz`))).toString('utf8'));
 
 export const explained = () => JSON.parse(readFileSync(join(root, 'scripts/migrate/explained-differences.json'), 'utf8')).differences;
 

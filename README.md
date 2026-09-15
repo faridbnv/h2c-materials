@@ -56,6 +56,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things |
 | [docs/PIPELINE.md](docs/PIPELINE.md) | What each build stage does, and what it refuses to do |
 | [AGENTS.md](AGENTS.md) | How to change data, for people and AI agents alike |
+| [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) | For an engineer using the tool: where a number comes from, what each kind means, and how far to trust it |
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The tables, the registry, the compiled shape, the three kinds of number |
 | [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the lenses, the words, the visual vocabulary |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them |
@@ -67,13 +68,19 @@ snapshot-stamped filename and the validation report are published alongside it:
 ```
 data/tables/                            the source of truth: one CSV per table, canonical form
 data/tables/properties.csv              the property registry; headline_definitions.csv the headlines
+data/tables/polymers.csv                what the estimate model knows about each polymer, with provenance
 data/manifest.json                      row count and SHA-256 of every table
+data/review/accepted-findings.csv       every lint or build finding a reviewer accepted, with the reason
 schema/tables/  schema/vocab/           the declared contract for every table, and its vocabularies
 schema/db.schema.json                   the contract for the compiled database
+schema/estimate-model.schema.json       the contract for the estimate model's configuration
 
+build/src/pipeline.js                   the stages every caller runs: compile, the estimate stage, validate
 build/src/                              check -> load -> normalize -> compile -> validate -> contract -> bundle
+build/src/estimate/                     the estimate stage, an overlay on the compiled database (D58)
 build/src/coverage-rules.js             one definition of what counts as a material's own data
 build/mappings/estimate-model.json      the estimate model's conversions, physical limits and fitting judgements, reviewed like code
+build/snapshot/                         the committed review snapshot: headlines, gates, templates, warnings, screening ends, interface views
 build/reports/                          the validation report, regenerated every build
 
 app/js/engine/                          the selection logic. Pure: no DOM, never imports from ui/
@@ -83,13 +90,16 @@ app/js/ui/labels.js                     the one vocabulary: what every criterion
 app/js/main.js                          the only place that holds state
 
 test/                                   engine, data gate, registry, contract, scale and database tests
-scripts/data/                           fmt, check, lint and build-finding review, new, retire, new-id, diff, the edit API, review workbook, scale data
+scripts/data/                           fmt, check, lint and build-finding review, new, new-material, retire, new-id, diff, the edit API, review workbook, scale data
 scripts/audit/                          source completeness: every PDF source re-read for values not in the tables
+scripts/build-diff.mjs                  what a change did to the compiled database, against HEAD
 scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interface views (build/snapshot/)
-scripts/ui-fuzz.mjs                     random scenarios through the built page, checked against the engine
+scripts/ui-fuzz.mjs, lib/cdp.mjs        random scenarios through the built page, checked against the engine; shared headless Chrome
 scripts/trace.mjs                       a headline back to its source
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
-scripts/migrate/                        the 2026-09-14 conversion (m01-m09) and the source corrections that followed (m10-m22, m24-m26)
+scripts/docs-*.mjs                      the generated rule catalogue, data dictionary and decision index
+scripts/migrate/                        source corrections and table changes since the conversion (m10 onwards), each guarded and re-runnable
+archive/workbook-conversion/            the 2026-09-14 workbook conversion (m01-m09, ledger, replay, baseline); history, no longer runs
 .githooks/pre-commit                    format, schema and no-deletion check on data commits
 .github/workflows/                      verify on every push; build, verify, publish on main
 dist/                                   build output, not committed
@@ -123,10 +133,12 @@ preferences: changing one changes what the tool asserts.
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
-11. **An estimate never passes a material, and screens only where a back-test shows it screens reliably.**
-    Every build hides each measured headline as far as an evidence class requires and checks the calibrated
-    ranges would have held (D48). In Explore it may screen a material out when the range its class may screen
-    on wholly fails, never when the material's own printed measurement bounds the headline and meets the requirement.
+11. **An estimate never passes a material, and screens only on an end the back-test has shown.** Every build
+    hides each measured headline as far as an evidence class requires, predicts it honestly, and sets each end of the
+    class's screening range where a new true value lies beyond it at most 10 % of the time with 90 % confidence
+    (D48, D59). In Explore it may screen a material out when that range wholly fails, never on an end the material's
+    own evidence lies beyond, and never when its own printed measurement bounds the headline and meets the requirement.
+    The core database builds and validates without estimates at all (D58).
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
 13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot

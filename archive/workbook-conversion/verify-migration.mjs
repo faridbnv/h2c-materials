@@ -5,7 +5,7 @@
 //  1. Replay: the workbooks as of the branch base (60f7392), dumped and taken through
 //     scripts/migrate/m01..m06, must reproduce data/tables exactly as of the last migration commit.
 //  2. Oracle: those tables, compiled by the current build code, must equal the workbook build's output
-//     (.migration/baseline/*.json.gz) except for scripts/migrate/explained-differences.json.
+//     (archive/workbook-conversion/baseline/*.json.gz) except for scripts/migrate/explained-differences.json.
 //
 // Needs full git history (git fetch --unshallow in a shallow clone). Check 2 holds only while the build
 // code still compiles those tables the same way; it is evidence for the migration, not a standing test.

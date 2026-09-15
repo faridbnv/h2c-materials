@@ -10,4 +10,7 @@ replayed them. What they did is in git history and in
 [the migration record](../../docs/audits/2026-09-14-csv-source-migration/REPORT.md); they are kept here so the reasoning
 and the exact steps can still be read, not as tooling.
 
+`SOURCE.json` records the workbooks' hashes and row counts at the conversion, and `baseline/` the hashes and compressed
+outputs of the first build from the converted tables, which the replay compared against.
+
 Later corrections against re-read sources (m10 onwards) are ordinary migrations and stay in `scripts/migrate/`.

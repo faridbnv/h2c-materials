@@ -597,6 +597,12 @@ Carried as warnings in `build/reports/validation-report.md`, and surfaced in the
   "Published qualitative result". It is shown in its own words and is never a number.
 - UV and outdoor evidence is seven records across six materials, none reducible to a verdict, so it is
   an evidence indicator and never a filter.
+- `polymers.csv` records where each polymer's melting point, water uptake and neat density come from as "Not recorded"
+  with a basis (handbook values compiled for the physics audit); no row cites a source yet (D60).
+- Three measured headlines the honest hold-outs flag as far from their prediction (OBC density, TPU elongation, PPS heat
+  deflection) are accepted with physical reasons, but their sources have not been re-read since (D59).
+- A material's mechanical or thermal coverage row says "Gap" or "Evidence recorded" from what is recorded, and a Grades
+  row's manufacturer count is a column the build checks (m32); the other coverage findings are prose a reviewer wrote.
 
 ## Retired identity mappings
 

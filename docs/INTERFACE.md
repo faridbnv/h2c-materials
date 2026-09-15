@@ -133,10 +133,12 @@ set in plain language.
   **Use estimates** on, a material whose estimate clearly cannot meet a requirement is screened out.
 
 An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
-only when its wider plausible (95%) range wholly fails the requirement, only when it rests on the
-material's own evidence or an identity measured on at least two products, and never when one of the
-material's own measurements of that property could meet the requirement (DECISIONS D43). A resin
-supplier's moulded value is not one of those measurements and vetoes nothing. A heat value whose load
+only when the range the build lets it screen on wholly fails the requirement. That range is set end by end from a
+back-test of every measured headline (DECISIONS D48, D59): an end may screen only where the back-test has shown a new
+true value lies beyond it at most 10% of the time, it is never inside the plausible (95%) range, and an end the
+material's own evidence lies beyond is open and screens nothing. A printed measurement of the material that bounds
+the headline from below and meets the requirement vetoes a screen; a resin supplier's moulded value is not one of
+those and vetoes nothing. The drawer says, for each estimate, which ends may screen and why. A heat value whose load
 the source never stated never passes a heat requirement, and it is bracketed rather than open-ended:
 PLA Lite's 53 °C means 53 to about 63 °C at 0.45 MPa, so with estimates on it is screened out of
 "at least 100 °C". A property
@@ -191,7 +193,7 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 |---|---|
 | `4.43` | A measured, verified headline |
 | `46*` | A real measurement never promoted to a headline. Hover for why |
-| `~1.9–41†` | An estimate: a 95% interval from the material's other grades, same-polymer peers or close analogues. Never passes; hover for its evidence and whether it can screen |
+| `~1.9–41†` | An estimate: the likely (80%) range of a calibrated model of every observation. Never passes; hover for its evidence and which ends may screen |
 | `80?` | A heat value whose source states the standard but not the load. It can neither pass nor fail a heat requirement outright |
 | `35≈` | A published mean ± spread whose spread contains the requirement's threshold. Judged on the mean (D54); hover for the spread |
 | `50.99` | A number beside a requirement on its column keeps the digits that put it on its own side of the threshold, where rounding would cross it |
@@ -329,7 +331,7 @@ and fails outright on plenty of real machines.
   axis is meaningless. Aligned bars instead.
 - **No universal material score.** Scores are scenario preferences applied after hard constraints,
   never a quality ranking.
-- **No imputation presented as data.** Estimates exist, are labelled as intervals, never pass a requirement, and screen only as D42 allows.
+- **No imputation presented as data.** Estimates exist, are labelled as intervals, never pass a requirement, and screen only as D48 and D59 allow.
 
 ## Accessibility and output
 
