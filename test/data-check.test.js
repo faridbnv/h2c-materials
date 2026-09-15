@@ -137,6 +137,17 @@ test('the changelog matches records by key: edits, additions and deletions', () 
   ]);
 });
 
+test('replacing a headline\'s value measurement is an edit, not a deletion; dropping a selection is a deletion', () => {
+  const schemas = { headlines: { primaryKey: null, identity: ['MaterialID', 'HeadlineKey', 'Use'], uniqueKeys: [['MaterialID', 'HeadlineKey', 'MeasurementID']] } };
+  const from = 'MaterialID,HeadlineKey,MeasurementID,Use\nM1,hdt045,V1,value\nM1,hdt045,V2,context\nM1,hdt045,V3,context\n';
+  const replaced = 'MaterialID,HeadlineKey,MeasurementID,Use\nM1,hdt045,V9,value\nM1,hdt045,V2,context\nM1,hdt045,V3,context\n';
+  assert.deepEqual(diffTables(schemas, (side) => (side === 'from' ? from : replaced)), [
+    { table: 'headlines', record: 'M1 | hdt045 | value', action: 'Edited', field: 'MeasurementID', before: 'V1', after: 'V9' },
+  ]);
+  const dropped = 'MaterialID,HeadlineKey,MeasurementID,Use\nM1,hdt045,V1,value\nM1,hdt045,V2,context\n';
+  assert.deepEqual(diffTables(schemas, (side) => (side === 'from' ? from : dropped)).map((c) => c.action), ['Removed']);
+});
+
 test('an identifier mentioned in prose must exist', () => {
   const m = seeded((t) => t.set('sources', 'H2C-WIKI', 'Applicable grades', 'Family guidance; see G020-01 and G999-01'));
   assert.deepEqual(m.map((x) => x.replace(/:\d+/, ':N')), ['data/tables/sources.csv:N  H2C-WIKI Applicable grades mentions "G999-01", which is not a GradeID in grades.csv']);

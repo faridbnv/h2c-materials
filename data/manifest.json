@@ -26,8 +26,8 @@
       "sha256": "9acf5af99c18ef4538ab403a3bfa3827b55e6ffc5c401295f4307e246e4caabc"
     },
     "measurements": {
-      "rows": 2222,
-      "sha256": "ee0bebf41fe4c46da91c09653c22d229b30eb531f893c712e40416400ccd36d4"
+      "rows": 2225,
+      "sha256": "489a77a591135e6d0dbb53c88259d4973e985d3b53a8e27ace90d737dd5b0e35"
     },
     "evidence": {
       "rows": 478,
@@ -39,7 +39,7 @@
     },
     "sources": {
       "rows": 244,
-      "sha256": "26f71cc4ce6e49417417cd8a59106bae24e4bd7891e964728ec7939339ebd1db"
+      "sha256": "2db3c67c54a7b5202b12cbf4ac78f58b5e4f237c1a6e3c0e6eead16f42772e8e"
     },
     "coverage": {
       "rows": 1188,
@@ -55,7 +55,7 @@
     },
     "headlines": {
       "rows": 366,
-      "sha256": "a81f96f42496e505486b8ac9ac92281d37d9fe33c1c17c16cae46706735f5891"
+      "sha256": "b315261518634a9cbb42c96600a081fa2be2830b5b84c95fb2f4d0ba750395c0"
     },
     "material_links": {
       "rows": 702,

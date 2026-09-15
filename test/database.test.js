@@ -460,6 +460,15 @@ test('an annealed value is not averaged with its as-printed twin, and mixed sche
   assert.ok(!outliers.some((o) => o.material === 'PET-GF'), 'PET-GF is still an outlier');
 });
 
+test('PPA headlines its as-printed heat deflection, and its annealed value stays evidence', () => {
+  // IPCON PPA prints "103 °C; 131 °C (annealed)"; only 131 °C was transcribed and it was the headline (B-05, m21).
+  const ppa = db.materials.find((m) => m.name === 'PPA');
+  assert.equal(ppa.headline.hdt045.value, 103);
+  assert.equal(ppa.headline.hdt045.postProcessing, 'As printed');
+  const annealed = db.measurements.find((m) => m.id === 'V001289');
+  assert.equal([annealed.value, annealed.postProcessingState].join(' '), '131 annealed');
+});
+
 test('PET-GF15 keeps its as-printed and annealed HDT apart, and headlines the as-printed one', () => {
   const petgf = db.materials.find((m) => m.name === 'PET-GF');
   assert.equal(petgf.representativeGrade, 'G068-02');

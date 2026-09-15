@@ -55,7 +55,7 @@ Outdoor structural part,Explore with estimates,M048,PAHT-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M049,PA6,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M050,PA6-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M051,PA6-GF,UNKNOWN,yes,
-Outdoor structural part,Explore with estimates,M052,PA12,UNKNOWN,screened,tensileModulusXY >= 3
+Outdoor structural part,Explore with estimates,M052,PA12,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M053,PA12-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M054,PA12-GF,PASS,yes,
 Outdoor structural part,Explore with estimates,M055,PA66,UNKNOWN,yes,

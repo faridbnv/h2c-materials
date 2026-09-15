@@ -15,8 +15,16 @@ export function diffTables(schemas, readVersion) {
   const log = [];
   for (const [name, schema] of Object.entries(schemas)) {
     const a = rowsOf(readVersion('from', name)), b = rowsOf(readVersion('to', name));
-    // A link table has no single key; its first unique key identifies a row.
-    const keyOf = schema.primaryKey ? (r) => r[schema.primaryKey] : (r) => (schema.uniqueKeys?.[0] ?? a.header).map((f) => r[f]).join(' | ');
+    // A link table has no single key; its first unique key identifies a row. A table may also declare an identity
+    // (headlines: MaterialID, HeadlineKey, Use): a row that is alone with its identity on both sides is the same record
+    // with an edited field, so replacing a headline's value measurement is an edit, not a deletion and an addition.
+    const uniqueOf = (r) => (schema.uniqueKeys?.[0] ?? a.header).map((f) => r[f]).join(' | ');
+    const identityOf = (r) => schema.identity.map((f) => r[f]).join(' | ');
+    const counts = (rows) => { const c = new Map(); for (const r of rows) c.set(identityOf(r), (c.get(identityOf(r)) ?? 0) + 1); return c; };
+    const [ca, cb] = schema.identity && !schema.primaryKey ? [counts(a.rows), counts(b.rows)] : [];
+    const keyOf = schema.primaryKey ? (r) => r[schema.primaryKey]
+      : ca ? (r) => (ca.get(identityOf(r)) === 1 && cb.get(identityOf(r)) === 1 ? identityOf(r) : uniqueOf(r))
+      : uniqueOf;
     if (a.header.length && b.header.length) {
       for (const h of b.header.filter((h) => !a.header.includes(h))) log.push({ table: name, record: '(column)', action: 'Added', field: h, before: null, after: null });
       for (const h of a.header.filter((h) => !b.header.includes(h))) log.push({ table: name, record: '(column)', action: 'Removed', field: h, before: null, after: null });

@@ -3,6 +3,11 @@
   "title": "Headlines",
   "description": "Which measurement each material's headline shows. One row per citation: Use value selects the measurement whose value is the headline; Use context keeps a measurement cited for that headline without being its value. No value row means the headline is Not published. The number lives only in the measurement.",
   "primaryKey": null,
+  "identity": [
+    "MaterialID",
+    "HeadlineKey",
+    "Use"
+  ],
   "uniqueKeys": [
     [
       "MaterialID",

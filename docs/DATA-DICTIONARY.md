@@ -890,9 +890,9 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Value | Meaning | State |
 |---|---|---|
 | After annealing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%) | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 4.64%) | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 100 °C for 16 h | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 120 °C for 16 h (TDS note under the mechanical table) | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 130 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 80 °C for 24 h, and immersed in ambient-temperature water for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
@@ -901,8 +901,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | All specimens were annealed at 80˚C for 24h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 80˚C for 6h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 50 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All the specimens were annealed and dried at 55 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All the specimens were annealed and dried at 55 °C for 8 h ours before testing | Annealed before testing (the schedule is in the wording) | annealed |
+| All the specimens were annealed and dried at 55 °C for 8 hours before testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All the specimens were annealed and dried at 65 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All the specimens were annealed and dried at 70 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All the specimens were annealed and dried at 75 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
@@ -911,6 +913,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | All the specimens were not annealed before testing | Tested as printed, without annealing | as-printed |
 | Annealed (per TDS annealed block) | Annealed before testing (the schedule is in the wording) | annealed |
 | Annealed (schedule not stated beside the HDT row) | Annealed before testing (the schedule is in the wording) | annealed |
+| Annealed (schedule not stated) | Annealed before testing; the source gives no schedule | annealed |
 | As printed | Tested as printed, without annealing | as-printed |
 | HDT specimens annealed at 130 °C | Annealed before testing (the schedule is in the wording) | annealed |
 | HDT specimens annealed at 230 °C (deeper coloration) | Annealed before testing (the schedule is in the wording) | annealed |

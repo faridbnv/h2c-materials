@@ -8,6 +8,8 @@ COVERAGE-SUPERSEDED,coverage,C01174 | C01175 | C01176,,"A log of separate events
 COVERAGE-SUPERSEDED,coverage,C01177 | C01178,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
 COVERAGE-SUPERSEDED,coverage,C01179 | C01180,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
 COVERAGE-SUPERSEDED,coverage,C01184 | C01185,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
+MEAS-LOCATOR-DIRECTION,measurements,V002003,Direction,"HDT is recorded without a direction by convention (Direction vocabulary: thermal tests). The sheet's XY names the bar's print orientation, which the locator keeps.",2026-09-15
+MEAS-LOCATOR-DIRECTION,measurements,V002004,Direction,"HDT is recorded without a direction by convention (Direction vocabulary: thermal tests). The sheet's XY names the bar's print orientation, which the locator keeps.",2026-09-15
 MEAS-PRINTED-NO-DIRECTION,measurements,V001918,Direction,Panchroma TDS V2.1 prints the notched Charpy result per colour range with no direction in the table or charts (re-read 2026-09-14).,2026-09-14
 MEAS-PRINTED-NO-DIRECTION,measurements,V001924,Direction,Panchroma TDS V2.1 prints the notched Charpy result per colour range with no direction in the table or charts (re-read 2026-09-14).,2026-09-14
 MEAS-PRINTED-NO-DIRECTION,measurements,V001973,Direction,"Eryone labels the bar X-Z, but the value is about half the X-Y one, so it is not read as an on-edge XZ bar (Notes).",2026-09-14

@@ -38,7 +38,7 @@ export function correct(t, { source, ids, set, note, migration, date = '2026-09-
  * Add a published value that was never transcribed, copying a row of the same source for its grade and
  * conditions and overriding `set`. Skipped when a row of the source already has this locator.
  */
-export function addValue(t, { like, set, note, migration }) {
+export function addValue(t, { like, set, note, migration, date = '2026-09-14', why = 'published in the source, never transcribed (npm run audit:sources).' }) {
   const template = t.get('measurements', like);
   const rows = t.rows('measurements');
   if (!set.Locator) throw new Error(`${migration}: an added value needs its Locator`);
@@ -50,7 +50,7 @@ export function addValue(t, { like, set, note, migration }) {
     Operator: '=', 'Conversion factor': '1', 'Data status': 'Published value', 'Parse review': NA,
     ...set,
     MeasurementID: nextId('measurements', rows.map((r) => r.MeasurementID)),
-    Notes: `Added 2026-09-14 (${migration}): published in the source, never transcribed (npm run audit:sources).${note ? ` ${note}` : ''}`,
+    Notes: `Added ${date} (${migration}): ${why}${note ? ` ${note}` : ''}`,
   };
   for (const k of ['Stress max MPa', 'Stress min MPa', 'Stress amplitude MPa', 'Frequency Hz', 'Load ratio R', 'Run-out']) if (!(k in set)) row[k] = NA;
   t.append('measurements', row);

@@ -49,3 +49,13 @@ test('a superseded coverage row is history, not a duplicate', () => {
   assert.deepEqual(run([row('C1', 'Gap', 'x'), row('C2', 'Gap', 'x')]), ['COVERAGE-DUPLICATE']);
   assert.deepEqual(run([row('C1', 'Superseded', 'Superseded by C2: x'), row('C2', 'Gap', 'x')]), []);
 });
+
+test('a locator that names one direction must agree with the Direction column; mixed labels are left alone', () => {
+  const f = (id, Locator, Direction) => row({ MeasurementID: id, Locator, Direction, 'Normalized value': id.slice(-1) });
+  const found = codes([
+    f('V1', 'p. 1: Tensile Strength Z', 'Not published'), f('V2', 'p. 1: Tensile Strength Z', 'Z'),
+    f('V3', 'Young\'s modulus (X-Y)', 'Not applicable'), f('V4', 'Tensile strength (X-Z)', 'Not published'),
+    f('V5', 'p. 2: Bending modulus (Z)', 'Z'), f('V6', 'Zytel resin sheet', 'Not published'),
+  ]).filter((c) => c.startsWith('MEAS-LOCATOR-DIRECTION'));
+  assert.deepEqual(found, ['MEAS-LOCATOR-DIRECTION V1', 'MEAS-LOCATOR-DIRECTION V3']);
+});

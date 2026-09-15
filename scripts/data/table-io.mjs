@@ -59,6 +59,26 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       changes.push({ table: name, record: id, action: 'Edited', field, before, after });
       return true;
     },
+    /**
+     * Edit the one row whose fields equal `match`, for a table without a primary key (headlines: MaterialID and
+     * HeadlineKey, with Use). Refuses when no row or several match, and, as set does, when the value moved.
+     */
+    update(name, match, field, value, { expect } = {}) {
+      const t = table(name);
+      if (!t.header.includes(field)) throw new Error(`${name}: no column "${field}"`);
+      const rows = t.rows.filter((r) => Object.entries(match).every(([k, v]) => r[k] === v));
+      const label = Object.values(match).join(' | ');
+      if (rows.length !== 1) throw new Error(`${name}: ${rows.length} rows match ${label}; update edits exactly one`);
+      const [row] = rows;
+      const before = row[field];
+      if (expect !== undefined && before !== expect) throw new Error(`${name} ${label} ${field}: expected "${expect}", found "${before}"; the data moved since this change was written`);
+      const after = value == null || value === '' ? null : String(value).trim();
+      if (before === after) return false;
+      row[field] = after;
+      t.dirty = true;
+      changes.push({ table: name, record: label, action: 'Edited', field, before, after });
+      return true;
+    },
     append(name, row) {
       const t = table(name);
       const unknown = Object.keys(row).filter((k) => !t.header.includes(k));

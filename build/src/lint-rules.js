@@ -15,6 +15,7 @@ export const LINT_RULES = {
   'MEAS-DUPLICATE': 'Two active measurements with the same grade, property, value, unit, direction, conditions, source and locator; retire the copy.',
   'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
   'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
+  'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY.',
   'SOURCE-UNCITED': 'A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has.',
   'SOURCE-ROLE-CITED': 'A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
@@ -96,6 +97,16 @@ export function lintData(tables, schemas) {
     if (mechanical.has(r.Property) && /^Printed specimen/.test(r['Specimen type'] ?? '') && r.Direction === 'Not published' && /^Published value/.test(r['Data status'])) {
       add('MEAS-PRINTED-NO-DIRECTION', 'measurements', r.MeasurementID, 'Direction', `${r.Property} ${r['Normalized value']} ${r['Normalized unit']}`);
     }
+  }
+
+  // A direction the locator names and the Direction column does not record (audit 2026-09-15, B-03). Mixed labels
+  // (X-Z, ZX, "XY and Z") name no single direction and are left to the reader.
+  const NAMED = [['XY', /(^|[^A-Za-z-])(X-Y|XY)([^A-Za-z-]|$)/], ['Z', /(^|[^A-Za-z-])Z([^A-Za-z-]|$)/]];
+  for (const r of tables.measurements?.rows ?? []) {
+    if (r['Data status'] === 'Retired duplicate record') continue;
+    const named = NAMED.filter(([, re]) => re.test(r.Locator ?? '')).map(([d]) => d);
+    if (named.length !== 1 || /X-?Z|Z-?X/.test(r.Locator ?? '')) continue;
+    if (r.Direction !== named[0]) add('MEAS-LOCATOR-DIRECTION', 'measurements', r.MeasurementID, 'Direction', `${r.Locator} is recorded as ${r.Direction}`);
   }
 
   // Sources.

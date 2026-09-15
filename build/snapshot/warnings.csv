@@ -25,12 +25,15 @@ EST-WIDE,M046 tensileModulusXY
 EST-WIDE,M046 tensileStrengthXY
 EST-WIDE,M046 elongationXY
 EST-WIDE,M052 elongationXY
-EST-WIDE,M085 tensileModulusXY
+EST-WIDE,M064 elongationXY
+EST-WIDE,M076 elongationXY
 EST-WIDE,M085 tensileStrengthXY
+EST-WIDE,M085 elongationXY
 EST-WIDE,M085 hdt045
 EST-WIDE,M086 tensileModulusXY
 EST-WIDE,M087 hdt045
 EST-WIDE,M091 elongationXY
+EST-WIDE,M093 tensileModulusXY
 EST-WIDE,M093 elongationXY
 EST-FAMILY-ORDER,M018 tensileModulusXY
 FAMILY-ENTRIES,M044

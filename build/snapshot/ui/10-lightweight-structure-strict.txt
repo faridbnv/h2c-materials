@@ -67,7 +67,7 @@ Polyolefins
  PASS 1,120 6.75 65* 1.7 139 — ☆
 PPA
 High-Performance Engineering
- PASS 1,140 2.86 76 3.4 131 — ☆
+ PASS 1,140 2.86 76 3.4 103 — ☆
 PPA-CF
 High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆

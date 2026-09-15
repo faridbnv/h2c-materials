@@ -1,5 +1,5 @@
-COUNT 26 shown PASS + UNKNOWN
-STATUS PASS 15 | UNKNOWN 16 | FAIL 66 | SCREENED 5
+COUNT 27 shown PASS + UNKNOWN
+STATUS PASS 15 | UNKNOWN 16 | FAIL 66 | SCREENED 4
 Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Missing data kept and flagged, estimates on (they never pass a material and may screen one out). Database snapshot 2026-09-13, build 2026-09-15. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -30,31 +30,31 @@ Stiffness GPa
 ASA-CF
 4.2
 CPE-CF
-~2.27–5.25†
+~1.99–4.5†
 PA-ESD
-~4.84–10.3†
+~4.05–8.58†
 ASA-CF: XY · Printed specimen
 Strength MPa
 ASA-CF
 34
 CPE-CF
-~42.2–70.5†
+~41.6–70.4†
 PA-ESD
-~58.2–102†
+~54.5–95.9†
 ASA-CF: XY · Printed specimen
 Stretch before breaking %
 ASA-CF
 9.6
 CPE-CF
-~8.44–29.2†
+~4.68–22.3†
 PA-ESD
-~3.52–12.4†
+~2.51–12.9†
 ASA-CF: XY · Printed specimen
 Heat resistance °C
 ASA-CF
 110
 CPE-CF
-~60.4–91.6†
+~60.4–91.8†
 PA-ESD
 142
 ASA-CF: Printed specimen | PA-ESD: specimen not stated — conditions differ across columns
