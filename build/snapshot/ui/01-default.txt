@@ -26,7 +26,7 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 98 materials, 92 of them in H2C scope
-2085 measurements, each traceable to a source
+2180 measurements, each traceable to a source
 92 have a density, 73 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
@@ -56,7 +56,7 @@ ASA-CF not tested 1,020 4.2 34 9.6 110 no price↗ ☆
 ASA-GF not tested 1,110 2.76 39 5.8 98 — ☆
 BVOH
 Support / Soluble
- not tested 1,140 2.4* 34* 9* — — ☆
+ not tested 1,140 2.34* 33.7* 14.8* — — ☆
 CoPE
 Copolyesters
  not tested 1,300 2.52 51.6 — — — ☆
@@ -143,7 +143,7 @@ Copolyesters
  not tested 1,230 1.75 45* 24 76 48↗ ☆
 PE
 Polyolefins
- not tested 1,100 3.5* 29* 18* — — ☆
+ not tested 1,100 0.752* 18.5* 208* 66* — ☆
 PEBA
 Flexible Elastomers
  not tested 1,010 0.1* 16.5* 520 n/a — ☆
@@ -185,7 +185,7 @@ PLA Lite not tested 1,230 — 53 3.89 53? — ☆
 PLA Marble not tested 1,220 2.33 33 6.7 56 32↗ ☆
 PLA Matte not tested 1,310 1.96 30 14.8 58 28↗ ☆
 PLA Metal not tested 1,250 2.01 34 14.7 62 32↗ ☆
-PLA Silk not tested 1,240 2.4 41.1 — — — ☆
+PLA Silk not tested 1,240 2.4 41.1 11.7* 50* — ☆
 PLA Silk Dual Color not tested 1,320 1.83 27 3.5 53 32↗ ☆
 PLA Silk+ not tested 1,270 2.13 33 2.8 60 31↗ ☆
 PLA Sparkle not tested 1,260 1.94 39 11.7 55 32↗ ☆
@@ -238,7 +238,7 @@ Support / Soluble
  not tested 1,270 n/a n/a n/a n/a 102↗ ☆
 PVB
 PVB / Specialty Polymers
- not tested 1,100 1.7* 50* 4.6* 63 — ☆
+ not tested 1,100 2.2* 51.8* 14.5* 63 — ☆
 PVDF
 Fluoropolymers
  not tested 1,710 2.45 51* 25 158 — ☆
@@ -256,7 +256,7 @@ Support / Interface
  not tested 1,280 n/a n/a n/a n/a 90↗ ☆
 TPC
 also called TPEE · Flexible Elastomers
- not tested 1,150 — — — n/a — ☆
+ not tested 1,150 0.067* 17.7* 500* n/a — ☆
 TPU
 Flexible Elastomers
  not tested 1,200 0.029 30* 330 n/a — ☆
