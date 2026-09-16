@@ -28,7 +28,7 @@
       "name": "Title",
       "type": "string",
       "role": "raw",
-      "description": "Title.",
+      "description": "The document's own title as the publisher printed it: a sheet's heading, a page's title or main heading. Never a file name, a shop page's payment or store chrome, or a placeholder such as untitled (D63; lint SOURCE-TITLE-NOT-TITLE).",
       "constraints": {
         "required": true
       }

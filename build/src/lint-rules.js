@@ -23,6 +23,7 @@ export const LINT_RULES = {
   'SOURCE-UNCITED': 'A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has.',
   'SOURCE-ROLE-CITED': 'A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
+  'SOURCE-TITLE-NOT-TITLE': 'A source Title that is not the document\'s own title: a shop page\'s chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf) or "untitled"; write the title the publisher printed on the sheet or page.',
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one.',
 };
@@ -32,6 +33,11 @@ const FULLWIDTH_PUNCT = /[\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff5e\u
 const LIGATURE = /[\ufb00-\ufb06]/;
 const INVISIBLE = /[\u0000-\u001f\u007f\u200b-\u200d\u2060\ufeff]/;
 const MISSING = /^Not (published|applicable)$/;
+// A source Title is what the publisher printed (D63): not a shop page's payment or store chrome, not a file name and
+// not a placeholder.
+const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google Pay|Shop Pay|American Express|Diners Club|Discover|Direct Debit|Add to cart|Checkout)\b/i;
+const FILE_NAME = /^B [A-Za-z]|_|\.(xlsx|xls|csv|pdf|docx?)$/i;
+export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
 
 const TEXT_TABLES = ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'properties', 'headline_definitions'];
 
@@ -163,6 +169,7 @@ export function lintData(tables, schemas) {
     if (role === 'cited' && !cited.has(r.SourceID)) add('SOURCE-UNCITED', 'sources', r.SourceID, '', `${r['Source class']}; ${r['Access status']}`);
     if (role === 'not-retrieved' && cited.has(r.SourceID)) add('SOURCE-ROLE-CITED', 'sources', r.SourceID, 'Citation role', r['Access status']);
     if (r.URL && !/^https?:\/\//.test(r.URL)) add('SOURCE-LOCAL-PATH', 'sources', r.SourceID, 'URL', r.URL);
+    if (r.Title && !isTitle(r.Title)) add('SOURCE-TITLE-NOT-TITLE', 'sources', r.SourceID, 'Title', JSON.stringify(r.Title.slice(0, 80)));
   }
 
   // Coverage.

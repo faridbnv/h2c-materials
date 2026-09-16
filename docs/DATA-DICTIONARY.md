@@ -254,7 +254,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Standard / load | raw | string | yes |  |  | Test standard and load as published. |
 | Test load MPa | canonical | number | yes | Not applicable, Not published |  | Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties. |
 | Notch | canonical | string | yes |  | [notches](#vocab-notches) | Impact specimen notch. |
-| Specimen / print parameters | raw | string | yes |  |  | Print parameters of the specimen. |
+| Specimen / print parameters | raw | string | yes |  |  | The specimen preparation and print conditions the source ties to its test values (nozzle and bed temperature, speed, infill, layer height, print orientation, specimen standard), in the sheet's own words; Not published where the sheet states none for its values. A recommended printing range, a marketing paragraph or a description of the source does not belong here (D63). |
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source of the value. |
 | Locator | raw | string | yes |  |  | Where in the source. |
 | Notes | prose | string | yes |  |  | Review notes. |
@@ -426,7 +426,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|---|---|---|---|
 | SourceID | key | string | yes |  | `^[A-Za-z0-9][A-Za-z0-9._-]*$` | Stable source identifier, never reused. The prefix says where it came from, and the rest names the document: B Bambu Lab, S Polymaker, X and XP 3DXTECH, I iSANMATE, PR Prusa Research, D other manufacturers' pages, R a reference or web datasheet, CA a Canadian retailer, P a paper, H2C the printer's own documentation, NIOSH and other bodies their own name, LOCAL a user-supplied reference. Keep a publisher's existing prefix rather than inventing a second one for it. |
 | Publisher | raw | string | yes |  |  | Publisher. |
-| Title | raw | string | yes |  |  | Title. |
+| Title | raw | string | yes |  |  | The document's own title as the publisher printed it: a sheet's heading, a page's title or main heading. Never a file name, a shop page's payment or store chrome, or a placeholder such as untitled (D63; lint SOURCE-TITLE-NOT-TITLE). |
 | Revision | raw | string | yes |  |  | Document revision. |
 | Publication date | raw | string | yes |  | `^(\d{4}(-\d{2}(-\d{2})?)?\|Not published)$` | Publication date (YYYY, YYYY-MM or YYYY-MM-DD) or Not published. |
 | Access date | raw | date | yes |  |  | Date the source was retrieved (YYYY-MM-DD). |

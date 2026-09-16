@@ -69,6 +69,7 @@ break if it were reversed, because that is the part that gets lost.
 | D60 | What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables | In force |
 | D61 | No meaning lives only in a tooltip | In force |
 | D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | In force |
+| D63 | A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide | In force |
 
 <!-- end index -->
 
@@ -1247,3 +1248,32 @@ counting the table behind the drawer again had charged the drawer with the table
 
 Reversing it brings back overprinted numbers on every screen narrower than a laptop, a legend that hides a phone's
 chart, and a full-screen panel that keyboard and screen reader users can walk out of.
+
+## D63. A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide
+
+Two text columns had been filled with whatever the transcription had to hand. Seventy-eight source Titles were not
+titles: 22 product pages carried the page's `<title>` with the store's payment footer glued on ("CARBONX™ ABS+CF Ach
+Direct Debit Amazon American Express Apple Pay ... Visa"), 40 Bambu Lab sheets a file-name stub ("B pla basic
+filament", "B PC"), 15 PDFs an `.xlsx` or underscore file name, one was "untitled". The drawer cites the Title beside
+every value, so a reader was told a measurement came from "Amazon American Express". And 140 measurement rows of
+eight sources held, in "Specimen / print parameters", a marketing paragraph ("... 50 ºC bed temperature, having
+excellent interlayer adhesion which greatly improve the strength ...") or a description of the source ("Manufacturer
+TDS v1.0; standard deviations in parentheses") where the other rows hold the sheet's Specimen Printing Conditions.
+
+- **A Title is the document's own title as the publisher printed it**: a sheet's heading ("Bambu Filament Technical
+  Data Sheet - PLA Basic", "Technical Data Sheet: CarbonX™ PP+CF 3D Printing Filament"), a page's `<title>` or main
+  heading with the store's name stripped ("CARBONX™ ABS+CF"). It is never a file name, a placeholder or the chrome
+  around a page, and it says what is printed even when that differs from what the source is filed under (the PLA
+  Basic Gradient sheet is titled "PLA Basic"; the Revision column tells them apart). Lint `SOURCE-TITLE-NOT-TITLE`
+  flags payment and store words, a file-name pattern (`B pla`, an underscore, `.xlsx`, `.pdf`) and "untitled" (m34).
+- **"Specimen / print parameters" holds only what the sheet ties to its test values**: the Specimen Printing
+  Conditions table, the print orientation heading of a results table ("Print direction XY, Flat"; "Print Orientation
+  45/45"), in the sheet's words. A recommended printing range, a Print Recommendation table or a PROCESSING block the
+  sheet does not say was used for the specimens is a printing guide and belongs in `profiles.csv`, not here: written
+  here it reads as the tested condition, and `npm run audit:sources` counts its numbers as transcribed values. Where
+  the sheet states nothing for its values the cell is Not published, and a remark worth keeping (the sheet's
+  standard deviations, its caveat that properties depend on production conditions) goes to Notes with its page
+  (m33).
+
+Reversing it puts payment footers back into citations and lets a marketing paragraph stand where an engineer reads
+the print conditions of the bar that was tested.

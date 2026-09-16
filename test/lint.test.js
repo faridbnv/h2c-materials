@@ -43,6 +43,16 @@ test('a source needs a citation only when its role says it is cited; a source ne
   assert.deepEqual(run([sources('not-retrieved')], [{ MeasurementID: 'V1', SourceID: 'S1' }]), ['SOURCE-ROLE-CITED S1']);
 });
 
+test('a source Title is what the publisher printed, not shop chrome, a file name or a placeholder', () => {
+  const src = (id, Title) => ({ SourceID: id, Title, 'Source class': 'Manufacturer TDS', 'Citation role': 'corroboration', 'Access status': 'Retrieved', URL: 'https://example.com/' + id });
+  const run = (rows) => lintData({ sources: { header: Object.keys(rows[0]), rows } }, { sources: { primaryKey: 'SourceID', fields: [] } }).filter((f) => f.code === 'SOURCE-TITLE-NOT-TITLE').map((f) => f.record);
+  assert.deepEqual(run([
+    src('S1', 'CARBONX™ ABS+CF Ach Direct Debit Amazon American Express Apple Pay Visa'), src('S2', 'B pla basic filament'), src('S3', 'B PC'),
+    src('S4', 'untitled'), src('S5', 'CF_PA12_v1.xlsx'), src('S6', 'TDS_FIBERON PA612-CF15_V1.1_EN'),
+    src('S7', 'Bambu Filament Technical Data Sheet - PLA Basic'), src('S8', 'CARBONX™ ABS+CF'), src('S9', 'Bambu Lab Filament Guide'), src('S10', 'PLA Basic | Bambu Lab CA Store'),
+  ]), ['S1', 'S2', 'S3', 'S4', 'S5', 'S6']);
+});
+
 test('a superseded coverage row is history, not a duplicate', () => {
   const row = (id, status, finding) => ({ CoverageID: id, MaterialID: 'M1', Domain: 'Thermal', Status: status, Finding: finding });
   const run = (rows) => lintData({ coverage: { header: Object.keys(rows[0]), rows } }, { coverage: { primaryKey: 'CoverageID', fields: [] } }).map((f) => f.code);

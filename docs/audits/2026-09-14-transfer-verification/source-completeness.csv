@@ -55,7 +55,6 @@ S-SPECTRUM-en-tds-spectrum-pc-cf,1,2129,,°C,1.81mn/m2129°C  §
 I-PC-CF-TDS,1,20,,%,"1. High strength, the strength is more than 20% higher than ordinary PC;"
 S-PCGF-TDS-1,1,0.2,,%,Moisture content <0.2 %  § 
 S-POLYCN-PolyFlex-TPU95-TDS-V5-1,3,9.4,0.3,MPa,"100% modulus (X - Y)  §  ,  §  9.4 ± 0.3 MPa"
-I-TPU-TDS,1,235,,ºC,"with a commonly used diameter of 1.75 mm ,235 º C printing temperature , 50 º"
 B-tpu-for-ams-TDS,1,90,,°C,Spool Material PC + ABS (Temperature resistance 90 ° C)
 B-tpu-for-ams-TDS,1,90,,°C,"X1 Series Printer Heatbed: 80 - 90 ° C, 12 h"
 B-tpu-for-ams-TDS,2,1.8,,MPa,Heat Deflection Temperature  §  1.8 MPa N / A
@@ -116,7 +115,6 @@ S-PPSGF-TDS-0,1,150,,°C,Spool Material Cardboard (max heat resistance: 150 ° C
 S-PPSGF-TDS-0,1,0.21,,%,Shrinkage Rate* Specially-defined 0.21% - 0.42%
 S-PPSGF-TDS-0,1,0.42,,%,Shrinkage Rate* Specially-defined 0.21% - 0.42%
 S-PPSGF-TDS-0,1,345,,°C,"temperature: 345 ° C, bed temperature: 120 ° C, printing speed: 100 mm/s ) and IPCON P P S G F (Grey) filament . The parameters"
-S-PPSGF-TDS-0,2,15,,%,"respectively) are as following: wall loop — 2 and 6, infill density — 15% and 25%, infill pattern — grid . The data is for user"
 S-PPSGF-TDS-0,2,350,,°C,"Q1 Pro and other printers that have 350 ° C nozzle temperature and positive chamber temperature, as well as AMS"
 S-PPSGF-TDS-0,2,200,,°C,"(long-term temperature resistance of 200 ° C ), superb water resistance and solvent resistance"
 S-FIBER-PPSGF-TDS-2,1,20,,%,Fiberon™ PPS-GF20 is a 20% glass fiber-reinforced

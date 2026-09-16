@@ -69,3 +69,4 @@ SOURCE-LOCAL-PATH,sources,LOCAL-CANON,URL,A local reference kept as provenance (
 SOURCE-LOCAL-PATH,sources,LOCAL-CREEP,URL,A local reference kept as provenance (Citation role); it has no public URL and nothing selectable depends on reaching it.,2026-09-14
 SOURCE-LOCAL-PATH,sources,LOCAL-FATIGUE,URL,A local reference kept as provenance (Citation role); it has no public URL and nothing selectable depends on reaching it.,2026-09-14
 SOURCE-LOCAL-PATH,sources,LOCAL-XLSM,URL,A local reference kept as provenance (Citation role); it has no public URL and nothing selectable depends on reaching it.,2026-09-14
+SOURCE-TITLE-NOT-TITLE,sources,R-COLORFABB-NGEN-TDS-V2,Title,"The underscore is part of the product name as colorFabb prints it (colorFabb_nGen); the Title is the sheet's own heading, ""Technical datasheet colorFabb_nGen"".",2026-09-16

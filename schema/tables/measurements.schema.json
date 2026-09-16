@@ -296,7 +296,7 @@
       "name": "Specimen / print parameters",
       "type": "string",
       "role": "raw",
-      "description": "Print parameters of the specimen.",
+      "description": "The specimen preparation and print conditions the source ties to its test values (nozzle and bed temperature, speed, infill, layer height, print orientation, specimen standard), in the sheet's own words; Not published where the sheet states none for its values. A recommended printing range, a marketing paragraph or a description of the source does not belong here (D63).",
       "constraints": {
         "required": true
       }
