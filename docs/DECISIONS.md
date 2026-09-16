@@ -67,6 +67,8 @@ break if it were reversed, because that is the part that gets lost.
 | D58 | Estimates are an overlay on a complete core, and grow by data, not by special cases | In force |
 | D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | In force |
 | D60 | What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables | In force |
+| D61 | No meaning lives only in a tooltip | In force |
+| D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | In force |
 
 <!-- end index -->
 
@@ -1166,3 +1168,82 @@ noticed, and no schema, lint, diff or source register covered them.
   (`test/references.test.js`), and EST-MODEL-REFERENCE is retired.
 
 Reversing it puts records back where no schema, diff or source register can see them.
+
+## D61. No meaning lives only in a tooltip
+
+An interface assessment on 2026-09-16 counted 175 elements on the desktop table, and 540 on a tablet, whose meaning was a
+native `title` of 25 characters or more and nothing else: what an estimate rests on and which of its ends may screen,
+why a measured value is not the headline, which kind of absence a dash is, why a row was screened, what a gate chip
+decided, why a price listing is quarantined. The legend above the table told the reader to hover, and the drawer said
+"click any number" when only a six-pixel dot beside it was a button.
+
+A native title is not enough, for reasons that do not depend on taste. It never appears on a touch screen. It cannot
+be reached from the keyboard, and a screen reader may or may not announce it. On a desktop it arrives after a delay
+the page cannot control, disappears when the pointer moves, cannot be selected or copied, and is cut short or wrapped
+by the browser: the estimate's is about 600 characters. An engineer on a tablet at the printer had no way to learn what
+`~1.9–5.29†` meant.
+
+So a title may repeat what is on screen, and may not be the only place a meaning is said. Every such mark is a real
+`<button>` that opens one reused explanation popover (`app/js/ui/popover.js`) by click, tap, Enter or Space, closes on
+Escape, a second press, the close button or a click elsewhere, returns focus to the mark, and stays inside the viewport
+at 390 px. Where there is a natural next step it offers one: open the estimate, the measurement or the Printing tab. The
+text comes from the functions that wrote the titles, and the titles stay, so the wording cannot fork and a mouse still
+gets it on hover. The same rule put on screen what had been only a title elsewhere: the lens tabs' purposes, the column
+chooser's, the mode control's label below 1100 px, Use estimates under Confirmed only (disabled with its reason instead
+of hidden), and the on/off state of the result chips (a ticked or empty box, "Show in table").
+
+The listeners sit on the document, in the capture phase, so a renderer that draws a mark has nothing to wire and
+cannot forget to, and a mark inside a table row does its own job without opening the row's drawer. The table's
+legend is one line of the same marks, always present in the same order, each opening its definition.
+
+Out of this decision's reach for now: the column headers' technical names, the retailer and date on a buy link, and
+the values on the Ashby chart, which are read by pointing at a mark. Each is still a tooltip-only meaning, and each is a
+case of this rule, not an exception to it. The Parallel lines chart has since come within it: a tap or Tab reads a line
+in a readout above the chart.
+
+Reversing it makes the tool's most important distinctions, measured against estimated against absent, invisible to
+anyone not holding a mouse.
+
+## D62. A narrow screen scrolls what does not fit inside its own box, and never squeezes it
+
+The interface was laid out for a desktop and wrapped below it. An assessment on 2026-09-16 at 1180, 820 and 390 px found
+the results table the worst of it: a fixed-layout table shared the width out by percentages, so at 820 px 46 of 207
+cells overprinted their neighbours (estimate ranges ran into the next column, "UNKNOWN" over a density) and at 390 px
+132 did, with names broken a letter per line and headings cut to "Res / Der / Stif". The Ashby legend beside the plot
+took 60% of a tablet's width and lay over a phone's points. The top bar was two rows at every laptop width and four on
+a phone; the view tabs two rows, the drawer's nine tabs three. The drawer covered a tablet or phone screen but Tab walked
+out of it into a page nobody could see, and the fixed-height page put the status bar and the shortlist under a phone
+browser's toolbar with no way to scroll to them. The probe's layout record (`build/snapshot/ui/30-*.txt`) counted 29
+layout failures.
+
+- **Tables scroll sideways in a box, with the name column held, rather than becoming cards.** Each kind of column has a
+  minimum width, the table lays out automatically so no cell is narrower than what it holds, and where the minimums do
+  not fit the table scrolls in its box with the material's name stuck at the left, as the Data coverage lens already did.
+  Cards per row were the other way. They would have made a table of numbers into a list of labelled values: columns
+  could no longer be compared down the page, sorting by a column would have no column to show it, and the fuzz and the
+  probe, which read rows and cells, would have had two renderings to check. An engineer comparing densities reads down a
+  column; the sideways scroll keeps that and costs a swipe. The box scrolls only when its table overflows (it is marked
+  after drawing and on resize), because a box that can scroll sideways is also a vertical scroll container and the
+  column headings would otherwise stop sticking on a wide screen, where the table fits.
+- **The Ashby legend goes below the plot under 900 px, and lists colours only.** Beside the plot it cost the plot most of
+  a narrow chart; below it, in rows, it costs height, which the chart gets back (its height follows its width, plus the
+  legend's rows). Plotly reserves the legend's real height under an automargined axis, so a wrong estimate of its rows
+  shrinks the plot a little and never overlaps the axis title. Shape, hollow and estimate marks moved out of the legend
+  into one HTML key under the chart that lists what is drawn: 40-odd family and filler rows had explained neither a
+  hollow point nor a dotted box.
+- **Below 600 px the page scrolls as a whole.** Fitting the page into one screen, as a desktop does, left the results a
+  slot a few rows tall between a two-row top bar, the tabs, a two-row status bar and a two-row shortlist, and a phone's
+  dynamic toolbar could cover the last two. Scrolling the page makes everything reachable and gives the results the
+  screen. Above 600 px the layout is unchanged, at `100dvh` with a `100vh` fallback.
+- **Below 1100 px the drawer is a modal dialog**: it covers the screen there, so the page behind it is inert, Tab cycles
+  inside it, a backdrop closes it, and focus returns to its opener. A wider screen keeps it a side panel beside usable
+  results, not modal.
+- **Strips instead of wrapped rows** for the view tabs and the drawer's tabs, with the active tab kept in view, and a top
+  bar of one row from 1101 px (the theme button an icon below 1400 px, keeping its words as its name and title) and two
+  on a phone (the title left to the browser tab, Save / share and the theme as named icons).
+
+`npm run ui:check` now fails on a layout failure without a flag; the drawer steps measure the drawer's own tables, since
+counting the table behind the drawer again had charged the drawer with the table's failures.
+
+Reversing it brings back overprinted numbers on every screen narrower than a laptop, a legend that hides a phone's
+chart, and a full-screen panel that keyboard and screen reader users can walk out of.

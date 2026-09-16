@@ -1,0 +1,9 @@
+viewport 820x1100
+document width 820
+spill: none
+clipped cells:
+  #lens: 0 of 882
+hidden controls: 0
+scrolls sideways:
+  div#lens.lens-view > div > div.table-scroll
+rows: top bar 2, lens tabs 1, status bar 1, shortlist 1

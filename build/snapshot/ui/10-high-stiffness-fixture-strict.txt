@@ -1,7 +1,7 @@
 COUNT 11 shown PASS
-STATUS PASS 11 | UNKNOWN 18 | FAIL 69
+STATUS ☑ PASS 11 | ☐ UNKNOWN 18 | ☐ FAIL 69
 11 of the 98 materials in this database meet these requirements
-18 more could not be checked for missing data, and are left out. From the High-stiffness fixture template. Click any criterion to remove it.
+18 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
@@ -17,17 +17,19 @@ Heat resistance at least 90 °C
 What this database cannot answer
 Properties
 Printing
+What the material is like
 Compare against
-nothing
+no reference
 PLA
 PETG
 ABS
 ASA
 PC
-—
-not published. Not zero, and not a low value.
-*
-a measurement that was never made the headline. Hover for why.
+— not published
+* measured, not the headline
+? heat load not stated
+≈ close to the limit
+n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS-CF PASS 1,110 5.21 46* 2 76 — ☆
 PA12-CF

@@ -10,7 +10,7 @@
 
 import { availability } from '../engine/coverage.js';
 import { esc } from './format.js';
-import { prop, envLabel, envNoun } from './labels.js';
+import { prop, envLabel, envNoun, GATE } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 
 // Labels come from the one vocabulary. The rail used to speak materials science on its own
@@ -81,7 +81,7 @@ export function renderFilters(host, state, actions) {
     const n = activeIn(group);
     const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
     parts.push(`<details class="group" data-group="${group}" ${open ? 'open' : ''}>
-      <summary>${group}<span class="count" data-zero="${n === 0}">${n}</span></summary>
+      <summary>${group}<span class="count" data-zero="${n === 0}">${n} set</span></summary>
       <div class="group-body">${body(group, materials, cs, db)}</div>
     </details>`);
   }
@@ -103,8 +103,9 @@ function body(group, materials, cs, db) {
     const sel = find(cs, (c) => c.gate === 'h2cStatus')?.in ?? [];
     const counts = {};
     for (const m of materials) counts[m.h2cStatus] = (counts[m.h2cStatus] ?? 0) + 1;
+    // Named as its requirement pill names it, so the control and the statement of the query agree.
     out.push(`<div class="control" data-active="${sel.length > 0}">
-      <label>H2C status</label>
+      <label>${esc(GATE.h2cStatus.plain)}</label>
       <div class="checks">${H2C_STATUSES.map((s) => `
         <label><input type="checkbox" data-status="${esc(s)}" ${sel.includes(s) ? 'checked' : ''}>
         ${esc(s)}<span class="n">${counts[s] ?? 0}</span></label>`).join('')}</div>
@@ -124,7 +125,7 @@ function body(group, materials, cs, db) {
         })()
         : `${known} of ${materials.length} publish a ${label.toLowerCase()} requirement`;
       out.push(`<div class="control" data-active="${on}">
-        <label><input type="checkbox" data-gate="${gate}" ${on ? 'checked' : ''}> ${label} within ${limit} °C baseline</label>
+        <label><input type="checkbox" data-gate="${gate}" ${on ? 'checked' : ''}> ${label} within the H2C limit of ${limit} °C</label>
         <div class="avail">${avail}</div>
       </div>`);
     }
@@ -217,7 +218,7 @@ function body(group, materials, cs, db) {
         ${indicator.map(([k, v]) => `${esc(envLabel(k))} (${v.records} records)`).join(', ')}.
         Every record in these categories is narrative text with no reducible verdict, so no material
         could pass or fail such a test. Offering them as constraints would return UNKNOWN for all
-        ${db.meta.counts.materials} while looking like a working filter. They are shown in each
+        ${materials.length} materials while looking like a working filter. They are shown in each
         material's Environment tab instead.</div>`);
     }
   }

@@ -7,13 +7,16 @@
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+<!-- The first stop for a keyboard, shown when it has focus. Without it the first row was 68 presses away. -->
+<a class="skip-link" id="skip-link" href="#lens">Skip to results</a>
 <div class="app">
 
   <header class="topbar">
     <button class="btn btn-sm" id="btn-filters" aria-controls="rail" aria-expanded="false">Filters</button>
     <h1>H2C Material Selector</h1>
     <div class="search">
-      <input type="search" id="search" placeholder="Search materials, grades, families" aria-label="Search materials">
+      <input type="search" id="search" placeholder="Search materials, grades, families" aria-label="Search materials" aria-keyshortcuts="/">
+      <kbd class="search-key" aria-hidden="true" title="Press / to search">/</kbd>
     </div>
     <div class="spacer"></div>
 
@@ -21,19 +24,31 @@
          It carries its own label and its own consequence: the meaning used to live only in a
          tooltip and in a monospace line at the far corner of the screen that read like a log. -->
     <div class="mode-group">
-      <span class="mode-label">Candidate confidence</span>
-      <div class="segmented" role="group" aria-label="How to treat data that is missing">
+      <span class="mode-label" id="mode-label"><span class="mode-label-long">Candidate confidence</span><span class="mode-label-short">Confidence</span></span>
+      <div class="segmented" role="group" aria-labelledby="mode-label">
         <button id="mode-strict" aria-pressed="true" title="Show only materials confirmed to meet every requirement.">Confirmed only</button>
         <button id="mode-explore" aria-pressed="false" title="Also show materials that may qualify but still need verification. Estimates can screen out clear mismatches.">Include uncertain</button>
       </div>
     </div>
 
-    <label class="est-toggle" id="est-toggle" hidden
-      title="Use estimates for missing values: a calibrated likely range built from the material's own related measurements and its polymer family. An estimate never passes a material. It screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement.">
-      <input type="checkbox" id="use-estimates"><span>Use estimates</span></label>
+    <!-- Shown in both modes. Under Confirmed only it is disabled and says why beside it; it used to be hidden, so a
+         reader in the default mode never learned estimates exist. What an estimate is sits one press away. -->
+    <div class="est-group">
+      <div class="est-line">
+        <label class="est-toggle" id="est-toggle">
+          <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Use estimates</span></label>
+        <button type="button" class="mark info-mark" aria-label="What estimates are" aria-haspopup="dialog" aria-expanded="false"
+          data-explain-head="Use estimates"
+          data-explain="Use estimates for missing values: a calibrated likely range built from the material's own related measurements and its polymer family. An estimate never passes a material. It screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement. Estimates are used only under Include uncertain; Confirmed only uses measured evidence alone."
+          title="Use estimates for missing values: a calibrated likely range built from the material's own related measurements and its polymer family. An estimate never passes a material. It screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement. Estimates are used only under Include uncertain; Confirmed only uses measured evidence alone.">?</button>
+      </div>
+      <span class="est-reason" id="est-reason">Only under Include uncertain</span>
+      <span class="est-ruled" id="est-ruled" hidden></span>
+    </div>
 
-    <button class="btn btn-sm" id="btn-scenario" title="Export, save, load or share this selection">Save / share</button>
-    <button class="btn btn-sm" id="btn-theme"></button>
+    <!-- Words where the bar has room, an icon where it has not; the words stay the accessible name and the title. -->
+    <button class="btn btn-sm btn-icon" id="btn-scenario" aria-label="Save / share" title="Export, save, load or share this selection"><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3M6 7l4-4 4 4M4 11v5.5h12V11"/></svg><span class="btn-text">Save / share</span></button>
+    <button type="button" class="btn btn-sm btn-icon" id="btn-theme"><svg class="icon theme-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M15.5 12.5A6.5 6.5 0 0 1 7.5 4.5a6.5 6.5 0 1 0 8 8z"/></svg><svg class="icon theme-sun" viewBox="0 0 20 20" aria-hidden="true" hidden><circle cx="10" cy="10" r="3.5"/><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6L16 16M4 16l1.4-1.4M14.6 5.4L16 4"/></svg><span class="btn-text"></span></button>
     <span class="meta-chip" id="meta"></span>
   </header>
 
@@ -52,35 +67,39 @@
       <div class="lens-bar">
         <span class="candidate-count" id="count"></span>
         <div class="spacer"></div>
-        <div class="segmented" role="tablist" aria-label="View">
+        <!-- Each tab's title is also the visible help line under the tabs (main.js markLens), so the two cannot differ. -->
+        <div class="segmented" role="group" aria-label="View" aria-describedby="lens-help">
           <button data-lens="table"    aria-pressed="true"  title="The candidates as a sortable list">Table</button>
           <button data-lens="ashby"    aria-pressed="false" title="Ashby chart: two properties plotted against each other, to see trade-offs">Ashby</button>
-          <button data-lens="parallel" aria-pressed="false" title="Parallel lines: each candidate across several properties at once">Parallel</button>
-          <button data-lens="coverage" aria-pressed="false" title="How much evidence the database holds for each candidate">Coverage</button>
+          <button data-lens="parallel" aria-pressed="false" title="Parallel lines: each candidate across several properties at once">Parallel lines</button>
+          <button data-lens="coverage" aria-pressed="false" title="How much evidence the database holds for each candidate">Data coverage</button>
           <button data-lens="compare"  aria-pressed="false" title="Your shortlist, property by property">Compare</button>
           <button data-lens="explain"  aria-pressed="false" id="tab-explain" title="Which requirement removed how many materials">Why excluded</button>
         </div>
+        <p class="lens-help" id="lens-help"></p>
       </div>
-      <div class="lens-view" id="lens"></div>
+      <div class="lens-view" id="lens" tabindex="-1" role="region" aria-label="Results"></div>
     </section>
   </div>
 
   <footer class="statusbar">
-    <span class="statusbar-idle" id="status-idle">Set a requirement on the left, and these counts will
+    <span class="statusbar-idle" id="status-idle">Set a requirement in Filters, and these counts will
       show what passed, what failed, and what could not be checked.</span>
-    <span class="statusbar-label">Show</span>
-    <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true">PASS 0</button>
-    <button type="button" class="chip chip-UNKNOWN" id="s-unknown" aria-pressed="false">UNKNOWN 0</button>
-    <button type="button" class="chip chip-FAIL"    id="s-fail"    aria-pressed="false">FAIL 0</button>
-    <button type="button" class="chip chip-screened" id="s-screened" aria-pressed="false" hidden>SCREENED 0</button>
+    <!-- Filters, not a tally: a label that says so, and a box in each chip that is ticked while its results are shown. -->
+    <span class="statusbar-label" id="statusbar-label">Show in table</span>
+    <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true"  aria-describedby="statusbar-label">PASS 0</button>
+    <button type="button" class="chip chip-UNKNOWN" id="s-unknown" aria-pressed="false" aria-describedby="statusbar-label">UNKNOWN 0</button>
+    <button type="button" class="chip chip-FAIL"    id="s-fail"    aria-pressed="false" aria-describedby="statusbar-label">FAIL 0</button>
+    <button type="button" class="chip chip-screened" id="s-screened" aria-pressed="false" aria-describedby="statusbar-label" hidden>SCREENED 0</button>
     <div class="spacer"></div>
   </footer>
 
   <div class="tray" id="tray" hidden>
     <span class="label">Shortlist</span>
     <div id="pins" style="display:flex;gap:7px;flex-wrap:wrap"></div>
+    <span class="tray-notice" id="tray-notice" role="status" hidden></span>
     <div class="spacer"></div>
-    <button class="btn btn-sm" id="btn-clear-pins">Clear all</button>
+    <button type="button" class="btn btn-sm" id="btn-clear-pins">Clear all</button>
   </div>
 </div>
 

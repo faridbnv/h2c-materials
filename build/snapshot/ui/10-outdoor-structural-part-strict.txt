@@ -1,7 +1,7 @@
 COUNT 15 shown PASS
-STATUS PASS 15 | UNKNOWN 16 | FAIL 67
+STATUS ☑ PASS 15 | ☐ UNKNOWN 16 | ☐ FAIL 67
 15 of the 98 materials in this database meet these requirements
-16 more could not be checked for missing data, and are left out. From the Outdoor structural part template. Click any criterion to remove it.
+16 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
@@ -21,21 +21,21 @@ Price at most 100 CAD/kg
 What this database cannot answer
 Properties
 Printing
+What the material is like
 Compare against
-nothing
+no reference
 PLA
 PETG
 ABS
 ASA
 PC
-—
-not published. Not zero, and not a low value.
-*
-a measurement that was never made the headline. Hover for why.
+— not published
+* measured, not the headline
+? heat load not stated
+≈ close to the limit
+n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
-out of stock
- ☆
+ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 72* 2.1 150 — ☆

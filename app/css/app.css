@@ -73,20 +73,63 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 [hidden] { display: none !important; }
 
 /* ---------------------------------------------------------------- app frame */
-.app { display: grid; grid-template-rows: auto 1fr auto auto; height: 100vh; }
+/* One column that may be narrower than its content. A plain grid column takes the min-content width of its widest
+   row, so the status bar's chips once made a 390 px phone lay the whole page out at 533 px, clipped on the right with
+   no way to scroll to it. */
+.app { display: grid; grid-template-rows: auto 1fr auto auto; grid-template-columns: minmax(0, 1fr); height: 100vh; height: 100dvh; }
+/* 100dvh where it is understood: on a phone 100vh is the height with the address bar hidden, so the status bar and the
+   shortlist sat under the browser's own toolbar with no way to scroll to them. */
 
+/* One row where it fits, and a second rather than squeezed buttons where it does not: labels wrapped inside their
+   buttons ("Confirmed / only") once the bar carried the estimates reason and a theme button that says what it does. */
 .topbar {
-  display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 52px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 7px 14px; min-height: 52px;
   background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0;
 }
+@media (min-width: 601px) { .topbar .btn, .segmented button { white-space: nowrap; } }
 .topbar h1 { font-size: 15px; font-weight: 650; margin: 0; letter-spacing: -0.01em; white-space: nowrap; flex-shrink: 0; }
-@media (max-width: 1400px) { .meta-chip { display: none; } }
+@media (max-width: 1600px) { .meta-chip { display: none; } }
 .topbar .spacer { flex: 1; }
+/* On a second row, Save / share and the theme button sit at the right as they do on one. */
+#btn-scenario { margin-left: auto; }
+/* Words where the bar has room, an icon where it has not (the button keeps the words as its name and title). The theme
+   button's words pushed the bar onto a second row at every laptop width from 1100 to 1400 px. */
+.btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-icon .icon {
+  width: 16px; height: 16px; flex: 0 0 auto; fill: none; stroke: currentColor;
+  stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+#btn-scenario .icon, #btn-theme .icon { display: none; }
+@media (max-width: 1400px) {
+  /* The mode's label above its buttons rather than beside them: the same words in 160 px less of the bar's width. */
+  .topbar .mode-group { flex-direction: column; align-items: flex-start; gap: 1px; }
+  .topbar .mode-label { font-size: 11px; line-height: 1.25; }
+  .topbar .mode-group .segmented button { padding-block: 5px; }
+  #btn-theme { min-width: 34px; min-height: 32px; padding: 5px 8px; }
+  #btn-theme .btn-text { display: none; }
+  #btn-theme .icon { display: block; }
+}
 .search { position: relative; }
 .search input {
-  width: 230px; padding: 6px 10px; border: 1px solid var(--border-strong);
+  width: 230px; padding: 6px 28px 6px 10px; border: 1px solid var(--border-strong);
   border-radius: var(--radius); background: var(--bg);
 }
+/* The "/" shortcut, shown in the box until it is used. Nothing on screen had said it existed. */
+.search-key {
+  position: absolute; right: 7px; top: 50%; transform: translateY(-50%); pointer-events: none;
+  font: 600 11px/1 var(--mono); color: var(--ink-3); border: 1px solid var(--border-strong); border-radius: 4px; padding: 2px 5px;
+}
+.search input:focus + .search-key, .search input:not(:placeholder-shown) + .search-key { display: none; }
+@media (hover: none) { .search-key { display: none; } .search input { padding-right: 10px; } }
+
+/* Hidden until it has focus: the first stop for a keyboard, straight to the results. */
+.skip-link {
+  position: absolute; left: 8px; top: -60px; z-index: 100; padding: 8px 14px; border-radius: var(--radius);
+  background: var(--accent); color: #fff; font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+.lens-view:focus { outline: none; }
+.lens-view:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 
 /* Segmented control. The unknown-data mode lives here, never in a filter group. */
@@ -100,8 +143,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .segmented-label { font-size: var(--t-small); color: var(--ink-3); margin-right: -8px; }
 
 /* ---------------------------------------------------------------- main split */
-.main { display: grid; grid-template-columns: var(--rail) 1fr; min-height: 0; }
-.main[data-rail="collapsed"] { grid-template-columns: 48px 1fr; }
+.main { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); min-height: 0; }
 
 .rail {
   background: var(--surface); border-right: 1px solid var(--border);
@@ -159,7 +201,9 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 }
 
 /* ---------------------------------------------------------------- workspace */
-.workspace { display: grid; grid-template-rows: auto 1fr; min-width: 0; min-height: 0; }
+/* One column no wider than the workspace, as in .app: the view tabs' strip is as wide as all six tabs at its narrowest,
+   and an auto column took that width and laid a phone's whole view out at 619 px. */
+.workspace { display: grid; grid-template-rows: auto 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; min-height: 0; }
 .lens-bar {
   display: flex; align-items: center; gap: 14px; padding: 9px 16px;
   border-bottom: 1px solid var(--border); background: var(--surface); flex-wrap: wrap;
@@ -167,15 +211,32 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .candidate-count { font-weight: 650; font-size: 17px; letter-spacing: -0.01em; }
 .candidate-count small { font-weight: 400; color: var(--ink-3); font-size: var(--t-small); margin-left: 7px; }
 .lens-bar .spacer { flex: 1; }
+/* What the active view is for, on screen: the tab names alone did not say. */
+.lens-help { flex-basis: 100%; margin: -4px 0 0; text-align: right; font-size: var(--t-small); color: var(--ink-3); }
 .lens-bar button[disabled] { opacity: .45; cursor: not-allowed; }
-.lens-view { overflow: auto; min-height: 0; padding: 16px; }
+/* min-width 0: a grid item is otherwise at least as wide as its widest content, and where the view does not scroll itself
+   (a phone) a wide table would widen the page instead of scrolling in its own box. */
+.lens-view { overflow: auto; min-height: 0; min-width: 0; padding: 16px; }
 
 /* ---------------------------------------------------------------- status bar */
+/* The chips wrap onto a second line rather than widen the page (see .app). */
 .statusbar {
-  display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 10px 16px;
   border-top: 1px solid var(--border); background: var(--surface); font-size: var(--t-body); flex-shrink: 0;
 }
+.statusbar .chip { min-width: 0; }
 .statusbar .spacer { flex: 1; }
+
+/* A mark whose meaning is more than its glyph is a button that opens the explanation popover (popover.js). The reset
+   leaves each mark looking as it did as text; the rules for .est, .related, .missing, .chip and the rest style it. */
+.mark {
+  font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  text-align: inherit; line-height: inherit; letter-spacing: inherit; position: relative;
+}
+/* A taller target than the glyph, without moving anything: rows keep their height and cells their width. */
+.mark::after { content: ""; position: absolute; left: 0; right: 0; top: -5px; bottom: -5px; }
+.mark:hover { text-decoration: underline dotted 1px; text-underline-offset: 3px; }
+.mark[aria-expanded="true"] { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 3px; }
 
 /* Four states: icon plus text, never colour alone. */
 .chip {
@@ -204,20 +265,52 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 
 /* ---------------------------------------------------------------- shortlist tray */
 .tray {
-  display: flex; align-items: center; gap: 10px; padding: 9px 16px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 16px;
   border-top: 1px solid var(--border); background: var(--surface-2); flex-shrink: 0;
 }
 .tray .label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+.tray-notice { font-size: var(--t-small); color: var(--unknown); font-weight: 600; }
 .pin {
-  display: inline-flex; align-items: center; gap: 6px; background: var(--surface);
-  border: 1px solid var(--border-strong); border-radius: 13px; padding: 3px 6px 3px 11px; font-size: 13px;
+  display: inline-flex; align-items: center; gap: 2px; background: var(--surface);
+  border: 1px solid var(--border-strong); border-radius: 14px; padding: 1px 2px 1px 10px; font-size: 13px;
 }
-.pin button { border: 0; background: none; cursor: pointer; color: var(--ink-3); padding: 0 3px; }
-.pin button:hover { color: var(--fail); }
+/* The tray's empty spacer cost a gap of its own, which wrapped a phone's shortlist onto a third row. */
+.tray .spacer { display: none; }
+/* The remove button only: Compare's shortlist pins also hold a result chip, which is a button of its own. At least
+   24 px each way: it was 16 by 20, a hard target on a touch screen. */
+.pin button[data-unpin] {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px;
+  border: 0; border-radius: 50%; background: none; cursor: pointer; color: var(--ink-3); padding: 0;
+}
+.pin button[data-unpin]:hover { color: var(--fail); }
 
 /* ---------------------------------------------------------------- table lens */
-table.grid { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: var(--t-table); }
-table.grid th, table.grid td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+/* Automatic layout: a column is never narrower than what it holds, so nothing overprints its neighbour. The <col>
+   percentages are the widths columns take where the table has room, and each kind of column has a minimum; below the sum
+   of those the table scrolls sideways in its box (format.js scrollTable) instead of squeezing its cells. */
+table.grid { border-collapse: collapse; width: 100%; table-layout: auto; font-size: var(--t-table); }
+table.grid th, table.grid td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); }
+table.grid .name { min-width: 176px; }
+table.grid .state { min-width: 104px; }
+table.grid .num { min-width: 96px; }
+table.grid .needs { min-width: 150px; }
+table.grid .pin-col { min-width: 72px; }
+table.grid .why-col { min-width: 240px; }
+table.grid .variant { min-width: 140px; }
+/* A pack size and a price per kilogram are short numbers; the Price tab's table fits the drawer's 620 px with them. */
+table.grid.price-table .num { min-width: 48px; }
+/* Scrolls only when its table is wider than it is (markTableOverflow): a box that can scroll sideways also scrolls
+   vertically, and the column headings would stop sticking under a wide screen's scrolled results. While it scrolls, the
+   material's name stays at the left edge, as in the Data coverage lens, so a row of numbers keeps its name. */
+.table-scroll[data-overflow="true"] { overflow-x: auto; overscroll-behavior-x: contain; }
+.table-scroll[data-overflow="true"] table.grid .name {
+  position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: inset -1px 0 0 var(--border);
+}
+.drawer .table-scroll[data-overflow="true"] table.grid .name { background: var(--surface); }
+.table-scroll[data-overflow="true"] table.grid thead th.name { z-index: 2; background: var(--surface); }
+.table-scroll[data-overflow="true"] table.grid tbody tr:hover td.name,
+.table-scroll[data-overflow="true"] table.grid tr.baseline-row td.name { background: var(--surface-2); }
+.table-scroll[data-overflow="true"] table.grid tbody tr[data-selected="true"] td.name { background: var(--accent-soft); }
 /* No ellipsis on cells. It clipped the UNKNOWN chip to a stray dot and "Not published" to
    "Not publis...". Cells that can hold long text wrap instead; numeric cells never need to. */
 table.grid td.name, table.grid td:nth-child(2) { overflow-wrap: anywhere; }
@@ -233,7 +326,8 @@ table.grid tbody tr[data-selected="true"] { background: var(--accent-soft); }
 table.grid td.num { text-align: right; font-variant-numeric: tabular-nums; font-size: var(--t-table); white-space: nowrap; }
 table.grid td.name { font-weight: 600; }
 .missing { color: var(--ink-3); font-size: var(--t-small); }
-.missing.dash { font-size: var(--t-table); cursor: help; }
+.missing.dash { font-size: var(--t-table); }
+.print-window { font-size: var(--t-table); }
 .table-note .dash { color: var(--ink-3); }
 
 /* Provenance in the number itself. */
@@ -241,18 +335,19 @@ table.grid td.name { font-weight: 600; }
 .v-derived { font-style: italic; cursor: help; }
 .v-derived::after { content: "◦"; font-size: 9px; vertical-align: super; color: var(--ink-3); }
 .v-assumed { background: var(--unknown-bg); color: var(--unknown); padding: 0 3px; border-radius: 3px; }
-/* The visible dot stays small; the button around it is a comfortable target. */
-.evidence-dot {
-  position: relative; display: inline-block; width: 18px; height: 18px; margin: -6px -5px -6px 0;
-  padding: 0; border: 0; background: transparent; vertical-align: middle; cursor: pointer; border-radius: 50%;
+/* A measured value is the button that opens its measurement, and the dot is its marker. The button is at least
+   24 px each way; negative margins keep it from making the row taller. Inline-block, not flex: the children of a flex
+   box read as separate lines to anything that copies the table's text. */
+.evidence-value {
+  display: inline-block; min-width: 24px; padding: 4px 1px; margin: -4px 0; border: 0; background: none;
+  font: inherit; line-height: inherit; color: inherit; cursor: pointer; border-radius: 4px; text-align: right;
 }
-.evidence-dot::after {
-  content: ""; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px;
-  border-radius: 50%; background: var(--border-strong);
-}
-.evidence-dot:hover::after, .evidence-dot:focus-visible::after { background: var(--accent); }
-.evidence-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
-.load-mark { font-size: 10px; font-weight: 700; color: var(--unknown); vertical-align: super; margin-left: 1px; cursor: help; }
+.evidence-dot { display: inline-block; width: 6px; height: 6px; margin-left: 4px; vertical-align: middle; border-radius: 50%; background: var(--border-strong); }
+.evidence-value:hover .evidence-dot, .evidence-value:focus-visible .evidence-dot { background: var(--accent); }
+.evidence-value:hover > span:first-child { text-decoration: underline dotted 1px; text-underline-offset: 3px; }
+.evidence-value:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
+.load-mark { font-size: 10px; font-weight: 700; color: var(--unknown); vertical-align: super; margin-left: 1px; padding: 0 2px; }
+.load-mark.mark::after { left: -4px; right: -4px; top: -8px; bottom: -8px; }
 .not-checked { margin: 10px 0 0 !important; padding: 8px 11px; border-left: 3px solid var(--unknown); background: var(--unknown-bg); color: var(--ink) !important; border-radius: 0 var(--radius) var(--radius) 0; }
 
 /* ---------------------------------------------------------------- drawer */
@@ -275,7 +370,69 @@ table.grid td.name { font-weight: 600; }
 /* A tab with nothing behind it is visibly quiet rather than hidden. */
 .drawer-tabs button[data-empty="true"] { color: var(--ink-3); }
 .drawer-tabs .n { font-size: var(--t-label); color: var(--ink-3); margin-left: 5px; font-variant-numeric: tabular-nums; }
-.drawer-body { overflow-y: auto; padding: 16px 18px 40px; }
+.drawer-body { overflow-y: auto; overscroll-behavior: contain; padding: 16px 18px 40px; }
+/* The tab strip and the one line under it saying what the open tab lists: one grid row, so the body keeps the last. */
+.drawer-nav { border-bottom: 1px solid var(--border); min-width: 0; }
+.drawer-nav .drawer-tabs { border-bottom: 1px solid var(--border); }
+.drawer-help { margin: 0; padding: 7px 18px 8px; font-size: var(--t-small); color: var(--ink-2); line-height: 1.4; }
+
+/* An internal ID, beside what it names rather than as its heading. */
+.tag {
+  display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--ink-3); letter-spacing: 0;
+  text-transform: none; border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; margin: 0 2px; vertical-align: 1px;
+  white-space: nowrap;
+}
+/* A heading that names a thing (a grade, a profile, a source), in sentence case, where h3.sec is a section label. */
+.block-title, .src-title { font-size: var(--t-body); font-weight: 650; color: var(--ink); margin: 26px 0 10px; line-height: 1.4; }
+.drawer-body > :first-child .block-title, .drawer-body > .block-title:first-child, .src-block:first-child .src-title { margin-top: 0; }
+.src-title:focus { outline: none; }
+.src-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.src-block { scroll-margin-top: 8px; }
+.src-block + .src-block { margin-top: 18px; }
+.src-meta { font-size: var(--t-small); color: var(--ink-3); margin: -6px 0 8px; }
+.src-head { font-size: var(--t-small); color: var(--ink-3); margin: 14px 0 6px; }
+.src-block:first-child .src-head { margin-top: 0; }
+.src-block.target > .src-title { border-left: 3px solid var(--accent); padding-left: 8px; }
+.meas-foot .link-btn, .src-head .link-btn { text-align: left; }
+.meas-foot .link-btn { color: var(--accent); }
+/* Conditions every measurement from one source shares, said once above them. */
+.shared-conds { border-left: 2px solid var(--border-strong); padding: 2px 0 2px 10px; margin: 0 0 6px; }
+.shared-head { font-size: var(--t-label); color: var(--ink-3); font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
+.shared-conds .cond-more { margin-bottom: 4px; }
+/* A long paragraph shows its first words; the rest is one press away. */
+details.longtext > summary { list-style: none; cursor: pointer; }
+details.longtext > summary::-webkit-details-marker { display: none; }
+details.longtext .lt-toggle { color: var(--accent); white-space: nowrap; text-decoration: underline; }
+details.longtext .lt-less, details.longtext[open] .lt-short, details.longtext[open] .lt-more { display: none; }
+details.longtext[open] .lt-less { display: inline; }
+details.longtext[open] > summary { margin-bottom: 2px; }
+details.longtext > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* Properties a sheet names without a value: one line, not an entry each. */
+.np-line { border-top: 1px solid var(--border); padding: 10px 0 4px; font-size: var(--t-small); color: var(--ink-2); }
+.np-item.target { background: var(--indet-bg); outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 2px; }
+/* An empty tab says so, why, and where to look instead. */
+.empty-tab { display: grid; gap: 8px; justify-items: start; }
+.empty-why { font-size: var(--t-small); color: var(--ink-2); }
+/* Family-level guidance behind a Best uses pointer. */
+.family-guidance { margin: 6px 0 0; padding-left: 18px; font-size: var(--t-body); line-height: 1.55; }
+.family-guidance li { margin-bottom: 6px; }
+.fine-line { display: block; font-size: var(--t-small); color: var(--ink-3); }
+.family-scope { margin-top: 0; }
+.unresolved { color: var(--unknown); }
+.cov-row .chip { margin-left: 6px; }
+/* A quarantined price listing's reason, visible under its row. Held at the left of its scroll box and no wider than the
+   screen, so on a phone it reads without scrolling the table sideways. */
+.grid tr.quarantine-why td { font-size: var(--t-small); color: var(--ink-2); padding-top: 0; text-decoration: none; }
+.quarantine-why .why-text { display: block; position: sticky; left: 10px; max-width: calc(100vw - 56px); }
+/* A condition's name above its text on a phone, where a name column left the text a narrow strip. */
+.kv.cond-more { grid-template-columns: minmax(110px, 28%) 1fr; }
+@media (max-width: 600px) {
+  .kv.cond-more { grid-template-columns: minmax(0, 1fr); gap: 1px; }
+  .kv.cond-more dd { margin-bottom: 6px; }
+  /* The Price table scrolls sideways on a phone anyway; a retailer's name then keeps its words whole ("3D Printin g"). */
+  table.grid.price-table .retailer { min-width: 104px; }
+}
+.grid tr.quarantined td { border-bottom-color: transparent; }
 
 .kv { display: grid; grid-template-columns: minmax(150px, 36%) 1fr; gap: 9px 16px; font-size: var(--t-body); margin: 0 0 20px; }
 .kv dt { color: var(--ink-3); }
@@ -365,6 +522,17 @@ h3.sec:first-child { margin-top: 0; }
 
 #plot { width: 100%; height: 560px; }
 
+/* The marks explained once, under the chart (ashby.js markerKey). */
+.ashby-key {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-top: 6px; padding: 8px 10px;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+  font-size: var(--t-label); color: var(--ink-2);
+}
+.ashby-key .key-head { font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ashby-key .key-item { display: inline-flex; align-items: center; gap: 6px; }
+.ashby-key .key-note { color: var(--ink-3); }
+.key-glyph { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; stroke: currentColor; }
+
 .legend-note { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
 .legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
 #index-card + .legend-note { margin-top: 12px; line-height: 1.55; }
@@ -399,7 +567,10 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-prop { margin-bottom: 22px; }
 .cmp-prop h4 { margin: 0 0 3px; font-size: 13px; }
 .cmp-prop .unit { color: var(--ink-3); font-weight: 400; font-size: 12px; }
-.cmp-bar { display: grid; grid-template-columns: 168px 1fr 118px; gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
+/* The name and value columns give way on a narrow screen before the bar does; fixed 168 and 118 px left a phone a
+   bar of a few pixels. */
+.cmp-bar { display: grid; grid-template-columns: minmax(90px, 168px) minmax(0, 1fr) minmax(70px, 118px); gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
+.cmp-bar > span:first-child { overflow-wrap: anywhere; }
 .cmp-bar .track { background: var(--surface-2); border-radius: 3px; height: 16px; position: relative; }
 /* display:block matters. The fill is a span, and an empty inline element ignores width and height,
    so every bar in the comparison rendered as an empty track. */
@@ -407,6 +578,25 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-bar .bounds { position: absolute; top: 5px; height: 6px; border-left: 2px solid var(--ink-3); border-right: 2px solid var(--ink-3); }
 .cmp-bar .val { text-align: right; font-family: var(--mono); font-size: 12px; }
 .cmp-bar .related-tick { position: absolute; top: 2px; width: 3px; height: 12px; margin-left: -1px; background: var(--ink-3); border-radius: 1px; }
+/* A requirement across the track: an upright line past both edges, above the bar and any estimate span, in the colour
+   the Ashby chart draws requirements in. A tracked one is dashed. The heading names it in words. */
+.cmp-bar .cmp-threshold { position: absolute; top: -4px; bottom: -4px; width: 0; margin-left: -1px; border-left: 2px solid var(--fail); z-index: 1; }
+.cmp-bar .cmp-threshold.tracked { border-left-style: dashed; opacity: .75; }
+/* A requirement past the end of the track: drawn at that end, doubled, rather than widening the track until every bar is a sliver. */
+.cmp-bar .cmp-threshold.beyond { border-left-width: 4px; border-left-style: double; }
+.cmp-intro { margin: 0 0 16px; max-width: 110ch; }
+.cmp-req { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; margin-left: 10px; font-weight: 400; font-size: var(--t-label); color: var(--ink-2); }
+.cmp-req-item { display: inline-flex; align-items: center; gap: 5px; }
+.cmp-req-mark { display: inline-block; width: 0; height: 12px; border-left: 2px solid var(--fail); }
+.cmp-req-mark.tracked { border-left-style: dashed; }
+/* The track's ends, under the bars, as an axis: what a bar's length is measured against. */
+.cmp-bar.cmp-axis { padding: 0; }
+.cmp-scale { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border-strong); padding-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+.cmp-scale-note { font-size: var(--t-label); color: var(--ink-3); text-align: right; line-height: 1.25; }
+/* A track spanning more than a hundredfold is on a log scale, and says so between its ends. */
+/* The two ends stay on their line, as on a linear track, and the words go on a line of their own under them. */
+.cmp-scale.log { display: grid; grid-template-columns: auto auto; justify-content: space-between; gap: 0 8px; }
+.cmp-scale-kind { font-family: var(--sans); font-style: italic; color: var(--ink-2); grid-column: 1 / -1; grid-row: 2; text-align: center; line-height: 1.2; }
 .cmp-context { border: 1px solid var(--border); background: var(--surface-2); border-radius: var(--radius); padding: 10px 12px; margin-bottom: 14px; font-size: var(--t-small); }
 .cmp-context .fine { margin: 4px 0 0; }
 .cond-more { margin: 4px 0 2px; }
@@ -421,7 +611,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
    overlay with no close control, covering the left of the results at 150% zoom. */
 #btn-filters, #btn-rail-close, .rail-backdrop { display: none; }
 @media (max-width: 1100px) {
-  .main { grid-template-columns: 1fr; }
+  .main { grid-template-columns: minmax(0, 1fr); }
   #btn-filters { display: inline-flex; }
   #btn-rail-close { display: inline-block; }
   .rail { position: fixed; inset: 0 auto 0 0; width: min(340px, 92vw); z-index: 35; box-shadow: 4px 0 24px rgba(0,0,0,.18); display: none; }
@@ -429,25 +619,78 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
   .main[data-rail-open="true"] .rail-backdrop { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.28); z-index: 34; }
   .rail-head { gap: 8px; }
   .rail-head h2 { flex: 1; }
-  .topbar { flex-wrap: wrap; row-gap: 8px; height: auto; padding-block: 8px; }
-  .topbar .mode-label { display: none; }
   .lens-bar { flex-wrap: wrap; }
-  .lens-bar .segmented { flex-wrap: wrap; }
+  /* One strip of view tabs that scrolls sideways, with the active one kept in sight (main.js), rather than two rows. */
+  .lens-bar .segmented { flex-wrap: nowrap; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
+  .lens-bar .segmented button { flex: 0 0 auto; white-space: nowrap; }
+  /* The drawer covers the screen here and is a modal dialog (main.js syncDrawerModal), over a backdrop. Its nine tabs
+     are one sideways strip: wrapped, they took three rows and 315 px of a phone's 844. */
   .drawer { width: 100vw; }
+  #drawer-host:has(> .drawer)::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.28); z-index: 39; }
+  .drawer-tabs { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
+  .drawer-tabs button { flex: 0 0 auto; }
 }
 @media (max-width: 800px) {
   .lens-bar { gap: 8px; }
+  .lens-help { text-align: left; margin-top: 0; }
   .topbar h1 { font-size: 13px; }
   .search input { width: 140px; }
 }
+/* Ashby's three option cards, one under another: side by side at this width the selects and switches were cut short. */
+@media (max-width: 732px) {
+  .ashby-options { grid-template-columns: minmax(0, 1fr); }
+}
+/* A phone. The top bar is two rows: the search with Filters, Save / share and the theme as icons, then the
+   missing-data switch with Use estimates. The title goes (the browser tab carries it). It was three or four rows, which
+   with the tabs, the status bar and the shortlist left the results about 350 px of an 844 px screen. */
+@media (max-width: 600px) {
+  .topbar { padding: 6px 10px; gap: 6px 8px; min-height: 0; }
+  .topbar h1, .topbar .spacer { display: none; }
+  .search { order: 1; flex: 1 1 150px; min-width: 0; }
+  .search input { width: 100%; }
+  #btn-scenario { order: 2; margin-left: 0; min-width: 34px; min-height: 32px; padding: 5px 8px; }
+  #btn-scenario .btn-text { display: none; }
+  #btn-scenario .icon { display: block; }
+  #btn-theme { order: 3; }
+  .topbar .mode-group { order: 4; }
+  .topbar .mode-label { font-size: 10.5px; }
+  .topbar .mode-group .segmented button { padding: 5px 7px; font-size: 12.5px; white-space: nowrap; }
+  /* Use estimates with its ? and its note under it, so the pair fits beside the mode buttons on one row. */
+  .topbar .est-group {
+    order: 5; display: grid; grid-template-columns: 24px auto; grid-template-areas: "toggle toggle" "info note";
+    align-items: center; gap: 2px 6px;
+  }
+  .topbar .est-line { display: contents; }
+  .topbar .est-toggle { grid-area: toggle; gap: 5px; padding: 2px 6px; }
+  .topbar .est-group .info-mark { grid-area: info; }
+  .topbar .est-reason, .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
+  .meta-chip { order: 6; }
+  .cmp-cond { padding-left: 0; }
+
+  /* The page scrolls as a whole, so the status bar and the shortlist are reached by scrolling to them. Fitted into one
+     screen, as on a wider one, the view between them was a slot a few rows tall, and nothing below it could be reached
+     once the browser's toolbar took its share. */
+  html, body { height: auto; }
+  body { overflow: visible; }
+  .app { height: auto; min-height: 100vh; min-height: 100dvh; }
+  .lens-view { overflow: visible; padding: 14px 12px; }
+}
+/* The narrowest phones: the mode buttons may take two lines each rather than push Use estimates to a row of its own. */
+@media (max-width: 374px) {
+  .topbar .mode-group { flex: 1 1 0; }
+  .topbar .mode-group .segmented button { white-space: normal; }
+}
 
 @media print {
-  .rail, .topbar, .statusbar, .tray, .lens-bar, #drawer-host, .rail-backdrop, #cmp-print, .baseline-pick { display: none !important; }
+  .rail, .topbar, .statusbar, .tray, .lens-bar, #drawer-host, .rail-backdrop, #cmp-print, .baseline-pick, .popover, .skip-link { display: none !important; }
   .app { display: block; height: auto; }
   .main { display: block; }
   .cmp-prop, .cmp-context, table.grid tr { break-inside: avoid; }
   body { overflow: visible; }
   .lens-view { overflow: visible; padding: 0; }
+  /* Paper does not scroll: a table prints whole, with nothing held at its edge. */
+  .table-scroll, .pc-scroll { overflow: visible !important; }
+  .table-scroll table.grid .name { position: static !important; box-shadow: none !important; }
 }
 
 /* ---------------------------------------------------------------- rail additions */
@@ -460,9 +703,14 @@ button.chip { border: 1px solid transparent; cursor: pointer; font-family: inher
 button.chip:hover { filter: brightness(1.08); }
 button.chip[aria-pressed="true"] { outline: 2px solid currentColor; outline-offset: 1px; }
 button.chip[disabled] { opacity: .5; cursor: default; }
+/* In the status bar the leading mark is the filter's on/off box, which replaces the verdict icon: the word is there. */
+.statusbar .chip::before { content: none; }
+.statusbar .chip { display: inline-block; }
+.chip-box { font-size: 14px; line-height: 1; font-weight: 400; }
+.chip-small { font-size: 10px; }
 
 /* Related evidence: shown where a headline is missing, never mistaken for the headline. */
-.related { display: inline; font-size: var(--t-table); color: var(--ink-2); cursor: help; border-bottom: 1px dotted var(--border-strong); }
+.related { display: inline; font-size: var(--t-table); color: var(--ink-2); border-bottom: 1px dotted var(--border-strong); }
 .related .rv { font-variant-numeric: tabular-nums; }
 .related-mark { color: var(--unknown); font-weight: 700; margin-left: 2px; }
 .table-note { font-size: var(--t-small); color: var(--ink-3); margin: 14px 2px 0; max-width: 80ch; line-height: 1.5; }
@@ -529,6 +777,10 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .cov-cell.bad { background: var(--fail-bg); color: var(--fail); }
 .cov-cell.none { background: var(--surface-2); color: var(--ink-3); }
 .cov-cell:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* The rarely published properties, under the grid rather than as a column every row fails. */
+.cov-sparse { margin-top: 18px; max-width: 90ch; }
+.cov-sparse p { font-size: var(--t-small); color: var(--ink-2); line-height: 1.55; margin: 6px 0; }
+.cov-sparse p.fine { color: var(--ink-3); }
 .linkish { border: 0; background: none; padding: 0; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
 .linkish:hover { color: var(--accent); text-decoration: underline; }
 
@@ -557,13 +809,30 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .start-note { font-size: var(--t-small); color: var(--ink-3); margin: 12px 0 0; max-width: 74ch; }
 
 /* ---------------------------------------------------------------- parallel coordinates (svg) */
+.pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
 .pc-svg { display: block; overflow: visible; }
 .pc-line-axis { stroke: var(--border-strong); stroke-width: 1; }
 .pc-lbl { fill: var(--ink); font-size: 12.5px; font-weight: 650; }
 .pc-lbl-unit { fill: var(--ink-3); font-size: 11px; }
 .pc-tick { fill: var(--ink-3); font-size: 11px; font-variant-numeric: tabular-nums; }
-.pc-poly { fill: none; stroke-width: 1.75; cursor: pointer; transition: stroke-width .1s, opacity .1s; }
-.pc-poly.hot { stroke-width: 3.5; opacity: 1 !important; }
+.pc-poly { fill: none; stroke-width: 1.75; transition: stroke-width .1s, opacity .1s; pointer-events: none; }
+/* Each line's pointer target: transparent and 14 px wide, so a finger can hit a line drawn under 2 px wide. */
+.pc-hit { fill: none; stroke: transparent; stroke-width: 14; cursor: pointer; }
+.pc-bg { fill: transparent; }
+.pc-line:focus { outline: none; }
+.pc-line.hot .pc-poly, .pc-line.selected .pc-poly { stroke-width: 3.5; opacity: 1 !important; }
+/* The line being read, drawn again above every other line. */
+.pc-raised { stroke-width: 3.5; opacity: 1; }
+.pc-line:focus-visible .pc-poly { stroke-width: 4; }
+/* What the line under the pointer, or the one tapped or focused, reads, above the chart, with its one next step. */
+.pc-readout {
+  display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; min-height: 44px; margin: 0 0 8px; padding: 6px 10px;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); font-size: var(--t-small); color: var(--ink-2);
+}
+.pc-readout-text { flex: 1 1 260px; line-height: 1.5; }
+.pc-readout-text b { color: var(--ink); margin-right: 4px; }
+.pc-readout-family { color: var(--ink-3); margin-right: 8px; }
+.pc-readout-value { display: inline-block; margin-right: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pc-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 14px 0 6px; font-size: var(--t-small); color: var(--ink-2); }
 .pc-key { display: inline-flex; align-items: center; gap: 7px; }
 .pc-key i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
@@ -577,7 +846,7 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .active-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 13px; align-items: center; }
 .pill {
-  display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: var(--t-small);
+  display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: var(--t-small); min-height: 30px;
   border: 1px solid var(--accent); background: var(--accent-soft); color: var(--accent);
   border-radius: 999px; padding: 5px 8px 5px 14px; cursor: pointer; font-weight: 600;
 }
@@ -604,9 +873,12 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .callout { padding: 12px 14px; border-radius: var(--radius); font-size: var(--t-body); margin-bottom: 14px; }
 .callout.bad { background: var(--fail-bg); color: var(--fail); }
 
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+/* Cards start at the top of their row: a card whose label wraps is taller, and the others no longer look offset beside it. */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; align-items: start; }
 .fact-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 13px; background: var(--surface); }
-.fact-card.empty { background: var(--surface-2); }
+/* Its own name: as "empty" it also took the empty-state block's 40px margins (.empty), so a card without a value sat
+   40px lower than its neighbours and left a gap under every row. */
+.fact-card.fact-empty { background: var(--surface-2); }
 .fact-card.warn { border-color: var(--unknown); }
 .fact-label { font-size: var(--t-label); color: var(--ink-3); font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
 .fact-value { font-size: 21px; font-weight: 650; margin: 7px 0 5px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
@@ -615,59 +887,99 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 
 .facts-list { display: grid; gap: 9px; margin-bottom: 14px; }
 .fact { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; font-size: var(--t-body); }
+/* Recorded wording with no verdict to give, so no chip beside it. */
+.fact.plain { grid-template-columns: 1fr; }
 .fact-why { color: var(--ink-2); font-size: var(--t-small); }
 
 /* ---------------------------------------------------------------- estimates */
+.est-group { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; flex-shrink: 0; }
+.est-line { display: flex; align-items: center; gap: 4px; }
 .est-toggle {
   display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small);
-  border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 5px 10px; cursor: pointer;
+  border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 3px 10px; cursor: pointer;
   white-space: nowrap; color: var(--ink-2); flex-shrink: 0;
 }
 .est-toggle:hover { border-color: var(--accent); color: var(--accent); }
+/* Under Confirmed only: visibly off, with its reason under it. */
+.est-toggle[data-disabled="true"] { color: var(--ink-3); cursor: not-allowed; border-color: var(--border); }
+.est-toggle[data-disabled="true"]:hover { color: var(--ink-3); border-color: var(--border); }
+.est-reason { font-size: 11px; color: var(--ink-3); white-space: nowrap; padding-left: 2px; }
+.info-mark {
+  width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--ink-2);
+  font-size: 12px; font-weight: 700; text-align: center; line-height: 22px;
+}
+.info-mark:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
 /* Screened by an estimate: still UNKNOWN, so the colour is UNKNOWN's, with a dashed edge that says
    inference rather than evidence. */
 .chip-screened { background: transparent; color: var(--unknown); border: 1px dashed var(--unknown); }
 .chip-screened::before { content: "†"; }
-.est-toggle[data-ruled]:not([data-ruled=""])::after {
-  content: attr(data-ruled); font-size: var(--t-label); color: var(--unknown); font-weight: 650;
-}
+.est-ruled { font-size: 11px; color: var(--unknown); font-weight: 650; white-space: nowrap; padding-left: 2px; }
 
 /* An estimate must never be mistaken for a measurement: brackets, a dashed rule, and its own colour. */
 .est {
   display: inline; font-size: var(--t-small); color: var(--unknown);
-  border-bottom: 1px dashed var(--unknown); cursor: help; font-variant-numeric: tabular-nums;
+  border-bottom: 1px dashed var(--unknown); font-variant-numeric: tabular-nums;
 }
 .est .est-mark { font-weight: 700; margin-left: 2px; }
 /* An imprecise estimate is an order of magnitude, and looks it. */
 .est.est-poor { opacity: 0.7; font-style: italic; }
 /* Not applicable is a statement, not a gap. */
-.na { font-size: var(--t-small); color: var(--ink-3); font-style: italic; cursor: help; }
-.est-card.na-card { border-style: solid; border-color: var(--line); background: transparent; }
+.na { font-size: var(--t-small); color: var(--ink-3); font-style: italic; }
+.est-card.na-card { border-style: solid; border-color: var(--border); background: transparent; }
 .est-card .est-span .fine { font-size: var(--t-label); font-weight: 400; color: var(--ink-3); }
 .est-card .est-evidence { margin: 8px 0 0; padding-left: 18px; font-size: var(--t-label); color: var(--ink-2); line-height: 1.6; }
-.est-card .est-evidence .tag { font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; margin: 0 3px; }
+.est-card .est-evidence .tag { font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; margin: 0 3px; }
 .est-card {
   border: 1px dashed var(--unknown); background: var(--unknown-bg); border-radius: var(--radius);
   padding: 12px 14px; margin-top: 10px;
 }
 .est-card h4 { margin: 0 0 4px; font-size: var(--t-body); color: var(--unknown); }
+/* An estimate is one line until opened; what every estimate shares is said once, under them. */
+.est-cards { display: grid; gap: 8px; }
+.est-cards details.est-card { margin-top: 0; padding: 9px 12px; }
+details.est-card > summary { list-style: none; cursor: pointer; display: flex; gap: 10px; align-items: baseline; font-size: var(--t-body); color: var(--ink); }
+details.est-card > summary::-webkit-details-marker { display: none; }
+details.est-card > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+details.est-card .est-sum { flex: 1; min-width: 0; line-height: 1.5; }
+details.est-card .est-sum .est { font-size: var(--t-body); }
+details.est-card .est-sum-toggle::after { content: "Details"; font-size: var(--t-small); color: var(--accent); text-decoration: underline; white-space: nowrap; }
+details.est-card[open] .est-sum-toggle::after { content: "Hide"; }
+details.est-card[open] > summary { margin-bottom: 6px; }
+.est-group-note { margin-top: 8px; }
 .est-card .est-span { font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; margin: 4px 0; }
 .est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
 .est-card .est-peers { font-size: var(--t-label); color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
 
 /* ---------------------------------------------------------------- table bar and new cells */
 .table-bar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 12px; }
-.legend-row { display: flex; gap: 18px; flex-wrap: wrap; font-size: var(--t-label); color: var(--ink-3); }
-.legend-row .lg { display: inline-flex; align-items: baseline; gap: 6px; }
+/* The column chooser says what each set is for, on screen. */
+.colset-pick { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.colset-help { font-size: var(--t-small); color: var(--ink-3); }
+/* One stable line of marks, each a button that opens its definition. */
+.legend-row { display: flex; gap: 4px 16px; flex-wrap: wrap; flex-basis: 100%; font-size: var(--t-label); color: var(--ink-3); }
+.legend-row .lg { display: inline-block; color: var(--ink-2); }
+.legend-row .lg .load-mark { vertical-align: baseline; font-size: var(--t-label); }
+.lg-est { color: var(--unknown); font-style: italic; border-bottom: 1px dashed var(--unknown); }
+/* A column switch that had to drop the sort says so where the reader is looking. */
+.sort-note {
+  flex-basis: 100%; margin: 0; padding: 6px 10px; font-size: var(--t-small); color: var(--ink);
+  background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0;
+}
 .row-sub { display: block; font-weight: 400; font-size: var(--t-label); color: var(--ink-3); margin-top: 2px; }
 .need {
   display: inline-block; font-size: var(--t-label); background: var(--unknown-bg); color: var(--unknown);
-  border-radius: 4px; padding: 2px 7px; margin: 1px 3px 1px 0; cursor: help; white-space: nowrap;
+  border-radius: 4px; padding: 2px 7px; margin: 1px 3px 1px 0; white-space: nowrap;
 }
 a.buy { color: inherit; text-decoration: none; }
 a.buy:hover { color: var(--accent); text-decoration: underline; }
 .buy-mark { font-size: 11px; color: var(--accent); margin-left: 3px; }
-.oos { display: block; font-size: var(--t-label); color: var(--ink-3); }
+/* The arrow on its own, beside a price or words that are buttons of their own: a 24 px target that moves nothing. */
+a.buy.buy-arrow { display: inline-block; min-width: 24px; padding: 4px 2px; margin: -4px 0; text-align: center; }
+a.buy.buy-arrow .buy-mark { margin-left: 0; }
+.oos { display: block; margin-left: auto; font-size: var(--t-label); color: var(--ink-3); }
+/* A listing with no usable price: two words and the arrow, on one line. */
+.unpriced { white-space: nowrap; }
+.no-price, .offer-price { font-size: var(--t-small); color: var(--ink-2); }
 
 /* ---------------------------------------------------------------- second pass on the audit */
 
@@ -677,6 +989,12 @@ a.buy:hover { color: var(--accent); text-decoration: underline; }
 .mode-label {
   font-size: var(--t-label); color: var(--ink-3); text-transform: uppercase;
   letter-spacing: .04em; white-space: nowrap;
+}
+/* The label stays at every width; a phone gets the short form. */
+.mode-label-short { display: none; }
+@media (max-width: 600px) {
+  .mode-label-long { display: none; }
+  .mode-label-short { display: inline; }
 }
 
 /* A requirement is not an ambiguity. "You need a hardened nozzle" used to borrow the
@@ -689,6 +1007,9 @@ a.buy:hover { color: var(--accent); text-decoration: underline; }
   font-weight: 400; font-size: var(--t-label); color: var(--ink-2);
   background: var(--surface-2); border-radius: 4px; padding: 1px 7px; white-space: nowrap;
 }
+
+/* The shortlist star, on and off without relying on the glyph alone. */
+.shortlist-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
 
 /* Filter rail: plain name leads, the sentence under it says what the property means, and the
    example lives here rather than as a grey placeholder that read like a set value. */
@@ -761,6 +1082,20 @@ tr.baseline-row .name { color: var(--accent); }
 .cmp-bar.estimated { cursor: help; }
 
 /* A family's name in the search: what it is, and its members as links. */
-.family-note { border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; margin: 0 0 12px; font-size: var(--t-small); }
+.family-note { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; margin: 0 0 12px; font-size: var(--t-small); }
 .family-note p { margin: 4px 0; line-height: 1.6; }
 .link-btn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font: inherit; text-decoration: underline; }
+
+/* The explanation popover (popover.js): one element, beside its mark, inside the viewport at any width. */
+.popover {
+  position: fixed; z-index: 60; width: min(380px, calc(100vw - 16px)); max-height: calc(100vh - 16px); overflow: auto;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 10px 12px 12px; font-size: var(--t-small); line-height: 1.5;
+}
+.popover:focus { outline: none; }
+.popover:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.popover-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+.popover-head strong { font-size: var(--t-body); }
+.popover-close { flex: 0 0 auto; min-width: 26px; min-height: 26px; }
+.popover-text { margin: 0; white-space: pre-line; color: var(--ink-2); overflow-wrap: anywhere; }
+.popover-action { margin-top: 10px; }

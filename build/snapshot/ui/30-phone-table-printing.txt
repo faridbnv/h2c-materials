@@ -1,0 +1,10 @@
+viewport 390x844
+document width 390
+spill: none
+clipped cells:
+  #lens: 0 of 784
+hidden controls: 0
+scrolls sideways:
+  div#lens.lens-view > div > div.table-scroll
+  div#main.main > section.workspace > div.lens-bar > div.segmented
+rows: top bar 2, lens tabs 1, status bar 2, shortlist 2

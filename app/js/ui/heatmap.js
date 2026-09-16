@@ -23,8 +23,18 @@ const WORD = { ok: 'Evidence recorded', partial: 'Limited or partial', gap: 'Gap
 const SHORT = {
   'Identity': 'Identity', 'H2C status': 'H2C', 'Print setup': 'Printing', 'Mechanical': 'Mechanical',
   'Thermal': 'Thermal', 'Moisture / environmental': 'Environment', 'Post-processing / application': 'Application',
-  'Canadian price': 'Price', 'Sparse properties': 'Sparse data',
+  'Canadian price': 'Price',
 };
+
+// "Sparse properties" records the properties almost no data sheet publishes (compression strength, thermal expansion,
+// fatigue and the rest). It is a gap for every material by construction, so as a column of the grid and a summary card
+// it read as a domain every candidate failed ("0 of 82 recorded") and said nothing about any one of them. It is kept out
+// of the grid and said once, under it, in the build's own words.
+const SPARSE = 'Sparse properties';
+const GRID = COVERAGE_DOMAINS.filter((d) => d !== SPARSE);
+
+/** The record that decided a cell: the one with its status, not whichever came first. */
+const deciding = (cell) => cell.records.find((r) => r.status === cell.status) ?? cell.records[0];
 
 export function renderCoverage(host, state, actions) {
   const { rows, db } = state;
@@ -34,10 +44,11 @@ export function renderCoverage(host, state, actions) {
     return;
   }
 
-  const matrix = coverageMatrix(rows.map((r) => r.material), db.coverage);
+  const materials = rows.map((r) => r.material);
+  const matrix = coverageMatrix(materials, db.coverage, GRID);
   const n = matrix.length;
 
-  const totals = COVERAGE_DOMAINS.map((domain, i) => {
+  const totals = GRID.map((domain, i) => {
     const t = { ok: 0, partial: 0, gap: 0, bad: 0, none: 0 };
     for (const m of matrix) {
       const s = STATE[m.cells[i].status];
@@ -76,7 +87,7 @@ export function renderCoverage(host, state, actions) {
       <table class="cov2">
         <thead><tr>
           <th class="mat">Material</th>
-          ${COVERAGE_DOMAINS.map((d) => `<th title="${esc(d)}">${esc(SHORT[d] ?? d)}</th>`).join('')}
+          ${GRID.map((d) => `<th title="${esc(d)}">${esc(SHORT[d] ?? d)}</th>`).join('')}
           <th class="score">Recorded</th>
         </tr></thead>
         <tbody>
@@ -85,19 +96,50 @@ export function renderCoverage(host, state, actions) {
             ${m.cells.map((c, i) => {
               const st = STATE[c.status] ?? 'none';
               // Explain the record that decided the cell, not whichever came first.
-              const finding = (c.records.find((r) => r.status === c.status) ?? c.records[0])?.finding ?? '';
-              return `<td><button class="cov-cell ${st}" data-open="${esc(m.materialId)}" data-domain="${esc(COVERAGE_DOMAINS[i])}"
-                title="${esc(`${m.name} — ${COVERAGE_DOMAINS[i]}: ${c.status ?? 'no record'}${finding ? '. ' + finding.slice(0, 260) : ''}`)}"
-                aria-label="${esc(`${COVERAGE_DOMAINS[i]}: ${WORD[st] ?? 'no record'}`)}">${MARK[st] ?? ''}</button></td>`;
+              const finding = deciding(c)?.finding ?? '';
+              return `<td><button class="cov-cell ${st}" data-open="${esc(m.materialId)}" data-domain="${esc(GRID[i])}"
+                title="${esc(`${m.name} — ${GRID[i]}: ${c.status ?? 'no record'}${finding ? '. ' + finding.slice(0, 260) : ''}`)}"
+                aria-label="${esc(`${GRID[i]}: ${WORD[st] ?? 'no record'}`)}">${MARK[st] ?? ''}</button></td>`;
             }).join('')}
-            <td class="score">${rowScore(m)}/${COVERAGE_DOMAINS.length}</td>
+            <td class="score">${rowScore(m)}/${GRID.length}</td>
           </tr>`).join('')}
         </tbody>
       </table>
-    </div>`;
+    </div>
+    ${sparseNote(materials, db, n)}`;
 
-  // A cell opens the material at its Coverage tab, where the record behind the mark is; the name
-  // opens the Overview.
+  // A cell opens the material at its Coverage tab, where the record behind the mark is, and so does a material named
+  // under the table; the name in the grid opens the Overview.
   host.querySelectorAll('[data-open]').forEach((e) => e.addEventListener('click', () =>
     actions.openMaterial(e.dataset.open, e.dataset.domain ? 'Coverage' : 'Overview')));
+}
+
+/**
+ * Which rarely published properties are not recorded for the candidates on screen, one sentence per wording the build
+ * wrote: the same list for nearly every material, so the materials sharing it are counted, and one whose list differs is
+ * named. A material with no such record, or whose record says it does not apply, is left out.
+ */
+function sparseNote(materials, db, n) {
+  const groups = new Map();
+  for (const m of coverageMatrix(materials, db.coverage, [SPARSE])) {
+    const cell = m.cells[0];
+    if (cell.status !== 'Gap') continue;
+    const finding = String(deciding(cell)?.finding ?? '').trim().replace(/\.$/, '');
+    if (!finding) continue;
+    if (!groups.has(finding)) groups.set(finding, []);
+    groups.get(finding).push(m);
+  }
+  if (!groups.size) return '';
+  const named = (list) => list.map((m) => `<button class="link-btn" data-open="${esc(m.materialId)}" data-domain="${esc(SPARSE)}">${esc(m.name)}</button>`).join(', ');
+  const whom = (list) => (list.length === n ? `All ${n} candidate${n === 1 ? '' : 's'} on screen`
+    : list.length <= 4 ? named(list)
+    : `${list.length} of the ${n} candidates on screen`);
+  const lines = [...groups].sort((a, b) => b[1].length - a[1].length)
+    .map(([finding, list]) => `<p><b>${whom(list)}:</b> ${esc(finding)}.</p>`).join('');
+  return `<div class="cov-sparse">
+      <h3 class="sec">Rarely published properties</h3>
+      ${lines}
+      <p class="fine">Not a column above: almost no source publishes these for any filament, so they would be a gap on every
+        row and tell one candidate from another by nothing. Each material's Coverage tab has the record.</p>
+    </div>`;
 }

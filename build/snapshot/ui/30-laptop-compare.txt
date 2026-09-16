@@ -1,0 +1,10 @@
+viewport 1180x760
+document width 1180
+spill: none
+clipped cells:
+  #lens table 1: 0 of 18
+  #lens table 2: 0 of 15
+hidden controls: 0
+scrolls sideways:
+  div#lens.lens-view > div.table-scroll
+rows: top bar 1, lens tabs 1, status bar 1, shortlist 1

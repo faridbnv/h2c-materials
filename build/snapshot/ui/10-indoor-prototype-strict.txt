@@ -1,7 +1,7 @@
 COUNT 20 shown PASS
-STATUS PASS 20 | UNKNOWN 51 | FAIL 27
+STATUS ☑ PASS 20 | ☐ UNKNOWN 51 | ☐ FAIL 27
 20 of the 98 materials in this database meet these requirements
-51 more could not be checked for missing data, and are left out. From the Indoor prototype template. Click any criterion to remove it.
+51 more could not be checked for missing data, and are left out under Confirmed only. From the Indoor prototype template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Ease of printing is not rated: no source publishes it. Materials with no sampled Canadian price are held out.
@@ -14,17 +14,19 @@ Price at most 45 CAD/kg
 What this database cannot answer
 Properties
 Printing
+What the material is like
 Compare against
-nothing
+no reference
 PLA
 PETG
 ABS
 ASA
 PC
-—
-not published. Not zero, and not a low value.
-*
-a measurement that was never made the headline. Hover for why.
+— not published
+* measured, not the headline
+? heat load not stated
+≈ close to the limit
+n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS 1,050 2.2 33 10.5 87 26↗ ☆
 ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆

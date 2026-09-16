@@ -183,11 +183,28 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   const excluded = q ? found.filter(({ evaluation: ev }) => !visible(ev)) : [];
   const tested = s.constraints.length > 0;
   const { counts } = sel;
-  const shown = rows.length, eligible = sel.candidates.length;
-  let count = tested ? `${shown} shown ${[...showStates].sort().join(' + ')}${shown !== eligible ? ` · ${eligible} eligible` : ''}` : `${shown} material${shown === 1 ? '' : 's'} no requirements set`;
+  const shown = rows.length, candidateCount = sel.candidates.length;
+  // The count names the shown verdicts in a fixed order, never alphabetically, then SCREENED while its chip is on screen
+  // and pressed (main.js renderCount).
+  const screenedChip = tested && explore && e && sel.counts.screened > 0;
+  const label = [...['PASS', 'UNKNOWN', 'FAIL'].filter((v) => showStates.has(v)), ...(screened && screenedChip ? ['SCREENED'] : [])].join(' + ');
+  // Then what the shown rows are, in parts that add up to their number: the candidates among them (of how many, when not all
+  // are shown), and those shown for another reason. No parts when the rows are exactly the candidates.
+  const kinds = { candidate: 0, unchecked: 0, screened: 0, failed: 0 };
+  for (const { evaluation: ev } of rows) kinds[ev.eligible ? 'candidate' : ev.screened ? 'screened' : ev.verdict === 'FAIL' ? 'failed' : 'unchecked']++;
+  const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+  const parts = kinds.candidate === shown && shown === candidateCount ? '' : [
+    !candidateCount ? 'no candidates' : kinds.candidate === candidateCount ? plural(candidateCount, 'candidate') : `${kinds.candidate} of the ${plural(candidateCount, 'candidate')}`,
+    kinds.unchecked ? `${kinds.unchecked} could not be checked` : null,
+    kinds.screened ? `${kinds.screened} screened out` : null,
+    kinds.failed ? `${kinds.failed} failed` : null,
+  ].filter(Boolean).join(', ');
+  let count = tested ? `${shown} shown ${label}${parts ? ` · ${parts}` : ''}` : `${shown} material${shown === 1 ? '' : 's'} no requirements set`;
   if (s.search) count += ` matching "${s.search}"${excluded.length ? `, plus ${excluded.length} listed below that your requirements exclude` : ''}`;
-  const chips = [['PASS', counts.pass], ['UNKNOWN', counts.unknown], ['FAIL', counts.fail]].map(([v, n]) => [!tested, `${v} ${n}`]);
-  chips.push([!(tested && explore && e && counts.screened), `SCREENED ${counts.screened}`]);
+  // Each chip leads with a box, ticked while its results are shown (main.js chipText).
+  const box = (on) => (on ? '\u2611' : '\u2610');
+  const chips = [['PASS', counts.pass], ['UNKNOWN', counts.unknown], ['FAIL', counts.fail]].map(([v, n]) => [!tested, `${box(showStates.has(v))} ${v} ${n}`]);
+  chips.push([!(tested && explore && e && counts.screened), `${box(screened)} SCREENED ${counts.screened}`]);
   return { sel, rows, excluded, families, count: count.replace(/\s+/g, ' ').trim(), chips, tested, ctx, materials };
 }
 function plotOracle(o, plot) {
@@ -236,12 +253,20 @@ const BAD = /\bNaN\b|\bundefined\b|\[object Object\]/;
 function compareReading(s, key, r, o) {
   const [set, lens] = key.split('|');
   check('I2-count'); if (r.count !== o.count) violate('I2-count', 'count text differs', s, key, { page: r.count, node: o.count });
+  // The count's parts must add up to its number, read from the page alone: "31 shown ... · 23 candidates, 8 screened out".
+  const cm = /^(\d+) shown [A-Z +]+(?: · (.*?))?(?: matching "|$)/.exec(r.count);
+  if (o.tested) {
+    check('I2-count-adds-up');
+    const partsText = cm?.[2];
+    const sum = partsText === undefined ? Number(cm?.[1]) : partsText.split(', ').reduce((n, part) => n + (/^no candidates$/.test(part) ? 0 : Number(/^(\d+)/.exec(part)?.[1] ?? NaN)), 0);
+    if (!cm || sum !== Number(cm[1])) violate('I2-count-adds-up', 'count parts do not add up to the rows shown', s, key, { page: r.count });
+  }
   check('I2-chips');
   const pc = r.chips.map(([hidden, text]) => [hidden, text]);
   for (let j = 0; j < 4; j++) {
     const exp = o.chips[j], got = pc[j];
     // A hidden chip's text is not shown; compare text only when visible.
-    if (exp[0] !== got[0] || (!exp[0] && exp[1] !== got[1])) { violate('I2-chips', `chip ${exp[1].split(' ')[0]} differs`, s, key, { page: got, node: exp }); break; }
+    if (exp[0] !== got[0] || (!exp[0] && exp[1] !== got[1])) { violate('I2-chips', `chip ${exp[1].split(' ')[1]} differs`, s, key, { page: got, node: exp }); break; }
   }
   check('I6-bad-token'); if (r.bad.length) violate('I6-bad-token', `bad token ${r.bad.join(',')} in ${lens}`, s, key, { tokens: r.bad, context: r.badContext });
   if (set === 'X0' || set === 'S0fail') { check('I3-off-estimate'); if (r.estEls || r.dagger || r.envs?.length) violate('I3-off-estimate', `estimate marks with estimates off (${set} ${lens})`, s, key, { estEls: r.estEls, dagger: r.dagger, envs: r.envs?.length }); }
@@ -251,9 +276,15 @@ function compareReading(s, key, r, o) {
     check('I2-header');
     const c = o.sel.counts, explore = SETTINGS[set.slice(0, 2)].u === 'exploration';
     const hm = /(\d+) of the (\d+) materials in this database meet/.exec(r.head ?? '');
-    const um = /(\d+) more could not be checked for missing data, and are (listed flagged|left out)/.exec(r.head ?? '');
+    // Confirmed only states the unchecked materials in the sentence under the heading; Include uncertain lists them, so
+    // the heading counts them and the sentence says how many an estimate screened out of the list.
+    const umS = /(\d+) more could not be checked for missing data, and are left out under Confirmed only/.exec(r.head ?? '');
+    const umX = /meet (?:this requirement|these requirements), and (\d+) more could not be checked for missing data\b.*?Include uncertain lists those (\d+) flagged(?:, except the (\d+) an estimate screened out)?/.exec(r.head ?? '');
+    const um = explore ? umX : umS;
+    const screenedShown = umX?.[3] === undefined ? 0 : Number(umX[3]);
     if (!hm || Number(hm[1]) !== c.pass || Number(hm[2]) !== c.total) violate('I2-header', 'results header pass/total differs', s, key, { head: (r.head ?? '').slice(0, 200), node: [c.pass, c.total] });
-    else if ((c.unknown > 0) !== !!um || (um && (Number(um[1]) !== c.unknown || (um[2] === 'listed flagged') !== explore))) violate('I2-header', 'results header unknown sentence differs', s, key, { head: (r.head ?? '').slice(0, 240), node: [c.unknown, explore] });
+    else if ((explore ? umS : umX) || (c.unknown > 0) !== !!um || (um && Number(um[1]) !== c.unknown)
+      || (umX && (Number(umX[2]) !== c.unknown || screenedShown !== c.screened))) violate('I2-header', 'results header unknown sentence differs', s, key, { head: (r.head ?? '').slice(0, 320), node: [c.unknown, c.screened, explore] });
     // The rail shows one control per property, so a second requirement on the same property is invisible there.
     for (const k of Object.keys(r.rail ?? {})) {
       const mine = s.constraints.filter((x) => x.kind === 'numeric' && x.property === k);
@@ -279,7 +310,13 @@ function compareReading(s, key, r, o) {
       check('I1-screened');
       if (scr !== (o.tested && ev.screened)) violate('I1-screened', 'screened chip mismatch', s, key, { id, page: scr, node: ev.screened });
       if (scr && !set.includes('scr')) violate('I1-screened', 'screened row shown with SCREENED off', s, key, { id });
-      if (scr) { check('I6-empty-reason'); if (!/Screened by an estimate: \S/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title has no criterion', s, key, { id, scrTitle }); }
+      if (scr) {
+        check('I6-empty-reason'); if (!/Screened by an estimate: \S/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title has no criterion', s, key, { id, scrTitle });
+        // In the pills' words, never the engine's criterion strings ("hdt045 >= 100").
+        check('I6-raw-key');
+        const raw = KEYS.find((k) => new RegExp(`(^|[^A-Za-z0-9_])${k}($|[^A-Za-z0-9_])`).test(scrTitle));
+        if (raw) violate('I6-raw-key', 'screened chip title names an internal headline key', s, key, { id, key: raw, scrTitle });
+      }
       // I5: displayed value against each numeric requirement on that property.
       for (const c of s.constraints) {
         if (c.kind !== 'numeric' || !cells[c.property]) continue;

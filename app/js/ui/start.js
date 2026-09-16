@@ -6,7 +6,14 @@
 
 import { TEMPLATES, templateByName } from './templates.js';
 import { esc } from './format.js';
-import { describeConstraint } from './labels.js';
+import { describeConstraint, POLICY_LABELS } from './labels.js';
+
+/**
+ * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
+ * is not counted: the results header said "of the 98 materials" while the rail said "all 103", and both meant the
+ * same set.
+ */
+export const candidateCount = (db) => db.materials.filter((m) => !m.familyEntry).length;
 
 export function renderStart(state, actions) {
   if (state.scenario.constraints.length) return '';
@@ -20,7 +27,7 @@ export function renderStart(state, actions) {
       <span class="step"><b>4</b> Check the evidence</span>
     </div>
 
-    <h2>Start from a typical part, or set your own constraints on the left.</h2>
+    <h2>Start from a typical part, or set your own requirements in Filters.</h2>
     <p>A template only fills in the controls. Every value it sets stays editable, and nothing is
       decided for you.</p>
 
@@ -33,7 +40,7 @@ export function renderStart(state, actions) {
     </div>
 
     <div class="start-facts">
-      <span><b>${db.meta.counts.h2cRelevant}</b> materials in H2C scope</span>
+      <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> of them in H2C scope</span>
       <span><b>${db.meta.counts.measurements}</b> measurements, each traceable to a source</span>
       <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
         <b>${db.meta.headlineCoverage.priceCADkg}</b> a Canadian price</span>
@@ -111,13 +118,23 @@ export function renderActive(state, actions) {
   const pill = (c, i) => `<button class="pill${c.mandatory === false ? ' soft' : ''}" data-drop="${i}"
       title="Remove this requirement">${esc(describe(c))}<span class="x" aria-hidden="true">\u00d7</span></button>`;
 
+  // Under Include uncertain the table lists the materials that could not be checked beside the ones that passed, so
+  // the heading counts both. "15 meet these requirements" above 23 rows read as a contradiction; the other 8 were
+  // listed and nothing on screen said what they were. An estimate may hold some of them out, and that is said too.
+  const screened = explore && state.ctx?.useEstimates ? counts.screened : 0;
+  const unknownClause = counts.unknown && explore ? `, and ${counts.unknown} more could not be checked for missing data` : '';
+  const unknownSentence = !counts.unknown ? ''
+    : explore ? `${POLICY_LABELS.exploration} lists those ${counts.unknown} flagged${screened
+      ? `, except the ${screened} an estimate screened out; the SCREENED chip at the bottom shows them` : ''}. `
+    : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
+
   return `
   <section class="active">
     <div class="active-head">
       <div>
         <h2>${counts.pass} of the ${counts.total} materials in this database meet
-          ${hard.length === 1 ? 'this requirement' : 'these requirements'}</h2>
-        <p>${counts.unknown ? `${counts.unknown} more could not be checked for missing data${explore ? ', and are listed flagged' : ', and are left out'}. ` : ''}${scenario.template ? `From the <b>${esc(scenario.template)}</b> template${sameAsTemplate ? '' : ', since changed'}. ` : ''}Click any criterion to remove it.</p>
+          ${hard.length === 1 ? 'this requirement' : 'these requirements'}${unknownClause}</h2>
+        <p>${unknownSentence}${scenario.template ? `From the <b>${esc(scenario.template)}</b> template${sameAsTemplate ? '' : ', since changed'}. ` : ''}Click any criterion to remove it.</p>
       </div>
       <div class="active-actions">
         <button class="btn btn-sm" data-act="explain">Why the rest were excluded</button>

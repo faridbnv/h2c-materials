@@ -15,6 +15,17 @@ export const PROPERTY = {};
 
 export const prop = (key) => PROPERTY[key] ?? { short: key, plain: key, technical: key, unit: '', hint: '' };
 
+/**
+ * The missing-data control, by the names its buttons carry. The top bar said "Confirmed only" while the Why excluded
+ * tab said missing data was set to "leave it out" or "keep it" and its button offered to "keep materials with missing
+ * data visible": three names for one switch. Every sentence that names the mode takes it from here.
+ */
+export const POLICY_CONTROL = 'Candidate confidence';
+/** The same label where a phone has no room for the long one. The control is never left unlabelled. */
+export const POLICY_CONTROL_SHORT = 'Confidence';
+export const POLICY_LABELS = { strict: 'Confirmed only', exploration: 'Include uncertain' };
+export const policyLabel = (policy) => POLICY_LABELS[policy] ?? POLICY_LABELS.strict;
+
 // Process gates, in the words of someone standing at the printer.
 export const GATE = {
   // "Printable on an H2C" was a promise this criterion never tested: it only reads the research
@@ -71,28 +82,36 @@ export const ESTIMATE_PRECISION = {
 
 const percent = (p) => `${Math.round(p * 100)}%`;
 
-/** A hover sentence for an estimate. `fmt` formats a number, so this module needs no imports. */
-export function estimateTitle(e, fmt) {
+/**
+ * What an estimate rests on, for its popover and its title. `d` is how its numbers read (estimateDisplay in format.js,
+ * passed in so this module needs no imports): the likely and plausible ranges on one step, in a unit that may have been
+ * made readable, in which case the text also gives the range in the unit of its column.
+ */
+export function estimateTitle(e, d) {
   const s = ESTIMATE_STRENGTH[e.strength] ?? { title: 'Estimated' };
   const levels = e.levels ?? { likely: 0.8, plausible: 0.95 };
-  const wide = e.plausible ? ` Plausibly ${fmt(e.plausible.lo)} to ${fmt(e.plausible.hi)} (${percent(levels.plausible)}).` : '';
-  return `Estimated, not measured: likely ${fmt(e.lo)} to ${fmt(e.hi)} ${e.unit ?? ''} (${percent(levels.likely)} of hidden measured values fell inside ranges like this), centred on ${fmt(e.centre)}.${wide}`
+  const unit = d.unit ? ` ${d.unit}` : '';
+  const wide = d.plausible ? ` Plausibly ${d.plausible[0]} to ${d.plausible[1]}${unit} (${percent(levels.plausible)}).` : '';
+  const column = d.inColumn ? ` In ${d.columnUnit}, the unit of its column, that is ${d.inColumn[0]} to ${d.inColumn[1]}.` : '';
+  return `Estimated, not measured: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} of hidden measured values fell inside ranges like this), centred on ${d.centre}${unit}.${column}${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its representative product is also recorded under ${e.sharedWith.name}.` : ''}`
     + ` Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`
-    + ` Never enough to pass a requirement. ${e.canScreen ? `With "Include uncertain", it screens this material out of ${screenRangeText(e, fmt)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+    + ` Never enough to pass a requirement. ${e.canScreen ? `With "${POLICY_LABELS.exploration}", it screens this material out of ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
 }
 
 /**
  * What an estimate may screen a material out of, from the range the build lets it screen on (D59), whose ends may be
  * open: "a requirement its screening range, 12 to 40 %, wholly fails", "a maximum requirement below 12 %", "a minimum
- * requirement above 40 %".
+ * requirement above 40 %". Each end keeps the digits a single number is shown with, not the rounder step of the likely
+ * range beside it: an end is where a screen starts, and a requirement just inside a rounded end would read as screened.
+ * `fmt` formats one number and `unit` is the unit it is in, which is the estimate's own unless the text rescaled it.
  */
-export function screenRangeText(e, fmt) {
+export function screenRangeText(e, fmt, unit = e.unit) {
   const r = e.screenRange ?? e.plausible;
   if (!r) return '';
-  const unit = e.unit ? ` ${e.unit}` : '';
-  if (r.lo != null && r.hi != null) return `a requirement its screening range, ${fmt(r.lo)} to ${fmt(r.hi)}${unit}, wholly fails`;
-  return r.lo != null ? `a maximum requirement below ${fmt(r.lo)}${unit}` : `a minimum requirement above ${fmt(r.hi)}${unit}`;
+  const u = unit ? ` ${unit}` : '';
+  if (r.lo != null && r.hi != null) return `a requirement its screening range, ${fmt(r.lo)} to ${fmt(r.hi)}${u}, wholly fails`;
+  return r.lo != null ? `a maximum requirement below ${fmt(r.lo)}${u}` : `a minimum requirement above ${fmt(r.hi)}${u}`;
 }
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
@@ -129,6 +148,14 @@ export function describeConstraint(c) {
     default: return c.kind;
   }
 }
+
+/**
+ * The requirements an estimate screened a material out of, in the pills' words. The engine's `screenedBy` holds its
+ * criterion strings ("hdt045 >= 100, tensileModulusXY >= 3"), which reached the screened chip and the export as they
+ * were: internal keys beside pills that said "Heat resistance at least 100 °C".
+ */
+export const screenedByText = (evaluation) => (evaluation?.unresolved ?? [])
+  .filter((r) => r.screened).map((r) => describeConstraint(r.constraint));
 
 /**
  * Environment categories.

@@ -11,9 +11,9 @@
 
 import { INDICES, indexById, indexValue, selectionLine, countAbove } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
-import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber } from './format.js';
+import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, FAMILY_LABEL, esc, fmtNumber, fmtRange } from './format.js';
 import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
-import { prop } from './labels.js';
+import { prop, describeConstraint, POLICY_LABELS } from './labels.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -68,9 +68,52 @@ function wireResize() {
     clearTimeout(t);
     t = setTimeout(() => {
       const gd = document.querySelector('#plot.js-plotly-plot');
-      if (gd && typeof Plotly !== 'undefined') Plotly.Plots.resize(gd);
+      if (!gd || typeof Plotly === 'undefined') return;
+      // The legend's side and the chart's height follow the width, so a rotated tablet gets the layout it would have
+      // been drawn with.
+      const fit = chartFit(gd.clientWidth, gd._legendNames ?? []);
+      gd.style.height = `${fit.height}px`;
+      Plotly.relayout(gd, { height: fit.height, legend: fit.legend }).then(() => Plotly.Plots.resize(gd));
     }, 100);
   });
+}
+
+/** Below this width the legend goes under the chart: beside it, it took 60% of a tablet's width and lay over a phone's points. */
+const LEGEND_BELOW = 900;
+/**
+ * How far below the chart's top edge a legend beside the plot starts, in pixels. Plotly's mode bar sits over the top right
+ * corner of the chart, and a legend starting at the plot's top edge put its first entry (PLA) behind the mode bar's
+ * buttons whenever the pointer was over the chart. The bar is about 30 px tall with its margin; this clears it.
+ */
+const MODEBAR_CLEARANCE = 46;
+/** The chart's top margin, and roughly what the horizontal axis takes below the plot with its ticks and title. */
+const PLOT_MARGIN_TOP = 16;
+const PLOT_MARGIN_BOTTOM = 76;
+
+/**
+ * The chart's height and legend for a width. Beside the plot on a wide screen; under it, in rows, on a narrower one,
+ * with the height following the width (a fixed 560 px left a phone a tall thin strip) plus room for the legend's rows,
+ * so the legend does not eat the plot. The row count is estimated from the names' lengths; Plotly reserves the
+ * legend's real height under the axis title either way, so a wrong guess costs a little plot height, never an overlap.
+ */
+export function chartFit(width, legendNames) {
+  const base = Math.round(Math.min(560, Math.max(360, 0.75 * (width || 900))));
+  if ((width || 900) >= LEGEND_BELOW) {
+    // In the plot's own coordinates, lowered by the mode bar's height less the top margin, as a fraction of the plot
+    // area's height (the chart less its margins and the horizontal axis's ticks and title). Placed against the whole
+    // chart instead (yref 'container'), Plotly counted the legend as sitting in the top margin and grew that margin to
+    // hold it, which squeezed the plot into the lower half of the chart.
+    const plotHeight = base - PLOT_MARGIN_TOP - PLOT_MARGIN_BOTTOM;
+    return { height: base, legend: { orientation: 'v', x: 1.01, xanchor: 'left', xref: 'paper', y: 1 - (MODEBAR_CLEARANCE - PLOT_MARGIN_TOP) / plotHeight, yanchor: 'top', yref: 'paper', traceorder: 'normal', font: { size: 11 } } };
+  }
+  // Plotly lays a horizontal legend out in columns as wide as its longest entry.
+  const entry = 44 + 6.4 * Math.max(0, ...legendNames.map((name) => name.length));
+  const columns = Math.max(1, Math.floor(Math.max(200, (width || 900) - 20) / entry));
+  const rows = Math.ceil(legendNames.length / columns);
+  return {
+    height: base + rows * 19 + (rows ? 16 : 0),
+    legend: { orientation: 'h', x: 0, xanchor: 'left', xref: 'paper', y: 0, yanchor: 'bottom', yref: 'container', traceorder: 'normal', font: { size: 11 } },
+  };
 }
 
 export function renderAshby(host, state, actions) {
@@ -131,12 +174,12 @@ export function renderAshby(host, state, actions) {
           <input type="checkbox" data-show-estimates data-focus="estimates" ${p.showEstimates ? 'checked' : ''}>
           <span>Show estimated ranges (${estimated.length})</span>
         </label>
-        <p class="opt-help">Thin dotted outlines use each material family's colour.</p>`
+        <p class="opt-help">Dotted lines and boxes in each family's colour; the key under the chart says which is which.</p>`
       : state.ctx?.showEstimates
         ? '<div class="plot-data-state">No estimated ranges for these axes</div>'
         : state.scenario.unknownPolicy === 'exploration'
           ? '<div class="plot-data-state">Turn on Use estimates above to show ranges</div>'
-          : '<div class="plot-data-state">Estimated ranges require Include uncertain</div>';
+          : `<div class="plot-data-state">Estimated ranges require ${POLICY_LABELS.exploration}</div>`;
 
   const index = indexById(p.index);
   const cheapest = INDICES.filter((i) => i.costForm), lightest = INDICES.filter((i) => !i.costForm);
@@ -147,8 +190,8 @@ export function renderAshby(host, state, actions) {
     thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : '',
     p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : '',
     mixed && mixed.length ? `<div class="banner"><span><b>Some of these were measured a different way</b>
-      from the axis definition: ${esc(mixed.join('; '))}. They are drawn hollow, and hovering one
-      names the mismatch. They are included so the trade space can be seen whole, never merged into
+      from the axis definition: ${esc(mixed.join('; '))}. They are drawn hollow, and pointing at or
+      tapping one names the mismatch. They are included so the trade space can be seen whole, never merged into
       a headline.</span></div>` : '',
   ].join('').trim();
 
@@ -189,15 +232,17 @@ export function renderAshby(host, state, actions) {
           <optgroup label="Lightest part that does the job">${lightest.map(indexOption).join('')}</optgroup>
           ${cheapest.length ? `<optgroup label="Cheapest part that does the job">${cheapest.map(indexOption).join('')}</optgroup>` : ''}
         </select>
-        <p class="opt-help">${index
-          ? 'Move the line and read its caveats under the chart.'
-          : 'The line engineers use to find the lightest or cheapest material that still does the job.'}</p>
+        <p class="opt-help">${!index
+          ? 'The line engineers use to find the lightest or cheapest material that still does the job.'
+          : indexDrawable(index, xDef, yDef, p) ? 'Move the line and read its caveats under the chart.'
+          : 'Not drawn on these axes; the card under the chart says why.'}</p>
       </div>
     </div>
 
     ${notices ? `<div class="ashby-notices">${notices}</div>` : ''}
 
     <div id="plot"></div>
+    ${markerKey({ pts, envelopes, level, anchor: drawnAnchor(state, xDef, yDef) })}
     <div id="index-card"></div>
     <div class="legend-note">
       <h3>Reading this chart</h3>
@@ -213,7 +258,7 @@ export function renderAshby(host, state, actions) {
            once, its dots are joined by a faint line. That spread is real: the same material measures
            differently by grade and by print direction, and the wider the spread, the less any single
            headline number tells you.
-           ${level === 'measured-mixed' ? '<br><b>Hollow dots</b> were measured a different way from the axis definition, for example in another print direction. They are included here so you can see them, and named on hover.' : ''}`
+           ${level === 'measured-mixed' ? '<br><b>Hollow dots</b> were measured a different way from the axis definition, for example in another print direction. They are included here so you can see them, and pointing at or tapping one names the mismatch.' : ''}`
         : `${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.`}
       Colour is polymer family, marker shape is filler class.
       ${estimated.length && !p.showEstimates
@@ -227,7 +272,7 @@ export function renderAshby(host, state, actions) {
         with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
         built from the material's own related measurements and its polymer family, so the material is probably
         somewhere along it.
-        A whisker means the other axis is measured. It is an estimate, not a position: it never joins the
+        A capped line means the other axis is measured. It is an estimate, not a position: it never joins the
         frontier and never counts as a plotted candidate.` : ''}
       ${frontSize > 1 ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
         both axes at once: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
@@ -242,6 +287,54 @@ export function renderAshby(host, state, actions) {
   // The lens is rebuilt on every change, as the filter rail is. Keep the reader's place, so a
   // keyboard user who changes an axis is not thrown back to the top of the page.
   if (focusKey) host.querySelector(`[data-focus="${focusKey}"]`)?.focus();
+}
+
+/** The familiar filament drawn as a cross, when it has both values; null otherwise. */
+function drawnAnchor(state, xDef, yDef) {
+  const anchor = state.baseline ? state.db.materials.find((q) => q.id === state.baseline) : null;
+  return anchor && anchor.headline[xDef.key]?.known && anchor.headline[yDef.key]?.known ? anchor : null;
+}
+
+// Small drawings of the chart's marks, in the ink colour, for the key.
+const GLYPH = {
+  'circle': '<circle cx="8" cy="8" r="5"/>',
+  'diamond': '<path d="M8 2.5 13.5 8 8 13.5 2.5 8z"/>',
+  'square': '<rect x="3.5" y="3.5" width="9" height="9"/>',
+  'triangle-up': '<path d="M8 3 13.5 13h-11z"/>',
+  'star': '<path d="M8 2.2l1.7 3.9 4.2.4-3.2 2.8.9 4.1L8 11.3l-3.6 2.1.9-4.1-3.2-2.8 4.2-.4z"/>',
+  'circle-open': '<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>',
+};
+const glyph = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16" aria-hidden="true"${extra}>${inner}</svg>`;
+
+/**
+ * What the marks mean, once, under the chart: the shape of each filler class drawn, and whichever of the pale, hollow,
+ * estimated and reference marks are on it. The legend had carried shapes as 40-odd family and filler rows, and nothing
+ * on the page said what a hollow point, a capped dotted line or a dotted box was; those were found by pointing at them.
+ */
+function markerKey({ pts, envelopes, level, anchor }) {
+  const fillers = Object.keys(FILLER_SYMBOL).filter((f) => pts.some((q) => q.filler === f));
+  const items = fillers.map((f) => `<span class="key-item">${glyph(GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}</span>`);
+  if (pts.some((q) => q.evaluation.verdict !== 'PASS' && !q.assumed && !q.relaxed.length)) {
+    items.push(`<span class="key-item">${glyph(GLYPH.circle, ' style="opacity:.55"')}Pale: did not pass every requirement</span>`);
+  }
+  if (level === 'measured-mixed' && pts.some((q) => q.relaxed.length)) {
+    items.push(`<span class="key-item">${glyph('<circle cx="8" cy="8" r="4.5" fill-opacity=".45" stroke-width="2"/>')}Hollow: a mixed-condition pair, measured a different way</span>`);
+  }
+  if (pts.some((q) => q.assumed)) {
+    items.push(`<span class="key-item">${glyph(GLYPH.circle, ' style="opacity:.3"')}Faint: a scenario assumption, not measured</span>`);
+  }
+  if (envelopes.some((q) => q.x.measured !== q.y.measured)) {
+    items.push(`<span class="key-item">${glyph('<path d="M2.5 8h11M2.5 5v6M13.5 5v6" fill="none" stroke-width="1.6" stroke-dasharray="2 1.5"/>')}Capped dotted line: one axis estimated, the other measured</span>`);
+  }
+  if (envelopes.some((q) => !q.x.measured && !q.y.measured)) {
+    items.push(`<span class="key-item">${glyph('<rect x="2.5" y="3.5" width="11" height="9" fill="none" stroke-width="1.4" stroke-dasharray="2 1.5"/>')}Dotted box: both axes estimated</span>`);
+  }
+  if (anchor) {
+    items.push(`<span class="key-item">${glyph('<path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke-width="1.8"/>', ' style="color:#1f5f8b"')}Cross: ${esc(anchor.name)}, a familiar filament for reference, not a candidate</span>`);
+  }
+  if (!items.length) return '';
+  return `<div class="ashby-key" role="group" aria-label="What the marks on the chart mean">
+    <span class="key-head">Marks</span>${items.join('')}<span class="key-item key-note">Colour is family, as the legend lists</span></div>`;
 }
 
 /**
@@ -339,12 +432,12 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
  * shapes require special log-axis coordinates and previously made the same estimate look or land
  * differently as the reader changed scale.
  */
-export function estimateTrace(q, xDef, yDef, { color = '#8d8d84', fill = 'rgba(141,141,132,.025)', label = false } = {}) {
+export function estimateTrace(q, xDef, yDef, { color = '#8d8d84', fill = 'rgba(141,141,132,.025)', label = false, group = q.family } = {}) {
   const xEstimated = !q.x.measured;
   const yEstimated = !q.y.measured;
   const rangeText = (span, def) => span.measured
     ? `${fmtNumber(span.lo)} ${def.unit} (measured)`
-    : `${fmtNumber(span.lo)}–${fmtNumber(span.hi)} ${def.unit} (estimated)`;
+    : `${fmtRange(span.lo, span.hi)} ${def.unit} (estimated)`;
   const estimatedBy = [...new Set([q.x, q.y]
     .filter((span) => !span.measured)
     .map((span) => `${span.precision ?? 'unrated'} precision${span.basis ? `; ${span.basis}` : ''}`))];
@@ -381,14 +474,14 @@ export function estimateTrace(q, xDef, yDef, { color = '#8d8d84', fill = 'rgba(1
   if (label) text[labelAt] = q.name;
   return {
     type: 'scatter', mode, x, y, text, textposition, cliponaxis: false,
-    textfont: { size: 9, color },
+    textfont: { size: 11, color },
     line: { color, width: xEstimated && yEstimated ? 1.5 : 2.5, dash: 'dot' },
     // Plotly's data cleanup checks nested keys when marker is present. Omit unused
     // options entirely: marker: undefined makes range boxes abort the whole plot.
     ...(marker ? { marker } : {}),
     ...(fillMode ? { fill: fillMode, fillcolor: fill, hoveron } : {}),
     opacity: 0.82,
-    name: q.name, legendgroup: q.family, showlegend: false,
+    name: q.name, legendgroup: group, showlegend: false,
     customdata: x.map(() => [q.id]), hovertemplate,
   };
 }
@@ -399,8 +492,11 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const p = scenario.plot;
   const colors = buildFamilyColors(db.materials, p.promotedFamilies ?? []);
 
-  // One trace per family+filler pair keeps colour and shape independent and gives an
-  // interactive legend that hides by family.
+  // One trace per family+filler pair keeps colour and shape independent. The legend lists colours only, one entry per
+  // family colour (the families past the palette share Other's), and a press on an entry hides every trace of that
+  // colour. It used to list every family and filler pair, 40-odd rows in 10 px type with a scrollbar of their own; the
+  // shapes, hollow points and estimate marks are explained once in the key under the chart.
+  const colourGroup = (family) => (colors.isOther(family) ? 'Other families' : family);
   const groups = new Map();
   for (const q of pts) {
     const key = `${q.family}|${q.filler}`;
@@ -411,8 +507,10 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const eligibleForFront = pts.filter((q) => q.evaluation.eligible && !q.assumed);
   const frontNow = paretoFront(eligibleForFront, xDef.better, yDef.better);
   const measurementMode = pts.some((q) => q.notes !== undefined && q.xh?.measurementId && q.yh?.measurementId);
-  const labelPoints = pts.length <= 30;
-  const keepLabel = new Set([...frontNow.map((q) => q.id), ...scenario.shortlist]);
+  const shortlisted = new Set(scenario.shortlist);
+  const frontIds = new Set(frontNow.map((q) => q.id));
+  // What may carry a label, placed after the chart is drawn, where a label's size on screen is known (placeLabels).
+  const labelPlan = { pins: [], points: [], envelopes: [], fixed: [] };
 
   // One label per material, not one per test.
   //
@@ -435,41 +533,45 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const labelEstimates = envelopes.length <= 5;
   for (const q of envelopes) {
     const familyColor = colors.color(q.family);
-    traces.push(estimateTrace(q, xDef, yDef, {
+    const wantLabel = labelEstimates || shortlisted.has(q.id);
+    const trace = estimateTrace(q, xDef, yDef, {
       color: familyColor,
       fill: hexToRgba(familyColor, 0.025),
-      label: labelEstimates || scenario.shortlist.includes(q.id),
-    }));
-  }
-  if (envelopes.length) {
-    traces.push({
-      type: 'scatter', mode: 'lines', name: 'Estimated range · family colour',
-      x: [null], y: [null], line: { color: '#8d8d84', width: 2, dash: 'dot' },
-      hoverinfo: 'skip', showlegend: true, legendgroup: 'estimate-key', legendrank: 1200,
+      label: wantLabel,
+      group: colourGroup(q.family),
     });
+    if (wantLabel) {
+      // Drawn without its name; placeLabels writes it back where it does not run into another label.
+      const at = trace.text.findIndex(Boolean);
+      labelPlan.envelopes.push({ trace: traces.length, index: at, name: q.name, x: trace.x[at], y: trace.y[at],
+        positions: [trace.textposition], radius: trace.marker ? trace.marker.size / 2 : 0, shortlisted: shortlisted.has(q.id) });
+      trace.text = trace.text.map(() => NO_LABEL);
+    }
+    traces.push(trace);
   }
 
   for (const [key, list] of groups) {
     const [family, filler] = key.split('|');
+    // A chart of anonymous dots cannot be read: the legend maps colour and shape to family and filler, not to a material.
+    // But where points crowd, labels printed over each other named nothing (ASA-CF, PAHT-CF, PA6-CF, PA612-ESD and
+    // CPE-CF in one smudge on the outdoor template). So every point is a candidate for a label, and placeLabels gives
+    // one only where it fits; an unlabelled point keeps its name on hover. At measurement level only the leftmost dot of
+    // a material is a candidate, one name per material. A shortlisted material is labelled by a leader line instead.
+    list.forEach((q, i) => {
+      if (measurementMode && !labelled.has(q)) return;
+      const entry = { trace: traces.length, index: i, id: q.id, name: q.name, x: q.x, y: q.y, radius: 5.5 };
+      if (shortlisted.has(q.id)) labelPlan.pins.push(entry);
+      else labelPlan.points.push({ ...entry, front: frontIds.has(q.id) });
+    });
     traces.push({
       type: 'scatter',
-      // Label the points. A chart of anonymous dots cannot be read: the legend maps colour and
-      // shape to family and filler, not to a material, so there is otherwise no way to tell which
-      // dot is which except by hovering every one. Past about 30 the labels themselves become the
-      // clutter, so beyond that only the frontier and the shortlist keep theirs.
-      mode: labelPoints ? 'markers+text' : 'markers',
-      text: list.map((q) => {
-        const show = labelPoints || keepLabel.has(q.id);
-        if (!show) return '';
-        // At measurement level only the leftmost dot of a material carries its name.
-        if (measurementMode) return labelled.has(q) ? q.name : '';
-        return q.label;
-      }),
-      textposition: 'top center',
-      textfont: { size: 10, color: 'rgba(107,107,99,.95)' },
+      mode: 'markers+text',
+      text: list.map(() => NO_LABEL),
+      textposition: list.map(() => 'top center'),
+      textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' },
       cliponaxis: false,
       name: `${family} · ${FILLER_LABEL[filler] ?? filler}`,
-      legendgroup: family,
+      legendgroup: colourGroup(family), showlegend: false,
       x: list.map((q) => q.x), y: list.map((q) => q.y),
       customdata: list.map((q) => [q.id, q.label, q.evaluation.verdict,
         q.xh.measurementId ?? '', q.yh.measurementId ?? '',
@@ -494,6 +596,19 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     });
   }
 
+  // The legend's entries: one per family colour drawn, in the palette's order, as empty traces that carry only a name,
+  // a colour and the group they switch.
+  const drawnGroups = new Set([...pts, ...envelopes].map((q) => colourGroup(q.family)));
+  for (const family of [...colors.named, 'Other families']) {
+    if (!drawnGroups.has(family)) continue;
+    const name = family === 'Other families' ? family : FAMILY_LABEL(family);
+    traces.push({
+      type: 'scatter', mode: 'markers', x: [null], y: [null], name, legendgroup: family, showlegend: true,
+      marker: { size: 10, symbol: 'circle', color: family === 'Other families' ? colors.color(null) : colors.color(family) },
+      hoverinfo: 'skip',
+    });
+  }
+
   // Join the tests belonging to one material.
   //
   // Without this a reader sees a field of dots and has no way to tell six measurements of one
@@ -512,20 +627,24 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
         type: 'scatter', mode: 'lines',
         x: ordered.map((q) => q.x), y: ordered.map((q) => q.y),
         line: { color: colors.color(ordered[0].family), width: 1, dash: 'solid' },
-        opacity: 0.35, hoverinfo: 'skip', showlegend: false,
+        opacity: 0.35, hoverinfo: 'skip', showlegend: false, legendgroup: colourGroup(ordered[0].family),
       });
     }
   }
 
   const shapes = [];
   const annotations = [];
+  // A requirement's label on the horizontal axis, anchored once the axis range is known.
+  const requirementLabels = [];
 
-  // Plotly expects shape and annotation coordinates in LOG10 SPACE on a log axis, not in data
-  // units. Passing raw values put the steel reference rectangle at 10^215 and destroyed the range.
-  // Non-positive values have no log, so anything that cannot be placed is dropped rather than drawn
-  // in the wrong place.
+  // On a log axis Plotly (4.x) takes an annotation's position in LOG10 SPACE and a shape's in data units. Both used to
+  // be log10, which put a requirement line on a Log chart at the log of its value: "Stiffness at least 3 GPa" was drawn
+  // at 0.48 GPa, under its own label at 3. Non-positive values have no log, so anything that cannot be placed is dropped
+  // rather than drawn in the wrong place.
   const X = (v) => (p.xLog ? (v > 0 ? Math.log10(v) : null) : v);
   const Y = (v) => (p.yLog ? (v > 0 ? Math.log10(v) : null) : v);
+  const SX = (v) => (p.xLog && !(v > 0) ? null : v);
+  const SY = (v) => (p.yLog && !(v > 0) ? null : v);
   const placeable = (...vs) => vs.every((v) => v !== null && Number.isFinite(v));
 
   // Constraint overlay: threshold lines and a shaded feasible quadrant.
@@ -533,19 +652,25 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     const c = scenario.constraints.find((k) => k.property === def.key && k.mandatory !== false);
     if (!c) continue;
     const at = axis === 'x' ? X(c.value) : Y(c.value);
-    if (!placeable(at)) continue;
+    const on = axis === 'x' ? SX(c.value) : SY(c.value);
+    if (!placeable(at, on)) continue;
     shapes.push({
       type: 'line', xref: axis === 'x' ? 'x' : 'paper', yref: axis === 'y' ? 'y' : 'paper',
-      x0: axis === 'x' ? at : 0, x1: axis === 'x' ? at : 1,
-      y0: axis === 'y' ? at : 0, y1: axis === 'y' ? at : 1,
+      x0: axis === 'x' ? on : 0, x1: axis === 'x' ? on : 1,
+      y0: axis === 'y' ? on : 0, y1: axis === 'y' ? on : 1,
       line: { color: 'rgba(163,43,31,.85)', width: 2, dash: 'dash' },
     });
-    annotations.push({
+    const label = {
       xref: axis === 'x' ? 'x' : 'paper', yref: axis === 'y' ? 'y' : 'paper',
       x: axis === 'x' ? at : 0.01, y: axis === 'y' ? at : 0.99,
-      text: `${prop(def.key).plain} ${c.operator} ${c.value}`, showarrow: false,
-      font: { size: 10, color: '#a32b1f' }, bgcolor: 'rgba(255,255,255,.75)',
-    });
+      // The pill's words ("Density at most 1500 kg/m³"), not the operator: the chart printed "<=" beside a pill saying "at most".
+      text: esc(describeConstraint(c)), showarrow: false,
+      font: { size: 11, color: '#a32b1f' }, bgcolor: 'rgba(255,255,255,.75)',
+    };
+    annotations.push(label);
+    const obstacle = { kind: 'requirement', axis, value: c.value, name: describeConstraint(c) };
+    labelPlan.fixed.push(obstacle);
+    if (axis === 'x') requirementLabels.push({ label, obstacle, at });
   }
 
   // Reference envelopes: min-to-max rectangles, behind everything, unmistakably not data.
@@ -560,15 +685,16 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
         const x0 = X(rx.min), x1 = X(rx.max), y0 = Y(ry.min), y1 = Y(ry.max);
         if (!placeable(x0, x1, y0, y1)) continue;
         shapes.push({
-          type: 'rect', x0, x1, y0, y1, layer: 'below',
+          type: 'rect', x0: SX(rx.min), x1: SX(rx.max), y0: SY(ry.min), y1: SY(ry.max), layer: 'below',
           line: { color: 'rgba(150,150,140,.95)', width: 1.25, dash: 'dot' },
           fillcolor: 'rgba(141,141,132,.10)',
         });
+        labelPlan.fixed.push({ kind: 'reference', x: rx.max, y: ry.max, name: r.name, left: x1 < (X(rx.min) + 0.001) });
         annotations.push({
           x: x1, y: y1, text: r.name, showarrow: false,
           // Anchor inward at the left edge so a wide label is not clipped off the plot.
           xanchor: x1 < (X(rx.min) + 0.001) ? 'left' : 'right', yanchor: 'bottom',
-          font: { size: 9, color: '#9a9a90' },
+          font: { size: 11, color: '#9a9a90' },
         });
       }
     } else {
@@ -585,12 +711,15 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const anchor = state.baseline ? db.materials.find((q) => q.id === state.baseline) : null;
   const ax = anchor?.headline[xDef.key], ay = anchor?.headline[yDef.key];
   if (anchor && ax?.known && ay?.known) {
+    labelPlan.fixed.push({ kind: 'text', x: ax.value, y: ay.value, name: anchor.name, position: 'bottom center', radius: 7.5 });
     traces.push({
       type: 'scatter', mode: 'markers+text', name: `${anchor.name} (baseline)`,
       x: [ax.value], y: [ay.value],
       text: [anchor.name], textposition: 'bottom center',
       textfont: { size: 11, color: '#1f5f8b' },
       marker: { size: 15, symbol: 'x-thin-open', color: '#1f5f8b', line: { width: 2.5, color: '#1f5f8b' } },
+      // Named on the chart and in the key; a legend entry said it a third time.
+      showlegend: false,
       _span: true,
       hovertemplate: `<b>${esc(anchor.name)}</b> — baseline, not a candidate`
         + `<br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}<extra></extra>`,
@@ -607,9 +736,11 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     });
   }
 
-  // Index selection line. Slope is fixed by the index; position is M.
+  // Index selection line. Slope is fixed by the index; position is M. Only on log-log axes, where the materials with one
+  // value of M lie on a straight line: the line is two points joined straight, so on a Linear axis it was drawn through
+  // materials it did not describe (E^(1/2)/rho is a curve there). The card says why nothing is drawn and offers Log.
   const index = indexById(p.index);
-  if (index && index.numerator === yDef.key && xDef.key === 'density' && !index.costForm) {
+  if (index && indexDrawable(index, xDef, yDef, p)) {
     const xs = pts.map((q) => q.x);
     const range = [Math.min(...xs) * 0.85, Math.max(...xs) * 1.15];
     const M = p.indexM ?? defaultM(pts, index);
@@ -621,14 +752,7 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     });
   }
 
-  // Pinned materials keep a leader line so they stand out among the trace labels.
-  for (const q of pts) {
-    if (scenario.shortlist.includes(q.id)) {
-      const ax = X(q.x), ay = Y(q.y);
-      if (!placeable(ax, ay)) continue;
-      annotations.push({ x: ax, y: ay, text: q.label, showarrow: true, arrowhead: 0, arrowsize: 0.6, ax: 18, ay: -18, font: { size: 11 } });
-    }
-  }
+  // Shortlisted materials keep a leader line so they stand out among the other labels; placeLabels adds it where it fits.
 
   const dark = matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light'
     || document.documentElement.dataset.theme === 'dark';
@@ -644,8 +768,8 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   for (const sh of shapes) {
     // Plotly defaults an unset xref/yref to the axis, so an undefined ref still counts. The
     // reference rectangles rely on that default, and skipping them left the layer drawn off screen.
-    if (sh.xref === 'x' || sh.xref === undefined) { xSpan.push(unlog(sh.x0, p.xLog), unlog(sh.x1, p.xLog)); }
-    if (sh.yref === 'y' || sh.yref === undefined) { ySpan.push(unlog(sh.y0, p.yLog), unlog(sh.y1, p.yLog)); }
+    if (sh.xref === 'x' || sh.xref === undefined) { xSpan.push(sh.x0, sh.x1); }
+    if (sh.yref === 'y' || sh.yref === undefined) { ySpan.push(sh.y0, sh.y1); }
   }
   for (const t of traces) {
     // Lines, and the baseline cross, which would otherwise be drawn outside a range computed only
@@ -653,30 +777,55 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     if (t.mode === 'lines' || t._span) { for (const v of t.x) xSpan.push(v); for (const v of t.y) ySpan.push(v); }
   }
 
+  const gd = host.querySelector('#plot');
+  // Every entry the legend will list: the families, the front and a guide line.
+  const legendNames = traces.filter((t) => t.showlegend !== false && t.name).map((t) => t.name);
+  const fit = chartFit(gd.clientWidth, legendNames);
+  gd.style.height = `${fit.height}px`;
+  // Kept on the element for the resize listener, which lays the legend out again for a new width.
+  gd._legendNames = legendNames;
   const layout = {
-    margin: { l: 70, r: 20, t: 16, b: 56 },
+    height: fit.height,
+    margin: { l: 70, r: 20, t: PLOT_MARGIN_TOP, b: 56 },
     paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
     font: { color: ink, family: 'system-ui, sans-serif', size: 12 },
-    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit})` }, type: p.xLog ? 'log' : 'linear',
+    // automargin: the axis claims the space its ticks and title need, so a legend placed under the chart is laid out
+    // below that space rather than across the title.
+    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit})` }, type: p.xLog ? 'log' : 'linear', automargin: true,
              gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
     yaxis: { title: { text: `${prop(yDef.key).plain} (${yDef.unit})` }, type: p.yLog ? 'log' : 'linear',
              gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
     shapes, annotations,
     showlegend: true,
-    legend: { orientation: 'v', x: 1.01, y: 1, font: { size: 10 } },
+    legend: fit.legend,
     // Zoom, not lasso. With lasso as the default every stray drag turned into a candidate subset,
     // which read as the chart filtering itself at random. Lasso stays one click away in the mode bar.
     dragmode: 'zoom',
     hovermode: 'closest',
   };
 
-  const gd = host.querySelector('#plot');
+  // Beside its line, on the side with the plot's room: centred on a line near the right edge, "Density at most 1500
+  // kg/m³" ran out of the plot and under the legend.
+  const xRange = layout.xaxis.range;
+  for (const { label, obstacle, at } of requirementLabels) {
+    const side = xRange && at > (xRange[0] + xRange[1]) / 2 ? 'right' : 'left';
+    label.xanchor = side;
+    obstacle.anchor = side;
+  }
+
   wireResize();
+  gd._labelPlan = { ...labelPlan, annotations };
+  // After the draw has finished, never inside it: an update made from Plotly's own afterplot handler was drawn over by
+  // the rest of that draw, and the labels were in the data but not on the chart.
+  let pending = null;
+  const relabel = () => { clearTimeout(pending); pending = setTimeout(() => placeLabels(gd), 30); };
   Plotly.newPlot(gd, traces, layout, {
     displaylogo: false, responsive: false,
     modeBarButtonsToRemove: ['select2d'],
     modeBarButtonsToAdd: [],
-  });
+  }).then(relabel);
+  // Placed again whenever what is on screen moves: a zoom, a resize, a family hidden from the legend.
+  for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
 
   gd.on('plotly_click', (ev) => {
     const id = ev.points?.[0]?.customdata?.[0];
@@ -688,14 +837,163 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   });
 }
 
+/** Point labels, range labels and requirement labels are this size (px). */
+const LABEL_FONT = 11;
+// A point without a label carries a space, not an empty string. Plotly drops the text element of an empty label, and
+// the next update then drops the point's text group without drawing the name it was given, so a label placed after a
+// zoom or a resize would not appear until the draw after that.
+const NO_LABEL = ' ';
+// Where a point's label may go, in order of preference: above, below, right, left.
+const POINT_POSITIONS = ['top center', 'bottom center', 'middle right', 'middle left'];
+// Where a shortlisted material's leader line may end, in pixels from its point, in order of preference.
+const PIN_OFFSETS = [[18, -18], [-18, -18], [18, 18], [-18, 18], [0, -26], [0, 26], [34, 0], [-34, 0]];
+// Room kept clear around a label, so two labels never touch.
+const LABEL_GAP = 2;
+// Half the size of a point's marker (11 px), the square a label keeps off.
+const MARKER_HALF = 5.5;
+
+let measurer = null;
+/** The width a label takes in the chart's font, measured rather than guessed from its length. */
+function labelWidth(text) {
+  measurer ??= document.createElement('canvas').getContext('2d');
+  measurer.font = `${LABEL_FONT}px system-ui, sans-serif`;
+  return measurer.measureText(text).width;
+}
+
+/**
+ * The box a scatter label takes at a text position, the way Plotly places it (drawing.textPointPosition): beside a marker
+ * of this radius, offset a little past it, with the baseline three quarters of the font size below the anchor.
+ */
+export function labelBox(px, py, width, position, markerRadius = 0) {
+  const r = markerRadius ? markerRadius / 0.8 + 1 : 0;
+  const sign = { start: 1, end: -1, middle: 0, bottom: 1, top: -1 };
+  const v = position.includes('top') ? 'top' : position.includes('bottom') ? 'bottom' : 'middle';
+  const h = position.includes('left') ? 'end' : position.includes('right') ? 'start' : 'middle';
+  const baseline = py + LABEL_FONT * 0.75 + sign[v] * r + (sign[v] - 1) * LABEL_FONT / 2;
+  const x0 = h === 'start' ? px + r : h === 'end' ? px - r - width : px - width / 2;
+  // The glyphs' box, as measured on the drawn chart: an 11 px label stands about 11.5 px above its baseline and 1.5 below.
+  return { x0, x1: x0 + width, y0: baseline - LABEL_FONT * 1.05, y1: baseline + LABEL_FONT * 0.15 };
+}
+
+const overlaps = (a, b) => a.x0 < b.x1 + LABEL_GAP && b.x0 < a.x1 + LABEL_GAP && a.y0 < b.y1 + LABEL_GAP && b.y0 < a.y1 + LABEL_GAP;
+
+/**
+ * Choose which labels to print and where, so that none prints over another. Greedy, in priority order: shortlisted
+ * materials (a leader line), the materials on the Pareto front, then the rest from the one furthest from the middle of
+ * the cloud inwards, since an isolated point is the one a reader cannot otherwise name; estimate ranges last. Each label
+ * takes the first of its positions that clears every label already placed, the requirement and reference labels, the
+ * familiar filament's name and every other point's marker (a name printed across a marker left it unclear which point it
+ * named), and stays inside the plot; one that fits nowhere is left off and its point keeps its hover.
+ *
+ * Pure, so it can be tested without a browser: coordinates are pixels, `markers` are the drawn points ({ px, py, key },
+ * where a label candidate's key is `trace:index`), and `width` measures a label.
+ */
+export function chooseLabels({ pins = [], points = [], envelopes = [], fixed = [], markers = [] }, bounds, width = labelWidth) {
+  const placed = [...fixed];
+  const markerBoxes = markers.map((m) => ({ key: m.key, x0: m.px - MARKER_HALF, x1: m.px + MARKER_HALF, y0: m.py - MARKER_HALF, y1: m.py + MARKER_HALF }));
+  const inside = (b) => b.x0 >= bounds.x0 && b.x1 <= bounds.x1 && b.y0 >= bounds.y0 && b.y1 <= bounds.y1;
+  const fits = (b, own = null) => inside(b) && !placed.some((o) => overlaps(o, b))
+    && !markerBoxes.some((m) => m.key !== own && overlaps(m, b));
+  const result = { pins: [], points: [], envelopes: [] };
+
+  for (const q of pins) {
+    const w = width(q.name) + 4;
+    for (const [ax, ay] of PIN_OFFSETS) {
+      const cx = q.px + ax, cy = q.py + ay;
+      const box = { x0: cx - w / 2, x1: cx + w / 2, y0: cy - 8, y1: cy + 8 };
+      if (fits(box, `${q.trace}:${q.index}`)) { placed.push(box); result.pins.push({ ...q, ax, ay }); break; }
+    }
+  }
+  const middle = (vs) => { const s = [...vs].sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0; };
+  const cx = middle(points.map((q) => q.px)), cy = middle(points.map((q) => q.py));
+  const distance = (q) => Math.hypot(q.px - cx, q.py - cy);
+  const ordered = [...points].sort((a, b) => (Number(!!b.front) - Number(!!a.front)) || (distance(b) - distance(a)));
+  const place = (q, positions, into) => {
+    const w = width(q.name);
+    for (const position of positions) {
+      const box = labelBox(q.px, q.py, w, position, q.radius);
+      if (fits(box, `${q.trace}:${q.index}`)) { placed.push(box); into.push({ ...q, position }); return; }
+    }
+  };
+  for (const q of ordered) place(q, POINT_POSITIONS, result.points);
+  for (const q of [...envelopes].sort((a, b) => Number(!!b.shortlisted) - Number(!!a.shortlisted))) place(q, q.positions, result.envelopes);
+  return result;
+}
+
+/**
+ * Put the chosen labels on the drawn chart. Runs after every draw (a zoom, a resize, a family hidden from the legend),
+ * reading the plot's size and ranges from Plotly, and writes only when the labels changed, so its own update does not
+ * run it again.
+ */
+function placeLabels(gd) {
+  const plan = gd._labelPlan;
+  const fl = gd._fullLayout, xa = fl?.xaxis, ya = fl?.yaxis;
+  if (!plan || !gd.isConnected || !xa?._length || !ya?._length || !xa.range || !ya.range) return;
+  const shown = (gd._fullData ?? []).map((t) => t.visible === true);
+  const signature = [...xa.range, ...ya.range, xa._offset, xa._length, ya._offset, ya._length, ...shown].join('|');
+  if (gd._labelSignature === signature) return;
+  gd._labelSignature = signature;
+
+  const lin = (ax, v) => (ax.type === 'log' ? (v > 0 ? Math.log10(v) : NaN) : v);
+  const X = (v) => xa._offset + ((lin(xa, v) - xa.range[0]) / (xa.range[1] - xa.range[0])) * xa._length;
+  const Y = (v) => ya._offset + ((ya.range[1] - lin(ya, v)) / (ya.range[1] - ya.range[0])) * ya._length;
+  const onScreen = (q) => shown[q.trace] !== false && Number.isFinite(q.px) && Number.isFinite(q.py)
+    && q.px >= xa._offset && q.px <= xa._offset + xa._length && q.py >= ya._offset && q.py <= ya._offset + ya._length;
+  const at = (list) => list.map((q) => ({ ...q, px: X(q.x), py: Y(q.y) })).filter(onScreen);
+
+  // What is already printed and must not be written over.
+  const fixed = [];
+  for (const f of plan.fixed) {
+    const w = labelWidth(f.name);
+    if (f.kind === 'text') fixed.push(labelBox(X(f.x), Y(f.y), w, f.position, f.radius));
+    else if (f.kind === 'requirement' && f.axis === 'x') {
+      const px = X(f.value), x0 = f.anchor === 'right' ? px - w - 6 : f.anchor === 'left' ? px : px - w / 2 - 3;
+      fixed.push({ x0, x1: x0 + w + 6, y0: ya._offset - 2, y1: ya._offset + 16 });
+    }
+    else if (f.kind === 'requirement') { const py = Y(f.value); fixed.push({ x0: xa._offset, x1: xa._offset + w + 8, y0: py - 9, y1: py + 9 }); }
+    else if (f.kind === 'reference') { const px = X(f.x), py = Y(f.y); fixed.push({ x0: f.left ? px : px - w, x1: f.left ? px + w : px, y0: py - 15, y1: py }); }
+  }
+  const bounds = { x0: xa._offset, x1: xa._offset + xa._length, y0: ya._offset - 14, y1: ya._offset + ya._length };
+  // Every drawn point of a shown trace, whether or not it may carry a label.
+  const markers = [];
+  gd.data.forEach((t, i) => {
+    if (!shown[i] || !Array.isArray(t.customdata) || t.customdata[0]?.length !== 8) return;
+    t.x.forEach((x, j) => { const px = X(x), py = Y(t.y[j]); if (Number.isFinite(px) && Number.isFinite(py)) markers.push({ px, py, key: `${i}:${j}` }); });
+  });
+  const chosen = chooseLabels({ pins: at(plan.pins), points: at(plan.points), envelopes: at(plan.envelopes), markers,
+    fixed: fixed.filter((b) => Object.values(b).every(Number.isFinite)) }, bounds);
+
+  // Every trace that can carry a label, with its text and positions written out in full.
+  const texts = new Map();
+  const slot = (trace) => {
+    if (!texts.has(trace)) {
+      const t = gd.data[trace];
+      texts.set(trace, { text: t.x.map(() => NO_LABEL), textposition: Array.isArray(t.textposition) ? t.x.map(() => 'top center') : t.textposition });
+    }
+    return texts.get(trace);
+  };
+  for (const q of [...plan.points, ...plan.pins, ...plan.envelopes]) slot(q.trace);
+  for (const q of chosen.points) { const t = slot(q.trace); t.text[q.index] = q.name; t.textposition[q.index] = q.position; }
+  for (const q of chosen.envelopes) slot(q.trace).text[q.index] = q.name;
+  const annotations = [...plan.annotations, ...chosen.pins.map((q) => ({
+    x: xa.type === 'log' ? Math.log10(q.x) : q.x, y: ya.type === 'log' ? Math.log10(q.y) : q.y,
+    text: esc(q.name), showarrow: true, arrowhead: 0, arrowsize: 0.6, ax: q.ax, ay: q.ay, font: { size: LABEL_FONT },
+  }))];
+
+  const traces = [...texts.keys()];
+  const same = traces.every((i) => JSON.stringify(gd.data[i].text) === JSON.stringify(texts.get(i).text)
+    && JSON.stringify(gd.data[i].textposition) === JSON.stringify(texts.get(i).textposition))
+    && JSON.stringify((gd.layout.annotations ?? []).map((a) => [a.text, a.ax, a.ay])) === JSON.stringify(annotations.map((a) => [a.text, a.ax, a.ay]));
+  if (same) return;
+  Plotly.update(gd, { text: traces.map((i) => texts.get(i).text), textposition: traces.map((i) => texts.get(i).textposition) },
+    { annotations }, traces);
+}
+
 /** Give a family colour a nearly transparent fill without changing its outline colour. */
 function hexToRgba(hex, alpha) {
   const m = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex);
   return m ? `rgba(${parseInt(m[1], 16)},${parseInt(m[2], 16)},${parseInt(m[3], 16)},${alpha})` : hex;
 }
-
-/** Shape coordinates are stored in log space on a log axis; recover the data value. */
-const unlog = (v, isLog) => (typeof v === 'number' ? (isLog ? 10 ** v : v) : null);
 
 /**
  * Axis range with a little headroom, expressed the way Plotly wants it: log10 bounds on a log
@@ -722,6 +1020,10 @@ function errorBars(list, key) {
   return { type: 'data', array: arr, visible: true, thickness: 1, width: 3, color: 'rgba(0,0,0,.35)' };
 }
 
+/** Whether the design guide line can be drawn: its property up, density across, not a cost form, both axes on Log. */
+const indexApplies = (index, xKey, yKey) => !!index && index.numerator === yKey && xKey === 'density' && !index.costForm;
+const indexDrawable = (index, xDef, yDef, p) => indexApplies(index, xDef.key, yDef.key) && !!p.xLog && !!p.yLog;
+
 const defaultM = (pts, index) => {
   const vals = pts.map((q) => indexValue(q.material, index)).filter((v) => v !== null).sort((a, b) => b - a);
   return vals.length ? vals[Math.min(4, vals.length - 1)] : 1;
@@ -733,7 +1035,8 @@ function renderIndexCard(host, state, pts, actions) {
   if (!index) { host.innerHTML = ''; return; }
 
   const yDef = AXIS_DEFS.find((a) => a.key === p.y);
-  const applicable = index.numerator === yDef?.key && p.x === 'density' && !index.costForm;
+  const applicable = indexApplies(index, p.x, yDef?.key);
+  const logLog = !!p.xLog && !!p.yLog;
   const M = p.indexM ?? defaultM(pts, index);
   // The index is a property of a material's headline values, so it counts materials. In the
   // measurement modes one material has several dots, and counting dots counted it several times.
@@ -750,17 +1053,22 @@ function renderIndexCard(host, state, pts, actions) {
       <div>Maximise <span class="formula">M = ${esc(index.formula)}</span> ·
         selection line of slope ${index.slope} on log-log axes</div>
       ${index.note ? `<div style="color:var(--ink-2);margin-top:5px">${esc(index.note)}</div>` : ''}
-      ${applicable ? `
+      ${applicable && logLog ? `
         <div class="index-move">
           <label for="index-m">Move the line</label>
-          <input type="range" id="index-m" data-index-m data-focus="index-m" min="0" max="100" value="${p.indexSlider ?? 50}">
+          <input type="range" id="index-m" data-index-m data-focus="index-m" min="0" max="100" value="${p.indexSlider ?? 50}"
+            aria-valuetext="M = ${M.toPrecision(3)}, ${above} material${above === 1 ? '' : 's'} above the line">
           <span class="formula">M = ${M.toPrecision(3)}</span>
           <strong>${above} material${above === 1 ? '' : 's'} above the line</strong>
           <span class="index-of">of ${evaluable} with both headline values${detailLevel(p) === 'material' ? '' : '; counted by material, from headline values, not by dot'}</span>
         </div>
-        ${!p.xLog || !p.yLog ? `<div class="index-fix"><span class="warn-chip">The line is straight only on log-log axes.</span>
-          <button class="btn btn-sm" data-index-loglog data-focus="index-loglog">Switch both axes to Log</button></div>` : ''}
-      ` : index.costForm
+      ` : applicable
+        // Said, not drawn: what the reader would have had to know to read a line drawn on these axes.
+        ? `<div class="index-fix"><span class="warn-chip">Not drawn on ${!p.xLog && !p.yLog ? 'Linear axes' : 'a Linear axis'}. The materials with the same M lie on one straight line of slope ${index.slope} only when both axes are Log${index.exponent === 1
+            ? '; on a Linear chart that line would pivot about zero as it moved rather than slide, and on a semi-log chart it would bend'
+            : `; with ${esc(index.formula)} they lie on a curve on a Linear axis, so a straight line would pass through materials it does not describe`}.</span>
+          <button class="btn btn-sm" data-index-loglog data-focus="index-loglog">Switch both axes to Log</button></div>`
+      : index.costForm
         ? `<div class="index-fix"><span class="warn-chip">A cost-form index needs price combined with density on one axis, so it is not drawn on this chart. The caveats still apply.</span></div>`
         : `<div class="index-fix"><span class="warn-chip">This line needs Density across and ${esc(prop(index.numerator).plain)} up.</span>
           <button class="btn btn-sm" data-index-axes data-focus="index-axes">Set those axes, on Log scales</button></div>`}

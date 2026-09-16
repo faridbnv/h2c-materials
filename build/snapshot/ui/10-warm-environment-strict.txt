@@ -1,7 +1,7 @@
 COUNT 22 shown PASS
-STATUS PASS 22 | UNKNOWN 36 | FAIL 40
+STATUS ☑ PASS 22 | ☐ UNKNOWN 36 | ☐ FAIL 40
 22 of the 98 materials in this database meet these requirements
-36 more could not be checked for missing data, and are left out. From the Warm environment template. Click any criterion to remove it.
+36 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -18,25 +18,25 @@ Heat resistance at least 80 °C
 What this database cannot answer
 Properties
 Printing
+What the material is like
 Compare against
-nothing
+no reference
 PLA
 PETG
 ABS
 ASA
 PC
-—
-not published. Not zero, and not a low value.
-*
-a measurement that was never made the headline. Hover for why.
+— not published
+* measured, not the headline
+? heat load not stated
+≈ close to the limit
+n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS 1,050 2.2 33 10.5 87 26↗ ☆
 ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
 ASA PASS 1,050 2.45 37 9.2 100 39↗ ☆
 ASA Aero PASS 990 2.01 32 1.6 85 64↗ ☆
-ASA-CF PASS 1,020 4.2 34 9.6 110 —↗
-out of stock
- ☆
+ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
 ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
 CPE
 Copolyesters

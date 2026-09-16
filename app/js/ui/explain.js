@@ -6,7 +6,7 @@
 
 import { explainExclusions } from '../engine/constraints.js';
 import { chip, esc } from './format.js';
-import { describeConstraint } from './labels.js';
+import { describeConstraint, POLICY_CONTROL, POLICY_LABELS } from './labels.js';
 
 // The panel used to print raw internal keys here: "hdt045 >= 100", "tensileModulusXY >= 3",
 // "scope". The requirement pills on the same screen said "HDT at least 100 °C" because they used a
@@ -16,18 +16,29 @@ const nameOf = describeConstraint;
 export function renderExclusions(host, state, actions) {
   const { db, scenario, ctx } = state;
   if (!scenario.constraints.length) {
-    host.innerHTML = `<p class="empty">No constraints set, so nothing has been excluded.</p>`;
+    // A tab that is always offered must lead somewhere. One sentence saying nothing was excluded left the reader on a
+    // page with no next step, in a word ("constraints") the rest of the interface does not use.
+    host.innerHTML = `<div class="empty">
+      <h3>No requirements set yet</h3>
+      <p>This tab explains which requirements removed which materials. Nothing has been removed, because nothing has
+        been asked.</p>
+      <p><button class="btn btn-primary" id="to-start">Start from a typical part</button></p>
+      <p class="fine">Or set your own requirements under Filters. This tab then ranks them by how many materials each
+        one removes.</p>
+    </div>`;
+    host.querySelector('#to-start').addEventListener('click', () => actions.setLens('table'));
     return;
   }
   const ranked = explainExclusions(db.materials.filter((m) => !m.familyEntry), scenario.constraints, ctx);
   const max = Math.max(1, ...ranked.map((r) => r.removed + r.held));
+  const explore = state.scenario.unknownPolicy === 'exploration';
 
   host.innerHTML = `
     <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
       Ranked by how many candidates each requirement costs. "Failed" means the evidence does not
-      meet it. "Could not check" means the data is missing${state.scenario.unknownPolicy === 'exploration'
-        ? ', and those stay listed and flagged because missing data is set to "keep it"'
-        : ', and those are out only because missing data is set to "leave it out" in the top bar'}.
+      meet it. "Could not check" means the data is missing${explore
+        ? `, and those stay listed and flagged because ${POLICY_CONTROL} is set to "${POLICY_LABELS.exploration}"`
+        : `, and those are out only because ${POLICY_CONTROL} is set to "${POLICY_LABELS.strict}" in the top bar`}.
       "Removing it" counts the materials that would come back with that one requirement gone.</p>
     ${ranked.map((r, i) => `
       <div class="relax">
@@ -40,8 +51,9 @@ export function renderExclusions(host, state, actions) {
         </div>
         <button class="btn btn-sm" data-relax="${i}" aria-label="Remove the requirement: ${esc(nameOf(r.constraint))}">Remove</button>
       </div>`).join('')}
-    ${state.scenario.unknownPolicy === 'exploration' ? '' : `<p style="margin-top:16px">
-      <button class="btn" id="to-explore">Keep materials with missing data visible instead</button></p>`}`;
+    ${explore ? '' : `<p style="margin-top:16px">
+      <button class="btn" id="to-explore">Switch to ${POLICY_LABELS.exploration}</button>
+      <span class="fine">Materials that could not be checked stay listed, flagged.</span></p>`}`;
 
   host.querySelectorAll('[data-relax]').forEach((b) => b.addEventListener('click', () => {
     actions.removeConstraint(ranked[Number(b.dataset.relax)].constraint);
@@ -51,13 +63,16 @@ export function renderExclusions(host, state, actions) {
 
 /** Per-candidate explanation: one line per criterion, with the measurement behind it. */
 export function renderWhy(evaluation) {
-  if (!evaluation.results.length) return `<p class="missing">No constraints are set.</p>`;
+  if (!evaluation.results.length) return `<p class="missing">No requirements are set.</p>`;
   return evaluation.results.map((r) => `
     <div class="explain-row">
       ${chip(r.status)}
       <div>
         <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">preference only</span>' : ''}</div>
-        <div class="why">${esc(r.reason)}${r.measurementId ? ` · <span style="font-family:var(--mono)">${esc(r.measurementId)}</span>` : ''}${r.gradeId ? ` · ${esc(r.gradeId)}` : ''}</div>
+        <div class="why">${esc(r.reason)}${r.measurementId
+          // The measurement a result rests on, labelled and one press away (wireEvidence opens it), where a bare code had
+          // named it and led nowhere.
+          ? ` · measurement <button type="button" class="link-btn" data-measurement="${esc(r.measurementId)}" title="Opens the measurement behind this result">${esc(r.measurementId)}</button>` : ''}${r.gradeId ? ` · grade ${esc(r.gradeId)}` : ''}</div>
       </div>
     </div>`).join('');
 }
