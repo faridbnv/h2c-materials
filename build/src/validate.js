@@ -221,7 +221,10 @@ export function validate(db, wb) {
   // -- HDT load labelling -----------------------------------------------------
   const hdt = db.materials.filter((m) => m.headline.hdt045?.known && m.headline.hdt045.verified);
   const unstated = hdt.filter((m) => !m.headline.hdt045.loadStated);
-  const wrongLoad = hdt.filter((m) => m.headline.hdt045.loadStated && m.headline.hdt045.loadMPa !== 0.45);
+  // ASTM D648 states its low load as 66 psi, 0.455 MPa; ISO 75 method B as 0.45 MPa. They are the same test, and the
+  // estimate stage already reads 0.44 to 0.46 MPa as it (estimate/observations.js). Exact equality refused Braskem
+  // FL300PE's "0.455 MPa" as a headline while the estimate pinned PE to that very value: one test, two answers.
+  const wrongLoad = hdt.filter((m) => m.headline.hdt045.loadStated && Math.abs(m.headline.hdt045.loadMPa - 0.45) > 0.01);
   for (const m of wrongLoad) {
     issues.push(err('HDT-LOAD-WRONG', `materials ${m.id}`, `Column is HDT at 0.45 MPa but the cited source states ${m.headline.hdt045.loadMPa} MPa`));
   }
