@@ -11,7 +11,7 @@ C00009,M038,Grades,Superseded,Not applicable,"Superseded by C01113 (2026-09-14; 
 C00010,M039,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00011,M044,Grades,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C00012,M045,Grades,Superseded,Not applicable,"Superseded by C01114 (2026-09-14; was ""Resolved""): 3 distinct manufacturer(s) documented after adding Kimya PEBA-S on 2026-09-13."
-C00013,M046,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
+C00013,M046,Grades,Superseded,Not applicable,"Superseded by C01204 (2026-09-16; was ""Gap""): 1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00014,M049,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00015,M052,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00016,M054,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
@@ -31,21 +31,21 @@ C00029,M069,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3
 C00030,M071,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00031,M072,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00032,M074,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
-C00033,M076,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
+C00033,M076,Grades,Superseded,Not applicable,"Superseded by C01202 (2026-09-16; was ""Gap""): 1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00034,M077,Grades,Superseded,Not applicable,"Superseded by C01111 (2026-09-14; was ""Resolved""): Exact current Bambu Support for PLA (New Version) grade and TDS recorded as G077-01 on 2026-09-13."
 C00035,M081,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00036,M082,Grades,Gap,1,"1 distinct manufacturer (iSANMATE) documented against target 3. HyperLite PP is filed as PP Lightweight since 2026-09-15. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00037,M083,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00038,M084,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
-C00039,M085,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
+C00039,M085,Grades,Superseded,Not applicable,"Superseded by C01203 (2026-09-16; was ""Gap""): 1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00040,M086,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
-C00041,M087,Grades,Gap,2,2 distinct manufacturer(s) documented against target 3. Grupa Azoty Tarfuse POM (G087-02) added 2026-09-13 as the representative grade.
+C00041,M087,Grades,Superseded,Not applicable,"Superseded by C01205 (2026-09-16; was ""Gap""): 2 distinct manufacturer(s) documented against target 3. Grupa Azoty Tarfuse POM (G087-02) added 2026-09-13 as the representative grade."
 C00042,M088,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00043,M089,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00044,M090,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00045,M091,Grades,Resolved,Not applicable,Panchroma CoPE (G091-02) recorded 2026-09-13 as the exact CoPE identity and representative grade. G091-01 duplicated Fillamentum CPE HG100 and is retained only as an audit trail.
 C00046,M092,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
-C00047,M093,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
+C00047,M093,Grades,Superseded,Not applicable,"Superseded by C01201 (2026-09-16; was ""Gap""): 1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00048,M095,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00049,M096,Grades,Gap,1,"1 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
 C00050,M097,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Other sampled sources were missing, inaccessible, insufficiently specific, or not selected as independent formulations."
@@ -136,7 +136,7 @@ C00134,M008,Identity,Evidence recorded,Not applicable,Original canonical entry r
 C00135,M008,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00136,M008,Print setup,Evidence recorded,Not applicable,Panchroma Silk PLA printing guidance recorded as P0162; enclosure not needed.
 C00137,M008,Mechanical,Partially resolved,Not applicable,"Printed XY modulus and strength, Z strength and notched Charpy recorded from the Panchroma TDS V2.1. Elongation at break is not published."
-C00138,M008,Thermal,Partially resolved,Not applicable,"Vicat 64.7 °C recorded. HDT is not published, and Vicat is not substituted for it."
+C00138,M008,Thermal,Superseded,Not applicable,"Superseded by C01208 (2026-09-16; was ""Partially resolved""): Vicat 64.7 °C recorded. HDT is not published, and Vicat is not substituted for it."
 C00139,M008,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00140,M008,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00141,M008,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -909,7 +909,7 @@ C00907,M085,Identity,Evidence recorded,Not applicable,Original canonical entry r
 C00908,M085,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00909,M085,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00910,M085,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00911,M085,Thermal,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00911,M085,Thermal,Superseded,Not applicable,"Superseded by C01207 (2026-09-16; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00912,M085,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00913,M085,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00914,M085,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -930,7 +930,7 @@ C00928,M087,Identity,Evidence recorded,Not applicable,Original canonical entry r
 C00929,M087,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00930,M087,Print setup,Evidence recorded,Not applicable,"purefil POM: nozzle 190-210 °C, bed 120-150 °C (P0109). Tarfuse POM: nozzle 210-240 °C, bed 100-130 °C, build chamber 70-140 °C, recorded 2026-09-13."
 C00931,M087,Mechanical,Evidence recorded,Not applicable,"Tarfuse POM printed XY tensile strength, modulus and elongation are the headlines (preliminary TDS; XZ and ZX not yet tested). Delrin 100P NC010 moulded values (G087-R1) are a resin reference."
-C00932,M087,Thermal,Evidence recorded,Not applicable,"Tarfuse POM: melting point 165-170 °C, Tg -50 °C; no HDT published. Delrin 100P NC010 resin reference: HDT 160 °C at 0.45 MPa and 93 °C at 1.80 MPa, moulded."
+C00932,M087,Thermal,Superseded,Not applicable,"Superseded by C01209 (2026-09-16; was ""Evidence recorded""): Tarfuse POM: melting point 165-170 °C, Tg -50 °C; no HDT published. Delrin 100P NC010 resin reference: HDT 160 °C at 0.45 MPa and 93 °C at 1.80 MPa, moulded."
 C00933,M087,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00934,M087,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00935,M087,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -1112,7 +1112,7 @@ C01110,M027,Canadian price,Quarantined,Not applicable,CA0069 is a PLA Pure retai
 C01111,M077,Grades,Resolved,Not applicable,Exact current Bambu Support for PLA (New Version) grade and TDS recorded as G077-01; original identity retained rather than substituting Support for PLA/PETG.
 C01112,M077,Mechanical,Gap,Not applicable,The exact Bambu TDS publishes N/A for every mechanical row. Missing values are recorded as such and were not inferred.
 C01113,M038,Grades,Gap,2,2 distinct manufacturers now documented against target 3 after adding BASF Forward AM Ultrafuse PC GF30. One more independent exact formulation remains desirable.
-C01114,M045,Grades,Resolved,3,"3 distinct manufacturers documented after adding Kimya PEBA-S; TDS content was indexed, while direct file download was blocked and is explicitly marked."
+C01114,M045,Grades,Superseded,Not applicable,"Superseded by C01206 (2026-09-16; was ""Resolved""): 3 distinct manufacturers documented after adding Kimya PEBA-S; TDS content was indexed, while direct file download was blocked and is explicitly marked."
 C01115,M073,H2C status,Reviewed with limitations,Not applicable,"Essentium PPS-CF added as independent evidence, not H2C approval. Its published 330-400 °C nozzle range exceeds the H2C 350 °C maximum."
 C01116,M077,Canadian price,Gap,Not applicable,No grade-matched Canadian price was verified for Support for PLA (New Version) in this audit.
 C01117,M002,Print setup,Resolved,Not applicable,"P0004 chamber temperature ""25 - 45 °C"" recovered 2026-09-13 from B-pla-basic-filament-TDS. The re-fetched file matches the recorded SHA-256; the row follows a page break and was missed in transcription."
@@ -1199,3 +1199,12 @@ C01197,M103,Canadian price,Gap,Not applicable,Insufficient grade-specific eviden
 C01198,M103,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01199,M103,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01200,M046,Mechanical,Reviewed with limitations,Not applicable,"Shore hardness 45D recorded 2026-09-15 (m29, V002236) from the Ultrafuse TPC 45D data sheet's description; no tensile, flexural or impact value is published for the selected grade, and none is substituted."
+C01201,M093,Grades,Gap,2,2 distinct manufacturer(s) documented against target 3. Polymaker PolySmooth (G093-02) added 2026-09-16 (m35) with printed X-Y and Z values.
+C01202,M076,Grades,Gap,2,"2 distinct manufacturer(s) documented against target 3. Forward AM Ultrafuse BVOH (G076-02) added 2026-09-16 (m35) with printed XY, XZ and ZX values."
+C01203,M085,Grades,Gap,2,2 distinct manufacturer(s) documented against target 3. Braskem FL300PE (G085-02) added 2026-09-16 (m35) with X-Y printed part properties.
+C01204,M046,Grades,Resolved,3,3 distinct manufacturers documented after adding Kimya TPC-91A (G046-02) and DSM Arnitel ID 2045 (G046-03) on 2026-09-16 (m35); the selected BASF grade still publishes no mechanical value.
+C01205,M087,Grades,Resolved,3,3 distinct manufacturers documented after adding Yousu POM (G087-03) on 2026-09-16 (m35); Grupa Azoty Tarfuse POM (G087-02) stays the representative grade.
+C01206,M045,Grades,Resolved,4,4 distinct manufacturers documented after adding Fillamentum Flexfill PEBA 90A (G045-04) on 2026-09-16 (m35).
+C01207,M085,Thermal,Evidence recorded,Not applicable,"Braskem FL300PE (G085-02) printed part HDT 66 °C at 0.455 MPa (ASTM D648) and Vicat 125 °C (10 N) recorded 2026-09-16 (m35); the Spectrum grade publishes ""Heat resistance 110 °C"" without a method. HDT, Tg and Vicat are not continuous-service ratings."
+C01208,M008,Thermal,Evidence recorded,Not applicable,"Panchroma Silk PLA (G008-01): Vicat 64.7 °C, HDT not published and not substituted. eSUN PLA-Silk (G008-02) HDT 50 °C at 0.45 MPa (GB/T 1634) recorded 2026-09-16 (m35)."
+C01209,M087,Thermal,Evidence recorded,Not applicable,"Tarfuse POM (G087-02): melting point 165-170 °C, Tg -50 °C, no HDT published. Yousu POM (G087-03) HDT 96 °C at 1.8 MPa, unannealed, recorded 2026-09-16 (m35). Delrin 100P NC010 (G087-R1) stays a moulded resin reference, never a headline."

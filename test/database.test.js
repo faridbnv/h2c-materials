@@ -746,9 +746,17 @@ test('a declared grade variant explains its own offset instead of moving its fam
   };
   // Spectrum PA6 Neat (3.4 GPa, 1.25 g/cm³) is a compound. Declared, it explains its own offset; undeclared, it lifts
   // the unfilled polyamides' stiffness (audit 2026-09-15, B-11). HyperLite PP, once the test case, is its own material.
+  // The invariant is that the declared grade leaves its family where it would be without the grade at all, and that
+  // undeclared it can only lift the family, never lower it. It used to demand a lift of at least 5% when undeclared,
+  // which measured how thin the product-level data was rather than the mechanism: once 2026-09-16 added eight
+  // products to materials with several (PVB, BVOH, PE, TPC), the between-product spread learned from them absorbed an
+  // undeclared compound as product deviation and the lift fell to 2.8%, while the declared estimate stayed within 2.3%
+  // of the family without the grade. A check that fails when the model gets better data is measuring the wrong thing.
   const declared = pa66Stiffness(() => {});
   const undeclared = pa66Stiffness((wb) => { wb.Grades.rows.find((g) => g.GradeID === 'G049-01').Variant = 'Not applicable'; });
-  assert.ok(undeclared > declared * 1.05, `PA66 stiffness ${declared} declared, ${undeclared} undeclared`);
+  const without = pa66Stiffness((wb) => { const g = wb.Grades.rows.find((g) => g.GradeID === 'G049-01'); g.Status = 'retired'; g.Availability = 'Retired mapping; audit trail only'; });
+  assert.ok(Math.abs(declared / without - 1) <= 0.03, `PA66 stiffness ${declared} with the variant declared, ${without} without the grade: the declared grade moved its family`);
+  assert.ok(undeclared >= declared, `PA66 stiffness ${declared} declared, ${undeclared} undeclared: an undeclared compound lowered the family`);
   assert.deepEqual(db.grades.filter((g) => g.variant).map((g) => `${g.id} ${g.variant}`), ['G049-01 undisclosed dense filler', 'G082-01 lightweight additive', 'G085-01 undisclosed dense filler', 'G103-01 lightweight additive']);
 });
 
