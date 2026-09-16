@@ -19,25 +19,123 @@ ones. Use it to get to a short list quickly and honestly; then read the exact gr
 
 ## The path from a data sheet to a number on the screen
 
-Five steps, each of which is a separate piece of the project so that a mistake in one is caught before the next.
+Seven stages, each a separate piece of the project, so that a mistake in one is caught before the next. Read the
+diagram top to bottom: beige is the outside world, blue is data you can open in a text editor, green is computation,
+amber is a check that can stop the build, purple is what ships. The dotted lines at the bottom are the checks that run
+against the finished article rather than inside it.
 
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 340, "nodeSpacing": 45, "rankSpacing": 55, "curve": "basis"}}}%%
+flowchart TB
+    subgraph WORLD["1 · Outside the tool: what other people published"]
+        direction LR
+        TDS["Manufacturer data sheet<br/>PDF, with its revision"]
+        WEB["Product page or wiki"]
+        SHOP["Canadian retailer listing<br/>on one sampling day"]
+        LIT["Standard, paper or handbook"]
+    end
+
+    SRCS["sources.csv · one row per document<br/>publisher · revision · URL · date read<br/>SHA-256 of the file · why it is registered"]
+    TRAN{{"Transcription<br/>every value read from the document itself,<br/>never from a summary, a report or memory"}}
+
+    TDS --> SRCS
+    WEB --> SRCS
+    SHOP --> SRCS
+    LIT --> SRCS
+    SRCS --> TRAN
+
+    subgraph TBL["2 · data/tables · the source of truth, plain text, one fact in one place"]
+        direction LR
+        REC["Records<br/>materials · grades · measurements<br/>profiles · evidence · prices"]
+        SEL["Editorial choices<br/>headlines: the one measurement a column shows<br/>material_links: what a material cites"]
+        REGI["Registry and physics<br/>properties · headline_definitions<br/>polymers · method"]
+        CTX["Context<br/>coverage · fatigue_tests · chamber_bands<br/>family_entries · family_members · reference"]
+    end
+    TRAN --> REC
+    TRAN --> SEL
+    TRAN --> CTX
+
+    GATE{{"3 · Schema gate · schema/tables<br/>every column typed · no blank cells, only declared missing states<br/>closed vocabularies · every ID points at a row that exists<br/>canonical text form · row counts and hashes in data/manifest.json"}}
+    TBL --> GATE
+    GATE -- "a bad cell, named by file, line, record and field" --> STOP1(["Build stops"])
+
+    subgraph CMPL["4 · Compile · build/src/compile.js"]
+        direction TB
+        NORM["normalize · the sheet's own words become typed values<br/>direction · specimen form · moisture state · annealing schedule<br/>HDT standard and load · nozzle, bed, chamber and drying settings"]
+        ASSM["Assemble each material<br/>a headline is a pointer to one measurement, never a copied number<br/>gates against the H2C envelope · print window · best sampled offer<br/>related evidence · implied bounds · what coverage claims"]
+        NORM --> ASSM
+    end
+    GATE -- "every table passes" --> NORM
+
+    subgraph ESTG["5 · Estimate stage · build/src/estimate · an overlay on a database that is already complete"]
+        direction TB
+        OBSV["observations · every measurement of every material, converted<br/>to this column's meaning with a documented offset and spread"]
+        GAUS["gaussian · one model per column: polymer identity pulled towards<br/>its chemical group, reinforcement, declared variant, test house, melting point"]
+        CALB["calibration · hide each measured value and predict it, with the<br/>spreads and conversions refitted without the material being hidden"]
+        SCRN["screening · set each end of the range where the back-test shows<br/>a true value lands beyond it at most 1 case in 10, at 90 in 100 confidence"]
+        OBSV --> GAUS --> CALB --> SCRN
+    end
+    ASSM --> OBSV
+
+    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>headlines on the representative grade, printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds"}}
+    ASSM --> VALD
+    SCRN --> VALD
+    VALD -- "any error" --> STOP2(["Build stops"])
+    VALD -- "warnings, each reviewed<br/>and accepted with a reason" --> RPT["build/reports/validation-report.md<br/>what the tool cannot yet see"]
+
+    CTRT{{"7 · Contract · schema/db.schema.json<br/>a renamed, dropped or retyped field fails here,<br/>not as a blank in the browser"}}
+    VALD --> CTRT
+    CTRT --> DBJS["dist/db.json · the compiled database"]
+    DBJS --> BNDL["Bundle · compress the data, inline the interface,<br/>the stylesheet and the plotting library"]
+    BNDL --> HTML["One HTML file · works offline,<br/>from a local file or a shared drive, no server"]
+
+    subgraph PAGE["8 · The page · nothing here reads a data sheet or recomputes a headline"]
+        direction LR
+        ENGN["engine · the decision logic<br/>constraints · indices · Pareto · coverage · scenario · search"]
+        UIML["interface · table · Ashby chart · parallel lines<br/>coverage lens · compare · why excluded · evidence drawer"]
+        ENGN --> UIML
+    end
+    HTML --> ENGN
+    UIML --> USER(["You: requirements in, a short list and its evidence out"])
+
+    subgraph CHK["Kept honest by, outside the build"]
+        direction LR
+        CK1["npm run verify · gate, lint, 215 tests, source-to-page audit,<br/>review snapshot, 14 interface views, 300 rendered scenarios"]
+        CK2["build/snapshot · every headline, gate, template result and<br/>screening end, committed, so a change shows its effect in its own diff"]
+        CK3["Nightly · 2,000 random sets of requirements through the<br/>built page, compared with the engine run on its own"]
+        CK4["npm run trace · any number back to its measurement,<br/>grade, source and page"]
+    end
+    HTML -.-> CK1
+    DBJS -.-> CK2
+    HTML -.-> CK3
+    DBJS -.-> CK4
+
+    classDef world fill:#f6f1e7,stroke:#a2957c,color:#2f2a20
+    classDef data fill:#e7f0fb,stroke:#3a6ea5,color:#10283f
+    classDef build fill:#e8f5ea,stroke:#3f8b58,color:#123020
+    classDef check fill:#fdf2e0,stroke:#c2891c,color:#3b2a08
+    classDef ship fill:#f1e9f8,stroke:#7a4fa6,color:#291640
+    classDef stop fill:#fae6e6,stroke:#a83232,color:#3d1111
+    classDef you fill:#eef2f4,stroke:#54646e,color:#1d282e
+
+    class TDS,WEB,SHOP,LIT world
+    class SRCS,REC,SEL,REGI,CTX data
+    class NORM,ASSM,OBSV,GAUS,CALB,SCRN,BNDL build
+    class TRAN,GATE,VALD,CTRT,CK1,CK2,CK3,CK4 check
+    class DBJS,HTML,RPT,ENGN,UIML ship
+    class STOP1,STOP2 stop
+    class USER you
 ```
-  manufacturer PDF, product page, retailer listing, paper       the sources, hashed and dated
-            |
-            |  a person (or an AI agent, checked by a person) transcribes each value into a row
-            v
-  data/tables/*.csv     nineteen plain-text tables: materials, grades, measurements, profiles,
-                        evidence, prices, sources, coverage, headlines, ... one fact in one place
-            |
-            |  the schema gate: every column typed, every reference checked, every vocabulary closed
-            |  the build: assemble, check consistency, then add estimates as a separate layer
-            v
-  dist/db.json          the compiled database, checked against a contract
-            |
-            |  bundled with the interface into one file
-            v
-  the HTML page         the table, the charts, the drawer; nothing is computed from the PDF at this point
-```
+
+Two properties of this shape are worth naming, because they are what make the numbers trustworthy.
+
+**The build fails loudly rather than shipping something plausible.** Every amber box can stop it. A database that has
+drifted cannot reach the page at all, so what you are reading was, at the moment it was built, consistent with every
+rule the project asserts about itself.
+
+**Estimates are a layer, not an ingredient.** Stage 5 only adds to the database stage 4 produced. The core builds and
+validates without it, which is a check that runs on every commit. No measured value, gate or verdict can quietly
+depend on inference.
 
 ### 1. Sources
 
@@ -60,6 +158,68 @@ The database is nineteen CSV files you can open in any editor. The ones that mat
 | `headlines` | which single measurement stands for a material in each column of the table (see below) |
 | `polymers` | what the estimate model knows about each polymer: crystallinity, melting point, water uptake, neat density |
 | `coverage` | what was looked for and not found, so a blank is a recorded absence, not an oversight |
+
+How they fit together. Crow's feet mark the "many" end: one material has many grades, one grade has many
+measurements, one measurement is published in exactly one source.
+
+```mermaid
+erDiagram
+    POLYMERS ||--o{ MATERIALS : "gives its physics to"
+    MATERIALS ||--o{ GRADES : "is sold as"
+    MATERIALS ||--o{ HEADLINES : "shows one value per column"
+    MATERIALS ||--o{ COVERAGE : "records what was looked for"
+    MATERIALS ||--o{ MATERIAL_LINKS : "cites"
+    MATERIALS ||--o| CHAMBER_BANDS : "may carry a researched band"
+    GRADES ||--o{ MEASUREMENTS : "was tested, giving"
+    GRADES ||--o{ PROFILES : "prints with"
+    GRADES ||--o{ PRICES : "is listed at"
+    GRADES ||--o{ EVIDENCE : "is reported to resist"
+    SOURCES ||--o{ MEASUREMENTS : "publishes"
+    SOURCES ||--o{ PROFILES : "publishes"
+    SOURCES ||--o{ GRADES : "identifies"
+    PROPERTIES ||--o{ MEASUREMENTS : "is what was measured"
+    HEADLINE_DEFINITIONS ||--o{ HEADLINES : "defines the column"
+    HEADLINES }o--|| MEASUREMENTS : "names the one shown"
+    MEASUREMENTS ||--o| FATIGUE_TESTS : "if fatigue, its loading"
+
+    MATERIALS {
+        string MaterialID "PLA, PA6-CF, PC FR"
+        string Family "how the tool groups it"
+        string EstimateIdentity "which polymers row it is modelled as"
+        string RepresentativeGrade "the product its headline values come from"
+        string Scope "in scope, excluded, or a family entry"
+    }
+    GRADES {
+        string GradeID "one exact commercial product"
+        string Manufacturer "Polymaker, Bambu Lab, 3DXTECH"
+        string Status "active or retired, never deleted"
+        string Variant "declared if it is not what its material describes"
+    }
+    MEASUREMENTS {
+        string Property "what was measured"
+        string RawValue "exactly as the sheet prints it"
+        number NormalizedValue "the same value in the canonical unit"
+        string Direction "XY, Z, or not stated by the source"
+        string SpecimenType "printed part, moulded bar, film, filament"
+        string MoistureCondition "dry, conditioned, or not stated"
+        string PostProcessing "as printed or annealed, with the schedule typed beside it"
+        string StandardLoad "ISO 527, HDT at 0.45 MPa, and so on"
+        string DataStatus "published, corrected, implausible, quarantined"
+        string SourceID "and the page it is on"
+    }
+    HEADLINES {
+        string HeadlineKey "density, stiffness, strength, stretch, heat, price"
+        string MeasurementID "the measurement this column shows"
+        string Use "the value itself, or context cited beside it"
+    }
+    POLYMERS {
+        string PolymerID "PA6, PETG, TPU"
+        string Morphology "amorphous, semicrystalline, elastomer"
+        number MeltingPointC "where the polymer publishes none"
+        string AsPrinted "does it crystallise in a print"
+        string WaterUptake "how far a conditioned value converts to dry"
+    }
+```
 
 Two rules shape all of them. **Nothing that can be calculated is stored**: a material's headline is a pointer to a
 measurement, never a number typed twice; a per-kilogram price is computed from list price and net mass. **Nothing is
@@ -147,6 +307,59 @@ least 100"). The mode decides what happens to the last two.
 - **Include uncertain (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
   in the database does not hide a material that might suit. With **Use estimates** on, estimates may screen as above.
   The SCREENED chip brings screened materials back.
+
+The whole of that logic, for one requirement against one material, is this. The verdict always describes the evidence;
+only the mode decides whether the material stays on your list.
+
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 300, "nodeSpacing": 40, "rankSpacing": 60, "curve": "basis"}}}%%
+flowchart TB
+    REQ(["One requirement: stiffness at least 3 GPa"]) --> HASV{"Is there a measured value for<br/>this material in this column?"}
+    HASV -- "yes" --> COMPLETE{"Did the source state everything<br/>the column needs?"}
+    HASV -- "no" --> APPL{"Does the property mean anything<br/>for this material?"}
+    COMPLETE -- "yes" --> CMPV{"Compare it with your threshold"}
+    APPL -- "yes" --> ESTQ{"Is there an estimate?"}
+    ESTQ -- "yes" --> SCRQ{"Does the range the build lets it<br/>screen on wholly fail the requirement?"}
+    SCRQ -- "yes" --> VETO{"Does one of the material's own printed<br/>measurements bound this column<br/>and meet the requirement?"}
+
+    subgraph OUTC["The verdict · what the evidence says, whatever mode you are in"]
+        direction LR
+        PASS["PASS"]
+        FAILV["FAIL"]
+        INDT["INDETERMINATE<br/>a published range straddles it"]
+        BRKT["INDETERMINATE<br/>the load was never stated, so the value<br/>is read as a bracket, which may screen"]
+        NAPP["UNKNOWN · n/a<br/>the property does not apply,<br/>and may screen in Explore"]
+        UNK1["UNKNOWN<br/>not published in any registered source"]
+        UNK2["UNKNOWN<br/>the estimate is shown and decides nothing"]
+        UNK3["UNKNOWN<br/>its own measurement vetoes the screen"]
+        SCRD["UNKNOWN · SCREENED<br/>removed in Explore; the chip brings it back"]
+    end
+
+    CMPV -- "the value meets it" --> PASS
+    CMPV -- "the value misses it" --> FAILV
+    CMPV -- "a range straddles it" --> INDT
+    COMPLETE -- "no" --> BRKT
+    APPL -- "no" --> NAPP
+    ESTQ -- "no" --> UNK1
+    SCRQ -- "no" --> UNK2
+    VETO -- "yes" --> UNK3
+    VETO -- "no" --> SCRD
+
+    OUTC --> MODE{"Which mode are you in?"}
+    MODE -- "Confirmed only:<br/>only a PASS on every requirement" --> KEEP(["On your short list"])
+    MODE -- "Include uncertain:<br/>anything that did not FAIL<br/>and was not screened" --> KEEP
+    MODE -- "otherwise" --> DROP(["Not a candidate · the Why excluded tab<br/>names the requirement that removed it"])
+
+    classDef good fill:#e8f5ea,stroke:#3f8b58,color:#123020
+    classDef bad fill:#fae6e6,stroke:#a83232,color:#3d1111
+    classDef grey fill:#eef2f4,stroke:#54646e,color:#1d282e
+    classDef ask fill:#fdf2e0,stroke:#c2891c,color:#3b2a08
+
+    class PASS,KEEP good
+    class FAILV,DROP bad
+    class INDT,BRKT,NAPP,UNK1,UNK2,UNK3,SCRD grey
+    class HASV,COMPLETE,CMPV,APPL,ESTQ,SCRQ,VETO,MODE ask
+```
 
 The "Why excluded" tab lists which requirement removed how many materials, so you can see which of your requirements
 is doing the work.
