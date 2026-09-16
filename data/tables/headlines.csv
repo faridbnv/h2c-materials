@@ -302,7 +302,7 @@ M084,density,V001509,value
 M084,tensileModulusXY,V001511,value
 M084,elongationXY,V001512,value
 M084,hdt045,V001515,value
-M085,density,V001516,value
+M085,density,V002277,value
 M086,density,V001683,value
 M087,density,V002018,value
 M087,tensileModulusXY,V002023,value
@@ -372,3 +372,7 @@ M103,hdt045,V002232,value
 M038,density,V001829,value
 M038,tensileModulusXY,V001839,value
 M038,hdt045,V001831,value
+M085,tensileModulusXY,V002280,value
+M085,tensileStrengthXY,V002278,value
+M085,elongationXY,V002279,value
+M085,hdt045,V002283,value

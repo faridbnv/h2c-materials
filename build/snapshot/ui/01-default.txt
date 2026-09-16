@@ -26,8 +26,8 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 98 materials, 92 of them in H2C scope
-2180 measurements, each traceable to a source
-92 have a density, 73 a modulus, 38 a Canadian price
+2193 measurements, each traceable to a source
+92 have a density, 74 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -89,7 +89,7 @@ Nylon / Polyamide
  not tested 1,230 7.8 82* 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- not tested 1,250 3.4* 78* — 90* 163↗ ☆
+ not tested 1,250 3.4* 78* 1.9* 90* 163↗ ☆
 PA6-CF
 Nylon / Polyamide
  not tested 1,090 4.43 102 5.8 186 110↗ ☆
@@ -143,7 +143,7 @@ Copolyesters
  not tested 1,230 1.75 45* 24 76 48↗ ☆
 PE
 Polyolefins
- not tested 1,100 0.752* 18.5* 208* 66* — ☆
+ not tested 954 0.752 18.5 208 66 — ☆
 PEBA
 Flexible Elastomers
  not tested 1,010 0.1* 16.5* 520 n/a — ☆

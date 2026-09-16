@@ -13,15 +13,15 @@ Database snapshot 2026-09-13 · build 2026-09-16
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 6 |
-| grades | 164 |
-| measurements | 2180 |
-| numericMeasurements | 2020 |
+| grades | 165 |
+| measurements | 2193 |
+| numericMeasurements | 2033 |
 | quarantined | 4 |
 | profiles | 172 |
 | evidence | 462 |
 | prices | 104 |
-| sources | 253 |
-| coverage | 1209 |
+| sources | 254 |
+| coverage | 1211 |
 
 ## Headline coverage
 
@@ -30,10 +30,10 @@ What a selection criterion can actually decide, out of 103 canonical materials.
 | Headline | Materials with a value |
 |---|---:|
 | density | 92 |
-| tensileModulusXY | 73 |
-| tensileStrengthXY | 58 |
-| elongationXY | 74 |
-| hdt045 | 67 |
+| tensileModulusXY | 74 |
+| tensileStrengthXY | 59 |
+| elongationXY | 75 |
+| hdt045 | 68 |
 | priceCADkg | 38 |
 
 ## H2C envelope gate
@@ -97,36 +97,36 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 132 | 86 | 80% | 95% | ×1.14 | 0.0371 (43 pairs) |
-| tensileModulusXY | 276 | 68 | 81% | 96% | ×1.59 | 0.156 (12 pairs) |
-| tensileStrengthXY | 224 | 53 | 81% | 96% | ×1.61 | 0.194 (15 pairs) |
-| elongationXY | 193 | 69 | 80% | 96% | ×2.67 | 0.6 (14 pairs) |
-| hdt045 | 177 | 59 | 81% | 97% | 9.88 °C | 8.39 (19 pairs) |
+| density | 133 | 86 | 80% | 95% | ×1.14 | 0.0371 (44 pairs) |
+| tensileModulusXY | 278 | 69 | 81% | 96% | ×1.58 | 0.156 (12 pairs) |
+| tensileStrengthXY | 226 | 54 | 80% | 96% | ×1.61 | 0.194 (15 pairs) |
+| elongationXY | 194 | 70 | 80% | 96% | ×2.65 | 0.6 (14 pairs) |
+| hdt045 | 178 | 59 | 81% | 97% | 9.88 °C | 8.39 (19 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 6 | 1 | 3 | 2 | 0 | 0 | 6 |
-| tensileModulusXY | 24 | 13 | 3 | 3 | 5 | 0 | 19 |
-| tensileStrengthXY | 39 | 27 | 5 | 2 | 5 | 0 | 30 |
-| elongationXY | 23 | 10 | 5 | 3 | 5 | 0 | 18 |
-| hdt045 | 30 | 9 | 6 | 2 | 13 | 0 | 17 |
+| tensileModulusXY | 23 | 12 | 3 | 3 | 5 | 0 | 18 |
+| tensileStrengthXY | 38 | 26 | 5 | 2 | 5 | 0 | 29 |
+| elongationXY | 22 | 9 | 5 | 3 | 5 | 0 | 17 |
+| hdt045 | 29 | 9 | 5 | 2 | 13 | 0 | 16 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
 
 | Headline | Class | Held | Top: beyond plausible | Top taken at | Bottom: beyond plausible | Bottom taken at |
 |---|---|---:|---:|---:|---:|---:|
 | density | this-grade | 0 | 0 | cannot screen | 0 | cannot screen |
-| density | this-material | 28 | 1 | 99.01% point | 0 | 2.5% point |
+| density | this-material | 29 | 1 | 99% point | 0 | 2.5% point |
 | density | family | 86 | 2 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-grade | 65 | 4 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-material | 22 | 1 | 99.32% point | 2 | 1.74% point |
-| tensileModulusXY | family | 68 | 1 | 97.5% point | 1 | 2.5% point |
-| tensileStrengthXY | this-grade | 52 | 2 | 97.5% point | 1 | 2.5% point |
-| tensileStrengthXY | this-material | 11 | 0 | cannot screen | 0 | cannot screen |
-| tensileStrengthXY | family | 53 | 0 | 97.5% point | 1 | 2.5% point |
+| tensileModulusXY | this-grade | 66 | 4 | 97.5% point | 0 | 2.5% point |
+| tensileModulusXY | this-material | 23 | 1 | 98.81% point | 3 | 0.86% point |
+| tensileModulusXY | family | 69 | 1 | 97.5% point | 2 | 2.5% point |
+| tensileStrengthXY | this-grade | 52 | 1 | 97.5% point | 1 | 2.5% point |
+| tensileStrengthXY | this-material | 12 | 0 | cannot screen | 0 | cannot screen |
+| tensileStrengthXY | family | 54 | 0 | 97.5% point | 2 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 23 | 2 | 99.9% point | 1 | cannot screen |
-| elongationXY | family | 69 | 1 | 97.5% point | 1 | 2.5% point |
+| elongationXY | this-material | 24 | 2 | 99.83% point | 1 | 0% point |
+| elongationXY | family | 70 | 2 | 97.5% point | 0 | 2.5% point |
 | hdt045 | this-grade | 51 | 2 | 97.55% point | 0 | 2.5% point |
 | hdt045 | this-material | 18 | 0 | cannot screen | 2 | cannot screen |
 | hdt045 | family | 59 | 1 | 97.5% point | 1 | 2.5% point |
@@ -150,9 +150,8 @@ Evidence that contradicts everything else and was down-weighted:
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
 - PVDF, density: 1710 kg/m³, expected about 1200
-- TPU, elongationXY: 330.1 %, expected about 575
-- PC-ABS, elongationXY: 75 %, expected about 7.41
-- PPS, hdt045: 90 °C, expected about 175
+- TPU, elongationXY: 330.1 %, expected about 573
+- PPS, hdt045: 90 °C, expected about 172
 
 ## Consistency
 
@@ -160,7 +159,7 @@ Every one of the 103 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade, and the representative grade is one of them;
-- every headline cites a measurement of its own material and of the representative grade (364 checked);
+- every headline cites a measurement of its own material and of the representative grade (368 checked);
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
@@ -175,8 +174,8 @@ Every one of the 103 materials was checked, and any failure below stops the buil
 These are not defects. They record what the compiled database cannot support, so the
 interface can say so rather than implying a certainty it does not have.
 
-- `HDT-LOAD-UNSTATED` **materials** — 7 of 67 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
+- `HDT-LOAD-UNSTATED` **materials** — 7 of 68 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
-- `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: PVDF density 1710 (expected about 1200); TPU elongationXY 330.1 (expected about 575); PC-ABS elongationXY 75 (expected about 7.41); PPS hdt045 90 (expected about 175)
-- `EST-WIDE` **materials** — 12 estimates are too imprecise to guide a choice: TPU for AMS tensileModulusXY 0.0213-0.126 GPa (plausible 0.0156-0.172, this-grade); PEBA tensileModulusXY 0.0378-0.141 GPa (plausible 0.03-0.177, this-grade); TPC / TPEE tensileModulusXY 0.00956-0.0561 GPa (plausible 0.00699-0.0768, this-grade); PA6 tensileModulusXY 2.52-6.79 GPa (plausible 2.11-8.09, this-grade); PA6 elongationXY 4.5-31.5 % (plausible 2.81-50.4, this-grade); PA66-CF tensileModulusXY 3.64-9.61 GPa (plausible 3.07-11.4, family); PA612-GF tensileModulusXY 2.98-7.47 GPa (plausible 2.53-8.79, family); PA-ESD elongationXY 2.42-13.5 % (plausible 1.59-20.5, this-grade); OBC tensileModulusXY 0.01-0.226 GPa (plausible 0.00578-0.391, family); CPE elongationXY 21.2-107 % (plausible 14.3-158, this-grade); CPE-CF elongationXY 5.09-25.8 % (plausible 3.44-38.2, this-grade); CoPE elongationXY 4.19-42.3 % (plausible 2.39-73.9, family)
+- `EST-OUTLIER` **materials** — 3 measured headlines sit far outside what every other observation predicts; check the source and the grade: PVDF density 1710 (expected about 1200); TPU elongationXY 330.1 (expected about 573); PPS hdt045 90 (expected about 172)
+- `EST-WIDE` **materials** — 10 estimates are too imprecise to guide a choice: TPU for AMS tensileModulusXY 0.0213-0.126 GPa (plausible 0.0153-0.175, this-grade); PEBA tensileModulusXY 0.0379-0.14 GPa (plausible 0.0296-0.179, this-grade); TPC / TPEE tensileModulusXY 0.00957-0.0561 GPa (plausible 0.00688-0.078, this-grade); PA6 tensileModulusXY 2.8-7.38 GPa (plausible 2.34-8.84, this-grade); PA6 elongationXY 4.14-28.4 % (plausible 1.68-69.9, this-grade); PA66-CF tensileModulusXY 3.64-9.57 GPa (plausible 3.04-11.5, family); PA612-GF tensileModulusXY 2.96-7.43 GPa (plausible 2.5-8.82, family); PA-ESD elongationXY 2.39-13.2 % (plausible 1.07-29.2, this-grade); OBC tensileModulusXY 0.01-0.226 GPa (plausible 0.00564-0.403, family); CoPE elongationXY 4.22-41.8 % (plausible 1.44-123, family)
 - `EST-FAMILY-ORDER` **materials** — 1 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865

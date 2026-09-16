@@ -1,7 +1,7 @@
-COUNT 6 shown PASS
-STATUS ☑ PASS 6 | ☐ UNKNOWN 17 | ☐ FAIL 75
-6 of the 98 materials in this database meet these requirements
-17 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+COUNT 7 shown PASS
+STATUS ☑ PASS 7 | ☐ UNKNOWN 16 | ☐ FAIL 75
+7 of the 98 materials in this database meet these requirements
+16 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -28,6 +28,9 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+PE
+Polyolefins
+ PASS 954 0.752 18.5 208 66 — ☆
 PEBA
 Flexible Elastomers
  PASS 1,010 0.1* 16.5* 520 n/a — ☆

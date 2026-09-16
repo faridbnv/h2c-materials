@@ -1,7 +1,7 @@
-COUNT 34 shown PASS + UNKNOWN
-STATUS ☑ PASS 22 | ☑ UNKNOWN 16 | ☐ FAIL 60 | ☐ SCREENED 4
-22 of the 98 materials in this database meet these requirements, and 16 more could not be checked for missing data
-Include uncertain lists those 16 flagged, except the 4 an estimate screened out; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
+COUNT 33 shown PASS + UNKNOWN
+STATUS ☑ PASS 22 | ☑ UNKNOWN 15 | ☐ FAIL 61 | ☐ SCREENED 4
+22 of the 98 materials in this database meet these requirements, and 15 more could not be checked for missing data
+Include uncertain lists those 15 flagged, except the 4 an estimate screened out; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -37,16 +37,16 @@ ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
 ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
 CPE
 Copolyesters
- UNKNOWN 1,250 ~1.1–2.8† ~41–66† ~21–107† 80 — ☆
+ UNKNOWN 1,250 ~1.1–2.8† ~41–66† ~21–105† 80 — ☆
 CPE-CF
 Copolyesters
  UNKNOWN 1,160 ~1.7–4.3† ~41–70† ~5–26† ~60–93† no price↗ ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~3.8–8.6† ~54–97† ~2–14† 142 — ☆
+ UNKNOWN 1,140 ~3.8–8.6† ~53–96† ~2–14† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.2–2.8† ~51–83† ~31–68† ~87–112† — ☆
+ UNKNOWN ~990–1,070† ~1.2–2.8† ~51–85† ~31–66† ~87–112† — ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 ~75–93† 2.1 150 — ☆
@@ -55,7 +55,7 @@ Nylon / Polyamide
  PASS 1,230 7.8 ~83–101† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.5–6.8† ~53–117† ~4–32† ~96–145† 163↗ ☆
+ UNKNOWN 1,250 ~2.8–7.4† ~53–120† ~4–29† ~95–145† 163↗ ☆
 PA6-CF
 Nylon / Polyamide
  PASS 1,090 4.43 102 5.8 186 110↗ ☆
@@ -64,7 +64,7 @@ Nylon / Polyamide
  PASS 1,140 2.85 75 3.9 182 77↗ ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~1,000–1,080† ~1.2–2.7† ~41–65† ~8–27† ~84–128† — ☆
+ UNKNOWN ~1,000–1,080† ~1.3–2.7† ~43–68† ~8–25† ~83–126† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14 91.9 2.6 175 — ☆
@@ -73,22 +73,19 @@ Nylon / Polyamide
  PASS 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,190† ~2.9–7.5† ~60–100† ~2.2–7.4† ~168–210† — ☆
+ UNKNOWN ~1,070–1,190† ~2.9–7.5† ~59–100† ~2.2–7.4† ~168–210† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,060–1,150† ~1.5–3.1† ~41–68† ~8–36† ~107–159† — ☆
+ UNKNOWN ~1,060–1,150† ~1.5–3.2† ~42–70† ~7–32† ~106–158† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~3.6–9.7† ~72–123† ~2.4–11.0† ~212–257† — ☆
+ UNKNOWN ~1,070–1,170† ~3.6–9.6† ~70–121† ~2.4–10.7† ~213–258† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
 PC-GF
 Polycarbonate
  PASS 1,176 2.67 36.1 2.4 134 — ☆
-PE
-Polyolefins
- UNKNOWN 1,100 ~1.8–4.4† ~24–54† ~210–340† ~56–115† — ☆
 PETG Basic PASS 1,250 2.78 51 9.5 71 25↗ ☆
 PLA PASS 1,240 2.87 ~56–68† 8 ~52.8–62.3† — ☆
 PLA Basic PASS 1,240 2.58≈ 35 12.2 57 28↗ ☆
@@ -110,4 +107,4 @@ High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆
 PVB
 PVB / Specialty Polymers
- UNKNOWN 1,100 ~1.4–2.9† ~53–74† ~15–48† 63 — ☆
+ UNKNOWN 1,100 ~1.4–2.9† ~53–74† ~15–46† 63 — ☆
