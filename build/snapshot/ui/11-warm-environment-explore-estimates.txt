@@ -1,7 +1,7 @@
 COUNT 44 shown PASS + UNKNOWN
 STATUS ☑ PASS 22 | ☑ UNKNOWN 35 | ☐ FAIL 41 | ☐ SCREENED 13
 22 of the 98 materials in this database meet these requirements, and 35 more could not be checked for missing data
-Include uncertain lists those 35 flagged, except the 13 an estimate screened out; the SCREENED chip at the bottom shows them. From the Warm environment template. Click any criterion to remove it.
+Include uncertain lists those 35 flagged, except the 13 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.

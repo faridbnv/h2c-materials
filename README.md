@@ -69,6 +69,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 data/tables/                            the source of truth: one CSV per table, canonical form
 data/tables/properties.csv              the property registry; headline_definitions.csv the headlines
 data/tables/polymers.csv                what the estimate model knows about each polymer, with provenance
+data/tables/polymer_environment.csv     a base polymer's published behaviour in chemicals and exposure; shown, may screen, never passes (D64)
 data/manifest.json                      row count and SHA-256 of every table
 data/review/accepted-findings.csv       every lint or build finding a reviewer accepted, with the reason
 schema/tables/  schema/vocab/           the declared contract for every table, and its vocabularies

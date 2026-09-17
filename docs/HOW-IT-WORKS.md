@@ -49,7 +49,7 @@ flowchart TB
         REC["Records<br/>materials · grades · measurements<br/>profiles · evidence · prices"]
         SEL["Editorial choices<br/>headlines: the one measurement a column shows<br/>material_links: what a material cites"]
         REGI["Registry and physics<br/>properties · headline_definitions<br/>polymers · method"]
-        CTX["Context<br/>coverage · fatigue_tests · chamber_bands<br/>family_entries · family_members · reference"]
+        CTX["Context<br/>coverage · fatigue_tests · chamber_bands · polymer_environment<br/>family_entries · family_members · reference"]
     end
     TRAN --> REC
     TRAN --> SEL

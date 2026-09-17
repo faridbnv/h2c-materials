@@ -13,6 +13,18 @@ import { describeConstraint, POLICY_CONTROL, POLICY_LABELS } from './labels.js';
 // different code path. There is now one description, in labels.js, and everything uses it.
 const nameOf = describeConstraint;
 
+/**
+ * How many of a requirement's unchecked materials a screen held out, and by what: an estimate, or the base polymer's
+ * published behaviour (D64), which the engine counts apart so the panel can say which.
+ */
+function screenedClause(r) {
+  const byPolymer = r.screenedByPolymer ?? 0;
+  const byEstimate = r.screened - byPolymer;
+  if (!byPolymer) return `${r.screened} of them screened by an estimate`;
+  if (!byEstimate) return `${byPolymer} of them screened by the base polymer's published behaviour`;
+  return `${r.screened} of them screened: ${byEstimate} by an estimate, ${byPolymer} by the base polymer's published behaviour`;
+}
+
 export function renderExclusions(host, state, actions) {
   const { db, scenario, ctx } = state;
   if (!scenario.constraints.length) {
@@ -45,7 +57,7 @@ export function renderExclusions(host, state, actions) {
         <div>
           <div class="crit">${esc(nameOf(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">preference</span>' : ''}</div>
           <div class="why" style="font-size:12px;color:var(--ink-2)">
-            failed ${r.removed} · could not check ${r.held}${r.screened ? ` (${r.screened} of them screened by an estimate)` : ''} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
+            failed ${r.removed} · could not check ${r.held}${r.screened ? ` (${screenedClause(r)})` : ''} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
           <div class="bar" style="width:${(r.removed / max) * 100}%"></div>
           <div class="held" style="width:${(r.held / max) * 100}%"></div>
         </div>
@@ -72,7 +84,9 @@ export function renderWhy(evaluation) {
         <div class="why">${esc(r.reason)}${r.measurementId
           // The measurement a result rests on, labelled and one press away (wireEvidence opens it), where a bare code had
           // named it and led nowhere.
-          ? ` · measurement <button type="button" class="link-btn" data-measurement="${esc(r.measurementId)}" title="Opens the measurement behind this result">${esc(r.measurementId)}</button>` : ''}${r.gradeId ? ` · grade ${esc(r.gradeId)}` : ''}</div>
+          ? ` · measurement <button type="button" class="link-btn" data-measurement="${esc(r.measurementId)}" title="Opens the measurement behind this result">${esc(r.measurementId)}</button>` : ''}${r.gradeId ? ` · grade ${esc(r.gradeId)}` : ''}${r.polymer
+          // A result that rests on the base polymer's published behaviour says so, and where its rows are (D64).
+          ? ` · from the base polymer ${esc(r.polymerId)}, shown on the Environment tab` : ''}</div>
       </div>
     </div>`).join('');
 }

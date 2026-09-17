@@ -18,7 +18,7 @@ const KEYS = ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY'
 
 function context() {
   const group = (list) => { const m = new Map(); for (const x of list) { if (!m.has(x.materialId)) m.set(x.materialId, []); m.get(x.materialId).push(x); } return m; };
-  return { db, evidenceByMaterial: group(db.evidence), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
+  return { db, evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
 }
 
 test('structural invariants hold over random multi-requirement scenarios', () => {

@@ -203,15 +203,20 @@ function body(group, materials, cs, db) {
 
     for (const [key, v] of verdict.sort((a, b) => b[1].usable - a[1].usable)) {
       const on = !!find(cs, (c) => c.kind === 'environment' && c.category === key);
+      // Materials covered only by their base polymer's published behaviour are counted apart: shown, never passing (D64).
+      const polymer = v.polymerMaterials ? `<span class="caveat">${v.polymerMaterials} more from the base polymer, shown but never passing</span>` : '';
       out.push(`<div class="control" data-active="${on}">
         <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> Resists ${esc(envNoun(key))}</label>
-        <div class="avail">${v.usable} records state a verdict, across ${v.materials} materials</div>
+        <div class="avail">${v.usable} records state a verdict, across ${v.materials} materials${polymer}</div>
       </div>`);
     }
     if (verdict.length) {
+      const anyPolymer = verdict.some(([, v]) => v.polymerMaterials);
       out.push(`<div class="eg">A pass means a source reported resistance to the exposures it tested,
         not to every chemical in the class. "Limited resistance" counts as unresolved. Open the
-        material's Environment tab for the exact agent and conditions.</div>`);
+        material's Environment tab for the exact agent and conditions.${anyPolymer ? ` Where a material has no record of its
+        own, its base polymer's published behaviour is shown there too: it never passes, and with "Use estimates and polymer
+        data" on, a polymer the reference reports attacked or dissolved screens the material out.` : ''}</div>`);
     }
     if (indicator.length) {
       out.push(`<div class="note"><strong>Evidence only, not filters.</strong>

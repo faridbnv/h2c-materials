@@ -24,6 +24,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
+| [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
 | [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. |
@@ -269,6 +270,23 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Section | canonical | string | yes |  | [method-sections](#vocab-method-sections) | Method section. |
 | Topic | key | string | yes |  | `^.+$` | Rule topic; unique. |
 | Definition / rule | prose | string | yes |  |  | The rule. |
+
+### polymer_environment
+
+`data/tables/polymer_environment.csv` (Polymer environment). The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64).
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| PolymerEnvironmentID | key | string | yes |  | `^PB\d{5}$` | Stable identifier (PB#####; npm run data:new-id -- polymer_environment). |
+| PolymerID | canonical | string | yes |  | → polymers.PolymerID | The base polymer the behaviour is published for: a polymers.csv identity that materials name as their Estimate identity. |
+| Category | canonical | string | yes |  | [environment-categories](#vocab-environment-categories) | The environment category (schema/vocab/environment-categories.csv). Only a filterable category other than fatigue and creep may be used; the build refuses the rest (POLYMER-ENV-CATEGORY). |
+| Agent | raw | string | yes |  |  | The chemical or exposure the reference names, as it names it (acetone; 10 % sulphuric acid; boiling water). |
+| Conditions | raw | string | yes | Not published |  | Concentration, temperature and duration as the reference states them, or Not published. |
+| Verdict | canonical | string | yes |  | [polymer-verdicts](#vocab-polymer-verdicts) | The reference's finding reduced to one of schema/vocab/polymer-verdicts.csv; its Screens column says which verdicts may screen a material out. |
+| Finding | raw | string | yes |  |  | The finding in the reference's own words. |
+| SourceID | canonical | string | yes |  | → sources.SourceID | The reference it is read from: a retrieved source in sources.csv (POLYMER-ENV-REFERENCE). |
+| Locator | raw | string | yes |  |  | Where in the source: page, table or section. |
+| Notes | prose | string | yes | Not applicable |  | Anything a reader needs to weigh the row (a grade-dependent remark, a caveat the reference makes), or Not applicable. |
 
 ### polymers
 
@@ -556,7 +574,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-environment-categories"></a>
 ### environment-categories
 
-`schema/vocab/environment-categories.csv`.
+`schema/vocab/environment-categories.csv`, used by polymer_environment.Category.
 
 | Value | Meaning | Noun | Filterable |
 |---|---|---|---|
@@ -707,6 +725,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Value | Meaning |
 |---|---|
 | Manufacturer statement |  |
+| Polymer-level reference | Written by the build, never by hand: the base polymer's published behaviour (polymer_environment.csv) attached to a material with no grade-level record in the category. Inferred; it may screen and never passes (D64). |
 | Published observation |  |
 | Retired duplicate record |  |
 | Selection interpretation |  |
@@ -920,6 +939,20 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|
 | Refill |  |
 | Spool |  |
+
+<a id="vocab-polymer-verdicts"></a>
+### polymer-verdicts
+
+`schema/vocab/polymer-verdicts.csv`, used by polymer_environment.Verdict.
+
+| Value | Meaning | Screens |
+|---|---|---|
+| resistant | The reference reports the neat polymer resistant to the agent under the stated conditions. | FALSE |
+| limited | The reference reports limited or conditional resistance: swelling or attack under some conditions. | FALSE |
+| not-resistant | The reference reports the neat polymer attacked or degraded by the agent. | TRUE |
+| soluble | The reference reports the neat polymer dissolved by the agent (water for a support material). | TRUE |
+| absorbs | The reference reports the neat polymer absorbing the agent (moisture uptake) without stating attack. | FALSE |
+| stabilised-required | The reference reports resistance only with a stabiliser or additive the neat polymer does not carry. | FALSE |
 
 <a id="vocab-post-processing"></a>
 ### post-processing

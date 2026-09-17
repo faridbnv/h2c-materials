@@ -20,8 +20,10 @@ Database snapshot 2026-09-13 · build 2026-09-16
 | profiles | 172 |
 | evidence | 462 |
 | prices | 104 |
-| sources | 254 |
+| sources | 280 |
 | coverage | 1211 |
+| polymerEnvironment | 353 |
+| polymerEvidence | 223 |
 
 ## Headline coverage
 
@@ -72,20 +74,38 @@ A verdict category has findings that reduce to resistant, limited or not resista
 can answer a pass/fail question. An indicator category has records but no reducible verdict
 among them, so it can only show evidence and must never be offered as a hard constraint.
 
-| Category | Kind | Records | With a verdict | Materials |
-|---|---|---:|---:|---:|
-| alkali | verdict | 63 | 61 | 50 |
-| acid | verdict | 67 | 59 | 51 |
-| organic-solvent | verdict | 63 | 45 | 53 |
-| oil-grease | verdict | 57 | 45 | 52 |
-| water-solubility | verdict | 42 | 41 | 41 |
-| flammability | verdict | 41 | 36 | 41 |
-| food-contact | indicator | 2 | 0 | 2 |
-| uv-outdoor | indicator | 7 | 0 | 6 |
-| moisture | indicator | 7 | 0 | 7 |
-| creep | indicator | 2 | 0 | 2 |
-| fatigue | indicator | 5 | 0 | 5 |
-| hydrolysis | indicator | 4 | 0 | 4 |
+| Category | Kind | Records | With a verdict | Materials | From the base polymer |
+|---|---|---:|---:|---:|---:|
+| alkali | verdict | 63 | 61 | 50 | 32 |
+| acid | verdict | 67 | 59 | 51 | 32 |
+| organic-solvent | verdict | 63 | 45 | 53 | 33 |
+| oil-grease | verdict | 57 | 45 | 52 | 30 |
+| water-solubility | verdict | 42 | 41 | 41 | 21 |
+| flammability | verdict | 41 | 36 | 41 | 10 |
+| food-contact | indicator | 2 | 0 | 2 | 0 |
+| uv-outdoor | verdict | 7 | 0 | 6 | 15 |
+| moisture | verdict | 7 | 0 | 7 | 21 |
+| creep | indicator | 2 | 0 | 2 | 0 |
+| fatigue | indicator | 5 | 0 | 5 | 0 |
+| hydrolysis | verdict | 4 | 0 | 4 | 29 |
+
+## Polymer-level behaviour
+
+353 rows of published base-polymer behaviour, attached as 223 inferred records to 67 materials
+with no grade-level record in the category (D64). A record is shown in the drawer, counted apart in the filter rail, may screen a
+material out under inference where the polymer is attacked or dissolved, and never passes a requirement.
+
+| Category | Polymers | Agent rows | Materials covered | Of which may screen |
+|---|---:|---:|---:|---:|
+| acid | 21 | 94 | 32 | 8 |
+| alkali | 20 | 43 | 32 | 5 |
+| flammability | 4 | 4 | 10 | 8 |
+| hydrolysis | 12 | 19 | 29 | 7 |
+| moisture | 2 | 2 | 21 | 0 |
+| oil-grease | 20 | 78 | 30 | 0 |
+| organic-solvent | 23 | 87 | 33 | 7 |
+| uv-outdoor | 8 | 8 | 15 | 1 |
+| water-solubility | 15 | 18 | 21 | 1 |
 
 ## Estimates
 
@@ -163,6 +183,7 @@ Every one of the 103 materials was checked, and any failure below stops the buil
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
+- a polymer-level record (D64) is attached only where the material has no record of its own in the category, and names its own Estimate identity;
 - no coverage row says Gap beside the material's own data or claims evidence it does not have, for mechanical, thermal, print setup, environmental and price, and a Grades row quotes the true manufacturer count.
 
 ## Reference layer

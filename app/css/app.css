@@ -655,13 +655,15 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
   .topbar .mode-group { order: 4; }
   .topbar .mode-label { font-size: 10.5px; }
   .topbar .mode-group .segmented button { padding: 5px 7px; font-size: 12.5px; white-space: nowrap; }
-  /* Use estimates with its ? and its note under it, so the pair fits beside the mode buttons on one row. */
+  /* The inference switch with its ? and its note under it, so the pair fits beside the mode buttons on one row. Its
+     label, "Use estimates and polymer data", wraps inside its own box on a phone rather than push the switch to a
+     third row (D62): the group takes what is left of the row, and the mode group beside it is two lines tall anyway. */
   .topbar .est-group {
     order: 5; display: grid; grid-template-columns: 24px auto; grid-template-areas: "toggle toggle" "info note";
-    align-items: center; gap: 2px 6px;
+    align-items: center; gap: 2px 6px; flex: 1 1 120px; min-width: 0;
   }
   .topbar .est-line { display: contents; }
-  .topbar .est-toggle { grid-area: toggle; gap: 5px; padding: 2px 6px; }
+  .topbar .est-toggle { grid-area: toggle; gap: 5px; padding: 2px 6px; white-space: normal; line-height: 1.2; justify-self: start; }
   .topbar .est-group .info-mark { grid-area: info; }
   .topbar .est-reason, .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
   .meta-chip { order: 6; }

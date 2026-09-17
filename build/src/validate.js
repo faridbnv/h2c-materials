@@ -25,6 +25,7 @@ export function validate(db, wb) {
     ['materials', db.materials], ['grades', db.grades], ['measurements', db.measurements],
     ['profiles', db.profiles], ['evidence', db.evidence], ['prices', db.prices],
     ['sources', db.sources], ['coverage', db.coverage],
+    ['polymerEnvironment', db.polymerEnvironment ?? []], ['polymerEvidence', db.polymerEvidence ?? []],
   ]) {
     const seen = new Set();
     for (const r of rows) {
@@ -78,6 +79,12 @@ export function validate(db, wb) {
   const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
   const profileById = new Map(db.profiles.map((p) => [p.id, p]));
   const evidenceById = new Map(db.evidence.map((e) => [e.id, e]));
+  const polymerEvidenceById = new Map((db.polymerEvidence ?? []).map((e) => [e.id, e]));
+  const polymerRowById = new Map((db.polymerEnvironment ?? []).map((r) => [r.id, r]));
+  for (const p of db.polymerEvidence ?? []) {
+    if (!M.has(p.materialId)) issues.push(err('REF-UNKNOWN', `polymerEvidence ${p.id}`, `materialId "${p.materialId}" is not a known MaterialID`));
+    else if (!db.materials.find((m) => m.id === p.materialId).evidenceIds.polymer?.includes(p.id)) issues.push(err('POLYMER-ENV-PRECEDENCE', `polymerEvidence ${p.id}`, `${p.materialId} does not cite it`));
+  }
   for (const [rows, name] of [[db.measurements, 'measurements'], [db.profiles, 'profiles'], [db.prices, 'prices'], [db.evidence, 'evidence']]) {
     for (const r of rows) {
       const g = gradeById.get(r.gradeId);
@@ -147,7 +154,23 @@ export function validate(db, wb) {
     // the environmental column may cite only this material's own exposure, solubility and moisture
     // records, because it is the one a reader takes as evidence about this grade.
     for (const [kind, list] of Object.entries(mat.evidenceIds)) {
+      if (kind === 'polymer') continue; // inferred records, checked below against db.polymerEvidence
       for (const id of list) if (!evidenceById.get(id)) issues.push(err('LINK-CITATION', where, `${kind} evidence cites ${id}, which does not exist`));
+    }
+    // Polymer-level records (D64): each cited one exists, is this material's, names its Estimate identity, and sits
+    // in a category where the material has no record of its own. Grade-level evidence always takes precedence.
+    const ownCategories = new Set(db.evidence.filter((e) => e.materialId === mat.id && e.category).map((e) => e.category));
+    for (const id of mat.evidenceIds.polymer ?? []) {
+      const p = polymerEvidenceById.get(id);
+      if (!p) { issues.push(err('POLYMER-ENV-PRECEDENCE', where, `polymer evidence cites ${id}, which does not exist`)); continue; }
+      if (p.materialId !== mat.id) issues.push(err('POLYMER-ENV-PRECEDENCE', where, `polymer evidence cites ${id}, a record of ${p.materialId}`));
+      if (p.polymerId !== mat.estimateIdentity) issues.push(err('POLYMER-ENV-PRECEDENCE', where, `polymer evidence ${id} is for ${p.polymerId}, not its Estimate identity ${mat.estimateIdentity}`));
+      if (ownCategories.has(p.category)) issues.push(err('POLYMER-ENV-PRECEDENCE', where, `polymer evidence ${id} sits beside the material's own ${p.category} record(s); grade-level evidence takes precedence`));
+      for (const a of p.agents) {
+        const row = polymerRowById.get(a.id);
+        if (!row) issues.push(err('POLYMER-ENV-PRECEDENCE', where, `polymer evidence ${id} cites row ${a.id}, which does not exist`));
+        else if (row.polymerId !== p.polymerId || row.category !== p.category) issues.push(err('POLYMER-ENV-PRECEDENCE', where, `polymer evidence ${id} cites row ${a.id}, which is about ${row.polymerId} ${row.category}`));
+      }
     }
     const ownEnvironment = db.evidence.filter((e) => e.materialId === mat.id && ENVIRONMENT_CATEGORIES.has(e.category)).map((e) => e.id).sort().join('; ');
     if ([...mat.evidenceIds.environmental].sort().join('; ') !== ownEnvironment) {
@@ -345,13 +368,14 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
   L.push('can answer a pass/fail question. An indicator category has records but no reducible verdict');
   L.push('among them, so it can only show evidence and must never be offered as a hard constraint.');
   L.push('');
-  L.push('| Category | Kind | Records | With a verdict | Materials |');
-  L.push('|---|---|---:|---:|---:|');
+  L.push('| Category | Kind | Records | With a verdict | Materials | From the base polymer |');
+  L.push('|---|---|---:|---:|---:|---:|');
   for (const [k, v] of Object.entries(db.meta.environmentCategories).sort((a, b) => b[1].usable - a[1].usable)) {
-    L.push(`| ${k} | ${v.kind} | ${v.records} | ${v.usable} | ${v.materials} |`);
+    L.push(`| ${k} | ${v.kind} | ${v.records} | ${v.usable} | ${v.materials} | ${v.polymerMaterials ?? 0} |`);
   }
   L.push('');
 
+  L.push(...(sections.polymerEnvironment ?? []));
   L.push(...(sections.estimates ?? []));
 
   L.push('## Consistency');
@@ -364,6 +388,7 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
   L.push('- every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;');
   L.push('- nozzle, bed and chamber guidance quote the profile the row cites;');
   L.push('- Environmental evidence cites exactly the material\'s own exposure, solubility and moisture records;');
+  L.push('- a polymer-level record (D64) is attached only where the material has no record of its own in the category, and names its own Estimate identity;');
   L.push('- no coverage row says Gap beside the material\'s own data or claims evidence it does not have, for mechanical, thermal, print setup, environmental and price, and a Grades row quotes the true manufacturer count.');
   L.push('');
 

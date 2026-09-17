@@ -146,6 +146,7 @@ const ID_FORMATS = {
   evidence: { prefix: 'Q', width: 5 },
   prices: { prefix: 'CA', width: 4 },
   coverage: { prefix: 'C', width: 5 },
+  polymer_environment: { prefix: 'PB', width: 5 },
 };
 
 export function nextId(name, ids, { materialId, study = false } = {}) {

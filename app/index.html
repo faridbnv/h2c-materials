@@ -27,20 +27,22 @@
       <span class="mode-label" id="mode-label"><span class="mode-label-long">Candidate confidence</span><span class="mode-label-short">Confidence</span></span>
       <div class="segmented" role="group" aria-labelledby="mode-label">
         <button id="mode-strict" aria-pressed="true" title="Show only materials confirmed to meet every requirement.">Confirmed only</button>
-        <button id="mode-explore" aria-pressed="false" title="Also show materials that may qualify but still need verification. Estimates can screen out clear mismatches.">Include uncertain</button>
+        <button id="mode-explore" aria-pressed="false" title="Also show materials that may qualify but still need verification. Estimates and a base polymer's published behaviour can screen out clear mismatches.">Include uncertain</button>
       </div>
     </div>
 
     <!-- Shown in both modes. Under Confirmed only it is disabled and says why beside it; it used to be hidden, so a
-         reader in the default mode never learned estimates exist. What an estimate is sits one press away. -->
+         reader in the default mode never learned estimates exist. What the switch governs sits one press away. One
+         switch governs all inference: estimates of missing numbers and a base polymer's published behaviour (D64). The
+         element ids and the scenario field keep their names, so links and the fuzz keep working. -->
     <div class="est-group">
       <div class="est-line">
         <label class="est-toggle" id="est-toggle">
-          <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Use estimates</span></label>
-        <button type="button" class="mark info-mark" aria-label="What estimates are" aria-haspopup="dialog" aria-expanded="false"
-          data-explain-head="Use estimates"
-          data-explain="Use estimates for missing values: a calibrated likely range built from the material's own related measurements and its polymer family. An estimate never passes a material. It screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement. Estimates are used only under Include uncertain; Confirmed only uses measured evidence alone."
-          title="Use estimates for missing values: a calibrated likely range built from the material's own related measurements and its polymer family. An estimate never passes a material. It screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement. Estimates are used only under Include uncertain; Confirmed only uses measured evidence alone.">?</button>
+          <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Use estimates and polymer data</span></label>
+        <button type="button" class="mark info-mark" aria-label="What estimates and polymer data are" aria-haspopup="dialog" aria-expanded="false"
+          data-explain-head="Use estimates and polymer data"
+          data-explain="Use inference where a material publishes nothing. An estimate is a calibrated likely range for a missing number, built from the material's own related measurements and its polymer family. Polymer data is the base polymer's published behaviour in chemicals and other exposure, from a resin producer's reference, used only where the material has no record of its own. Neither ever passes a material. An estimate screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement; polymer data screens one out only where the reference reports the polymer attacked or dissolved. Both are used only under Include uncertain; Confirmed only uses the material's own evidence alone."
+          title="Use inference where a material publishes nothing. An estimate is a calibrated likely range for a missing number, built from the material's own related measurements and its polymer family. Polymer data is the base polymer's published behaviour in chemicals and other exposure, from a resin producer's reference, used only where the material has no record of its own. Neither ever passes a material. An estimate screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement; polymer data screens one out only where the reference reports the polymer attacked or dissolved. Both are used only under Include uncertain; Confirmed only uses the material's own evidence alone.">?</button>
       </div>
       <span class="est-reason" id="est-reason">Only under Include uncertain</span>
       <span class="est-ruled" id="est-ruled" hidden></span>

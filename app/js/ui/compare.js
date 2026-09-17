@@ -199,7 +199,7 @@ export function renderCompare(host, state, actions) {
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
       <div><b>Requirements:</b> ${hard.length ? hard.map((c) => esc(describeConstraint(c))).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Tracked only:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
-      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? ', estimates on (they never pass a material and may screen one out)' : ''}.
+      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? ', estimates and polymer data on (they never pass a material and may screen one out)' : ''}.
         Database snapshot ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. Values are recorded for each material and may come from
         different grades; check the exact grade before you buy or print.</div>
     </div>`;

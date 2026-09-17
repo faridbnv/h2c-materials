@@ -337,7 +337,14 @@ function evaluateEnvironment(material, c, ctx) {
     };
   }
   const records = (ctx?.evidenceByMaterial?.get(material.id) ?? []).filter((e) => e.category === c.category);
-  if (!records.length) return { status: STATUS.UNKNOWN, criterion: label, reason: 'No evidence record for this material' };
+  if (!records.length) {
+    // No record of this material. Its base polymer's published behaviour, where the build attached it (D64), is
+    // inference about the neat resin, not a test of this grade: it never passes, and where the reference says the
+    // polymer is attacked or dissolved it screens the material out under inference, exactly as an estimate does.
+    const polymer = (ctx?.polymerEvidenceByMaterial?.get(material.id) ?? []).find((e) => e.category === c.category);
+    if (polymer) return evaluatePolymerLevel(polymer, label, ctx);
+    return { status: STATUS.UNKNOWN, criterion: label, reason: 'No evidence record for this material' };
+  }
 
   // Only an unqualified positive record satisfies "resists". A source that reports *limited*
   // resistance has said something weaker than the checkbox asks, and the old default accepted it
@@ -364,6 +371,28 @@ function evaluateEnvironment(material, c, ctx) {
     return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} record(s) report only limited resistance`, evidenceIds: ids(limited) };
   }
   return { status: STATUS.UNKNOWN, criterion: label, reason: 'Records exist but none state a verdict', evidenceIds: ids(records) };
+}
+
+/** A polymer-level verdict in words: "not resistant", "soluble". */
+const verdictWords = (v) => String(v).replace(/-/g, ' ');
+
+/**
+ * A material with no record of its own in the category, judged on its base polymer's published behaviour (D64). The
+ * verdict is always UNKNOWN and the reason names the polymer, what the reference says of it and the reference itself.
+ * A polymer the reference reports attacked or dissolved screens the material out under inference (`polymerScreen`
+ * says so, the way `estimated` marks an estimate), and the SCREENED chip brings it back.
+ */
+function evaluatePolymerLevel(polymer, label, ctx) {
+  const agents = polymer.agents.map((a) => `${verdictWords(a.verdict)} to ${a.agent}`).join(', ');
+  const refs = polymer.sourceIds.join(', ');
+  const basis = `No evidence record for this material. Its base polymer ${polymer.polymerId} is published as ${verdictWords(polymer.verdict)} (${agents}; ${refs}), the neat resin's behaviour and not a test of this grade, so never enough to pass`;
+  const common = { status: STATUS.UNKNOWN, criterion: label, polymer: true, polymerId: polymer.polymerId, polymerVerdict: polymer.verdict, polymerEvidenceIds: [polymer.id] };
+  if (!polymer.screens) return { ...common, reason: basis };
+  const screened = !!ctx?.useEstimates;
+  return {
+    ...common, polymerScreen: true, screened, vetoedBy: [],
+    reason: screened ? `${basis}. Screened out; not tested on this grade` : `${basis}. It would screen this material out with inference on`,
+  };
 }
 
 // ---------------------------------------------------------------- public API
@@ -433,6 +462,8 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     // The UI must show when an estimate was involved rather than let the reader assume a measurement.
     usesEstimate: results.some((r) => r.estimated),
+    // Likewise when a base polymer's published behaviour stood in for a record of the material (D64).
+    usesPolymer: results.some((r) => r.polymer),
     // Held out of Explore by an estimate, not by a failure. Its verdict is still UNKNOWN, so it is
     // counted there and never in FAIL; the status bar can bring it back.
     screened,
@@ -471,13 +502,16 @@ export function explainExclusions(materials, constraints, ctx = {}) {
   return constraints.map((c, i) => {
     const without = constraints.filter((_, j) => j !== i);
     const recovered = runSelection(materials, without, ctx).candidates.length - base;
-    let removed = 0, held = 0, screened = 0;
+    let removed = 0, held = 0, screened = 0, screenedByPolymer = 0;
     for (const m of materials) {
       const r = evaluateConstraint(m, c, ctx);
       if (r.status === STATUS.FAIL) removed++;
       else if (r.status === STATUS.UNKNOWN || r.status === STATUS.INDETERMINATE) held++;
       if (r.screened) screened++;
+      if (r.screened && r.polymerScreen) screenedByPolymer++;
     }
-    return { constraint: c, removed, held, screened, recovered };
+    // `screened` counts every screen; `screenedByPolymer` the part of it that rests on the base polymer's published
+    // behaviour rather than an estimate, so the panel can say which.
+    return { constraint: c, removed, held, screened, screenedByPolymer, recovered };
   }).sort((a, b) => b.recovered - a.recovered || b.removed - a.removed);
 }

@@ -158,6 +158,15 @@ its rows to the other with a migration (m22). The replaced record stays; the bui
 measurements are reviewed per record: fix them, or `npm run data:lint -- --accept EST-WIDE "reason"`. `npm run
 audit:data` (in verify) fails on an unreviewed or stale one.
 
+**Add polymer-level behaviour.** A row in `polymer_environment.csv` per polymer, category and agent, from a resin
+producer's or handbook reference that was fetched, hashed and read (a row in `sources.csv` first, Citation role
+`cited`): the agent as the reference names it, its conditions, a Verdict from `schema/vocab/polymer-verdicts.csv`, and
+the reference's own wording in Finding. The build attaches it to every material of that polymer that has no
+`evidence.csv` record in the category, labelled polymer-level; it never passes a requirement, and it screens one only
+where the reference finds the polymer resistant to nothing in the class (D64). Record up to four agents per category, a
+dilute and a concentrated one among them, and never summarise across agents yourself: the build derives the category
+verdict. A grade-level record always wins, so nothing here is a reason to leave a sheet's own statement untranscribed.
+
 **Add a property.** A row in `properties.csv`: its exact name, domain (mechanical, thermal, physical)
 and units. If it only means something for some filaments, set "Applies to", for example
 `Family: Flexible Elastomers`, and a Not applicable reason. Then add measurements. No code changes.

@@ -8,7 +8,7 @@
 // the 104 purchase links in the data were rendered nowhere at all.
 
 import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
-import { prop, materialName, describeConstraint, screenedByText, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
+import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
@@ -178,11 +178,12 @@ export function renderTable(host, state, actions) {
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') {
-        // The screened chip names the requirement and the estimate that held the row out, and opens that estimate.
+        // The screened chip names the requirement and what held the row out, an estimate or the base polymer's published
+        // behaviour (D64), and opens it: the estimate on the Overview, the polymer's rows on the Environment tab.
+        const scr = e?.screened ? screenedChip(e) : null;
         return ghost
           ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
-          : tested ? `<td class="state">${chip(e.verdict)}${e.screened ? ` ${explainButton('screened', `Screened by an estimate: ${screenedByText(e).join('; ')}. Not a failure; not measured.`,
-            { cls: 'chip chip-screened', head: 'Screened by an estimate', action: 'estimate', id: m.id })}` : ''}</td>`
+          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}</td>`
           : `<td class="state"><span class="chip chip-neutral" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
@@ -420,7 +421,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
-    ...(useEstimates ? ['Estimated fields', 'Screened by estimate'] : [])];
+    ...(useEstimates ? ['Estimated fields', 'Screened by estimate', 'Screened by base polymer'] : [])];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -463,7 +464,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     `# database snapshot ${meta.snapshot}, application build ${meta.build}`,
   ];
   if (scenario) {
-    header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
+    header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and polymer data ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
     if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
@@ -483,7 +484,8 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
       m.gates.abrasive === 'requires-hardened' ? 'required' : m.gates.abrasive === 'no-special-concern' ? 'not needed' : 'not recorded',
       m.gates.drying === 'required' ? 'published' : 'not recorded',
       m.buy?.url ?? '',
-      ...(useEstimates ? [estimated(m), e.screened ? screenedByText(e).join('; ') : ''] : []),
+      // A screen by an estimate and one by the base polymer's published behaviour travel in their own columns (D64).
+      ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []),
     ].map(q).join(',')),
   ];
   return lines.join('\n');

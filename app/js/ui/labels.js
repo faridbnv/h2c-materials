@@ -157,6 +157,36 @@ export function describeConstraint(c) {
 export const screenedByText = (evaluation) => (evaluation?.unresolved ?? [])
   .filter((r) => r.screened).map((r) => describeConstraint(r.constraint));
 
+/** The screened requirements split by what screened them: an estimate, or the base polymer's published behaviour (D64). */
+export const screenedByKind = (evaluation) => {
+  const screened = (evaluation?.unresolved ?? []).filter((r) => r.screened);
+  return {
+    estimate: screened.filter((r) => !r.polymerScreen).map((r) => describeConstraint(r.constraint)),
+    polymer: screened.filter((r) => r.polymerScreen).map((r) => describeConstraint(r.constraint)),
+  };
+};
+
+/** The two prefixes a screened chip's explanation may start with; the fuzz demands the criterion after either. */
+export const SCREEN_PREFIX = { estimate: 'Screened by an estimate', polymer: 'Screened by the base polymer\'s published behaviour' };
+
+/**
+ * The screened chip's explanation, heading and next step, as one sentence per kind of screen: "Screened by an estimate:
+ * Heat resistance at least 100 °C. Screened by the base polymer's published behaviour: Resists solvents. Not a failure;
+ * not measured." The base polymer's screen opens the Environment tab, where its rows are; an estimate's opens the Overview.
+ */
+export function screenedChip(evaluation) {
+  const by = screenedByKind(evaluation);
+  const parts = [];
+  if (by.estimate.length) parts.push(`${SCREEN_PREFIX.estimate}: ${by.estimate.join('; ')}.`);
+  if (by.polymer.length) parts.push(`${SCREEN_PREFIX.polymer}: ${by.polymer.join('; ')}.`);
+  const onlyPolymer = by.polymer.length && !by.estimate.length;
+  return {
+    text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this grade' : 'not measured'}.`,
+    head: onlyPolymer ? 'Screened by the base polymer' : by.polymer.length ? 'Screened by an estimate and the base polymer' : SCREEN_PREFIX.estimate,
+    action: onlyPolymer ? 'polymer' : 'estimate',
+  };
+}
+
 /**
  * Environment categories.
  *

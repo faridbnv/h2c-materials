@@ -45,6 +45,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `chamber_bands.csv` | Research chamber bands for materials whose sources publish no window, or why none is given |
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
 | `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
+| `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
 Every column of every table, and every vocabulary, is listed in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).

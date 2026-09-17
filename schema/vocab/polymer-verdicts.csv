@@ -1,0 +1,7 @@
+Value,Meaning,Screens
+resistant,The reference reports the neat polymer resistant to the agent under the stated conditions.,FALSE
+limited,The reference reports limited or conditional resistance: swelling or attack under some conditions.,FALSE
+not-resistant,The reference reports the neat polymer attacked or degraded by the agent.,TRUE
+soluble,The reference reports the neat polymer dissolved by the agent (water for a support material).,TRUE
+absorbs,The reference reports the neat polymer absorbing the agent (moisture uptake) without stating attack.,FALSE
+stabilised-required,The reference reports resistance only with a stabiliser or additive the neat polymer does not carry.,FALSE

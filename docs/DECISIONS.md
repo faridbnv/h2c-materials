@@ -70,6 +70,7 @@ break if it were reversed, because that is the part that gets lost.
 | D61 | No meaning lives only in a tooltip | In force |
 | D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | In force |
 | D63 | A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide | In force |
+| D64 | Polymer-level behaviour is shown and may screen, never passes | In force |
 
 <!-- end index -->
 
@@ -1277,3 +1278,52 @@ TDS v1.0; standard deviations in parentheses") where the other rows hold the she
 
 Reversing it puts payment footers back into citations and lets a marketing paragraph stand where an engineer reads
 the print conditions of the bar that was tested.
+
+## D64. Polymer-level behaviour is shown and may screen, never passes
+
+Environment criteria answer from a material's own evidence records, and most materials have none in most categories: a
+"resists solvents" requirement returned UNKNOWN for the great majority of the database, including every PLA whose data
+sheet says nothing about acetone, while a resin producer's reference for the neat polymer has said for decades that PLA
+is attacked by it. That reference is real evidence, but about the resin, not the filament: fillers, pigments,
+plasticisers and printing change how a grade behaves, and a table that let it pass a material would present a handbook
+paragraph as a test of a product nobody tested.
+
+- **The behaviour lives in a table, keyed by polymer.** `data/tables/polymer_environment.csv` holds one row per base
+  polymer (a `polymers.csv` identity, the one materials name as their Estimate identity), category and agent, with the
+  conditions, a verdict from `schema/vocab/polymer-verdicts.csv`, the finding in the reference's words, and a retrieved
+  source. Only a filterable category may be used, and never fatigue or creep: a resin reference cannot speak for a
+  printed part under load. The build refuses an unknown polymer, a source that was not retrieved, a category outside
+  that set, a verdict outside the vocabulary and a repeated (polymer, category, agent) (`POLYMER-ENV-*`).
+- **The build attaches it where the material has nothing of its own, and nowhere else.** For every candidate material
+  with an Estimate identity, for every category the polymer publishes in which the material has no `evidence.csv`
+  record (narrative ones included), the compiler writes one inferred record, `evidenceType` "Polymer-level reference",
+  `inferred: true`, with the agent rows behind it (`db.polymerEvidence`, cited from `evidenceIds.polymer`). Grade-level
+  evidence always takes precedence, and the validator proves it (`POLYMER-ENV-PRECEDENCE`). With an empty table the
+  compiled database is byte for byte what it was: the layer leaves no key behind, so it is removable.
+- **One verdict per category, by one rule.** Every agent `resistant` makes the category `resistant`. The category
+  screens only where the reference finds the polymer resistant to nothing in it: at least one agent attacks or
+  dissolves it (`not-resistant`, `soluble`) and none is rated `resistant`; `soluble` where an agent dissolves it,
+  `not-resistant` otherwise. Anything else is `limited`. Not "any attacked agent screens": a grade-level sheet passes a
+  material on the mild exposures it tests (INTERFACE, the filter rail), and a reference that rates PETG resistant to
+  30% sulfuric acid and attacked by concentrated sulfuric acid says of the class what that sheet says. Screening PETG
+  out of "Resists acids" on the concentrated row would hold it to a harsher test than any measured material faces; on
+  the first rule 27 of 32 polymer-covered materials were screened out of acids, most on a concentrated or oxidising
+  row beside resistant dilute ones. PA6, attacked at 2%, screens. The rule is `categoryVerdict` in
+  `build/src/polymer-environment.js`, and the vocabulary's Screens column, not code, says which verdicts screen.
+- **It never passes.** In a requirement's evaluation a polymer-level `resistant` or `limited` leaves the material
+  UNKNOWN, with a reason that names the polymer, what the reference says of it and the reference. A polymer-level
+  `not-resistant` or `soluble` screens the material out under Include uncertain with inference on, exactly as an
+  estimate does (D43, D48): the verdict stays UNKNOWN, `screened` is true, `screenedBy` names the criterion, the
+  SCREENED chip brings it back, and Why excluded counts it apart from an estimate's screen. Under Confirmed only it is
+  UNKNOWN, as every unresolved criterion is.
+- **One switch governs all inference.** "Use estimates" is now "Use estimates and polymer data"; its element ids and
+  the scenario field keep their names so links and the fuzz keep working. The reader sees what a result rests on
+  (D61): the screened chip says "Screened by the base polymer's published behaviour: Resists solvents", the drawer's
+  Environment tab lists the records under "From the base polymer", with a line saying they are the neat resin's
+  behaviour and not a test of this grade, and the filter rail counts them apart, "N more from the base polymer, shown
+  but never passing". A category with polymer-level records is offered as a filter even where no grade-level record
+  states a verdict: it cannot pass there, and the rail says so, but it can screen.
+
+Reversing it either hides evidence an engineer would want to see, or lets a paragraph about a resin pass a filament
+nobody tested. Letting it fail a material would be the same mistake in the other direction: the verdict describes the
+evidence, and the evidence is not about this grade.

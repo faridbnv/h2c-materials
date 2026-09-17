@@ -134,6 +134,8 @@ function buildContext(db) {
     db,
     measurementsByMaterial: group(db.measurements, 'materialId'),
     evidenceByMaterial: group(db.evidence, 'materialId'),
+    // The base polymers' published behaviour, attached by the build where a material has no record of its own (D64).
+    polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'),
     coverageByMaterial: group(db.coverage, 'materialId'),
     unknownPolicy: UNKNOWN_POLICY.STRICT,
   };
@@ -502,8 +504,8 @@ function render() {
   chipText(scr, state.showScreened, `SCREENED ${counts.screened}`);
   scr.setAttribute('aria-pressed', String(state.showScreened));
   scr.title = state.showScreened
-    ? `Showing the ${counts.screened} materials an estimate screened out, among the UNKNOWN results. Click to hold them out again.`
-    : `${counts.screened} of the UNKNOWN materials are held out because an estimate of a missing value clearly cannot meet a requirement. Click to show them.`;
+    ? `Showing the ${counts.screened} materials an estimate or the base polymer's published behaviour screened out, among the UNKNOWN results. Click to hold them out again.`
+    : `${counts.screened} of the UNKNOWN materials are held out because an estimate of a missing value clearly cannot meet a requirement, or the base polymer is published as attacked or dissolved where the material has no record of its own. Click to show them.`;
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));
@@ -728,6 +730,7 @@ function renderScenario(host) {
         <div class="sc-lines">
           <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} tracked only` : ''}</div>
           <div>${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}</div>
+          ${scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `<div>Estimates and polymer data: ${state.useEstimates ? 'on (never pass; may screen out)' : 'off'}</div>` : ''}
           ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}
           ${scenario.assumptions.length ? `<div class="warn">${scenario.assumptions.length} assumption${scenario.assumptions.length === 1 ? '' : 's'} in play</div>` : ''}
         </div>

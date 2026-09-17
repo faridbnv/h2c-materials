@@ -20,6 +20,7 @@ import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped, applyAnnealTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
+import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
@@ -754,8 +755,12 @@ export function compile(wb, { snapshot, build }) {
 
   const environmentCategories = countUsableByCategory(evidenceRows);
 
-  return {
-    db: {
+  // The base polymers' published environmental behaviour (data/tables/polymer_environment.csv), attached below as
+  // inferred records where a material has no record of its own (D64). Core evidence, not an estimate: it is published,
+  // but about the resin, so it is marked inferred, never passes, and leaves no trace when the table is empty.
+  const polymerEnvironment = compilePolymerEnvironment(wb['Polymer environment']?.rows ?? [], { polymers, sources, issues });
+
+  const db = {
       meta: {
         snapshot, build,
         // Prices are sampled on their own date, which need not be the database snapshot: the
@@ -784,7 +789,7 @@ export function compile(wb, { snapshot, build }) {
       // What every property and headline means. The app builds its labels, filters, axes, table and
       // export from this, so a registry row reaches the interface with no code change.
       registry,
-    },
-    issues,
   };
+  attachPolymerEnvironment(db, polymerEnvironment);
+  return { db, issues };
 }

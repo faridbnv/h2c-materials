@@ -28,6 +28,7 @@ import { buildDatabase } from './pipeline.js';
 import { compileReference } from './reference.js';
 import { formatReport } from './validate.js';
 import { estimateReportLines } from './estimate/validate.js';
+import { polymerEnvironmentReportLines } from './polymer-environment.js';
 import { bundle } from './bundle.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -72,7 +73,7 @@ async function main() {
   const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
   issues.push(...contractIssues({ db, reference }));
 
-  const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD, sections: { estimates: withEstimates ? estimateReportLines(db) : [] } });
+  const report = formatReport(db, reference, issues, { snapshot: SNAPSHOT, build: BUILD, sections: { polymerEnvironment: polymerEnvironmentReportLines(db), estimates: withEstimates ? estimateReportLines(db) : [] } });
   mkdirSync(join(buildRoot, 'reports'), { recursive: true });
   writeFileSync(join(buildRoot, 'reports/validation-report.md'), report);
 

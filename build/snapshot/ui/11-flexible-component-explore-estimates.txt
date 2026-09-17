@@ -1,7 +1,7 @@
 COUNT 16 shown PASS + UNKNOWN
 STATUS ☑ PASS 7 | ☑ UNKNOWN 16 | ☐ FAIL 75 | ☐ SCREENED 7
 7 of the 98 materials in this database meet these requirements, and 16 more could not be checked for missing data
-Include uncertain lists those 16 flagged, except the 7 an estimate screened out; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
+Include uncertain lists those 16 flagged, except the 7 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.

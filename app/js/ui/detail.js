@@ -88,7 +88,7 @@ const TAB_HELP = {
   Mechanical: (n) => (n ? `${plural(n, 'mechanical measurement')} on record, grouped by the source that published them.` : 'No mechanical measurement is on record for this material.'),
   Thermal: (n) => (n ? `${plural(n, 'thermal measurement')} on record, grouped by the source that published them.` : 'No thermal measurement is on record for this material.'),
   Printing: (n) => (n ? `${plural(n, 'print profile')}: the temperatures, nozzle, drying and feed each source gives.` : 'No print profile is on record for this material.'),
-  Environment: (n) => (n ? `${plural(n, 'record')} of how it behaves in chemicals, moisture and other exposure, by category.` : 'No record of chemical, moisture or other exposure is on file for this material.'),
+  Environment: (n, c) => (n ? `${plural(n, 'record')} of how it behaves in chemicals, moisture and other exposure, by category${c.poly?.length ? `, ${c.poly.length} of them the base polymer's published behaviour` : ''}.` : 'No record of chemical, moisture or other exposure is on file for this material.'),
   Grades: (n) => (n ? `${plural(n, 'commercial grade')} recorded under this material.` : 'No commercial grade is recorded under this material.'),
   Price: (n) => (n ? `${plural(n, 'Canadian price observation')} from the sampled retailers.` : 'No sampled Canadian retailer listed this material.'),
   Evidence: (n, c) => (n ? `${plural(n, 'source')} behind this material's ${plural(c.ms.length, 'measurement')}, each with what it published and a link to the original.` : 'No source has published a measurement of this material.'),
@@ -297,6 +297,37 @@ function usesSection(m, c) {
   return out.join('');
 }
 
+// ------------------------------------------------------------------ polymer-level behaviour
+
+/** A polymer-level verdict in words: "not resistant", "soluble". */
+const verdictWords = (v) => String(v ?? '').replace(/-/g, ' ');
+
+/**
+ * The base polymer's published behaviour, one section per category, where the material has no record of its own
+ * (D64). Each says on the page, not in a tooltip (D61), that it is the neat resin's behaviour and not a test of this
+ * grade, that it never passes, and whether it can screen; then every agent row with its verdict, finding and source.
+ */
+function polymerSection(poly, c) {
+  if (!poly.length) return '';
+  const screens = poly.filter((p) => p.screens);
+  return `<h3 class="sec">From the base polymer ${esc(poly[0].polymerId)}</h3>
+    <div class="note">In ${poly.length === 1 ? 'this category' : `these ${poly.length} categories`} no source tested this material or its grades, so the
+      published behaviour of the neat ${esc(poly[0].polymerId)} resin is shown instead, from a resin producer's or handbook reference. It is not a test of
+      this grade: fillers, pigments and printing change it. It never passes a requirement${screens.length
+        ? `; where the reference reports the polymer attacked or dissolved (${screens.map((p) => p.categoryLabel.toLowerCase()).join(', ')}), it screens this material
+      out of that requirement with "Use estimates and polymer data" on, and the SCREENED chip brings it back`
+        : ', and none of these can screen it out'}.</div>`
+    + poly.map((p) => `
+      <h4 class="block-title">${esc(p.categoryLabel)}: ${esc(verdictWords(p.verdict))} <span class="chip chip-neutral chip-small">polymer-level</span> ${tag(p.id, 'Inferred record')}</h4>
+      ${p.agents.map((a) => `<div class="evidence-row env-row" data-polymer-row="${esc(a.id)}">
+        <div><strong>${esc(a.agent)}</strong> · ${esc(verdictWords(a.verdict))}${a.screens ? ' · can screen' : ''}</div>
+        <div>${esc(a.finding)}</div>
+        ${a.conditions ? `<div class="cond">${esc(a.conditions)}</div>` : ''}
+        ${a.notes ? `<div class="cond">${esc(a.notes)}</div>` : ''}
+        <div class="cond meas-foot">${esc(p.evidenceType)} for ${esc(p.polymerId)}, not this grade · source: ${esc(sourceName(c.sourceById.get(a.sourceId), a.sourceId))}${a.locator ? `, ${esc(a.locator)}` : ''} ${tag(a.id, 'Polymer row')}</div>
+      </div>`).join('')}`).join('');
+}
+
 // ------------------------------------------------------------------ estimates
 
 /** Not applicable is a statement about the property rather than an estimate, so it shows whatever the mode. */
@@ -447,6 +478,8 @@ export function renderDrawer(host, state, actions) {
 
   const ms = ctx.measurementsByMaterial.get(m.id) ?? [];
   const ev = ctx.evidenceByMaterial.get(m.id) ?? [];
+  // The base polymer's published behaviour, attached by the build where the material has no record of its own (D64).
+  const poly = ctx.polymerEvidenceByMaterial?.get(m.id) ?? [];
   // A superseded coverage row is an audit trail; the later row that replaces it is shown.
   const cov = (ctx.coverageByMaterial.get(m.id) ?? []).filter((r) => r.status !== 'Superseded');
   const profiles = db.profiles.filter((p) => p.materialId === m.id && !p.retired);
@@ -461,8 +494,9 @@ export function renderDrawer(host, state, actions) {
     Thermal: ms.filter((x) => tabProperties('Thermal', m).includes(x.property)).length,
     Printing: profiles.length,
     // What the tab lists. It used to count only the records in categories the filters use, so ABS read 8 over a tab
-    // of 13 records and BVOH read 0 over one; the tab itself now says how many of them the filters can use.
-    Environment: ev.length,
+    // of 13 records and BVOH read 0 over one; the tab itself now says how many of them the filters can use. A
+    // polymer-level record is listed there too, under its own heading, and is counted.
+    Environment: ev.length + poly.length,
     Grades: grades.length,
     Price: prices.length,
     // Sources, not measurements: Mechanical and Thermal already count those.
@@ -472,7 +506,7 @@ export function renderDrawer(host, state, actions) {
   const tab = drawerTab in counts ? drawerTab : 'Overview';
   const pinned = state.scenario.shortlist.includes(m.id);
   const c = {
-    m, ms, ev, cov, profiles, grades, prices, evaluation, summary, db, counts,
+    m, ms, ev, poly, cov, profiles, grades, prices, evaluation, summary, db, counts,
     tested: !!evaluation?.results.length,
     highlight: state.highlightMeasurement, highlightSource: state.highlightSource,
     showEstimates: !!ctx.showEstimates, policy: state.scenario.unknownPolicy,
@@ -537,7 +571,7 @@ export function renderDrawer(host, state, actions) {
 }
 
 function tabBody(tab, c) {
-  const { m, ms, ev, cov, profiles, grades, prices, evaluation, summary, db, showEstimates, policy } = c;
+  const { m, ms, ev, poly, cov, profiles, grades, prices, evaluation, summary, db, showEstimates, policy } = c;
   const covFor = (t) => cov.filter((r) => (COVERAGE_FOR_TAB[t] ?? []).includes(r.domain));
   const empty = (t) => nothingRecorded(covFor(t), { toCoverage: cov.length > 0 });
 
@@ -716,13 +750,14 @@ function tabBody(tab, c) {
   if (tab === 'Environment') {
     const byCat = {};
     for (const e of ev) (byCat[e.categoryLabel ?? 'Other'] ||= []).push(e);
-    if (!ev.length) return empty('Environment');
+    if (!ev.length && !poly.length) return empty('Environment');
     // The tab counts every record it lists; which of them a filter can use is said here, not by a second count on the tab.
     const usable = ev.filter((e) => e.filterable).length;
-    return `<p class="fine" style="margin:0 0 12px">${ev.length} record${ev.length === 1 ? '' : 's'}. ${usable === ev.length
-      ? (ev.length === 1 ? 'Its category is' : 'All are in categories') + ' the Environment filters can use.'
-      : usable ? `${usable} ${usable === 1 ? 'is' : 'are'} in categories the Environment filters can use; the rest are evidence only.`
-      : `None ${ev.length === 1 ? 'is' : 'are'} in a category the Environment filters can use: evidence only.`}</p>`
+    const own = !ev.length ? `<p class="fine" style="margin:0 0 12px">No record of this material's own; what follows is its base polymer's published behaviour.</p>`
+      : `<p class="fine" style="margin:0 0 12px">${ev.length} record${ev.length === 1 ? '' : 's'} of this material. ${usable === ev.length
+        ? (ev.length === 1 ? 'Its category is' : 'All are in categories') + ' the Environment filters can use.'
+        : usable ? `${usable} ${usable === 1 ? 'is' : 'are'} in categories the Environment filters can use; the rest are evidence only.`
+        : `None ${ev.length === 1 ? 'is' : 'are'} in a category the Environment filters can use: evidence only.`}</p>`
       + Object.entries(byCat).map(([label, list]) => `
       <h3 class="sec">${esc(label)}${list[0]?.filterable ? '' : ' — not used for filtering'}</h3>
       ${list.map((e) => `<div class="evidence-row env-row">
@@ -731,6 +766,7 @@ function tabBody(tab, c) {
         ${e.exposure ? `<div class="cond">${esc(e.exposure)}</div>` : ''}
         <div class="cond meas-foot">${esc(e.evidenceType)}${stated(e.gradeId) ? ` · grade ${esc(e.gradeId)}` : ''} · source: ${esc(sourceName(c.sourceById.get(e.sourceId), e.sourceId))}${e.locator ? `, ${esc(e.locator)}` : ''} ${tag(e.id, 'Evidence record')}</div>
       </div>`).join('')}`).join('');
+    return own + polymerSection(poly, c);
   }
 
   if (tab === 'Grades') {

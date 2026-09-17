@@ -28,6 +28,7 @@ export const TABLES = [
   { file: 'chamber_bands', sheet: 'Chamber bands' },
   { file: 'polymers', sheet: 'Polymers' },
   { file: 'fatigue_tests', sheet: 'Fatigue tests' },
+  { file: 'polymer_environment', sheet: 'Polymer environment' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;

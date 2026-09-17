@@ -1,7 +1,7 @@
 COUNT 33 shown PASS + UNKNOWN
 STATUS ☑ PASS 22 | ☑ UNKNOWN 15 | ☐ FAIL 61 | ☐ SCREENED 4
 22 of the 98 materials in this database meet these requirements, and 15 more could not be checked for missing data
-Include uncertain lists those 15 flagged, except the 4 an estimate screened out; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
+Include uncertain lists those 15 flagged, except the 4 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.

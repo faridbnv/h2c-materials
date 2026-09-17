@@ -43,6 +43,22 @@ what it means and how to fix it.
 | `FATIGUE-LOADING` | error | A Fatigue life measurement has no loading row in fatigue_tests.csv. | Add its row to data/tables/fatigue_tests.csv (stresses, frequency, load ratio, run-out). |
 | `CHAMBER-BAND` | error | A chamber estimate band is malformed or names a material wrongly. | Fix the band: a real range, a basis, and in-scope materials listed once. |
 | `REFERENCE-DEFAULT` | error | A default reference material is missing from reference.csv. | Restore the row or update the default selection. |
+| `POLYMER-ENV-REFERENCE` | error | A polymer_environment row names a polymer not in polymers.csv, a source not in sources.csv, or a source that was not retrieved. | Name a polymers.csv identity and a retrieved source; nothing is entered from a source that was not read (D64). |
+| `POLYMER-ENV-CATEGORY` | error | A polymer_environment row uses a category that is not filterable, or is fatigue or creep. | Use a filterable environment category; a resin reference cannot speak for a printed part under load (D64). |
+| `POLYMER-ENV-VERDICT` | error | A polymer_environment row has a verdict outside schema/vocab/polymer-verdicts.csv. | Use a verdict from the vocabulary, or add one there with its Meaning and whether it Screens. |
+| `POLYMER-ENV-DUPLICATE` | error | Two polymer_environment rows name the same polymer, category and agent. | Keep one row per polymer, category and agent; put a second condition in Conditions or Notes. |
+
+## Integrity
+
+| Code | Level | Means | Fix |
+|---|---|---|---|
+| `POLYMER-ENV-PRECEDENCE` | error | A polymer-level record is attached where the material has a grade-level record in the category, cites a row that does not exist, or names another material or polymer. | The build attaches these; report the compiler defect (D64). |
+| `ID-MISSING` | error | A compiled record has no identifier. | Give the record its ID. |
+| `ID-DUPLICATE` | error | Two compiled records share an identifier. | Retire one, or renumber a new record. |
+| `REF-UNKNOWN` | error | A record points at a material, grade or source that does not exist. | Correct the identifier. |
+| `GRADE-RETIREMENT-HALF` | error | A grade retirement is recorded on Status or Availability but not both. | Set Status retired and Availability "Retired mapping; audit trail only" together (npm run data:retire). |
+| `QUARANTINE-NUMERIC` | error | A quarantined measurement carries a number, or backs a headline. | Quarantined values back nothing. |
+| `EXCLUSION` | error | Scope and H2C status disagree about exclusion, or an excluded material lacks its gate. | Set Scope Excluded and H2C status Excluded together. |
 
 ## Registry
 
@@ -65,17 +81,6 @@ what it means and how to fix it.
 | `MEAS-PROPERTY-UNREGISTERED` | error | A measurement of a property not in properties.csv. | Register the property, or use its registered name. |
 | `MEAS-UNIT` | error | A numeric measurement in a unit its property does not allow. | Convert to a canonical unit, or add the unit to the property deliberately. |
 | `MEAS-NOT-APPLICABLE` | error | A measurement of a property that does not apply to its material. | File it under the right material, or widen Applies to. |
-
-## Integrity
-
-| Code | Level | Means | Fix |
-|---|---|---|---|
-| `ID-MISSING` | error | A compiled record has no identifier. | Give the record its ID. |
-| `ID-DUPLICATE` | error | Two compiled records share an identifier. | Retire one, or renumber a new record. |
-| `REF-UNKNOWN` | error | A record points at a material, grade or source that does not exist. | Correct the identifier. |
-| `GRADE-RETIREMENT-HALF` | error | A grade retirement is recorded on Status or Availability but not both. | Set Status retired and Availability "Retired mapping; audit trail only" together (npm run data:retire). |
-| `QUARANTINE-NUMERIC` | error | A quarantined measurement carries a number, or backs a headline. | Quarantined values back nothing. |
-| `EXCLUSION` | error | Scope and H2C status disagree about exclusion, or an excluded material lacks its gate. | Set Scope Excluded and H2C status Excluded together. |
 
 ## Ownership
 

@@ -50,7 +50,7 @@ const gate = (g) => (g == null ? '' : typeof g === 'string' ? g : g.verdict ?? J
 const gates = db.materials.map((m) => ({ MaterialID: m.id, Material: m.name, ...Object.fromEntries(Object.entries(m.gates).map(([k, g]) => [k, gate(g)])) }));
 
 const group = (list) => { const out = new Map(); for (const x of list) { if (!out.has(x.materialId)) out.set(x.materialId, []); out.get(x.materialId).push(x); } return out; };
-const ctx = { db, evidenceByMaterial: group(db.evidence), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
+const ctx = { db, evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
 const mats = db.materials.filter((m) => !m.familyEntry);
 const modes = { Strict: { unknownPolicy: UNKNOWN_POLICY.STRICT }, Explore: { unknownPolicy: UNKNOWN_POLICY.EXPLORATION }, 'Explore with estimates': { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: true } };
 const templates = [];

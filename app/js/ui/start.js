@@ -125,7 +125,7 @@ export function renderActive(state, actions) {
   const unknownClause = counts.unknown && explore ? `, and ${counts.unknown} more could not be checked for missing data` : '';
   const unknownSentence = !counts.unknown ? ''
     : explore ? `${POLICY_LABELS.exploration} lists those ${counts.unknown} flagged${screened
-      ? `, except the ${screened} an estimate screened out; the SCREENED chip at the bottom shows them` : ''}. `
+      ? `, except the ${screened} screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them` : ''}. `
     : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
 
   return `

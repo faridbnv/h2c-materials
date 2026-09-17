@@ -1,0 +1,19 @@
+{
+  "$comment": "Contract for data/tables/polymer_environment.csv. Checked by build/src/schema.js; compiled by build/src/polymer-environment.js (D64).",
+  "title": "Polymer environment",
+  "description": "The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64).",
+  "primaryKey": "PolymerEnvironmentID",
+  "uniqueKeys": [["PolymerID", "Category", "Agent"]],
+  "fields": [
+    { "name": "PolymerEnvironmentID", "type": "string", "role": "key", "description": "Stable identifier (PB#####; npm run data:new-id -- polymer_environment).", "constraints": { "required": true, "pattern": "^PB\\d{5}$", "unique": true } },
+    { "name": "PolymerID", "type": "string", "role": "canonical", "description": "The base polymer the behaviour is published for: a polymers.csv identity that materials name as their Estimate identity.", "reference": { "table": "polymers", "field": "PolymerID" }, "constraints": { "required": true } },
+    { "name": "Category", "type": "string", "role": "canonical", "description": "The environment category (schema/vocab/environment-categories.csv). Only a filterable category other than fatigue and creep may be used; the build refuses the rest (POLYMER-ENV-CATEGORY).", "vocabulary": "environment-categories", "constraints": { "required": true } },
+    { "name": "Agent", "type": "string", "role": "raw", "description": "The chemical or exposure the reference names, as it names it (acetone; 10 % sulphuric acid; boiling water).", "constraints": { "required": true } },
+    { "name": "Conditions", "type": "string", "role": "raw", "description": "Concentration, temperature and duration as the reference states them, or Not published.", "missing": ["Not published"], "constraints": { "required": true } },
+    { "name": "Verdict", "type": "string", "role": "canonical", "description": "The reference's finding reduced to one of schema/vocab/polymer-verdicts.csv; its Screens column says which verdicts may screen a material out.", "vocabulary": "polymer-verdicts", "constraints": { "required": true } },
+    { "name": "Finding", "type": "string", "role": "raw", "description": "The finding in the reference's own words.", "constraints": { "required": true } },
+    { "name": "SourceID", "type": "string", "role": "canonical", "description": "The reference it is read from: a retrieved source in sources.csv (POLYMER-ENV-REFERENCE).", "reference": { "table": "sources", "field": "SourceID" }, "constraints": { "required": true } },
+    { "name": "Locator", "type": "string", "role": "raw", "description": "Where in the source: page, table or section.", "constraints": { "required": true } },
+    { "name": "Notes", "type": "string", "role": "prose", "description": "Anything a reader needs to weigh the row (a grade-dependent remark, a caveat the reference makes), or Not applicable.", "missing": ["Not applicable"], "constraints": { "required": true } }
+  ]
+}

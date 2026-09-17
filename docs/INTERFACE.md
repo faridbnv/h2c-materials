@@ -179,6 +179,16 @@ A material's Environment tab counts every record it lists, and its first line sa
 categories the filters can use. The tab used to count only those, so ABS read 8 over thirteen records and BVOH read
 0 over one.
 
+Where a material has no record of its own in a category, its base polymer's published behaviour stands in (D64): a
+resin producer's or handbook reference for the neat polymer, from `polymer_environment.csv`. The rail counts those
+materials apart under the category, "N more from the base polymer, shown but never passing", because that is exactly
+what they do: the record is shown in the drawer, it never passes the requirement, and where the reference finds the
+polymer resistant to nothing in the class (attacked or dissolved by what it reports, with no agent rated resistant) it
+screens the material out under Include uncertain with **Use estimates and polymer data** on. A polymer attacked only by
+the concentrated acid beside a resistant dilute one is `limited`, not screened: that is what a grade sheet's "resistant
+to acids" means too (D64). A category with polymer-level records is offered as a filter even where no grade-level record states a
+verdict; it cannot pass there, and its line says "0 records state a verdict".
+
 ## What to do with missing data
 
 The most consequential control, so it sits in the top bar under its own label, "Candidate
@@ -196,7 +206,9 @@ switches to ("Switch to Include uncertain").
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
 - **Include uncertain** (Explore) — materials with unresolved criteria stay visible and flagged. With
-  **Use estimates** on, a material whose estimate clearly cannot meet a requirement is screened out.
+  **Use estimates and polymer data** on, a material whose estimate clearly cannot meet a requirement is screened out,
+  and so is one whose base polymer a reference finds resistant to nothing in what the requirement asks it to
+  resist, where the material has no record of its own (D64).
 
 An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
 only when the range the build lets it screen on wholly fails the requirement. That range is set end by end from a
@@ -232,9 +244,12 @@ Switching resets which verdicts the table shows, so the change is visible in the
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
-**Use estimates** is in the top bar in both modes, and says beneath it how many materials it screened. Under Confirmed only it
-is disabled, with "Only under Include uncertain" beneath it: hiding it there meant a reader in the default mode never
-learned estimates exist. What an estimate is sits behind the **?** beside it, not in a tooltip.
+**Use estimates and polymer data** is in the top bar in both modes, and says beneath it how many materials it screened. Under
+Confirmed only it is disabled, with "Only under Include uncertain" beneath it: hiding it there meant a reader in the default
+mode never learned estimates exist. What the switch governs, an estimate of a missing number and a base polymer's published
+behaviour, sits behind the **?** beside it, not in a tooltip. It is one switch because both are inference about a material
+that publishes nothing, and both obey the same rule: never a pass, a screen only where the evidence wholly fails. Its
+element ids and the scenario field keep the old name (`use-estimates`, `useEstimates`), so links and saved files still work.
 
 ## The four states
 
@@ -262,10 +277,13 @@ not exactly the candidates the missing-data rule keeps, it says what they are, i
 "8 shown UNKNOWN · 8 of the 23 candidates". It had said "31 shown PASS + UNKNOWN · 23 candidates", which left the 8 rows
 the SCREENED chip brought back unexplained, and before that "eligible", a word defined nowhere.
 
-A fourth chip, **SCREENED**, appears only when an estimate screened something. It is not a verdict:
-its materials are already counted under UNKNOWN. It brings them back into the table, each marked
-"screened"; the mark names the requirements that held it out in the pills' words ("Heat resistance at least 100 °C"),
-as the export's Screened by estimate column does, where both had printed the engine's criterion ("hdt045 >= 100").
+A fourth chip, **SCREENED**, appears only when an estimate or a base polymer's published behaviour screened something. It
+is not a verdict: its materials are already counted under UNKNOWN. It brings them back into the table, each marked
+"screened"; the mark names what held it out and the requirements, in the pills' words: "Screened by an estimate: Heat
+resistance at least 100 °C", "Screened by the base polymer's published behaviour: Resists solvents" (D64), as the
+export's Screened by estimate and Screened by base polymer columns do, where both had printed the engine's criterion
+("hdt045 >= 100"). An estimate's mark offers to open the estimate; the polymer's offers the Environment tab, where its
+rows are. Why excluded counts the two kinds of screen apart under each requirement.
 
 Before any requirement is set nothing has been tested, so rows read **not tested** and the chips
 stand down. A green PASS on a blank screen asserted a test that never ran.
@@ -399,6 +417,16 @@ then its class and access date, and **Open the original (PDF)** or **(web page)*
 the source ID is a small tag. The source's title is the one the sources table records, which is sometimes a file's name.
 A measured value opened from the table, the Overview or Compare lands on its measurement, opened and marked, whatever is
 collapsed around it.
+
+**From the base polymer.** Where a material has no environment record of its own in a category, the Environment tab
+ends with a section headed "From the base polymer PLA" (D64): one line saying that no source tested this material or its
+grades, that what follows is the neat resin's published behaviour from a resin producer's or handbook reference, not a
+test of this grade, that it never passes a requirement and, where the reference reports the polymer attacked or
+dissolved, that it screens the material out with Use estimates and polymer data on. Then each category with its derived
+verdict, marked "polymer-level", and every agent row under it: the agent, its verdict, the finding, the conditions, the
+notes and the source by name. The tab's count includes these records and its first line says how many of them are the
+polymer's. Nothing here is only in a tooltip (D61). The section shows in both modes: it is published evidence, labelled
+for what it is, not a model's output.
 
 **Headings name things, not IDs.** Printing profiles are headed by the grade's product and the profile's kind ("Bambu Lab
 ABS · Manufacturer published guidance"), Grades by the product, and each has its IDs as tags; Coverage rows lead with the

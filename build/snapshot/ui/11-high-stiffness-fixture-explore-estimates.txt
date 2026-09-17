@@ -1,7 +1,7 @@
 COUNT 15 shown PASS + UNKNOWN
 STATUS ☑ PASS 11 | ☑ UNKNOWN 17 | ☐ FAIL 70 | ☐ SCREENED 13
 11 of the 98 materials in this database meet these requirements, and 17 more could not be checked for missing data
-Include uncertain lists those 17 flagged, except the 13 an estimate screened out; the SCREENED chip at the bottom shows them. From the High-stiffness fixture template. Click any criterion to remove it.
+Include uncertain lists those 17 flagged, except the 13 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).

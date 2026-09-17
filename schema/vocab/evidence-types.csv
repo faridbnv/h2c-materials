@@ -1,5 +1,6 @@
 Value,Meaning
 Manufacturer statement,
+Polymer-level reference,"Written by the build, never by hand: the base polymer's published behaviour (polymer_environment.csv) attached to a material with no grade-level record in the category. Inferred; it may screen and never passes (D64)."
 Published observation,
 Retired duplicate record,
 Selection interpretation,

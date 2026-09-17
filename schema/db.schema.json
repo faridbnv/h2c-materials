@@ -904,6 +904,51 @@
         }
       }
     },
+    "polymerEnvironment": {
+      "type": "array",
+      "description": "The published environmental behaviour of base polymers (data/tables/polymer_environment.csv), one row per polymer, category and agent. Present only when the table has rows (D64).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "polymerId", "category", "categoryLabel", "agent", "conditions", "verdict", "screens", "finding", "sourceId", "locator", "notes"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^PB\\d{5}$" },
+          "polymerId": { "type": "string" },
+          "category": { "type": "string" },
+          "categoryLabel": { "type": "string" },
+          "agent": { "type": "string" },
+          "conditions": { "type": ["string", "null"] },
+          "verdict": { "type": "string" },
+          "screens": { "type": "boolean" },
+          "finding": { "type": "string" },
+          "sourceId": { "type": "string" },
+          "locator": { "type": "string" },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "polymerEvidence": {
+      "type": "array",
+      "description": "Inferred environment records: for each candidate material and each category where it has no record of its own, its base polymer's published behaviour, with the category verdict derived by D64's rule. Shown, may screen under inference, never passes. Present only when polymerEnvironment is.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "materialId", "polymerId", "category", "categoryLabel", "verdict", "screens", "evidenceType", "inferred", "agents", "sourceIds"],
+        "properties": {
+          "id": { "type": "string" },
+          "materialId": { "type": "string" },
+          "polymerId": { "type": "string" },
+          "category": { "type": "string" },
+          "categoryLabel": { "type": "string" },
+          "verdict": { "enum": ["resistant", "limited", "not-resistant", "soluble"] },
+          "screens": { "type": "boolean" },
+          "evidenceType": { "const": "Polymer-level reference" },
+          "inferred": { "const": true },
+          "agents": { "type": "array", "minItems": 1, "items": { "$ref": "#/properties/polymerEnvironment/items" } },
+          "sourceIds": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        }
+      }
+    },
     "registry": {
       "type": "object",
       "additionalProperties": false,
@@ -1721,6 +1766,13 @@
             },
             "safety": {
               "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "polymer": {
+              "type": "array",
+              "description": "The material's inferred polymer-level records in db.polymerEvidence (D64). Present only when the polymer_environment table has rows.",
               "items": {
                 "type": "string"
               }

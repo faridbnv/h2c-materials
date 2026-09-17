@@ -58,7 +58,7 @@ const candidates = db.materials.filter((m) => !m.familyEntry);
 const KEYS = db.registry.headlines.map((h) => h.key);
 const BETTER = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.better]));
 const group = (rows, key) => { const m = new Map(); for (const r of rows) { if (!m.has(r[key])) m.set(r[key], []); m.get(r[key]).push(r); } return m; };
-const baseCtx = { db, measurementsByMaterial: group(db.measurements, 'materialId'), evidenceByMaterial: group(db.evidence, 'materialId'), coverageByMaterial: group(db.coverage, 'materialId') };
+const baseCtx = { db, measurementsByMaterial: group(db.measurements, 'materialId'), evidenceByMaterial: group(db.evidence, 'materialId'), polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'), coverageByMaterial: group(db.coverage, 'materialId') };
 
 // ------------------------------------------------------------------ seeded generator
 
@@ -277,9 +277,10 @@ function compareReading(s, key, r, o) {
     const c = o.sel.counts, explore = SETTINGS[set.slice(0, 2)].u === 'exploration';
     const hm = /(\d+) of the (\d+) materials in this database meet/.exec(r.head ?? '');
     // Confirmed only states the unchecked materials in the sentence under the heading; Include uncertain lists them, so
-    // the heading counts them and the sentence says how many an estimate screened out of the list.
+    // the heading counts them and the sentence says how many an estimate or the base polymer's published behaviour (D64)
+    // screened out of the list.
     const umS = /(\d+) more could not be checked for missing data, and are left out under Confirmed only/.exec(r.head ?? '');
-    const umX = /meet (?:this requirement|these requirements), and (\d+) more could not be checked for missing data\b.*?Include uncertain lists those (\d+) flagged(?:, except the (\d+) an estimate screened out)?/.exec(r.head ?? '');
+    const umX = /meet (?:this requirement|these requirements), and (\d+) more could not be checked for missing data\b.*?Include uncertain lists those (\d+) flagged(?:, except the (\d+) screened out by an estimate or the base polymer's published behaviour)?/.exec(r.head ?? '');
     const um = explore ? umX : umS;
     const screenedShown = umX?.[3] === undefined ? 0 : Number(umX[3]);
     if (!hm || Number(hm[1]) !== c.pass || Number(hm[2]) !== c.total) violate('I2-header', 'results header pass/total differs', s, key, { head: (r.head ?? '').slice(0, 200), node: [c.pass, c.total] });
@@ -311,7 +312,14 @@ function compareReading(s, key, r, o) {
       if (scr !== (o.tested && ev.screened)) violate('I1-screened', 'screened chip mismatch', s, key, { id, page: scr, node: ev.screened });
       if (scr && !set.includes('scr')) violate('I1-screened', 'screened row shown with SCREENED off', s, key, { id });
       if (scr) {
-        check('I6-empty-reason'); if (!/Screened by an estimate: \S/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title has no criterion', s, key, { id, scrTitle });
+        // Each screen names what held the row out, an estimate or the base polymer's published behaviour (D64), and the
+        // requirement after it; the title starts with one of the two and no "Screened by" is left without a criterion.
+        check('I6-empty-reason');
+        const prefixed = /^Screened by (an estimate|the base polymer's published behaviour): \S/.test(scrTitle);
+        const bare = /Screened by (an estimate|the base polymer's published behaviour):(?!\s\S)/.test(scrTitle);
+        if (!prefixed || bare) violate('I6-empty-reason', 'screened chip title has no criterion after its prefix', s, key, { id, scrTitle });
+        const expKinds = { estimate: ev.unresolved.some((r) => r.screened && !r.polymerScreen), polymer: ev.unresolved.some((r) => r.screened && r.polymerScreen) };
+        if (expKinds.estimate !== /Screened by an estimate:/.test(scrTitle) || expKinds.polymer !== /Screened by the base polymer's published behaviour:/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title names the wrong kind of screen', s, key, { id, scrTitle, expected: expKinds });
         // In the pills' words, never the engine's criterion strings ("hdt045 >= 100").
         check('I6-raw-key');
         const raw = KEYS.find((k) => new RegExp(`(^|[^A-Za-z0-9_])${k}($|[^A-Za-z0-9_])`).test(scrTitle));

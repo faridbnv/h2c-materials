@@ -17,6 +17,7 @@ let actions = null;
 
 const ACTIONS = {
   estimate: { label: 'Open the estimate', run: (id) => actions.openMaterial(id, 'Overview') },
+  polymer: { label: 'Open the Environment tab', run: (id) => actions.openMaterial(id, 'Environment') },
   printing: { label: 'Open the Printing tab', run: (id) => actions.openMaterial(id, 'Printing') },
   measurement: { label: 'Open the measurement', run: (id) => actions.openMeasurement(id) },
 };
