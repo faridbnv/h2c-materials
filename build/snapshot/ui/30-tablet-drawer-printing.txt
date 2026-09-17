@@ -6,7 +6,3 @@ drawer: full screen, modal
 estimate marks in drawer: 0
 estimate cards in drawer: 0
 hidden controls: 0
-scrolls sideways:
-  div#drawer-host > div.drawer > div.drawer-nav > div.drawer-tabs
-  div#lens.lens-view > div > div.table-scroll
-rows: top bar 2, lens tabs 1, status bar 1, shortlist 1, drawer tabs 1

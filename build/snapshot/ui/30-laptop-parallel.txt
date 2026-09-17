@@ -3,5 +3,3 @@ document width 1180
 spill: none
 clipped cells: no table
 hidden controls: 0
-scrolls sideways: none
-rows: top bar 1, lens tabs 1, status bar 1, shortlist 1

@@ -6,6 +6,3 @@ drawer: side panel, not modal
 estimate marks in drawer: 0
 estimate cards in drawer: 0
 hidden controls: 0
-scrolls sideways:
-  div#lens.lens-view > div > div.table-scroll
-rows: top bar 1, lens tabs 1, status bar 1, drawer tabs 2

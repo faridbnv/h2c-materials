@@ -5,7 +5,3 @@ clipped cells:
   #lens table 1: 0 of 18
   #lens table 2: 0 of 15
 hidden controls: 0
-scrolls sideways:
-  div#lens.lens-view > div.table-scroll
-  div#main.main > section.workspace > div.lens-bar > div.segmented
-rows: top bar 2, lens tabs 1, status bar 2, shortlist 2

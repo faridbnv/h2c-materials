@@ -20,6 +20,8 @@
 //   npm run ui:check                     compare with build/snapshot/ui; exit 1 on a difference, a page error or any
 //                                        layout failure those files record, listed by step
 //   npm run ui:check -- --write          rewrite build/snapshot/ui (still exit 1 on a layout failure)
+//   npm run ui:check -- --verbose        also print, per screen step, what follows the machine's fonts and is therefore
+//                                        not recorded: boxes that scroll sideways, rows each bar wraps to, the legend
 // --strict-layout, which once turned the layout failures into a failed check, is accepted and changes nothing: the
 // failures it listed (the status bar widening the phone page, table cells clipped below 1000 px, estimates in the
 // Confirmed-only drawer) are fixed, and a new one fails the check like any other.
@@ -178,6 +180,8 @@ const measureLayout = (screen, drawer) => evaluate(`(() => {
 // The layout record of a step as text, and the failures in it. A strict step is one in Confirmed only,
 // where the drawer must show no estimate.
 const layoutProblems = [];
+const notes = {};
+const verbose = process.argv.includes('--verbose');
 const recordLayout = async (screen, step, { drawer = false, strict = false } = {}) => {
   const key = `30-${screen.name}-${step}`;
   const m = await measureLayout(screen, drawer);
@@ -199,11 +203,18 @@ const recordLayout = async (screen, step, { drawer = false, strict = false } = {
     ...(drawer ? [`drawer: ${m.drawerFullScreen ? 'full screen' : 'side panel'}, ${m.drawerModal ? 'modal' : 'not modal'}`,
       `estimate marks in drawer: ${m.drawerEstimates}`, `estimate cards in drawer: ${m.drawerEstimateCards}`] : []),
     `hidden controls: ${m.offScreen}`,
-    ...list('scrolls sideways', m.sideways, 'none'),
-    `rows: ${m.wraps.join(', ')}`,
-    ...(m.legend ? [`chart legend: ${m.legend}`] : []),
   ];
   results[key] = lines.join('\n');
+  // Which boxes scroll sideways, how many rows a bar wraps to and how much of the chart the plot takes follow the
+  // fonts of the machine: a nine-tab strip that just overflows 820 px here fits on Linux Chrome, whose fonts differ.
+  // Recorded, those lines failed CI on every push from 944dedd while the layout itself held. They are printed with
+  // --verbose; what they were there to show is asserted below as a failure, with room for a font's difference.
+  notes[key] = [...list('scrolls sideways', m.sideways, 'none'), `rows: ${m.wraps.join(', ')}`, ...(m.legend ? [`chart legend: ${m.legend}`] : [])];
+  const wrap = Object.fromEntries(m.wraps.map((w) => { const i = w.lastIndexOf(' '); return [w.slice(0, i), Number(w.slice(i + 1))]; }));
+  if (screen.width < 600 && wrap['top bar'] > 2) layoutProblems.push(`${key}: the top bar wraps to ${wrap['top bar']} rows on a phone (at most 2)`);
+  if (screen.width < 1100 && wrap['lens tabs'] > 1) layoutProblems.push(`${key}: the lens tabs wrap to ${wrap['lens tabs']} rows; below 1100 px they are one scrolling strip`);
+  if (drawer && m.drawerFullScreen && wrap['drawer tabs'] > 1) layoutProblems.push(`${key}: the full-screen drawer's tabs wrap to ${wrap['drawer tabs']} rows; they are one scrolling strip`);
+  if (screen.width < 900 && m.legend && !/^below the plot/.test(m.legend)) layoutProblems.push(`${key}: the chart legend is ${m.legend.split(',')[0]}; below 900 px it sits below the plot`);
 
   if (overflow) layoutProblems.push(`${key}: the page is ${m.documentWidth} px wide on a ${screen.width} px screen`);
   if (m.spill.length) layoutProblems.push(`${key}: ${m.spill.length} element(s) past the right edge of the screen: ${m.spill.slice(0, 5).join('; ')}${m.spill.length > 5 ? '; ...' : ''}`);
@@ -354,9 +365,18 @@ if (write) {
   const gone = committed.filter((k) => !(k in results));
   if (changed.length || gone.length) {
     console.error(`ui:check: ${changed.length} view(s) differ from build/snapshot/ui${changed.length ? ` (${changed.join(', ')})` : ''}${gone.length ? `; missing: ${gone.join(', ')}` : ''}. Review, then npm run ui:check -- --write`);
+    // The lines that differ, so a failure on another machine (CI) says what moved instead of only naming the view.
+    for (const k of changed) {
+      const path = join(outDir, `${k}.txt`);
+      const was = existsSync(path) ? readFileSync(path, 'utf8').trimEnd().split('\n') : [];
+      const now = results[k].split('\n');
+      const lost = was.filter((l) => !now.includes(l)), added = now.filter((l) => !was.includes(l));
+      console.error(`  ${k}:${lost.slice(0, 8).map((l) => `\n    - ${l}`).join('')}${added.slice(0, 8).map((l) => `\n    + ${l}`).join('')}`);
+    }
     process.exitCode = 1;
   } else console.log(`ui:check: ${Object.keys(results).length} views match build/snapshot/ui`);
 }
+if (verbose) for (const [k, lines] of Object.entries(notes)) console.log(`${k}\n  ${lines.join('\n  ')}`);
 if (layoutProblems.length) {
   console.error(`ui:check: ${layoutProblems.length} layout failure(s)\n  ${layoutProblems.join('\n  ')}`);
   process.exitCode = 1;
