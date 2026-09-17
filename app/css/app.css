@@ -13,6 +13,8 @@
   --ink-3: #85857c;
   --accent: #1f5f8b;
   --accent-soft: #e4eef5;
+  /* Text on an accent fill. White on the dark theme's light blue read at about 2:1. */
+  --on-accent: #fff;
 
   /* Status palette. Used for nothing else. */
   --pass: #1d6f42;      --pass-bg: #e4f2e9;
@@ -40,7 +42,7 @@
     --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
     --border: #32353d; --border-strong: #474b55;
     --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
-    --accent: #6fb3e0; --accent-soft: #1b3346;
+    --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
     --pass: #63c68c; --pass-bg: #12301f;
     --fail: #f08a7d; --fail-bg: #3a1a16;
     --unknown: #e0b458; --unknown-bg: #352a10;
@@ -51,7 +53,7 @@
   --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
   --border: #32353d; --border-strong: #474b55;
   --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
-  --accent: #6fb3e0; --accent-soft: #1b3346;
+  --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
   --pass: #63c68c; --pass-bg: #12301f;
   --fail: #f08a7d; --fail-bg: #3a1a16;
   --unknown: #e0b458; --unknown-bg: #352a10;
@@ -100,14 +102,21 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
 }
 #btn-scenario .icon, #btn-theme .icon { display: none; }
+/* The bar's buttons are one height, whether they hold words or an icon. */
+.topbar .btn { min-height: 32px; }
+#btn-filters { align-items: center; }
+/* Up to 1600 px, where the data chip is hidden too: with its words the theme button took a second row of its own at
+   every width from 1401 to 1600 px. */
+@media (max-width: 1600px) {
+  #btn-theme { min-width: 34px; padding: 5px 8px; }
+  #btn-theme .btn-text { display: none; }
+  #btn-theme .icon { display: block; }
+}
 @media (max-width: 1400px) {
   /* The mode's label above its buttons rather than beside them: the same words in 160 px less of the bar's width. */
   .topbar .mode-group { flex-direction: column; align-items: flex-start; gap: 1px; }
   .topbar .mode-label { font-size: 11px; line-height: 1.25; }
   .topbar .mode-group .segmented button { padding-block: 5px; }
-  #btn-theme { min-width: 34px; min-height: 32px; padding: 5px 8px; }
-  #btn-theme .btn-text { display: none; }
-  #btn-theme .icon { display: block; }
 }
 .search { position: relative; }
 .search input {
@@ -125,7 +134,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 /* Hidden until it has focus: the first stop for a keyboard, straight to the results. */
 .skip-link {
   position: absolute; left: 8px; top: -60px; z-index: 100; padding: 8px 14px; border-radius: var(--radius);
-  background: var(--accent); color: #fff; font-weight: 600; text-decoration: none;
+  background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none;
 }
 .skip-link:focus { top: 8px; }
 .lens-view:focus { outline: none; }
@@ -139,7 +148,14 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   font-size: var(--t-body); border-right: 1px solid var(--border);
 }
 .segmented button:last-child { border-right: 0; }
-.segmented button[aria-pressed="true"] { background: var(--accent); color: #fff; font-weight: 600; }
+.segmented button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 600; }
+/* A tab label that turns bold when selected keeps the width of its bold form, so selecting a tab does not move its
+   neighbours (the view tabs and the drawer's tabs shifted a few pixels on every change). The copy is hidden and has no
+   text for a screen reader. */
+[data-label] { display: inline-flex; flex-direction: column; align-items: center; }
+[data-label]::after {
+  content: attr(data-label); content: attr(data-label) / ""; font-weight: 600; height: 0; overflow: hidden; visibility: hidden;
+}
 .segmented-label { font-size: var(--t-small); color: var(--ink-3); margin-right: -8px; }
 
 /* ---------------------------------------------------------------- main split */
@@ -205,14 +221,17 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
    and an auto column took that width and laid a phone's whole view out at 619 px. */
 .workspace { display: grid; grid-template-rows: auto 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; min-height: 0; }
 .lens-bar {
-  display: flex; align-items: center; gap: 14px; padding: 9px 16px;
+  display: flex; align-items: flex-start; gap: 8px 14px; padding: 9px 16px;
   border-bottom: 1px solid var(--border); background: var(--surface); flex-wrap: wrap;
 }
-.candidate-count { font-weight: 650; font-size: 17px; letter-spacing: -0.01em; }
+.candidate-count { font-weight: 650; font-size: 17px; letter-spacing: -0.01em; padding-block: 6px; }
 .candidate-count small { font-weight: 400; color: var(--ink-3); font-size: var(--t-small); margin-left: 7px; }
 .lens-bar .spacer { flex: 1; }
-/* What the active view is for, on screen: the tab names alone did not say. */
-.lens-help { flex-basis: 100%; margin: -4px 0 0; text-align: right; font-size: var(--t-small); color: var(--ink-3); }
+/* The view tabs with the line under them that says what the active view is for (the tab names alone did not say). The
+   line starts under the first tab wherever the tabs sit; it had been right-aligned on a row of its own, under tabs that
+   had wrapped to the left. It takes the strip's width and never sets it, so a long line does not move the tabs. */
+.lens-nav { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; max-width: 100%; }
+.lens-help { width: 0; min-width: 100%; margin: 0; font-size: var(--t-small); color: var(--ink-3); }
 .lens-bar button[disabled] { opacity: .45; cursor: not-allowed; }
 /* min-width 0: a grid item is otherwise at least as wide as its widest content, and where the view does not scroll itself
    (a phone) a wide table would widen the page instead of scrolling in its own box. */
@@ -259,7 +278,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   border-radius: var(--radius); cursor: pointer; font-size: var(--t-body);
 }
 .btn:hover { background: var(--surface-2); }
-.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+.btn-primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-sm { padding: 4px 10px; font-size: var(--t-small); }
 
@@ -359,6 +378,9 @@ table.grid td.name { font-weight: 600; }
 .drawer-head { padding: 14px 18px; border-bottom: 1px solid var(--border); }
 .drawer-head h2 { margin: 0 0 4px; font-size: 21px; letter-spacing: -0.015em; }
 .drawer-head .sub { color: var(--ink-2); font-size: var(--t-body); }
+/* The close button at the top, the height of the Shortlist button beside it; in Save / share it had stretched to the
+   height of the heading and its line. */
+.drawer-head .icon-btn { align-self: flex-start; min-width: 30px; min-height: 30px; }
 /* Wrap, never hide. At 620px the nine tabs need about 906px, so Price, Evidence and Coverage
    used to overflow with no scrollbar or arrow. Evidence is the whole point of the tool. */
 .drawer-tabs { display: flex; flex-wrap: wrap; gap: 2px 0; padding: 0 12px; border-bottom: 1px solid var(--border); }
@@ -369,7 +391,7 @@ table.grid td.name { font-weight: 600; }
 .drawer-tabs button[aria-selected="true"] { border-bottom-color: var(--accent); color: var(--ink); font-weight: 600; }
 /* A tab with nothing behind it is visibly quiet rather than hidden. */
 .drawer-tabs button[data-empty="true"] { color: var(--ink-3); }
-.drawer-tabs .n { font-size: var(--t-label); color: var(--ink-3); margin-left: 5px; font-variant-numeric: tabular-nums; }
+.drawer-tabs .n { font-size: var(--t-label); font-weight: 400; color: var(--ink-3); margin-left: 5px; font-variant-numeric: tabular-nums; }
 .drawer-body { overflow-y: auto; overscroll-behavior: contain; padding: 16px 18px 40px; }
 /* The tab strip and the one line under it saying what the open tab lists: one grid row, so the body keeps the last. */
 .drawer-nav { border-bottom: 1px solid var(--border); min-width: 0; }
@@ -446,6 +468,7 @@ h3.sec:first-child { margin-top: 0; }
   padding: 13px 15px; color: var(--ink-2); font-size: var(--t-body); background: var(--surface-2); line-height: 1.55;
 }
 .gap strong { color: var(--ink); }
+.gap + .gap { margin-top: 8px; }
 
 .evidence-row {
   border-top: 1px solid var(--border); padding: 12px 0; font-size: var(--t-body);
@@ -454,6 +477,12 @@ h3.sec:first-child { margin-top: 0; }
 
 /* ---------------------------------------------------------------- explain panel */
 .explain-row { display: grid; grid-template-columns: auto 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); align-items: start; }
+/* The drawer's results and printing checks: the chips share one column, so the text beside them starts at one left
+   edge. Each row sized its own column, and PASS, FAIL, UNKNOWN and "Guidance published" set their text at four. */
+.explain-list, .facts-list { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+.explain-list > .explain-row, .facts-list > .fact { grid-column: 1 / -1; grid-template-columns: subgrid; }
+.explain-list > .explain-row > .chip, .facts-list > .fact > .chip { justify-self: start; }
+.facts-list > .fact.plain > *, .facts-list > .fact > :only-child { grid-column: 1 / -1; }
 .explain-row .why { font-size: 12.5px; color: var(--ink-2); }
 .explain-row .crit { font-weight: 600; font-size: 13px; }
 .relax { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); }
@@ -584,7 +613,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-bar .cmp-threshold.tracked { border-left-style: dashed; opacity: .75; }
 /* A requirement past the end of the track: drawn at that end, doubled, rather than widening the track until every bar is a sliver. */
 .cmp-bar .cmp-threshold.beyond { border-left-width: 4px; border-left-style: double; }
-.cmp-intro { margin: 0 0 16px; max-width: 110ch; }
+.cmp-intro, .fine.cmp-intro { margin: 0 0 16px; max-width: 110ch; }
 .cmp-req { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; margin-left: 10px; font-weight: 400; font-size: var(--t-label); color: var(--ink-2); }
 .cmp-req-item { display: inline-flex; align-items: center; gap: 5px; }
 .cmp-req-mark { display: inline-block; width: 0; height: 12px; border-left: 2px solid var(--fail); }
@@ -632,7 +661,6 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 }
 @media (max-width: 800px) {
   .lens-bar { gap: 8px; }
-  .lens-help { text-align: left; margin-top: 0; }
   .topbar h1 { font-size: 13px; }
   .search input { width: 140px; }
 }
@@ -747,6 +775,9 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .cov-meter .seg.gap { background: var(--unknown); }
 .cov-meter .seg.bad { background: var(--fail); }
 .cov-meter .seg.none { background: var(--border); }
+/* A mark whose state is "gap" shares the class of the gap box above (.gap), whose dashed border and padding drew a
+   ragged edge on the meter and pushed the swatch's and the cell's dash to their bottom edge. */
+.cov-meter .seg, .cov-key .sw, .cov-cell { padding: 0; border: 0; }
 
 .cov-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; font-size: var(--t-small); color: var(--ink-2); }
 .cov-key { display: inline-flex; align-items: center; gap: 7px; }
@@ -887,10 +918,8 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .fact-hint { font-size: var(--t-label); color: var(--ink-3); line-height: 1.4; }
 .fact-warn { font-size: var(--t-label); color: var(--unknown); margin-top: 6px; line-height: 1.4; }
 
-.facts-list { display: grid; gap: 9px; margin-bottom: 14px; }
+.facts-list { row-gap: 9px; margin-bottom: 14px; }
 .fact { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; font-size: var(--t-body); }
-/* Recorded wording with no verdict to give, so no chip beside it. */
-.fact.plain { grid-template-columns: 1fr; }
 .fact-why { color: var(--ink-2); font-size: var(--t-small); }
 
 /* ---------------------------------------------------------------- estimates */

@@ -610,6 +610,13 @@ function wireChrome() {
     renderLens();
   });
 
+  // With no theme chosen the page follows the system's, and the button's icon and words follow it too when it changes.
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (document.documentElement.dataset.theme) return;
+    paintTheme();
+    renderLens();
+  });
+
   document.getElementById('use-estimates').addEventListener('change', (e) => actions.toggleEstimates(e.target.checked));
   document.getElementById('btn-scenario').addEventListener('click', () => actions.openScenario());
 

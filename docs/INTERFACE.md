@@ -54,7 +54,9 @@ changes membership. A material highlighted in one is highlighted in all.
 
 One line under the tabs says what the active view is for ("The candidates as a sortable list"). It is the tab's own
 title, shown: the names "Ashby", "Parallel" and "Coverage" had explained themselves only in a tooltip, and the last two
-are now called what they show.
+are now called what they show. The line starts under the first tab wherever the tabs sit; it had been right-aligned on
+a row of its own, under tabs that had wrapped to the left. A selected tab keeps the width of its bold label, here and in
+the drawer, so choosing a view or a drawer tab no longer moves the tabs beside it.
 
 **Compare** draws each property as one track per shortlisted material, and the track spans every candidate in the
 database, the lowest value at its left end and the highest at its right, both printed under the bars (with estimates
@@ -374,7 +376,9 @@ to its source.
 The requirements had been the last section, under the numbers, the estimates, the printing checks and the documentation
 cards. Without requirements there is nothing to answer first, and the order is Key numbers, estimates, printing, the
 rest. Each result names the measurement it rests on, labelled, and the measurement's ID opens it. Key number cards start
-at the top of their row, so a card whose label wraps no longer makes its neighbours look offset.
+at the top of their row, so a card whose label wraps no longer makes its neighbours look offset. The result chips, and
+the chips of the printing checks, share one column, so the text beside them starts at one left edge: PASS, UNKNOWN and
+"Guidance published" had each set it at their own width.
 
 **Estimates** follow the Key numbers under **Estimated, not measured**, one line each, in the data's own terms: "Strength
 ~46–58 MPa† · good precision · from 3 of its own measurements", or "from the family model only". Opening a line gives
@@ -641,8 +645,9 @@ laid a 390 px phone out at 533 px with the right side clipped. Colour never the 
   box scrolls only when its table is wider than it is, because a box that can scroll sideways also scrolls vertically, and
   the column headings would stop sticking under a wide screen's scrolled results. Squeezed instead, 46 of 207 cells had
   overprinted their neighbours at 820 px and 132 at 390 px.
-- **The top bar** is one row from 1101 to 1440 px: the theme button is a sun or a moon below 1400 px, with "Switch to light
-  theme" or "Switch to dark theme" kept as its name and title, and the mode's label sits above its buttons. Below 600 px
+- **The top bar** is one row from 1101 px: the theme button is a sun or a moon up to 1600 px, with "Switch to light
+  theme" or "Switch to dark theme" kept as its name and title (with its words it took a second row of its own from 1401
+  to 1600 px), its buttons are one height, and below 1400 px the mode's label sits above its buttons. Below 600 px
   it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode buttons with Use
   estimates; the title goes, since the browser tab carries it. It had been four rows on a phone.
 - **The view tabs**, below 1100 px, and **the drawer's nine tabs**, below 1100 px, are each one strip that scrolls

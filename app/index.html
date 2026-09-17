@@ -70,15 +70,17 @@
         <span class="candidate-count" id="count"></span>
         <div class="spacer"></div>
         <!-- Each tab's title is also the visible help line under the tabs (main.js markLens), so the two cannot differ. -->
-        <div class="segmented" role="group" aria-label="View" aria-describedby="lens-help">
-          <button data-lens="table"    aria-pressed="true"  title="The candidates as a sortable list">Table</button>
-          <button data-lens="ashby"    aria-pressed="false" title="Ashby chart: two properties plotted against each other, to see trade-offs">Ashby</button>
-          <button data-lens="parallel" aria-pressed="false" title="Parallel lines: each candidate across several properties at once">Parallel lines</button>
-          <button data-lens="coverage" aria-pressed="false" title="How much evidence the database holds for each candidate">Data coverage</button>
-          <button data-lens="compare"  aria-pressed="false" title="Your shortlist, property by property">Compare</button>
-          <button data-lens="explain"  aria-pressed="false" id="tab-explain" title="Which requirement removed how many materials">Why excluded</button>
+        <div class="lens-nav">
+          <div class="segmented" role="group" aria-label="View" aria-describedby="lens-help">
+            <button data-lens="table"    aria-pressed="true"  title="The candidates as a sortable list" data-label="Table">Table</button>
+            <button data-lens="ashby"    aria-pressed="false" title="Ashby chart: two properties plotted against each other, to see trade-offs" data-label="Ashby">Ashby</button>
+            <button data-lens="parallel" aria-pressed="false" title="Parallel lines: each candidate across several properties at once" data-label="Parallel lines">Parallel lines</button>
+            <button data-lens="coverage" aria-pressed="false" title="How much evidence the database holds for each candidate" data-label="Data coverage">Data coverage</button>
+            <button data-lens="compare"  aria-pressed="false" title="Your shortlist, property by property" data-label="Compare">Compare</button>
+            <button data-lens="explain"  aria-pressed="false" id="tab-explain" title="Which requirement removed how many materials" data-label="Why excluded">Why excluded</button>
+          </div>
+          <p class="lens-help" id="lens-help"></p>
         </div>
-        <p class="lens-help" id="lens-help"></p>
       </div>
       <div class="lens-view" id="lens" tabindex="-1" role="region" aria-label="Results"></div>
     </section>

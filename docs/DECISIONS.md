@@ -1241,7 +1241,7 @@ layout failures.
   inside it, a backdrop closes it, and focus returns to its opener. A wider screen keeps it a side panel beside usable
   results, not modal.
 - **Strips instead of wrapped rows** for the view tabs and the drawer's tabs, with the active tab kept in view, and a top
-  bar of one row from 1101 px (the theme button an icon below 1400 px, keeping its words as its name and title) and two
+  bar of one row from 1101 px (the theme button an icon below 1600 px, keeping its words as its name and title) and two
   on a phone (the title left to the browser tab, Save / share and the theme as named icons).
 
 `npm run ui:check` now fails on a layout failure without a flag; the drawer steps measure the drawer's own tables, since

@@ -41,8 +41,11 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const chrome = findChrome();
 if (!chrome) skipWithoutChrome('ui:check');
-const html = readdirSync(join(root, 'dist')).find((f) => /^H2C_Material_Selector_.*\.html$/.test(f));
-if (!html) { console.error('No built page in dist/; run npm run build'); process.exit(1); }
+// The page of the current snapshot, as audit-data.mjs names it. "The first H2C_Material_Selector_*.html" picked an older
+// page left in dist/ after the snapshot moved (2026-09-10 sorts before 2026-09-16), so the checks tested a stale build.
+const snapshot = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8')).meta.snapshot;
+const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${snapshot}.html`);
+if (!html) { console.error(`No built page for snapshot ${snapshot} in dist/; run npm run build`); process.exit(1); }
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 
 const profile = mkdtempSync(join(tmpdir(), 'h2c-ui-'));

@@ -52,7 +52,9 @@ const { applyAssumptions, toHash, validateScenario } = await import(pathToFileUR
 const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
 
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
-const html = readdirSync(join(root, 'dist')).find((f) => /^H2C_Material_Selector_.*\.html$/.test(f));
+// The current snapshot's page, never whichever older page sorts first in dist/ (see ui-probe.mjs).
+const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${db.meta.snapshot}.html`);
+if (!html) { console.error(`No built page for snapshot ${db.meta.snapshot} in dist/; run npm run build`); process.exit(1); }
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 const candidates = db.materials.filter((m) => !m.familyEntry);
 const KEYS = db.registry.headlines.map((h) => h.key);

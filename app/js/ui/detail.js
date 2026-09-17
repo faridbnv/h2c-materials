@@ -538,7 +538,7 @@ export function renderDrawer(host, state, actions) {
       <div class="drawer-tabs" role="tablist">
         ${TABS.map(([k, label]) => `
           <button role="tab" data-tab="${k}" aria-selected="${k === tab}" data-empty="${counts[k] === 0}" aria-controls="drawer-panel">
-            ${label}${counts[k] === null ? '' : `<span class="n">${counts[k]}</span>`}</button>`).join('')}
+            <span data-label="${label}">${label}</span>${counts[k] === null ? '' : `<span class="n">${counts[k]}</span>`}</button>`).join('')}
       </div>
       <p class="drawer-help" id="drawer-help">${esc(TAB_HELP[tab](counts[tab], c))}</p>
     </div>

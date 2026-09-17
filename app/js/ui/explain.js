@@ -76,7 +76,8 @@ export function renderExclusions(host, state, actions) {
 /** Per-candidate explanation: one line per criterion, with the measurement behind it. */
 export function renderWhy(evaluation) {
   if (!evaluation.results.length) return `<p class="missing">No requirements are set.</p>`;
-  return evaluation.results.map((r) => `
+  // One list, so the result chips share a column and the text beside them one left edge (app.css).
+  return `<div class="explain-list">${evaluation.results.map((r) => `
     <div class="explain-row">
       ${chip(r.status)}
       <div>
@@ -88,7 +89,7 @@ export function renderWhy(evaluation) {
           // A result that rests on the base polymer's published behaviour says so, and where its rows are (D64).
           ? ` · from the base polymer ${esc(r.polymerId)}, shown on the Environment tab` : ''}</div>
       </div>
-    </div>`).join('');
+    </div>`).join('')}</div>`;
 }
 
 
