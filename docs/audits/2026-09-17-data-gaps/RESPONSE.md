@@ -58,6 +58,13 @@ m38: nothing entered. Under D35 a value enters only from a fetched, hashed sourc
   ...
 ```
 
+## Continuing this on a machine with network access
+
+[continuing-locally.md](continuing-locally.md) is the handoff: how to set the clone up, how a batch is
+done with m38 as the worked example, what to collect for each remaining batch and from where, what is
+already settled and must not be reopened, and every decision still open. Read that to carry on; the
+rest of this file is the record of what has happened.
+
 ## Deferred: no source access
 
 Four batches, each a migration of its own and a section added here when it lands. Next free migration id is m38;
@@ -189,9 +196,12 @@ the `Screens` column of `screening.csv` and the verdicts in `templates.csv` are 
    has no value for it. It is recorded in `Composition / filler` with `Variant` not applicable, because inventing a
    variant class would give the estimate model a covariate nothing has back-tested. Add the class, or leave it said
    in prose?
-3. **The SDS source class.** What should it be called, and should `Decomposition temperature` join
-   `properties.csv` as a thermal property? Adding it needs no code, and three of the seven sheets just read publish
-   one (ABS > 380 °C, PC > 360 °C, PET-CF17 434.0 °C, PETG-rCF08 432.6 °C), so it would stop being untranscribed.
+3. ~~The SDS source class~~ — **decided 2026-09-17: `Manufacturer SDS`.** It is not yet in
+   `schema/vocab/source-classes.csv`: a new vocabulary value belongs in the same commit as the first
+   data that uses it (AGENTS.md), so it lands with the first SDS batch, with `npm run docs:dictionary`.
+   ~~And `Decomposition temperature` as a property~~ — **decided: not added.** Four of the seven sheets
+   publish one (ABS > 380 °C, PC > 360 °C, PET-CF17 434.0 °C, PETG-rCF08 432.6 °C); they stay
+   untranscribed by decision, and audit:sources will list them.
 4. **A conditioned heat deflection.** The BASF sheet's conditioned HDT and Vicat values are left out, because the
    model would average them with their dry twins (see B0). Teaching it a conditioned HDT kind needs a decision and
    a back-test (D58). Worth doing, or should those values stay out with the reason on record?
