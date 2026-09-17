@@ -1,30 +1,6 @@
 {
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
-    "chamber_bands": {
-      "rows": 44,
-      "sha256": "f3f14e9540db9810fa42de3977f0cd939177885073266fdce42752116ee9edd1"
-    },
-    "family_entries": {
-      "rows": 5,
-      "sha256": "446762ef8639a957cba695f3ae9502c3a0f278c5716e983c6766c0c4e0127735"
-    },
-    "family_members": {
-      "rows": 22,
-      "sha256": "7fb05c14ee58a0eedfca12f1951223234212255833fe117de1dcca53b6689809"
-    },
-    "fatigue_tests": {
-      "rows": 42,
-      "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
-    },
-    "polymer_environment": {
-      "rows": 353,
-      "sha256": "e40011199958e55374b5b4fb48f373d9c6f9aab626c0416d83e21b022223b88d"
-    },
-    "polymers": {
-      "rows": 36,
-      "sha256": "488e05886a34917db04b226426e1b1b19c94fcf87344463f016d5cefdb255f79"
-    },
     "materials": {
       "rows": 103,
       "sha256": "239ca6e1d21bb00e497cf56715bfb95d517c7360b82a242155f5ecf465134908"
@@ -41,9 +17,17 @@
       "rows": 2348,
       "sha256": "d9b5d2cfb7e38d3175a67878dc6ab8ef14593c6630e302db6fc16c7b8318a4d8"
     },
+    "fatigue_tests": {
+      "rows": 42,
+      "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
+    },
     "evidence": {
       "rows": 478,
       "sha256": "7c1b0448052fa604f4eb54191fa5e8dbc9174bb4df13018c35070951b85a37c9"
+    },
+    "polymer_environment": {
+      "rows": 353,
+      "sha256": "e40011199958e55374b5b4fb48f373d9c6f9aab626c0416d83e21b022223b88d"
     },
     "prices": {
       "rows": 104,
@@ -59,7 +43,7 @@
     },
     "method": {
       "rows": 48,
-      "sha256": "963fef9e8f05b214cf62a0cca43c3ae91508dcd53d3d412c0b8122a7e2e45f6b"
+      "sha256": "d19fa185ffb7858acf9e2102a281166cc69ea7bfdaa7991e7816f8d8d6642210"
     },
     "reference": {
       "rows": 114,
@@ -80,6 +64,22 @@
     "headline_definitions": {
       "rows": 6,
       "sha256": "957896bfe282dbfddce2b2c26514e146aca31cc7b4b37ead050e31052be76d09"
+    },
+    "polymers": {
+      "rows": 36,
+      "sha256": "488e05886a34917db04b226426e1b1b19c94fcf87344463f016d5cefdb255f79"
+    },
+    "chamber_bands": {
+      "rows": 44,
+      "sha256": "f3f14e9540db9810fa42de3977f0cd939177885073266fdce42752116ee9edd1"
+    },
+    "family_entries": {
+      "rows": 5,
+      "sha256": "446762ef8639a957cba695f3ae9502c3a0f278c5716e983c6766c0c4e0127735"
+    },
+    "family_members": {
+      "rows": 22,
+      "sha256": "7fb05c14ee58a0eedfca12f1951223234212255833fe117de1dcca53b6689809"
     }
   }
 }

@@ -259,7 +259,7 @@ output. Pages publishes it beside the page.
 ```bash
 npm run verify                   # verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff               # what the change did to dist/db.json
-open dist/H2C_Material_Selector_2026-09-13.html
+open dist/H2C_Material_Selector_2026-09-16.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
 

@@ -45,7 +45,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | Address | What |
 |---|---|
 | [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool |
-| `/h2c-materials/H2C_Material_Selector_2026-09-13.html` | The same build, pinned to its database snapshot |
+| `/h2c-materials/H2C_Material_Selector_2026-09-16.html` | The same build, pinned to its database snapshot |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
 | `/h2c-materials/manifest.json` | The commit, input hashes and output hashes the page was built from |
 

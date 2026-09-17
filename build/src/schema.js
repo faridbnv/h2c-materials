@@ -24,8 +24,10 @@ const NUMBER_RE = /^-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$/;
 const INTEGER_RE = /^-?\d+$/;
 const DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
-export const TABLE_ORDER = ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference',
-  'headlines', 'material_links', 'properties', 'headline_definitions'];
+// Every table, in the order a reader meets them: the records, then what explains and relates them. A table missing here
+// sorted first, so the review workbook opened on chamber bands and family members instead of materials.
+export const TABLE_ORDER = ['materials', 'grades', 'profiles', 'measurements', 'fatigue_tests', 'evidence', 'polymer_environment', 'prices', 'sources', 'coverage', 'method', 'reference',
+  'headlines', 'material_links', 'properties', 'headline_definitions', 'polymers', 'chamber_bands', 'family_entries', 'family_members'];
 
 export function loadSchemas(schemaDir) {
   const tables = {};
