@@ -1,7 +1,8 @@
 Value,Meaning,State
-<20% RH during printing/storage,Storage or printing humidity; the moisture state at test is not stated,not-stated
 50% RH,Tested at 50% relative humidity,conditioned
+<20% RH during printing/storage,Storage or printing humidity; the moisture state at test is not stated,not-stated
 Conditioned: 70% RH,Conditioned at 70% relative humidity before testing,conditioned
+"Conditioned: standard climate (23 °C, 50% RH, 72 h)","Conditioned in a standard climate before testing, as the source specifies",conditioned
 Conditioned: water immersion,Immersed in water before testing,conditioned
 Dried before testing (see preparation),Dried before testing; the Post-processing column says how,dry
 Dry,Tested dry,dry

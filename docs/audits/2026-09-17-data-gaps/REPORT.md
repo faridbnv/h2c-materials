@@ -1,6 +1,11 @@
 # Where the database is thin, and what would change that
 
-**Date:** 2026-09-17 · **Scope:** the tables as of snapshot 2026-09-16 · **Data status:** nothing changed; this is a reading
+**Date:** 2026-09-17 · **Scope:** the tables as read before the first batch of work · **Data status:** a reading, not a change
+
+> The first batch has since landed. `hdt045` this-material now holds 23 back-test cases and certifies, and
+> `tensileStrengthXY` 19 of 22; the counts below are the ones that prompted the work, not today's. Re-run
+> [`ledgers/gap-census.mjs`](ledgers/gap-census.mjs) for the current figures and read [RESPONSE.md](RESPONSE.md)
+> for what moved.
 
 Every count below is written by [`ledgers/gap-census.mjs`](ledgers/gap-census.mjs) into
 [`ledgers/gap-census.csv`](ledgers/gap-census.csv), or read from `build/snapshot/`. Re-run it and the report can be
@@ -134,8 +139,10 @@ Three different problems wear the same word.
 The safety data sheets sit across the first two: they need no new policy, they are published by the same firms whose
 sheets are already on file, and they answer the one conflict the register has been unable to close.
 
-## What was not done
+## What was done about it
 
-Nothing was fetched, and no value entered any table. This session's environment denies outbound access to every
-manufacturer host, and `.cache/sources/` is gitignored, so no source could be re-read; under D35 nothing may be
-entered without one. The work prepared for that access is in [RESPONSE.md](RESPONSE.md).
+Nothing was fetched from this session: its environment denies outbound access to every manufacturer host, and
+`.cache/sources/` is gitignored, so no source could be re-read, and under D35 nothing may be entered without one.
+The owner then supplied the seven data sheets of the first batch directly. They were cached, hashed against the
+digests the 2026-09-15 workstream recorded, and re-read page by page. What that changed, what it found that the
+earlier reading had missed, and what is still waiting on source access are in [RESPONSE.md](RESPONSE.md).

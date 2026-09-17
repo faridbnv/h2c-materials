@@ -58,7 +58,7 @@ Outdoor structural part,Explore with estimates,M053,PA12-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M054,PA12-GF,PASS,yes,
 Outdoor structural part,Explore with estimates,M055,PA66,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M056,PA66-CF,UNKNOWN,yes,
-Outdoor structural part,Explore with estimates,M058,PA612,UNKNOWN,yes,
+Outdoor structural part,Explore with estimates,M058,PA612,UNKNOWN,screened,tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M059,PA612-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M060,PA612-GF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M064,PA-ESD,UNKNOWN,yes,
@@ -575,7 +575,7 @@ Flexible component,Explore with estimates,M045,PEBA,PASS,yes,
 Flexible component,Explore with estimates,M046,TPC / TPEE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M049,PA6,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M052,PA12,UNKNOWN,yes,
-Flexible component,Explore with estimates,M055,PA66,UNKNOWN,yes,
+Flexible component,Explore with estimates,M055,PA66,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M056,PA66-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M058,PA612,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M060,PA612-GF,UNKNOWN,screened,elongationXY >= 100
@@ -586,5 +586,5 @@ Flexible component,Explore with estimates,M085,PE,PASS,yes,
 Flexible component,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M093,PVB,UNKNOWN,yes,
+Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M093,PVB,UNKNOWN,screened,elongationXY >= 100

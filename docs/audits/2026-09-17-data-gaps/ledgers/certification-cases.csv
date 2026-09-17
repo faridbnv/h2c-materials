@@ -22,19 +22,19 @@ density,M020,PETG,Officially listed family,G020-01,X-3DXPRO-LG-PETG-TDS-v3,2,yes
 density,M021,PETG Basic,Official Bambu product,G021-01,B-petg-basic-TDS,0,no,Not applicable,single formulation; needs a density of a second product
 density,M022,PETG HF,Official Bambu product,G022-01,B-petg-hf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
 density,M023,PETG Translucent,Official Bambu product,G023-01,B-petg-translucent-TDS,0,no,Not applicable,single formulation; needs a density of a second product
-density,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
+density,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,1,yes,density,Not applicable
 density,M025,PETG-GF,Officially listed family,G025-02,R-ERYONE-PETG-GF-TDS,1,yes,density,Not applicable
 density,M026,PETG-ESD,Theoretical,G026-01,X-3DXSTAT-ESD-PETG-TDS-v03,2,yes,density,Not applicable
-density,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,0,no,Not applicable,single formulation; needs a density of a second product
+density,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,1,yes,density,Not applicable
 density,M028,ABS-GF,Official Bambu product,G028-01,B-abs-gf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
 density,M029,ABS-CF,Officially listed family,G029-01,X-CarbonX-CF-ABS-TDS-v3,1,yes,density,Not applicable
 density,M030,ABS-ESD,Theoretical,G030-01,X-3DXSTAT-ESD-ABS-TDS-v3,1,yes,density,Not applicable
-density,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,0,no,Not applicable,single formulation; needs a density of a second product
+density,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,1,yes,density,Not applicable
 density,M032,ASA Aero,Official Bambu product,G032-01,B-asa-aero-TDS,0,no,Not applicable,single formulation; needs a density of a second product
 density,M033,ASA-CF,Official Bambu product,G033-01,B-asa-cf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
 density,M034,ASA-GF,Officially listed family,G034-03,R-IPCON-ASA-GF-TDS,3,yes,density,Not applicable
-density,M035,PC,Official Bambu product,G035-01,B-PC-TDS,0,no,Not applicable,single formulation; needs a density of a second product
-density,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,0,no,Not applicable,single formulation; needs a density of a second product
+density,M035,PC,Official Bambu product,G035-01,B-PC-TDS,1,yes,density,Not applicable
+density,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,1,yes,density,Not applicable
 density,M037,PC-CF,Officially listed family,G037-01,X-CarbonX-CF-PC-TDSv3,2,yes,density,Not applicable
 density,M038,PC-GF,Officially listed family,G038-02,R-BASF-PCGF30-TDS,1,no,Not applicable,its 1 other formulation(s) publish nothing usable here; needs a density of a second product
 density,M039,TPU,Officially listed family,G039-01,S-POLYCN-PolyFlex-TPU95-TDS-V5-1,2,yes,density,Not applicable
@@ -44,7 +44,7 @@ density,M042,TPU 90A,Official Bambu product,G042-01,B-TPU-SOFT-TDS-4,0,no,Not ap
 density,M043,TPU 85A,Official Bambu product,G043-01,B-TPU-SOFT-TDS-5,0,no,Not applicable,single formulation; needs a density of a second product
 density,M045,PEBA,Theoretical,G045-01,S-PEBA-PEBA90A-TDS-en,3,yes,density,Not applicable
 density,M046,TPC / TPEE,Theoretical,G046-01,S-TPC,2,yes,density,Not applicable
-density,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
+density,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,1,no,Not applicable,its 1 other formulation(s) publish nothing usable here; needs a density of a second product
 density,M049,PA6,Theoretical,G049-01,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,yes,density,Not applicable
 density,M050,PA6-CF,Official Bambu product,G050-01,B-pa6-cf-TDS,1,yes,density,Not applicable
 density,M051,PA6-GF,Official Bambu product,G051-01,B-pa6-gf-TDS,2,yes,density,Not applicable
@@ -55,7 +55,7 @@ density,M059,PA612-CF,Theoretical,G059-01,S-FIBER-PA612,0,no,Not applicable,sing
 density,M064,PA-ESD,Theoretical,G064-01,X-3DXSTAT-ESD-PA12-TDS-v1,0,no,Not applicable,single formulation; needs a density of a second product
 density,M065,PA612-ESD,Theoretical,G065-01,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,0,no,Not applicable,single formulation; needs a density of a second product
 density,M066,PET,Officially listed family,G066-01,S-PET-TDS,0,no,Not applicable,single formulation; needs a density of a second product
-density,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
+density,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,1,yes,density,Not applicable
 density,M068,PET-GF,Officially listed family,G068-02,R-FIBERON-PETGF15-TDS,1,no,Not applicable,its 1 other formulation(s) publish nothing usable here; needs a density of a second product
 density,M069,PPA,Conditional,G069-01,S-PPA-TDS,0,no,Not applicable,single formulation; needs a density of a second product
 density,M070,PPA-CF,Official Bambu product,G070-01,B-ppa-cf-TDS,0,no,Not applicable,single formulation; needs a density of a second product
@@ -107,19 +107,19 @@ elongationXY,M020,PETG,Officially listed family,G020-01,X-3DXPRO-LG-PETG-TDS-v3,
 elongationXY,M021,PETG Basic,Official Bambu product,G021-01,B-petg-basic-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M022,PETG HF,Official Bambu product,G022-01,B-petg-hf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M023,PETG Translucent,Official Bambu product,G023-01,B-petg-translucent-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
-elongationXY,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
+elongationXY,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M025,PETG-GF,Officially listed family,G025-02,R-ERYONE-PETG-GF-TDS,1,yes,break unk,Not applicable
 elongationXY,M026,PETG-ESD,Theoretical,G026-01,X-3DXSTAT-ESD-PETG-TDS-v03,2,yes,break XY | break Z | break unk | yield unk,Not applicable
-elongationXY,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
+elongationXY,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M028,ABS-GF,Official Bambu product,G028-01,B-abs-gf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M029,ABS-CF,Officially listed family,G029-01,X-CarbonX-CF-ABS-TDS-v3,1,yes,break unk,Not applicable
 elongationXY,M030,ABS-ESD,Theoretical,G030-01,X-3DXSTAT-ESD-ABS-TDS-v3,1,yes,break XY,Not applicable
-elongationXY,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
+elongationXY,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M032,ASA Aero,Official Bambu product,G032-01,B-asa-aero-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M033,ASA-CF,Official Bambu product,G033-01,B-asa-cf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M034,ASA-GF,Officially listed family,G034-03,R-IPCON-ASA-GF-TDS,3,yes,break XY | break unk,Not applicable
-elongationXY,M035,PC,Official Bambu product,G035-01,B-PC-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
-elongationXY,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
+elongationXY,M035,PC,Official Bambu product,G035-01,B-PC-TDS,1,yes,break XY | break Z,Not applicable
+elongationXY,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M037,PC-CF,Officially listed family,G037-01,X-CarbonX-CF-PC-TDSv3,2,yes,break unk,Not applicable
 elongationXY,M038,PC-GF,Officially listed family,G038-02,R-BASF-PCGF30-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M039,TPU,Officially listed family,G039-01,S-POLYCN-PolyFlex-TPU95-TDS-V5-1,2,yes,break XY | break unk,Not applicable
@@ -128,7 +128,7 @@ elongationXY,M041,TPU 95A HF,Official Bambu product,G041-01,B-tpu-95a-hf-TDS,0,n
 elongationXY,M042,TPU 90A,Official Bambu product,G042-01,B-TPU-SOFT-TDS-4,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M043,TPU 85A,Official Bambu product,G043-01,B-TPU-SOFT-TDS-5,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M045,PEBA,Theoretical,G045-01,S-PEBA-PEBA90A-TDS-en,3,yes,break moulded | break unk,Not applicable
-elongationXY,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
+elongationXY,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M050,PA6-CF,Official Bambu product,G050-01,B-pa6-cf-TDS,1,yes,break unk,Not applicable
 elongationXY,M051,PA6-GF,Official Bambu product,G051-01,B-pa6-gf-TDS,2,yes,break XY | break Z,Not applicable
 elongationXY,M053,PA12-CF,Theoretical,G053-01,X-CarbonX-CF-PA12-TDS-v1,2,yes,break XY | break Z | break unk,Not applicable
@@ -136,7 +136,7 @@ elongationXY,M054,PA12-GF,Theoretical,G054-01,X-FIBREX-PA12-GF30-TDS-v1-0,0,no,N
 elongationXY,M057,PA6/66,Theoretical,G057-01,S-POLYCN-PolyMide-CoPA-TDS-V5-2,1,yes,break XY,Not applicable
 elongationXY,M059,PA612-CF,Theoretical,G059-01,S-FIBER-PA612,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M065,PA612-ESD,Theoretical,G065-01,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
-elongationXY,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
+elongationXY,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,1,yes,break XY | break Z,Not applicable
 elongationXY,M068,PET-GF,Officially listed family,G068-02,R-FIBERON-PETGF15-TDS,1,no,Not applicable,"its 1 other formulation(s) publish nothing usable here; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M069,PPA,Conditional,G069-01,S-PPA-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
 elongationXY,M070,PPA-CF,Official Bambu product,G070-01,B-ppa-cf-TDS,0,no,Not applicable,"single formulation; needs an elongation at break, elongation at yield or tensile strain at strength of a second product"
@@ -175,23 +175,23 @@ hdt045,M020,PETG,Officially listed family,G020-01,X-3DXPRO-LG-PETG-TDS-v3,2,yes,
 hdt045,M021,PETG Basic,Official Bambu product,G021-01,B-petg-basic-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M022,PETG HF,Official Bambu product,G022-01,B-petg-hf-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M023,PETG Translucent,Official Bambu product,G023-01,B-petg-translucent-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
-hdt045,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
+hdt045,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,1,yes,HDT 0.45 | HDT 1.8 amorphous,Not applicable
 hdt045,M026,PETG-ESD,Theoretical,G026-01,X-3DXSTAT-ESD-PETG-TDS-v03,2,yes,HDT 0.45 | HDT 1.8 amorphous | HDT unstated,Not applicable
-hdt045,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
+hdt045,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,1,yes,HDT 0.45 | HDT 1.8 amorphous,Not applicable
 hdt045,M028,ABS-GF,Official Bambu product,G028-01,B-abs-gf-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M029,ABS-CF,Officially listed family,G029-01,X-CarbonX-CF-ABS-TDS-v3,1,yes,HDT 0.45 | Tg amorphous,Not applicable
 hdt045,M030,ABS-ESD,Theoretical,G030-01,X-3DXSTAT-ESD-ABS-TDS-v3,1,yes,Tg amorphous,Not applicable
-hdt045,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
+hdt045,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,1,yes,HDT 0.45 | HDT 1.8 amorphous,Not applicable
 hdt045,M032,ASA Aero,Official Bambu product,G032-01,B-asa-aero-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M033,ASA-CF,Official Bambu product,G033-01,B-asa-cf-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M034,ASA-GF,Officially listed family,G034-03,R-IPCON-ASA-GF-TDS,3,yes,HDT 0.45 | HDT 0.45 moulded amorphous | Vicat amorphous,Not applicable
-hdt045,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
+hdt045,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,1,yes,HDT 0.45 | HDT 1.8 amorphous,Not applicable
 hdt045,M037,PC-CF,Officially listed family,G037-01,X-CarbonX-CF-PC-TDSv3,2,yes,HDT 0.45 | HDT 1.8 amorphous | Vicat amorphous,Not applicable
 hdt045,M038,PC-GF,Officially listed family,G038-02,R-BASF-PCGF30-TDS,1,yes,HDT unstated,Not applicable
-hdt045,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
+hdt045,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,1,yes,HDT 0.45 | HDT 1.8 semi-filled | Tm semi-filled,Not applicable
 hdt045,M050,PA6-CF,Official Bambu product,G050-01,B-pa6-cf-TDS,1,yes,Tm semi-filled,Not applicable
-hdt045,M051,PA6-GF,Official Bambu product,G051-01,B-pa6-gf-TDS,2,yes,HDT 0.45 | HDT 1.8 semi-filled,Not applicable
-hdt045,M053,PA12-CF,Theoretical,G053-01,X-CarbonX-CF-PA12-TDS-v1,2,yes,HDT 0.45 | HDT 1.8 semi-filled,Not applicable
+hdt045,M051,PA6-GF,Official Bambu product,G051-01,B-pa6-gf-TDS,2,yes,HDT 0.45 | HDT 1.8 semi-filled | Tm semi-filled,Not applicable
+hdt045,M053,PA12-CF,Theoretical,G053-01,X-CarbonX-CF-PA12-TDS-v1,2,yes,HDT 0.45 | HDT 1.8 semi-filled | Tm semi-filled,Not applicable
 hdt045,M054,PA12-GF,Theoretical,G054-01,X-FIBREX-PA12-GF30-TDS-v1-0,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M057,PA6/66,Theoretical,G057-01,S-POLYCN-PolyMide-CoPA-TDS-V5-2,1,yes,HDT 0.45,Not applicable
 hdt045,M059,PA612-CF,Theoretical,G059-01,S-FIBER-PA612,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
@@ -203,7 +203,7 @@ hdt045,M070,PPA-CF,Official Bambu product,G070-01,B-ppa-cf-TDS,0,no,Not applicab
 hdt045,M071,PPA-GF,Officially listed family,G071-01,D-IPCON-PPA,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M072,PPS,Officially listed family,G072-01,X-THERMAX-PPS-TDS-v3,1,yes,HDT 0.45 moulded semicrystalline,Not applicable
 hdt045,M073,PPS-CF,Official Bambu product,G073-01,B-pps-cf-TDS,1,yes,Tm semi-filled,Not applicable
-hdt045,M074,PPS-GF,Officially listed family,G074-01,S-PPSGF-TDS-0,1,yes,HDT 0.45 | HDT 1.8 semi-filled,Not applicable
+hdt045,M074,PPS-GF,Officially listed family,G074-01,S-PPSGF-TDS-0,1,yes,HDT 0.45 | HDT 1.8 semi-filled | Tm semi-filled,Not applicable
 hdt045,M081,HIPS,Theoretical,G081-01,X-3DXMAX-HIPS-TDS-v3,1,yes,HDT 0.45 | Vicat amorphous,Not applicable
 hdt045,M083,PP-CF,Theoretical,G083-01,X-CarbonX-CF-PP-TDSv1,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
 hdt045,M084,PP-GF,Theoretical,G084-01,X-FIBREX-GF-PP-TDS-v1,0,no,Not applicable,"single formulation; needs an HDT at any load, Vicat, Tg (amorphous matrix) or Tm (filled semicrystalline matrix) of a second product"
@@ -236,26 +236,26 @@ tensileModulusXY,M020,PETG,Officially listed family,G020-01,X-3DXPRO-LG-PETG-TDS
 tensileModulusXY,M021,PETG Basic,Official Bambu product,G021-01,B-petg-basic-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M022,PETG HF,Official Bambu product,G022-01,B-petg-hf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M023,PETG Translucent,Official Bambu product,G023-01,B-petg-translucent-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
-tensileModulusXY,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
+tensileModulusXY,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,1,yes,flexural XY | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M025,PETG-GF,Officially listed family,G025-02,R-ERYONE-PETG-GF-TDS,1,yes,flexural unk,Not applicable
 tensileModulusXY,M026,PETG-ESD,Theoretical,G026-01,X-3DXSTAT-ESD-PETG-TDS-v03,2,yes,flexural XY | flexural unk | tensile XY | tensile Z | tensile unk,Not applicable
-tensileModulusXY,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
+tensileModulusXY,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,1,yes,flexural XY | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M028,ABS-GF,Official Bambu product,G028-01,B-abs-gf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M029,ABS-CF,Officially listed family,G029-01,X-CarbonX-CF-ABS-TDS-v3,1,yes,flexural unk | tensile unk,Not applicable
 tensileModulusXY,M030,ABS-ESD,Theoretical,G030-01,X-3DXSTAT-ESD-ABS-TDS-v3,1,yes,flexural XY | tensile XY,Not applicable
-tensileModulusXY,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
+tensileModulusXY,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,1,yes,flexural XY | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M032,ASA Aero,Official Bambu product,G032-01,B-asa-aero-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M033,ASA-CF,Official Bambu product,G033-01,B-asa-cf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M034,ASA-GF,Officially listed family,G034-03,R-IPCON-ASA-GF-TDS,3,yes,flexural XY | flexural unk | tensile moulded,Not applicable
-tensileModulusXY,M035,PC,Official Bambu product,G035-01,B-PC-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
-tensileModulusXY,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
+tensileModulusXY,M035,PC,Official Bambu product,G035-01,B-PC-TDS,1,yes,flexural XY | tensile XY | tensile Z,Not applicable
+tensileModulusXY,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,1,yes,flexural XY | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M037,PC-CF,Officially listed family,G037-01,X-CarbonX-CF-PC-TDSv3,2,yes,flexural unk,Not applicable
 tensileModulusXY,M038,PC-GF,Officially listed family,G038-02,R-BASF-PCGF30-TDS,1,yes,flexural XY,Not applicable
 tensileModulusXY,M039,TPU,Officially listed family,G039-01,S-POLYCN-PolyFlex-TPU95-TDS-V5-1,2,yes,hardness A | tensile unk,Not applicable
 tensileModulusXY,M041,TPU 95A HF,Official Bambu product,G041-01,B-tpu-95a-hf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M042,TPU 90A,Official Bambu product,G042-01,B-TPU-SOFT-TDS-4,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M043,TPU 85A,Official Bambu product,G043-01,B-TPU-SOFT-TDS-5,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
-tensileModulusXY,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
+tensileModulusXY,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,1,yes,flexural XY | flexural XY wet-low | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M050,PA6-CF,Official Bambu product,G050-01,B-pa6-cf-TDS,1,no,Not applicable,its 1 other formulation(s) publish nothing usable here; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M051,PA6-GF,Official Bambu product,G051-01,B-pa6-gf-TDS,2,yes,flexural XY | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M053,PA12-CF,Theoretical,G053-01,X-CarbonX-CF-PA12-TDS-v1,2,yes,flexural XY | flexural XY wet-low | tensile XY | tensile Z | tensile unk,Not applicable
@@ -263,7 +263,7 @@ tensileModulusXY,M054,PA12-GF,Theoretical,G054-01,X-FIBREX-PA12-GF30-TDS-v1-0,0,
 tensileModulusXY,M057,PA6/66,Theoretical,G057-01,S-POLYCN-PolyMide-CoPA-TDS-V5-2,1,yes,flexural XY | tensile XY,Not applicable
 tensileModulusXY,M059,PA612-CF,Theoretical,G059-01,S-FIBER-PA612,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M065,PA612-ESD,Theoretical,G065-01,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
-tensileModulusXY,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
+tensileModulusXY,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,1,yes,flexural XY | tensile XY | tensile Z,Not applicable
 tensileModulusXY,M068,PET-GF,Officially listed family,G068-02,R-FIBERON-PETGF15-TDS,1,no,Not applicable,its 1 other formulation(s) publish nothing usable here; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M069,PPA,Conditional,G069-01,S-PPA-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
 tensileModulusXY,M070,PPA-CF,Official Bambu product,G070-01,B-ppa-cf-TDS,0,no,Not applicable,single formulation; needs a tensile or flexural modulus of a second product
@@ -304,28 +304,28 @@ tensileStrengthXY,M019,PLA-GF,Officially listed family,G019-01,S-POLYCN-Polymake
 tensileStrengthXY,M021,PETG Basic,Official Bambu product,G021-01,B-petg-basic-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M022,PETG HF,Official Bambu product,G022-01,B-petg-hf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M023,PETG Translucent,Official Bambu product,G023-01,B-petg-translucent-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
-tensileStrengthXY,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
+tensileStrengthXY,M024,PETG-CF,Official Bambu product,G024-01,B-petg-cf-TDS,1,yes,flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M025,PETG-GF,Officially listed family,G025-02,R-ERYONE-PETG-GF-TDS,1,yes,ultimate unk,Not applicable
-tensileStrengthXY,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
+tensileStrengthXY,M027,ABS,Official Bambu product,G027-01,B-abs-filament-TDS,1,yes,flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M028,ABS-GF,Official Bambu product,G028-01,B-abs-gf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
-tensileStrengthXY,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
+tensileStrengthXY,M031,ASA,Official Bambu product,G031-01,B-asa-filament-TDS,1,yes,flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M032,ASA Aero,Official Bambu product,G032-01,B-asa-aero-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M033,ASA-CF,Official Bambu product,G033-01,B-asa-cf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M034,ASA-GF,Officially listed family,G034-03,R-IPCON-ASA-GF-TDS,3,yes,break moulded | flexural XY | flexural unk | ultimate XY | ultimate unk,Not applicable
-tensileStrengthXY,M035,PC,Official Bambu product,G035-01,B-PC-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
-tensileStrengthXY,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
+tensileStrengthXY,M035,PC,Official Bambu product,G035-01,B-PC-TDS,1,yes,flexural XY | ultimate XY,Not applicable
+tensileStrengthXY,M036,PC FR,Official Bambu product,G036-01,B-pc-fr-TDS,1,yes,flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M038,PC-GF,Officially listed family,G038-02,R-BASF-PCGF30-TDS,1,yes,flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M040,TPU for AMS,Official Bambu product,G040-01,B-tpu-for-ams-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M041,TPU 95A HF,Official Bambu product,G041-01,B-tpu-95a-hf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M042,TPU 90A,Official Bambu product,G042-01,B-TPU-SOFT-TDS-4,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M043,TPU 85A,Official Bambu product,G043-01,B-TPU-SOFT-TDS-5,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
-tensileStrengthXY,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
+tensileStrengthXY,M048,PAHT-CF,Official Bambu product,G048-01,B-paht-cf-TDS,1,yes,flexural XY | flexural XY wet-low | ultimate XY,Not applicable
 tensileStrengthXY,M050,PA6-CF,Official Bambu product,G050-01,B-pa6-cf-TDS,1,yes,flexural unk | ultimate unk,Not applicable
 tensileStrengthXY,M051,PA6-GF,Official Bambu product,G051-01,B-pa6-gf-TDS,2,yes,break XY | flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M057,PA6/66,Theoretical,G057-01,S-POLYCN-PolyMide-CoPA-TDS-V5-2,1,yes,break XY,Not applicable
 tensileStrengthXY,M059,PA612-CF,Theoretical,G059-01,S-FIBER-PA612,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M065,PA612-ESD,Theoretical,G065-01,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
-tensileStrengthXY,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
+tensileStrengthXY,M067,PET-CF,Official Bambu product,G067-01,B-pet-cf-TDS,1,yes,flexural XY | ultimate XY,Not applicable
 tensileStrengthXY,M068,PET-GF,Officially listed family,G068-02,R-FIBERON-PETGF15-TDS,1,no,Not applicable,"its 1 other formulation(s) publish nothing usable here; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M069,PPA,Conditional,G069-01,S-PPA-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
 tensileStrengthXY,M070,PPA-CF,Official Bambu product,G070-01,B-ppa-cf-TDS,0,no,Not applicable,"single formulation; needs a tensile strength (any endpoint) or flexural strength of a second product, any direction"
