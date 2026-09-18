@@ -121,7 +121,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | density | 146 | 86 | 80% | 94% | ×1.13 | 0.0383 (60 pairs) |
 | tensileModulusXY | 313 | 69 | 81% | 96% | ×1.47 | 0.177 (21 pairs) |
 | tensileStrengthXY | 252 | 54 | 80% | 96% | ×1.7 | 0.183 (25 pairs) |
-| elongationXY | 215 | 70 | 80% | 96% | ×2.56 | 0.613 (24 pairs) |
+| elongationXY | 212 | 70 | 79% | 94% | ×2.52 | 0.613 (24 pairs) |
 | hdt045 | 219 | 59 | 81% | 97% | 19.6 °C | 10.7 (34 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
@@ -146,8 +146,8 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileStrengthXY | this-material | 24 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 54 | 0 | 97.5% point | 1 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 36 | 2 | 99.97% point | 1 | 0% point |
-| elongationXY | family | 70 | 2 | 97.5% point | 0 | 2.5% point |
+| elongationXY | this-material | 34 | 2 | 99.88% point | 1 | 0% point |
+| elongationXY | family | 70 | 2 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 51 | 2 | 98.76% point | 0 | 2.5% point |
 | hdt045 | this-material | 28 | 3 | 100% point | 1 | 0.06% point |
 | hdt045 | family | 59 | 4 | 98.22% point | 1 | 2.5% point |
@@ -180,8 +180,8 @@ Evidence that contradicts everything else and was down-weighted:
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
 - PVDF, density: 1710 kg/m³, expected about 1210
-- TPU, elongationXY: 330.1 %, expected about 567
-- PE, elongationXY: 208 %, expected about 9.54
+- TPU, elongationXY: 330.1 %, expected about 572
+- PE, elongationXY: 208 %, expected about 10.9
 - PPA-CF, hdt045: 227 °C, expected about 192
 - PPS, hdt045: 90 °C, expected about 187
 
@@ -209,5 +209,5 @@ interface can say so rather than implying a certainty it does not have.
 
 - `HDT-LOAD-UNSTATED` **materials** — 7 of 68 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
-- `EST-OUTLIER` **materials** — 5 measured headlines sit far outside what every other observation predicts; check the source and the grade: PVDF density 1710 (expected about 1210); TPU elongationXY 330.1 (expected about 567); PE elongationXY 208 (expected about 9.54); PPA-CF hdt045 227 (expected about 192); PPS hdt045 90 (expected about 187)
+- `EST-OUTLIER` **materials** — 5 measured headlines sit far outside what every other observation predicts; check the source and the grade: PVDF density 1710 (expected about 1210); TPU elongationXY 330.1 (expected about 572); PE elongationXY 208 (expected about 10.9); PPA-CF hdt045 227 (expected about 192); PPS hdt045 90 (expected about 187)
 - `EST-FAMILY-ORDER` **materials** — 1 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865

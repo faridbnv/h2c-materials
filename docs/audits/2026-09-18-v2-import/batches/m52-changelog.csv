@@ -1,0 +1,22 @@
+table,record,action,field,before,after
+measurements,V000508,Edited,Data status,Published value,Published value (physically implausible)
+measurements,V000508,Edited,Notes,Not applicable,"Corrected 2026-09-18 (m52) against the source: the sheet prints 98 % for a glass-filled PETG, which cannot draw. Unfilled PETG reaches it; this grade cannot. The same publisher prints the same kind of value on its PA6 CF sheet."
+measurements,V000729,Edited,Data status,Published value,Published value (physically implausible)
+measurements,V000729,Edited,Notes,Not applicable,"Corrected 2026-09-18 (m52) against the source: the sheet prints ""> 100 %"" for a carbon-filled polycarbonate, which cannot draw. As a bound it was asserting that the grade stretches at least 100 %, which under D55 would limit its own estimate from below."
+measurements,V001157,Edited,Raw value,120 ℃,140
+measurements,V001157,Edited,Raw numeric,120,140
+measurements,V001157,Edited,Normalized value,120,140
+measurements,V001157,Edited,Standard / load,Not published,A/120 ASTM D-648
+measurements,V001157,Edited,Standards,Not published,ASTM D648
+measurements,V001157,Edited,Locator,p. 1: Vicat Softening Point A/,p. 1: Vicat Softening Point A/120
+measurements,V001157,Edited,Notes,Not applicable,"Corrected 2026-09-18 (m52) against the source: the row reads ""Vicat Softening Point A/120 ASTM D-648 140"" with the unit on the next line: A/120 is the condition (method A, 120 °C per hour) and 140 °C is the value. The row had carried the heating rate. The sheet's own description says ""a temperature resistance of 140 degrees"". It cites ASTM D-648, the heat-deflection standard, for a Vicat row; that is what it prints and it is recorded as printed (D76)."
+measurements,V001159,Edited,Data status,Published value,Published value (physically implausible)
+measurements,V001159,Edited,Notes,Not applicable,"Corrected 2026-09-18 (m52) against the source: the sheet prints 113 % for a carbon-filled PA6. A short-fibre compound cannot draw: its fibre ends nucleate failure at a few per cent of strain, and every filled grade here that publishes an honest elongation sits between 0.5 and 6.6 %. This reads as the neat resin's elongation printed on a filled product's sheet."
+measurements,V001161,Edited,Property,Impact strength,Izod impact strength
+measurements,V001161,Edited,Raw value,180-A,4 5
+measurements,V001161,Edited,Raw numeric,180,45
+measurements,V001161,Edited,Normalized value,180,45
+measurements,V001161,Edited,Standard / load,ISO,ISO 180-A
+measurements,V001161,Edited,Standards,Not published,ISO 180
+measurements,V001161,Edited,Locator,p. 1: Notched,p. 1: Notched Impact Strength
+measurements,V001161,Edited,Notes,Not applicable,"Corrected 2026-09-18 (m52) against the source: the row reads ""Notched Impact Strength Kj/m²"" then ""ISO 180-A 4 5"": the standard is ISO 180-A and the value is 45 kJ/m², printed with its digits split. The row had carried the standard's number as the result. ISO 180 is the Izod test, so the property is the Izod impact strength its own standard names."
