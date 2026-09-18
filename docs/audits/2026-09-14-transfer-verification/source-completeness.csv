@@ -31,6 +31,7 @@ S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,5,12,,%,HT-PLA-GF contains 12% glass fi
 I-PLA-Glass-Fiber-Technical-Data-Sheet,1,220,,℃,"Melt Flow Index （ 220 ℃ , 10K g ） g/10min"
 S-POLYCN-PolyLite-PETG-TDS-V5-3,2,90,,%,Light t ransmission  §  90%
 I-PETG-TDS,1,78171,,MPa, §  78171 MPa
+I-PETG-TDS,2,45,,MPa,"0, 45 MPa  §  68 º C"
 B-petg-basic-TDS,1,80,,°C,"Heatbed: 80 °C, 12 h"
 B-petg-hf-TDS,1,85,,°C,"X1 Series Printer Heatbed: 75 - 85 ° C, 12 h"
 B-petg-hf-TDS,3,80,,°C,"80 ° C, and the time is 4 to 8 hours. When drying the filament and annealing the prints,"
@@ -668,3 +669,4 @@ R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,91,,°C,HDT at 1.8 MPa (conditioned ) 91 °C / 
 R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,128,,°C,HDT at 0.45 MPa (conditioned ) 128 °C / 262 °F  § 
 R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,192,,°C,Vicat softening point @ 50 N 192 °C / 377.6 °F  § 
 R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,217,,°C,Vicat softening point @ 10 N 217 °C / 422.6 °F  § 
+D-RAISE3D-Industrial-PPA-CF-TDS-V2-0,2,0.5,,%,"5. After annealing, max. 0.5% dimensional shrinkage could be observed in Z - axis depend ing on infill and"

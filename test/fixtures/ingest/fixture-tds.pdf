@@ -1,0 +1,65 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R >> >> /Contents 6 0 R >>
+endobj
+5 0 obj
+<< /Length 579 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 72 720 Tm (Fixture Filament Technical Data Sheet) Tj
+1 0 0 1 72 690 Tm (Property) Tj
+1 0 0 1 240 690 Tm (Testing Method) Tj
+1 0 0 1 400 690 Tm (Typical Value) Tj
+1 0 0 1 72 670 Tm (Density) Tj
+1 0 0 1 240 670 Tm (ISO 1183) Tj
+1 0 0 1 400 670 Tm (1,24 g/cm3) Tj
+1 0 0 1 72 650 Tm (Tensile strength \(X-Y\)) Tj
+1 0 0 1 240 650 Tm (ISO 527) Tj
+1 0 0 1 400 650 Tm (52 MPa) Tj
+1 0 0 1 72 630 Tm (Heat deflection temperature) Tj
+1 0 0 1 240 630 Tm (ISO 75, 0.45 MPa) Tj
+1 0 0 1 400 630 Tm (68 C) Tj
+1 0 0 1 72 600 Tm (Melting temperature DSC, 10 C/min 160 C) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Length 214 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 72 720 Tm (Printing settings) Tj
+1 0 0 1 72 690 Tm (Nozzle temperature 230 - 250 C) Tj
+1 0 0 1 72 670 Tm (Charpy impact strength 2 43 3 .4 kJ/m2) Tj
+1 0 0 1 72 650 Tm (Store below 20% RH) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000373 00000 n 
+0000001003 00000 n 
+0000001268 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1338
+%%EOF

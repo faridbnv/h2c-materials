@@ -8,6 +8,10 @@
 // What matches nothing is listed for review: an untranscribed result, or a number that is not a result (a
 // chart axis, a print setting, a test condition).
 //
+// The reading itself is scripts/lib/pdf-text.mjs, which caches a document's text by digest. This run used to
+// extract every PDF twice, once for the numbers and once for the labels, and again on the next run; at 156
+// documents that was most of the time it took, and the import ahead has ten times as many.
+//
 // Usage: npm run audit:sources [-- --source <SourceID>] [--offline]
 // Writes docs/audits/2026-09-14-transfer-verification/source-completeness.csv and prints a per-source summary.
 // Needs network on first run; not part of verify.
@@ -15,9 +19,9 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
+import { documentText, allLines, joinDigits, statementRe, CONDITION_BEFORE, RANGE, LABELS } from '../lib/pdf-text.mjs';
 
 const args = process.argv.slice(2);
 const only = args.includes('--source') ? args[args.indexOf('--source') + 1] : null;
@@ -30,6 +34,7 @@ const rows = (name) => readCsv(join(projectRoot, 'data/tables', `${name}.csv`)).
 const sources = rows('sources');
 const measurements = rows('measurements');
 const profiles = rows('profiles');
+const profileNotes = rows('profile_notes');
 
 /** Numbers the tables hold for a source, as they would be printed. */
 function knownNumbers(sourceId) {
@@ -45,8 +50,15 @@ function knownNumbers(sourceId) {
       for (const m of String(r[f] ?? '').matchAll(/\d+(?:[.,]\d+)?/g)) add(m[0]);
     }
   }
+  const cited = new Set();
   for (const r of profiles.filter((p) => p.SourceID === sourceId || String(p['H2C SourceID'] ?? '').includes(sourceId))) {
+    cited.add(r.ProfileID);
     for (const v of Object.values(r)) for (const m of String(v ?? '').matchAll(/\d+(?:[.,]\d+)?/g)) add(m[0]);
+  }
+  // What a source says about cooling, speed or storage humidity is a profile note since m44 (D69); those numbers
+  // are recorded too, and without them the audit reports every one of them as untranscribed.
+  for (const r of profileNotes.filter((n) => cited.has(n.ProfileID))) {
+    for (const m of String(r.Text ?? '').matchAll(/\d+(?:[.,]\d+)?/g)) add(m[0]);
   }
   return known;
 }
@@ -62,52 +74,11 @@ async function fetchPdf(source) {
   const bytes = readFileSync(path);
   const sha = createHash('sha256').update(bytes).digest('hex');
   if (/^[0-9a-f]{64}$/.test(source.SHA256) && sha !== source.SHA256) return { error: `document changed: SHA-256 ${sha.slice(0, 12)}, recorded ${source.SHA256.slice(0, 12)}` };
-  return { bytes };
+  return { bytes, sha };
 }
 
-async function pdfLines(bytes) {
-  const doc = await getDocument({ data: new Uint8Array(bytes), useSystemFonts: true, verbosity: 0 }).promise;
-  const out = [];
-  for (let n = 1; n <= doc.numPages; n++) {
-    const { items } = await (await doc.getPage(n)).getTextContent();
-    const lines = new Map();
-    for (const it of items) { const y = Math.round(it.transform[5]); if (!lines.has(y)) lines.set(y, []); lines.get(y).push([it.transform[4], it.str]); }
-    for (const [, parts] of [...lines].sort((a, b) => b[0] - a[0])) {
-      const text = parts.sort((a, b) => a[0] - b[0]).map((p) => p[1]).join(' ').replace(/\s+/g, ' ').trim();
-      if (text) out.push({ page: n, text });
-    }
-  }
-  return out;
-}
+const STATEMENT = statementRe();
 
-// Extraction splits digits ("1 05 °C", "2 433 .4 ± 79.4"); join them before reading numbers.
-// A standard's designation ("ISO 75", "GB/T 1633") is not a value; it is taken out first so that joining split
-// digits cannot glue it onto the number that follows.
-const STANDARD = /\b(?:I\s?S\s?O|ASTM\s?D?|GB\s?\/\s?T|DIN|IEC|UL|D(?=\s?\d{3}))\s?\d+(?:\s?[-–.:/]\s?\d+)*/g;
-const joinDigits = (s) => s.replace(STANDARD, ' § ').replace(/(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/\bO\.(?=\d)/g, '0.');
-const UNIT = String.raw`([°˚º]\s?C|℃|MPa|Mpa|MP\s?a|GPa|%|g\s?/\s?cm\s?3|g\s?/\s?cm³|g\s?/\s?cc|kJ\s?/\s?m|J\s?/\s?m|HRM|Shore)`;
-// A rate ("10°C/min"), a humidity ("70% RH") or a condition ("at 23°C") is not a result.
-const STATEMENT = new RegExp(String.raw`(?<![\d.\-–])(\d+(?:\.\d+)?)(?:\s?±\s?(\d+(?:\.\d+)?))?\s?(?:\(\s?)?${UNIT}(?!\s?\/\s?min|\s?RH|\w)`, 'g');
-const CONDITION_BEFORE = /\bat\s?$/i;
-const RANGE = /\d\s?[-–~]\s?\d/;
-
-// Label pass: numbers can be printed in any order or without a unit ("ISO 527 MPa 48", "Specific Gravity 1.22"),
-// so a property the document names but the source has no row of is listed too, whatever its number looks like.
-const LABELS = [
-  ['density', /\b(density|specific\s?gravity)\b/i, /^Density$/],
-  ['tensile strength', /tensile\s?(strength|stress)|stress\s?at\s?(yield|break)/i, /^Tensile (strength|yield|break)/],
-  ['tensile modulus', /(tensile|young'?’?s|elastic)\s?(e-)?modulus|modulus\s?of\s?elasticity/i, /^Tensile modulus$/],
-  ['elongation', /elongation|strain\s?at/i, /^(Elongation|Tensile strain)/],
-  ['flexural', /flexural|bending/i, /^Flexural/],
-  ['impact', /impact|charpy|izod/i, /(Charpy|Izod|Impact)/],
-  ['heat deflection', /heat\s?(deflection|distortion)|deflection\s?temp|\bHDT\b/i, /^HDT$/],
-  ['vicat', /vicat|vicar/i, /^Vicat/],
-  ['glass transition', /glass\s?transition|\bTg\b/i, /^Glass transition/],
-  ['melting', /melting\s?(temp|point)|\bTm\b/i, /^Melting temperature$/],
-  ['hardness', /hardness|shore\s?[AD]\b/i, /^Hardness$/],
-  ['water absorption', /water\s?absorp|moisture\s?absorp/i, /^Water absorption$/],
-  ['melt flow', /melt\s?(flow|index|volume)|\bMFR\b|\bMFI\b|\bMVR\b/i, /^Melt (mass|volume)-flow rate$/],
-];
 const labelFindings = [];
 
 const findings = [];
@@ -117,7 +88,8 @@ for (const source of sources.filter((s) => (!only || s.SourceID === only) && /\.
   if (doc.error) { summary.push({ source: source.SourceID, status: doc.error, statements: 0, unmatched: 0 }); continue; }
   const known = knownNumbers(source.SourceID);
   let statements = 0, unmatched = 0;
-  for (const { page, text } of await pdfLines(doc.bytes)) {
+  const document = await documentText(doc.bytes, { sha: doc.sha });
+  for (const { page, text } of allLines(document)) {
     const line = joinDigits(text);
     for (const m of line.matchAll(STATEMENT)) {
       const before = line.slice(Math.max(0, m.index - 3), m.index);
@@ -130,7 +102,7 @@ for (const source of sources.filter((s) => (!only || s.SourceID === only) && /\.
       findings.push({ SourceID: source.SourceID, Page: page, Value: m[1], Uncertainty: m[2] ?? '', Unit: m[3].replace(/\s/g, ''), Line: line.slice(0, 200) });
     }
   }
-  const text = (await pdfLines(doc.bytes)).map((l) => l.text.replace(/(\p{L}) (?=\p{L})/gu, '$1 ')).join('\n');
+  const text = allLines(document).map((l) => l.text.replace(/(\p{L}) (?=\p{L})/gu, '$1 ')).join('\n');
   const properties = new Set(measurements.filter((m) => m.SourceID === source.SourceID).map((m) => m.Property));
   for (const [label, inText, property] of LABELS) {
     const squeezed = text.replace(/(?<=\b\p{L}) (?=\p{L}{1,3}\b)/gu, ''); // "T ensile", "Den sity"
