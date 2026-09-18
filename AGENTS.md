@@ -113,7 +113,9 @@ from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as inj
 is copied as printed ("As printed", the sheet's annealing sentence) and Post-processing state beside it says what it
 means (as-printed, annealed, not-stated); Moisture condition and Moisture state work the same way. The build reads the
 state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen wording is data, not a schema change.
-Anneal °C and Anneal h carry the schedule the wording states (Not published when it states none); the parser checks them. A Fatigue life measurement
+Anneal °C and Anneal h carry the schedule the wording states (Not published when it states none); the parser checks them.
+Standard / load is the sheet's own words and Standards beside it lists the standards they name, at family level (Not
+published where they name none); the parser checks that too. Never write a standard the sheet does not print. A Fatigue life measurement
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 

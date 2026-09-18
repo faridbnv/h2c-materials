@@ -199,6 +199,7 @@
           "anneal",
           "testTemperature",
           "standardText",
+          "standards",
           "notch",
           "printParameters",
           "sourceId",
@@ -342,6 +343,12 @@
           },
           "standardText": {
             "type": "string"
+          },
+          "standards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "notch": {
             "type": "string"

@@ -83,3 +83,26 @@ test('a typed state that contradicts the source\'s own words stops the build; a 
   assert.ok(four.mismatches.some((m) => /Anneal °C is/.test(m)), four.mismatches.join(' | '));
 });
 
+test('the standards a row names are a typed list the source\'s words check', async () => {
+  const { readStandards } = await import('../build/src/normalize/standards.js');
+  // The same test, five ways a sheet prints it.
+  for (const text of ['ISO 527', 'ISO527,GB/T1040', 'ISO 527-2/50', 'ISO 527-1/-2; 23 °C, 50 mm/min', 'ISO 527 (testing speed 5 mm/min)']) {
+    assert.ok(readStandards(text).includes('ISO 527'), text);
+  }
+  assert.deepEqual(readStandards('ISO 527, GB/T 1040'), ['ISO 527', 'GB/T 1040']);
+  assert.deepEqual(readStandards('D 638'), ['ASTM D638'], "ASTM's designations are printed without the body");
+  assert.deepEqual(readStandards('ASTM D638; Type I; 5 mm/min'), ['ASTM D638'], 'a bare D638 inside ASTM D638 is not a second standard');
+  assert.deepEqual(readStandards('GB/T 1040.4, 50 mm/min'), ['GB/T 1040'], 'a sub-part is the same test as its parent');
+  // A method named where a standard would go is recorded only when no standard is named beside it.
+  assert.deepEqual(readStandards('DSC, 10 °C/min'), ['DSC']);
+  assert.deepEqual(readStandards('ISO 11357-1-3, DSC 10 °C/min'), ['ISO 11357']);
+  // Nothing is inferred: a condition the sheet prints instead of a standard names none.
+  for (const text of ['210 °C, 2.16 kg', 'Not published', 'Study staircase method; run-out 1,000,000 cycles', 'Equilibrium water absorption']) {
+    assert.deepEqual(readStandards(text), [], text);
+  }
+
+  const row = base.Properties.rows.find((r) => r.Standards === 'ISO 527; GB/T 1040');
+  const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === row.MeasurementID).Standards = 'ISO 178'; });
+  assert.ok(mismatches.some((m) => m.startsWith(`measurements ${row.MeasurementID}: Standards is ISO 178`)), mismatches.join(' | '));
+});
+

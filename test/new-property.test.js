@@ -50,7 +50,7 @@ function withShoreA({ misfile = false } = {}) {
     ...template, MeasurementID: id, Property: 'Shore A hardness', 'Raw value': '95A', 'Raw unit': 'Shore A', 'Raw numeric': '95',
     'Raw uncertainty ±': NA, 'Raw upper bound': NA, Operator: '=', 'Conversion factor': '1', 'Normalized value': '95',
     'Normalized uncertainty ±': NA, 'Normalized upper bound': NA, 'Normalized unit': 'Shore A', 'Data status': 'Published value',
-    Direction: NA, Notch: NA, 'Standard / load': 'ISO 868', Locator: 'test fixture', Notes: NA,
+    Direction: NA, Notch: NA, 'Standard / load': 'ISO 868', Standards: 'ISO 868', Locator: 'test fixture', Notes: NA,
   });
   t.append('headlines', { MaterialID: elastomer.MaterialID, HeadlineKey: 'shoreA', MeasurementID: id, Use: 'value' });
   let misfiledId = null;

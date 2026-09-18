@@ -82,6 +82,7 @@ break if it were reversed, because that is the part that gets lost.
 | D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | In force |
 | D74 | A coverage row is a judgement; that a material has records is derived | In force |
 | D75 | A generated SQLite file for asking questions, with the schema's types in it | In force |
+| D76 | The standards a measurement names are a typed list, and a fragment is not a standard | In force |
 
 <!-- end index -->
 
@@ -1658,3 +1659,33 @@ wrong in a way nobody would notice.
 order, that no row carries both a value and a missing state, and that the joined view loses nothing.
 
 Reversing it brings back the one-off script, and the temptation to read a column of numbers as text.
+
+## D76. The standards a measurement names are a typed list, and a fragment is not a standard
+
+`Standard / load` is the source's own words, and by this snapshot it held 301 spellings for a few dozen tests:
+"ISO 527, GB/T 1040", "ISO527,GB/T1040", "ISO 527-2/50", "ISO 527 (testing speed 5 mm/min)", "D 638". Nothing could
+be asked of it. Which Charpy results are comparable, how many products test to ASTM rather than ISO, whether two
+sheets used the same flexural method: each was a question about a column that could only be read by eye. The one
+typed thing ever taken out of it was the HDT load (D49), and that took a parser with twenty spellings in it.
+
+- **Standards is a typed list beside the raw text.** The standards a row names, at family level, one spelling each,
+  from `schema/vocab/standards.csv`. `normalize/standards.js` reads the raw text and the build stops where the two
+  disagree (PARSE-MISMATCH), which is D49's shape.
+- **Family level, because the part is a condition.** ISO 527-2/50 and ISO 527-1 are both ISO 527: the part and the
+  specimen speed are conditions of one test, and the row's own columns carry the conditions.
+- **A list, because a sheet naming two tested to two.** Each item is a vocabulary value the schema checks, as
+  `properties.csv` Units already is. This is not a list stuffed in a cell; it is one fact with two values.
+- **Nothing is inferred.** 2,307 of 2,645 rows name a standard. The rest name none and the column says so: 76 are
+  Not published, 42 are a fatigue study's own staircase method, and about 80 are the melt-flow or water-absorption
+  condition the sheet prints where a standard would go, which is what that sheet publishes.
+- **A fragment reads as no standard, and is named as work.** About 90 rows carry the tail of the Subject column and
+  the head of the Testing Methods column from the original extraction ("Modulus", "ter Absorption Rate 25 °C, 55%
+  RH"). They are a transcription defect. The fix is to re-read each source and correct the raw text (D35), not to
+  infer a standard from the property, and they are listed in
+  [audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md) with what the cached sheets show.
+
+Guessing would have been easy and would have looked like an improvement: every one of those rows has a property
+whose usual standard is obvious. A standard nobody read off the sheet is exactly the kind of value this database
+exists not to hold.
+
+Reversing it brings back a column that can only be read by eye, and a parser per question.

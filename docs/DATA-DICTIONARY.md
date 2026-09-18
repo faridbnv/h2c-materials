@@ -247,7 +247,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Anneal °C | canonical | number | yes | Not published, Not applicable |  | Annealing temperature the Post-processing wording states; the build decides on this column and the parser checks it (PARSE-MISMATCH). Not published: annealed, temperature not stated. Not applicable: not annealed, or post-processing not stated. |
 | Anneal h | canonical | number | yes | Not published, Not applicable |  | Annealing time in hours the wording states (30 min is 0.5). Not published: annealed, time not stated. Not applicable: not annealed, or post-processing not stated. |
 | Test temperature | raw | string | yes |  |  | Test temperature as published. |
-| Standard / load | raw | string | yes |  |  | Test standard and load as published. |
+| Standard / load | raw | string | yes |  |  | Test standard and load as published, in the source's words. Standards beside it is what the build reads. |
+| Standards | canonical | list (";") | yes | Not published | list of [standards](#vocab-standards) | The standards the source names, at family level and one spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of one test and the row's own columns carry them. Not published where the text names none, which a melt-flow condition or a study's own method does. |
 | Test load MPa | canonical | number | yes | Not applicable, Not published |  | Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties. |
 | Notch | canonical | string | yes |  | [notches](#vocab-notches) | Impact specimen notch. |
 | Specimen / print parameters | raw | string | yes |  |  | The specimen preparation and print conditions the source ties to its test values (nozzle and bed temperature, speed, infill, layer height, print orientation, specimen standard), in the sheet's own words; Not published where the sheet states none for its values. A recommended printing range, a marketing paragraph or a description of the source does not belong here (D63). |
@@ -1093,6 +1094,63 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Printed specimen |  | printed |
 | Printed specimen; TDS reports N/A |  | printed |
 | Raw material value |  | moulded |
+
+<a id="vocab-standards"></a>
+### standards
+
+`schema/vocab/standards.csv`, used by measurements.Standards.
+
+| Value | Meaning |
+|---|---|
+| ASTM D1238 | Melt flow rates by extrusion plastometer. |
+| ASTM D1505 | Density by density-gradient technique. |
+| ASTM D1525 | Vicat softening temperature. |
+| ASTM D1708 | Tensile properties by microtensile specimens. |
+| ASTM D2240 | Durometer hardness. |
+| ASTM D256 | Izod pendulum impact resistance. |
+| ASTM D257 | DC resistance or conductance. |
+| ASTM D3418 | Transition temperatures by DSC. |
+| ASTM D570 | Water absorption of plastics. |
+| ASTM D638 | Tensile properties of plastics. |
+| ASTM D648 | Deflection temperature under flexural load. |
+| ASTM D7426 | Glass transition temperature by DSC. |
+| ASTM D782 | Cited by a source; kept as the source prints it. |
+| ASTM D785 | Rockwell hardness. |
+| ASTM D790 | Flexural properties of plastics. |
+| ASTM D792 | Density and specific gravity by displacement. |
+| ASTM D882 | Tensile properties of thin plastic sheeting. |
+| ASTM E1356 | Glass transition temperatures by DSC. |
+| DSC | Differential scanning calorimetry, where the source names the method but no standard. |
+| GB/T 1033 | Density of plastics. |
+| GB/T 1040 | Tensile properties of plastics. |
+| GB/T 1043 | Charpy impact properties. |
+| GB/T 1633 | Vicat softening temperature. |
+| GB/T 1634 | Temperature of deflection under load. |
+| GB/T 1843 | Izod impact strength. |
+| GB/T 3682 | Melt mass-flow and melt volume-flow rate. |
+| GB/T 528 | Tensile properties of vulcanised rubber. |
+| GB/T 531.1 | Indentation hardness of rubber. |
+| GB/T 9341 | Flexural properties of plastics. |
+| GB/T 9343 | Cited by a source; kept as the source prints it. |
+| IEC 60216 | Thermal endurance of electrical insulating materials. |
+| ISO 1133 | Melt mass-flow and melt volume-flow rate. |
+| ISO 11357 | Differential scanning calorimetry. |
+| ISO 11359 | Thermomechanical analysis; thermal expansion. |
+| ISO 1183 | Density of non-cellular plastics. |
+| ISO 178 | Flexural properties of plastics. |
+| ISO 179 | Charpy impact strength. |
+| ISO 180 | Izod impact strength. |
+| ISO 2039 | Hardness by ball indentation. |
+| ISO 306 | Vicat softening temperature. |
+| ISO 3146 | Melting behaviour of semi-crystalline polymers. |
+| ISO 37 | Tensile properties of vulcanised or thermoplastic rubber. |
+| ISO 527 | Tensile properties of plastics. |
+| ISO 604 | Compressive properties of plastics. |
+| ISO 62 | Water absorption of plastics. |
+| ISO 6711 | Cited by a source; kept as the source prints it. |
+| ISO 75 | Temperature of deflection under load. |
+| ISO 7619 | Indentation hardness by durometer. |
+| ISO 868 | Indentation hardness by durometer (Shore). |
 
 <a id="vocab-stock"></a>
 ### stock

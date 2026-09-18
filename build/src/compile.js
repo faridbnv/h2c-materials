@@ -18,7 +18,7 @@ import { classifyTopic, classifyFinding, countUsableByCategory } from './normali
 import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped } from './typed-values.js';
+import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 
@@ -72,6 +72,7 @@ function compileMeasurements(rows, fatigueRows, issues) {
       anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing'], r['Post-processing state']), issues),
       testTemperature: r['Test temperature'],
       standardText: r['Standard / load'],
+      standards: applyStandardsTyped(r, issues),
       notch: r.Notch,
       printParameters: r['Specimen / print parameters'],
       sourceId: r.SourceID,

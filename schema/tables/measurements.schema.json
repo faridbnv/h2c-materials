@@ -282,7 +282,23 @@
       "name": "Standard / load",
       "type": "string",
       "role": "raw",
-      "description": "Test standard and load as published.",
+      "description": "Test standard and load as published, in the source's words. Standards beside it is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Standards",
+      "type": "list",
+      "role": "canonical",
+      "delimiter": ";",
+      "item": {
+        "vocabulary": "standards"
+      },
+      "description": "The standards the source names, at family level and one spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of one test and the row's own columns carry them. Not published where the text names none, which a melt-flow condition or a study's own method does.",
+      "missing": [
+        "Not published"
+      ],
       "constraints": {
         "required": true
       }

@@ -12,6 +12,7 @@
 
 import { readMoistureState } from './normalize/moisture.js';
 import { readPostProcessingState } from './normalize/specimen.js';
+import { readStandards } from './normalize/standards.js';
 
 const NA = 'Not applicable';
 const NP = 'Not published';
@@ -33,7 +34,7 @@ export const PROFILE_TYPED_COLUMNS = [
 export const MEASUREMENT_TYPED_COLUMNS = [
   { after: 'Moisture condition', columns: ['Moisture state'] },
   { after: 'Post-processing', columns: ['Post-processing state'] },
-  { after: 'Standard / load', columns: ['Test load MPa'] },
+  { after: 'Standard / load', columns: ['Standards', 'Test load MPa'] },
   { after: 'Notes', columns: ['Parse review'] },
 ];
 
@@ -135,6 +136,19 @@ export function applyStateTyped(r, issues) {
       issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${typed} is ${r[typed] ?? 'empty'} but the source's words "${r[raw]}" read as ${expected}; correct the typed value, or explain it in Parse review` });
     }
   }
+}
+
+/**
+ * The standards a measurement names, from its typed list, checked against the reader's view of the raw text. The
+ * stored list decides, so a reader that learns a new spelling shows its effect as a diff rather than moving a value.
+ */
+export function applyStandardsTyped(r, issues) {
+  const stored = r.Standards === NP ? [] : String(r.Standards ?? '').split(';').map((x) => x.trim()).filter(Boolean);
+  const read = readStandards(r['Standard / load']);
+  if (stored.join('; ') !== read.join('; ') && !reviewed(r)) {
+    issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Standards is ${stored.join('; ') || NP} but the parser reads "${r['Standard / load']}" as ${read.join('; ') || 'no standard'}; correct the typed value, or explain it in Parse review` });
+  }
+  return stored;
 }
 
 /** Overlay the stored test load on the HDT parser's reading. */
