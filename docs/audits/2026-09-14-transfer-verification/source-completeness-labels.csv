@@ -39,3 +39,11 @@ R-DUPONT-ZYTEL-GUIDE,flexural,"1) Notched Izod impact, DAM 2) Flexural modulus, 
 R-DUPONT-ZYTEL-GUIDE,impact,"1) Notched Izod impact, DAM 2) Flexural modulus, 50% RH 3) Preliminary data"
 R-DUPONT-ZYTEL-GUIDE,hardness,"Rockwell hardness Scale M, 23 ° C 2039/2 79 59 71"
 R-DUPONT-ZYTEL-GUIDE,water absorption,"Properties such as melting point, moisture absorption"
+S-POLYCN-PolySmooth-TDS-V5-4,melting,"Melting temperature DSC, 10°C/min N/A"
+S-ESUN-PLA-Silk-TDS-2025-06-19,glass transition,Glass Transition Temperature N/A
+S-POLYCN-PolyLite-ABS-TDS-V5-3,melting,"Melting temperature DSC, 10°C/min N/A"
+S-POLYCN-PolyLite-ASA-TDS-V5-3,melting,"Melting temperature DSC, 10°C/min N/A"
+S-POLYCN-PolyLite-PC-TDS-V5-3,melting,"Melting temperature DSC, 10°C/min N/A"
+S-POLYCN-PolyMax-PC-FR-TDS-V5-1,melting,"Melting temperature DSC, 10°C/min N/A"
+R-FIBERON-PETGRCF08-TDS,melting,Melting temperature N/A
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,water absorption,"environments. Ultrafuse® PAHT CF15 offers high temperature resistance, low moisture absorption and is also"

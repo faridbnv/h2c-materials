@@ -1,0 +1,41 @@
+table,record,action,field,before,after
+coverage,C00767,Edited,Status,Gap,Superseded
+coverage,C00767,Edited,Finding,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade.","Superseded by C01214 (2026-09-17; was ""Gap""): No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+coverage,C01214,Added,,,
+evidence,Q00479,Added,,,
+evidence,Q00480,Added,,,
+evidence,Q00481,Added,,,
+evidence,Q00482,Added,,,
+evidence,Q00483,Added,,,
+evidence,Q00484,Added,,,
+evidence,Q00485,Added,,,
+evidence,Q00486,Added,,,
+evidence,Q00487,Added,,,
+evidence,Q00488,Added,,,
+evidence,Q00489,Added,,,
+evidence,Q00490,Added,,,
+evidence,Q00491,Added,,,
+evidence,Q00492,Added,,,
+evidence,Q00493,Added,,,
+evidence,Q00494,Added,,,
+evidence,Q00495,Added,,,
+evidence,Q00496,Added,,,
+evidence,Q00497,Added,,,
+measurements,V002155,Edited,Post-processing,All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing,Not published
+measurements,V002155,Edited,Anneal °C,80,Not applicable
+measurements,V002155,Edited,Anneal h,0.5,Not applicable
+measurements,V002155,Edited,Notes,"Added 2026-09-14 (m16): published in the source, never transcribed (npm run audit:sources).","Added 2026-09-14 (m16): published in the source, never transcribed (npm run audit:sources). Corrected 2026-09-17 (m41) against the source: the sheet prints this value on p. 2, in the physical and chemical property table, which states no specimen treatment; the annealing sentence is on p. 4 under the mechanical table and applies to the mechanical specimens, not to this row."
+measurements,V002156,Edited,Post-processing,All specimens were annealed at 80˚C for 6h and dried for 48h prior to testing,Not published
+measurements,V002156,Edited,Anneal °C,80,Not applicable
+measurements,V002156,Edited,Anneal h,6,Not applicable
+measurements,V002156,Edited,Notes,"Added 2026-09-14 (m16): published in the source, never transcribed (npm run audit:sources).","Added 2026-09-14 (m16): published in the source, never transcribed (npm run audit:sources). Corrected 2026-09-17 (m41) against the source: the sheet prints this value on p. 2, in the physical and chemical property table, which states no specimen treatment; the annealing sentence is on p. 4 under the mechanical table and applies to the mechanical specimens, not to this row."
+measurements,V002159,Edited,Post-processing,All specimens were annealed at 80˚C for 24h and dried for 48h prior to testing,Not published
+measurements,V002159,Edited,Anneal °C,80,Not applicable
+measurements,V002159,Edited,Anneal h,24,Not applicable
+measurements,V002159,Edited,Notes,"Added 2026-09-14 (m16): published in the source, never transcribed (npm run audit:sources). The sheet calls this value an estimate (""~ 1.5 %"").","Added 2026-09-14 (m16): published in the source, never transcribed (npm run audit:sources). The sheet calls this value an estimate (""~ 1.5 %""). Corrected 2026-09-17 (m41) against the source: the sheet prints this value on p. 2, in the physical and chemical property table, which states no specimen treatment; the annealing sentence is on p. 4 under the mechanical table and applies to the mechanical specimens, not to this row."
+sources,X-CarbonX-CF-ASA-SDS-v1-1,Added,,,
+sources,D-RAISE3D-Industrial-PPA-CF-SDS-V1-2,Added,,,
+sources,D-SIRAYA-Fibreheart-ABS-GF-SDS,Added,,,
+sources,D-SIRAYA-Fibreheart-PPA-CF-SDS,Added,,,
+sources,D-SIRAYA-Fibreheart-PPA-CF-Core-SDS,Added,,,
+sources,D-SIRAYA-Fibreheart-PPA-GF-SDS,Added,,,

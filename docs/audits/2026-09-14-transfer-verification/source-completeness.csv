@@ -70,7 +70,6 @@ S-PEBA-PEBA90A-TDS-en,1,120,,℃,Vicat Softening Point （ 120 ℃ ， 10 N ） 
 S-PEBA-PEBA90A-TDS-en,1,407.5,,MPa,Tensile Strength (Z-axis)  §  407.5 MP a
 S-PEBA-PEBA90A-TDS-en,1,40150,,%,Elongation at Break (Z-axis)  §  40150 %
 S-PEBA-PEBA90A-TDS-en,2,70,,%,Maximum Resilience  §  70 %
-S-PEBA-PEBA90A-TDS-en,3,100,,%,Infill Density 100%
 S-POLYCN-PolyMide-CoPA-TDS-V5-2,2,260,,°C,"Melt i ndex 260°C, 1.2 kg 12 g/10min"
 S-POLYCN-PolyMide-CoPA-TDS-V5-2,3,370,,°C,"D ecomposition temperature TGA, 20°C/min 370 °C"
 S-POLYCN-PolyMide-CoPA-TDS-V5-2,5,20,,%,used under dry conditions (relative humidity below 20%).
@@ -638,3 +637,34 @@ R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Rockwell hardness Scale M, 23 ° C 2039/2"
 R-DUPONT-ZYTEL-GUIDE,22,23,,°C,"Scale R, 23 ° C"
 R-DUPONT-ZYTEL-GUIDE,22,3023,,°C,Ball indentation hardness H 358/3023 ° C 2039-1 MPa
 R-DUPONT-ZYTEL-GUIDE,22,3023,,°C,H 961/3023 ° C
+S-POLYCN-PolySmooth-TDS-V5-4,3,260,,°C,"D ecomposition temperature TGA, 20°C/min 260 °C"
+S-POLYCN-PolySmooth-TDS-V5-4,4,50,,˚C,Drying setting 50˚C for 12h
+S-BVOH-ULTRAFUSE-TDS-v1-3,1,25,,°C,Ultrafuse BVOH filament should be stored at 15 - 25°C in its originally sealed package in a clean and dry
+S-BVOH-ULTRAFUSE-TDS-v1-3,2,100,,°C,Bed Temperature 60 – 100 °C / 140 – 212 °F
+R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,60,,°C,- 60 °C. It is used with advantages for
+R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,25,,°C,good 25 °C
+R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,25,,°C,low 25 °C
+R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,245,,°C,Print temperature 225 – 245 °C
+R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,90,,°C,Hot pad 70 – 90 °C
+R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,70,,°C,"Conditions to re - dry 70 °C, 5 hours"
+S-POLYCN-PolyLite-ABS-TDS-V5-3,3,380,,°C,"D ecomposition temperature TGA, 20°C/min > 380 °C"
+S-POLYCN-PolyLite-ABS-TDS-V5-3,4,265,,℃,245 – 265 ( ℃ )
+S-POLYCN-PolyLite-ASA-TDS-V5-3,4,95,,˚C,Build plate temperature 75 - 95 ( ˚C)
+S-POLYCN-PolyLite-ASA-TDS-V5-3,4,90,,˚C,Environmental temperature Room temperature - 90 (˚C)
+S-POLYCN-PolyLite-PC-TDS-V5-3,2,89,,%,Light t ransmission  §  89%
+S-POLYCN-PolyLite-PC-TDS-V5-3,3,360,,℃,"D ecomposition temperature TGA, 20°C/min ＞ 360 ℃"
+S-POLYCN-PolyLite-PC-TDS-V5-3,4,270,,℃,Nozzle temperature 250 – 270 ( ℃ )
+S-POLYCN-PolyLite-PC-TDS-V5-3,4,105,,˚C,Build plate temperature 90 - 105 ( ˚C)
+S-POLYCN-PolyLite-PC-TDS-V5-3,4,90,,˚C,release the residual internal stress. Annealing settings: 90˚C for 2h
+R-FIBERON-PETCF17-TDS,1,434.0,,°C,"Decomposition temp. TGA, 20°C/min 434.0 °C"
+R-FIBERON-PETCF17-TDS,1,30,,%,X-Y *Model infill 30%
+R-FIBERON-PETGRCF08-TDS,1,432.6,,°C,"Decomposition temp. TGA, 20°C/min 432.6 °C"
+R-FIBERON-PETGRCF08-TDS,1,65,,°C,Build plate temperature 60-70 °C Dr ying temp. and time 65 °C/3H
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,1,25,,°C,Ultrafuse® PAHT CF15 filament should be stored at 15 - 25°C in its originally sealed package in a clean and dry
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,2,280,,°C,Nozzle Temperature 260 – 280 °C / 500 – 536 °F 285 °C / 545 °F
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,2,120,,°C,Bed Temperature 100 – 120 °C / 212 – 248 °F 110 °C / 212 °F
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,2,80,,°C,Drying recommendations to 80 °C in a hot air dryer or vacuum oven for at least 4 to 16 hours.
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,91,,°C,HDT at 1.8 MPa (conditioned ) 91 °C / 196 °F  § 
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,128,,°C,HDT at 0.45 MPa (conditioned ) 128 °C / 262 °F  § 
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,192,,°C,Vicat softening point @ 50 N 192 °C / 377.6 °F  § 
+R-FORWARDAM-PAHT-CF15-TDS-v4-0,3,217,,°C,Vicat softening point @ 10 N 217 °C / 422.6 °F  § 

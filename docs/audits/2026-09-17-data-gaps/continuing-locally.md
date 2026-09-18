@@ -8,13 +8,24 @@ Read [RESPONSE.md](RESPONSE.md) for what was done and why. This file is only the
 
 ## Where things stand
 
+**All four batches have landed.** This file was written when B1 to B3 were blocked on source access; they were
+done on 2026-09-17 and what follows is kept as the record of how, and of what is still open. Read
+[RESPONSE.md](RESPONSE.md) for the results.
+
 | | |
 |---|---|
-| Branch | `claude/kind-bardeen-a25rt7`, 3 commits ahead of `main` |
+| Branch | `claude/kind-bardeen-a25rt7` |
 | Batch B0 | **done** (m38): 7 sources, 7 grades, 168 measurements |
-| `hdt045` this-material | **23 back-test cases, certified** (was 18; 22 needed) |
-| `tensileStrengthXY` this-material | **19 of 22** — three short |
-| Batches B1, B2, B3 | not started; each needs sources fetched and re-read |
+| Batch B1 | **done** (m39): 7 sources, 7 grades, 129 measurements |
+| Batch B2 | **done** (m40): the `Manufacturer SDS` class, 6 sources, 6 declared compositions, 19 evidence records |
+| Batch B3 | **done** (m41): all 12 comparability sources re-read, 3 measurements corrected, 0 rows left open |
+| `hdt045` this-material | **28 back-test cases, certified** (22 needed) |
+| `tensileStrengthXY` this-material | **24 back-test cases, certified** (was 19) |
+| Still short | `density` this-grade, 0 of 22 — no batch here could reach it |
+| Next free migration id | **m42** (there is no m23) |
+
+Nothing is on `main`, so [the live site](https://pdynamics.ca/h2c-materials/) still shows the database as it was
+before this work. Merging is owner question 7 at the foot of this file.
 
 ## Setting up the clone
 
@@ -34,9 +45,14 @@ overrides it. If it prints "skipped: no Chrome found", the check did not run —
 
 `.cache/sources/` holds the fetched PDFs, keyed by SourceID, and is gitignored. It is empty in a
 fresh clone. `npm run audit:sources` refetches every PDF a measurement cites and hash-checks it
-against `sources.csv`, which is also how you rebuild the cache. The seven sheets of B0 are owner
--supplied and not on a URL this tooling can reach, so they will report as uncached; that is expected
-and harms nothing.
+against `sources.csv`, which is also how you rebuild the cache; the 2026-09-17 run read 145 of 147
+documents. Two kinds of source will always report as uncached, and that is expected: the seven B0
+sheets, which are owner-supplied and not on a URL this tooling can reach, and any source whose URL is
+not a `.pdf` — the Siraya PPA-GF TDS (a web page), the two FormFutura download URLs of B3 and the
+Flashforge PET-GF page. Fetch those by hand into `.cache/sources/<SourceID>.pdf`.
+
+One source is genuinely adrift: `R-KIMYA-PEBA-S-TDS` records digest `66c7b5b1…9ce3`, and its URL now
+serves `f55f2167…`. See owner question 8 in [RESPONSE.md](RESPONSE.md).
 
 ## How a batch is done
 
@@ -54,7 +70,7 @@ filename mismatch during B0 and would have caught a transcription slip.
 # 2. read them, page by page, with the repo's own extractor
 node docs/audits/2026-09-15-filtering-estimates-data/sources/extract-text.mjs /tmp/pdftext
 # 3. write the migration, then
-node scripts/migrate/m39-....mjs
+node scripts/migrate/m42-....mjs
 npm run data:fmt && npm run data:check && npm run data:lint
 npm run build && npm run snapshot
 npm run audit:data            # fails on an unreviewed or stale reviewed finding
@@ -64,7 +80,7 @@ npm run build:diff            # should name only the paths you meant to move
 npm run data:diff             # the record-level changelog; put it in the commit
 ```
 
-Next free migration id is **m39** (there is no m23).
+Next free migration id is **m42** (there is no m23). m39, m40 and m41 are the worked examples for B1, B2 and B3.
 
 Two things B0 learned that will recur:
 
