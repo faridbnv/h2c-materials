@@ -63,38 +63,16 @@ C00061,M031,Research conflict,Partially resolved,Not applicable,"Confirmed as a 
 C00062,M035,Research conflict,Partially resolved,Not applicable,"Confirmed as a real defect in the source, 2026-09-11, by recomputing the published percentages against the published ultimate strengths: ASA sigma_R 16.82 MPa, so the stated ""25 % = 8 MPa"" fatigue limit should be 4.2 MPa; PC sigma_R 61.6 MPa, so ""7 % = 3.6 MPa"" should be 4.3 MPa; PC-ABS sigma_R 52.7 MPa, so ""15 % = 4.7 MPa"" should be 7.9 MPa. Only PA12 is self-consistent (17 % x 43.4 = 7.4 MPa). The percentage-derived limits and the absolute stresses cannot both be right, so the existing conservative handling stands: retain measured stress and cycle observations only, and continue to reject the percentage-derived limits and the ""infinite life"" language (a 1e6-cycle run-out is right-censored). Authors should still be contacted for the raw data."
 C00063,M052,Research conflict,Partially resolved,Not applicable,"Confirmed as a real defect in the source, 2026-09-11, by recomputing the published percentages against the published ultimate strengths: ASA sigma_R 16.82 MPa, so the stated ""25 % = 8 MPa"" fatigue limit should be 4.2 MPa; PC sigma_R 61.6 MPa, so ""7 % = 3.6 MPa"" should be 4.3 MPa; PC-ABS sigma_R 52.7 MPa, so ""15 % = 4.7 MPa"" should be 7.9 MPa. Only PA12 is self-consistent (17 % x 43.4 = 7.4 MPa). The percentage-derived limits and the absolute stresses cannot both be right, so the existing conservative handling stands: retain measured stress and cycle observations only, and continue to reject the percentage-derived limits and the ""infinite life"" language (a 1e6-cycle run-out is right-censored). Authors should still be contacted for the raw data."
 C00064,M094,Research conflict,Partially resolved,Not applicable,"Confirmed as a real defect in the source, 2026-09-11, by recomputing the published percentages against the published ultimate strengths: ASA sigma_R 16.82 MPa, so the stated ""25 % = 8 MPa"" fatigue limit should be 4.2 MPa; PC sigma_R 61.6 MPa, so ""7 % = 3.6 MPa"" should be 4.3 MPa; PC-ABS sigma_R 52.7 MPa, so ""15 % = 4.7 MPa"" should be 7.9 MPa. Only PA12 is self-consistent (17 % x 43.4 = 7.4 MPa). The percentage-derived limits and the absolute stresses cannot both be right, so the existing conservative handling stands: retain measured stress and cycle observations only, and continue to reject the percentage-derived limits and the ""infinite life"" language (a 1e6-cycle run-out is right-censored). Authors should still be contacted for the raw data."
-C00065,M001,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00066,M001,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00067,M001,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00068,M001,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00069,M001,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00070,M001,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00071,M001,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00072,M001,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00073,M001,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00074,M001,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00075,M002,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00076,M002,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00077,M002,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00078,M002,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00079,M002,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00080,M002,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00081,M002,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00082,M002,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00083,M002,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00084,M002,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00085,M003,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00086,M003,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00087,M003,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00088,M003,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00089,M003,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00090,M003,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00091,M003,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00092,M003,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00093,M003,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00094,M003,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00095,M004,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00096,M004,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00097,M004,Print setup,Evidence recorded,Not applicable,eSUN PLA-Lite printing parameters recorded as P0161; no enclosure needed.
 C00098,M004,Mechanical,Evidence recorded,Not applicable,"eSUN PLA-Lite XY and Z tensile strength, elongation, flexural and Izod values recorded. Tensile modulus is not published; 3114.92 MPa is flexural and is not substituted."
 C00099,M004,Thermal,Partially resolved,Not applicable,"HDT 53 °C recorded; the page states neither the standard nor the load, so it carries the load-not-stated caveat."
@@ -102,38 +80,16 @@ C00100,M004,Moisture / environmental,Gap,Not applicable,Insufficient grade-speci
 C00101,M004,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00102,M004,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00103,M004,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00104,M005,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00105,M005,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00106,M005,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00107,M005,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00108,M005,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00109,M005,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00110,M005,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00111,M005,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00112,M005,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00113,M005,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00114,M006,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00115,M006,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00116,M006,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00117,M006,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00118,M006,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00119,M006,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00120,M006,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00121,M006,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00122,M006,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00123,M006,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00124,M007,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00125,M007,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00126,M007,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00127,M007,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00128,M007,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00129,M007,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00130,M007,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00131,M007,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00132,M007,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00133,M007,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00134,M008,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00135,M008,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00136,M008,Print setup,Evidence recorded,Not applicable,Panchroma Silk PLA printing guidance recorded as P0162; enclosure not needed.
 C00137,M008,Mechanical,Partially resolved,Not applicable,"Printed XY modulus and strength, Z strength and notched Charpy recorded from the Panchroma TDS V2.1. Elongation at break is not published."
 C00138,M008,Thermal,Superseded,Not applicable,"Superseded by C01208 (2026-09-16; was ""Partially resolved""): Vicat 64.7 °C recorded. HDT is not published, and Vicat is not substituted for it."
@@ -141,168 +97,57 @@ C00139,M008,Moisture / environmental,Gap,Not applicable,Insufficient grade-speci
 C00140,M008,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00141,M008,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00142,M008,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00143,M009,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00144,M009,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00145,M009,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00146,M009,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00147,M009,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00148,M009,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00149,M009,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00150,M009,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00151,M009,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00152,M009,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00153,M010,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00154,M010,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00155,M010,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00156,M010,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00157,M010,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00158,M010,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00159,M010,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00160,M010,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00161,M010,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00162,M010,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00163,M011,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00164,M011,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00165,M011,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00166,M011,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00167,M011,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00168,M011,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00169,M011,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00170,M011,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00171,M011,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00172,M011,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00173,M012,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00174,M012,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00175,M012,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00176,M012,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00177,M012,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00178,M012,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00179,M012,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00180,M012,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00181,M012,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00182,M012,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00183,M013,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00184,M013,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00185,M013,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00186,M013,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00187,M013,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00188,M013,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00189,M013,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00190,M013,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00191,M013,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00192,M013,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00193,M014,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00194,M014,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00195,M014,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00196,M014,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00197,M014,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00198,M014,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00199,M014,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00200,M014,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00201,M014,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00202,M014,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00203,M015,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00204,M015,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00205,M015,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00206,M015,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00207,M015,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00208,M015,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00209,M015,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00210,M015,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00211,M015,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00212,M015,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00213,M016,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00214,M016,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00215,M016,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00216,M016,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00217,M016,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00218,M016,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00219,M016,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00220,M016,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00221,M016,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00222,M016,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00223,M017,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00224,M017,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00225,M017,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00226,M017,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00227,M017,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00228,M017,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00229,M017,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00230,M017,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00231,M017,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00232,M017,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00233,M018,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00234,M018,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00235,M018,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00236,M018,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00237,M018,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00238,M018,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00239,M018,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00240,M018,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00241,M018,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00242,M018,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00243,M019,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00244,M019,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00245,M019,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00246,M019,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00247,M019,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00248,M019,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00249,M019,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00250,M019,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00251,M019,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00252,M019,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00253,M020,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00254,M020,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00255,M020,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00256,M020,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00257,M020,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00258,M020,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00259,M020,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00260,M020,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00261,M020,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00262,M020,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00263,M021,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00264,M021,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00265,M021,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00266,M021,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00267,M021,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00268,M021,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00269,M021,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00270,M021,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00271,M021,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00272,M021,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00273,M022,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00274,M022,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00275,M022,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00276,M022,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00277,M022,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00278,M022,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00279,M022,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00280,M022,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00281,M022,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00282,M022,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00283,M023,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00284,M023,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00285,M023,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00286,M023,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00287,M023,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00288,M023,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00289,M023,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00290,M023,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00291,M023,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00292,M023,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00293,M024,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00294,M024,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00295,M024,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00296,M024,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00297,M024,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00298,M024,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00299,M024,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00300,M024,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00301,M024,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00302,M024,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00303,M025,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00304,M025,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00305,M025,Print setup,Evidence recorded,Not applicable,"Eryone PETG-GF TDS recorded 2026-09-13: nozzle 250-280 °C, bed 60-70 °C, closed printing."
 C00306,M025,Mechanical,Evidence recorded,Not applicable,"Eryone PETG-GF printed X-Y tensile values are the headlines. iSANMATE tensile strength 53 MPa and flexural modulus 1986 MPa, published but never entered, recovered 2026-09-13; its 98% elongation has no stated direction and conflicts with every glass-filled value."
 C00307,M025,Thermal,Evidence recorded,Not applicable,Eryone HDT 80 °C is published with an ambiguous load and is not a headline; Tg 75 °C. The iSANMATE Vicat value was corrected from 120 °C to 72 °C.
@@ -311,88 +156,36 @@ C00309,M025,Post-processing / application,Gap,Not applicable,Insufficient grade-
 C00310,M025,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00311,M025,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00312,M025,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00313,M026,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00314,M026,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00315,M026,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00316,M026,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00317,M026,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00318,M026,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00319,M026,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00320,M026,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00321,M026,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00322,M026,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00323,M027,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00324,M027,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00325,M027,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00326,M027,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00327,M027,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00328,M027,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00329,M027,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00330,M027,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00331,M027,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00332,M027,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00333,M028,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00334,M028,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00335,M028,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00336,M028,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00337,M028,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00338,M028,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00339,M028,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00340,M028,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00341,M028,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00342,M028,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00343,M029,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00344,M029,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00345,M029,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00346,M029,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00347,M029,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00348,M029,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00349,M029,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00350,M029,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00351,M029,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00352,M029,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00353,M030,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00354,M030,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00355,M030,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00356,M030,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00357,M030,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00358,M030,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00359,M030,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00360,M030,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00361,M030,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00362,M030,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00363,M031,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00364,M031,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00365,M031,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00366,M031,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00367,M031,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00368,M031,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00369,M031,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00370,M031,Canadian price,Evidence recorded,Not applicable,"3 in-stock regular-price observation(s), before tax/shipping"
 C00371,M031,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00372,M031,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00373,M032,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00374,M032,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00375,M032,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00376,M032,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00377,M032,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00378,M032,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00379,M032,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00380,M032,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00381,M032,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00382,M032,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00383,M033,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00384,M033,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00385,M033,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00386,M033,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00387,M033,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00388,M033,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00389,M033,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00390,M033,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00391,M033,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00392,M033,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00393,M034,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00394,M034,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00395,M034,Print setup,Evidence recorded,Not applicable,"IPCON ASA GF: nozzle 265-290 °C, bed 90-110 °C, no positive chamber heating. Flashforge ASAGF10: nozzle 240-260 °C, bed 100-120 °C, room temperature to 60 °C. Spectrum ASA-X GF10: nozzle 240-270 °C, bed 80-100 °C."
 C00396,M034,Mechanical,Evidence recorded,Not applicable,IPCON ASA GF printed XY and Z tensile values are the headlines. Spectrum ASA-X GF10 tensile values are injection moulded per its TDS footnote and are recorded as raw-material values.
 C00397,M034,Thermal,Evidence recorded,Not applicable,IPCON HDT 98 °C at 0.45 MPa (ISO 75) is the headline. Spectrum moulded HDT 100 °C at 0.45 MPa and 90 °C at 1.81 MPa are raw-material values; Flashforge 88 °C at 0.455 MPa.
@@ -401,98 +194,40 @@ C00399,M034,Post-processing / application,Gap,Not applicable,Insufficient grade-
 C00400,M034,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00401,M034,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00402,M034,Comparability,Superseded,Not applicable,"Superseded by C01173 (2026-09-14; was ""Limited comparability""): At least one observation lacks specimen or conditioning information; no family aggregation performed."
-C00403,M035,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00404,M035,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00405,M035,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00406,M035,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00407,M035,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00408,M035,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00409,M035,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00410,M035,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00411,M035,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00412,M035,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00413,M036,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00414,M036,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00415,M036,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00416,M036,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00417,M036,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00418,M036,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00419,M036,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00420,M036,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00421,M036,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00422,M036,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00423,M037,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00424,M037,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00425,M037,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00426,M037,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00427,M037,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00428,M037,Moisture / environmental,Gap,Not applicable,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00429,M037,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00430,M037,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00431,M037,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00432,M037,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00433,M038,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00434,M038,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00435,M038,Print setup,Evidence recorded,Not applicable,"BASF Ultrafuse PC GF30 profile P0158 publishes nozzle, bed and drying; P0048 publishes a bed temperature only."
-C00436,M038,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00437,M038,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00438,M038,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00439,M038,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00440,M038,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00441,M038,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00442,M038,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00443,M039,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00444,M039,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00445,M039,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00446,M039,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
 C00447,M039,Thermal,Evidence recorded,Not applicable,"HDT 74 °C and 49 °C (V000765, V000766, transcription corrected) are recorded for grade G039-02. It is not the representative grade, so neither is the headline."
-C00448,M039,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00449,M039,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00450,M039,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00451,M039,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00452,M039,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00453,M040,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00454,M040,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00455,M040,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00456,M040,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00457,M040,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00458,M040,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00459,M040,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00460,M040,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00461,M040,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00462,M040,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00463,M041,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00464,M041,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00465,M041,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00466,M041,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00467,M041,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00468,M041,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00469,M041,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00470,M041,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00471,M041,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00472,M041,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00473,M042,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00474,M042,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00475,M042,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00476,M042,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00477,M042,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00478,M042,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00479,M042,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00480,M042,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00481,M042,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00482,M042,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00483,M043,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00484,M043,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00485,M043,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00486,M043,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00487,M043,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00488,M043,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00489,M043,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00490,M043,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00491,M043,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00492,M043,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00493,M044,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00494,M044,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00495,M044,Print setup,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C00496,M044,Mechanical,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C00497,M044,Thermal,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
@@ -501,28 +236,17 @@ C00499,M044,Post-processing / application,Not applicable,Not applicable,"Family 
 C00500,M044,Canadian price,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C00501,M044,Sparse properties,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C00502,M044,Comparability,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
-C00503,M045,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00504,M045,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00505,M045,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00506,M045,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00507,M045,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00508,M045,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00509,M045,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00510,M045,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00511,M045,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00512,M045,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00513,M046,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00514,M046,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00515,M046,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00516,M046,Mechanical,Superseded,Not applicable,"Superseded by C01200 (2026-09-15; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
-C00517,M046,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00518,M046,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00519,M046,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00520,M046,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00521,M046,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00522,M046,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00523,M047,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00524,M047,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00525,M047,Print setup,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
 C00526,M047,Mechanical,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
 C00527,M047,Thermal,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
@@ -531,77 +255,34 @@ C00529,M047,Post-processing / application,Not applicable,Not applicable,"Family 
 C00530,M047,Canadian price,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
 C00531,M047,Sparse properties,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
 C00532,M047,Comparability,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA is a family entry for unfilled aliphatic polyamides: PA6, PA6/66, PA66, PA12, PA612."
-C00533,M048,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00534,M048,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00535,M048,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00536,M048,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00537,M048,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00538,M048,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00539,M048,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00540,M048,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00541,M048,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00542,M048,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00543,M049,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00544,M049,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00545,M049,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00546,M049,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
 C00547,M049,Thermal,Superseded,Not applicable,"Superseded by C01211 (2026-09-16; was ""Evidence recorded""): Spectrum PA6 Neat publishes HDT A (1.8 MPa) 90 °C and a continuous service temperature of 120 °C (20,000 h); no 0.45 MPa value. HDT, Tg and Vicat are not continuous-service ratings."
 C00548,M049,Moisture / environmental,Gap,Not applicable,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00549,M049,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00550,M049,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00551,M049,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00552,M049,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00553,M050,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00554,M050,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00555,M050,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00556,M050,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00557,M050,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00558,M050,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00559,M050,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00560,M050,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00561,M050,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00562,M050,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00563,M051,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00564,M051,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00565,M051,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00566,M051,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00567,M051,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00568,M051,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00569,M051,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00570,M051,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00571,M051,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00572,M051,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00573,M052,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00574,M052,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00575,M052,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00576,M052,Mechanical,Limited comparability,Not applicable,"Stratasys FDM Nylon 12 data sheet recorded 2026-09-13 on the study grade G052-R1: printed XZ (on edge) and ZX (upright) tensile and flexural values. None is an XY headline, and the AMIDEX representative grade publishes no mechanical value."
 C00577,M052,Thermal,Limited comparability,Not applicable,"Stratasys FDM Nylon 12: HDT 94.7 °C at 66 psi and 84.3 °C at 264 psi (XY bars), Tg 34 °C, on the study grade G052-R1. Not the representative grade, so not a headline."
-C00578,M052,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00579,M052,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00580,M052,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00581,M052,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00582,M053,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00583,M053,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00584,M053,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00585,M053,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00586,M053,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00587,M053,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00588,M053,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00589,M053,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00590,M053,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00591,M053,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00592,M054,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00593,M054,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00594,M054,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00595,M054,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00596,M054,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00597,M054,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00598,M054,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00599,M054,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00600,M054,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00601,M054,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00602,M055,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00603,M055,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00604,M055,Print setup,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00605,M055,Mechanical,Limited comparability,Not applicable,"Resin reference only: Zytel 101L NC010 moulded, dry (G055-R1), recorded 2026-09-13 as raw-material values to anchor estimates. No printed PA66 filament data was found."
 C00606,M055,Thermal,Limited comparability,Not applicable,"Resin reference only: Zytel 101L NC010 HDT 190 °C at 0.45 MPa and 70 °C at 1.8 MPa, moulded, dry; melting point 262 °C."
@@ -610,8 +291,6 @@ C00608,M055,Post-processing / application,Gap,Not applicable,Insufficient grade-
 C00609,M055,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00610,M055,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00611,M055,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00612,M056,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00613,M056,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00614,M056,Print setup,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00615,M056,Mechanical,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00616,M056,Thermal,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -620,18 +299,10 @@ C00618,M056,Post-processing / application,Gap,Not applicable,Insufficient grade-
 C00619,M056,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00620,M056,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00621,M056,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00622,M057,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00623,M057,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00624,M057,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00625,M057,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00626,M057,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00627,M057,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00628,M057,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00629,M057,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00630,M057,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00631,M057,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00632,M058,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00633,M058,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00634,M058,Print setup,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00635,M058,Mechanical,Limited comparability,Not applicable,"Resin reference only: Zytel 151L NC010 moulded, dry as moulded (G058-R1), recorded 2026-09-13 as raw-material values to anchor estimates. No unfilled PA612 filament data was found."
 C00636,M058,Thermal,Limited comparability,Not applicable,"Resin reference only: Zytel 151L NC010 HDT 135 °C at 0.45 MPa and 62 °C at 1.8 MPa, moulded; melting point 218 °C."
@@ -640,18 +311,11 @@ C00638,M058,Post-processing / application,Gap,Not applicable,Insufficient grade-
 C00639,M058,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00640,M058,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00641,M058,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00642,M059,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00643,M059,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00644,M059,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00645,M059,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00646,M059,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00647,M059,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00648,M059,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00649,M059,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00650,M059,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00651,M059,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00652,M060,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00653,M060,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00654,M060,Print setup,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00655,M060,Mechanical,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00656,M060,Thermal,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -660,8 +324,6 @@ C00658,M060,Post-processing / application,Gap,Not applicable,Insufficient grade-
 C00659,M060,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00660,M060,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00661,M060,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00662,M061,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00663,M061,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00664,M061,Print setup,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
 C00665,M061,Mechanical,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
 C00666,M061,Thermal,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
@@ -670,8 +332,6 @@ C00668,M061,Post-processing / application,Not applicable,Not applicable,"Family 
 C00669,M061,Canadian price,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
 C00670,M061,Sparse properties,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
 C00671,M061,Comparability,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. CoPA is an alias of PA6/66: both products it held are nylon 6 and 6,6 copolymers."
-C00672,M062,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00673,M062,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00674,M062,Print setup,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
 C00675,M062,Mechanical,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
 C00676,M062,Thermal,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
@@ -680,8 +340,6 @@ C00678,M062,Post-processing / application,Not applicable,Not applicable,"Family 
 C00679,M062,Canadian price,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
 C00680,M062,Sparse properties,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
 C00681,M062,Comparability,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-CF is a family entry for carbon-fibre polyamides: PA6-CF, PA66-CF, PA12-CF, PA612-CF, PAHT-CF."
-C00682,M063,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00683,M063,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00684,M063,Print setup,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
 C00685,M063,Mechanical,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
 C00686,M063,Thermal,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
@@ -690,140 +348,70 @@ C00688,M063,Post-processing / application,Not applicable,Not applicable,"Family 
 C00689,M063,Canadian price,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
 C00690,M063,Sparse properties,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
 C00691,M063,Comparability,Not applicable,Not applicable,"Family entry since 2026-09-13: no product of its own. PA-GF is a family entry for glass-fibre polyamides: PA6-GF, PA12-GF, PA612-GF."
-C00692,M064,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00693,M064,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00694,M064,Print setup,Superseded,Not applicable,"Superseded by C01187 (2026-09-14; was ""Evidence recorded""): Published nozzle and bed profile available; check other setup fields individually."
-C00695,M064,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00696,M064,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00697,M064,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00698,M064,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00699,M064,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00700,M064,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00701,M064,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00702,M065,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00703,M065,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00704,M065,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00705,M065,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
 C00706,M065,Thermal,Partially resolved,Not applicable,"Only a crystallization temperature (180.3 °C, V001237) is published. No HDT, glass transition, Vicat or melting value."
 C00707,M065,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00708,M065,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00709,M065,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00710,M065,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00711,M065,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00712,M066,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00713,M066,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00714,M066,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00715,M066,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00716,M066,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00717,M066,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00718,M066,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00719,M066,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00720,M066,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00721,M066,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00722,M067,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00723,M067,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00724,M067,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00725,M067,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00726,M067,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00727,M067,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00728,M067,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00729,M067,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00730,M067,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00731,M067,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00732,M068,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00733,M068,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00734,M068,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00735,M068,Mechanical,Evidence recorded,Not applicable,"Fiberon PET-GF15 printed XY and Z tensile, flexural and Charpy values recorded; all specimens annealed 120 °C for 16 h before testing."
 C00736,M068,Thermal,Evidence recorded,Not applicable,"Fiberon PET-GF15 HDT at 0.45 MPa is published as printed (81.6 °C) and annealed (133.7 °C); recorded as separate measurements, and the headline is the as-printed value."
 C00737,M068,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00738,M068,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00739,M068,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00740,M068,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00741,M069,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00742,M069,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00743,M069,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00744,M069,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00745,M069,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00746,M069,Moisture / environmental,Gap,Not applicable,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00747,M069,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00748,M069,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00749,M069,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00750,M069,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00751,M069,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00752,M070,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00753,M070,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00754,M070,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00755,M070,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00756,M070,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00757,M070,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00758,M070,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00759,M070,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00760,M070,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00761,M070,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00762,M071,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00763,M071,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00764,M071,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00765,M071,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00766,M071,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00767,M071,Moisture / environmental,Superseded,Not applicable,"Superseded by C01214 (2026-09-17; was ""Gap""): No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00768,M071,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00769,M071,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00770,M071,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00771,M071,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00772,M072,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00773,M072,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00774,M072,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00775,M072,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00776,M072,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00777,M072,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00778,M072,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00779,M072,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00780,M072,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00781,M072,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00782,M073,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00783,M073,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00784,M073,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00785,M073,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00786,M073,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00787,M073,Moisture / environmental,Evidence recorded,Not applicable,"7 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00788,M073,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00789,M073,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00790,M073,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00791,M073,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00792,M074,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00793,M074,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00794,M074,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00795,M074,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00796,M074,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00797,M074,Moisture / environmental,Gap,Not applicable,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00798,M074,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00799,M074,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00800,M074,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00801,M074,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00802,M075,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00803,M075,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00804,M075,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00805,M075,Mechanical,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00806,M075,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00807,M075,Moisture / environmental,Evidence recorded,Not applicable,"7 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00808,M075,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00809,M075,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00810,M075,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00811,M075,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00812,M075,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00813,M076,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00814,M076,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00815,M076,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00816,M076,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00817,M076,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00818,M076,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00819,M076,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00820,M076,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00821,M076,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00822,M076,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00823,M076,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00824,M077,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00825,M077,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00826,M077,Print setup,Evidence recorded,Not applicable,"Exact grade-specific nozzle, bed, chamber, drying, cooling, speed, overhang and bridging guidance recorded from the Bambu TDS."
 C00827,M077,Mechanical,Superseded,Not applicable,"Superseded by C01112 (2026-09-14; was ""Gap""): Exact TDS reviewed; every mechanical field is explicitly N/A. No adjacent-product values substituted."
 C00828,M077,Thermal,Evidence recorded,Not applicable,"Melting temperature recorded; Tg, crystallization, Vicat and HDT are explicitly N/A in the exact TDS."
@@ -832,83 +420,42 @@ C00830,M077,Post-processing / application,Evidence recorded,Not applicable,Suppo
 C00831,M077,Canadian price,Superseded,Not applicable,"Superseded by C01116 (2026-09-14; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00832,M077,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00833,M077,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00834,M078,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00835,M078,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00836,M078,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00837,M078,Mechanical,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00838,M078,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00839,M078,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00840,M078,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00841,M078,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
 C00842,M078,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00843,M078,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00844,M078,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00845,M079,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00846,M079,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00847,M079,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00848,M079,Mechanical,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00849,M079,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00850,M079,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00851,M079,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00852,M079,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00853,M079,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00854,M079,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00855,M079,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00856,M080,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00857,M080,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00858,M080,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
 C00859,M080,Mechanical,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00860,M080,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00861,M080,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
 C00862,M080,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00863,M080,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00864,M080,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00865,M080,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00866,M080,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00867,M081,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00868,M081,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00869,M081,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00870,M081,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00871,M081,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00872,M081,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00873,M081,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00874,M081,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00875,M081,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00876,M081,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00877,M082,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00878,M082,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00879,M082,Print setup,Evidence recorded,Not applicable,iSANMATE PP recommends a 240-260 °C nozzle (recovered 2026-09-13 from the hash-matched TDS) and a 40-60 °C bed (P0104). No chamber temperature is published. HyperLite PP is filed as PP Lightweight since 2026-09-15.
-C00880,M082,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00881,M082,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00882,M082,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00883,M082,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00884,M082,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00885,M082,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00886,M082,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00887,M083,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00888,M083,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00889,M083,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00890,M083,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00891,M083,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00892,M083,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00893,M083,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00894,M083,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00895,M083,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00896,M083,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00897,M084,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00898,M084,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00899,M084,Print setup,Partially resolved,Not applicable,"FibreX PP+GF30 publishes only its printed-specimen conditions, 265 °C nozzle and 85 °C bed (P0106), recorded 2026-09-13. No recommended window."
-C00900,M084,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00901,M084,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00902,M084,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00903,M084,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00904,M084,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00905,M084,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00906,M084,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00907,M085,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00908,M085,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00909,M085,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00910,M085,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
 C00911,M085,Thermal,Superseded,Not applicable,"Superseded by C01207 (2026-09-16; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00912,M085,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00913,M085,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -916,57 +463,32 @@ C00914,M085,Canadian price,Gap,Not applicable,Insufficient grade-specific eviden
 C00915,M085,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00916,M085,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00917,M085,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00918,M086,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00919,M086,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00920,M086,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00921,M086,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00922,M086,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00923,M086,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00924,M086,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00925,M086,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00926,M086,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00927,M086,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00928,M087,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00929,M087,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00930,M087,Print setup,Evidence recorded,Not applicable,"purefil POM: nozzle 190-210 °C, bed 120-150 °C (P0109). Tarfuse POM: nozzle 210-240 °C, bed 100-130 °C, build chamber 70-140 °C, recorded 2026-09-13."
 C00931,M087,Mechanical,Evidence recorded,Not applicable,"Tarfuse POM printed XY tensile strength, modulus and elongation are the headlines (preliminary TDS; XZ and ZX not yet tested). Delrin 100P NC010 moulded values (G087-R1) are a resin reference."
 C00932,M087,Thermal,Superseded,Not applicable,"Superseded by C01209 (2026-09-16; was ""Evidence recorded""): Tarfuse POM: melting point 165-170 °C, Tg -50 °C; no HDT published. Delrin 100P NC010 resin reference: HDT 160 °C at 0.45 MPa and 93 °C at 1.80 MPa, moulded."
-C00933,M087,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00934,M087,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00935,M087,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00936,M087,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00937,M087,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C00938,M088,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00939,M088,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00940,M088,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00941,M088,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00942,M088,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C00943,M088,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00944,M088,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00945,M088,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
 C00946,M088,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00947,M088,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00948,M089,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00949,M089,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00950,M089,Print setup,Evidence recorded,Not applicable,Fillamentum CPE HG100 printing guide recorded as P0165; heated chamber / enclosure not needed.
 C00951,M089,Mechanical,Limited comparability,Not applicable,"CPE HG100 TDS values recorded 2026-09-13. Specimen form and orientation are not published, so tensile values are related evidence only; density is the only mechanical headline."
 C00952,M089,Thermal,Evidence recorded,Not applicable,"HDT 80 °C at 0.455 MPa (ASTM D648) recorded as the headline. The TDS labels 90 °C a glass transition under ASTM D1525, the Vicat method; kept under its own label."
-C00953,M089,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00954,M089,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00955,M089,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00956,M089,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00957,M090,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00958,M090,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00959,M090,Print setup,Superseded,Not applicable,"Superseded by C01135 (2026-09-14; was ""Evidence recorded""): Published nozzle and bed profile available; check other setup fields individually."
-C00960,M090,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00961,M090,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00962,M090,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00963,M090,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00964,M090,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00965,M090,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00966,M090,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00967,M091,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00968,M091,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00969,M091,Print setup,Evidence recorded,Not applicable,Panchroma CoPE printing guidance recorded as P0163; closure chamber not needed.
 C00970,M091,Mechanical,Partially resolved,Not applicable,"Printed XY modulus and strength, Z strength and notched Charpy recorded from the Panchroma TDS V2.1. The elongation of 10.5 ± 3.8% cited from the CoPE TDS V5.4 could not be retrieved (HTTP 404) and was not entered."
 C00971,M091,Thermal,Partially resolved,Not applicable,"Vicat 66 °C recorded. HDT is not published, and Vicat is not substituted for it."
@@ -974,8 +496,6 @@ C00972,M091,Moisture / environmental,Gap,Not applicable,Insufficient grade-speci
 C00973,M091,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00974,M091,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00975,M091,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00976,M092,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00977,M092,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C00978,M092,Print setup,Evidence recorded,Not applicable,colorFabb nGen TDS v2.0 print guideline recorded as P0167.
 C00979,M092,Mechanical,Evidence recorded,Not applicable,"Printed XY modulus, strength, elongation and notched Charpy from TDS v2.0 are headlines. Injection-moulded raw-material values are recorded separately and never headlines."
 C00980,M092,Thermal,Limited comparability,Not applicable,HDT 71 °C at 0.455 MPa is raw-material supplier data per the TDS footnote and is not a headline.
@@ -983,108 +503,51 @@ C00981,M092,Moisture / environmental,Gap,Not applicable,Insufficient grade-speci
 C00982,M092,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00983,M092,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00984,M092,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
-C00985,M093,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00986,M093,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00987,M093,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00988,M093,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00989,M093,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C00990,M093,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C00991,M093,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C00992,M093,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00993,M093,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00994,M093,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C00995,M094,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C00996,M094,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C00997,M094,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C00998,M094,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C00999,M094,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C01000,M094,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C01001,M094,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01002,M094,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01003,M094,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01004,M094,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C01005,M095,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01006,M095,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01007,M095,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01008,M095,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01009,M095,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C01010,M095,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C01011,M095,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01012,M095,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01013,M095,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01014,M095,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
-C01015,M096,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01016,M096,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01017,M096,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01018,M096,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01019,M096,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C01020,M096,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01021,M096,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01022,M096,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01023,M096,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01024,M096,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01025,M096,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C01026,M097,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01027,M097,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01028,M097,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01029,M097,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01030,M097,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C01031,M097,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C01032,M097,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01033,M097,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01034,M097,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01035,M097,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01036,M097,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C01037,M098,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01038,M098,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01039,M098,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01040,M098,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01041,M098,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C01042,M098,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01043,M098,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01044,M098,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01045,M098,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01046,M098,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01047,M098,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C01048,M099,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01049,M099,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01050,M099,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01051,M099,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01052,M099,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C01053,M099,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C01054,M099,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01055,M099,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01056,M099,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01057,M099,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01058,M099,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C01059,M100,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01060,M100,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01061,M100,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01062,M100,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01063,M100,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C01064,M100,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C01065,M100,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01066,M100,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01067,M100,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01068,M100,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01069,M100,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C01070,M101,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01071,M101,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01072,M101,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01073,M101,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01074,M101,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C01075,M101,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01076,M101,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01077,M101,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01078,M101,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C01079,M101,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C01080,M101,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
-C01081,M102,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01082,M102,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
-C01083,M102,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
-C01084,M102,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01085,M102,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
-C01086,M102,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
 C01087,M102,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01088,M102,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01089,M102,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
@@ -1188,11 +651,7 @@ C01186,M039,Grades,Evidence recorded,Not applicable,"G039-03 re-filed 2026-09-13
 C01187,M064,Print setup,Evidence recorded,Not applicable,"3DXSTAT ESD PA12 TDS: extrusion 265-285 °C, bed 90-110 °C (P0082), recovered 2026-09-13 from the hash-matched data sheet. The earlier window came from the retired Fiberon PA612-ESD duplicate."
 C01188,M008,Identity,Resolved,Not applicable,G008-01 and CoPE G091-02 are two columns of the Panchroma TDS V2.1 and shared one formulation key; separated 2026-09-13.
 C01189,M103,Grades,Gap,1,1 distinct manufacturer documented (3DXTECH HyperLite PP) against target 3.
-C01190,M103,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
-C01191,M103,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
 C01192,M103,Print setup,Evidence recorded,Not applicable,HyperLite PP specimens were printed at 235 °C nozzle and 60 °C bed (P0172). No recommended window or chamber temperature is published.
-C01193,M103,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
-C01194,M103,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
 C01195,M103,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01196,M103,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01197,M103,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.

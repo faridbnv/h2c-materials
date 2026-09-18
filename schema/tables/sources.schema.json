@@ -65,8 +65,20 @@
       "name": "Source class",
       "type": "string",
       "role": "canonical",
-      "description": "Kind of source.",
+      "description": "What kind of document it is. A fact about this one document goes in Source note, not in the class.",
       "vocabulary": "source-classes",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Source note",
+      "type": "string",
+      "role": "prose",
+      "description": "What is particular about this document: where it is hosted, what it covers, why it is kept. Not applicable where the class says it all.",
+      "missing": [
+        "Not applicable"
+      ],
       "constraints": {
         "required": true
       }
@@ -117,10 +129,23 @@
       ]
     },
     {
-      "name": "Access status",
+      "name": "Access state",
       "type": "string",
-      "role": "raw",
-      "description": "Retrieval outcome.",
+      "role": "canonical",
+      "description": "How it was reached: retrieved, retrieved-copy, read-only or not-retrieved. Nothing may cite a source that was not retrieved.",
+      "vocabulary": "access-states",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Access note",
+      "type": "string",
+      "role": "prose",
+      "description": "What else the retrieval record says, in the words it was written in: which copy was read, how it was checked, why it could not be reached. Not applicable where the state says it all.",
+      "missing": [
+        "Not applicable"
+      ],
       "constraints": {
         "required": true
       }

@@ -4,6 +4,8 @@ Along flow,Along the melt flow (moulded).
 Horizontal (source label),The source says horizontal without an axis convention.
 Not applicable,"Direction does not apply (e.g. density, thermal transitions)."
 Not published,The source does not state a direction.
+"Stated, not a usable direction","The source states an orientation the database cannot use as a build direction: a raster it has no value for, or a label the source’s own numbers contradict. Notes say which."
+Unstated,"The source publishes this printed result and states no direction; re-read and confirmed. Unlike Not published, it says someone has looked."
 Vertical XZ (source label),The source says vertical XZ.
 XY,In the build plane.
 XZ,Upright in the XZ plane.

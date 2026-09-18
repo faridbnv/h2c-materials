@@ -208,9 +208,18 @@
     {
       "name": "Moisture condition",
       "type": "string",
+      "role": "raw",
+      "description": "Moisture state at test, in the source's words. Moisture state is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Moisture state",
+      "type": "string",
       "role": "canonical",
-      "description": "Moisture state at test.",
-      "vocabulary": "moisture-conditions",
+      "description": "The reviewed moisture state at test: dry, conditioned or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it.",
+      "vocabulary": "moisture-states",
       "constraints": {
         "required": true
       }
@@ -219,8 +228,17 @@
       "name": "Post-processing",
       "type": "string",
       "role": "raw",
-      "description": "Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary.",
-      "vocabulary": "post-processing",
+      "description": "Annealing or other post-processing, in the source's words. Post-processing state is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Post-processing state",
+      "type": "string",
+      "role": "canonical",
+      "description": "The reviewed post-processing state: as-printed, annealed or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it.",
+      "vocabulary": "post-processing-states",
       "constraints": {
         "required": true
       }
@@ -264,7 +282,23 @@
       "name": "Standard / load",
       "type": "string",
       "role": "raw",
-      "description": "Test standard and load as published.",
+      "description": "Test standard and load as published, in the source's words. Standards beside it is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Standards",
+      "type": "list",
+      "role": "canonical",
+      "delimiter": ";",
+      "item": {
+        "vocabulary": "standards"
+      },
+      "description": "The standards the source names, at family level and one spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of one test and the row's own columns carry them. Not published where the text names none, which a melt-flow condition or a study's own method does.",
+      "missing": [
+        "Not published"
+      ],
       "constraints": {
         "required": true
       }

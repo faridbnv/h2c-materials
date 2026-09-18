@@ -27,9 +27,11 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
-| [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. |
+| [profile_notes](#profile_notes) | ProfileID + Topic | One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile. |
+| [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69). |
 | [properties](#properties) | Property | One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all). |
-| [reference](#reference) | Name | Uncited bulk and molded min/max envelopes from a general engineering reference, drawn on Ashby charts for scale only. |
+| [reference](#reference) | Name | Uncited bulk and molded envelopes from a general engineering reference, drawn on Ashby charts for scale only. Its envelopes are rows of reference_envelopes.csv, one per property. |
+| [reference_envelopes](#reference_envelopes) | Name + Property | One row per reference material and property: the min/max envelope drawn on Ashby charts for scale only. A property is a row here and a value of schema/vocab/reference-properties.csv, which carries its unit, so a new reference property is data and needs no column and no schema change. |
 | [sources](#sources) | SourceID | One row per source document or page, with its retrieval record and SHA-256. |
 
 ### chamber_bands
@@ -202,26 +204,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Family | canonical | string | yes |  | [families](#vocab-families) | Navigation family. |
 | H2C status | canonical | string | yes |  | [h2c-status](#vocab-h2c-status) | How the material relates to the Bambu Lab H2C. |
 | Representative grade | editorial | string | yes | Not published | → grades.GradeID | The exact commercial grade whose measurements back the headlines. |
-| Measurement conditions | prose | string | yes |  |  | Moisture and post-processing conditions behind the headlines. |
-| Price basis | prose | string | yes |  |  | How the headline price was formed. |
 | Best uses | prose | string | yes |  |  | Documented best uses. |
-| Limitations | prose | string | yes |  |  | Documented limitations. |
+| Limitations | prose | string | yes | Not published |  | What is true of this material alone. The general caveat that holds for every material here is a Method rule (Scope / Transferable allowables), shown on each; Not published where the material adds nothing to it. |
 | Full name | canonical | string | yes |  |  | Expanded polymer name. |
 | Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. |
 | Abbreviation | canonical | string | yes |  |  | Short display name. |
-| Normalized name | canonical | string | yes |  |  | Search-normalized name. |
 | Base polymer | canonical | string | yes |  |  | The base polymer, as the source names it. |
 | Estimate identity | canonical | string | yes | Not applicable | → polymers.PolymerID | The polymers.csv row the estimate model treats this material as: its base polymer, or for a blend its own name. Not applicable for a material the model does not estimate. |
 | Modifier / filler | canonical | string | yes |  | [modifiers](#vocab-modifiers) | Reinforcement or formulation modifier. |
 | Variant class | canonical | string | yes | Not applicable | [variant-classes](#vocab-variant-classes) | A commercial variant class the estimate model gives its own covariate, so its offset does not move its polymer: silk, particle-filled. |
 | Role | canonical | string | yes |  | [material-roles](#vocab-material-roles) | Structural material or support/interface material. |
-| Identity source | canonical | string | yes |  | → sources.SourceID | Source of the material identity. |
 | Identity notes | prose | string | yes |  |  | Notes on identity decisions. |
-| Headline basis | prose | string | yes |  |  | What the headline values represent. |
-| Impact / toughness | prose | string | yes |  |  | Impact and toughness note. |
-| Fatigue / creep | prose | string | yes |  |  | Fatigue and creep note. |
-| Printability rating 1–5 | editorial | number | yes | Not published |  | Analyst printability rating on rubric R-PRINT. |
-| Printability rubric | canonical | string | yes |  | [rubrics](#vocab-rubrics) | Rubric the printability rating uses. |
 
 ### measurements
 
@@ -247,12 +240,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Data status | canonical | string | yes |  | [data-status](#vocab-data-status) | Whether the row is a usable number, a missing state, qualitative, quarantined or retired. |
 | Specimen type | canonical | string | yes |  | [specimen-types](#vocab-specimen-types) | Specimen form. |
 | Direction | canonical | string | yes |  | [directions](#vocab-directions) | Print direction of the specimen. |
-| Moisture condition | canonical | string | yes |  | [moisture-conditions](#vocab-moisture-conditions) | Moisture state at test. |
-| Post-processing | raw | string | yes |  | [post-processing](#vocab-post-processing) | Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary. |
+| Moisture condition | raw | string | yes |  |  | Moisture state at test, in the source's words. Moisture state is what the build reads. |
+| Moisture state | canonical | string | yes |  | [moisture-states](#vocab-moisture-states) | The reviewed moisture state at test: dry, conditioned or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it. |
+| Post-processing | raw | string | yes |  |  | Annealing or other post-processing, in the source's words. Post-processing state is what the build reads. |
+| Post-processing state | canonical | string | yes |  | [post-processing-states](#vocab-post-processing-states) | The reviewed post-processing state: as-printed, annealed or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it. |
 | Anneal °C | canonical | number | yes | Not published, Not applicable |  | Annealing temperature the Post-processing wording states; the build decides on this column and the parser checks it (PARSE-MISMATCH). Not published: annealed, temperature not stated. Not applicable: not annealed, or post-processing not stated. |
 | Anneal h | canonical | number | yes | Not published, Not applicable |  | Annealing time in hours the wording states (30 min is 0.5). Not published: annealed, time not stated. Not applicable: not annealed, or post-processing not stated. |
 | Test temperature | raw | string | yes |  |  | Test temperature as published. |
-| Standard / load | raw | string | yes |  |  | Test standard and load as published. |
+| Standard / load | raw | string | yes |  |  | Test standard and load as published, in the source's words. Standards beside it is what the build reads. |
+| Standards | canonical | list (";") | yes | Not published | list of [standards](#vocab-standards) | The standards the source names, at family level and one spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of one test and the row's own columns carry them. Not published where the text names none, which a melt-flow condition or a study's own method does. |
 | Test load MPa | canonical | number | yes | Not applicable, Not published |  | Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties. |
 | Notch | canonical | string | yes |  | [notches](#vocab-notches) | Impact specimen notch. |
 | Specimen / print parameters | raw | string | yes |  |  | The specimen preparation and print conditions the source ties to its test values (nozzle and bed temperature, speed, infill, layer height, print orientation, specimen standard), in the sheet's own words; Not published where the sheet states none for its values. A recommended printing range, a marketing paragraph or a description of the source does not belong here (D63). |
@@ -334,9 +330,19 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Access date | raw | date | yes |  |  | Date the listing was read. |
 | Notes | prose | string | yes |  |  | Notes. |
 
+### profile_notes
+
+`data/tables/profile_notes.csv` (Print profile notes). One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| ProfileID | key | string | yes |  | → profiles.ProfileID | The profile this note belongs to. |
+| Topic | key | string | yes |  | [profile-topics](#vocab-profile-topics) | What the note is about. |
+| Text | raw | string | yes |  |  | What the source says, in its own words. A topic the source says nothing about has no row. |
+
 ### profiles
 
-`data/tables/profiles.csv` (Print setup). One row per published print profile for an exact grade.
+`data/tables/profiles.csv` (Print setup). One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69).
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
@@ -362,15 +368,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Enclosure | raw | string | yes |  |  | Enclosure as published; parsed by the build. |
 | Enclosure state | canonical | string | yes |  | [enclosure-states](#vocab-enclosure-states) | Reviewed reading of Enclosure. |
 | Plate | raw | string | yes |  |  | Plate as published; parsed by the build. |
-| Adhesion / release | raw | string | yes |  |  | Adhesion / release as published; parsed by the build. |
-| Cooling | raw | string | yes |  |  | Cooling as published; parsed by the build. |
-| Speed | raw | string | yes |  |  | Speed as published; parsed by the build. |
-| Volumetric limit | raw | string | yes |  |  | Volumetric limit as published; parsed by the build. |
 | Drying | raw | string | yes |  |  | Drying as published; parsed by the build. |
 | Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
 | Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature. |
 | Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time. |
-| Storage humidity | raw | string | yes |  |  | Storage humidity as published; parsed by the build. |
 | Nozzle material | raw | string | yes |  |  | Nozzle material as published; parsed by the build. |
 | Nozzle diameter | raw | string | yes |  |  | Nozzle diameter as published; parsed by the build. |
 | Abrasion / clogging | raw | string | yes |  |  | Abrasion / clogging as published; parsed by the build. |
@@ -380,17 +381,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | AMS 2 Pro | editorial | string | yes |  |  | AMS 2 Pro compatibility assessment. |
 | AMS HT | editorial | string | yes |  |  | AMS HT compatibility assessment. |
 | AMS published | raw | string | yes |  |  | AMS compatibility as published. |
-| Temperature-group conflict | prose | string | yes |  |  | Mixed-temperature caution. |
 | Support pairing | raw | string | yes |  |  | Support pairing as published. |
-| Difficulty | raw | string | yes |  |  | Difficulty as published. |
-| Warping / shrinkage | raw | string | yes |  |  | Warping / shrinkage as published. |
-| Stringing | raw | string | yes |  |  | Stringing as published. |
-| Bridging | raw | string | yes |  |  | Bridging as published. |
-| Overhang | raw | string | yes |  |  | Overhang as published. |
-| Detail / tolerance | raw | string | yes |  |  | Detail / tolerance as published. |
-| Surface finish | raw | string | yes |  |  | Surface finish as published. |
-| Layer adhesion | raw | string | yes |  |  | Layer adhesion as published. |
-| Odour / emissions | raw | string | yes |  |  | Odour / emissions as published. |
 | Failure modes | raw | string | yes |  |  | Failure modes as published. |
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source of the profile. |
 | H2C SourceID | editorial | list (";") | yes |  | list of → sources.SourceID | Sources for the H2C-specific assessment. |
@@ -413,28 +404,23 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 ### reference
 
-`data/tables/reference.csv` (Generic reference envelopes). Uncited bulk and molded min/max envelopes from a general engineering reference, drawn on Ashby charts for scale only.
+`data/tables/reference.csv` (Generic reference envelopes). Uncited bulk and molded envelopes from a general engineering reference, drawn on Ashby charts for scale only. Its envelopes are rows of reference_envelopes.csv, one per property.
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
 | Category | raw | string | yes |  |  | Reference category. |
 | Name | key | string | yes |  | `^.+$` | Reference material name. |
-| density min | raw | number |  |  |  | density lower envelope. |
-| density max | raw | number |  |  |  | density upper envelope. |
-| tensileModulus min | raw | number |  |  |  | tensileModulus lower envelope. |
-| tensileModulus max | raw | number |  |  |  | tensileModulus upper envelope. |
-| yieldStrength min | raw | number |  |  |  | yieldStrength lower envelope. |
-| yieldStrength max | raw | number |  |  |  | yieldStrength upper envelope. |
-| tensileStrength min | raw | number |  |  |  | tensileStrength lower envelope. |
-| tensileStrength max | raw | number |  |  |  | tensileStrength upper envelope. |
-| compressiveStrength min | raw | number |  |  |  | compressiveStrength lower envelope. |
-| compressiveStrength max | raw | number |  |  |  | compressiveStrength upper envelope. |
-| elongation min | raw | number |  |  |  | elongation lower envelope. |
-| elongation max | raw | number |  |  |  | elongation upper envelope. |
-| fractureToughness min | raw | number |  |  |  | fractureToughness lower envelope. |
-| fractureToughness max | raw | number |  |  |  | fractureToughness upper envelope. |
-| thermalExpansion min | raw | number |  |  |  | thermalExpansion lower envelope. |
-| thermalExpansion max | raw | number |  |  |  | thermalExpansion upper envelope. |
+
+### reference_envelopes
+
+`data/tables/reference_envelopes.csv` (Generic reference envelopes, by property). One row per reference material and property: the min/max envelope drawn on Ashby charts for scale only. A property is a row here and a value of schema/vocab/reference-properties.csv, which carries its unit, so a new reference property is data and needs no column and no schema change.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| Name | key | string | yes |  | → reference.Name | The reference material. |
+| Property | key | string | yes |  | [reference-properties](#vocab-reference-properties) | The property this envelope is of; its unit is declared in the vocabulary. |
+| Min | raw | number | yes |  |  | Lower envelope, in the property's declared unit. |
+| Max | raw | number | yes |  |  | Upper envelope, in the property's declared unit. |
 
 ### sources
 
@@ -448,15 +434,29 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Revision | raw | string | yes |  |  | Document revision. |
 | Publication date | raw | string | yes |  | `^(\d{4}(-\d{2}(-\d{2})?)?\|Not published)$` | Publication date (YYYY, YYYY-MM or YYYY-MM-DD) or Not published. |
 | Access date | raw | date | yes |  |  | Date the source was retrieved (YYYY-MM-DD). |
-| Source class | canonical | string | yes |  | [source-classes](#vocab-source-classes) | Kind of source. |
+| Source class | canonical | string | yes |  | [source-classes](#vocab-source-classes) | What kind of document it is. A fact about this one document goes in Source note, not in the class. |
+| Source note | prose | string | yes | Not applicable |  | What is particular about this document: where it is hosted, what it covers, why it is kept. Not applicable where the class says it all. |
 | Citation role | editorial | string | yes |  | [citation-roles](#vocab-citation-roles) | Why the source is registered: cited by records, or kept to corroborate, to register scope or prices, as provenance, or recorded as not retrieved. |
 | URL | raw | string | yes |  |  | URL, or local path for a local reference. |
 | Locator | raw | string | yes |  |  | Default locator. |
 | Applicable grades | editorial | string | yes |  |  | Grades or scope the source applies to, in words. Every grade ID it mentions must exist. |
-| Access status | raw | string | yes |  |  | Retrieval outcome. |
+| Access state | canonical | string | yes |  | [access-states](#vocab-access-states) | How it was reached: retrieved, retrieved-copy, read-only or not-retrieved. Nothing may cite a source that was not retrieved. |
+| Access note | prose | string | yes | Not applicable |  | What else the retrieval record says, in the words it was written in: which copy was read, how it was checked, why it could not be reached. Not applicable where the state says it all. |
 | SHA256 | raw | string | yes |  | `^([a-f0-9]{64}\|Not recorded\|Not applicable)$` | SHA-256 of the retrieved artifact. |
 
 ## Vocabularies
+
+<a id="vocab-access-states"></a>
+### access-states
+
+`schema/vocab/access-states.csv`, used by sources.Access state.
+
+| Value | Meaning |
+|---|---|
+| retrieved | Fetched from its URL and read. |
+| retrieved-copy | Read from a copy the owner supplied, checked against what the publisher serves. |
+| read-only | Read in place; no copy was kept. |
+| not-retrieved | Could not be retrieved; nothing was entered from it. |
 
 <a id="vocab-citation-roles"></a>
 ### citation-roles
@@ -544,6 +544,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Horizontal (source label) | The source says horizontal without an axis convention. |
 | Not applicable | Direction does not apply (e.g. density, thermal transitions). |
 | Not published | The source does not state a direction. |
+| Stated, not a usable direction | The source states an orientation the database cannot use as a build direction: a raster it has no value for, or a label the source’s own numbers contradict. Notes say which. |
+| Unstated | The source publishes this printed result and states no direction; re-read and confirmed. Unlike Not published, it says someone has looked. |
 | Vertical XZ (source label) | The source says vertical XZ. |
 | XY | In the build plane. |
 | XZ | Upright in the XZ plane. |
@@ -886,28 +888,16 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Glass fibre |  |
 | Unfilled / unspecified |  |
 
-<a id="vocab-moisture-conditions"></a>
-### moisture-conditions
+<a id="vocab-moisture-states"></a>
+### moisture-states
 
-`schema/vocab/moisture-conditions.csv`, used by measurements.Moisture condition.
+`schema/vocab/moisture-states.csv`, used by measurements.Moisture state.
 
-| Value | Meaning | State |
-|---|---|---|
-| <20% RH during printing/storage | Storage or printing humidity; the moisture state at test is not stated | not-stated |
-| 50% RH | Tested at 50% relative humidity | conditioned |
-| Conditioned: 70% RH | Conditioned at 70% relative humidity before testing | conditioned |
-| Conditioned: immerged at ambient temperature for 3 days (medium not stated) | Immersed at ambient temperature before testing; the sheet does not name the medium | conditioned |
-| Conditioned: standard climate (23 °C, 50% RH, 72 h) | Conditioned in a standard climate before testing, as the source specifies | conditioned |
-| Conditioned: water immersion | Immersed in water before testing | conditioned |
-| Dried before testing (see preparation) | Dried before testing; the Post-processing column says how | dry |
-| Dry | Tested dry | dry |
-| Dry (source row); table heading 50% RH | The row is dry although its table heading names 50% RH | dry |
-| Dry as moulded | Moulded specimens tested dry as moulded | dry |
-| Keep vacuum sealed; dry at 120 °C for 3-8 h if >200 ppm | Storage and drying guidance; the moisture state at test is not stated | not-stated |
-| Kept dry; TDS recommends drying before printing | Storage guidance; the moisture state at test is not stated | not-stated |
-| Not published | The source does not state the moisture state at test | not-stated |
-| Wet (conditioning specified in source) | Conditioned wet as the source specifies | conditioned |
-| Wet (the row is labelled Wet; the sheet states no conditioning) | The row is labelled Wet and the source states no conditioning procedure | conditioned |
+| Value | Meaning |
+|---|---|
+| dry | Dried before testing or published as dry. |
+| conditioned | Held at a stated humidity or immersed before testing. |
+| not-stated | The source does not say the moisture state at test. |
 
 <a id="vocab-notches"></a>
 ### notches
@@ -957,46 +947,16 @@ lists the missing states a column accepts instead of a value; a blank required c
 | absorbs | The reference reports the neat polymer absorbing the agent (moisture uptake) without stating attack. | FALSE |
 | stabilised-required | The reference reports resistance only with a stabiliser or additive the neat polymer does not carry. | FALSE |
 
-<a id="vocab-post-processing"></a>
-### post-processing
+<a id="vocab-post-processing-states"></a>
+### post-processing-states
 
-`schema/vocab/post-processing.csv`, used by measurements.Post-processing.
+`schema/vocab/post-processing-states.csv`, used by measurements.Post-processing state.
 
-| Value | Meaning | State |
-|---|---|---|
-| After annealing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%) | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 4.64%) | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 8 h, and immerged in ambient temperature for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 120 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 120 °C for 16 h (TDS note under the mechanical table) | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 130 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80 °C for 24 h, and immersed in ambient-temperature water for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80 °C for 30 min, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80 °C for 6 h, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80˚C for 24h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80˚C for 6h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were conditioned at room temperature for 24 h prior to testing | Rested at room temperature before testing, which is not an anneal: the sheet states the only treatment its specimens had, and it was not a heat treatment | as-printed |
-| All the specimens were annealed and dried at 50 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 55 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 55 °C for 8 h ours before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 55 °C for 8 hours before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 65 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 70 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 75 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 80 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 80 °C for 12 hours before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were not annealed before testing | Tested as printed, without annealing | as-printed |
-| Annealed (per TDS annealed block) | Annealed before testing (the schedule is in the wording) | annealed |
-| Annealed (schedule not stated beside the HDT row) | Annealed before testing (the schedule is in the wording) | annealed |
-| Annealed (schedule not stated) | Annealed before testing; the source gives no schedule | annealed |
-| As printed | Tested as printed, without annealing | as-printed |
-| HDT specimens annealed at 130 °C | Annealed before testing (the schedule is in the wording) | annealed |
-| HDT specimens annealed at 230 °C (deeper coloration) | Annealed before testing (the schedule is in the wording) | annealed |
-| Not published | The source does not state post-processing | not-stated |
-| Unannealed | Tested as printed, without annealing | as-printed |
+| Value | Meaning |
+|---|---|
+| as-printed | Tested as printed; the source states no heat treatment. |
+| annealed | Heat treated after printing; Anneal °C and Anneal h carry the schedule where the source states one. |
+| not-stated | The source does not say what was done after printing. |
 
 <a id="vocab-process-requirements"></a>
 ### process-requirements
@@ -1034,6 +994,25 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Current manufacturer product guidance |  |
 | Manufacturer published guidance |  |
 
+<a id="vocab-profile-topics"></a>
+### profile-topics
+
+`schema/vocab/profile-topics.csv`, used by profile_notes.Topic.
+
+| Value | Meaning |
+|---|---|
+| Adhesion / release | How the source says to make the first layer stick and the part come off. |
+| Cooling | Part cooling fan guidance. |
+| Speed | Print speed guidance. |
+| Storage humidity | The humidity the source says to store the filament at. |
+| Warping / shrinkage | What the source says about warping and shrinkage. |
+| Bridging | Bridging guidance. |
+| Overhang | Overhang guidance. |
+| Detail / tolerance | What the source claims about fine detail or dimensional tolerance. |
+| Surface finish | What the source claims about the finished surface. |
+| Layer adhesion | What the source claims about bonding between layers. |
+| Odour / emissions | What the source says about odour, fumes and ventilation. |
+
 <a id="vocab-property-domains"></a>
 ### property-domains
 
@@ -1045,10 +1024,26 @@ lists the missing states a column accepts instead of a value; a blank required c
 | physical | Physical properties such as density, water absorption and melt flow; neither mechanical nor thermal evidence. |
 | thermal | Thermal tab and Thermal coverage domain. |
 
+<a id="vocab-reference-properties"></a>
+### reference-properties
+
+`schema/vocab/reference-properties.csv`, used by reference_envelopes.Property.
+
+| Value | Meaning | Unit |
+|---|---|---|
+| density | Density envelope. | kg/m3 |
+| tensileModulus | Tensile (Young's) modulus envelope. | GPa |
+| yieldStrength | Yield strength envelope. | MPa |
+| tensileStrength | Tensile strength envelope. | MPa |
+| compressiveStrength | Compressive strength envelope. | MPa |
+| elongation | Elongation at break envelope. | % |
+| fractureToughness | Fracture toughness envelope. | MPa.m^0.5 |
+| thermalExpansion | Coefficient of thermal expansion envelope. | um/m/K |
+
 <a id="vocab-rubrics"></a>
 ### rubrics
 
-`schema/vocab/rubrics.csv`, used by evidence.RubricID, materials.Printability rubric.
+`schema/vocab/rubrics.csv`, used by evidence.RubricID.
 
 | Value | Meaning |
 |---|---|
@@ -1072,27 +1067,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| Canadian retailer catalogue; pricing only |  |
-| Manufacturer comparison guide |  |
-| Manufacturer description at distributor |  |
-| Manufacturer product / guide |  |
-| Manufacturer SDS |  |
-| Manufacturer TDS |  |
-| Manufacturer TDS (web) |  |
-| Manufacturer TDS hosted by current brand owner |  |
-| Manufacturer TDS indexed at authorized distributor |  |
-| Official Canadian storefront catalogue |  |
-| Official corporate announcement |  |
-| Official current manufacturer portfolio |  |
-| Official manufacturer product page |  |
-| Official occupational-safety guidance |  |
-| Official printer documentation |  |
-| Peer-reviewed original research |  |
-| Peer-reviewed study (publisher copy) |  |
-| Reference datasheet (corroboration only) |  |
-| Resin supplier data sheet |  |
-| Scope register |  |
-| Secondary local reference |  |
+| Manufacturer TDS | A manufacturer's technical data sheet for the product. |
+| Manufacturer product page or guide | A manufacturer's product page, portfolio, guide or announcement. |
+| Manufacturer SDS | A manufacturer's safety data sheet. |
+| Resin supplier data sheet | A resin producer's data sheet for the base polymer. |
+| Retailer catalogue | A storefront listing; prices and availability, not properties. |
+| Printer documentation | Official documentation for the printer. |
+| Peer-reviewed study | A study in the peer-reviewed literature. |
+| Safety guidance | Official occupational-safety guidance. |
+| Reference or register | A handbook, register or local reference, kept as provenance or to corroborate. |
 
 <a id="vocab-specimen-types"></a>
 ### specimen-types
@@ -1111,6 +1094,63 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Printed specimen |  | printed |
 | Printed specimen; TDS reports N/A |  | printed |
 | Raw material value |  | moulded |
+
+<a id="vocab-standards"></a>
+### standards
+
+`schema/vocab/standards.csv`, used by measurements.Standards.
+
+| Value | Meaning |
+|---|---|
+| ASTM D1238 | Melt flow rates by extrusion plastometer. |
+| ASTM D1505 | Density by density-gradient technique. |
+| ASTM D1525 | Vicat softening temperature. |
+| ASTM D1708 | Tensile properties by microtensile specimens. |
+| ASTM D2240 | Durometer hardness. |
+| ASTM D256 | Izod pendulum impact resistance. |
+| ASTM D257 | DC resistance or conductance. |
+| ASTM D3418 | Transition temperatures by DSC. |
+| ASTM D570 | Water absorption of plastics. |
+| ASTM D638 | Tensile properties of plastics. |
+| ASTM D648 | Deflection temperature under flexural load. |
+| ASTM D7426 | Glass transition temperature by DSC. |
+| ASTM D782 | Cited by a source; kept as the source prints it. |
+| ASTM D785 | Rockwell hardness. |
+| ASTM D790 | Flexural properties of plastics. |
+| ASTM D792 | Density and specific gravity by displacement. |
+| ASTM D882 | Tensile properties of thin plastic sheeting. |
+| ASTM E1356 | Glass transition temperatures by DSC. |
+| DSC | Differential scanning calorimetry, where the source names the method but no standard. |
+| GB/T 1033 | Density of plastics. |
+| GB/T 1040 | Tensile properties of plastics. |
+| GB/T 1043 | Charpy impact properties. |
+| GB/T 1633 | Vicat softening temperature. |
+| GB/T 1634 | Temperature of deflection under load. |
+| GB/T 1843 | Izod impact strength. |
+| GB/T 3682 | Melt mass-flow and melt volume-flow rate. |
+| GB/T 528 | Tensile properties of vulcanised rubber. |
+| GB/T 531.1 | Indentation hardness of rubber. |
+| GB/T 9341 | Flexural properties of plastics. |
+| GB/T 9343 | Cited by a source; kept as the source prints it. |
+| IEC 60216 | Thermal endurance of electrical insulating materials. |
+| ISO 1133 | Melt mass-flow and melt volume-flow rate. |
+| ISO 11357 | Differential scanning calorimetry. |
+| ISO 11359 | Thermomechanical analysis; thermal expansion. |
+| ISO 1183 | Density of non-cellular plastics. |
+| ISO 178 | Flexural properties of plastics. |
+| ISO 179 | Charpy impact strength. |
+| ISO 180 | Izod impact strength. |
+| ISO 2039 | Hardness by ball indentation. |
+| ISO 306 | Vicat softening temperature. |
+| ISO 3146 | Melting behaviour of semi-crystalline polymers. |
+| ISO 37 | Tensile properties of vulcanised or thermoplastic rubber. |
+| ISO 527 | Tensile properties of plastics. |
+| ISO 604 | Compressive properties of plastics. |
+| ISO 62 | Water absorption of plastics. |
+| ISO 6711 | Cited by a source; kept as the source prints it. |
+| ISO 75 | Temperature of deflection under load. |
+| ISO 7619 | Indentation hardness by durometer. |
+| ISO 868 | Indentation hardness by durometer (Shore). |
 
 <a id="vocab-stock"></a>
 ### stock

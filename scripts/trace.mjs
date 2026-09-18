@@ -38,7 +38,7 @@ function source(depth, id) {
   line(depth, `source ${id}  (${at(s)})`);
   line(depth + 1, `${s.Publisher} — ${s.Title}${s.Revision !== 'Not published' ? `, ${s.Revision}` : ''}`);
   line(depth + 1, `${s.URL}`);
-  line(depth + 1, `accessed ${s['Access date']} · ${s['Access status']} · sha256 ${s.SHA256}`);
+  line(depth + 1, `accessed ${s['Access date']} · ${s['Access state']} · sha256 ${s.SHA256}`);
 }
 
 function grade(depth, id) {

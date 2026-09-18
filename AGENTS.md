@@ -79,16 +79,19 @@ Rules the tooling enforces:
 - **IDs are never reused.** Get the next one from `npm run data:new-id -- <table>` (for grades:
   `-- grades M020`, or `-- grades M055 --study` for an `-R#` study or reference grade).
 - **Nothing is deleted.** Retire instead (see below). The pre-commit hook and CI refuse a commit that
-  removes a record.
+  removes a record. The one exception is a record the build now derives instead: it needs a row in
+  `data/review/removed-records.csv` naming the migration and where it went, in the same commit, and
+  every other removal still fails (D72).
 - **No lists inside cells.** A relationship is a row: `headlines.csv` for headline selections,
   `material_links.csv` for a material's citations.
-- **Nothing derivable is stored.** Headline values, price medians, per-kg prices, a material's grade
-  list, environmental evidence and printing guidance are calculated by the build. There is no column
-  for them.
+- **Nothing derivable is stored, and no constant is repeated per row.** Headline values, price medians
+  and their basis sentence, per-kg prices, a material's grade list, what its headlines represent,
+  environmental evidence and printing guidance are calculated by the build. There is no column for them.
+  A sentence that is the same on every row is a rule: it goes in `method.csv` and is shown from there.
 - **A new column or vocabulary value is a schema change.** Add it to `schema/tables/<table>.schema.json`
-  or `schema/vocab/<name>.csv` in the same commit as the data that uses it. Some vocabularies carry a
-  column the build reads: a new Moisture condition wording declares its State (dry, conditioned,
-  not-stated), or the build stops.
+  or `schema/vocab/<name>.csv` in the same commit as the data that uses it. A source's own words are
+  never a vocabulary: a new datasheet sentence is written in the raw column and the state it means in
+  the typed column beside it (Moisture state, Post-processing state), which is what the build reads.
 - **A lint finding is fixed or accepted with a reason.** `npm run data:lint -- --accept CODE "reason"`
   writes `data/review/accepted-findings.csv`; an accepted finding that no longer occurs must be removed.
 - **Raw columns keep the source's own text.** Typed columns beside them (Test load MPa, the profile
@@ -107,9 +110,12 @@ and locator, the direction, specimen, moisture and standard as published. A shee
 (dry and conditioned, as printed and annealed, two print speeds) must say in each row which table it came
 from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as injection moulded is Specimen type
 "Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form). Post-processing
-is copied as printed ("As printed", the sheet's annealing sentence) and each wording declares its State in
-`schema/vocab/post-processing.csv`; a new wording is added there, or the build stops. Anneal °C and Anneal h carry the
-schedule the wording states (Not published when it states none); the parser checks them. A Fatigue life measurement
+is copied as printed ("As printed", the sheet's annealing sentence) and Post-processing state beside it says what it
+means (as-printed, annealed, not-stated); Moisture condition and Moisture state work the same way. The build reads the
+state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen wording is data, not a schema change.
+Anneal °C and Anneal h carry the schedule the wording states (Not published when it states none); the parser checks them.
+Standard / load is the sheet's own words and Standards beside it lists the standards they name, at family level (Not
+published where they name none); the parser checks that too. Never write a standard the sheet does not print. A Fatigue life measurement
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
@@ -128,7 +134,8 @@ pulling the family.
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
 invent the prose a reader is told (pass each as `--set "Column=..."`), and lists what is still needed: its
-measurements, headline selections, profiles, `material_links.csv` citations and `coverage.csv` rows. To be estimated it names its Estimate identity, a row
+measurements, headline selections, profiles, `material_links.csv` citations, and a `coverage.csv` row per gap or
+judgement (the build reports the domains its own records prove, D74). To be estimated it names its Estimate identity, a row
 of `polymers.csv` (its base polymer, or for a blend its own name); a new polymer is a new row there with its group,
 morphology, how it solidifies in a print, water uptake and neat density, and where those come from. A commercial
 variant class (silk, particle-filled) goes in Variant class. The build names the fix if either is missing.
@@ -154,8 +161,10 @@ with a reason.
 **Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
 its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.
 
-**Accept a build finding.** Outliers, imprecise estimates, family-order breaks, unstated loads and materials without
-measurements are reviewed per record: fix them, or `npm run data:lint -- --accept EST-WIDE "reason"`. `npm run
+**Accept a build finding.** Outliers, family-order breaks, unstated loads, materials without measurements and an
+estimate left imprecise beside a usable published value are reviewed per record: fix them, or `npm run data:lint --
+--accept EST-OUTLIER "reason"`. An estimate that is wide because the material publishes nothing is EST-THIN, which is
+informational: more data narrows it, not a reviewer (D73). `npm run
 audit:data` (in verify) fails on an unreviewed or stale one.
 
 **Add polymer-level behaviour.** A row in `polymer_environment.csv` per polymer, category and agent, from a resin
@@ -179,6 +188,7 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 
 ```bash
 npm run trace -- M020                  # every headline of a material, back to its source
+npm run sql -- "select ..."             # ask a question across records (dist/h2c.sqlite, D75)
 npm run trace -- V000384               # a measurement, and the headlines that cite it
 npm run build && open dist/H2C_Material_Selector_*.html
 git diff build/snapshot                  # what the change did to headlines, estimates, gates, templates, warnings

@@ -1,0 +1,50 @@
+Value,Meaning
+ASTM D1238,Melt flow rates by extrusion plastometer.
+ASTM D1505,Density by density-gradient technique.
+ASTM D1525,Vicat softening temperature.
+ASTM D1708,Tensile properties by microtensile specimens.
+ASTM D2240,Durometer hardness.
+ASTM D256,Izod pendulum impact resistance.
+ASTM D257,DC resistance or conductance.
+ASTM D3418,Transition temperatures by DSC.
+ASTM D570,Water absorption of plastics.
+ASTM D638,Tensile properties of plastics.
+ASTM D648,Deflection temperature under flexural load.
+ASTM D7426,Glass transition temperature by DSC.
+ASTM D782,Cited by a source; kept as the source prints it.
+ASTM D785,Rockwell hardness.
+ASTM D790,Flexural properties of plastics.
+ASTM D792,Density and specific gravity by displacement.
+ASTM D882,Tensile properties of thin plastic sheeting.
+ASTM E1356,Glass transition temperatures by DSC.
+DSC,"Differential scanning calorimetry, where the source names the method but no standard."
+GB/T 1033,Density of plastics.
+GB/T 1040,Tensile properties of plastics.
+GB/T 1043,Charpy impact properties.
+GB/T 1633,Vicat softening temperature.
+GB/T 1634,Temperature of deflection under load.
+GB/T 1843,Izod impact strength.
+GB/T 3682,Melt mass-flow and melt volume-flow rate.
+GB/T 528,Tensile properties of vulcanised rubber.
+GB/T 531.1,Indentation hardness of rubber.
+GB/T 9341,Flexural properties of plastics.
+GB/T 9343,Cited by a source; kept as the source prints it.
+IEC 60216,Thermal endurance of electrical insulating materials.
+ISO 1133,Melt mass-flow and melt volume-flow rate.
+ISO 11357,Differential scanning calorimetry.
+ISO 11359,Thermomechanical analysis; thermal expansion.
+ISO 1183,Density of non-cellular plastics.
+ISO 178,Flexural properties of plastics.
+ISO 179,Charpy impact strength.
+ISO 180,Izod impact strength.
+ISO 2039,Hardness by ball indentation.
+ISO 306,Vicat softening temperature.
+ISO 3146,Melting behaviour of semi-crystalline polymers.
+ISO 37,Tensile properties of vulcanised or thermoplastic rubber.
+ISO 527,Tensile properties of plastics.
+ISO 604,Compressive properties of plastics.
+ISO 62,Water absorption of plastics.
+ISO 6711,Cited by a source; kept as the source prints it.
+ISO 75,Temperature of deflection under load.
+ISO 7619,Indentation hardness by durometer.
+ISO 868,Indentation hardness by durometer (Shore).

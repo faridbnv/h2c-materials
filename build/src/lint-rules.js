@@ -39,7 +39,7 @@ const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google
 const FILE_NAME = /^B [A-Za-z]|_|\.(xlsx|xls|csv|pdf|docx?)$/i;
 export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
 
-const TEXT_TABLES = ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'properties', 'headline_definitions', 'polymer_environment'];
+const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 export function lintData(tables, schemas) {
@@ -65,7 +65,7 @@ export function lintData(tables, schemas) {
 
   // Spellings of one value in short-list columns (a raw column with a handful of distinct values).
   const norm = (s) => s.normalize('NFKC').toLowerCase().replace(/[^a-z0-9%<>=+.]/g, '').replace(/\.(?=\D|$)/g, '');
-  for (const t of ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'polymer_environment']) {
+  for (const t of ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'polymer_environment']) {
     const rows = tables[t]?.rows ?? [];
     for (const field of tables[t]?.header ?? []) {
       // Raw columns keep the source's own spelling by design (m07 changes no wording); their typed columns are checked.
@@ -162,12 +162,11 @@ export function lintData(tables, schemas) {
   const cited = new Set();
   for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'polymer_environment']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
   for (const r of tables.profiles?.rows ?? []) for (const s of String(r['H2C SourceID'] ?? '').split(';')) cited.add(s.trim());
-  for (const r of tables.materials?.rows ?? []) cited.add(r['Identity source']);
   for (const r of tables.material_links?.rows ?? []) cited.add(r.RecordID);
   for (const r of tables.sources?.rows ?? []) {
     const role = r['Citation role'] ?? 'cited';
-    if (role === 'cited' && !cited.has(r.SourceID)) add('SOURCE-UNCITED', 'sources', r.SourceID, '', `${r['Source class']}; ${r['Access status']}`);
-    if (role === 'not-retrieved' && cited.has(r.SourceID)) add('SOURCE-ROLE-CITED', 'sources', r.SourceID, 'Citation role', r['Access status']);
+    if (role === 'cited' && !cited.has(r.SourceID)) add('SOURCE-UNCITED', 'sources', r.SourceID, '', `${r['Source class']}; ${r['Access state']}`);
+    if (role === 'not-retrieved' && cited.has(r.SourceID)) add('SOURCE-ROLE-CITED', 'sources', r.SourceID, 'Citation role', r['Access state']);
     if (r.URL && !/^https?:\/\//.test(r.URL)) add('SOURCE-LOCAL-PATH', 'sources', r.SourceID, 'URL', r.URL);
     if (r.Title && !isTitle(r.Title)) add('SOURCE-TITLE-NOT-TITLE', 'sources', r.SourceID, 'Title', JSON.stringify(r.Title.slice(0, 80)));
   }

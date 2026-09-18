@@ -193,11 +193,13 @@
           "direction",
           "directionText",
           "moisture",
+          "moistureState",
           "postProcessing",
           "postProcessingState",
           "anneal",
           "testTemperature",
           "standardText",
+          "standards",
           "notch",
           "printParameters",
           "sourceId",
@@ -289,6 +291,13 @@
           "moisture": {
             "type": "string"
           },
+          "moistureState": {
+            "enum": [
+              "dry",
+              "conditioned",
+              "not-stated"
+            ]
+          },
           "postProcessing": {
             "type": "string"
           },
@@ -334,6 +343,12 @@
           },
           "standardText": {
             "type": "string"
+          },
+          "standards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "notch": {
             "type": "string"
@@ -396,7 +411,7 @@
           "nozzleDiameter",
           "abrasion",
           "drying",
-          "storageHumidity",
+          "notes",
           "routing",
           "supportPairing",
           "failureModes",
@@ -452,8 +467,24 @@
           "drying": {
             "type": "object"
           },
-          "storageHumidity": {
-            "type": "string"
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "topic",
+                "text"
+              ],
+              "properties": {
+                "topic": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "routing": {
             "type": "object"
@@ -706,10 +737,12 @@
           "publicationDate",
           "accessDate",
           "sourceClass",
+          "sourceNote",
           "url",
           "locator",
           "applicableGrades",
-          "accessStatus",
+          "accessState",
+          "accessNote",
           "sha256",
           "citationRole"
         ],
@@ -736,6 +769,9 @@
           "sourceClass": {
             "type": "string"
           },
+          "sourceNote": {
+            "type": "string"
+          },
           "url": {
             "type": "string"
           },
@@ -745,7 +781,15 @@
           "applicableGrades": {
             "type": "string"
           },
-          "accessStatus": {
+          "accessState": {
+            "enum": [
+              "retrieved",
+              "retrieved-copy",
+              "read-only",
+              "not-retrieved"
+            ]
+          },
+          "accessNote": {
             "type": "string"
           },
           "sha256": {
@@ -768,12 +812,13 @@
           "domain",
           "status",
           "manufacturerCount",
-          "finding"
+          "finding",
+          "derived"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^C\\d{5}$"
+            "pattern": "^(C\\d{5}|derived-M\\d{3}-[a-z0-9-]+)$"
           },
           "materialId": {
             "type": "string"
@@ -792,6 +837,9 @@
           },
           "finding": {
             "type": "string"
+          },
+          "derived": {
+            "type": "boolean"
           }
         }
       }
@@ -910,20 +958,64 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "polymerId", "category", "categoryLabel", "agent", "conditions", "verdict", "screens", "finding", "sourceId", "locator", "notes"],
+        "required": [
+          "id",
+          "polymerId",
+          "category",
+          "categoryLabel",
+          "agent",
+          "conditions",
+          "verdict",
+          "screens",
+          "finding",
+          "sourceId",
+          "locator",
+          "notes"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^PB\\d{5}$" },
-          "polymerId": { "type": "string" },
-          "category": { "type": "string" },
-          "categoryLabel": { "type": "string" },
-          "agent": { "type": "string" },
-          "conditions": { "type": ["string", "null"] },
-          "verdict": { "type": "string" },
-          "screens": { "type": "boolean" },
-          "finding": { "type": "string" },
-          "sourceId": { "type": "string" },
-          "locator": { "type": "string" },
-          "notes": { "type": ["string", "null"] }
+          "id": {
+            "type": "string",
+            "pattern": "^PB\\d{5}$"
+          },
+          "polymerId": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "categoryLabel": {
+            "type": "string"
+          },
+          "agent": {
+            "type": "string"
+          },
+          "conditions": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verdict": {
+            "type": "string"
+          },
+          "screens": {
+            "type": "boolean"
+          },
+          "finding": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       }
     },
@@ -933,19 +1025,66 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "materialId", "polymerId", "category", "categoryLabel", "verdict", "screens", "evidenceType", "inferred", "agents", "sourceIds"],
+        "required": [
+          "id",
+          "materialId",
+          "polymerId",
+          "category",
+          "categoryLabel",
+          "verdict",
+          "screens",
+          "evidenceType",
+          "inferred",
+          "agents",
+          "sourceIds"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "materialId": { "type": "string" },
-          "polymerId": { "type": "string" },
-          "category": { "type": "string" },
-          "categoryLabel": { "type": "string" },
-          "verdict": { "enum": ["resistant", "limited", "not-resistant", "soluble"] },
-          "screens": { "type": "boolean" },
-          "evidenceType": { "const": "Polymer-level reference" },
-          "inferred": { "const": true },
-          "agents": { "type": "array", "minItems": 1, "items": { "$ref": "#/properties/polymerEnvironment/items" } },
-          "sourceIds": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+          "id": {
+            "type": "string"
+          },
+          "materialId": {
+            "type": "string"
+          },
+          "polymerId": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "categoryLabel": {
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "resistant",
+              "limited",
+              "not-resistant",
+              "soluble"
+            ]
+          },
+          "screens": {
+            "type": "boolean"
+          },
+          "evidenceType": {
+            "const": "Polymer-level reference"
+          },
+          "inferred": {
+            "const": true
+          },
+          "agents": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/properties/polymerEnvironment/items"
+            }
+          },
+          "sourceIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     },
@@ -1491,7 +1630,6 @@
       "required": [
         "id",
         "name",
-        "normalizedName",
         "abbreviation",
         "fullName",
         "family",
@@ -1508,7 +1646,6 @@
         "gradeIds",
         "headline",
         "headlineBasis",
-        "measurementConditions",
         "facets",
         "guidance",
         "print",
@@ -1519,9 +1656,6 @@
         "headlineEvidence",
         "bestUses",
         "limitations",
-        "impactNote",
-        "fatigueCreep",
-        "printability",
         "identity",
         "evidenceIds"
       ],
@@ -1531,9 +1665,6 @@
           "pattern": "^M\\d{3}$"
         },
         "name": {
-          "type": "string"
-        },
-        "normalizedName": {
           "type": "string"
         },
         "abbreviation": {
@@ -1604,9 +1735,6 @@
           }
         },
         "headlineBasis": {
-          "type": "string"
-        },
-        "measurementConditions": {
           "type": "string"
         },
         "facets": {
@@ -1688,43 +1816,14 @@
         "limitations": {
           "type": "string"
         },
-        "impactNote": {
-          "type": "string"
-        },
-        "fatigueCreep": {
-          "type": "string"
-        },
-        "printability": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "rating",
-            "rubric"
-          ],
-          "properties": {
-            "rating": {
-              "type": [
-                "number",
-                "null"
-              ]
-            },
-            "rubric": {
-              "type": "string"
-            }
-          }
-        },
         "identity": {
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "source",
             "notes",
             "h2cEvidence"
           ],
           "properties": {
-            "source": {
-              "type": "string"
-            },
             "notes": {
               "type": "string"
             },

@@ -212,7 +212,8 @@ function sourceBlock(sid, list, c, { inSources }) {
   const exceptions = entries.some((x) => [...shared].some(([f, t]) => String(x[f] ?? '').trim() !== t));
   const head = inSources
     ? `<h3 class="src-title" tabindex="-1">${esc(sourceName(s, sid))} ${tag(sid, 'Source')}</h3>
-       <div class="src-meta">${[s?.sourceClass, stated(s?.accessDate) ? `accessed ${s.accessDate}` : null].filter(stated).map(esc).join(' · ')}${originalLink(s) ? ` · ${originalLink(s)}` : ''}</div>`
+       <div class="src-meta">${[s?.sourceClass, stated(s?.accessDate) ? `accessed ${s.accessDate}` : null].filter(stated).map(esc).join(' · ')}${originalLink(s) ? ` · ${originalLink(s)}` : ''}</div>
+       ${[s?.sourceNote, s?.accessNote].filter(stated).length ? `<div class="src-meta">${[s?.sourceNote, s?.accessNote].filter(stated).map(esc).join(' ')}</div>` : ''}`
     : `<div class="src-head">From <button type="button" class="link-btn" data-open-source="${esc(sid)}" title="Opens this source in the Sources tab">${esc(sourceName(s, sid))}</button> ${tag(sid, 'Source')}</div>`;
   const sharedHtml = shared.size
     ? `<div class="shared-conds"><div class="shared-head">For every measurement below from this source${exceptions ? ', except where one says otherwise' : ''}</div>
@@ -281,10 +282,12 @@ function usesSection(m, c) {
   } else if (stated(m.bestUses)) {
     out.push(`<h3 class="sec">Good for</h3><p>${esc(m.bestUses)}</p>`);
   }
-  if (g.limitations) {
-    if (g.limitations.prose) out.push(`<h3 class="sec">Watch out for</h3><p>${esc(g.limitations.prose)}</p>`);
-  } else if (m.limitations) {
-    out.push(`<h3 class="sec">Watch out for</h3><p>${esc(m.limitations)}</p>`);
+  // What is true of this material, then the caveat that is true of every one of them. The second was stored on 82
+  // materials until m45; it is a Method rule now, shown once here so a reader still meets it (D70).
+  const own = g.limitations ? g.limitations.prose : stated(m.limitations) ? m.limitations : '';
+  const standing = c.db.method.find((r) => r.topic === 'Transferable allowables')?.rule;
+  if (own || standing) {
+    out.push(`<h3 class="sec">Watch out for</h3>${own ? `<p>${esc(own)}</p>` : ''}${standing ? `<p class="fine">${esc(standing)}</p>` : ''}`);
   }
   if (g.guidance.length || g.unresolved.length) {
     const owners = [...new Set(g.guidance.map(g.owner))];
@@ -733,6 +736,7 @@ function tabBody(tab, c) {
         <dt>Support pairing</dt><dd>${esc(p.supportPairing ?? '')}</dd>
         <dt>Failure modes</dt><dd>${longText(p.failureModes ?? '')}</dd>
       </dl>
+      ${p.notes.length ? `<dl class="kv">${p.notes.map((n) => `<dt>${esc(n.topic)}</dt><dd>${longText(n.text)}</dd>`).join('')}</dl>` : ''}
       <h3 class="sec">H2C routing and AMS — evidence, not a filter</h3>
       <div class="note">These fields read "verify exact grade" on most profiles, so the selector does
         not filter on them. They are reproduced here exactly as recorded.</div>
@@ -828,7 +832,7 @@ function tabBody(tab, c) {
     if (!cov.length) return nothingRecorded([], { toCoverage: false });
     return cov.map((r) => `<div class="evidence-row cov-row">
       <div><strong>${esc(r.domain)}</strong> ${chip(statusToState(r.status), r.status)}</div>
-      <div>${esc(r.finding)} ${tag(r.id, 'Coverage record')}</div>
+      <div>${esc(r.finding)} ${r.derived ? '<span class="fine-src" title="No coverage row is stored for this domain; the build reports what the material\'s own records show">derived from the records</span>' : tag(r.id, 'Coverage record')}</div>
     </div>`).join('');
   }
   return '';

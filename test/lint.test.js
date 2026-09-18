@@ -33,7 +33,7 @@ test('raw columns keep their spelling; a short-list column that is not raw must 
 });
 
 test('a source needs a citation only when its role says it is cited; a source never read must not be cited', () => {
-  const sources = (role, id = 'S1') => ({ SourceID: id, 'Source class': 'Manufacturer TDS', 'Citation role': role, 'Access status': 'Retrieved', URL: 'https://example.com' });
+  const sources = (role, id = 'S1') => ({ SourceID: id, 'Source class': 'Manufacturer TDS', 'Citation role': role, 'Access state': 'retrieved', URL: 'https://example.com' });
   const run = (rows, measurements = []) => lintData({
     sources: { header: Object.keys(rows[0]), rows },
     measurements: { header: ['MeasurementID', 'SourceID'], rows: measurements },
@@ -44,7 +44,7 @@ test('a source needs a citation only when its role says it is cited; a source ne
 });
 
 test('a source Title is what the publisher printed, not shop chrome, a file name or a placeholder', () => {
-  const src = (id, Title) => ({ SourceID: id, Title, 'Source class': 'Manufacturer TDS', 'Citation role': 'corroboration', 'Access status': 'Retrieved', URL: 'https://example.com/' + id });
+  const src = (id, Title) => ({ SourceID: id, Title, 'Source class': 'Manufacturer TDS', 'Citation role': 'corroboration', 'Access state': 'retrieved', URL: 'https://example.com/' + id });
   const run = (rows) => lintData({ sources: { header: Object.keys(rows[0]), rows } }, { sources: { primaryKey: 'SourceID', fields: [] } }).filter((f) => f.code === 'SOURCE-TITLE-NOT-TITLE').map((f) => f.record);
   assert.deepEqual(run([
     src('S1', 'CARBONX™ ABS+CF Ach Direct Debit Amazon American Express Apple Pay Visa'), src('S2', 'B pla basic filament'), src('S3', 'B PC'),

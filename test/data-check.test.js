@@ -9,7 +9,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkData } from '../build/src/schema.js';
 import { openTables, nextId } from '../scripts/data/table-io.mjs';
-import { diffTables } from '../scripts/data/diff-lib.mjs';
+import { diffTables, allowedRemovals } from '../scripts/data/diff-lib.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -139,6 +139,29 @@ test('the changelog matches records by key: edits, additions and deletions', () 
   ]);
 });
 
+test('a record leaves a table only where the ledger says which migration moved it and where', () => {
+  // Records are retired, never deleted (D45). The one exception is a record the build now derives instead, and it is
+  // an exception only with a row in data/review/removed-records.csv naming the migration (D72).
+  const log = [
+    { table: 'coverage', record: 'C1', action: 'Removed', field: null },
+    { table: 'coverage', record: 'C2', action: 'Removed', field: null },
+    { table: 'coverage', record: '(column)', action: 'Removed', field: 'Manufacturer count' },
+    { table: 'coverage', record: 'C3', action: 'Edited', field: 'Status' },
+  ];
+  const ledger = [{ Table: 'coverage', Record: 'C1', Migration: 'm48', Where: 'derived by the build' }];
+  const one = allowedRemovals(log, ledger);
+  assert.equal(one.removed.length, 2, 'a dropped column is not a deleted record');
+  assert.deepEqual(one.unledgered.map((c) => c.record), ['C2'], 'C2 has no ledger row and must still fail');
+  // A ledger row for another table does not cover this one.
+  assert.deepEqual(allowedRemovals(log, [{ Table: 'evidence', Record: 'C1' }]).unledgered.map((c) => c.record), ['C1', 'C2']);
+  // With no ledger at all, every removal fails, which is what the rule was before D72.
+  assert.equal(allowedRemovals(log, []).unledgered.length, 2);
+  assert.equal(allowedRemovals(log, undefined).unledgered.length, 2);
+  // A ledger row that covered nothing here is history, not a defect: it authorised a removal in an earlier commit.
+  assert.deepEqual(allowedRemovals(log, ledger).unused, []);
+  assert.equal(allowedRemovals([], ledger).unused.length, 1);
+});
+
 test('replacing a headline\'s value measurement is an edit, not a deletion; dropping a selection is a deletion', () => {
   const schemas = { headlines: { primaryKey: null, identity: ['MaterialID', 'HeadlineKey', 'Use'], uniqueKeys: [['MaterialID', 'HeadlineKey', 'MeasurementID']] } };
   const from = 'MaterialID,HeadlineKey,MeasurementID,Use\nM1,hdt045,V1,value\nM1,hdt045,V2,context\nM1,hdt045,V3,context\n';
@@ -217,12 +240,10 @@ test('the material scaffold writes a material and its grade, and names what it c
     assert.equal(refused.status, 1);
     assert.match(refused.stderr, /--set "Modifier \/ filler=\.\.\."/);
     assert.match(refused.stdout, /"PA11" has no row in polymers.csv/);
-    const prose = ['Measurement conditions', 'Price basis', 'Best uses', 'Limitations', 'Identity notes', 'Headline basis',
-      'Impact / toughness', 'Fatigue / creep', 'Shared formulation key', 'Composition / filler', 'Colour caveat', 'Availability',
+    const prose = ['Best uses', 'Identity notes', 'Shared formulation key', 'Composition / filler', 'Colour caveat', 'Availability',
       'Certification claims', 'Selected-grade rationale', 'Source locator', 'Diameter compatibility'].flatMap((c) => ['--set', `${c}=recorded by the test`]);
     // The columns a vocabulary or a reference governs take a real value, as any row does.
-    prose.push('--set', 'Modifier / filler=Unfilled / unspecified', '--set', 'Role=Structural / functional / appearance',
-      '--set', 'Identity source=H2C-MANUAL', '--set', 'Printability rubric=R-PRINT');
+    prose.push('--set', 'Modifier / filler=Unfilled / unspecified', '--set', 'Role=Structural / functional / appearance');
     const written = run(prose);
     assert.equal(written.status, 0, written.stderr);
     const t = openTables(dir);

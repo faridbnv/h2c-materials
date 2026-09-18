@@ -43,6 +43,12 @@ No database server or SQLite file sits in the build path. For one person and two
 thousand rows, text files under a schema give the same integrity checks with none of the operations,
 and the build is where those checks run anyway.
 
+A SQLite file is generated beside it, for reading only: `npm run db:sqlite` writes `dist/h2c.sqlite`
+from the same tables and the same schema, with numbers typed, missing states in a sibling column and
+every CSV header recoverable from `_columns` (DECISIONS D75). `npm run sql -- "select ..."` queries it.
+Nothing reads it back, and it is gitignored with the rest of `dist/`, so data still changes in one
+place; it exists because a question that spans records is a join, not a script.
+
 ## Why a build step, rather than reading the tables in the browser
 
 Reading the tables in the browser would couple the interface to their layout, push validation
@@ -112,7 +118,7 @@ plotting library, not the data, is what the file weighs.
 | `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision and whether it still holds. |
 | `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
-| `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). |
+| `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
 | `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, and prints every difference in `dist/db.json`. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
@@ -182,6 +188,22 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 Every lens draws from the same `rows`. Switching lens never changes membership.
 
 ## Adding things
+
+**A new material.** [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) chains the AGENTS.md
+recipes once, with a real product, from the source row to the commit.
+
+**A new table.** Its schema in `schema/tables/<name>.schema.json`, and the four places the build learns
+about it, in the same commit: `TABLE_ORDER` (`build/src/schema.js`), `TABLES` (`build/src/load.js`),
+`inputs` (`build/src/source.js`) and `TEXT_TABLES` (`build/src/lint-rules.js`). A table missing from
+`TABLE_ORDER` sorts to the front of the review workbook. If it is a child of a per-material table, add it
+to `scripts/data/synthesize.mjs` too, or the scale test loses its rows. `reference_envelopes` (m42) and
+`profile_notes` (m44) are the two worked examples.
+
+**A typed column beside raw text.** The raw column keeps the source's words; the typed one is what the
+build reads; a reader in `build/src/normalize/` says what the words plainly mean, and `typed-values.js`
+stops the build where the two disagree with no Parse review (D49). Use it wherever a decision would
+otherwise be read out of prose on every build. Moisture state, Post-processing state and Standards are
+the recent ones (D68, D76).
 
 **A new lens that draws numbers.** Decide what it does with an estimate before you write it. Three
 lenses drew only measured headlines and silently dropped a quarter of the candidates; an estimate is

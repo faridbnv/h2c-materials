@@ -10,6 +10,10 @@
 // why the stored value is right (a mis-read the parser cannot handle). Diagnostics the parser adds
 // (count, tolerance, text it stripped) stay in the compiled record.
 
+import { readMoistureState } from './normalize/moisture.js';
+import { readPostProcessingState } from './normalize/specimen.js';
+import { readStandards } from './normalize/standards.js';
+
 const NA = 'Not applicable';
 const NP = 'Not published';
 
@@ -28,8 +32,16 @@ export const PROFILE_TYPED_COLUMNS = [
 ];
 
 export const MEASUREMENT_TYPED_COLUMNS = [
-  { after: 'Standard / load', columns: ['Test load MPa'] },
+  { after: 'Moisture condition', columns: ['Moisture state'] },
+  { after: 'Post-processing', columns: ['Post-processing state'] },
+  { after: 'Standard / load', columns: ['Standards', 'Test load MPa'] },
   { after: 'Notes', columns: ['Parse review'] },
+];
+
+// The two states a datasheet sentence carries, with the reader that says what the sentence plainly means (m43).
+export const MEASUREMENT_STATES = [
+  { typed: 'Moisture state', raw: 'Moisture condition', read: readMoistureState },
+  { typed: 'Post-processing state', raw: 'Post-processing', read: readPostProcessingState },
 ];
 
 const cell = (v, missing = NA) => (v == null ? missing : String(v));
@@ -108,6 +120,35 @@ export function applyAnnealTyped(r, parsed, issues) {
     }
   }
   return parsed ? typed : null;
+}
+
+/**
+ * Check a measurement's typed states against the source's own words. The column decides, always: a wording is a
+ * sentence from a datasheet, and a new one must never stop the build (that was the cost of declaring the state in a
+ * vocabulary, m43). Where the words say plainly what the state is and the column says otherwise, the build stops
+ * unless Parse review explains it.
+ */
+export function applyStateTyped(r, issues) {
+  if (reviewed(r)) return;
+  for (const { typed, raw, read } of MEASUREMENT_STATES) {
+    const expected = read(r[raw]);
+    if (expected != null && r[typed] !== expected) {
+      issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${typed} is ${r[typed] ?? 'empty'} but the source's words "${r[raw]}" read as ${expected}; correct the typed value, or explain it in Parse review` });
+    }
+  }
+}
+
+/**
+ * The standards a measurement names, from its typed list, checked against the reader's view of the raw text. The
+ * stored list decides, so a reader that learns a new spelling shows its effect as a diff rather than moving a value.
+ */
+export function applyStandardsTyped(r, issues) {
+  const stored = r.Standards === NP ? [] : String(r.Standards ?? '').split(';').map((x) => x.trim()).filter(Boolean);
+  const read = readStandards(r['Standard / load']);
+  if (stored.join('; ') !== read.join('; ') && !reviewed(r)) {
+    issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Standards is ${stored.join('; ') || NP} but the parser reads "${r['Standard / load']}" as ${read.join('; ') || 'no standard'}; correct the typed value, or explain it in Parse review` });
+  }
+  return stored;
 }
 
 /** Overlay the stored test load on the HDT parser's reading. */

@@ -353,6 +353,11 @@ try {
   rmSync(profile, { recursive: true, force: true });
 }
 
+// When the page was built is not something a reader's view should be pinned to: the Compare export preamble prints
+// it, so a snapshot written yesterday failed every run today, on this branch and on main alike. build-diff already
+// drops meta.build for the same reason. The database snapshot date stays, because that is a fact about the data.
+for (const k of Object.keys(results)) results[k] = results[k].replace(/\bbuild \d{4}-\d{2}-\d{2}\b/g, 'build <date>');
+
 if (errors.length) { console.error(`ui:check: ${errors.length} page error(s)\n  ${errors.join('\n  ')}`); process.exit(1); }
 const empty = Object.entries(results).filter(([, text]) => text.split('\n').length < 3).map(([k]) => k);
 if (empty.length) { console.error(`ui:check: empty view(s): ${empty.join(', ')}`); process.exit(1); }

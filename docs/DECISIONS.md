@@ -73,6 +73,16 @@ break if it were reversed, because that is the part that gets lost.
 | D64 | Polymer-level behaviour is shown and may screen, never passes | In force |
 | D65 | A test method that defines its load states that load; the typed value says so in Parse review | In force |
 | D66 | A templated safety data sheet is evidence only where it speaks about the product | In force |
+| D67 | A property is a row, not a pair of columns: the reference envelopes are long | In force |
+| D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | In force |
+| D69 | A profile's qualitative notes are rows, and an empty column is not a fact | In force |
+| D70 | A constant is not a per-material fact, and a summary of the data is not data | In force |
+| D71 | How a source was classed and how it was reached are states, not sentences | In force |
+| D72 | A record may leave a table only where the build derives it, and only through a ledger | In force |
+| D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | In force |
+| D74 | A coverage row is a judgement; that a material has records is derived | In force |
+| D75 | A generated SQLite file for asking questions, with the schema's types in it | In force |
+| D76 | The standards a measurement names are a typed list, and a fragment is not a standard | In force |
 
 <!-- end index -->
 
@@ -1389,3 +1399,293 @@ sourced and page-cited, which is worse than not recording it.
 Reversing it would let boilerplate become per-grade evidence: a PPA-CF that "must not exceed 240 °C" beside the
 profile telling the reader to print it at 320 °C, each with a page citation. Dropping the whole document instead
 would lose the composition, which is the only reason this source class was added.
+
+## D67. A property is a row, not a pair of columns: the reference envelopes are long
+
+`reference.csv` held a `min` and a `max` column for each of eight properties. Adding a ninth meant two new columns,
+a schema change, an edit to the loader's column-pair walk, and 114 rows widened for a value most of them would not
+have. That is the shape D46 had already rejected for measured properties, kept here only because the reference layer
+is a drawing layer nobody was extending.
+
+- **The envelopes are rows.** `reference_envelopes.csv` holds one row per reference material and property (Name,
+  Property, Min, Max), 912 of them. `reference.csv` keeps the identity it owns: Category and Name.
+- **The property list is data.** `schema/vocab/reference-properties.csv` declares each property and its unit, and
+  `build/src/reference-properties.js` reads it. A ninth reference property is a vocabulary row and its envelope
+  rows; no column, no schema change, no code change.
+- **The unit is declared once.** It was a literal in the code beside the column names; it is now the vocabulary's
+  `Unit` column, which is what the compiled `dist/reference.json` carries into the chart.
+- **The order is the vocabulary's.** Every material presents its properties in the declared order, whatever order
+  its rows are written in, so a hand-appended envelope cannot reorder a compiled file.
+- **Proven, not assumed.** m42 refuses to drop a column unless every one of the 912 envelopes is a numeric pair.
+  `npm run build:diff` reports no difference, and `dist/reference.json` is byte-identical to the build before it.
+
+The legacy `offset` on each property is the retired reference workbook's column position. Nothing reads it, and it
+stays in code, not in the data, only because `schema/reference.schema.json` still requires it in `meta.properties`.
+
+Reversing it brings back a schema change for a number, and a loader that knows the shape of a spreadsheet.
+
+## D68. A datasheet sentence is data, not a vocabulary: the state is a column on the row
+
+*Amends D53 and D56, which put the state in the vocabulary.*
+
+D53 fixed a real bug by giving each Moisture condition wording a declared State, and D56 did the same for
+Post-processing: the build had been reading "wet" out of the words, so 84 conditioned rows, nylons among them, were
+read as dry. Declaring the state was right. Declaring it *in the vocabulary* meant the wording was the key, so every
+new datasheet sentence was a schema change. By this snapshot `post-processing.csv` held 33 sentences, 25 of them one
+manufacturer's annealing paragraph in its own punctuation, and a sheet whose sentence differed by a word stopped the
+build until someone added the sentence and declared its state again. m38 and m39 each carried that instruction in
+their headers.
+
+- **The state is a typed column.** `Moisture state` and `Post-processing state` sit beside the source's own words in
+  `Moisture condition` and `Post-processing`, and the build reads only the columns. This is D49's rule, which every
+  other decided value already followed: the profile windows, the drying schedule, the HDT load.
+- **The words are still checked.** `readMoistureState` and `readPostProcessingState` read what a wording plainly
+  says. Where the words say plainly and the column disagrees, the build stops (PARSE-MISMATCH) unless Parse review
+  explains it. "Not annealed" and "unannealed" are read before "anneal", so a sentence that denies annealing is
+  never read as annealing.
+- **Where the words say nothing, the column decides.** Four wordings in this snapshot say nothing about the state
+  of the specimen at test: storage humidity, a drying recommendation, a vacuum-sealing instruction, and resting at
+  room temperature, which is not a heat treatment. The reader has no opinion on those, and nothing is inferred.
+- **A new wording is data.** Adding a measurement whose sheet phrases its annealing differently is now a row, not a
+  vocabulary entry and a second declaration of a state that is already in the row.
+- **Specimen type keeps its vocabulary.** Its ten wordings are the database's own, not a publisher's, so declaring
+  the Form there still makes a new one a deliberate act.
+
+Reversing it brings back a build that stops on a sentence, and the pressure that creates to reuse a wording that is
+close enough rather than record what the sheet says.
+
+## D69. A profile's qualitative notes are rows, and an empty column is not a fact
+
+`profiles.csv` was 56 columns wide. Eleven of them held free text about how a material prints, 363 notes spread
+across 172 profiles, so most were empty on most rows. Three — Stringing, Volumetric limit and Difficulty — were
+empty on every row of every profile, and had been since the workbook. A twelfth topic meant a column on all 172.
+
+Worse, the notes were not reaching anyone. Only Storage humidity was compiled at all, and nothing rendered it; the
+other ten were in the table and nowhere else, so a reader looking for what a manufacturer says about cooling or
+overhangs could not see it, and a curator had no reason to record any more of it.
+
+- **A note is a row.** `profile_notes.csv` holds one per profile and topic, the shape used everywhere else here
+  (`headlines.csv`, `material_links.csv`, `fatigue_tests.csv`). A topic a source says nothing about has no row.
+- **The topic is a vocabulary.** `schema/vocab/profile-topics.csv` names the eleven. A new one is a row there and
+  the notes that use it; it was a column on every profile and a schema change.
+- **The notes are shown.** The Printing tab renders each profile's notes under its typed fields, so all 363 reach
+  the reader. That is the point of recording them.
+- **An empty column is not a fact.** The three that were never once filled are gone. If a source ever publishes a
+  volumetric limit it is a topic and a row, not a column that 171 profiles leave blank to say nothing.
+- **A constant is a rule, not a per-profile value.** Temperature-group conflict was one sentence repeated on all 172
+  rows. It is a rule of the database, so it belongs in `method.csv`, and its one clause the Method row did not
+  already carry (the 45 °C low-temperature chamber guide limit) was added there.
+
+`profiles.csv` keeps what the build decides on: the typed temperature axes, drying, enclosure, abrasion and routing.
+Reversing it brings back a table that has to be widened to record a sentence, and evidence nobody can read.
+
+## D70. A constant is not a per-material fact, and a summary of the data is not data
+
+*Extends D47, which this snapshot had drifted from.*
+
+D47 moved the stored conclusions out of the workbook: headline values, price medians, grade lists. Nine columns of
+`materials.csv` had survived it, and three of them contradicted D47 outright. Price basis was a sentence counting a
+material's own price observations, which `compilePriceHeadline` counts anyway. Headline basis was three sentences
+chosen by the material's Scope and Representative grade, 102 of 103 rows derivable by that rule. Measurement
+conditions was two measurement columns joined by a slash, compiled and rendered nowhere.
+
+Four more were constants: Identity source said `LOCAL-CANON` on all 103 rows, Printability rubric `R-PRINT` on all
+103, Normalized name repeated Original name on all 103, and Fatigue / creep said one sentence on 99, where the other
+four are exactly the four materials with `fatigue_tests.csv` rows. The ten printability ratings were already ten
+`evidence.csv` rows, with the same ratings and the same rubric.
+
+- **Derived where the build can derive it.** `headlineBasis` and the price basis are computed, and m45 asserted the
+  derivation row by row before dropping the column. `build:diff` shows one difference in 103 for headline basis and
+  none at all for the price basis, which is the proof.
+- **A constant is a rule, and rules live in `method.csv`.** Two Method rows were added, Scope / Headline basis and
+  Scope / Transferable allowables.
+- **The caveat that is true of everything is shown once, on everything.** "No transferable long-term allowable" sat
+  on 82 materials, which reads as if the other 21 have one. It is true of every material here, so the drawer shows
+  it on every material, from the Method row, and a material's own Limitations now record only what it adds.
+- **Editorial prose the data contradicts is dropped, not kept.** Impact / toughness said "see distinct impact
+  records" on 52 materials while 84 have impact measurements, and two of the 52 have none. m45 prints that cross-tab
+  before dropping it. It was not rendered anywhere, so nobody had been reading a wrong thing; nobody had been
+  reading it at all.
+
+One sentence was lost text rather than a constant: M077, Support for PLA, said "mechanical values not published".
+That is true and specific, so it moved to its Identity notes, which the drawer shows as "About this entry".
+
+`materials.csv` is 16 columns. Reversing this brings back a table where a reader cannot tell which cells are facts
+about the material and which are the same sentence 103 times.
+
+## D71. How a source was classed and how it was reached are states, not sentences
+
+`sources.csv` described both in prose. Source class held 21 wordings for nine real classes: "Manufacturer TDS",
+"Manufacturer TDS (web)", "Manufacturer TDS indexed at authorized distributor" and "Manufacturer TDS hosted by
+current brand owner" are one class and three facts about one document. Access status held 17 wordings for four real
+states and had no vocabulary at all, so a twelfth spelling of "Retrieved" would have passed the gate, nothing could
+be counted, and the one piece of code that had to know — whether a source was reached — tested prose with a regular
+expression (`/^not retrieved/i`) that a rewording would have silently defeated.
+
+- **The class is a vocabulary of nine.** Manufacturer TDS, Manufacturer product page or guide, Manufacturer SDS,
+  Resin supplier data sheet, Retailer catalogue, Printer documentation, Peer-reviewed study, Safety guidance,
+  Reference or register.
+- **The state is a vocabulary of four.** `retrieved`, `retrieved-copy` (read from a copy the owner supplied and
+  checked against what the publisher serves), `read-only`, `not-retrieved`. D50's rule that nothing may cite a
+  source that was not retrieved now reads a declared state, not a sentence.
+- **Nothing is paraphrased away.** What each wording carried beyond its class moves to Source note, and Access note
+  keeps the retrieval sentence exactly as it was written. Both are shown in the Sources tab, where they were not
+  shown before: a reader can now see that a sheet is hosted by the current brand owner, or that the served revision
+  differs from the copy that was read.
+- **The distinction that mattered survived.** Four sources say the currently-served revision differs from the copy
+  the owner supplied. What was read there is the served file, so they are `retrieved`, not `retrieved-copy`, and the
+  note says which. The migration's reader is anchored so "the copy the owner supplied" is never mistaken for
+  "owner-supplied".
+
+Reversing it brings back a register that cannot be counted, and a check on prose.
+
+## D72. A record may leave a table only where the build derives it, and only through a ledger
+
+*Narrows "nothing is deleted" (D45, D50).*
+
+Records are retired, never deleted, and the pre-commit hook and CI enforce it by failing on any removed row. That
+rule is right, and it is why a retired grade keeps its ID and a superseded finding keeps its text. But it also makes
+one legitimate change impossible: moving a record out of a table because the build can now derive it. There was no
+way to do that except to disable the check, which would have disabled it for everything in the same commit.
+
+- **The exception is a ledger, not a flag.** `data/review/removed-records.csv` names the table, the record, the
+  migration that moved it and where it went. A removal a row covers passes; every other removal still fails, with
+  the same message as before.
+- **The ledger is read from the version being checked.** The commit that removes a record is the commit that
+  authorises it, so a removal cannot be waved through by a ledger row added later, and a reviewer sees both halves
+  in one diff.
+- **A dropped column is still not a deleted record.** It never was, and the ledger does not change that: moving a
+  column's content into a child table is the shape m31, m42 and m44 used, and it needs no ledger row.
+- **The ledger accumulates.** A row that covers nothing in today's diff authorised a removal in an earlier commit,
+  which is history, not a defect. It is the audit trail the deleted rows no longer are.
+
+Reversing it leaves only the blunt instrument: `--no-verify`, which turns off every check at once and leaves no
+record of what was removed or why.
+
+## D73. A reviewed fact belongs in the row, and "not enough data" is not a defect to review
+
+Two checks had been answered by suppression rather than by the data, and both suppressions were hiding the check.
+
+**Direction.** Thirteen printed mechanical measurements carried Direction "Not published" and an accepted
+MEAS-PRINTED-NO-DIRECTION finding each. Every one had been re-read; the reason lived in
+`data/review/accepted-findings.csv`, so a reader of the table could not tell them from a row nobody had checked, and
+the lint could catch nothing new without a reviewer clearing thirteen old ones first. The reasons were not one case,
+so they did not become one value: `Unstated` says the source publishes the printed result and states no direction,
+and `Stated, not a usable direction` says the source states an orientation the database cannot use — a 0°-90° raster
+it has no value for, or an X-Z label the source's own numbers contradict, with the row's Notes saying which. Both are
+an unknown direction to the build, so nothing downstream moved. "Not published" now means what it should: nobody has
+looked.
+
+**Wide estimates.** EST-WIDE asked a reviewer to explain every imprecise estimate, and all thirteen answers said the
+same thing: the material publishes nothing for that headline, so the range is wide because the evidence is thin.
+That is the honest answer, and no amount of reviewing changes it — only data does (D58). Meanwhile the check that
+would matter had nowhere to fire.
+
+- **EST-WIDE now asks whether the model ignored evidence it has**: an imprecise estimate for a headline the
+  material's own representative grade publishes a usable value for, which would mean the value should have been the
+  headline, or the model should have used it. It is reviewed, and it fires on nothing in this snapshot. That is the
+  point: a build that raises it again has found something.
+- **EST-THIN reports the rest**, at level info, with its records. Nobody accepts it, and a new one is not noise.
+
+Thirteen acceptances of each retired. `build/snapshot/warnings.csv` lost thirteen rows.
+
+Reversing either brings back a review file doing a row's job, and a reviewer's signature standing in for a number.
+
+## D74. A coverage row is a judgement; that a material has records is derived
+
+*Extends D39 and D47 to the table D39 created.*
+
+D39 made coverage true: a Gap beside data, or an evidence claim without data, stops the build. What it did not ask
+is why a row asserting the second thing was stored at all. By this snapshot 632 of 1,214 coverage rows said
+"Evidence recorded", and 541 of those said it in one of eight sentences repeated once per material. "Original
+canonical entry retained once" stood on all 103. "See specimen, direction, moisture, preparation and standard before
+comparing" stood on 78, and is a caveat about the database, not a finding about a material. "1 in-stock
+regular-price observation(s), before tax/shipping" stood on 24, the same sentence D70 had just stopped storing on
+the material itself.
+
+None was a judgement about a particular material. Each asserted that the material had records of a kind, and
+`coverage-rules.js` already defined what that means precisely enough for the validator to check it.
+
+- **The build derives them.** A (material, domain) pair the records prove and no stored row speaks for gets a row
+  from the build, marked `derived`, naming what proves it: the measurement count, the profile IDs, the price
+  observations. That is more than the sentence said, and it cannot go stale.
+- **A stored row always wins.** Nothing is derived for a pair a stored row speaks for, because a stored row is
+  somebody's judgement and this is a restatement of records. The 47 pairs that had both now show the judgement alone.
+- **What a reader sees is unchanged, and that was checked.** The 1,121 (material, domain) pairs before and after are
+  the same set, with the same weakest status in each. No cell of the coverage grid moved.
+- **A derived row carries no identifier.** Its id is `derived-M020-mechanical`, not a C##### key, nothing cites it,
+  and the drawer prints "derived from the records" where it would print a record tag. A reader is never shown an ID
+  that is not in the tables.
+- **Two domains became checkable.** Identity and H2C status were outside `domainData`, so COVERAGE-UNTRUE never
+  tested them; they are in it now.
+- **One domain is deliberately left alone.** "Post-processing / application" distinguishes grade-specific evidence
+  from family notes a material owns, and no rule over evidence domains expresses that: six materials truthfully say
+  Gap there beside records of their own. Its 53 templated rows stay stored. A check that would have to be weakened
+  to pass is not a check, and a rule that cannot be stated is not derived.
+
+The 541 rows left through the removal ledger (D72) into
+[audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md), which holds them verbatim with their
+IDs. `coverage.csv` is 673 rows, and every one of them says something a reader could not work out.
+
+Reversing it brings back a table where the eight sentences nobody wrote for a material outnumber the findings
+somebody did.
+
+## D75. A generated SQLite file for asking questions, with the schema's types in it
+
+*Answers the open question in D45.*
+
+D45 chose schema-checked CSV over SQLite and said the same schema could generate one later if it were ever needed.
+What made it needed was not concurrent editing: it was that every question spanning more than one record had to be
+written as a script. "Which materials publish a 0.45 MPa heat deflection on a printed specimen, and from how many
+manufacturers" is a four-table join, and the alternative was a one-off file each time, thrown away, unreviewed, and
+wrong in a way nobody would notice.
+
+- **Generated, never authored.** `npm run db:sqlite` writes `dist/h2c.sqlite` from the CSV tables and the schema.
+  It is in `dist/`, which is gitignored, and nothing reads it back: there is still exactly one place data changes.
+- **The schema's types go in with it.** A `number` column is REAL. A missing state is NULL, and the word that stood
+  in its place ("Not published", "Not applicable") is kept in a sibling `<column>_state`. So `AVG()` cannot read a
+  missing state as zero, and a query can still tell "no value" from "the source did not publish one" without
+  parsing prose. That is D3 carried into SQL rather than abandoned at its edge.
+- **Every column name is recoverable.** The naming rule is mechanical and keeps the unit marks a header carries
+  ("Nozzle min °C" is `nozzle_min_c`), and `_columns` maps each SQL name back to its CSV header, position, declared
+  type and role. A collision is an error, not a silent overwrite.
+- **Two views carry the joins that matter.** `v_measurements` gives a measurement with its material, grade and
+  source, and with the conditions that decide whether two values may be compared, because leaving those out of the
+  convenient view is how a query ends up averaging a dry value with a conditioned one.
+  `headlines_compiled` gives what a reader is shown, from `dist/db.json`.
+- **No dependency.** `node:sqlite` is in the standard library from Node 24, which CI now pins and `engines` requires.
+
+`test/sqlite.test.js` checks every table against `data/manifest.json`, that `_columns` reproduces each CSV header in
+order, that no row carries both a value and a missing state, and that the joined view loses nothing.
+
+Reversing it brings back the one-off script, and the temptation to read a column of numbers as text.
+
+## D76. The standards a measurement names are a typed list, and a fragment is not a standard
+
+`Standard / load` is the source's own words, and by this snapshot it held 301 spellings for a few dozen tests:
+"ISO 527, GB/T 1040", "ISO527,GB/T1040", "ISO 527-2/50", "ISO 527 (testing speed 5 mm/min)", "D 638". Nothing could
+be asked of it. Which Charpy results are comparable, how many products test to ASTM rather than ISO, whether two
+sheets used the same flexural method: each was a question about a column that could only be read by eye. The one
+typed thing ever taken out of it was the HDT load (D49), and that took a parser with twenty spellings in it.
+
+- **Standards is a typed list beside the raw text.** The standards a row names, at family level, one spelling each,
+  from `schema/vocab/standards.csv`. `normalize/standards.js` reads the raw text and the build stops where the two
+  disagree (PARSE-MISMATCH), which is D49's shape.
+- **Family level, because the part is a condition.** ISO 527-2/50 and ISO 527-1 are both ISO 527: the part and the
+  specimen speed are conditions of one test, and the row's own columns carry the conditions.
+- **A list, because a sheet naming two tested to two.** Each item is a vocabulary value the schema checks, as
+  `properties.csv` Units already is. This is not a list stuffed in a cell; it is one fact with two values.
+- **Nothing is inferred.** 2,307 of 2,645 rows name a standard. The rest name none and the column says so: 76 are
+  Not published, 42 are a fatigue study's own staircase method, and about 80 are the melt-flow or water-absorption
+  condition the sheet prints where a standard would go, which is what that sheet publishes.
+- **A fragment reads as no standard, and is named as work.** About 90 rows carry the tail of the Subject column and
+  the head of the Testing Methods column from the original extraction ("Modulus", "ter Absorption Rate 25 °C, 55%
+  RH"). They are a transcription defect. The fix is to re-read each source and correct the raw text (D35), not to
+  infer a standard from the property, and they are listed in
+  [audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md) with what the cached sheets show.
+
+Guessing would have been easy and would have looked like an improvement: every one of those rows has a property
+whose usual standard is obvious. A standard nobody read off the sheet is exactly the kind of value this database
+exists not to hold.
+
+Reversing it brings back a column that can only be read by eye, and a parser per question.

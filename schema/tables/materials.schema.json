@@ -62,24 +62,6 @@
       }
     },
     {
-      "name": "Measurement conditions",
-      "type": "string",
-      "role": "prose",
-      "description": "Moisture and post-processing conditions behind the headlines.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Price basis",
-      "type": "string",
-      "role": "prose",
-      "description": "How the headline price was formed.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Best uses",
       "type": "string",
       "role": "prose",
@@ -92,10 +74,13 @@
       "name": "Limitations",
       "type": "string",
       "role": "prose",
-      "description": "Documented limitations.",
+      "description": "What is true of this material alone. The general caveat that holds for every material here is a Method rule (Scope / Transferable allowables), shown on each; Not published where the material adds nothing to it.",
       "constraints": {
         "required": true
-      }
+      },
+      "missing": [
+        "Not published"
+      ]
     },
     {
       "name": "Full name",
@@ -121,16 +106,6 @@
       "type": "string",
       "role": "canonical",
       "description": "Short display name.",
-      "constraints": {
-        "required": true,
-        "unique": true
-      }
-    },
-    {
-      "name": "Normalized name",
-      "type": "string",
-      "role": "canonical",
-      "description": "Search-normalized name.",
       "constraints": {
         "required": true,
         "unique": true
@@ -195,74 +170,10 @@
       }
     },
     {
-      "name": "Identity source",
-      "type": "string",
-      "role": "canonical",
-      "description": "Source of the material identity.",
-      "reference": {
-        "table": "sources",
-        "field": "SourceID"
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Identity notes",
       "type": "string",
       "role": "prose",
       "description": "Notes on identity decisions.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Headline basis",
-      "type": "string",
-      "role": "prose",
-      "description": "What the headline values represent.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Impact / toughness",
-      "type": "string",
-      "role": "prose",
-      "description": "Impact and toughness note.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Fatigue / creep",
-      "type": "string",
-      "role": "prose",
-      "description": "Fatigue and creep note.",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "Printability rating 1–5",
-      "type": "number",
-      "role": "editorial",
-      "description": "Analyst printability rating on rubric R-PRINT.",
-      "missing": [
-        "Not published"
-      ],
-      "constraints": {
-        "required": true,
-        "minimum": 1,
-        "maximum": 5
-      }
-    },
-    {
-      "name": "Printability rubric",
-      "type": "string",
-      "role": "canonical",
-      "description": "Rubric the printability rating uses.",
-      "vocabulary": "rubrics",
       "constraints": {
         "required": true
       }

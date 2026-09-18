@@ -1,0 +1,4 @@
+Value,Meaning
+as-printed,Tested as printed; the source states no heat treatment.
+annealed,Heat treated after printing; Anneal °C and Anneal h carry the schedule where the source states one.
+not-stated,The source does not say what was done after printing.

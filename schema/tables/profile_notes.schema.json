@@ -1,0 +1,46 @@
+{
+  "$comment": "Contract for data/tables/profile_notes.csv. Checked by build/src/schema.js.",
+  "title": "Print profile notes",
+  "description": "One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile.",
+  "primaryKey": null,
+  "uniqueKeys": [
+    [
+      "ProfileID",
+      "Topic"
+    ]
+  ],
+  "fields": [
+    {
+      "name": "ProfileID",
+      "type": "string",
+      "role": "key",
+      "description": "The profile this note belongs to.",
+      "reference": {
+        "table": "profiles",
+        "field": "ProfileID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "role": "key",
+      "description": "What the note is about.",
+      "vocabulary": "profile-topics",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Text",
+      "type": "string",
+      "role": "raw",
+      "description": "What the source says, in its own words. A topic the source says nothing about has no row.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

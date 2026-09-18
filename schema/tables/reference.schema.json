@@ -1,7 +1,7 @@
 {
   "$comment": "Contract for data/tables/reference.csv. Checked by build/src/schema.js.",
   "title": "Generic reference envelopes",
-  "description": "Uncited bulk and molded min/max envelopes from a general engineering reference, drawn on Ashby charts for scale only.",
+  "description": "Uncited bulk and molded envelopes from a general engineering reference, drawn on Ashby charts for scale only. Its envelopes are rows of reference_envelopes.csv, one per property.",
   "primaryKey": "Name",
   "fields": [
     {
@@ -23,118 +23,6 @@
         "pattern": "^.+$",
         "unique": true
       }
-    },
-    {
-      "name": "density min",
-      "type": "number",
-      "role": "raw",
-      "description": "density lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "density max",
-      "type": "number",
-      "role": "raw",
-      "description": "density upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "tensileModulus min",
-      "type": "number",
-      "role": "raw",
-      "description": "tensileModulus lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "tensileModulus max",
-      "type": "number",
-      "role": "raw",
-      "description": "tensileModulus upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "yieldStrength min",
-      "type": "number",
-      "role": "raw",
-      "description": "yieldStrength lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "yieldStrength max",
-      "type": "number",
-      "role": "raw",
-      "description": "yieldStrength upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "tensileStrength min",
-      "type": "number",
-      "role": "raw",
-      "description": "tensileStrength lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "tensileStrength max",
-      "type": "number",
-      "role": "raw",
-      "description": "tensileStrength upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "compressiveStrength min",
-      "type": "number",
-      "role": "raw",
-      "description": "compressiveStrength lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "compressiveStrength max",
-      "type": "number",
-      "role": "raw",
-      "description": "compressiveStrength upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "elongation min",
-      "type": "number",
-      "role": "raw",
-      "description": "elongation lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "elongation max",
-      "type": "number",
-      "role": "raw",
-      "description": "elongation upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "fractureToughness min",
-      "type": "number",
-      "role": "raw",
-      "description": "fractureToughness lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "fractureToughness max",
-      "type": "number",
-      "role": "raw",
-      "description": "fractureToughness upper envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "thermalExpansion min",
-      "type": "number",
-      "role": "raw",
-      "description": "thermalExpansion lower envelope.",
-      "constraints": {}
-    },
-    {
-      "name": "thermalExpansion max",
-      "type": "number",
-      "role": "raw",
-      "description": "thermalExpansion upper envelope.",
-      "constraints": {}
     }
   ]
 }

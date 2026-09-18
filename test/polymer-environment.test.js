@@ -22,7 +22,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = loadTables(join(root, 'data'));
 
 // A source the fixture cites: the first retrieved, cited source of the real register.
-const RETRIEVED = base.Sources.rows.find((s) => s['Citation role'] === 'cited' && s['Access status'] === 'Retrieved').SourceID;
+const RETRIEVED = base.Sources.rows.find((s) => s['Citation role'] === 'cited' && s['Access state'] === 'retrieved').SourceID;
 const NOT_RETRIEVED = base.Sources.rows.find((s) => s['Citation role'] === 'not-retrieved')?.SourceID;
 
 let n = 0;
@@ -124,7 +124,7 @@ test('the core alone, without the estimate stage, still validates with the layer
 test('the compiler refuses an unknown polymer, an unretrieved source, a fatigue or creep category, and a bad verdict', () => {
   const issues = [];
   const polymers = [{ id: 'PLA' }];
-  const sources = [{ id: 'S-OK', citationRole: 'cited', accessStatus: 'Retrieved' }, { id: 'S-NO', citationRole: 'not-retrieved', accessStatus: 'Not retrieved: HTTP 404' }, { id: 'S-STATUS', citationRole: 'cited', accessStatus: 'Not retrieved: HTTP 403 on 2026-09-13' }];
+  const sources = [{ id: 'S-OK', citationRole: 'cited', accessState: 'retrieved' }, { id: 'S-NO', citationRole: 'not-retrieved', accessState: 'not-retrieved' }, { id: 'S-STATUS', citationRole: 'cited', accessState: 'not-retrieved', accessNote: 'Not retrieved: HTTP 403 on 2026-09-13' }];
   const good = { ...row('PLA', 'acid', 'a', 'resistant'), SourceID: 'S-OK' };
   const out = compilePolymerEnvironment([
     good,

@@ -11,16 +11,18 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 | Table | What it holds |
 |---|---|
-| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
+| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, and the prose that is true of this material alone |
 | `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
-| `profiles.csv` | Processing guidance and H2C routing, per grade |
+| `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
+| `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
 | `evidence.csv` | Chemical, environmental and application evidence |
 | `prices.csv` | Canadian price observations |
-| `sources.csv` | The source register, with access dates, hashes and a Citation role |
-| `coverage.csv` | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
+| `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
+| `coverage.csv` | Gaps, conflicts, judgements and unresolved items; a replaced finding is Superseded, not deleted. The build adds a row of its own for each domain a material's records prove and no stored row speaks for (D74) |
 | `method.csv` | The rules the database was built under |
-| `reference.csv` | Generic reference envelopes, a drawing layer only |
+| `reference.csv` | Generic reference materials, a drawing layer only: category and name |
+| `reference_envelopes.csv` | Each reference material's min/max envelope, one row per property (D67); the properties and their units are `schema/vocab/reference-properties.csv` |
 
 **Selections and citations**
 
@@ -48,6 +50,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
+`data/review/removed-records.csv` is not data either: it is the ledger of records that left a table because the
+build derives them instead, each naming its migration and where it went (D72). Nothing else may be deleted.
 Every column of every table, and every vocabulary, is listed in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).
 
 `data/manifest.json` holds the current count and SHA-256 of every table, and the build refuses to run when a table and
@@ -57,9 +61,10 @@ the manifest disagree, so a count change is always visible in the commit that ma
 ### One fact, one home
 
 Nothing a table can derive is stored. A headline value lives only in its measurement; the price
-headline is the median of the flagged observations; per-kg prices are list price over net mass; a
-material's grade list is its active procurement grades; its environmental evidence is its own
-exposure records; its nozzle, bed and chamber guidance is its first cited profile. No table holds a
+headline is the median of the flagged observations, and the sentence describing that sample counts it;
+per-kg prices are list price over net mass; a material's grade list is its active procurement grades; what
+its headline values represent follows from its Scope and representative grade (D70); its environmental
+evidence is its own exposure records; its nozzle, bed and chamber guidance is its first cited profile. No table holds a
 list of identifiers inside a cell, except a profile's `H2C SourceID`, whose items are checked like
 any reference; `sources.csv` "Applicable grades" is prose, and every grade ID it mentions is checked.
 
@@ -102,13 +107,16 @@ difference. A vocabulary can carry what the build needs about a wording: each Mo
 - **Physically implausible measurements** (Data status "Published value (physically implausible)"): a number the source
   really publishes that physics rules out, with the reason in Notes. It is shown, flagged, and backs no headline,
   estimate, conversion, implied bound or plot point (D55).
-- **Declared states** (D53, D56): each Moisture condition declares a State (dry, conditioned, not-stated), each
-  Post-processing wording a State (as-printed, annealed, not-stated), and each Specimen type a Form (printed,
-  not-stated, moulded, film, filament). The build reads the declaration, never the words.
+- **Declared states** (D53, D56, D68): a measurement carries its Moisture state (dry, conditioned, not-stated) and
+  Post-processing state (as-printed, annealed, not-stated) as typed columns beside the source's own words, and each
+  Specimen type declares a Form (printed, not-stated, moulded, film, filament) in its vocabulary, because those ten
+  wordings are the database's own. The build reads the state, never the words; where the words plainly say otherwise
+  the build stops (PARSE-MISMATCH), and where they say nothing the column decides.
 - **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
   its current replacement, and no measurement or headline may use it (D57).
 - **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings
-  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS), each with its reason (D57).
+  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS), each with its reason (D57). An
+  estimate that is wide only because the evidence is thin is EST-THIN, informational, and needs no reviewer (D73).
 
 ### Properties that apply to some filaments only
 

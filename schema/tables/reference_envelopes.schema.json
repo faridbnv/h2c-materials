@@ -1,0 +1,55 @@
+{
+  "$comment": "Contract for data/tables/reference_envelopes.csv. Checked by build/src/schema.js.",
+  "title": "Generic reference envelopes, by property",
+  "description": "One row per reference material and property: the min/max envelope drawn on Ashby charts for scale only. A property is a row here and a value of schema/vocab/reference-properties.csv, which carries its unit, so a new reference property is data and needs no column and no schema change.",
+  "primaryKey": null,
+  "uniqueKeys": [
+    [
+      "Name",
+      "Property"
+    ]
+  ],
+  "fields": [
+    {
+      "name": "Name",
+      "type": "string",
+      "role": "key",
+      "description": "The reference material.",
+      "reference": {
+        "table": "reference",
+        "field": "Name"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Property",
+      "type": "string",
+      "role": "key",
+      "description": "The property this envelope is of; its unit is declared in the vocabulary.",
+      "vocabulary": "reference-properties",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Min",
+      "type": "number",
+      "role": "raw",
+      "description": "Lower envelope, in the property's declared unit.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Max",
+      "type": "number",
+      "role": "raw",
+      "description": "Upper envelope, in the property's declared unit.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

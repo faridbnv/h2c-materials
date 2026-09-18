@@ -17,6 +17,8 @@
     "data:new-id": "node scripts/data/new-id.mjs",
     "data:diff": "node scripts/data/diff.mjs",
     "trace": "node scripts/trace.mjs",
+    "db:sqlite": "node scripts/data/sqlite.mjs",
+    "sql": "node scripts/data/sqlite.mjs",
     "hooks": "git config core.hooksPath .githooks",
     "verify:fast": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/data/lint.mjs && node scripts/docs-rules.mjs --check && node scripts/docs-dictionary.mjs --check && node scripts/docs-decisions.mjs --check && npm test",
     "verify": "npm run verify:fast && node scripts/audit-data.mjs && node scripts/snapshot.mjs --check && node scripts/ui-probe.mjs && node scripts/ui-fuzz.mjs --n 300",
@@ -36,5 +38,8 @@
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

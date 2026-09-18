@@ -1,0 +1,9 @@
+Value,Meaning,Unit
+density,Density envelope.,kg/m3
+tensileModulus,Tensile (Young's) modulus envelope.,GPa
+yieldStrength,Yield strength envelope.,MPa
+tensileStrength,Tensile strength envelope.,MPa
+compressiveStrength,Compressive strength envelope.,MPa
+elongation,Elongation at break envelope.,%
+fractureToughness,Fracture toughness envelope.,MPa.m^0.5
+thermalExpansion,Coefficient of thermal expansion envelope.,um/m/K

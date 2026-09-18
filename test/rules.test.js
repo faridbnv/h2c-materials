@@ -48,7 +48,10 @@ test('a real build raises only catalogued codes at their catalogued level', () =
     assert.ok(RULES[i.code], `${i.where}: no code for "${i.message}"`);
     assert.equal(i.level, RULES[i.code].level, `${i.code} level`);
   }
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-SUMMARY', 'EST-WIDE', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  // EST-WIDE is absent because no material in this snapshot has an imprecise estimate beside a usable published
+  // value it could have shown; the thirteen that used to raise it publish nothing for the headline, so they are
+  // EST-THIN (m47). A build that raises EST-WIDE again means the model is ignoring evidence it has.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

@@ -15,10 +15,10 @@ import {
   H2C_BASELINE, PROCESS_STATE, REQUIREMENT,
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
-import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
+import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyProfileTyped, applyLoadTyped, applyAnnealTyped } from './typed-values.js';
+import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 
@@ -43,6 +43,7 @@ function compileMeasurements(rows, fatigueRows, issues) {
     const quarantined = !!status?.quarantined;
     const numeric = !!status?.numeric && value !== null && !quarantined;
 
+    applyStateTyped(r, issues);
     const m = {
       id: r.MeasurementID,
       materialId: r.MaterialID,
@@ -64,12 +65,14 @@ function compileMeasurements(rows, fatigueRows, issues) {
       direction: direction.canonical,
       directionText: direction.text,
       moisture: r['Moisture condition'],
+      moistureState: moistureState(r['Moisture state']),
       postProcessing: r['Post-processing'],
-      postProcessingState: postProcessingState(r['Post-processing']),
+      postProcessingState: postProcessingState(r['Post-processing state']),
       // The annealing schedule, from the typed columns; null when the value was not annealed.
-      anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing']), issues),
+      anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing'], r['Post-processing state']), issues),
       testTemperature: r['Test temperature'],
       standardText: r['Standard / load'],
+      standards: applyStandardsTyped(r, issues),
       notch: r.Notch,
       printParameters: r['Specimen / print parameters'],
       sourceId: r.SourceID,
@@ -98,7 +101,13 @@ function compileMeasurements(rows, fatigueRows, issues) {
 
 // ---------------------------------------------------------------------------- profiles
 
-function compileProfiles(rows, issues) {
+function compileProfiles(rows, noteRows, issues) {
+  // A profile's qualitative notes are its rows of profile_notes.csv, in table order (m44).
+  const notesById = new Map();
+  for (const n of noteRows) {
+    if (!notesById.has(n.ProfileID)) notesById.set(n.ProfileID, []);
+    notesById.get(n.ProfileID).push({ topic: n.Topic, text: n.Text });
+  }
   return rows.map((r) => {
     // The stored typed values decide; the parsers' reading of the raw text checks them (typed-values.js).
     const typed = applyProfileTyped(r, {
@@ -137,12 +146,12 @@ function compileProfiles(rows, issues) {
       nozzleDiameter: parseNozzleDiameters(r['Nozzle diameter']),
       abrasion: typed.abrasion,
       drying: typed.drying,
-      storageHumidity: r['Storage humidity'],
       // Routing and AMS fields are carried verbatim. 133 of 160 say "Verify exact grade", so they
       // are evidence chips in the detail view, never filters. See the plan, section 5.4.
       routing: { left: r['H2C left'], right: r['H2C right'], ams2Pro: r['AMS 2 Pro'], amsHT: r['AMS HT'], amsPublished: r['AMS published'] },
       supportPairing: r['Support pairing'],
       failureModes: r['Failure modes'],
+      notes: notesById.get(r.ProfileID) ?? [],
       sourceId: r.SourceID,
       h2cSourceId: r['H2C SourceID'],
       locator: r.Locator,
@@ -298,7 +307,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
       : m.implausible ? `${id} is flagged physically implausible (Data status); see its Notes`
       : !isPartSpecimen(m.specimenType) ? `${id} is a ${m.specimenForm} specimen, not a printed part`
-      : moistureState(m.moisture ?? 'Not published') === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
+      : m.moistureState === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
       : annealedBesideAsPrinted(m, measurementsByMaterial.get(mat.MaterialID) ?? []) ? `${id} is annealed, and grade ${m.gradeId} publishes the property as printed`
       : null;
     if (problem) {
@@ -402,7 +411,7 @@ function impliedBounds(mat, def, measurementsByMaterial) {
   return own
     .filter((m) => m.numeric && !m.quarantined && !m.implausible && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
     .filter((m) => !annealedBesideAsPrinted(m, own))
-    .filter((m) => !(rel.excludeMoisture ?? []).includes(moistureState(m.moisture ?? 'Not published')))
+    .filter((m) => !(rel.excludeMoisture ?? []).includes(m.moistureState))
     .filter((m) => rel.properties.includes(m.property) && (rel.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - rel.loadMPa) < 0.05)))
     .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
       // The published value (the low end of a published range, the bound of a "> x"), never value + SD: a spread of
@@ -476,15 +485,28 @@ function compilePriceHeadline(mat, pricesByMaterial) {
   if (!sample.length) return { known: false, missing: NOT_IN_MARKET.missing, text: NOT_IN_MARKET.text, unit: 'CAD/kg' };
   return {
     known: true, value: cents(median(sample.map((p) => p.regularPerKg))), unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: true,
-    priceIds: sample.map((p) => p.id), observations: sample.length, basis: mat['Price basis'],
+    priceIds: sample.map((p) => p.id), observations: sample.length,
+    // Counted here, never typed: a stored sentence could disagree with the observations it describes (D47, m45).
+    basis: `${sample.length} in-stock regular-price observation(s), before tax/shipping`,
   };
+}
+
+/**
+ * What a material's headline values represent. It was a column of materials.csv, one of three sentences chosen by
+ * the material's own Scope and Representative grade, so it is derived (D47, m45). The Method row Scope / Headline
+ * basis states the rule this implements.
+ */
+function headlineBasis(mat) {
+  if (mat.Scope === FAMILY_ENTRY) return 'Family entry: no values of its own; see its member materials';
+  if (mat['Representative grade'] === 'Not published') return 'Insufficient comparable data';
+  return 'Single-grade observations; not a polymer-family range';
 }
 
 // ---------------------------------------------------------------------------- facets
 
 /** Facets the Materials sheet does not carry directly. Every one is tagged derived. */
 function deriveFacets(mat) {
-  const name = `${mat['Normalized name'] ?? ''} ${mat['Original name'] ?? ''}`;
+  const name = mat['Original name'] ?? '';
   const modifier = mat['Modifier / filler'] ?? '';
   const reinforcement =
     modifier === 'Carbon fibre' ? 'carbon-fibre' :
@@ -551,9 +573,9 @@ export function compile(wb, { snapshot, build }) {
 
   const sources = wb.Sources.rows.map((r) => ({
     id: r.SourceID, publisher: r.Publisher, title: r.Title, revision: r.Revision,
-    publicationDate: r['Publication date'], accessDate: r['Access date'], sourceClass: r['Source class'], citationRole: r['Citation role'],
+    publicationDate: r['Publication date'], accessDate: r['Access date'], sourceClass: r['Source class'], sourceNote: r['Source note'], citationRole: r['Citation role'],
     url: r.URL, locator: r.Locator, applicableGrades: r['Applicable grades'],
-    accessStatus: r['Access status'], sha256: r.SHA256,
+    accessState: r['Access state'], accessNote: r['Access note'], sha256: r.SHA256,
   }));
 
   const grades = wb.Grades.rows.map((r) => ({
@@ -590,7 +612,7 @@ export function compile(wb, { snapshot, build }) {
   const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues);
   const measurementsById = new Map(measurements.map((m) => [m.id, m]));
 
-  const profiles = compileProfiles(wb['Print setup'].rows, issues);
+  const profiles = compileProfiles(wb['Print setup'].rows, wb['Print setup notes'].rows, issues);
   const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));
   for (const p of profiles) p.retired = retiredGrades.has(p.gradeId);
   const profilesByMaterial = new Map();
@@ -644,6 +666,9 @@ export function compile(wb, { snapshot, build }) {
 
   const coverage = wb.Coverage.rows.map((r) => ({
     id: r.CoverageID, materialId: r.MaterialID, domain: r.Domain, status: r.Status, manufacturerCount: num(r['Manufacturer count']), finding: r.Finding,
+    // A stored row is somebody's judgement. The build adds rows of its own for the pairs no judgement speaks for
+    // and the records prove (m48), and they say so, so a reader is never shown an ID that is not in the tables.
+    derived: false,
   }));
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
@@ -695,7 +720,6 @@ export function compile(wb, { snapshot, build }) {
     return {
       id: mat.MaterialID,
       name: mat['Original name'],
-      normalizedName: mat['Normalized name'],
       abbreviation: mat.Abbreviation,
       fullName: mat['Full name'],
       family: mat.Family,
@@ -713,8 +737,7 @@ export function compile(wb, { snapshot, build }) {
       representativeGrade: mat['Representative grade'],
       gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
       headline: { ...compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
-      headlineBasis: mat['Headline basis'],
-      measurementConditions: mat['Measurement conditions'],
+      headlineBasis: headlineBasis(mat),
       facets: deriveFacets(mat),
       guidance: { nozzle: guide('nozzle'), bed: guide('bed'), chamber: guide('chamber') },
       print: printSummary(mProfiles),
@@ -735,10 +758,7 @@ export function compile(wb, { snapshot, build }) {
       headlineEvidence: headlineEvidence(selections, registry),
       bestUses: mat['Best uses'],
       limitations: mat.Limitations,
-      impactNote: mat['Impact / toughness'],
-      fatigueCreep: mat['Fatigue / creep'],
-      printability: { rating: num(mat['Printability rating 1–5']), rubric: mat['Printability rubric'] },
-      identity: { source: mat['Identity source'], notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
+      identity: { notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
       evidenceIds: {
         use: linked(mat.MaterialID, 'use'), environmental: environmentalByMaterial.get(mat.MaterialID) ?? [],
         durability: linked(mat.MaterialID, 'durability'), safety: linked(mat.MaterialID, 'safety'),
@@ -791,5 +811,9 @@ export function compile(wb, { snapshot, build }) {
       registry,
   };
   attachPolymerEnvironment(db, polymerEnvironment);
+  // Derived after the materials are whole: the proof reads a material's compiled headline, profiles and citations.
+  const derived = derivedCoverage(db);
+  db.coverage.push(...derived);
+  db.meta.counts.coverageDerived = derived.length;
   return { db, issues };
 }

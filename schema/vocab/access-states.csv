@@ -1,0 +1,5 @@
+Value,Meaning
+retrieved,Fetched from its URL and read.
+retrieved-copy,"Read from a copy the owner supplied, checked against what the publisher serves."
+read-only,Read in place; no copy was kept.
+not-retrieved,Could not be retrieved; nothing was entered from it.

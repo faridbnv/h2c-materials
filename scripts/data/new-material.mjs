@@ -42,7 +42,7 @@ try {
     like,
     set: {
       ...set.materials,
-      'Original name': name, 'Normalized name': name, Abbreviation: opt('abbreviation') ?? name,
+      'Original name': name, Abbreviation: opt('abbreviation') ?? name,
       'Full name': opt('full-name') ?? name, Family: opt('family') ?? (like ? t.get('materials', like).Family : undefined),
       'Base polymer': polymer, 'Estimate identity': known ? polymer : 'Not applicable',
       Scope: opt('scope') ?? 'H2C-relevant', 'H2C status': opt('h2c-status') ?? 'Conditional',
@@ -84,7 +84,7 @@ try {
     `headline selections: a row in data/tables/headlines.csv per headline the measurements support (MaterialID, HeadlineKey, MeasurementID, Use value)`,
     `a print profile: npm run data:new -- profiles --material ${id} --set GradeID=... --set SourceID=...`,
     `citations: rows in data/tables/material_links.csv (printing, h2c-status, use, durability, safety)`,
-    `coverage: a row in data/tables/coverage.csv per domain, saying truthfully what is recorded and what is missing`,
+    `coverage: a row in data/tables/coverage.csv per gap, conflict or judgement; the build reports the domains its own records prove (D74)`,
     `then: npm run verify, and read the diff of build/snapshot`,
   ].filter(Boolean);
   for (const line of todo) console.log(`  - ${line}`);

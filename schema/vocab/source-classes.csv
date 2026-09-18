@@ -1,22 +1,10 @@
 Value,Meaning
-Canadian retailer catalogue; pricing only,
-Manufacturer comparison guide,
-Manufacturer description at distributor,
-Manufacturer product / guide,
-Manufacturer SDS,
-Manufacturer TDS,
-Manufacturer TDS (web),
-Manufacturer TDS hosted by current brand owner,
-Manufacturer TDS indexed at authorized distributor,
-Official Canadian storefront catalogue,
-Official corporate announcement,
-Official current manufacturer portfolio,
-Official manufacturer product page,
-Official occupational-safety guidance,
-Official printer documentation,
-Peer-reviewed original research,
-Peer-reviewed study (publisher copy),
-Reference datasheet (corroboration only),
-Resin supplier data sheet,
-Scope register,
-Secondary local reference,
+Manufacturer TDS,A manufacturer's technical data sheet for the product.
+Manufacturer product page or guide,"A manufacturer's product page, portfolio, guide or announcement."
+Manufacturer SDS,A manufacturer's safety data sheet.
+Resin supplier data sheet,A resin producer's data sheet for the base polymer.
+Retailer catalogue,"A storefront listing; prices and availability, not properties."
+Printer documentation,Official documentation for the printer.
+Peer-reviewed study,A study in the peer-reviewed literature.
+Safety guidance,Official occupational-safety guidance.
+Reference or register,"A handbook, register or local reference, kept as provenance or to corroborate."
