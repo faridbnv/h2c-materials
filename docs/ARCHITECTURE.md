@@ -189,6 +189,22 @@ Every lens draws from the same `rows`. Switching lens never changes membership.
 
 ## Adding things
 
+**A new material.** [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) chains the AGENTS.md
+recipes once, with a real product, from the source row to the commit.
+
+**A new table.** Its schema in `schema/tables/<name>.schema.json`, and the four places the build learns
+about it, in the same commit: `TABLE_ORDER` (`build/src/schema.js`), `TABLES` (`build/src/load.js`),
+`inputs` (`build/src/source.js`) and `TEXT_TABLES` (`build/src/lint-rules.js`). A table missing from
+`TABLE_ORDER` sorts to the front of the review workbook. If it is a child of a per-material table, add it
+to `scripts/data/synthesize.mjs` too, or the scale test loses its rows. `reference_envelopes` (m42) and
+`profile_notes` (m44) are the two worked examples.
+
+**A typed column beside raw text.** The raw column keeps the source's words; the typed one is what the
+build reads; a reader in `build/src/normalize/` says what the words plainly mean, and `typed-values.js`
+stops the build where the two disagree with no Parse review (D49). Use it wherever a decision would
+otherwise be read out of prose on every build. Moisture state, Post-processing state and Standards are
+the recent ones (D68, D76).
+
 **A new lens that draws numbers.** Decide what it does with an estimate before you write it. Three
 lenses drew only measured headlines and silently dropped a quarter of the candidates; an estimate is
 a range, so it is drawn as a range, counted where it cannot be drawn, and never allowed to dominate

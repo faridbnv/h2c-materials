@@ -10,6 +10,7 @@ going to question a number.
 | [ARCHITECTURE.md](ARCHITECTURE.md) | How is this put together? Where does my change go? |
 | [PIPELINE.md](PIPELINE.md) | How do the data tables become an HTML file? |
 | [../AGENTS.md](../AGENTS.md) | How do I change data safely? |
+| [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) | I have a data sheet. What do I do, from the source row to the commit? |
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, and how much should I trust it? |
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
@@ -24,9 +25,9 @@ Three places, in the order to try them.
 
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
-2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D60, with an index at the head saying which still hold, each
+2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D76, with an index at the head saying which still hold, each
    saying what would break if it were reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[audits/](audits/).** Fifteen audit passes so far, each in its own dated folder: the report as it was
+3. **[audits/](audits/).** Seventeen audit passes so far, each in its own dated folder: the report as it was
    delivered, and the outcome of every finding. The latest, the [architecture review](audits/2026-09-15-architecture-review/REPORT.md),
    is also where what is done and what is not yet done is kept current.
 
