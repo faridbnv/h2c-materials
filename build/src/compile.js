@@ -572,9 +572,9 @@ export function compile(wb, { snapshot, build }) {
 
   const sources = wb.Sources.rows.map((r) => ({
     id: r.SourceID, publisher: r.Publisher, title: r.Title, revision: r.Revision,
-    publicationDate: r['Publication date'], accessDate: r['Access date'], sourceClass: r['Source class'], citationRole: r['Citation role'],
+    publicationDate: r['Publication date'], accessDate: r['Access date'], sourceClass: r['Source class'], sourceNote: r['Source note'], citationRole: r['Citation role'],
     url: r.URL, locator: r.Locator, applicableGrades: r['Applicable grades'],
-    accessStatus: r['Access status'], sha256: r.SHA256,
+    accessState: r['Access state'], accessNote: r['Access note'], sha256: r.SHA256,
   }));
 
   const grades = wb.Grades.rows.map((r) => ({

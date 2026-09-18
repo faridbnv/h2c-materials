@@ -18,7 +18,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
 | `evidence.csv` | Chemical, environmental and application evidence |
 | `prices.csv` | Canadian price observations |
-| `sources.csv` | The source register, with access dates, hashes and a Citation role |
+| `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
 | `coverage.csv` | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
 | `method.csv` | The rules the database was built under |
 | `reference.csv` | Generic reference materials, a drawing layer only: category and name |

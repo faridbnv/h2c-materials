@@ -433,15 +433,29 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Revision | raw | string | yes |  |  | Document revision. |
 | Publication date | raw | string | yes |  | `^(\d{4}(-\d{2}(-\d{2})?)?\|Not published)$` | Publication date (YYYY, YYYY-MM or YYYY-MM-DD) or Not published. |
 | Access date | raw | date | yes |  |  | Date the source was retrieved (YYYY-MM-DD). |
-| Source class | canonical | string | yes |  | [source-classes](#vocab-source-classes) | Kind of source. |
+| Source class | canonical | string | yes |  | [source-classes](#vocab-source-classes) | What kind of document it is. A fact about this one document goes in Source note, not in the class. |
+| Source note | prose | string | yes | Not applicable |  | What is particular about this document: where it is hosted, what it covers, why it is kept. Not applicable where the class says it all. |
 | Citation role | editorial | string | yes |  | [citation-roles](#vocab-citation-roles) | Why the source is registered: cited by records, or kept to corroborate, to register scope or prices, as provenance, or recorded as not retrieved. |
 | URL | raw | string | yes |  |  | URL, or local path for a local reference. |
 | Locator | raw | string | yes |  |  | Default locator. |
 | Applicable grades | editorial | string | yes |  |  | Grades or scope the source applies to, in words. Every grade ID it mentions must exist. |
-| Access status | raw | string | yes |  |  | Retrieval outcome. |
+| Access state | canonical | string | yes |  | [access-states](#vocab-access-states) | How it was reached: retrieved, retrieved-copy, read-only or not-retrieved. Nothing may cite a source that was not retrieved. |
+| Access note | prose | string | yes | Not applicable |  | What else the retrieval record says, in the words it was written in: which copy was read, how it was checked, why it could not be reached. Not applicable where the state says it all. |
 | SHA256 | raw | string | yes |  | `^([a-f0-9]{64}\|Not recorded\|Not applicable)$` | SHA-256 of the retrieved artifact. |
 
 ## Vocabularies
+
+<a id="vocab-access-states"></a>
+### access-states
+
+`schema/vocab/access-states.csv`, used by sources.Access state.
+
+| Value | Meaning |
+|---|---|
+| retrieved | Fetched from its URL and read. |
+| retrieved-copy | Read from a copy the owner supplied, checked against what the publisher serves. |
+| read-only | Read in place; no copy was kept. |
+| not-retrieved | Could not be retrieved; nothing was entered from it. |
 
 <a id="vocab-citation-roles"></a>
 ### citation-roles
@@ -1050,27 +1064,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| Canadian retailer catalogue; pricing only |  |
-| Manufacturer comparison guide |  |
-| Manufacturer description at distributor |  |
-| Manufacturer product / guide |  |
-| Manufacturer SDS |  |
-| Manufacturer TDS |  |
-| Manufacturer TDS (web) |  |
-| Manufacturer TDS hosted by current brand owner |  |
-| Manufacturer TDS indexed at authorized distributor |  |
-| Official Canadian storefront catalogue |  |
-| Official corporate announcement |  |
-| Official current manufacturer portfolio |  |
-| Official manufacturer product page |  |
-| Official occupational-safety guidance |  |
-| Official printer documentation |  |
-| Peer-reviewed original research |  |
-| Peer-reviewed study (publisher copy) |  |
-| Reference datasheet (corroboration only) |  |
-| Resin supplier data sheet |  |
-| Scope register |  |
-| Secondary local reference |  |
+| Manufacturer TDS | A manufacturer's technical data sheet for the product. |
+| Manufacturer product page or guide | A manufacturer's product page, portfolio, guide or announcement. |
+| Manufacturer SDS | A manufacturer's safety data sheet. |
+| Resin supplier data sheet | A resin producer's data sheet for the base polymer. |
+| Retailer catalogue | A storefront listing; prices and availability, not properties. |
+| Printer documentation | Official documentation for the printer. |
+| Peer-reviewed study | A study in the peer-reviewed literature. |
+| Safety guidance | Official occupational-safety guidance. |
+| Reference or register | A handbook, register or local reference, kept as provenance or to corroborate. |
 
 <a id="vocab-specimen-types"></a>
 ### specimen-types

@@ -730,10 +730,12 @@
           "publicationDate",
           "accessDate",
           "sourceClass",
+          "sourceNote",
           "url",
           "locator",
           "applicableGrades",
-          "accessStatus",
+          "accessState",
+          "accessNote",
           "sha256",
           "citationRole"
         ],
@@ -760,6 +762,9 @@
           "sourceClass": {
             "type": "string"
           },
+          "sourceNote": {
+            "type": "string"
+          },
           "url": {
             "type": "string"
           },
@@ -769,7 +774,15 @@
           "applicableGrades": {
             "type": "string"
           },
-          "accessStatus": {
+          "accessState": {
+            "enum": [
+              "retrieved",
+              "retrieved-copy",
+              "read-only",
+              "not-retrieved"
+            ]
+          },
+          "accessNote": {
             "type": "string"
           },
           "sha256": {

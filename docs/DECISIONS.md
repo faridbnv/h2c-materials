@@ -77,6 +77,7 @@ break if it were reversed, because that is the part that gets lost.
 | D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | In force |
 | D69 | A profile's qualitative notes are rows, and an empty column is not a fact | In force |
 | D70 | A constant is not a per-material fact, and a summary of the data is not data | In force |
+| D71 | How a source was classed and how it was reached are states, not sentences | In force |
 
 <!-- end index -->
 
@@ -1506,3 +1507,29 @@ That is true and specific, so it moved to its Identity notes, which the drawer s
 
 `materials.csv` is 16 columns. Reversing this brings back a table where a reader cannot tell which cells are facts
 about the material and which are the same sentence 103 times.
+
+## D71. How a source was classed and how it was reached are states, not sentences
+
+`sources.csv` described both in prose. Source class held 21 wordings for nine real classes: "Manufacturer TDS",
+"Manufacturer TDS (web)", "Manufacturer TDS indexed at authorized distributor" and "Manufacturer TDS hosted by
+current brand owner" are one class and three facts about one document. Access status held 17 wordings for four real
+states and had no vocabulary at all, so a twelfth spelling of "Retrieved" would have passed the gate, nothing could
+be counted, and the one piece of code that had to know — whether a source was reached — tested prose with a regular
+expression (`/^not retrieved/i`) that a rewording would have silently defeated.
+
+- **The class is a vocabulary of nine.** Manufacturer TDS, Manufacturer product page or guide, Manufacturer SDS,
+  Resin supplier data sheet, Retailer catalogue, Printer documentation, Peer-reviewed study, Safety guidance,
+  Reference or register.
+- **The state is a vocabulary of four.** `retrieved`, `retrieved-copy` (read from a copy the owner supplied and
+  checked against what the publisher serves), `read-only`, `not-retrieved`. D50's rule that nothing may cite a
+  source that was not retrieved now reads a declared state, not a sentence.
+- **Nothing is paraphrased away.** What each wording carried beyond its class moves to Source note, and Access note
+  keeps the retrieval sentence exactly as it was written. Both are shown in the Sources tab, where they were not
+  shown before: a reader can now see that a sheet is hosted by the current brand owner, or that the served revision
+  differs from the copy that was read.
+- **The distinction that mattered survived.** Four sources say the currently-served revision differs from the copy
+  the owner supplied. What was read there is the served file, so they are `retrieved`, not `retrieved-copy`, and the
+  note says which. The migration's reader is anchored so "the copy the owner supplied" is never mistaken for
+  "owner-supplied".
+
+Reversing it brings back a register that cannot be counted, and a check on prose.

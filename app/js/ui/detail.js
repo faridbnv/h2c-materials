@@ -212,7 +212,8 @@ function sourceBlock(sid, list, c, { inSources }) {
   const exceptions = entries.some((x) => [...shared].some(([f, t]) => String(x[f] ?? '').trim() !== t));
   const head = inSources
     ? `<h3 class="src-title" tabindex="-1">${esc(sourceName(s, sid))} ${tag(sid, 'Source')}</h3>
-       <div class="src-meta">${[s?.sourceClass, stated(s?.accessDate) ? `accessed ${s.accessDate}` : null].filter(stated).map(esc).join(' · ')}${originalLink(s) ? ` · ${originalLink(s)}` : ''}</div>`
+       <div class="src-meta">${[s?.sourceClass, stated(s?.accessDate) ? `accessed ${s.accessDate}` : null].filter(stated).map(esc).join(' · ')}${originalLink(s) ? ` · ${originalLink(s)}` : ''}</div>
+       ${[s?.sourceNote, s?.accessNote].filter(stated).length ? `<div class="src-meta">${[s?.sourceNote, s?.accessNote].filter(stated).map(esc).join(' ')}</div>` : ''}`
     : `<div class="src-head">From <button type="button" class="link-btn" data-open-source="${esc(sid)}" title="Opens this source in the Sources tab">${esc(sourceName(s, sid))}</button> ${tag(sid, 'Source')}</div>`;
   const sharedHtml = shared.size
     ? `<div class="shared-conds"><div class="shared-head">For every measurement below from this source${exceptions ? ', except where one says otherwise' : ''}</div>
