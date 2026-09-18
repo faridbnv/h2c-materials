@@ -41,6 +41,29 @@ export function documentPath(sha, sourceId = '') {
 }
 
 /** The numbers a document prints, as a sorted multiset: its fingerprint. */
+// What language a sheet is written in, from words a data sheet cannot avoid. The property labels are read in
+// English only, so a sheet in another language is either a translation of one already read, or a document nobody
+// can transcribe yet; both are better said than discovered as an empty proposal.
+const LANGUAGES = [
+  ['en', /\b(technical data sheet|density|tensile strength|properties|printing)\b/i],
+  ['pl', /\b(karta techniczna|właściwości|wytrzymałość|gęstość|ciężar właściwy)\b/i],
+  ['de', /\b(technisches datenblatt|eigenschaften|zugfestigkeit|dichte|druck)\b/i],
+  ['fr', /\b(fiche technique|propriétés|résistance|masse volumique|densité)\b/i],
+  ['es', /\b(ficha técnica|propiedades|resistencia|densidad)\b/i],
+  ['it', /\b(scheda tecnica|proprietà|resistenza|densità)\b/i],
+  ['cs', /\b(technický list|vlastnosti|pevnost|hustota)\b/i],
+];
+
+export function languageOf(text) {
+  const words = allLines(text).map((l) => l.text).join(' ').slice(0, 6000);
+  const scores = LANGUAGES.map(([code, re]) => [code, (words.match(new RegExp(re.source, 'gi')) ?? []).length]);
+  const best = scores.sort((a, b) => b[1] - a[1])[0];
+  return best[1] ? best[0] : '';
+}
+
+/** A language marker in a document's own file name, which is how a publisher usually says which it is. */
+export const languageFromUrl = (url) => /(?:^|[_/-])(en|pl|de|fr|es|it|cs|cz|nl|pt|ru|jp|zh)[_-]/i.exec(String(url ?? '').split('/').pop() ?? '')?.[1]?.toLowerCase() ?? '';
+
 export function fingerprint(text) {
   const statements = [];
   for (const { text: line } of allLines(text)) {
@@ -75,6 +98,7 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
     try {
       const text = await documentText(readFileSync(path), { sha: row.sha256, refresh: flag('refresh') });
       const print = fingerprint(text);
+      row.language = languageOf(text) || languageFromUrl(row.url) || row.language;
       prints.set(row.doc_key, { row, print, pages: text.pages.length });
       if (['fetched', 'fetched-page', 'registered'].includes(row.status)) {
         row.status = print.length ? 'extracted' : 'needs-ocr';
@@ -115,6 +139,28 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
     clusters.get(k).push(p.row);
   }
 
+  // A translation is the same sheet in another language: the same publisher, a language marker in the file name,
+  // and numbers that agree. The threshold is lower than for a twin, because extraction reads a two-column page
+  // differently in each language and a few numbers pick up the other column: the Polish and English ASA-X GF10
+  // agree on 12 of 14 rather than all of them, which is not two products.
+  let translations = 0;
+  const readable = [...prints.values()];
+  for (const a of readable) {
+    for (const b of readable) {
+      if (a === b || a.row.duplicate_of || b.row.duplicate_of) continue;
+      if ((a.row.manufacturer || a.row.provider) !== (b.row.manufacturer || b.row.provider)) continue;
+      const [la, lb] = [languageFromUrl(a.row.url) || a.row.language, languageFromUrl(b.row.url) || b.row.language];
+      if (!la || !lb || la === lb || lb !== 'en') continue;
+      if (agreement(a.print, b.print) < 0.75) continue;
+      a.row.duplicate_of = b.row.doc_key;
+      a.row.duplicate_kind = 'translation';
+      a.row.status = 'duplicate-of';
+      a.row.status_note = `the ${la} edition of ${b.row.doc_key}, whose numbers it repeats`;
+      translations++;
+      break;
+    }
+  }
+
   let twins = 0, checks = 0;
   for (const members of clusters.values()) {
     if (members.length < 2) continue;
@@ -150,4 +196,5 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
   console.log([...counts].sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${String(n).padStart(4)}  ${s}`).join('\n'));
   if (twins) console.log(`  ${twins} document(s) are a sheet already read, by the numbers they print`);
   if (checks) console.log(`  ${checks} print the same numbers under another product name, queued as twin-check`);
+  if (translations) console.log(`  ${translations} are another language's edition of a sheet already read`);
 }

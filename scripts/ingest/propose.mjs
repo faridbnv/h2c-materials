@@ -244,6 +244,29 @@ export function impactMethod(property, label, standardText) {
 /** The notch a method states, for a row whose label does not say. */
 export const notchOf = (standardText) => NOTCHED_BY_METHOD.find(([re]) => re.test(standardText))?.[1] ?? null;
 
+/** What a sheet says its product is made of, where it says a fraction: "15% carbon fibers", "30 % glass fibre". */
+export function composition(text) {
+  for (const page of text.pages) {
+    for (const line of page.lines) {
+      const m = /(\d{1,2}(?:[.,]\d)?)\s?(?:wt\.?%|%|percent)\s*(?:of\s*)?(carbon|glass|aramid|kevlar|basalt|wood|metal|mineral|graphene)\s*(fib(?:re|er)s?|powder|filler|flour)?/i.exec(line.text);
+      if (m) return `${line.text.trim().slice(0, 160)} (p. ${page.page}, as the sheet states it)`;
+    }
+  }
+  return null;
+}
+
+/** A certification the sheet claims, as printed. */
+export function certification(text) {
+  for (const page of text.pages) {
+    for (const line of page.lines) {
+      if (/\bUL\s?-?94\b|\bV-?[012]\b|\bHB\b|food contact|REACH|RoHS/i.test(line.text) && /\d|HB|V-?[012]/i.test(line.text)) {
+        return `${line.text.trim().slice(0, 160)} (p. ${page.page}, as printed; a typical value, not a certificate: verify grade, thickness and certificate)`;
+      }
+    }
+  }
+  return null;
+}
+
 const NUMBER = (s) => Number(String(s).replace(',', '.'));
 const round = (x) => Number(Number(x).toPrecision(10));
 const NA = 'Not applicable';
@@ -276,12 +299,41 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
   };
 }
 
+/**
+ * A source identifier in the register's own convention. A publisher that already has sources keeps its prefix
+ * rather than gaining a second one (sources.schema.json says so), and the rest of the identifier is the
+ * document's own file name, which is what the existing Spectrum and Polymaker identifiers are.
+ */
+export function sourceIdFor(row, sources) {
+  const mine = sources.filter((s) => s.Publisher === row.manufacturer || s.Publisher === row.provider);
+  const maker = (row.manufacturer || row.provider || '').toUpperCase().replace(/[^A-Z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const prefix = mine.map((s) => /^([A-Z0-9]+-[A-Z0-9]+-)/.exec(s.SourceID)?.[1]).find(Boolean) ?? `R-${maker}-`;
+  const file = decodeURIComponent((row.url || '').split('?')[0].split('/').pop() ?? '')
+    .replace(/\.(pdf|html?)$/i, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const name = file || (row.product_raw || '').replace(/[^A-Za-z0-9]+/g, '-');
+  return `${prefix}${name}`.slice(0, 90);
+}
+
+/** The document's own title, as its head prints it, and the product name under it (D63). */
+export function printedTitle(text) {
+  const head = (text.pages[0]?.lines ?? []).slice(0, 6).map((l) => l.text.trim()).filter(Boolean);
+  const at = head.findIndex((l) => /technical data sheet|technisches datenblatt|product data sheet|datasheet/i.test(l));
+  if (at < 0) return { title: head[0] ?? '', product: head[1] ?? '' };
+  const product = head.slice(at + 1).find((l) => l.length < 60 && /[A-Za-z]/.test(l)) ?? '';
+  return { title: [head[at], product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
+}
+
 /** A document as a proposal: the source, its grade, its values, and everything left out with the reason. */
 export function propose(row, text, world) {
-  const identity = classifyProduct(row.product_raw, { manufacturer: row.manufacturer }, world);
+  // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
+  // enough, and they are the maker's own description rather than a catalogue title.
+  const body = (text.pages[0]?.lines ?? []).map((l) => l.text).join(' ').slice(0, 2000);
+  const head = printedTitle(text);
+  const identity = classifyProduct(row.product_raw, { manufacturer: row.manufacturer, title: head.title, body }, world);
   const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
   const sheet = readSheet(text, registry);
-  const sourceId = row.registered_source_id || `R-${(row.manufacturer || row.provider).toUpperCase().replace(/[^A-Z0-9]+/g, '-')}-${row.product_raw.toUpperCase().replace(/[^A-Z0-9]+/g, '-').slice(0, 40)}-TDS`;
+  const sourceId = row.registered_source_id || sourceIdFor(row, world.sources ?? []);
+  const { title, product } = head;
   const measurements = sheet.values.map((v, i) => ({
     id: `m${String(i + 1).padStart(2, '0')}`, gradeKey: 'main',
     row: measurementRow(v, { sourceId, materialId: identity.materialId ?? '', gradeId: '' }),
@@ -289,13 +341,54 @@ export function propose(row, text, world) {
     confidence: identity.confidence,
     review: { status: 'proposed' },
   }));
+  // The grade's prose follows the register's own conventions, which are the same sentence on every row of a maker
+  // and are therefore a rule rather than something a person writes per product (D70). What the sheet itself says
+  // about the product is read from the sheet; what it does not say is the explicit missing state.
+  const grade = {
+    key: 'main', review: { status: 'proposed' },
+    row: {
+      MaterialID: identity.materialId ?? '', Role: 'procurement', Status: 'active',
+      Manufacturer: row.manufacturer || row.provider, 'Product name': product || row.product_raw,
+      'Shared formulation key': sourceId, 'Composition / filler': composition(text) ?? NP,
+      Variant: NA, 'Colour caveat': 'Properties may vary by colour; use TDS scope',
+      Availability: NP, 'Certification claims': certification(text) ?? NP,
+      'Selected-grade rationale': 'Documented commercial formulation; traceable manufacturer evidence',
+      SourceID: sourceId, 'Source locator': 'TDS / official product page',
+      'Diameter compatibility': 'Check 1.75 mm variant; diameter is not part tolerance',
+    },
+    evidence: { page: 1, text: title },
+  };
+
+  // What the sheet's own density says about what is in the product. A grade whose density sits outside the neat
+  // polymer's range is carrying something its name does not declare, which is how Spectrum's PA6 Neat was found to
+  // hold an undisclosed dense filler (m26). The classifier reads words; this reads the number beside them.
+  const polymer = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer);
+  const density = measurements.find((m) => m.row.Property === 'Density');
+  const neat = [Number(polymer?.['Neat density min kg/m³']), Number(polymer?.['Neat density max kg/m³'])];
+  if (density && identity.modifier === 'Unfilled / unspecified' && Number.isFinite(neat[0]) && Number.isFinite(neat[1])) {
+    const value = Number(density.row['Normalized value']);
+    if (value > neat[1] * 1.05) identity.reasons.push(`its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare`);
+    if (value < neat[0] * 0.95) identity.reasons.push(`its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}), so the product is foamed or carries a lightweight additive`);
+    identity.needsRuling = identity.needsRuling || identity.reasons.length > 0;
+  }
+
   return {
     version: 1,
     generated: { tool: 'propose.mjs', date: new Date().toISOString().slice(0, 10) },
     document: { sha256: row.sha256, url: row.url, pages: text.pages.length, provider: row.provider, manufacturer: row.manufacturer, docKey: row.doc_key },
     identity,
-    source: { row: null, review: { status: 'proposed' } },
-    grades: [], measurements, profiles: [], evidence: [], headlines: [], coverage: [],
+    source: {
+      row: {
+        SourceID: sourceId, Publisher: row.manufacturer || row.provider, Title: title || row.product_raw,
+        Revision: NP, 'Publication date': NP, 'Access date': row.updated || new Date().toISOString().slice(0, 10),
+        'Source class': 'Manufacturer TDS', 'Source note': NA, 'Citation role': 'cited', URL: row.url,
+        Locator: 'Document / product page', 'Applicable grades': '${grade:main}',
+        'Access state': 'retrieved', 'Access note': NA, SHA256: row.sha256,
+      },
+      evidence: { page: 1, text: title },
+      review: { status: 'proposed' },
+    },
+    grades: [grade], measurements, profiles: [], evidence: [], headlines: [], coverage: [],
     settings: sheet.settings, skipped: sheet.skipped,
     review: { status: 'proposed' },
   };
@@ -320,10 +413,14 @@ export function compare(proposal, recorded) {
 if (process.argv[1]?.endsWith('propose.mjs')) {
   const arg = (n) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 ? process.argv[i + 1] : null; };
   const provider = arg('provider'), batch = arg('batch'), doc = arg('doc');
-  const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties') };
+  const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources') };
+  // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
+  // register already holds, and not one still waiting on a question about whether it is a copy at all.
+  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated']);
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
-    .filter((r) => r.sha256 && cachedText(r.sha256));
+    .filter((r) => r.sha256 && cachedText(r.sha256))
+    .filter((r) => doc || (!SKIP.has(r.status) && !r.registered_source_id));
   if (!rows.length) { console.error('nothing read to propose from'); process.exit(2); }
 
   if (process.argv.includes('--compare')) {

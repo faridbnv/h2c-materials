@@ -118,8 +118,24 @@ export function classifyProduct(product, context = {}, world = {}) {
   if (!polymer) { polymer = findToken(bodyTokens, POLYMER_ORDER, 'Polymer'); fromBody = Boolean(polymer); }
   if (polymer) signals.push(`${fromBody ? 'sheet' : 'name'}: ${polymer.token}`);
 
-  const modifier = findToken(tokens, MODIFIER_ORDER, 'Modifier') ?? findToken(bodyTokens, MODIFIER_ORDER, 'Modifier');
-  if (modifier) signals.push(`filler: ${modifier.token}`);
+  // A filler read from the sheet's own words must be next to a word that makes it a filler. "Glass" on its own
+  // appears in "Glass Transition Temperature" on nearly every sheet, and reading it as glass fibre filed a
+  // toughened PLA under glass-filled PLA.
+  const FILLER_CONTEXT = /(fib(?:re|er)s?|filled|filler|reinforc|content|loaded|\d\s?%)/i;
+  // The token matched is a tokeniser spelling ("glassfibre", "glass-fibre") and the sheet prints "glass fibre",
+  // so the word is looked for with its separators optional rather than as the spelling that matched.
+  const loose = (token) => token.split('').map((c) => c.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')).join('[^a-z0-9]?');
+  const nearFiller = (token) => new RegExp(`(\\b${loose(token)}\\b[^.]{0,24}${FILLER_CONTEXT.source})|(${FILLER_CONTEXT.source}[^.]{0,24}\\b${loose(token)}\\b)`, 'i')
+    .test([context.title, context.body].filter(Boolean).join(' '));
+  // A fibre load is written as a code with its fraction in it, and every maker spells it differently: CF, CF15,
+  // cf15s, rCF08, GF30, gf40. Enumerating them loses the next one, so the shape is read rather than the spelling.
+  const FIBRE_CODE = /^r?(cf|gf)\d{0,3}[a-z]?\+?$/i;
+  const coded = tokens.find((t) => FIBRE_CODE.test(t));
+  const inName = (coded ? { token: coded, value: /^r?cf/i.test(coded) ? 'Carbon fibre' : 'Glass fibre', note: '' } : null)
+    ?? findToken(tokens, MODIFIER_ORDER, 'Modifier');
+  const inBody = findToken(bodyTokens, MODIFIER_ORDER, 'Modifier');
+  const modifier = inName ?? (inBody && nearFiller(inBody.token) ? inBody : null);
+  if (modifier) signals.push(`filler: ${modifier.token}${inName ? '' : ' (from the sheet, not the name)'}`);
   const variant = findToken(tokens, VARIANT_ORDER, 'Variant class');
   if (variant?.value) signals.push(`variant: ${variant.token}`);
 

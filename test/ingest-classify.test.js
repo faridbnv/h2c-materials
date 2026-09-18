@@ -137,3 +137,30 @@ test('an alias with no answer does not shadow one that has an answer', () => {
   assert.equal(classify('Spectrum PLA SILK Rainbow', 'Spectrum').variantClass, 'silk');
   assert.equal(classify('eSUN PLA Silk Rainbow Coral', 'eSUN').variantClass, 'silk');
 });
+
+test('a filler is read from the sheet only where the sheet makes it a filler', () => {
+  // "Glass" appears in "Glass Transition Temperature" on nearly every sheet. Read as a filler, it filed a
+  // toughened PLA under glass-filled PLA.
+  const body = 'Spectrum PLA Tough is a specially modified PLA-based material. Glass Transition Temperature 60 °C.';
+  assert.equal(classifyProduct('PLA Tough', { manufacturer: 'Spectrum', body }, world).materialId, 'M001');
+  // Where the sheet does make it a filler, it is one.
+  const filled = 'a PLA reinforced with 20% glass fibre for stiffness';
+  assert.equal(classifyProduct('PLA Pro', { manufacturer: 'Spectrum', body: filled }, world).modifier, 'Glass fibre');
+  // A load with no vocabulary value is a question, not silence: this sheet says "The applied ceramic fillers".
+  const ceramic = 'a flame-resistant material based on polyamide 6. The applied ceramic fillers enhance thermal stability';
+  assert.match(classifyProduct('PA6 CS20 FR V0', { manufacturer: 'Spectrum', body: ceramic }, world).reasons.join(' '), /ceramic/);
+});
+
+test('a fibre load is read by the shape of its code, not by a list of spellings', () => {
+  for (const [name, modifier, materialId] of [
+    ['PA6 Low Warp CF15S', 'Carbon fibre', 'M050'],
+    ['FIBERON ASA CF08', 'Carbon fibre', 'M033'],
+    ['PA12 CF+', 'Carbon fibre', 'M053'],
+    ['PETG GF30', 'Glass fibre', 'M025'],
+    ['rPETG CF', 'Carbon fibre', 'M024'],
+  ]) {
+    const c = classify(name, 'Spectrum');
+    assert.equal(c.modifier, modifier, name);
+    assert.equal(c.materialId, materialId, name);
+  }
+});
