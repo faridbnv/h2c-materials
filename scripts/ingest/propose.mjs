@@ -55,7 +55,10 @@ const SECTIONS = [
 ];
 const HEADING_LENGTH = 60;
 
-const STANDARD_RE = /\b(?:ISO|ASTM|GB\/T|DIN|IEC|UL|EN)\s?\d+[\w./-]*(?:\s?\/\s?[\w.-]+)?/gi;
+// ASTM's own sheets print the designation without the body: "D 792", "D638", "D 256", "E 2092". Requiring ASTM
+// left every one of those rows with no standard at all, and put the property's label in the column that keeps the
+// sheet's words for the method. The lookahead is what keeps a word ending in D from starting a designation.
+const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?\/\s?[\w.-]+)?/gi;
 
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
@@ -425,9 +428,25 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
 function measurementRow(v, { sourceId, materialId, gradeId }) {
   // The sheet's own words for the method: the condition the row states and the standards it names, and not the
   // other column of the page, which the line may run into.
-  const standardText = [v.condition, ...v.read.standards].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
-  const standards = readStandards(standardText);
-  const load = /(\d+(?:[.,]\d+)?)\s*MPa/i.exec(v.condition);
+  // The property's own name is not the method: "Specific Gravity" belongs in the Property column and in the
+  // Locator, and this column keeps what the row says about how it was measured. Leaving the label here is the
+  // transcription damage OPEN-PROBLEMS §1 records, and writing it again would be repeating it.
+  const condition = String(v.condition ?? '').replace(v.read.match.re, ' ').replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
+  const load = /([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*MPa)/i.exec(condition);
+  // What the row says about how it was measured: the standard it names and the load it was tested under. The
+  // notch, the test temperature and the property's own name have columns of their own, so repeating them here
+  // would be the label in the method column again. A row that names neither keeps whatever words are left.
+  const named = [...new Set([load ? load[1].trim() : null, ...v.read.standards].filter(Boolean))];
+  const leftover = condition
+    .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ').replace(/(-?\d+(?:[.,]\d+)?)\s*°\s*C/gi, ' ')
+    .replace(/([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*MPa)/gi, ' ').replace(/\b(un-?notched|notched)\b/gi, ' ')
+    .replace(/[,@()]/g, ' ').replace(/\s+/g, ' ').trim();
+  const standardText = named.length ? named.join(' ') : leftover;
+  const standards = readStandards([condition, ...v.read.standards].join(' '));
+  // A test temperature the row states is a condition, not a result: "Izod Impact Strength, Notched @ -40°C" and
+  // "@ 23°C" are two different tests of one property, and a row that does not say which is indistinguishable from
+  // its twin (MEAS-CONDITIONS-INDISTINCT).
+  const at = /(-?\d+(?:[.,]\d+)?)\s*°\s*C/i.exec(condition.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
   const normalized = round(NUMBER(v.read.rawNumber) * v.target.factor);
   return {
     MaterialID: materialId, GradeID: gradeId, Property: v.property,
@@ -440,9 +459,9 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
     'Specimen type': v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
     Direction: v.direction || 'Unstated',
     'Moisture condition': NP, 'Moisture state': 'not-stated', 'Post-processing': NP, 'Post-processing state': 'not-stated',
-    'Anneal °C': NA, 'Anneal h': NA, 'Test temperature': NP,
+    'Anneal °C': NA, 'Anneal h': NA, 'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
     'Standard / load': standardText || NP, Standards: standards.length ? standards.join('; ') : NP,
-    'Test load MPa': v.property === 'HDT' ? (load ? load[1].replace(',', '.') : NP) : NA,
+    'Test load MPa': v.property === 'HDT' ? (load ? (/(\d+(?:[.,]\d+)?)/.exec(load[1])?.[1] ?? '').replace(',', '.') || NP : NP) : NA,
     Notch: v.notch || NA, 'Specimen / print parameters': NP,
     SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: v.methodNote ?? NA, 'Parse review': NA,
   };

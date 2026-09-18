@@ -196,3 +196,16 @@ test('what wears a nozzle out is the sheet’s statement, and the register’s r
   assert.match(fibre.row['Abrasion / clogging'], /abrasion-resistant nozzle/);
   assert.deepEqual(fibre.editorial, ['Abrasion / clogging']);
 });
+
+test('the method column keeps how the row was measured, not the property it names', () => {
+  // The register's own Spectrum rows are the convention: Standard / load holds "D 792", Standards "ASTM D792",
+  // and the property's label lives in the Locator. Writing the label here is the damage OPEN-PROBLEMS §1 records.
+  const sheet = readSheet(text, registry);
+  const row = (property) => sheet.values.find((v) => v.property === property);
+  assert.ok(row('Density'), 'the fixture must still publish a density');
+  // ASTM sheets print the designation without the body, and requiring the word ASTM left those rows with none.
+  assert.deepEqual(readRow('Specific Gravity 1.27 g/cm3 D 792', registry).standards, ['D 792']);
+  assert.deepEqual(readRow('Heat deflection temperature (0.45MPa) 60°C E 2092', registry).standards, ['E 2092']);
+  // A word that ends in D does not start a designation.
+  assert.deepEqual(readRow('LED 100 test 5 MPa', registry)?.standards ?? [], []);
+});
