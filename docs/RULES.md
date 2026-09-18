@@ -77,6 +77,7 @@ what it means and how to fix it.
 | `MEAS-PUBLISHED-NON-NUMERIC` | error | A Published value status with no numeric value. | Record the number, or classify the result (qualitative, not published). |
 | `MEAS-ENDPOINT-LOCATOR` | error | An elongation-at-break row whose locator names another endpoint. | File it under the endpoint the source names. |
 | `MEAS-RAW-RECONCILE` | error | Raw value, raw numeric, factor and normalized value do not agree. | Re-read the source; correct the raw number, the factor or the normalized value. |
+| `MEAS-UNIT-UNKNOWN` | error | A raw unit and a normalized unit the raw-value reconciliation has no conversion between, so the value is not independently checked. | Add the conversion to CONVERSIONS in build/src/measurement-rules.js, or write the raw unit as the source prints it and the normalized unit it converts to. |
 | `MEAS-HEADLINE-TYPE` | error | A headline and its measurement disagree in property, unit or value. | Select a measurement that fits the headline. |
 | `MEAS-PROPERTY-UNREGISTERED` | error | A measurement of a property not in properties.csv. | Register the property, or use its registered name. |
 | `MEAS-UNIT` | error | A numeric measurement in a unit its property does not allow. | Convert to a canonical unit, or add the unit to the property deliberately. |

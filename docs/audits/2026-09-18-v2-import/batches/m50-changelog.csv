@@ -1,0 +1,3 @@
+table,record,action,field,before,after
+measurements,V002084,Edited,Normalized value,686.5,686.4655
+measurements,V002084,Edited,Notes,"Added 2026-09-14 (m14): published in the source, never transcribed (npm run audit:sources). 70 kgf·cm/cm is 686.5 J/m (× 9.80665). Property renamed 2026-09-15 (m22) from ""Izod strength"": the same test under one name.","Added 2026-09-14 (m14): published in the source, never transcribed (npm run audit:sources). 70 kgf·cm/cm is 686.5 J/m (× 9.80665). Property renamed 2026-09-15 (m22) from ""Izod strength"": the same test under one name. Corrected 2026-09-18 (m50): the normalized value read 686.5, rounded; 70 × 9.80665 is 686.4655 J/m, which is what the raw value and the factor say."

@@ -672,7 +672,7 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
 
 // Systematic data audit: use the actual source tables, then introduce independent corruption.
 import { loadTables } from '../build/src/load.js';
-import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js';
+import { measurementIssues, rawNumber, normalizedRawValue, unitKey, unitsKnown } from '../build/src/measurement-rules.js';
 import { normalQuantile, boundedQuantile } from '../build/src/estimate/numerics.js';
 import { modulusFromShore, kindOf } from '../build/src/estimate/observations.js';
 import { annealedBesideAsPrinted } from '../build/src/normalize/specimen.js';
@@ -690,6 +690,32 @@ test('raw values reconcile, including decimal commas and grouped cycle counts', 
   wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Normalized value']='4.3';
   wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Raw numeric']='4';
   assert.ok(measurementIssues(db,wb).some(e=>/cached normalized formula/.test(e.message)));
+});
+
+test('a unit is its meaning, not its spelling, and a pair with no conversion says so rather than skipping', () => {
+  // Spelling: spaces, superscripts, the degree sign and a parenthetical aside are not the unit.
+  assert.equal(unitKey('M P a'), unitKey('MPa'));
+  assert.equal(unitKey('kJ /m2'), unitKey('kJ/m²'));
+  assert.equal(unitKey('g/10 min (unit not printed)'), unitKey('g/10min'));
+  // Conversions, including the imperial and metric-technical units other makers publish.
+  const value = (raw, from, to) => normalizedRawValue({ 'Raw value': raw, 'Raw unit': from, 'Normalized unit': to });
+  assert.equal(value('1.24', 'g/cm³', 'kg/m³'), 1240);
+  assert.equal(value('7550', 'psi', 'MPa').toFixed(3), '52.055');
+  assert.equal(value('750', 'ksi', 'GPa').toFixed(3), '5.171');
+  assert.equal(value('70 kg∙cm/cm', 'kg·cm/cm', 'J/m').toFixed(4), '686.4655');
+  assert.equal(value('52', 'N/mm²', 'MPa'), 52);
+  // A bound and an approximation lead with the number they qualify.
+  assert.equal(rawNumber('> 500 %'), 500);
+  assert.equal(rawNumber('~1.5 %'), 1.5);
+  // An unknown pair is reported; a sheet that printed no unit is not an unknown pair.
+  assert.equal(unitsKnown({ 'Raw unit': 'furlongs', 'Normalized unit': 'MPa' }), false);
+  assert.equal(unitsKnown({ 'Raw unit': 'Not published', 'Normalized unit': 'Shore (scale not specified by source)' }), true);
+  const wb = loadTables(join(root, 'data'));
+  const row = wb.Properties.rows.find((r) => r.MeasurementID === 'V000539');
+  const before = row['Raw unit'];
+  row['Raw unit'] = 'furlongs';
+  assert.ok(measurementIssues(db, wb).some((e) => e.code === 'MEAS-UNIT-UNKNOWN' && e.where.includes('V000539')));
+  row['Raw unit'] = before;
 });
 
 test('corrected source endpoints and qualitative outcomes stay distinct', () => {

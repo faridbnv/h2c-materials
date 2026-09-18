@@ -4,7 +4,8 @@ import { issue } from './rules.js';
 // Independent raw-to-normalized reconciliation. Never repairs a value during compilation.
 // Decimal commas with one/two decimal digits differ from grouped integer cycle counts.
 export function rawNumber(text) {
-  const match = String(text ?? '').replace(/[−–]/g, '-').match(/^\s*[<>＜＞≥≤]?\s*(-?\d+(?:[ ,.\u00a0]\d+)*)/);
+  // A source may print a bound ("> 500 %") or an approximation ("~1.5 %"); both lead with the number they qualify.
+  const match = String(text ?? '').replace(/[−–]/g, '-').match(/^\s*[<>＜＞≥≤~≈約]?\s*(-?\d+(?:[ ,.\u00a0]\d+)*)/);
   if (!match) return null;
   let token = match[1].trim().replace(/[ \u00a0]/g, '');
   if (/^-?\d+,\d{1,2}$/.test(token)) token = token.replace(',', '.');
@@ -13,20 +14,47 @@ export function rawNumber(text) {
   return Number(token);
 }
 
+/**
+ * A unit as this check compares it: case, spaces, superscripts, the degree sign and a parenthetical aside are
+ * spelling, not meaning, so "M P a", "MPa", "kJ /m2", "kJ/m²" and "g/10 min (unit not printed)" each read as one
+ * unit. Without this a sheet that spaced its unit differently skipped the strongest check in silence.
+ */
+export const unitKey = (text) => String(text ?? '').toLowerCase()
+  .replace(/\([^)]*\)/g, '').replaceAll('³', '3').replaceAll('²', '2').replaceAll('^2', '2').replaceAll('^3', '3')
+  .replaceAll('℃', '°c').replaceAll('㎡', 'm2').replaceAll('∙', '·').replaceAll('*', '·')
+  .replace(/[\s\u00a0]+/g, '').trim();
+
+// Every conversion this check knows, "from -> to" in unit keys. It is deliberately its own table: it exists to
+// disagree with the Conversion factor recorded beside the value, so it may never read that factor.
+// A conversion that is not a factor (°F to °C, which needs an offset) has no home here and none of the data
+// needs one yet; it would be a column on the row, not a special case here.
+const CONVERSIONS = new Map(Object.entries({
+  'ppm/k->µm/m/k': 1,
+  'g/cc->kg/m3': 1000, 'g/cm3->kg/m3': 1000, 'specificgravity->kg/m3': 1000,
+  'mpa->gpa': 0.001, 'n/mm2->mpa': 1, 'n/mm2->gpa': 0.001,
+  'kg/cm2->mpa': 0.0980665, 'kg/cm2->gpa': 0.0000980665, 'kgf/cm2->mpa': 0.0980665, 'kgf/cm2->gpa': 0.0000980665,
+  'psi->mpa': 0.00689476, 'psi->gpa': 0.00000689476, 'ksi->mpa': 6.89476, 'ksi->gpa': 0.00689476,
+  'kg·cm/cm->j/m': 9.80665, 'kgf·cm/cm->j/m': 9.80665, 'ft·lbf/in->j/m': 53.3787, 'ft·lb/in->j/m': 53.3787,
+}));
+
 export function normalizedRawValue(row) {
   const value = rawNumber(row['Raw value']);
   if (value === null) return null;
-  const raw = String(row['Raw unit']).toLowerCase().replaceAll('³', '3').replaceAll('²', '2').replaceAll('℃', '°c');
-  const unit = String(row['Normalized unit']).toLowerCase().replaceAll('³', '3').replaceAll('²', '2');
-  let factor;
-  if (raw === unit || (['kj/m2', 'kj/m^2', 'kj/㎡'].includes(raw) && unit === 'kj/m2') || (raw === 'ppm/k' && unit === 'µm/m/k')) factor = 1;
-  else if (['g/cc', 'g/cm3'].includes(raw) && unit === 'kg/m3') factor = 1000;
-  else if (raw === 'mpa' && unit === 'gpa') factor = 0.001;
-  else if (raw === 'kg/cm2' && unit === 'mpa') factor = 0.0980665;
-  else if (raw === 'kg/cm2' && unit === 'gpa') factor = 0.0000980665;
+  const raw = unitKey(row['Raw unit']);
+  const unit = unitKey(row['Normalized unit']);
+  const factor = raw === unit ? 1 : CONVERSIONS.get(`${raw}->${unit}`);
   if (factor === undefined) return null;
   return value * factor;
 }
+
+/**
+ * Whether this row's units are a pair the check knows, so an unknown pair can be reported rather than skipped.
+ * A raw unit that is a missing state is not an unknown pair: the sheet printed no unit, so there is nothing to
+ * convert, and the normalized unit says so in its own words ("Shore (scale not specified by source)").
+ */
+export const unitsKnown = (row) => /^Not (published|applicable|recorded)$/.test(String(row['Raw unit']).trim())
+  || unitKey(row['Raw unit']) === unitKey(row['Normalized unit'])
+  || CONVERSIONS.has(`${unitKey(row['Raw unit'])}->${unitKey(row['Normalized unit'])}`);
 
 export function measurementIssues(db, wb) {
   const issues = [];
@@ -38,7 +66,14 @@ export function measurementIssues(db, wb) {
   for (const r of wb?.Properties?.rows ?? []) {
     if (!/^Published value/.test(r['Data status'])) continue;
     const expected = normalizedRawValue(r);
-    if (expected === null) continue;
+    // A unit pair the table does not know turns the strongest check off without saying so. A raw value that does
+    // not lead with its number ("Specific gravity 1.01 at 23 °C") cannot be reconciled at all, and says so here.
+    if (expected === null) {
+      if (rawNumber(r['Raw value']) !== null && !unitsKnown(r)) {
+        error('MEAS-UNIT-UNKNOWN', `Properties ${r.MeasurementID} row ${r.__row}`, `no conversion from "${r['Raw unit']}" to "${r['Normalized unit']}"; the raw value is not reconciled`);
+      }
+      continue;
+    }
     const actual = Number(r['Normalized value']);
     if (!Number.isFinite(actual) || Math.abs(actual - expected) > Math.max(0.00001, Math.abs(expected) * 0.00001)) {
       error('MEAS-RAW-RECONCILE', `Properties ${r.MeasurementID} row ${r.__row}`, `Raw value ${r['Raw value']} ${r['Raw unit']} normalizes to ${expected}, not ${r['Normalized value']}`);
