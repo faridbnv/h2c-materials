@@ -362,3 +362,44 @@ P0169,Storage humidity,≤ 20% RH
 P0171,Speed,10-30 mm/s
 P0170,Cooling,0-20%
 P0170,Speed,40-250 mm/s
+P0173,Cooling,YES (up to 100%)
+P0173,Layer height,0.05 - 0.30 mm
+P0173,Shell / walls,0.40 – 2.70 mm
+P0173,Speed,40-120 mm/s
+P0174,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0174,Cooling,0-20%
+P0175,Cooling,0 - 35%
+P0175,Layer height,0.05 - 0.30 mm
+P0175,Shell / walls,0.40 - 2.70 mm
+P0175,Speed,30-80 mm/s
+P0175,Adhesion / release,required
+P0176,Cooling,YES (up to 100%)
+P0176,Layer height,0.05 - 0.30 mm
+P0176,Shell / walls,0.40 – 2.70 mm
+P0176,Speed,30-70 mm/s
+P0177,Cooling,YES (up to 100%)
+P0177,Layer height,0.05 - 0.30 mm
+P0177,Shell / walls,0.40 – 2.4 mm
+P0177,Speed,40-130 mm/s
+P0178,Cooling,YES (up to 100%)
+P0178,Layer height,0.05 - 0.30 mm
+P0178,Shell / walls,0.40 – 2.70 mm
+P0178,Speed,30-70 mm/s
+P0179,Cooling,YES (up to 100%)
+P0179,Layer height,0.05 - 0.30 mm
+P0179,Shell / walls,0.40 - 2.70 mm
+P0179,Speed,40 - 600 mm/s
+P0180,Cooling,YES (up to 100%)
+P0180,Layer height,0.05 - 0.30 mm
+P0180,Shell / walls,0.40 - 2.70 mm
+P0180,Speed,40 - 600 mm/s
+P0181,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0181,Cooling,75-100%
+P0182,Cooling,0 - 30%
+P0182,Layer height,≥ 0.15mm
+P0182,Shell / walls,0.50 - 3.00 mm
+P0182,Speed,30-60 mm/s
+P0183,Cooling,0 - 30%
+P0183,Layer height,≥ 0.15mm
+P0183,Shell / walls,0.50 - 3.00 mm
+P0183,Speed,30-60 mm/s

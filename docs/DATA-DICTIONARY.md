@@ -1069,6 +1069,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Surface finish | What the source claims about the finished surface. |
 | Layer adhesion | What the source claims about bonding between layers. |
 | Odour / emissions | What the source says about odour, fumes and ventilation. |
+| Layer height | The layer height the source recommends. |
+| Shell / walls | The wall or shell thickness the source recommends. |
 
 <a id="vocab-property-domains"></a>
 ### property-domains
@@ -1177,6 +1179,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D792 | Density and specific gravity by displacement. |
 | ASTM D882 | Tensile properties of thin plastic sheeting. |
 | ASTM E1356 | Glass transition temperatures by DSC. |
+| ASTM E2092 | Distortion temperature in three-point bending by thermomechanical analysis. |
 | DSC | Differential scanning calorimetry, where the source names the method but no standard. |
 | GB/T 1033 | Density of plastics. |
 | GB/T 1040 | Tensile properties of plastics. |

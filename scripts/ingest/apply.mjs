@@ -23,10 +23,10 @@
 // A batch is also a migration: scripts/migrate/mNN-batch-<name>.mjs calls this with the batch it pins, so the
 // sequence of migrations stays the one history of how the data got here.
 
-import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { readCsv } from '../../build/src/csv.js';
+import { readCsv, csvText } from '../../build/src/csv.js';
 import { checkData } from '../../build/src/schema.js';
 import { lintData, findingKey } from '../../build/src/lint-rules.js';
 import { loadTables, snapshotDate } from '../../build/src/load.js';
@@ -39,6 +39,7 @@ const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const SEP = String.fromCharCode(0);
 const NUMERIC_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Test load MPa', 'Anneal °C', 'Anneal h'];
 const PAGE = /^p\.\s*(\d+)\s*:/;
+const acceptanceKey = (r) => [r.Code, r.Table, r.Record, r.Field ?? ''].join(SEP);
 
 export class Refusal extends Error {
   constructor(problems) {
@@ -73,7 +74,7 @@ export function guard(proposals, world) {
   // A product is its maker and its name, compared as names: case, spaces and punctuation are spelling.
   const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const productKey = (maker, product) => `${plain(maker)}${SEP}${plain(product)}`;
-  const seenProduct = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [productKey(g.Manufacturer, g['Product name']), g.GradeID]));
+  const seenProduct = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [productKey(g.Manufacturer, g['Product name']), { gradeId: g.GradeID, source: g.SourceID }]));
   const keyOwner = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [g['Shared formulation key'], g.MaterialID]));
   const properties = new Map(world.properties.map((p) => [p.Property, p]));
   const materials = new Map(world.materials.map((m) => [m.MaterialID, m]));
@@ -92,7 +93,10 @@ export function guard(proposals, world) {
     const text = cachedText(sha);
     if (!text) { fail('APPLY-STALE', where, 'the text cache is missing or was written by another extractor; run ingest:extract --refresh'); continue; }
 
-    if (seenDigest.has(sha)) fail('APPLY-SHA-DUPLICATE', where, `this document is already registered as ${seenDigest.get(sha)}`);
+    // A document already registered under this proposal's own SourceID is this proposal, applied before: a
+    // second run writes nothing rather than refusing. Under any other identifier it is a second registration of
+    // one document, which is what this refuses.
+    if (seenDigest.has(sha) && seenDigest.get(sha) !== proposal.source?.row?.SourceID) fail('APPLY-SHA-DUPLICATE', where, `this document is already registered as ${seenDigest.get(sha)}`);
     const url = proposal.source?.row?.URL;
     if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID) fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}`);
 
@@ -104,8 +108,11 @@ export function guard(proposals, world) {
         fail('APPLY-IDENTITY', `${where} ${grade.key}`, `${id ?? 'no material'} is not a material, and no ruling creates one`);
       }
       if (material?.Scope === 'Family entry') fail('APPLY-IDENTITY', `${where} ${grade.key}`, `${id} is a family entry and owns no product (D44)`);
+      // A grade is known by its source and its product name, which is also how the writer finds its own row
+      // again. The same product under another source is a second registration of one product, and is refused.
       const product = productKey(grade.row?.Manufacturer, grade.row?.['Product name']);
-      if (seenProduct.has(product)) fail('APPLY-PRODUCT-DUPLICATE', `${where} ${grade.key}`, `${grade.row?.Manufacturer} ${grade.row?.['Product name']} is already ${seenProduct.get(product)}`);
+      const mine = seenProduct.get(product);
+      if (mine && mine.source !== grade.row?.SourceID) fail('APPLY-PRODUCT-DUPLICATE', `${where} ${grade.key}`, `${grade.row?.Manufacturer} ${grade.row?.['Product name']} is already ${mine.gradeId}`);
       const key = grade.row?.['Shared formulation key'];
       if (key && keyOwner.has(key) && keyOwner.get(key) !== id) fail('APPLY-KEY', `${where} ${grade.key}`, `formulation key ${key} belongs to ${keyOwner.get(key)}`);
     }
@@ -164,9 +171,13 @@ export function worldOf(root = projectRoot) {
 }
 
 /** Write a reviewed batch into an open set of tables. Idempotent: what is already recorded is left alone. */
-export function writeBatch(t, proposals, { migration, date }) {
+export function writeBatch(t, proposals, { migration, date, root = projectRoot }) {
   const log = [];
   const note = (what) => log.push(what);
+  const touchedMaterials = new Set();
+  const accepting = [];
+  const acceptanceFile = join(root, 'data/review/accepted-findings.csv');
+  const alreadyAccepted = new Set(readCsv(acceptanceFile).records.map((r) => acceptanceKey(r.values)));
   for (const proposal of proposals) {
     const accepted = (rows) => (rows ?? []).filter((r) => r.review?.status === 'accepted');
 
@@ -186,6 +197,7 @@ export function writeBatch(t, proposals, { migration, date }) {
       const id = nextId('grades', t.rows('grades').map((g) => g.GradeID), { materialId: grade.row.MaterialID });
       gradeIds[grade.key] = id;
       t.append('grades', { GradeID: id, ...grade.row });
+      touchedMaterials.add(grade.row.MaterialID);
       note(`grade ${id} ${grade.row.Manufacturer} ${grade.row['Product name']}`);
     }
     const resolve = (value) => String(value ?? '').replace(/\$\{grade:([^}]+)\}/g, (_, key) => gradeIds[key] ?? `\${grade:${key}}`);
@@ -235,6 +247,43 @@ export function writeBatch(t, proposals, { migration, date }) {
       t.append('headlines', { MaterialID: recorded.MaterialID, HeadlineKey: h.HeadlineKey, MeasurementID: recorded.MeasurementID, Use: h.Use });
       note(`headline ${recorded.MaterialID} ${h.HeadlineKey}`);
     }
+
+    // A finding the reviewer accepted, now that the record it is about has an identifier. It is written into the
+    // batch's own acceptance rows so the lint that runs on the result sees the same baseline a commit will.
+    for (const a of proposal.acceptances ?? []) {
+      const proposed = (proposal.measurements ?? []).find((m) => m.id === a.row);
+      const recorded = t.rows('measurements').find((x) => x.SourceID === proposed?.row?.SourceID && x.Locator === proposed?.row?.Locator);
+      if (!recorded) continue;
+      const row = { Code: a.code, Table: 'measurements', Record: recorded.MeasurementID, Field: a.field ?? '', Reason: a.reason, Accepted: date };
+      if (alreadyAccepted.has(acceptanceKey(row))) continue;
+      accepting.push(row);
+      note(`accepted ${a.code} on ${recorded.MeasurementID}`);
+    }
+  }
+
+  // What a new grade does to a material's coverage: the manufacturer count is a column, and a row that no longer
+  // states the truth is superseded rather than edited (D72's rule for coverage, the m37 pattern).
+  for (const materialId of [...touchedMaterials]) {
+    const names = new Set(t.rows('grades').filter((g) => g.MaterialID === materialId && g.Role === 'procurement' && g.Status === 'active').map((g) => g.Manufacturer));
+    const count = names.size;
+    for (const old of t.rows('coverage').filter((c) => c.MaterialID === materialId && c.Domain === 'Grades' && c.Status !== 'Superseded')) {
+      if (old['Manufacturer count'] === 'Not applicable' || Number(old['Manufacturer count']) === count) continue;
+      const newId = nextId('coverage', t.rows('coverage').map((c) => c.CoverageID));
+      t.append('coverage', {
+        CoverageID: newId, MaterialID: materialId, Domain: 'Grades', Status: count >= 3 ? 'Resolved' : 'Gap',
+        'Manufacturer count': String(count),
+        Finding: `${count} distinct manufacturer(s) documented against target 3: ${[...names].sort().join(', ')}. Recounted ${date} (${migration}) after the grades this batch added.`,
+      });
+      t.set('coverage', old.CoverageID, 'Finding', `Superseded by ${newId} (${date}; was "${old.Status}"): ${old.Finding}`, { expect: old.Finding });
+      t.set('coverage', old.CoverageID, 'Status', 'Superseded', { expect: old.Status });
+      t.set('coverage', old.CoverageID, 'Manufacturer count', 'Not applicable', { expect: old['Manufacturer count'] });
+      note(`coverage ${newId} (supersedes ${old.CoverageID})`);
+    }
+  }
+
+  if (accepting.length) {
+    const { header, records } = readCsv(acceptanceFile);
+    writeFileSync(acceptanceFile, csvText(header, [...records.map((r) => r.values), ...accepting]));
   }
   return log;
 }
@@ -246,7 +295,7 @@ export function rehearse(proposals, { migration, date }) {
     cpSync(join(projectRoot, 'data'), join(dir, 'data'), { recursive: true });
     cpSync(join(projectRoot, 'schema'), join(dir, 'schema'), { recursive: true });
     const t = openTables(dir);
-    const log = writeBatch(t, proposals, { migration, date });
+    const log = writeBatch(t, proposals, { migration, date, root: dir });
     t.save();
     const gate = checkData(join(dir, 'data'), join(dir, 'schema'));
     let lint = [], build = [];
@@ -255,7 +304,8 @@ export function rehearse(proposals, { migration, date }) {
         const { header, records } = readCsv(join(dir, 'data/tables', `${n}.csv`));
         return [n, { header, rows: records.map((r) => r.values) }];
       }));
-      const baseline = new Set(readCsv(join(projectRoot, 'data/review/accepted-findings.csv')).records
+      // The baseline is the copy's, so a finding this batch accepts counts as accepted here too.
+      const baseline = new Set(readCsv(join(dir, 'data/review/accepted-findings.csv')).records
         .map((r) => findingKey({ code: r.values.Code, table: r.values.Table, record: r.values.Record, field: r.values.Field ?? '' })));
       lint = lintData(tables, gate.schemas).filter((f) => !baseline.has(findingKey(f)));
       const wb = loadTables(join(dir, 'data'));

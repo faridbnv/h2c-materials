@@ -565,7 +565,7 @@ Flexible component,Explore,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore,M090,CPE-CF,UNKNOWN,yes,
 Flexible component,Explore,M091,CoPE,UNKNOWN,yes,
 Flexible component,Explore,M093,PVB,UNKNOWN,yes,
-Flexible component,Explore with estimates,M008,PLA Silk,UNKNOWN,yes,
+Flexible component,Explore with estimates,M008,PLA Silk,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M039,TPU,PASS,yes,
 Flexible component,Explore with estimates,M040,TPU for AMS,PASS,yes,
 Flexible component,Explore with estimates,M041,TPU 95A HF,PASS,yes,
@@ -587,4 +587,4 @@ Flexible component,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M093,PVB,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M093,PVB,UNKNOWN,yes,

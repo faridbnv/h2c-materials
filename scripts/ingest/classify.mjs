@@ -113,10 +113,16 @@ export function classifyProduct(product, context = {}, world = {}) {
   const tokens = tokenise(product);
   const bodyTokens = tokenise([context.title, context.body].filter(Boolean).join(' '));
 
+  // A product's own name, the title the document prints, and the prose under it are three different witnesses.
+  // The catalogue name a link carries is often only "spectrum high speed", while the sheet's own first line says
+  // "PLA High Speed": the title is the product naming itself, and reading it is not a guess about the prose.
+  const titleTokens = tokenise(context.title ?? '');
   let polymer = findToken(tokens, POLYMER_ORDER, 'Polymer');
-  let fromBody = false;
-  if (!polymer) { polymer = findToken(bodyTokens, POLYMER_ORDER, 'Polymer'); fromBody = Boolean(polymer); }
-  if (polymer) signals.push(`${fromBody ? 'sheet' : 'name'}: ${polymer.token}`);
+  let where = 'name';
+  if (!polymer) { polymer = findToken(titleTokens, POLYMER_ORDER, 'Polymer'); if (polymer) where = 'title'; }
+  if (!polymer) { polymer = findToken(bodyTokens, POLYMER_ORDER, 'Polymer'); if (polymer) where = 'sheet'; }
+  const fromBody = where === 'sheet';
+  if (polymer) signals.push(`${where}: ${polymer.token}`);
 
   // A filler read from the sheet's own words must be next to a word that makes it a filler. "Glass" on its own
   // appears in "Glass Transition Temperature" on nearly every sheet, and reading it as glass fibre filed a

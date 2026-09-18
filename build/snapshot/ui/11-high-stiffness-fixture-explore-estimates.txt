@@ -35,10 +35,10 @@ Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C
 ABS-CF PASS 1,110 5.21 ~47–61† 2 76 — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~1.9–4.1† ~39–76† ~4–19† ~54–100† no price↗ ☆
+ UNKNOWN 1,160 ~1.9–4.2† ~39–76† ~3–17† ~57–97† no price↗ ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~4.0–8.2† ~50–104† ~2.3–11.2† 142 — ☆
+ UNKNOWN 1,140 ~3.9–8.3† ~50–103† ~2.3–10.8† 142 — ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 ~75–98† 2.1 150 — ☆
@@ -47,22 +47,22 @@ Nylon / Polyamide
  PASS 1,230 7.8 ~83–106† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.7–6.4† ~48–133† ~4–26† ~91–149† 163↗ ☆
+ UNKNOWN 1,250 ~2.6–6.5† ~49–135† ~4–28† ~97–143† 163↗ ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14≈ 91.9 2.6 175 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,180† ~3.2–6.0† ~56–106† ~2.3–6.3† ~156–208† — ☆
+ UNKNOWN ~1,060–1,190† ~3.2–6.1† ~57–107† ~2.5–6.1† ~162–206† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~4.5–8.8† ~67–130† ~2.0–6.3† ~187–249† — ☆
+ UNKNOWN ~1,070–1,210† ~4.6–9.2† ~69–132† ~2.3–5.7† ~195–247† — ☆
 PC-CF
 Polycarbonate
  PASS 1,360 6.2 ~71–91† 2 135 — ☆
 PP-CF
 Polyolefins
- PASS 1,100 6.15 ~78–99† 1.5 124 — ☆
+ PASS 1,100 6.15 ~79–98† 1.5 124 — ☆
 PP-GF
 Polyolefins
  PASS 1,120 6.75 ~65–82† 1.7 139 — ☆

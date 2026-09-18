@@ -261,7 +261,8 @@ test('PA, PA-CF, PA-GF, TPE and CoPA are family entries: no product, no value, n
 test('mis-filed products moved to the material they are, with everything recorded against them', () => {
   const at = (gid) => db.grades.find((g) => g.id === gid);
   assert.equal(at('G050-02').product, 'PA6 CF');
-  assert.deepEqual(byName('PA6-GF').gradeIds, ['G051-01', 'G051-02', 'G051-03']);
+  // The three re-filed grades are its own; later batches add more beside them, which is not a re-filing.
+  for (const id of ['G051-01', 'G051-02', 'G051-03']) assert.ok(byName('PA6-GF').gradeIds.includes(id), id);
   assert.ok(byName('TPU').gradeIds.includes('G039-03'));
   for (const gid of ['G050-02', 'G051-02', 'G051-03', 'G039-03']) {
     const mid = at(gid).materialId;

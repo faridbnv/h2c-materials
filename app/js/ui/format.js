@@ -52,6 +52,12 @@ export function rangeStep(lo, hi) {
   const width = Math.abs(hi - lo);
   const byMagnitude = 10 ** (Math.floor(Math.log10(top)) - 2);
   const byWidth = width > 0 ? 10 ** Math.floor(Math.log10(width / 10)) : 0;
+  // Three digits of the larger end is a floor on the precision, not a licence to move an end: where a range is
+  // narrow beside its own magnitude, that step is coarser than a tenth of the width and rounding outward on it
+  // moves an end further than the tenth this promises. PA12's density of 989-1060 kg/m³ printed "980-1,060",
+  // and 980 is nine of the range's seventy-one below its own low end. The width wins there, and "989-1,060"
+  // still shows three digits, because the trailing zero of a whole number is a placeholder.
+  if (byWidth > 0 && byMagnitude > width / 10) return byWidth;
   return Math.max(byMagnitude, byWidth);
 }
 

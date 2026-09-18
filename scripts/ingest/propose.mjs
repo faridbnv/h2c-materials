@@ -25,10 +25,11 @@ import { readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { cachedText, columnPositions, cellsAt, joinDigits, lineCells } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
-import { profileCellsFromParsed } from '../../build/src/typed-values.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { readPostProcessingState, parseAnnealSchedule } from '../../build/src/normalize/specimen.js';
 import { readMoistureState } from '../../build/src/normalize/moisture.js';
+import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
+import { profileCellsFromParsed, loadCellFromParsed } from '../../build/src/typed-values.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
 import { classifyProduct } from './classify.mjs';
 
@@ -223,7 +224,11 @@ export function readSetting(line, page = 1) {
     // ("not necessary") is in the second. A tail that states neither a number nor a state is only the start of the
     // sentence, so the next cell finishes it.
     const STATE = /\d|\b(not|no|yes|necessary|required|recommended|needed|advised|optional)\b/i;
-    const joined = !STATE.test(tail) && source[i + 1] && STATE.test(source[i + 1]) && `${tail} ${source[i + 1]}`.length <= 60
+    // A bare yes or no in the next cell is the answer to the statement in this one. Spectrum prints "Ruby or
+    // hardened nozzle recommended" in one cell and "No" in the next, and reading only the first cell turned a
+    // sheet that says a hardened nozzle is not needed into one that recommends it.
+    const answer = /^(yes|no)$/i.test(source[i + 1] ?? '');
+    const joined = answer || (!STATE.test(tail) && source[i + 1] && STATE.test(source[i + 1]) && `${tail} ${source[i + 1]}`.length <= 60)
       ? `${tail} ${source[i + 1]}` : tail;
     const raw = settingValue(joined) || settingValue(source[i + 1] ?? '');
     if (!raw || !/[a-z0-9]/i.test(raw)) return null;
@@ -427,7 +432,7 @@ export function profilesFor(settings, opts) {
     .filter(Boolean);
 }
 
-export function profileFor(settings, { sourceId, materialId, modifier, locator = 'Recommended printing settings' }) {
+export function profileFor(settings, { sourceId, materialId, modifier, locator = 'Recommended printing settings', page = 1 }) {
   const named = settings.filter((s) => s.field !== 'note');
   const notes = settings.filter((s) => s.field === 'note' && s.topic);
   if (!named.length && !notes.length) return null;
@@ -459,7 +464,7 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
     'Nozzle material': raw['Nozzle material'], 'Nozzle diameter': raw['Nozzle diameter'],
     'Abrasion / clogging': raw['Abrasion / clogging'], 'Hardened nozzle': typed['Hardened nozzle'],
     ...H2C_CELLS,
-    SourceID: sourceId, 'H2C SourceID': 'H2C-WIKI', Locator: locator, 'Parse review': NA,
+    SourceID: sourceId, 'H2C SourceID': 'H2C-WIKI', Locator: `p. ${(named[0] ?? notes[0]).page}: ${locator}`, 'Parse review': NA,
   };
   return {
     gradeKey: 'main', row,
@@ -546,7 +551,7 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
     'Anneal h': postState === 'annealed' ? (schedule?.hours == null ? NP : String(schedule.hours)) : NA,
     'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
     'Standard / load': standardText || NP, Standards: standards.length ? standards.join('; ') : NP,
-    'Test load MPa': v.property === 'HDT' ? (load ? (/(\d+(?:[.,]\d+)?)/.exec(load[1])?.[1] ?? '').replace(',', '.') || NP : NP) : NA,
+    'Test load MPa': v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(standardText)) : NA,
     Notch: v.notch || NA, 'Specimen / print parameters': NP,
     SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote].filter(Boolean).join('; ') || NA, 'Parse review': NA,
   };

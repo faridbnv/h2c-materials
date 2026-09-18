@@ -44,11 +44,15 @@ export function find({ batch, doc }) {
   return out;
 }
 
+// A row as the reviewer sees it, with the proposal's own object behind it. Spreading the row into a fresh object
+// and writing the decision on that is how "106 row(s) accepted" saved nothing at all: the copy was thrown away.
+const view = (kind, id, r) => Object.defineProperty({ kind, id, ...r }, 'of', { value: r, enumerable: false });
+
 export const rowsOf = (p) => [
-  ...(p.grades ?? []).map((r) => ({ kind: 'grade', id: r.key, ...r })),
-  ...(p.measurements ?? []).map((r) => ({ kind: 'measurement', ...r })),
-  ...(p.profiles ?? []).map((r, i) => ({ kind: 'profile', id: r.id ?? `p${i + 1}`, ...r })),
-  ...(p.evidence ?? []).map((r, i) => ({ kind: 'evidence', id: r.id ?? `e${i + 1}`, ...r })),
+  ...(p.grades ?? []).map((r) => view('grade', r.key, r)),
+  ...(p.measurements ?? []).map((r) => view('measurement', r.id, r)),
+  ...(p.profiles ?? []).map((r, i) => view('profile', r.id ?? `p${i + 1}`, r)),
+  ...(p.evidence ?? []).map((r, i) => view('evidence', r.id ?? `e${i + 1}`, r)),
 ];
 
 /** Why a row cannot be accepted in bulk: it needs a person to look at this one thing. */
@@ -101,7 +105,7 @@ if (process.argv[1]?.endsWith('review.mjs')) {
         if (list !== 'all' && !String(list).split(',').includes(String(row.id))) continue;
         const reasons = status === 'accepted' ? holdsBack(row, proposal) : [];
         if (reasons.length && list === 'all') { held++; continue; }
-        row.review = { status, by, date: today(), ...(note ? { note } : {}), ...(row.review?.visual ? { visual: true } : {}) };
+        row.of.review = { status, by, date: today(), ...(note ? { note } : {}), ...(row.review?.visual ? { visual: true } : {}) };
         touched++;
       }
       save(path, proposal);
@@ -109,7 +113,19 @@ if (process.argv[1]?.endsWith('review.mjs')) {
     console.log(`${touched} row(s) ${status}${held ? `; ${held} held back for a closer look (run without --accept to see why)` : ''}`);
   };
 
-  if (arg('accept')) decide('accepted', arg('accept'), arg('note'));
+  // A finding the reviewer has read and accepts, recorded against the row it is about. The record it will get is
+  // not known until the batch is applied, so the acceptance names the proposal's row and the applier resolves it.
+  if (arg('accept-finding')) {
+    const [rowId, code, field] = String(arg('accept-finding')).split(':');
+    const reason = arg('note');
+    if (!by || !reason || !code) { console.error('usage: --accept-finding <row>:<CODE>[:<Field>] --note "<reason>" --by <name>'); process.exit(2); }
+    for (const { path, proposal } of found) {
+      if (!rowsOf(proposal).some((r) => String(r.id) === rowId)) continue;
+      proposal.acceptances = [...(proposal.acceptances ?? []).filter((a) => !(a.row === rowId && a.code === code)), { row: rowId, code, field: field ?? '', reason, by, date: today() }];
+      save(path, proposal);
+      console.log(`${proposal.document?.docKey}: ${code} accepted on ${rowId}`);
+    }
+  } else if (arg('accept')) decide('accepted', arg('accept'), arg('note'));
   else if (arg('reject')) decide('rejected', arg('reject'), arg('note'));
   else if (arg('set')) {
     const target = arg('set'), pair = process.argv[process.argv.indexOf('--set') + 2];
@@ -120,7 +136,7 @@ if (process.argv[1]?.endsWith('review.mjs')) {
         if (String(row.id) !== target || !row.row) continue;
         const before = row.row[field];
         row.row[field] = rest.join('=');
-        row.review = { ...(row.review ?? {}), status: 'accepted', by, date: today(), note: `${field}: ${before} -> ${row.row[field]}` };
+        row.of.review = { ...(row.review ?? {}), status: 'accepted', by, date: today(), note: `${field}: ${before} -> ${row.row[field]}` };
         console.log(`${target} ${field}: ${before} -> ${row.row[field]}`);
       }
       save(path, proposal);

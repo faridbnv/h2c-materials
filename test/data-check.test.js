@@ -208,7 +208,8 @@ test('a new record gets the next ID, its template\'s columns and declared missin
     assert.deepEqual(messages(check(dir)), []);
     // Without a template, required columns with no missing state are reported, not guessed.
     const bare = newRecord(t, 'grades', { material: 'M020' });
-    assert.equal(bare.row.GradeID, 'G020-04');
+    // The next free identifier of that material, not a fixed one: a batch that adds grades moves it.
+    assert.equal(bare.row.GradeID, nextId('grades', t.rows('grades').map((r) => r.GradeID), { materialId: 'M020' }));
     assert.ok(bare.unset.includes('Manufacturer') && bare.unset.includes('Product name'), bare.unset.join(', '));
   } finally {
     rmSync(dir, { recursive: true, force: true });

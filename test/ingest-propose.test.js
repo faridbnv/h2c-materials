@@ -164,7 +164,8 @@ test('a print setup is the sheet’s words and what the build’s own parsers re
   assert.equal(p.row['Enclosure state'], 'not-needed');
   assert.equal(p.row['Chamber state'], 'unknown');
   assert.deepEqual(p.notes, [{ Topic: 'Cooling', Text: '0-20%' }]);
-  assert.equal(p.row.Locator, 'Recommended printing settings');
+  // The locator names the page, the way a measurement's does, so the applier can check every number in the row.
+  assert.equal(p.row.Locator, 'p. 1: Recommended printing settings');
 });
 
 test('a sheet that prints a nozzle temperature per speed publishes two setups, not one', () => {
