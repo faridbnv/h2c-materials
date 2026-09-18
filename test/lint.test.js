@@ -136,3 +136,39 @@ test('two source records may not hold the same document', () => {
   // "Not recorded" is not a digest, so it is not a match.
   assert.deepEqual(run([src('S1', 'Not recorded'), src('S2', 'Not recorded')]), []);
 });
+
+test('a value outside what its polymer can do is a finding, and a Z value is not', () => {
+  const windows = [
+    { WindowID: 'W0001', Property: 'Tensile modulus', 'Normalized unit': 'GPa', 'Matrix class': 'elastomer', 'Fill class': 'any', Condition: 'any',
+      'Hard low': '0.0005', 'Soft low': '0.002', 'Soft high': '0.2', 'Hard high': '0.5', 'Always flag': 'FALSE', Basis: 'physics' },
+    { WindowID: 'W0002', Property: 'Tensile modulus', 'Normalized unit': 'GPa', 'Matrix class': 'any', 'Fill class': 'any', Condition: 'any',
+      'Hard low': '0.05', 'Soft low': '1', 'Soft high': '20', 'Hard high': '40', 'Always flag': 'FALSE', Basis: 'physics' },
+    { WindowID: 'W0003', Property: 'HDT', 'Normalized unit': '°C', 'Matrix class': 'elastomer', 'Fill class': 'any', Condition: 'any',
+      'Hard low': 'Not applicable', 'Soft low': 'Not applicable', 'Soft high': 'Not applicable', 'Hard high': 'Not applicable', 'Always flag': 'TRUE', Basis: 'an elastomer has no heat deflection temperature' },
+  ];
+  const tables = (rows) => ({
+    measurements: { header: Object.keys(rows[0]), rows },
+    materials: { header: ['MaterialID', 'Estimate identity', 'Modifier / filler'], rows: [
+      { MaterialID: 'M1', 'Estimate identity': 'TPU', 'Modifier / filler': 'Unfilled / unspecified' },
+      { MaterialID: 'M2', 'Estimate identity': 'PLA', 'Modifier / filler': 'Unfilled / unspecified' },
+    ] },
+    polymers: { header: ['PolymerID', 'Morphology'], rows: [{ PolymerID: 'TPU', Morphology: 'elastomer' }, { PolymerID: 'PLA', Morphology: 'amorphous' }] },
+    plausibility_windows: { header: Object.keys(windows[0]), rows: windows },
+  });
+  const run = (rows) => lintData(tables(rows), schemas).filter((f) => f.code === 'MEAS-PHYSICS-WINDOW').map((f) => `${f.record} ${f.message}`);
+
+  const modulus = (o) => row({ MaterialID: 'M1', Property: 'Tensile modulus', 'Normalized unit': 'GPa', 'Normalized value': '0.05', ...o });
+  assert.deepEqual(run([modulus({})]), []);
+  // The most specific window wins: an elastomer is judged as an elastomer, not against the fallback.
+  assert.match(run([modulus({ MeasurementID: 'V2', 'Normalized value': '1.19' })])[0] ?? '', /impossible/);
+  assert.match(run([modulus({ MeasurementID: 'V3', 'Normalized value': '0.3' })])[0] ?? '', /surprising/);
+  // A part printed across its layers is weakest there, so the low side says nothing about a Z value.
+  assert.deepEqual(run([modulus({ MeasurementID: 'V4', 'Normalized value': '0.001', Direction: 'Z' })]), []);
+  assert.match(run([modulus({ MeasurementID: 'V5', 'Normalized value': '0.001' })])[0] ?? '', /surprising/);
+  // A film is not a printed bar, and D55 already keeps it out of every headline.
+  assert.deepEqual(run([modulus({ MeasurementID: 'V6', 'Normalized value': '1.19', 'Specimen type': 'Film specimen (ASTM D882); not a printed or moulded bar' })]), []);
+  // A value the database already flags has been dealt with.
+  assert.deepEqual(run([modulus({ MeasurementID: 'V7', 'Normalized value': '1.19', 'Data status': 'Published value (physically implausible)' })]), []);
+  // Some findings are the existence of the value, whatever its number.
+  assert.match(run([row({ MaterialID: 'M1', Property: 'HDT', 'Normalized unit': '°C', 'Normalized value': '74', Direction: 'Not applicable' })])[0] ?? '', /no heat deflection temperature/);
+});

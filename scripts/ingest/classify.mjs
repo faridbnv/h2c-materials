@@ -57,26 +57,40 @@ export function tokenise(text) {
   for (let i = 0; i < plain.length; i++) {
     const token = plain[i];
     out.push(token);
+    // A nylon is written as a name and its numbers: "Nylon 12", "Nylon 6 6" (which is PA66) and "Nylon 6 66"
+    // (which is the 6/66 copolymer, a different polymer with a different melting point).
     if (/^(nylon|pa)$/.test(token) && /^\d{1,3}$/.test(plain[i + 1] ?? '')) {
-      const second = /^\d$/.test(plain[i + 2] ?? '') && /^\d$/.test(plain[i + 1]) ? plain[i + 2] : '';
-      out.push(`pa${plain[i + 1]}${second}`);
+      const first = plain[i + 1], after = plain[i + 2] ?? '';
+      if (/^\d$/.test(first) && /^\d$/.test(after)) out.push(`pa${first}${after}`);
+      else out.push(`pa${first}`);
+      if (/^\d{2,3}$/.test(after)) out.push(`pa${first}-${after}`);
     }
+    // A polymer written as two words ("PC ABS", "PET G", "PA6 66", "PPE PS") is one name. Joining the pair makes
+    // the alias reachable; without it the longest single token wins and a PC/ABS blend reads as plain ABS.
+    const next = plain[i + 1];
+    if (next) out.push(`${token}-${next}`, `${token}${next}`);
     if (POLYMER_ORDER.some((p) => p.Token === token)) continue;
     for (const p of POLYMER_ORDER) {
       if (token.length <= p.Token.length || !token.startsWith(p.Token)) continue;
       const rest = token.slice(p.Token.length);
-      if (MODIFIER_TOKENS.has(rest) || rest.length === 1 || /^\d+$/.test(rest)) { out.push(p.Token, rest); break; }
+      // A short alias must not eat a longer name: "PES" is polyethersulfone, not polyethylene and a letter, and
+      // "PPE" is a polyphenylene ether. A single trailing letter is only a suffix on an alias of three or more.
+      const suffix = MODIFIER_TOKENS.has(rest) || /^\d+$/.test(rest) || (rest.length === 1 && p.Token.length >= 3);
+      if (suffix) { out.push(p.Token, rest); break; }
     }
   }
   return out.filter((t) => t && !STOPWORDS.has(t));
 }
 
+/**
+ * The first alias of `order` the tokens contain, preferring one that names something. A row with no value is a
+ * refusal ("which nylon is a ruling"), and taking it first threw away a real answer beside it: "PLA SILK Rainbow"
+ * lost its silk class to `rainbow`, which is a finish with no class of its own.
+ */
 const findToken = (tokens, order, field) => {
-  for (const row of order) {
-    if (!tokens.includes(row.Token)) continue;
-    return { token: row.Token, value: row[field] ?? '', note: row.Note ?? '' };
-  }
-  return null;
+  const hits = order.filter((row) => tokens.includes(row.Token));
+  const row = hits.find((r) => r[field]) ?? hits[0];
+  return row ? { token: row.Token, value: row[field] ?? '', note: row.Note ?? '' } : null;
 };
 
 /** Shore hardness a product's own name states: "TPU 95A", "Filaflex 82A", "PEBA 90A" (a Nominal value, m29). */
@@ -109,11 +123,13 @@ export function classifyProduct(product, context = {}, world = {}) {
   const variant = findToken(tokens, VARIANT_ORDER, 'Variant class');
   if (variant?.value) signals.push(`variant: ${variant.token}`);
 
+  // A support or soluble product is not the material it supports: "PolySupport for PA12" is a support, not a PA12.
   const support = SUPPORT.test(product) || SUPPORT.test(context.title ?? '');
   const hardness = shoreFromName(product);
   if (hardness) signals.push(`hardness: ${hardness}`);
 
   const reasons = [];
+  if (support) reasons.push(`"${product}" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports`);
   if (!polymer) reasons.push(`no base polymer in "${product}"`);
   else if (!polymer.value) reasons.push(`"${polymer.token}" names a family, not a polymer: ${polymer.note}`);
   if (modifier && !modifier.value) reasons.push(`"${modifier.token}" has no value in schema/vocab/modifiers.csv: ${modifier.note}`);
@@ -122,8 +138,19 @@ export function classifyProduct(product, context = {}, world = {}) {
   if (fromBody) confidence -= 0.2;
   if (modifier && !tokens.includes(modifier.token)) confidence -= 0.15;
   // Two polymers in one name ("PC/ABS" aside, which is its own identity) is a name that has to be read by a person.
-  const named = POLYMER_ORDER.filter((p) => p.Value !== '' && tokens.includes(p.Token)).map((p) => p.Polymer);
-  if (new Set(named).size > 1) { confidence -= 0.5; signals.push(`several polymers named: ${[...new Set(named)].join(', ')}`); }
+  // Two polymers in one name is a blend, or a support for another material, or a sheet covering two products.
+  // Which of those it is comes from the sheet, so it is a question rather than a low score: reading "PC ABS" as
+  // ABS, or "PLA/PHA" as PLA, is a confident wrong answer, and those are the ones that do damage.
+  // The pieces of a joined name are not separate polymers: "PC ABS" is read from the token pc-abs, and pc and abs
+  // are what it was joined from, not a second and third polymer in the name.
+  const chosen = polymer?.token ?? '';
+  const pieces = new Set([chosen, ...chosen.split('-'), chosen.replace(/-/g, '')]);
+  const named = [...new Set(POLYMER_ORDER.filter((p) => p.Polymer && tokens.includes(p.Token) && !pieces.has(p.Token)).map((p) => p.Polymer))];
+  if (polymer?.value) named.unshift(polymer.value);
+  if (new Set(named.filter(Boolean)).size > 1) {
+    confidence -= 0.5;
+    reasons.push(`"${product}" names more than one polymer (${[...new Set(named.filter(Boolean))].join(', ')}); which it is comes from the sheet`);
+  }
 
   const identity = {
     polymer: polymer?.value ?? '',
@@ -142,7 +169,11 @@ export function classifyProduct(product, context = {}, world = {}) {
     confidence -= 0.3;
   }
 
-  const match = matchMaterial(identity, world.materials ?? [], { ...context, product, grades: world.grades ?? [] });
+  const match = matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [] });
+  if (!match) {
+    const collision = collidesWith(identity, world.materials ?? []);
+    if (collision) reasons.push(`a new material here would duplicate ${collision.MaterialID} ${collision['Original name']}, which already holds ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
+  }
   const known = (world.polymers ?? []).some((p) => p.PolymerID === identity.polymer);
   if (identity.polymer && !known) reasons.push(`"${identity.polymer}" has no row in polymers.csv, so a material of it cannot be estimated`);
 
@@ -168,24 +199,61 @@ export function classifyProduct(product, context = {}, world = {}) {
  */
 export function matchMaterial(identity, materials, context = {}) {
   if (!identity.polymer) return null;
-  const same = (m) => m['Estimate identity'] === identity.polymer
-    && m['Modifier / filler'] === identity.modifier
-    && (m['Variant class'] === (identity.variantClass || 'Not applicable'));
-  const open = materials.filter((m) => m.Scope !== 'Family entry');
-  const ownProduct = (m) => m['Modifier / filler'] === 'Commercial variant / undisclosed';
-  const maker = context.manufacturer ?? '';
-  // A maker whose own products are materials here answers first with the product of that name: Bambu's PLA Matte
-  // is M003, while any other maker's matte PLA is a finish on M001. Names are compared as names, not as text.
-  const named = (a, b) => String(a ?? '').toLowerCase().replace(/[^a-z0-9]/g, '') === String(b ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
-  // Only the maker whose product it is answers by name: Bambu's PLA Matte is M003, and another maker's product of
-  // the same name is its own matte PLA under M001. The owner is the manufacturer of the row's representative grade.
-  if (context.product) {
-    const ownerOf = new Map((context.grades ?? []).map((g) => [g.GradeID, g.Manufacturer]));
-    const own = open.find((m) => ownProduct(m) && named(m['Original name'], context.product)
-      && (!maker || ownerOf.get(m['Representative grade']) === maker));
-    if (own) return own;
+  const grades = context.grades ?? [];
+  const makersOf = new Map();
+  for (const g of grades.filter((g) => g.Status === 'active' && g.Role === 'procurement')) {
+    if (!makersOf.has(g.MaterialID)) makersOf.set(g.MaterialID, new Set());
+    makersOf.get(g.MaterialID).add(g.Manufacturer);
   }
-  return open.find((m) => same(m) && !ownProduct(m)) ?? null;
+  // A row is product-level when it declares that what is in it is not published *and* only one maker sells it.
+  // Five rows declare the same and carry several makers' grades (PLA Silk, PC FR, TPC / TPEE, POM / Acetal,
+  // PEI / ULTEM); those are classes, and refusing to file another maker's product under them would duplicate a
+  // material that already exists.
+  const ownProduct = (m) => m['Modifier / filler'] === 'Commercial variant / undisclosed' && (makersOf.get(m.MaterialID)?.size ?? 0) <= 1;
+  // "Commercial variant / undisclosed" on a class row says the makers do not publish what is in it, which is also
+  // true of a plain product of that polymer. So a class row declaring it takes an unfilled product as well: POM /
+  // Acetal, TPC / TPEE and PEI / ULTEM are those rows, and refusing would create a second material beside each.
+  const undisclosed = (m) => m['Modifier / filler'] === 'Commercial variant / undisclosed' && identity.modifier === 'Unfilled / unspecified';
+  const same = (m) => m['Estimate identity'] === identity.polymer
+    && (m['Modifier / filler'] === identity.modifier || undisclosed(m))
+    && m['Variant class'] === (identity.variantClass || 'Not applicable');
+  const open = materials.filter((m) => m.Scope !== 'Family entry');
+  const maker = context.manufacturer ?? '';
+  const named = (a, b) => String(a ?? '').toLowerCase().replace(/[^a-z0-9]/g, '') === String(b ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  // A material's name may carry its alias beside it ("nGen / Amphora", "POM / Acetal", "PEI / ULTEM"), so each
+  // part of a slash name is a name it answers to.
+  const names = (m) => String(m['Original name'] ?? '').split('/').map((n) => n.trim()).filter(Boolean);
+  const ownerOf = new Map(grades.map((g) => [g.GradeID, g.Manufacturer]));
+  // A product-level row answers only for the maker whose product it is, and only when the maker is known. Nearly
+  // four in ten documents in the corpus name no maker, and without that test any of them took Bambu's PLA Basic.
+  const mayAnswer = (m) => !ownProduct(m) || (maker && ownerOf.get(m['Representative grade']) === maker);
+  if (context.product) {
+    const byName = open.find((m) => mayAnswer(m) && names(m).some((n) => named(n, context.product)));
+    if (byName) return byName;
+  }
+  const byIdentity = open.find((m) => same(m) && !ownProduct(m));
+  if (byIdentity) return byIdentity;
+  // A material the estimate model cannot identify (the high-temperature six, whose polymers have no row) can only
+  // be reached by name, so a name inside the product's own words finds it: "THERMAX PES" is the PESU material.
+  // This is last, or "Carbon Fiber PETG" would stop at PETG instead of reaching PETG-CF.
+  if (context.tokens?.length) {
+    return open.find((m) => m['Estimate identity'] === 'Not applicable' && mayAnswer(m)
+      && names(m).some((n) => context.tokens.some((t) => named(n, t)))) ?? null;
+  }
+  return null;
+}
+
+/**
+ * A material that already holds this identity, product-level or not. A new material that duplicates one is the
+ * failure D44 was written about, and it is worth naming rather than discovering after the fact.
+ */
+export function collidesWith(identity, materials) {
+  if (!identity.polymer) return null;
+  return materials.find((m) => m.Scope !== 'Family entry'
+    && m['Estimate identity'] === identity.polymer
+    && m['Modifier / filler'] === identity.modifier
+    && m['Variant class'] === (identity.variantClass || 'Not applicable')) ?? null;
 }
 
 if (process.argv[1]?.endsWith('classify.mjs')) {

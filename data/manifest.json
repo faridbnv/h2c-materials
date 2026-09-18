@@ -77,6 +77,10 @@
       "rows": 36,
       "sha256": "488e05886a34917db04b226426e1b1b19c94fcf87344463f016d5cefdb255f79"
     },
+    "plausibility_windows": {
+      "rows": 79,
+      "sha256": "bd10d60db52c4818283f5011f129f15273073f8c8527f4387d0ff32bd4035df5"
+    },
     "chamber_bands": {
       "rows": 44,
       "sha256": "f3f14e9540db9810fa42de3977f0cd939177885073266fdce42752116ee9edd1"

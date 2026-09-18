@@ -1,4 +1,13 @@
 Token,Modifier,Note
+3dxstat,ESD formulation,3DXTECH's ESD line
+aero,Foaming,
+antistatic,ESD formulation,
+aramid,,as above
+carbon,Carbon fibre,
+carbonfiber,Carbon fibre,one word
+carbonfibre,Carbon fibre,one word
+carbonfil,Carbon fibre,
+carbonx,,"a 3DXTECH brand line, not a filler declaration"
 cf,Carbon fibre,
 cf10,Carbon fibre,
 cf15,Carbon fibre,
@@ -6,10 +15,11 @@ cf17,Carbon fibre,
 cf20,Carbon fibre,
 cf25,Carbon fibre,
 cf30,Carbon fibre,
-rcf08,Carbon fibre,recycled carbon fibre
-carbon,Carbon fibre,
-carbonfil,Carbon fibre,
-carbonx,,"a 3DXTECH brand line, not a filler declaration"
+conductive,,electrically conductive has no modifier value yet: a ruling
+esd,ESD formulation,
+fiberglass,Glass fibre,
+flax,,a natural fibre: a ruling
+foamy,Foaming,
 gf,Glass fibre,
 gf10,Glass fibre,
 gf15,Glass fibre,
@@ -17,14 +27,15 @@ gf20,Glass fibre,
 gf25,Glass fibre,
 gf30,Glass fibre,
 glass,Glass fibre,
-fiberglass,Glass fibre,
-esd,ESD formulation,
-3dxstat,ESD formulation,3DXTECH's ESD line
-antistatic,ESD formulation,
-lw,Foaming,
-aero,Foaming,
-foamy,Foaming,
-lightweight,Foaming,
+glassfiber,Glass fibre,one word
+glassfibre,Glass fibre,one word
+graphene,,a graphene load is neither carbon fibre nor unfilled: a ruling
+hemp,,a natural fibre: a ruling
 kevlar,,aramid has no modifier value yet: a ruling
-aramid,,as above
-conductive,,electrically conductive has no modifier value yet: a ruling
+lightweight,Foaming,
+lw,Foaming,
+magnetite,,an iron-oxide load: a ruling
+mineral,,a mineral load changes modulus and is not declared as a fraction: a ruling
+ptfe,,a tribological load: a ruling
+rcf08,Carbon fibre,recycled carbon fibre
+tungsten,,"a dense metal load, up to 75 wt%: a ruling"

@@ -1,0 +1,100 @@
+{
+  "$comment": "Contract for data/tables/plausibility_windows.csv. Checked by build/src/schema.js.",
+  "title": "Plausibility windows",
+  "description": "One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser.",
+  "primaryKey": "WindowID",
+  "fields": [
+    {
+      "name": "WindowID",
+      "type": "string",
+      "role": "key",
+      "description": "Stable window identifier, never reused.",
+      "constraints": { "required": true, "pattern": "^W\\d{4}$", "unique": true }
+    },
+    {
+      "name": "Property",
+      "type": "string",
+      "role": "canonical",
+      "description": "The property this window judges.",
+      "reference": { "table": "properties", "field": "Property" },
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Normalized unit",
+      "type": "string",
+      "role": "canonical",
+      "description": "The unit the bounds are in, which must be one the property is kept in. A property measured on several scales (a hardness) needs a window per scale, because the scales are incommensurable.",
+      "vocabulary": "units",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Matrix class",
+      "type": "string",
+      "role": "canonical",
+      "description": "What the material is made of, coarsely: its morphology, or high-temp for the polymers the estimate model does not identify. `any` matches everything and is the fallback.",
+      "constraints": { "required": true, "enum": ["amorphous", "semicrystalline", "elastomer", "high-temp", "any"] }
+    },
+    {
+      "name": "Fill class",
+      "type": "string",
+      "role": "canonical",
+      "description": "Whether the material is reinforced: unfilled, fibre, or any. A compound whose maker does not disclose its filler reads as `any`, so it is flagged rather than refused.",
+      "constraints": { "required": true, "enum": ["unfilled", "fibre", "any"] }
+    },
+    {
+      "name": "Condition",
+      "type": "string",
+      "role": "canonical",
+      "description": "A test condition that changes the credible range by more than the class does. Only the notch does, and by an order of magnitude.",
+      "constraints": { "required": true, "enum": ["Notched", "Unnotched", "any"] }
+    },
+    {
+      "name": "Hard low",
+      "type": "number",
+      "role": "canonical",
+      "description": "Below this the value is impossible for this class and is refused as it is read. Not applicable means unbounded below.",
+      "missing": ["Not applicable"],
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Soft low",
+      "type": "number",
+      "role": "canonical",
+      "description": "Below this the value is surprising and a person looks at it.",
+      "missing": ["Not applicable"],
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Soft high",
+      "type": "number",
+      "role": "canonical",
+      "description": "Above this the value is surprising and a person looks at it.",
+      "missing": ["Not applicable"],
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Hard high",
+      "type": "number",
+      "role": "canonical",
+      "description": "Above this the value is impossible for this class and is refused as it is read. Not applicable means unbounded above.",
+      "missing": ["Not applicable"],
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Always flag",
+      "type": "boolean",
+      "role": "editorial",
+      "description": "TRUE where the existence of the value is the finding, whatever its number: an elastomer's heat deflection temperature, or a hardness with no scale. No bound can express that.",
+      "trueValues": ["TRUE"],
+      "falseValues": ["FALSE"],
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Basis",
+      "type": "string",
+      "role": "prose",
+      "description": "Where the bounds came from, saying which are physics and which are what this database holds. A window with no basis is a number nobody can argue with.",
+      "constraints": { "required": true }
+    }
+  ]
+}

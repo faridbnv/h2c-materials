@@ -1,64 +1,83 @@
 Token,Polymer,Family,Note
-pla,PLA,PLA,
-apla,PLA,PLA,3D-Fuel's annealable PLA
-epla,PLA,PLA,
-rpla,PLA,PLA,recycled PLA
-plalw,PLA,PLA,
-hdpla,PLA,PLA,
-petg,PETG,PETG,
-pet-g,PETG,PETG,
-xpetg,PETG,PETG,
-rpetg,PETG,PETG,
-pet,PET,PET Engineering,
-pctg,PCTG,Copolyesters,
-cpe,CPE,Copolyesters,
-cope,CoPE,Copolyesters,
-ngen,nGen,Copolyesters,
 abs,ABS,ABS,
-mabs,ABS,ABS,transparent ABS
+apla,PLA,PLA,3D-Fuel's annealable PLA
+arnitel,TPC,Flexible Elastomers,DSM's copolyester elastomer line
 asa,ASA,ASA,
-hips,HIPS,Styrenics,
-pvb,PVB,PVB / Specialty Polymers,
-pc-abs,PC-ABS,Polymer Blends,
-pcabs,PC-ABS,Polymer Blends,
-pc-pbt,PC-PBT,Polymer Blends,
-pc,PC,Polycarbonate,
-pa6,PA6,Nylon / Polyamide,
-pa66,PA66,Nylon / Polyamide,
-pa6/66,PA6/66,Nylon / Polyamide,
+bvoh,BVOH,Support / Soluble,
+coc,COC,PVB / Specialty Polymers,no polymers.csv row yet
 copa,PA6/66,Nylon / Polyamide,"a copolymer of nylon 6 and 6,6; CoPA is an alias of PA6/66 (D44)"
+cope,CoPE,Copolyesters,
+cpe,CPE,Copolyesters,
+epla,PLA,PLA,
+filaflex,,Flexible Elastomers,Recreus's elastomer line is a TPU except its SEBS grade: a ruling
+greentec,,PLA,Extrudr's PLA-based biopolymer; which grade is a ruling
+hdpe,PE,Polyolefins,
+hdpla,PLA,PLA,
+hips,HIPS,Styrenics,
+htn,PPA,High-Performance Engineering,a semi-aromatic polyamide sold as HTN
+htpla,PLA,PLA,a high-temperature PLA is still PLA
+lcp,LCP,High-Performance Engineering,no polymers.csv row yet
+mabs,ABS,ABS,transparent ABS
+ngen,nGen,Copolyesters,
+nylon,,Nylon / Polyamide,which nylon is a ruling: PA is a family entry and owns no product (D44)
+obc,OBC,Flexible Elastomers,
+pa,,Nylon / Polyamide,as above
 pa11,PA11,Nylon / Polyamide,no polymers.csv row yet: needs one before a grade cites it
 pa12,PA12,Nylon / Polyamide,
+pa6,PA6,Nylon / Polyamide,
+pa6-66,PA6/66,Nylon / Polyamide,"the slash form cannot survive tokenisation, because a slash separates tokens"
+pa6/66,PA6/66,Nylon / Polyamide,
 pa612,PA612,Nylon / Polyamide,
+pa66,PA66,Nylon / Polyamide,
+paek,PAEK,Industrial High-Temperature - Outside H2C Practical Envelope,no polymers.csv row yet
 paht,PAHT,Nylon / Polyamide,
-ppa,PPA,High-Performance Engineering,
-htn,PPA,High-Performance Engineering,a semi-aromatic polyamide sold as HTN
-pp,PP,Polyolefins,
-pe,PE,Polyolefins,
-hdpe,PE,Polyolefins,
-pps,PPS,High-Performance Engineering,
-pvdf,PVDF,Fluoropolymers,
-pom,POM,Acetals,
-pva,PVA,Support / Soluble,
-bvoh,BVOH,Support / Soluble,
-tpu,TPU,Flexible Elastomers,
-tpe,TPE,Flexible Elastomers,
-tpc,TPC,Flexible Elastomers,
-tpee,TPC,Flexible Elastomers,
-peba,PEBA,Flexible Elastomers,
-obc,OBC,Flexible Elastomers,
-peek,PEEK,Industrial High-Temperature - Outside H2C Practical Envelope,
-pekk,PEKK,Industrial High-Temperature - Outside H2C Practical Envelope,
-pei,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
-ultem,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
-psu,PSU,Industrial High-Temperature - Outside H2C Practical Envelope,
-pesu,PESU,Industrial High-Temperature - Outside H2C Practical Envelope,
-ppsu,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
-ppsf,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
+pbat,PBAT,PVB / Specialty Polymers,no polymers.csv row yet
 pbt,PBT,Polymer Blends,no polymers.csv row yet
-pha,PHA,PVB / Specialty Polymers,no polymers.csv row yet
+pc,PC,Polycarbonate,
+pc-abs,PC-ABS,Polymer Blends,
+pc-asa,,Polymer Blends,"a polycarbonate/ASA blend has no identity here: which it is, is a ruling"
+pc-pbt,PC-PBT,Polymer Blends,
+pcabs,PC-ABS,Polymer Blends,
 pcl,PCL,PVB / Specialty Polymers,no polymers.csv row yet
+pctg,PCTG,Copolyesters,
+pe,PE,Polyolefins,
+peba,PEBA,Flexible Elastomers,
+peek,PEEK,Industrial High-Temperature - Outside H2C Practical Envelope,
+pei,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
+pekk,PEKK,Industrial High-Temperature - Outside H2C Practical Envelope,
+pes,PESU,Industrial High-Temperature - Outside H2C Practical Envelope,"polyethersulfone. Without this row the tokeniser reads PES as PE plus a letter, and a 225 °C sulfone is filed as polyethylene"
+pesu,PESU,Industrial High-Temperature - Outside H2C Practical Envelope,
+pet,PET,PET Engineering,
+pet-g,PETG,PETG,
+petg,PETG,PETG,
+pha,PHA,PVB / Specialty Polymers,no polymers.csv row yet
+pla,PLA,PLA,
+plalw,PLA,PLA,
+plla,PLA,PLA,poly-L-lactide is PLA
 pmma,PMMA,PVB / Specialty Polymers,no polymers.csv row yet
+polycarbonate,PC,Polycarbonate,
+pom,POM,Acetals,
+pp,PP,Polyolefins,
+ppa,PPA,High-Performance Engineering,
+ppe,,Polymer Blends,"polyphenylene ether, sold as a blend with polystyrene: a ruling, and not polypropylene"
+ppe-ps,,Polymer Blends,
+pps,PPS,High-Performance Engineering,
+ppsf,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
+ppsu,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
+psu,PSU,Industrial High-Temperature - Outside H2C Practical Envelope,
+pva,PVA,Support / Soluble,
+pvb,PVB,PVB / Specialty Polymers,
+pvc,PVC,PVB / Specialty Polymers,no polymers.csv row yet
+pvdf,PVDF,Fluoropolymers,
+rpetg,PETG,PETG,
+rpla,PLA,PLA,recycled PLA
+san,SAN,Styrenics,no polymers.csv row yet
 sebs,SEBS,Flexible Elastomers,no polymers.csv row yet
-nylon,,Nylon / Polyamide,which nylon is a ruling: PA is a family entry and owns no product (D44)
-pa,,Nylon / Polyamide,as above
+tarfuse,POM,Acetals,Grupa Azoty's acetal line
+tpc,TPC,Flexible Elastomers,
+tpe,,Flexible Elastomers,"TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"
+tpee,TPC,Flexible Elastomers,
+tps,TPS,Flexible Elastomers,a styrenic thermoplastic elastomer; no polymers.csv row yet
+tpu,TPU,Flexible Elastomers,
+ultem,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
+xpetg,PETG,PETG,

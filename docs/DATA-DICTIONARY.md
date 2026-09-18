@@ -24,6 +24,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
+| [plausibility_windows](#plausibility_windows) | WindowID | One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser. |
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
@@ -266,6 +267,25 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Section | canonical | string | yes |  | [method-sections](#vocab-method-sections) | Method section. |
 | Topic | key | string | yes |  | `^.+$` | Rule topic; unique. |
 | Definition / rule | prose | string | yes |  |  | The rule. |
+
+### plausibility_windows
+
+`data/tables/plausibility_windows.csv` (Plausibility windows). One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| WindowID | key | string | yes |  | `^W\d{4}$` | Stable window identifier, never reused. |
+| Property | canonical | string | yes |  | → properties.Property | The property this window judges. |
+| Normalized unit | canonical | string | yes |  | [units](#vocab-units) | The unit the bounds are in, which must be one the property is kept in. A property measured on several scales (a hardness) needs a window per scale, because the scales are incommensurable. |
+| Matrix class | canonical | string | yes |  | amorphous, semicrystalline, elastomer, high-temp, any | What the material is made of, coarsely: its morphology, or high-temp for the polymers the estimate model does not identify. `any` matches everything and is the fallback. |
+| Fill class | canonical | string | yes |  | unfilled, fibre, any | Whether the material is reinforced: unfilled, fibre, or any. A compound whose maker does not disclose its filler reads as `any`, so it is flagged rather than refused. |
+| Condition | canonical | string | yes |  | Notched, Unnotched, any | A test condition that changes the credible range by more than the class does. Only the notch does, and by an order of magnitude. |
+| Hard low | canonical | number | yes | Not applicable |  | Below this the value is impossible for this class and is refused as it is read. Not applicable means unbounded below. |
+| Soft low | canonical | number | yes | Not applicable |  | Below this the value is surprising and a person looks at it. |
+| Soft high | canonical | number | yes | Not applicable |  | Above this the value is surprising and a person looks at it. |
+| Hard high | canonical | number | yes | Not applicable |  | Above this the value is impossible for this class and is refused as it is read. Not applicable means unbounded above. |
+| Always flag | editorial | boolean | yes |  |  | TRUE where the existence of the value is the finding, whatever its number: an elastomer's heat deflection temperature, or a hardness with no scale. No bound can express that. |
+| Basis | prose | string | yes |  |  | Where the bounds came from, saying which are physics and which are what this database holds. A window with no basis is a number nobody can argue with. |
 
 ### polymer_environment
 
@@ -1202,7 +1222,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-units"></a>
 ### units
 
-`schema/vocab/units.csv`, used by measurements.Normalized unit, properties.Units.
+`schema/vocab/units.csv`, used by measurements.Normalized unit, plausibility_windows.Normalized unit, properties.Units.
 
 | Value | Meaning |
 |---|---|

@@ -19,6 +19,7 @@ export const LINT_RULES = {
   'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY.',
   'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
+  'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
   'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
   'FORMULATION-KEY-SPANS-MATERIALS': 'One Shared formulation key on active grades of more than one material. The estimate model reads a key as one product and predicts it once, so two materials cannot both own it (D12, D44); file the product under the material it is.',
@@ -224,6 +225,54 @@ export function lintData(tables, schemas) {
     if (materials.length > 1) add('FORMULATION-KEY-SPANS-MATERIALS', 'grades', gs.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${materials.join(', ')}`);
     const products = [...new Set(gs.map((g) => productKey(g['Product name'])))];
     if (materials.length === 1 && products.length > 1) add('GRADE-KEY-PRODUCTS', 'grades', gs.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${gs.map((g) => g['Product name']).join(', ')}`);
+  }
+
+  // A value outside what its polymer can do. The windows are a table, keyed on the property, the unit, how the
+  // material solidifies, whether it is reinforced and, for an impact result, its notch; the most specific window
+  // that matches wins. A value the database already flags physically implausible has been dealt with and is left
+  // alone, and so is one it cannot read.
+  const windows = tables.plausibility_windows?.rows ?? [];
+  if (windows.length) {
+    const materials = new Map((tables.materials?.rows ?? []).map((m) => [m.MaterialID, m]));
+    const morphology = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
+    const number = (v) => (v == null || /^Not /.test(String(v)) ? null : Number(v));
+    const classOf = (m) => morphology.get(m?.['Estimate identity']) ?? 'high-temp';
+    const fillOf = (m) => (['Carbon fibre', 'Glass fibre'].includes(m?.['Modifier / filler']) ? 'fibre'
+      : m?.['Modifier / filler'] === 'Unfilled / unspecified' ? 'unfilled' : 'any');
+    const fits = (window, want, field) => window[field] === want[field] || window[field] === 'any';
+    for (const r of measurements) {
+      // A value the database already flags physically implausible has been dealt with, with its reason recorded.
+      if (!/^Published value( \(transcription corrected\))?$/.test(r['Data status'] ?? '')) continue;
+      const value = Number(r['Normalized value']);
+      if (!Number.isFinite(value)) continue;
+      const material = materials.get(r.MaterialID);
+      const want = {
+        'Matrix class': classOf(material), 'Fill class': fillOf(material),
+        Condition: ['Notched', 'Unnotched'].includes(r.Notch) ? r.Notch : 'any',
+      };
+      const matching = windows.filter((w) => w.Property === r.Property && w['Normalized unit'] === r['Normalized unit']
+        && fits(w, want, 'Matrix class') && fits(w, want, 'Fill class') && fits(w, want, 'Condition'));
+      if (!matching.length) continue;
+      const score = (w) => ['Matrix class', 'Fill class', 'Condition'].reduce((a, f) => a + (w[f] === 'any' ? 0 : 1), 0);
+      const window = matching.sort((a, b) => score(b) - score(a))[0];
+      // A film or a filament strand is not a printed bar and is far stronger; D55 already keeps both out of every
+      // headline and estimate, so neither is judged against a printed part's window.
+      if (/^(Film|Filament)/.test(r['Specimen type'] ?? '')) continue;
+      const where = `${r.Property} ${value} ${r['Normalized unit']} on a ${want['Matrix class']} ${want['Fill class'] === 'any' ? 'compound' : want['Fill class']} material`;
+      if (window['Always flag'] === 'TRUE') { add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where}: ${window.Basis.split('.')[0]}`); continue; }
+      const [hardLow, rawSoftLow, softHigh, hardHigh] = ['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => number(window[f]));
+      // A part printed across its layers is weakest there: a Z value is legitimately a third to a half of the same
+      // property in the build plane, so the window's soft low says nothing about it. The hard low still holds, and
+      // MEAS-PHYSICS-Z-ABOVE-XY owns the opposite error.
+      const acrossLayers = ['Z', 'ZX', 'XZ', 'Vertical XZ (source label)'].includes(r.Direction);
+      const softLow = acrossLayers ? null : rawSoftLow;
+      const beyond = (hardLow != null && value < hardLow) ? `below ${hardLow}, which is impossible`
+        : (hardHigh != null && value > hardHigh) ? `above ${hardHigh}, which is impossible`
+        : (softLow != null && value < softLow) ? `below ${softLow}, which is surprising`
+        : (softHigh != null && value > softHigh) ? `above ${softHigh}, which is surprising`
+        : null;
+      if (beyond) add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where} is ${beyond} (${window.WindowID})`);
+    }
   }
 
   // Sources.

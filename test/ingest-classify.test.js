@@ -81,3 +81,59 @@ test('every material a classification can return is one a product may be filed u
     assert.notEqual(m.Scope, 'Family entry', `${product} was filed under the family entry ${m['Original name']}`);
   }
 });
+
+test('a polymer written as two words is one polymer', () => {
+  // "PC ABS" tokenises to pc and abs, and the longest single token wins, so a PC/ABS blend read as plain ABS.
+  assert.equal(classify('PC ABS', 'Polymaker').materialId, 'M094');
+  assert.equal(classify('PC/ABS', 'Polymaker').materialId, 'M094');
+  assert.equal(classify('PC PBT', 'Polymaker').materialId, 'M095');
+  assert.equal(classify('FIBERLOGY EASY PET G', 'Fiberlogy').materialId, 'M020');
+  assert.equal(classify('PA6/66', 'BigRep').materialId, 'M057');
+  assert.equal(classify('AmideX Nylon 6 66', '3DXTECH').polymer, 'PA6/66');
+  // And the pieces of the joined name are not a second polymer, so none of these becomes a question.
+  for (const name of ['PC ABS', 'PC PBT', 'PA6/66', 'FIBERLOGY EASY PET G']) assert.equal(classify(name).needsRuling, false, name);
+});
+
+test('a short alias does not eat a longer name', () => {
+  // PES is polyethersulfone. Read as PE plus a letter, a 225 °C sulfone was filed as polyethylene at confidence 1.
+  assert.equal(classify('THERMAX PES', '3DXTECH').polymer, 'PESU');
+  assert.equal(classify('THERMAX PES', '3DXTECH').materialId, 'M101');
+  assert.notEqual(classify('THERMAX PPE PS', '3DXTECH').polymer, 'PP');
+  // The suffix rule still reads a maker's own spelling: Spectrum's ASAX is an ASA.
+  assert.equal(classify('spectrum asax cf10', 'Spectrum').materialId, 'M033');
+});
+
+test('a name that holds two polymers is a question, not a lower score', () => {
+  const blend = classify('colorFabb PLA/PHA', 'colorFabb');
+  assert.equal(blend.needsRuling, true);
+  assert.match(blend.reasons.join(' '), /more than one polymer/);
+  // A support product is never filed under the material it supports.
+  const support = classify('PolySupport for PA12', 'Polymaker');
+  assert.equal(support.needsRuling, true);
+  assert.match(support.reasons.join(' '), /support or soluble/);
+});
+
+test('a product-level row needs a maker, because most documents do not name one', () => {
+  // 723 of the corpus's 1,936 documents name no maker. Without this test every one of them took Bambu's SKU rows.
+  assert.equal(classify('PLA BASIC', '').materialId, 'M001');
+  assert.equal(classify('PLA Basic', 'SUNLU').materialId, 'M001');
+  assert.equal(classify('PLA Basic', 'Bambu Lab').materialId, 'M002');
+});
+
+test('a class row is reachable however its name and its modifier are written', () => {
+  // A row that carries several makers' grades is a class, whatever its Modifier says about disclosure, and its
+  // name may carry an alias beside it. Without both, importing a plain POM would have created a second POM.
+  assert.equal(classify('POM', 'Fabru').materialId, 'M087');
+  assert.equal(classify('nGen', 'colorFabb').materialId, 'M092');
+  assert.equal(classify('TPC', 'BASF Forward AM').materialId, 'M046');
+  assert.equal(classify('ULTEM 9085', 'Stratasys').materialId, 'M099');
+  // A material the estimate model cannot identify is reachable only by name, and only after identity has failed.
+  assert.equal(classify('3DXMAX PEEK', '3DXTECH').materialId, 'M097');
+  assert.equal(classify('Carbon Fiber PETG', 'SUNLU').materialId, 'M024');
+});
+
+test('an alias with no answer does not shadow one that has an answer', () => {
+  // "rainbow" is a finish with no class of its own, and it was reached before "silk" because it is longer.
+  assert.equal(classify('Spectrum PLA SILK Rainbow', 'Spectrum').variantClass, 'silk');
+  assert.equal(classify('eSUN PLA Silk Rainbow Coral', 'eSUN').variantClass, 'silk');
+});

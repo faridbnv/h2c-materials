@@ -1,0 +1,80 @@
+WindowID,Property,Normalized unit,Matrix class,Fill class,Condition,Hard low,Soft low,Soft high,Hard high,Always flag,Basis
+W0001,Density,kg/m³,amorphous,unfilled,any,700,950,1450,1800,FALSE,Physics: no unfilled amorphous thermoplastic is lighter than about 0.95 or denser than about 1.45 unless it is halogenated; the hard low admits a foamed filament. Observation: this database holds 1040 to 1300 over 24 rows.
+W0002,Density,kg/m³,amorphous,any,any,700,1000,1700,2000,FALSE,Physics: the rule of mixtures at 35 wt% glass on the densest amorphous matrix. Observation: 1020 to 1360 over 57 filled and undisclosed rows. The hard low matches the unfilled window because a compound whose filler is not disclosed may be a foaming one: 3DXTECH's HyperLite PP publishes 750 kg/m³ and declares a lightweight additive.
+W0003,Density,kg/m³,semicrystalline,unfilled,any,700,850,1850,2100,FALSE,Physics: polypropylene at 0.90 is the lightest printable semicrystalline and PTFE at 2.2 the densest thermoplastic; PVDF reaches 1.78. Observation: 890 to 1710 over 19 rows.
+W0004,Density,kg/m³,semicrystalline,any,any,700,1000,1800,2200,FALSE,"Physics: as above with a fibre load. Observation: 1030 to 1500 over 29 rows. The estimate model's rule of mixtures (build/mappings/estimate-model.json, bounds.density) is stricter per polymer and governs where the polymer has a neat density. The hard low matches the unfilled window because a compound whose filler is not disclosed may be a foaming one: 3DXTECH's HyperLite PP publishes 750 kg/m³ and declares a lightweight additive."
+W0005,Density,kg/m³,elastomer,any,any,800,850,1400,1600,FALSE,Physics: thermoplastic elastomers span 0.85 to 1.30. Observation: 905 to 1260 over 15 rows.
+W0006,Density,kg/m³,high-temp,any,any,1000,1150,1900,2200,FALSE,"Physics: PEEK 1.30, PEI 1.27, PPSU 1.29, and a filled grade above them. Observation: 1240 to 1370 over 10 rows."
+W0007,Tensile modulus,GPa,elastomer,any,any,0.0005,0.002,0.2,0.5,FALSE,Physics: a Shore 95A to 72D elastomer reaches at most about 0.3 GPa. Observation: 0.0044 to 0.10. This is the bound that catches the TPU for AMS moduli D55 names.
+W0008,Tensile modulus,GPa,amorphous,unfilled,any,0.3,1.0,4.5,6,FALSE,"Physics: no unfilled amorphous thermoplastic exceeds about 4 GPa (polystyrene 3.4, PMMA 3.3, polycarbonate 2.4). Observation: 1.35 to 3.86."
+W0009,Tensile modulus,GPa,amorphous,any,any,0.5,1.2,20,30,FALSE,Physics: short carbon fibre at 30 wt% in an amorphous matrix reaches about 15 to 20 GPa. Observation: 0.93 to 6.2.
+W0010,Tensile modulus,GPa,semicrystalline,unfilled,any,0.05,0.25,4.5,6,FALSE,Physics: low-density polyethylene at about 0.2 GPa is the floor for a printable semicrystalline. Observation: 0.39 to 3.65.
+W0011,Tensile modulus,GPa,semicrystalline,any,any,0.5,1.5,22,35,FALSE,"Physics: 40 wt% short carbon fibre in a polyamide reaches about 25 GPa; beyond 35 is continuous fibre, which is not this process. Observation: 1.52 to 11.8."
+W0012,Tensile modulus,GPa,high-temp,any,any,0.5,1.5,8,30,FALSE,"Physics: PEEK 3.6 to 4.1, PEI 3.2, and a filled grade above them. Observation: 2.05 to 4.2."
+W0013,Flexural modulus,GPa,elastomer,any,any,0.0005,0.002,0.2,0.5,FALSE,Physics: a Shore 95A to 72D elastomer reaches at most about 0.3 GPa. Observation: 0.0044 to 0.10. This is the bound that catches the TPU for AMS moduli D55 names.
+W0014,Flexural modulus,GPa,amorphous,unfilled,any,0.3,1.0,4.5,6,FALSE,"Physics: no unfilled amorphous thermoplastic exceeds about 4 GPa (polystyrene 3.4, PMMA 3.3, polycarbonate 2.4). Observation: 1.35 to 3.86."
+W0015,Flexural modulus,GPa,amorphous,any,any,0.5,1.2,20,30,FALSE,Physics: short carbon fibre at 30 wt% in an amorphous matrix reaches about 15 to 20 GPa. Observation: 0.93 to 6.2.
+W0016,Flexural modulus,GPa,semicrystalline,unfilled,any,0.05,0.25,4.5,6,FALSE,Physics: low-density polyethylene at about 0.2 GPa is the floor for a printable semicrystalline. Observation: 0.39 to 3.65.
+W0017,Flexural modulus,GPa,semicrystalline,any,any,0.5,1.5,22,35,FALSE,"Physics: 40 wt% short carbon fibre in a polyamide reaches about 25 GPa; beyond 35 is continuous fibre, which is not this process. Observation: 1.52 to 11.8."
+W0018,Flexural modulus,GPa,high-temp,any,any,0.5,1.5,8,30,FALSE,"Physics: PEEK 3.6 to 4.1, PEI 3.2, and a filled grade above them. Observation: 2.05 to 4.2."
+W0019,Tensile strength (endpoint unspecified),MPa,elastomer,any,any,0.5,3,60,100,FALSE,Physics: a high-hardness thermoplastic polyurethane reaches an ultimate of about 55 MPa. Observation: 7.5 to 39.
+W0020,Tensile strength (endpoint unspecified),MPa,amorphous,unfilled,any,3,12,90,150,FALSE,"Physics: a printed amorphous bar does not exceed about 85 MPa; the hard high admits a film specimen, which this database holds at 144.7 MPa. Observation: 16 to 144.7."
+W0021,Tensile strength (endpoint unspecified),MPa,amorphous,any,any,5,15,140,250,FALSE,Physics: short fibre in an amorphous matrix. Observation: 11.2 to 76.
+W0022,Tensile strength (endpoint unspecified),MPa,semicrystalline,unfilled,any,2,6,90,150,FALSE,Observation: 8.7 to 82. Physics: an unfilled semicrystalline bar printed in layers does not exceed about 90 MPa.
+W0023,Tensile strength (endpoint unspecified),MPa,semicrystalline,any,any,5,15,200,300,FALSE,Physics: 40 wt% carbon fibre in a semi-aromatic polyamide reaches about 200 MPa. Observation: 18.2 to 168.
+W0024,Tensile strength (endpoint unspecified),MPa,high-temp,any,any,10,30,160,250,FALSE,"Physics: PEEK 95 to 100, PEI 105, and a filled grade above them. Observation: 45 to 105."
+W0025,Tensile yield strength,MPa,elastomer,any,any,0.5,3,60,100,FALSE,Physics: a high-hardness thermoplastic polyurethane reaches an ultimate of about 55 MPa. Observation: 7.5 to 39.
+W0026,Tensile yield strength,MPa,amorphous,unfilled,any,3,12,90,150,FALSE,"Physics: a printed amorphous bar does not exceed about 85 MPa; the hard high admits a film specimen, which this database holds at 144.7 MPa. Observation: 16 to 144.7."
+W0027,Tensile yield strength,MPa,amorphous,any,any,5,15,140,250,FALSE,Physics: short fibre in an amorphous matrix. Observation: 11.2 to 76.
+W0028,Tensile yield strength,MPa,semicrystalline,unfilled,any,2,6,90,150,FALSE,Observation: 8.7 to 82. Physics: an unfilled semicrystalline bar printed in layers does not exceed about 90 MPa.
+W0029,Tensile yield strength,MPa,semicrystalline,any,any,5,15,200,300,FALSE,Physics: 40 wt% carbon fibre in a semi-aromatic polyamide reaches about 200 MPa. Observation: 18.2 to 168.
+W0030,Tensile yield strength,MPa,high-temp,any,any,10,30,160,250,FALSE,"Physics: PEEK 95 to 100, PEI 105, and a filled grade above them. Observation: 45 to 105."
+W0031,Tensile break strength,MPa,elastomer,any,any,0.5,3,60,100,FALSE,Physics: a high-hardness thermoplastic polyurethane reaches an ultimate of about 55 MPa. Observation: 7.5 to 39.
+W0032,Tensile break strength,MPa,amorphous,unfilled,any,3,12,90,150,FALSE,"Physics: a printed amorphous bar does not exceed about 85 MPa; the hard high admits a film specimen, which this database holds at 144.7 MPa. Observation: 16 to 144.7."
+W0033,Tensile break strength,MPa,amorphous,any,any,5,15,140,250,FALSE,Physics: short fibre in an amorphous matrix. Observation: 11.2 to 76.
+W0034,Tensile break strength,MPa,semicrystalline,unfilled,any,2,6,90,150,FALSE,Observation: 8.7 to 82. Physics: an unfilled semicrystalline bar printed in layers does not exceed about 90 MPa.
+W0035,Tensile break strength,MPa,semicrystalline,any,any,5,15,200,300,FALSE,Physics: 40 wt% carbon fibre in a semi-aromatic polyamide reaches about 200 MPa. Observation: 18.2 to 168.
+W0036,Tensile break strength,MPa,high-temp,any,any,10,30,160,250,FALSE,"Physics: PEEK 95 to 100, PEI 105, and a filled grade above them. Observation: 45 to 105."
+W0037,Flexural strength,MPa,elastomer,any,any,0.3,1,45,80,FALSE,"Physics: most elastomers never reach the conventional deflection the test asks for. Observation: 2.4 to 5 over 2 rows, so this window is physics."
+W0038,Flexural strength,MPa,amorphous,unfilled,any,3,15,130,200,FALSE,Physics: flexural strength runs 1.3 to 1.6 times tensile for one specimen. Observation: 17 to 171.
+W0039,Flexural strength,MPa,amorphous,any,any,5,20,200,300,FALSE,Physics: as above with a fibre load. Observation: 19 to 94.6.
+W0040,Flexural strength,MPa,semicrystalline,unfilled,any,2,8,130,200,FALSE,Observation: 11.4 to 123.
+W0041,Flexural strength,MPa,semicrystalline,any,any,5,20,260,400,FALSE,Observation: 36 to 208.
+W0042,Flexural strength,MPa,high-temp,any,any,15,40,240,350,FALSE,Observation: 86 to 170. Physics: PEEK bends at about 170 MPa.
+W0043,Elongation at break,%,elastomer,any,any,5,50,1000,1500,FALSE,"Physics: a thermoplastic elastomer film exceeds 1000 %, a printed bar rarely passes 800 %. Observation: 31 to 1000."
+W0044,Elongation at break,%,any,fibre,any,0.2,0.5,25,60,FALSE,"Physics: a short-fibre compound at 15 to 30 wt% cannot draw, because its fibre ends nucleate failure at a few per cent of strain. Observation: every filled grade here that publishes an honest elongation sits between 0.5 and 8.4. This is the bound that found three impossible published elongations (m52)."
+W0045,Elongation at break,%,amorphous,any,any,0.3,1,250,600,FALSE,"Observation: 1.5 to 220. Physics: an amorphous thermoplastic can draw far, and a film further."
+W0046,Elongation at break,%,semicrystalline,any,any,0.3,1,800,1200,FALSE,Physics: polyethylene and polypropylene draw past 800 %. Observation: 0.6 to 460.
+W0047,Elongation at break,%,high-temp,any,any,0.3,1,200,400,FALSE,Observation: 2.3 to 60.
+W0048,Charpy strength,kJ/m²,any,any,Notched,0.3,1,60,100,FALSE,Physics: a notched Charpy of a brittle unfilled polymer is 1.5 to 5; a super-tough polyamide reaches about 60. Observation: 1.3 to 72.3.
+W0049,Charpy strength,kJ/m²,any,any,any,0.5,2,200,400,FALSE,Physics: an unnotched bar that does not break reads about 180 to 250. Observation: 2.6 to 139.
+W0050,Izod impact strength,kJ/m²,any,any,Notched,0.3,1,60,100,FALSE,"As the notched Charpy window: the two tests differ in geometry, not in what a polymer can absorb."
+W0051,Izod impact strength,kJ/m²,any,any,any,0.5,2,200,400,FALSE,As the unnotched Charpy window.
+W0052,Izod impact strength,J/m,any,any,Notched,3,10,600,1200,FALSE,Physics: J/m is about 10.16 times kJ/m² for the ASTM D256 ligament. Observation: 33 to 690.
+W0053,Izod impact strength,J/m,any,any,any,5,20,2000,4000,FALSE,"As above, unnotched. Observation: 131 to 1003."
+W0054,Impact strength,kJ/m²,any,any,Notched,0.3,1,60,100,FALSE,As the notched Charpy window.
+W0055,Impact strength,kJ/m²,any,any,any,0.5,2,200,400,FALSE,As the unnotched Charpy window.
+W0056,HDT,°C,amorphous,any,any,30,45,180,260,FALSE,Physics: an amorphous bar deflects at its glass transition plus 10 °C at 1.8 MPa and plus 20 °C at 0.45 MPa. Observation: 48 to 140. The soft low is the estimate model's own hdtFloor.
+W0057,HDT,°C,semicrystalline,any,any,30,45,280,330,FALSE,Physics: a crystalline bar cannot hold its shape above its melting point. Observation: 48.5 to 264.
+W0058,HDT,°C,high-temp,any,any,60,120,300,350,FALSE,Observation: 140 to 208. Physics: PEEK deflects at about 160 °C at 1.8 MPa.
+W0059,HDT,°C,elastomer,any,any,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,"Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56). Any value is worth a look, and no number bounds it."
+W0060,Vicat softening temperature,°C,amorphous,any,any,30,45,200,280,FALSE,Observation: 54 to 150. Physics: a Vicat sits at or above the heat deflection temperature of the same unfilled bar.
+W0061,Vicat softening temperature,°C,semicrystalline,any,any,30,50,290,350,FALSE,Observation: 65.9 to 272.5.
+W0062,Vicat softening temperature,°C,elastomer,any,any,20,40,180,250,FALSE,"Observation: 90 and 110 over 2 rows, so this window is physics."
+W0063,Vicat softening temperature,°C,high-temp,any,any,60,120,320,380,FALSE,"Physics: PEEK about 315 °C, PEI about 219 °C. No rows in this database."
+W0064,Glass transition temperature,°C,amorphous,any,any,30,45,220,260,FALSE,Observation: 52 to 145. Physics: an amorphous printable thermoplastic has its glass transition above room temperature or it would not hold a shape.
+W0065,Glass transition temperature,°C,semicrystalline,any,any,-130,-100,110,130,FALSE,"Physics: polyethylene sits near -120 °C and polyphenylene sulfide near 90 °C. Observation: -50 to 100. This window catches the three 158 °C values recorded for a PA12, whose glass transition is 40 to 55 °C."
+W0066,Glass transition temperature,°C,elastomer,any,any,-120,-90,20,60,FALSE,Observation: -35 and -24. Physics: a soft block copolymer's glass transition is well below room temperature.
+W0067,Glass transition temperature,°C,high-temp,any,any,100,130,300,350,FALSE,"Physics: PEI 217 °C, PPSU 220 °C, PES 225 °C. Observation: 143 to 230."
+W0068,Melting temperature,°C,semicrystalline,any,any,90,110,360,400,FALSE,Physics: polyethylene melts at 105 to 135 °C and PEEK at 343 °C. Observation: 165 to 284.
+W0069,Melting temperature,°C,elastomer,any,any,80,100,260,320,FALSE,Observation: 130 to 183.
+W0070,Melting temperature,°C,high-temp,any,any,200,250,400,450,FALSE,Observation: 305 to 343.
+W0071,Melting temperature,°C,amorphous,any,any,80,120,300,400,FALSE,"An amorphous polymer has no melting point, yet 39 sheets print a processing temperature under that heading (polycarbonate 225 to 270, ABS 200 to 225). The window admits what they print; that they print it at all is a separate observation, not a defect in the number."
+W0072,Water absorption,%,semicrystalline,any,any,0,0.01,12,30,FALSE,Physics: PA6 saturates at 9 to 10 %; a vinyl alcohol support dissolves and can exceed 20 %. Observation: 0.05 to 9.5.
+W0073,Water absorption,%,any,any,any,0,0.01,3,10,FALSE,"Physics: the 24-hour uptake of polycarbonate, PLA, PETG and ABS is 0.1 to 0.6 %. Observation: 0.04 to 2.36."
+W0074,Melt mass-flow rate,g/10 min,any,any,any,0.1,1,80,250,FALSE,"Physics: below about 0.5 a melt will not extrude through a 0.4 mm nozzle at these rates, and above about 100 it will not hold a filament shape. Observation: 1.56 to 45.8. A weak window: this is the property where a lost decimal is least catchable."
+W0075,Hardness,Shore A,any,any,any,20,45,98,100,FALSE,"Physics: the scale ends at 100, and above 98 A a reading belongs on the D scale. Observation: 6 rows."
+W0076,Hardness,Shore D,any,any,any,10,25,88,95,FALSE,Physics: no polymer exceeds about 88 D; PEEK reaches 87. A value under 20 D was measured on the A scale. Observation: 34 to 85.
+W0077,Hardness,Rockwell R,any,any,any,40,50,120,125,FALSE,Observation: 55 to 115.
+W0078,Hardness,Rockwell M,any,any,any,20,30,110,120,FALSE,"Observation: 80 over 1 row, so this window is physics."
+W0079,Hardness,Shore (scale not specified by source),any,any,any,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,"The missing scale is the finding: a hardness with no scale cannot be compared with anything, whatever its number."
