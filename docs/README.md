@@ -16,6 +16,7 @@ going to question a number.
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
 | [DATA-DICTIONARY.md](DATA-DICTIONARY.md) | What does this column mean, what may it hold, and where does it point? (generated) |
 | [RULES.md](RULES.md) | What does this error or warning code mean, and how do I fix it? (generated) |
+| [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) | What is known to be wrong or missing right now, and what would fix each? |
 | [audits/](audits/) | Where did this fail its users or its evidence, and what happened to each finding? |
 | [background/](background/) | What was this built from? |
 

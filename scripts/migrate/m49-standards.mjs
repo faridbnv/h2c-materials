@@ -13,10 +13,10 @@
 // 76 are Not published; 42 are a fatigue study's own staircase method; about 80 are a melt-flow or water-absorption
 // condition the sheet prints where a standard would go ("210 °C, 2.16 kg"), which is what that sheet publishes.
 //
-// About 90 rows carry a fragment of the neighbouring column instead, from the original extraction: "Modulus",
+// 133 rows carry a fragment of the neighbouring column instead, from the original extraction: "Modulus",
 // "Transition Temperature", "ter Absorption Rate 25 °C, 55% RH". Those are a transcription defect, and the fix is
 // to re-read each source (D35), not to guess here; they read as no standard, exactly as they should, and the
-// backlog is named in docs/audits/2026-09-17-model-freeze/README.md.
+// backlog is named in docs/OPEN-PROBLEMS.md and docs/audits/2026-09-17-model-freeze/README.md.
 //
 // npm run build:diff: measurements[].standards added on every row.
 import { fileURLToPath } from 'node:url';

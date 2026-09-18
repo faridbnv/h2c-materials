@@ -1678,11 +1678,12 @@ typed thing ever taken out of it was the HDT load (D49), and that took a parser 
 - **Nothing is inferred.** 2,307 of 2,645 rows name a standard. The rest name none and the column says so: 76 are
   Not published, 42 are a fatigue study's own staircase method, and about 80 are the melt-flow or water-absorption
   condition the sheet prints where a standard would go, which is what that sheet publishes.
-- **A fragment reads as no standard, and is named as work.** About 90 rows carry the tail of the Subject column and
-  the head of the Testing Methods column from the original extraction ("Modulus", "ter Absorption Rate 25 °C, 55%
-  RH"). They are a transcription defect. The fix is to re-read each source and correct the raw text (D35), not to
-  infer a standard from the property, and they are listed in
-  [audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md) with what the cached sheets show.
+- **A fragment reads as no standard, and is named as work.** 133 rows, across 56 sources and 56 materials, carry
+  the tail of the Subject column and the head of the Testing Methods column from the original extraction
+  ("Modulus", "ter Absorption Rate 25 °C, 55% RH"). They are a transcription defect. The fix is to re-read each
+  source and correct the raw text (D35), not to infer a standard from the property. They are listed in
+  [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) and in
+  [audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md), with what the cached sheets show.
 
 Guessing would have been easy and would have looked like an improvement: every one of those rows has a property
 whose usual standard is obvious. A standard nobody read off the sheet is exactly the kind of value this database

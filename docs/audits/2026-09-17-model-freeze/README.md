@@ -16,13 +16,16 @@ Nothing here is data. It is the audit trail those rows became, kept so the wordi
 up. The rows that stayed in `coverage.csv` are the gaps, conflicts, quarantines, limited-comparability notes and the
 38 "Evidence recorded" findings that say something particular about their material.
 
-## Open: about 90 measurements whose Standard / load carries a neighbouring column
+## Open: 133 measurements whose Standard / load carries a neighbouring column
+
+*Tracked in [docs/OPEN-PROBLEMS.md](../../OPEN-PROBLEMS.md), item 1, with the query that lists them.*
 
 m49 typed the standards each measurement names. 2,307 of 2,645 rows name one. Of the 338 that do not, most say so
-truthfully: 76 are Not published, 42 are a fatigue study's own staircase method, and about 80 are a melt-flow or
+truthfully: 76 are Not published, 42 are a fatigue study's own staircase method, and about 60 are a melt-flow or
 water-absorption condition the sheet prints where a standard would go ("210 °C, 2.16 kg", "25 °C, 55% RH").
 
-About 90 carry a fragment of the neighbouring column instead, from the original extraction:
+133 carry a fragment of the neighbouring column instead, from the original extraction, across 56 sources and 56
+materials. An earlier draft of this note said "about 90"; that was an estimate, and the exact figure is 133:
 
     Modulus · Strength · Elongation · Deflection · Temperature · Transition Temperature · (X-Y)
     ter Absorption Rate 25 °C, 55% RH · te 25 °C, 55% RH · ate 25 °C, 55% RH · ption 25 °C, 55% RH

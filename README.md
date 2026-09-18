@@ -26,9 +26,16 @@ npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
 npm run data:new-material -- --name PA11 --polymer PA11   # a material and its first grade, and what it still needs
 npm run data:export-xlsx       # read-only review workbook in dist/review/
+npm run db:sqlite              # dist/h2c.sqlite; then npm run sql -- "select ..." to ask across records
 ```
 
-Changing data? Read [AGENTS.md](AGENTS.md) first.
+Changing data? Read [AGENTS.md](AGENTS.md) first, and
+[docs/WALKTHROUGH-ADD-A-MATERIAL.md](docs/WALKTHROUGH-ADD-A-MATERIAL.md) if you are starting from a data sheet.
+
+**What is known to be wrong:** [docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). The database records its own defects
+rather than hiding them, so that page is where they are listed: 133 measurements whose test standard was captured
+from the wrong column, ten published values physics rules out, six unresolved source conflicts, and the materials
+nothing has been published about.
 
 Open the file in `dist/` in any current browser. Nothing else is required.
 

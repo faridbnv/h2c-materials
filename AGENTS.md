@@ -2,8 +2,14 @@
 
 This file is for anyone changing the H2C material database: the owner and the AI agents alike. It says
 where data lives, how to change it without breaking anything, and what the build will refuse. The
-reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D57). Every column and vocabulary
+reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D76). Every column and vocabulary
 is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by code, in `docs/RULES.md`.
+Starting from a data sheet, with nothing recorded yet? `docs/WALKTHROUGH-ADD-A-MATERIAL.md` runs it end to end.
+
+**Before you record a defect as new, check `docs/OPEN-PROBLEMS.md`.** It lists what is already known to be wrong or
+missing, with the query that re-derives each figure. Add to it when you find something you cannot fix in the same
+change, and take the entry out when it is fixed; an item there that no longer occurs is as misleading as a stale
+acceptance.
 
 ## The one rule
 
