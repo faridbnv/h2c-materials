@@ -47,6 +47,18 @@ test('every numeric headline equals the measurement it cites', () => {
   assert.ok(checked >= 359, 'headlines have gone missing since the 2026-09-15 audit flagged physically implausible values');
 });
 
+test('every profile note reaches the reader: the table and the compiled profiles hold the same rows', () => {
+  // The notes were columns of profiles.csv until m44, where most were empty on most rows and three were empty on
+  // every row. They are rows now, and a note that never reaches a profile is a note nobody reads.
+  const stored = readFileSync(join(root, 'data/tables/profile_notes.csv'), 'utf8').trim().split('\n').length - 1;
+  const compiled = db.profiles.flatMap((p) => p.notes);
+  assert.equal(compiled.length, stored, 'profile_notes.csv rows and compiled profile notes disagree');
+  assert.ok(compiled.length >= 363, 'profile notes have gone missing since m44 moved 363 of them');
+  const ids = new Set(db.profiles.map((p) => p.id));
+  assert.ok(db.profiles.every((p) => p.notes.every((n) => n.topic && n.text)), 'a profile note has no topic or no text');
+  assert.equal(ids.size, db.profiles.length);
+});
+
 // Regression: falling back to Vicat or glass transition surfaced TPE's -35 C glass transition in a
 // column headed "HDT at 0.45 MPa". The Method sheet keeps those quantities distinct.
 test('related evidence is always the same property as its column', () => {

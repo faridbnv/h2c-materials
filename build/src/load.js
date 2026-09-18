@@ -13,6 +13,7 @@ export const TABLES = [
   { file: 'materials', sheet: 'Materials' },
   { file: 'grades', sheet: 'Grades' },
   { file: 'profiles', sheet: 'Print setup' },
+  { file: 'profile_notes', sheet: 'Print setup notes' },
   { file: 'measurements', sheet: 'Properties' },
   { file: 'evidence', sheet: 'Use & durability' },
   { file: 'prices', sheet: 'Prices CA' },

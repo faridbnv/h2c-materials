@@ -404,7 +404,7 @@
           "nozzleDiameter",
           "abrasion",
           "drying",
-          "storageHumidity",
+          "notes",
           "routing",
           "supportPairing",
           "failureModes",
@@ -460,8 +460,24 @@
           "drying": {
             "type": "object"
           },
-          "storageHumidity": {
-            "type": "string"
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "topic",
+                "text"
+              ],
+              "properties": {
+                "topic": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "routing": {
             "type": "object"

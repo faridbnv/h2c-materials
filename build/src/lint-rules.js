@@ -39,7 +39,7 @@ const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google
 const FILE_NAME = /^B [A-Za-z]|_|\.(xlsx|xls|csv|pdf|docx?)$/i;
 export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
 
-const TEXT_TABLES = ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];
+const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 export function lintData(tables, schemas) {
@@ -65,7 +65,7 @@ export function lintData(tables, schemas) {
 
   // Spellings of one value in short-list columns (a raw column with a handful of distinct values).
   const norm = (s) => s.normalize('NFKC').toLowerCase().replace(/[^a-z0-9%<>=+.]/g, '').replace(/\.(?=\D|$)/g, '');
-  for (const t of ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'polymer_environment']) {
+  for (const t of ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'polymer_environment']) {
     const rows = tables[t]?.rows ?? [];
     for (const field of tables[t]?.header ?? []) {
       // Raw columns keep the source's own spelling by design (m07 changes no wording); their typed columns are checked.

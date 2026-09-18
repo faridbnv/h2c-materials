@@ -733,6 +733,7 @@ function tabBody(tab, c) {
         <dt>Support pairing</dt><dd>${esc(p.supportPairing ?? '')}</dd>
         <dt>Failure modes</dt><dd>${longText(p.failureModes ?? '')}</dd>
       </dl>
+      ${p.notes.length ? `<dl class="kv">${p.notes.map((n) => `<dt>${esc(n.topic)}</dt><dd>${longText(n.text)}</dd>`).join('')}</dl>` : ''}
       <h3 class="sec">H2C routing and AMS — evidence, not a filter</h3>
       <div class="note">These fields read "verify exact grade" on most profiles, so the selector does
         not filter on them. They are reproduced here exactly as recorded.</div>

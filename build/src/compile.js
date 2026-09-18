@@ -100,7 +100,13 @@ function compileMeasurements(rows, fatigueRows, issues) {
 
 // ---------------------------------------------------------------------------- profiles
 
-function compileProfiles(rows, issues) {
+function compileProfiles(rows, noteRows, issues) {
+  // A profile's qualitative notes are its rows of profile_notes.csv, in table order (m44).
+  const notesById = new Map();
+  for (const n of noteRows) {
+    if (!notesById.has(n.ProfileID)) notesById.set(n.ProfileID, []);
+    notesById.get(n.ProfileID).push({ topic: n.Topic, text: n.Text });
+  }
   return rows.map((r) => {
     // The stored typed values decide; the parsers' reading of the raw text checks them (typed-values.js).
     const typed = applyProfileTyped(r, {
@@ -139,12 +145,12 @@ function compileProfiles(rows, issues) {
       nozzleDiameter: parseNozzleDiameters(r['Nozzle diameter']),
       abrasion: typed.abrasion,
       drying: typed.drying,
-      storageHumidity: r['Storage humidity'],
       // Routing and AMS fields are carried verbatim. 133 of 160 say "Verify exact grade", so they
       // are evidence chips in the detail view, never filters. See the plan, section 5.4.
       routing: { left: r['H2C left'], right: r['H2C right'], ams2Pro: r['AMS 2 Pro'], amsHT: r['AMS HT'], amsPublished: r['AMS published'] },
       supportPairing: r['Support pairing'],
       failureModes: r['Failure modes'],
+      notes: notesById.get(r.ProfileID) ?? [],
       sourceId: r.SourceID,
       h2cSourceId: r['H2C SourceID'],
       locator: r.Locator,
@@ -592,7 +598,7 @@ export function compile(wb, { snapshot, build }) {
   const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues);
   const measurementsById = new Map(measurements.map((m) => [m.id, m]));
 
-  const profiles = compileProfiles(wb['Print setup'].rows, issues);
+  const profiles = compileProfiles(wb['Print setup'].rows, wb['Print setup notes'].rows, issues);
   const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));
   for (const p of profiles) p.retired = retiredGrades.has(p.gradeId);
   const profilesByMaterial = new Map();

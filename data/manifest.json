@@ -11,7 +11,11 @@
     },
     "profiles": {
       "rows": 172,
-      "sha256": "65c6a49aac8b8043295c316dab57bfcb5c630176a4b9ee12087a768d050baba6"
+      "sha256": "516368b1922ef2fab57307f08ea25004abb57d3ababa27fbe5410069b8514c30"
+    },
+    "profile_notes": {
+      "rows": 363,
+      "sha256": "662a814e742e99503d80e0698801474226b1d9cf0145f628f4bd4720551ccd6b"
     },
     "measurements": {
       "rows": 2645,
@@ -43,7 +47,7 @@
     },
     "method": {
       "rows": 48,
-      "sha256": "d19fa185ffb7858acf9e2102a281166cc69ea7bfdaa7991e7816f8d8d6642210"
+      "sha256": "9f5353c8c60aa1d7e3ce685bb5c21e58522b891c1dbf50b30730b466ca3f68a0"
     },
     "reference": {
       "rows": 114,

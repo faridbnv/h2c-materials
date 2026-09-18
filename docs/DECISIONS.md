@@ -75,6 +75,7 @@ break if it were reversed, because that is the part that gets lost.
 | D66 | A templated safety data sheet is evidence only where it speaks about the product | In force |
 | D67 | A property is a row, not a pair of columns: the reference envelopes are long | In force |
 | D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | In force |
+| D69 | A profile's qualitative notes are rows, and an empty column is not a fact | In force |
 
 <!-- end index -->
 
@@ -1445,3 +1446,28 @@ their headers.
 
 Reversing it brings back a build that stops on a sentence, and the pressure that creates to reuse a wording that is
 close enough rather than record what the sheet says.
+
+## D69. A profile's qualitative notes are rows, and an empty column is not a fact
+
+`profiles.csv` was 56 columns wide. Eleven of them held free text about how a material prints, 363 notes spread
+across 172 profiles, so most were empty on most rows. Three — Stringing, Volumetric limit and Difficulty — were
+empty on every row of every profile, and had been since the workbook. A twelfth topic meant a column on all 172.
+
+Worse, the notes were not reaching anyone. Only Storage humidity was compiled at all, and nothing rendered it; the
+other ten were in the table and nowhere else, so a reader looking for what a manufacturer says about cooling or
+overhangs could not see it, and a curator had no reason to record any more of it.
+
+- **A note is a row.** `profile_notes.csv` holds one per profile and topic, the shape used everywhere else here
+  (`headlines.csv`, `material_links.csv`, `fatigue_tests.csv`). A topic a source says nothing about has no row.
+- **The topic is a vocabulary.** `schema/vocab/profile-topics.csv` names the eleven. A new one is a row there and
+  the notes that use it; it was a column on every profile and a schema change.
+- **The notes are shown.** The Printing tab renders each profile's notes under its typed fields, so all 363 reach
+  the reader. That is the point of recording them.
+- **An empty column is not a fact.** The three that were never once filled are gone. If a source ever publishes a
+  volumetric limit it is a topic and a row, not a column that 171 profiles leave blank to say nothing.
+- **A constant is a rule, not a per-profile value.** Temperature-group conflict was one sentence repeated on all 172
+  rows. It is a rule of the database, so it belongs in `method.csv`, and its one clause the Method row did not
+  already carry (the 45 °C low-temperature chamber guide limit) was added there.
+
+`profiles.csv` keeps what the build decides on: the typed temperature axes, drying, enclosure, abrasion and routing.
+Reversing it brings back a table that has to be widened to record a sentence, and evidence nobody can read.

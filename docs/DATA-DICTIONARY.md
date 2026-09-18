@@ -27,7 +27,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
-| [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. |
+| [profile_notes](#profile_notes) | ProfileID + Topic | One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile. |
+| [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69). |
 | [properties](#properties) | Property | One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all). |
 | [reference](#reference) | Name | Uncited bulk and molded envelopes from a general engineering reference, drawn on Ashby charts for scale only. Its envelopes are rows of reference_envelopes.csv, one per property. |
 | [reference_envelopes](#reference_envelopes) | Name + Property | One row per reference material and property: the min/max envelope drawn on Ashby charts for scale only. A property is a row here and a value of schema/vocab/reference-properties.csv, which carries its unit, so a new reference property is data and needs no column and no schema change. |
@@ -337,9 +338,19 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Access date | raw | date | yes |  |  | Date the listing was read. |
 | Notes | prose | string | yes |  |  | Notes. |
 
+### profile_notes
+
+`data/tables/profile_notes.csv` (Print profile notes). One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| ProfileID | key | string | yes |  | → profiles.ProfileID | The profile this note belongs to. |
+| Topic | key | string | yes |  | [profile-topics](#vocab-profile-topics) | What the note is about. |
+| Text | raw | string | yes |  |  | What the source says, in its own words. A topic the source says nothing about has no row. |
+
 ### profiles
 
-`data/tables/profiles.csv` (Print setup). One row per published print profile for an exact grade.
+`data/tables/profiles.csv` (Print setup). One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69).
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
@@ -365,15 +376,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Enclosure | raw | string | yes |  |  | Enclosure as published; parsed by the build. |
 | Enclosure state | canonical | string | yes |  | [enclosure-states](#vocab-enclosure-states) | Reviewed reading of Enclosure. |
 | Plate | raw | string | yes |  |  | Plate as published; parsed by the build. |
-| Adhesion / release | raw | string | yes |  |  | Adhesion / release as published; parsed by the build. |
-| Cooling | raw | string | yes |  |  | Cooling as published; parsed by the build. |
-| Speed | raw | string | yes |  |  | Speed as published; parsed by the build. |
-| Volumetric limit | raw | string | yes |  |  | Volumetric limit as published; parsed by the build. |
 | Drying | raw | string | yes |  |  | Drying as published; parsed by the build. |
 | Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
 | Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature. |
 | Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time. |
-| Storage humidity | raw | string | yes |  |  | Storage humidity as published; parsed by the build. |
 | Nozzle material | raw | string | yes |  |  | Nozzle material as published; parsed by the build. |
 | Nozzle diameter | raw | string | yes |  |  | Nozzle diameter as published; parsed by the build. |
 | Abrasion / clogging | raw | string | yes |  |  | Abrasion / clogging as published; parsed by the build. |
@@ -383,17 +389,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | AMS 2 Pro | editorial | string | yes |  |  | AMS 2 Pro compatibility assessment. |
 | AMS HT | editorial | string | yes |  |  | AMS HT compatibility assessment. |
 | AMS published | raw | string | yes |  |  | AMS compatibility as published. |
-| Temperature-group conflict | prose | string | yes |  |  | Mixed-temperature caution. |
 | Support pairing | raw | string | yes |  |  | Support pairing as published. |
-| Difficulty | raw | string | yes |  |  | Difficulty as published. |
-| Warping / shrinkage | raw | string | yes |  |  | Warping / shrinkage as published. |
-| Stringing | raw | string | yes |  |  | Stringing as published. |
-| Bridging | raw | string | yes |  |  | Bridging as published. |
-| Overhang | raw | string | yes |  |  | Overhang as published. |
-| Detail / tolerance | raw | string | yes |  |  | Detail / tolerance as published. |
-| Surface finish | raw | string | yes |  |  | Surface finish as published. |
-| Layer adhesion | raw | string | yes |  |  | Layer adhesion as published. |
-| Odour / emissions | raw | string | yes |  |  | Odour / emissions as published. |
 | Failure modes | raw | string | yes |  |  | Failure modes as published. |
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source of the profile. |
 | H2C SourceID | editorial | list (";") | yes |  | list of → sources.SourceID | Sources for the H2C-specific assessment. |
@@ -989,6 +985,25 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|
 | Current manufacturer product guidance |  |
 | Manufacturer published guidance |  |
+
+<a id="vocab-profile-topics"></a>
+### profile-topics
+
+`schema/vocab/profile-topics.csv`, used by profile_notes.Topic.
+
+| Value | Meaning |
+|---|---|
+| Adhesion / release | How the source says to make the first layer stick and the part come off. |
+| Cooling | Part cooling fan guidance. |
+| Speed | Print speed guidance. |
+| Storage humidity | The humidity the source says to store the filament at. |
+| Warping / shrinkage | What the source says about warping and shrinkage. |
+| Bridging | Bridging guidance. |
+| Overhang | Overhang guidance. |
+| Detail / tolerance | What the source claims about fine detail or dimensional tolerance. |
+| Surface finish | What the source claims about the finished surface. |
+| Layer adhesion | What the source claims about bonding between layers. |
+| Odour / emissions | What the source says about odour, fumes and ventilation. |
 
 <a id="vocab-property-domains"></a>
 ### property-domains

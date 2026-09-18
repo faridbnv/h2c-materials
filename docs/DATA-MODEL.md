@@ -13,7 +13,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 |---|---|
 | `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
 | `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
-| `profiles.csv` | Processing guidance and H2C routing, per grade |
+| `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
+| `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
 | `evidence.csv` | Chemical, environmental and application evidence |
 | `prices.csv` | Canadian price observations |

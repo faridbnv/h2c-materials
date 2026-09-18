@@ -1,0 +1,364 @@
+ProfileID,Topic,Text
+P0002,Adhesion / release,Glue when needed
+P0002,Cooling,100%
+P0002,Speed,Classic :50-100mm/s
+P0003,Cooling,0- 100%
+P0003,Speed,30-70 mm/s
+P0004,Adhesion / release,Glue
+P0004,Cooling,Turn on
+P0004,Storage humidity,< 20% RH (Sealed with desiccant)
+P0005,Adhesion / release,Glue
+P0005,Cooling,Turn on
+P0005,Storage humidity,< 20% RH (Sealed with desiccant)
+P0006,Adhesion / release,Glue
+P0006,Cooling,100%
+P0006,Speed,< 300 mm/s
+P0006,Storage humidity,< 20% RH (Sealed with desiccant)
+P0006,Overhang,Angle 55°
+P0007,Cooling,Turn on
+P0007,Speed,< 300 mm/s
+P0007,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0007,Bridging,Length 30 mm
+P0007,Overhang,Angle 55 °
+P0008,Adhesion / release,Glue
+P0008,Cooling,Turn on
+P0008,Speed,< 150 mm/s
+P0008,Storage humidity,"<20% RH (Sealed, with desiccant)"
+P0008,Bridging,Length 30 mm
+P0008,Overhang,Angle 55 °
+P0009,Cooling,Turn on
+P0009,Speed,< 250 mm/s
+P0009,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0009,Bridging,Length 30 mm
+P0009,Overhang,Angle 55 °
+P0010,Adhesion / release,Glue
+P0010,Cooling,Turn on
+P0010,Speed,< 250 mm/s
+P0010,Storage humidity,"< 20% RH ( Sealed, with desiccant )"
+P0010,Overhang,Angle 55 °
+P0011,Adhesion / release,Glue
+P0011,Cooling,Turn on
+P0011,Speed,< 300 mm/s
+P0011,Storage humidity,< 20% RH (Sealed with desiccant)
+P0012,Adhesion / release,Glue
+P0012,Cooling,Turn on
+P0012,Speed,< 250 mm/s
+P0012,Storage humidity,< 20% RH (Sealed with desiccant)
+P0013,Adhesion / release,PVP Glue
+P0013,Cooling,100%
+P0013,Speed,< 250 mm/s
+P0013,Storage humidity,< 20% RH (Sealed with desiccant)
+P0014,Adhesion / release,Glue
+P0014,Cooling,Turn on
+P0014,Speed,< 250 mm/s
+P0014,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0014,Overhang,Angle ~ 55 °
+P0015,Adhesion / release,Glue
+P0015,Cooling,Turn on
+P0015,Speed,<250 mm/s
+P0015,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0016,Adhesion / release,Glue
+P0016,Cooling,Turn on
+P0016,Speed,< 250 mm/s
+P0016,Storage humidity,< 20% RH (Sealed with desiccant)
+P0017,Adhesion / release,Glue
+P0017,Cooling,Turn on
+P0017,Speed,< 180 mm/s
+P0017,Storage humidity,"<20% RH ( Sealed, with desiccant )"
+P0017,Bridging,Length 30 mm
+P0017,Overhang,Angle 55°
+P0018,Adhesion / release,Glue
+P0018,Cooling,Turn on
+P0018,Speed,< 200 mm/s
+P0018,Storage humidity,"< 20% RH ( Sealed, with desiccant )"
+P0019,Adhesion / release,PC and Texture PEI (Glue when needed)
+P0019,Cooling,ON
+P0019,Speed,Up to 350 (mm/s)
+P0022,Adhesion / release,Glue
+P0022,Cooling,OFF-20%
+P0022,Speed,30-50 (mm/s)
+P0022,Overhang,angle 60 (˚)
+P0023,Cooling,0- 100%
+P0023,Speed,30-70 mm/s
+P0024,Cooling,0 - 60%
+P0024,Speed,< 200 mm/s
+P0024,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0025,Adhesion / release,Glue
+P0025,Cooling,0 -60%
+P0025,Speed,< 300 mm/s
+P0025,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0026,Adhesion / release,Glue
+P0026,Cooling,0 - 60%
+P0026,Speed,< 220 mm/s
+P0026,Storage humidity,< 20% RH (Sealed with desiccant)
+P0027,Cooling,0 - 60%
+P0027,Speed,< 200 mm/s
+P0027,Storage humidity,"Container's Humidity < 20% RH ( Sealed, with desiccant )"
+P0030,Adhesion / release,"Glue, Magigoo"
+P0030,Cooling,OFF-20%
+P0030,Speed,30-50 (mm/s)
+P0030,Overhang,angle 70 (˚)
+P0032,Adhesion / release,Glue
+P0032,Cooling,0 - 80%
+P0032,Speed,< 300 mm/s
+P0032,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0033,Adhesion / release,Glue
+P0033,Cooling,0 - 80%
+P0033,Speed,< 180 mm/s
+P0033,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0035,Cooling,100%
+P0035,Speed,30-60 mm/s
+P0037,Speed,"30-100mm/s, Filling Rate 100%, Filling Angle ±45°"
+P0038,Adhesion / release,Glue
+P0038,Cooling,0 - 80%
+P0038,Speed,< 250 mm/s
+P0038,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0038,Bridging,Length ~ 40 mm
+P0038,Overhang,Angle ~ 70°
+P0039,Adhesion / release,Glue
+P0039,Cooling,0 - 80%
+P0039,Speed,< 150 mm/s
+P0039,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0039,Overhang,Angle ~ 70 °
+P0040,Cooling,Turn on
+P0040,Speed,< 250 mm/s
+P0040,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0040,Bridging,Length ~ 40 mm
+P0040,Overhang,Angle ~ 70 °
+P0041,Cooling,0-20%
+P0041,Speed,** 30 - 70 mm/s
+P0043,Adhesion / release,PVP Glue
+P0043,Cooling,0 - 60%
+P0043,Speed,<300 mm/s
+P0043,Storage humidity,< 20% RH (Sealed with desiccant)
+P0043,Bridging,Length ~ 40 mm
+P0043,Overhang,Angle ~ 70°
+P0044,Adhesion / release,Glue
+P0044,Cooling,0 -60%
+P0044,Speed,< 300 mm/s
+P0044,Storage humidity,< 20% RH (Sealed with desiccant)
+P0046,Cooling,0-20%
+P0049,Adhesion / release,"PVA or PVP glue, Magigoo"
+P0049,Cooling,ON
+P0049,Speed,20-40 (mm/s)
+P0049,Overhang,angle 35 (˚)
+P0050,Cooling,0- 100%
+P0050,Speed,20-50 mm/s
+P0051,Adhesion / release,Glue
+P0051,Cooling,Turn on
+P0051,Speed,< 250 mm/s
+P0051,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0051,Bridging,Length 20 mm
+P0051,Overhang,Angle ~ 70 °
+P0052,Adhesion / release,Glue
+P0052,Cooling,Turn on
+P0052,Speed,< 200 mm/s
+P0052,Storage humidity,< 20% RH (Sealed with desiccant)
+P0053,Cooling,Turn on
+P0053,Speed,< 200 mm/s
+P0053,Storage humidity,"<20% RH (Sealed, with desiccant)"
+P0054,Cooling,Turn on
+P0054,Speed,<200 mm/s
+P0054,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0054,Bridging,Length 10 mm
+P0054,Overhang,Angle ~ 40 °
+P0055,Adhesion / release,PP adhesive
+P0055,Speed,20-50 mm/s
+P0055,Storage humidity,Keep dry; sealed15-25°C; RH not specified
+P0056,Adhesion / release,"PVA or PVP glue, Magigoo"
+P0056,Cooling,ON
+P0056,Speed,30-60 (mm/s)
+P0056,Overhang,angle 35 (˚)
+P0057,Cooling,10~50 %
+P0057,Speed,25~110 mm/s
+P0059,Adhesion / release,PP adhesive
+P0059,Speed,20-50 mm/s
+P0059,Storage humidity,Keep dry; sealed15-25°C; RH not specified
+P0060,Adhesion / release,Glue
+P0060,Cooling,OFF
+P0060,Speed,30-60 (mm/s)
+P0060,Overhang,angle 55 (˚)
+P0062,Cooling,0 - 10%
+P0062,Speed,** 30-70 mm/s
+P0063,Adhesion / release,Glue
+P0063,Cooling,0 - 40%
+P0063,Speed,< 100 mm/s
+P0063,Storage humidity,< 20% RH (Sealed with desiccant)
+P0064,Cooling,0 - 10%
+P0064,Speed,** 30-70 mm/s
+P0065,Cooling,0 - 60%
+P0065,Speed,< 100 mm/s
+P0065,Storage humidity,"Container's Humidity < 20% RH ( Sealed, with desiccant )"
+P0066,Adhesion / release,Glue
+P0066,Cooling,0 - 60%
+P0066,Speed,< 130 mm/s
+P0066,Storage humidity,< 20% RH (Sealed with desiccant)
+P0066,Bridging,Length ~ 40 mm
+P0066,Overhang,Angle ~ 70°
+P0069,Adhesion / release,PVP Glue
+P0069,Cooling,OFF
+P0069,Speed,30-60 (mm/s)
+P0069,Overhang,angle 60 (˚)
+P0070,Cooling,0-10%
+P0072,Adhesion / release,Glue
+P0072,Cooling,OFF
+P0072,Speed,30-60 (mm/s)
+P0072,Overhang,angle 55 (˚)
+P0074,Cooling,OFF Recommended
+P0075,Adhesion / release,Glue
+P0075,Cooling,OFF
+P0075,Speed,30-60 (mm/s)
+P0075,Overhang,angle 55 (˚)
+P0078,Cooling,OFF Recommended
+P0081,Adhesion / release,Glue
+P0081,Cooling,OFF
+P0081,Speed,30-60 (mm/s)
+P0081,Overhang,angle 50 (˚)
+P0083,Cooling,OFF Recommended
+P0084,Cooling,OFF Recommended
+P0085,Cooling,0-50%
+P0085,Storage humidity,Dry box required; RH not published
+P0085,Detail / tolerance,Manufacturer promotes high detail; no part-dimensional tolerance specified
+P0086,Adhesion / release,Glue
+P0086,Cooling,0 - 60%
+P0086,Speed,< 100 mm/s
+P0086,Storage humidity,<20% RH (Sealed with desiccant)
+P0087,Cooling,0-20%
+P0087,Speed,40-150 mm/s
+P0087,Storage humidity,≤20% RH; sealed with desiccant; room temperature to40°C
+P0087,Detail / tolerance,Recommended layer0.12-0.30 mm; no finished-part dimensional tolerance published
+P0088,Adhesion / release,Apply liquid glue or PVP solid glue stick if the first layer
+P0088,Cooling,0 - 40%
+P0089,Adhesion / release,Glue Stick
+P0089,Cooling,Turn on
+P0089,Speed,< 100 mm/s
+P0089,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0090,Adhesion / release,Apply liquid glue or PVP solid glue stick if the first layer
+P0090,Cooling,0 - 40%
+P0092,Cooling,"0 - 10% is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture,"
+P0092,Speed,** 30-70 mm/s
+P0093,Adhesion / release,Glue
+P0093,Cooling,0 -40%
+P0093,Speed,< 100 mm/s
+P0093,Storage humidity,<20% RH (Sealed with desiccant)
+P0094,Adhesion / release,Apply liquid glue or PVP solid glue stick if the first layer
+P0094,Cooling,0% - 40%
+P0095,Cooling,OFF
+P0096,Adhesion / release,Glue
+P0096,Cooling,Turn on
+P0096,Speed,< 200 mm/s
+P0096,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0096,Overhang,Angle 55 °
+P0097,Cooling,0 - 30%
+P0098,Adhesion / release,Glue
+P0098,Cooling,Turn on
+P0098,Speed,<100 mm/s
+P0098,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0098,Bridging,Length 30 mm
+P0098,Overhang,Angle 55°
+P0099,Adhesion / release,Glue
+P0099,Cooling,Turn on
+P0099,Speed,< 100 mm/s
+P0099,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0099,Overhang,Angle 55 °
+P0100,Adhesion / release,PVP Glue
+P0100,Cooling,0 - 60%
+P0100,Speed,< 100 mm/s
+P0100,Storage humidity,"< 20% RH (Sealed, with desiccant)"
+P0102,Cooling,0 - 20%
+P0102,Speed,** 40-100 mm/s
+P0108,Speed,10-40 mm/s
+P0111,Cooling,"YES (up to 100%) is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture,"
+P0111,Speed,** 40-110 mm/s
+P0113,Adhesion / release,Magigoo or 3Dlac necessary to prevent bed damage
+P0113,Cooling,0-15%; higher for bridges/overhangs/supports only
+P0113,Speed,20-40 mm/s
+P0113,Detail / tolerance,Filament ±0.10 mm tolerance is not a printed-part tolerance
+P0114,Cooling,50-85% temperature. Recommended storage temperature
+P0114,Speed,** 30-80 mm/s
+P0117,Cooling,100% recommended; specimen tests used cooling off
+P0117,Speed,Up to200 mm/s
+P0119,Adhesion / release,PVA glue or MAGIGOO PC
+P0119,Cooling,OFF
+P0119,Speed,30-50 (mm/s)
+P0119,Overhang,angle 45 (˚)
+P0120,Cooling,"0 - 25% UL-94 V0 flammability standards, which means it is"
+P0120,Speed,** 40 - 300 mm/s FEAUTURES
+P0121,Adhesion / release,PVA glue or MAGIGOO PC
+P0121,Cooling,OFF
+P0121,Speed,30-50 (mm/s)
+P0121,Overhang,angle 45 (˚)
+P0124,Cooling,0-50%
+P0124,Speed,30-50 mm/s
+P0128,Cooling,OFF
+P0128,Speed,30-40 mm/s
+P0132,Cooling,OFF
+P0132,Speed,30-50 mm/s
+P0133,Detail / tolerance,No special concerns
+P0134,Detail / tolerance,No special concerns
+P0135,Detail / tolerance,0.25mm or higher
+P0136,Detail / tolerance,No special concerns
+P0137,Detail / tolerance,0.25mm or higher
+P0138,Detail / tolerance,No special concerns
+P0139,Detail / tolerance,No special concerns
+P0140,Detail / tolerance,0.25mm or higher
+P0141,Detail / tolerance,0.25mm or higher
+P0142,Detail / tolerance,No special concerns
+P0143,Detail / tolerance,No special concerns
+P0144,Detail / tolerance,0.25mm or higher
+P0145,Detail / tolerance,No special concerns
+P0146,Detail / tolerance,No special concerns
+P0147,Detail / tolerance,0.25mm or higher
+P0148,Detail / tolerance,No special concerns
+P0149,Detail / tolerance,No special concerns
+P0150,Detail / tolerance,No special concerns
+P0151,Detail / tolerance,No special concerns
+P0152,Detail / tolerance,No special concerns
+P0153,Detail / tolerance,No special concerns
+P0154,Detail / tolerance,No special concerns
+P0155,Detail / tolerance,No special concerns
+P0156,Detail / tolerance,No special concerns
+P0157,Adhesion / release,Bambu Liquid Glue / Glue Stick
+P0157,Cooling,Turn on
+P0157,Speed,< 200 mm/s
+P0157,Storage humidity,"<20% RH, sealed with desiccant"
+P0157,Bridging,Maximum bridge length 30 mm
+P0157,Overhang,Maximum overhang angle 55°
+P0157,Surface finish,Smooth support interface claimed
+P0157,Odour / emissions,Odorless in normal use; light pungent combustion odor
+P0158,Adhesion / release,PC adhesive
+P0158,Speed,30-60 mm/s
+P0158,Storage humidity,Keep dry; sealed storage at 15-25 °C
+P0158,Warping / shrinkage,Good dimensional stability is a manufacturer claim
+P0158,Odour / emissions,Process in a well-ventilated room or use professional extraction
+P0159,Speed,44 mm/s
+P0159,Surface finish,Soft-touch claim
+P0159,Layer adhesion,Good layer adhesion claim
+P0160,Adhesion / release,Magigoo HT or VM Nano
+P0160,Cooling,0-20%
+P0160,Speed,25-75 mm/s; first layer 20 mm/s
+P0160,Storage humidity,Vacuum-sealed / dry storage
+P0161,Cooling,100%
+P0161,Speed,<200 mm/s (high-speed parameter)
+P0162,Speed,Up to 250 mm/s
+P0163,Speed,Up to 400 mm/s
+P0164,Cooling,Off
+P0164,Speed,Up to 250 mm/s
+P0164,Storage humidity,Below 20% RH
+P0165,Adhesion / release,"Magigoo, 3DLac, PVA glue"
+P0165,Cooling,0-15%
+P0165,Speed,40-60 mm/s
+P0165,Storage humidity,Airtight bag with desiccant
+P0166,Adhesion / release,"Magigoo, 3DLac, PVA glue"
+P0166,Cooling,0-15%
+P0166,Speed,30-50 mm/s
+P0166,Storage humidity,Airtight bag with desiccant
+P0167,Cooling,0-80%
+P0167,Speed,40-70 mm/s
+P0168,Speed,30-150 mm/s
+P0169,Cooling,10-40%
+P0169,Speed,Up to 300 mm/s
+P0169,Storage humidity,≤ 20% RH
+P0171,Speed,10-30 mm/s
+P0170,Cooling,0-20%
+P0170,Speed,40-250 mm/s
