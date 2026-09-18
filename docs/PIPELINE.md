@@ -59,10 +59,18 @@ ISO 75-2's method letters (A 1.80 MPa, B 0.45 MPa), ASTM D648's psi (66, 264) an
 both loads states neither. A load that was never stated stays unstated, and every HDT headline in that position carries
 `loadStated: false` (HDT-LOAD-UNSTATED lists them, each reviewed).
 
-**Declared states** (`moisture.js`, `specimen.js`). Each Moisture condition wording declares its State (dry,
-conditioned, not-stated), each Post-processing wording its State (as-printed, annealed, not-stated), and each Specimen
-type its Form (printed, not-stated, moulded, film, filament), in their vocabularies; an undeclared wording stops the
-build. Nothing downstream reads the words themselves (D53, D56).
+**Standards** (`standards.js`). The standards a measurement's Standard / load text names, at family level and one
+spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of
+one test that the row's own columns carry. ASTM designations printed without the body ("D 638") are read as ASTM's.
+A text naming none reads as none, which is what a melt-flow condition or a study's own method does. The typed
+`Standards` list is what the build reads; this parser checks it (D76).
+
+**Declared states** (`moisture.js`, `specimen.js`). A measurement carries its Moisture state (dry, conditioned,
+not-stated) and Post-processing state (as-printed, annealed, not-stated) as typed columns, and each Specimen type
+declares a Form (printed, not-stated, moulded, film, filament) in its vocabulary, because those ten wordings are the
+database's own. The build reads the state, never the words. Where the words plainly say otherwise the build stops
+(PARSE-MISMATCH); where they say nothing the column decides, so a new datasheet sentence is data rather than a
+schema change (D53, D56, D68).
 
 **Typed values** (`typed-values.js`). The parsers above no longer feed compile directly: the typed columns do, and
 the parsers check them (PARSE-MISMATCH unless Parse review explains the difference; D49).
@@ -132,6 +140,13 @@ Compile also derives, each tagged with its origin so the interface can tell them
   under 0.45 MPa), at their published value. They veto a screen that would be wrong and limit the estimate (D55).
   A moulded, film, filament or unstated specimen, an annealed twin and a conditioned elongation bound nothing.
 - **Facets** the Materials table does not carry directly, marked `derived`.
+- **What a material's headline values represent**, and the sentence describing its price sample. Both were columns
+  of `materials.csv` until m45: the first is three sentences chosen by Scope and Representative grade, the second
+  counts the observations compile already counts (D70).
+- **Coverage rows for the domains a material's own records prove**, one per (material, domain) pair no stored row
+  speaks for, marked `derived` and naming what proves it: the measurement count, the profile IDs, the price
+  observations. A stored row is somebody's judgement and always wins. 541 templated rows that only restated the
+  records left the table for the audit record when this began (D74).
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
   profiles, with the number of profiles behind each. It answers "what do I set it to", which was otherwise only in
   free text one tab deep. Where the chamber is answered in words, the strongest statement across the
