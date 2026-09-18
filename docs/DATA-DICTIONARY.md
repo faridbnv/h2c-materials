@@ -893,9 +893,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning | State |
 |---|---|---|
-| 50% RH | Tested at 50% relative humidity | conditioned |
 | <20% RH during printing/storage | Storage or printing humidity; the moisture state at test is not stated | not-stated |
+| 50% RH | Tested at 50% relative humidity | conditioned |
 | Conditioned: 70% RH | Conditioned at 70% relative humidity before testing | conditioned |
+| Conditioned: immerged at ambient temperature for 3 days (medium not stated) | Immersed at ambient temperature before testing; the sheet does not name the medium | conditioned |
 | Conditioned: standard climate (23 °C, 50% RH, 72 h) | Conditioned in a standard climate before testing, as the source specifies | conditioned |
 | Conditioned: water immersion | Immersed in water before testing | conditioned |
 | Dried before testing (see preparation) | Dried before testing; the Post-processing column says how | dry |
@@ -906,6 +907,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Kept dry; TDS recommends drying before printing | Storage guidance; the moisture state at test is not stated | not-stated |
 | Not published | The source does not state the moisture state at test | not-stated |
 | Wet (conditioning specified in source) | Conditioned wet as the source specifies | conditioned |
+| Wet (the row is labelled Wet; the sheet states no conditioning) | The row is labelled Wet and the source states no conditioning procedure | conditioned |
 
 <a id="vocab-notches"></a>
 ### notches
@@ -966,6 +968,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | All specimens were annealed at 100 °C for 16 h | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%) | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 4.64%) | Annealed before testing (the schedule is in the wording) | annealed |
+| All specimens were annealed at 100 °C for 8 h, and immerged in ambient temperature for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 120 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 120 °C for 16 h (TDS note under the mechanical table) | Annealed before testing (the schedule is in the wording) | annealed |
 | All specimens were annealed at 130 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
@@ -1073,6 +1076,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Manufacturer comparison guide |  |
 | Manufacturer description at distributor |  |
 | Manufacturer product / guide |  |
+| Manufacturer SDS |  |
 | Manufacturer TDS |  |
 | Manufacturer TDS (web) |  |
 | Manufacturer TDS hosted by current brand owner |  |

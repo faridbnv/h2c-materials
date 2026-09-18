@@ -533,7 +533,7 @@ High-stiffness fixture,Explore with estimates,M083,PP-CF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M084,PP-GF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M086,OBC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,screened,tensileModulusXY >= 5
-High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M093,PVB,UNKNOWN,screened,tensileModulusXY >= 5
 Flexible component,Strict,M039,TPU,PASS,yes,
 Flexible component,Strict,M040,TPU for AMS,PASS,yes,

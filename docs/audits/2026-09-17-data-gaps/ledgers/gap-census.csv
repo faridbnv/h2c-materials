@@ -17,17 +17,17 @@ Headlines,tensileModulusXY: measured,74,103,build/snapshot/headlines.csv
 Headlines,tensileModulusXY: no value at all,6,103,build/snapshot/headlines.csv
 Headlines,tensileStrengthXY: measured,59,103,build/snapshot/headlines.csv
 Headlines,tensileStrengthXY: no value at all,6,103,build/snapshot/headlines.csv
-Screening,density this-material back-test cases,35,22,build/snapshot/screening.csv
-Screening,tensileModulusXY this-material back-test cases,30,22,build/snapshot/screening.csv
-Screening,tensileStrengthXY this-material back-test cases,19,22,build/snapshot/screening.csv
-Screening,elongationXY this-material back-test cases,31,22,build/snapshot/screening.csv
-Screening,hdt045 this-material back-test cases,23,22,build/snapshot/screening.csv
-Screening,Classes that cannot screen,7,34,build/snapshot/screening.csv
+Screening,density this-material back-test cases,40,22,build/snapshot/screening.csv
+Screening,tensileModulusXY this-material back-test cases,35,22,build/snapshot/screening.csv
+Screening,tensileStrengthXY this-material back-test cases,24,22,build/snapshot/screening.csv
+Screening,elongationXY this-material back-test cases,36,22,build/snapshot/screening.csv
+Screening,hdt045 this-material back-test cases,28,22,build/snapshot/screening.csv
+Screening,Classes that cannot screen,6,34,build/snapshot/screening.csv
 Properties,Density: materials with any value,96,103,data/tables/measurements.csv
 Properties,Tensile modulus: materials with any value,92,103,data/tables/measurements.csv
 Properties,Tensile strength (endpoint unspecified): materials with any value,78,103,data/tables/measurements.csv
 Properties,Tensile yield strength: materials with any value,17,103,data/tables/measurements.csv
-Properties,Tensile break strength: materials with any value,30,103,data/tables/measurements.csv
+Properties,Tensile break strength: materials with any value,35,103,data/tables/measurements.csv
 Properties,Elongation at break: materials with any value,94,103,data/tables/measurements.csv
 Properties,Elongation at yield: materials with any value,13,103,data/tables/measurements.csv
 Properties,Tensile strain at strength: materials with any value,4,103,data/tables/measurements.csv
@@ -38,12 +38,12 @@ Properties,Flexural stress at conventional deflection: materials with any value,
 Properties,Charpy strength: materials with any value,69,103,data/tables/measurements.csv
 Properties,Izod impact strength: materials with any value,19,103,data/tables/measurements.csv
 Properties,Impact strength: materials with any value,8,103,data/tables/measurements.csv
-Properties,Hardness: materials with any value,20,103,data/tables/measurements.csv
+Properties,Hardness: materials with any value,22,103,data/tables/measurements.csv
 Properties,Compression strength: materials with any value,1,103,data/tables/measurements.csv
 Properties,Interlayer adhesion strength: materials with any value,1,103,data/tables/measurements.csv
 Properties,Fatigue life: materials with any value,4,103,data/tables/measurements.csv
 Properties,HDT: materials with any value,91,103,data/tables/measurements.csv
-Properties,Glass transition temperature: materials with any value,75,103,data/tables/measurements.csv
+Properties,Glass transition temperature: materials with any value,78,103,data/tables/measurements.csv
 Properties,Vicat softening temperature: materials with any value,72,103,data/tables/measurements.csv
 Properties,Melting temperature: materials with any value,72,103,data/tables/measurements.csv
 Properties,Crystallization temperature: materials with any value,44,103,data/tables/measurements.csv
@@ -51,35 +51,35 @@ Properties,Continuous service temperature: materials with any value,3,103,data/t
 Properties,Thermal conductivity: materials with any value,8,103,data/tables/measurements.csv
 Properties,Coefficient of thermal expansion: materials with any value,1,103,data/tables/measurements.csv
 Properties,Water absorption: materials with any value,62,103,data/tables/measurements.csv
-Properties,Moisture content: materials with any value,1,103,data/tables/measurements.csv
+Properties,Moisture content: materials with any value,2,103,data/tables/measurements.csv
 Properties,Melt mass-flow rate: materials with any value,62,103,data/tables/measurements.csv
 Properties,Melt volume-flow rate: materials with any value,4,103,data/tables/measurements.csv
-Conditions,Rows whose moisture condition is Not published,1552,2361,data/tables/measurements.csv
-Conditions,Rows whose post-processing is Not published,1390,2361,data/tables/measurements.csv
-Conditions,"Rows whose specimen type starts ""Not published""",758,2361,data/tables/measurements.csv
-Conditions,Rows whose direction is Not published,286,2361,data/tables/measurements.csv
-Conditions,Rows whose test temperature is Not published,2250,2361,data/tables/measurements.csv
+Conditions,Rows whose moisture condition is Not published,1670,2490,data/tables/measurements.csv
+Conditions,Rows whose post-processing is Not published,1437,2490,data/tables/measurements.csv
+Conditions,"Rows whose specimen type starts ""Not published""",863,2490,data/tables/measurements.csv
+Conditions,Rows whose direction is Not published,326,2490,data/tables/measurements.csv
+Conditions,Rows whose test temperature is Not published,2378,2490,data/tables/measurements.csv
 Conditions,"Materials with a Comparability ""Limited comparability"" row",85,103,data/tables/coverage.csv
-Sources,Sources on record,287,,data/tables/sources.csv
-Sources,Distinct publishers on record,70,,data/tables/sources.csv
-Sources,Sources with a recorded SHA-256,275,287,data/tables/sources.csv
-Sources,Sources with no publication date,251,287,data/tables/sources.csv
-Sources,Sources that are safety data sheets,0,287,data/tables/sources.csv
-Sources,"Measurement rows from source class ""Manufacturer TDS""",2229,2361,data/tables/measurements.csv
-Sources,"Measurement rows from source class ""Peer-reviewed original research""",42,2361,data/tables/measurements.csv
-Sources,"Measurement rows from source class ""Resin supplier data sheet""",26,2361,data/tables/measurements.csv
-Sources,"Measurement rows from source class ""Manufacturer TDS hosted by current brand owner""",25,2361,data/tables/measurements.csv
-Sources,Measurement rows published by Bambu Lab,846,2361,data/tables/measurements.csv
-Sources,Measurement rows published by Polymaker,435,2361,data/tables/measurements.csv
-Sources,Measurement rows published by 3DXTECH,208,2361,data/tables/measurements.csv
-Sources,Measurement rows published by iSANMATE,152,2361,data/tables/measurements.csv
-Sources,Measurement rows published by BASF Forward AM,119,2361,data/tables/measurements.csv
+Sources,Sources on record,300,,data/tables/sources.csv
+Sources,Distinct publishers on record,72,,data/tables/sources.csv
+Sources,Sources with a recorded SHA-256,288,300,data/tables/sources.csv
+Sources,Sources with no publication date,261,300,data/tables/sources.csv
+Sources,Sources that are safety data sheets,6,300,data/tables/sources.csv
+Sources,"Measurement rows from source class ""Manufacturer TDS""",2331,2490,data/tables/measurements.csv
+Sources,"Measurement rows from source class ""Peer-reviewed original research""",42,2490,data/tables/measurements.csv
+Sources,"Measurement rows from source class ""Manufacturer TDS (web)""",27,2490,data/tables/measurements.csv
+Sources,"Measurement rows from source class ""Resin supplier data sheet""",26,2490,data/tables/measurements.csv
+Sources,Measurement rows published by Bambu Lab,846,2490,data/tables/measurements.csv
+Sources,Measurement rows published by Polymaker,435,2490,data/tables/measurements.csv
+Sources,Measurement rows published by 3DXTECH,216,2490,data/tables/measurements.csv
+Sources,Measurement rows published by iSANMATE,152,2490,data/tables/measurements.csv
+Sources,Measurement rows published by BASF Forward AM,119,2490,data/tables/measurements.csv
 Materials,Materials on record,103,,data/tables/materials.csv
 Materials,Materials with no measurement,7,103,data/tables/measurements.csv
 Materials,Materials with no evidence record,25,103,data/tables/evidence.csv
 Materials,Materials with no price row,56,103,data/tables/prices.csv
 Materials,Materials with no profile,5,103,data/tables/profiles.csv
-Materials,Materials resting on a single manufacturer,53,94,data/tables/grades.csv
+Materials,Materials resting on a single manufacturer,48,94,data/tables/grades.csv
 Printing,Profiles stating Nozzle °C,136,172,data/tables/profiles.csv
 Printing,Profiles stating Bed °C,137,172,data/tables/profiles.csv
 Printing,Profiles stating Chamber °C,105,172,data/tables/profiles.csv
@@ -90,14 +90,14 @@ Printing,Profiles stating Stringing,0,172,data/tables/profiles.csv
 Printing,Profiles stating Layer adhesion,1,172,data/tables/profiles.csv
 Printing,Profiles stating Difficulty,0,172,data/tables/profiles.csv
 Printing,Profiles stating Failure modes,6,172,data/tables/profiles.csv
-Coverage register,"Rows with status ""Conflict""",4,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Evidence recorded""",631,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Gap""",295,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Limited comparability""",93,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Not applicable""",43,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Partially resolved""",13,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Quarantined""",2,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Resolved""",74,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Reviewed with limitations""",31,1211,data/tables/coverage.csv
-Coverage register,"Rows with status ""Superseded""",25,1211,data/tables/coverage.csv
-Coverage register,Distinct findings among the Gap rows,19,295,data/tables/coverage.csv
+Coverage register,"Rows with status ""Conflict""",4,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Evidence recorded""",632,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Gap""",294,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Limited comparability""",93,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Not applicable""",43,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Partially resolved""",13,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Quarantined""",2,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Resolved""",74,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Reviewed with limitations""",31,1214,data/tables/coverage.csv
+Coverage register,"Rows with status ""Superseded""",28,1214,data/tables/coverage.csv
+Coverage register,Distinct findings among the Gap rows,20,294,data/tables/coverage.csv

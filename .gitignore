@@ -16,3 +16,6 @@ build/reports/data-audit/
 
 # Documents fetched by `npm run audit:sources`; each is checked against its SHA-256 in sources.csv.
 .cache/
+
+# Owner-supplied source documents staged for a migration; cached under .cache/sources by SourceID.
+temp_Fillaments Docs/

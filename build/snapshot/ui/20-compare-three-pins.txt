@@ -37,7 +37,7 @@ ASA-CF
 CPE-CF
 ~1.9–4.1†
 PA-ESD
-~4.0–8.3†
+~4.0–8.2†
 0.0046
 log scale
 12.5
@@ -47,10 +47,10 @@ Strength MPa
 ASA-CF
 34
 CPE-CF
-~41–75†
+~39–76†
 PA-ESD
-~53–105†
-10.1
+~50–104†
+11
 172
 all 98 candidates
 ASA-CF: XY · Printed specimen
@@ -58,12 +58,12 @@ Stretch before breaking %
 ASA-CF
 9.6
 CPE-CF
-~4–23†
+~4–21†
 PA-ESD
-~2.3–11.8†
+~2.3–11.6†
 0.8
 log scale
-2,230
+2,050
 all 98 candidates
 ASA-CF: XY · Printed specimen
 Heat resistance °C
@@ -71,10 +71,10 @@ Heat resistance at least 100 °C
 ASA-CF
 110
 CPE-CF
-~58–91†
+~54–100†
 PA-ESD
 142
-46.6
+43.8
 264
 all 98 candidates
 ASA-CF: Printed specimen | PA-ESD: specimen not stated — conditions differ across columns
@@ -87,7 +87,7 @@ CPE-CF yes yes yes required guidance published
 PA-ESD yes yes not recorded not recorded not recorded
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
-ASA-CF 5 of 6 — 1 20
+ASA-CF 5 of 6 — 2 28
 CPE-CF 1 of 6 4† 2 16
 PA-ESD 2 of 6 3† 1 8
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

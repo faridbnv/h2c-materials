@@ -42,6 +42,15 @@ for (const s of ['S-PPA-TDS', 'D-IPCON-PPA', 'S-PPSGF-TDS-0', 'B-abs-gf-TDS', 'B
 for (const s of ['I-PLA-TDS', 'I-PETG-TDS', 'I-CF-ABS-TDS', 'I-TPU-TDS'])
   RULED.set(s, 'm33/D63: the sheet publishes no specimen preparation for its values; its Print Recommendation table is a printing guide');
 RULED.set('R-KIMYA-PEBA-S-TDS', 'owner ruling D-07: ISO 37 die-cut dumbbells; direction and specimen stay unstated');
+// m41 (2026-09-17): the twelve sources this audit opened, each re-read page by page from the cached document.
+// Not one publishes a specimen preparation - no specimen table, no print-orientation heading, no moulding
+// statement, no direction label. Several print a printing-recommendations block, which is a printing guide and
+// not a specimen condition (D63, as m33 ruled for the four iSANMATE sheets). Their rows therefore stay
+// "Not published (do not assume printed)", and only the publishers stating a specimen can change that.
+for (const s of ['S-PET-TDS', 'S-SPECTRUM-en-tds-spectrum-pctg-cf10', 'S-CPECF', 'S-SPECTRUM-en-tds-spectrum-petg-esd',
+  'R-FORMFUTURA-STYX-PA6-TDS', 'X-3DXSTAT-ESD-PA12-TDS-v1', 'S-BVOH', 'S-PES-THERMAX-PES-TDS-v1-0',
+  'I-PC-CF-TDS', 'R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS', 'S-SPECTRUM-en-tds-spectrum-pa12-cf15', 'R-YOUSU-POM-TDS'])
+  RULED.set(s, 'm41/D63: re-read 2026-09-17; the sheet publishes no specimen preparation for its values');
 RULED.set('B-support-for-pla-TDS', 'm33: the sheet has no Specimen Printing Conditions table');
 RULED.set('R-BASF-PCGF30-TDS', 'm33: only the p. 3 print-direction headings are the specimen preparation');
 RULED.set('R-ESSENTIUM-PPSCF-TDS', 'm33: only the p. 1 print-orientation headings are the specimen preparation');

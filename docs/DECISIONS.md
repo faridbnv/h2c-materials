@@ -71,6 +71,8 @@ break if it were reversed, because that is the part that gets lost.
 | D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | In force |
 | D63 | A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide | In force |
 | D64 | Polymer-level behaviour is shown and may screen, never passes | In force |
+| D65 | A test method that defines its load states that load; the typed value says so in Parse review | In force |
+| D66 | A templated safety data sheet is evidence only where it speaks about the product | In force |
 
 <!-- end index -->
 
@@ -1327,3 +1329,63 @@ paragraph as a test of a product nobody tested.
 Reversing it either hides evidence an engineer would want to see, or lets a paragraph about a resin pass a filament
 nobody tested. Letting it fail a material would be the same mistake in the other direction: the verdict describes the
 evidence, and the evidence is not about this grade.
+
+## D65. A test method that defines its load states that load; the typed value says so in Parse review
+
+Two Siraya Tech sheets print heat deflection as `93 ℃ / 97 ℃ Method A/B` and `73.5 ℃ / 81 ℃ Method A/B`, naming the
+method and never the load. Read literally, neither row carries a load, and `hdt045` cannot use a value whose load is
+unknown: both would join the seven headlines `HDT-LOAD-UNSTATED` already warns about, presented as nothing more than
+"an HDT". Read as the standards define them, both are unambiguous — ISO 75 and ASTM D648 agree that Method A is the
+high load (1.80 and 1.82 MPa) and Method B the low (0.45 and 0.455 MPa), and no third convention exists.
+
+**The load a named method defines is a stated load.** `Test load MPa` is typed to what the method means, and the row's
+`Parse review` says that the raw text names the method rather than the load, which standard defines it, and who
+decided. The parser reads the raw text and finds no load, so the typed value and the parser disagree on purpose;
+`PARSE-MISMATCH` is an error precisely so that this disagreement cannot happen silently, and `Parse review` is where
+it is defended. Nothing is inferred about a value the sheet did not print: only about what the words it did print
+mean.
+
+- **The method must be named, not guessed.** "ISO 75" alone is not a method; "Method A", "Method B", "HDT A" and
+  "ISO 75-2/A" are. A sheet naming a standard without a method keeps `Test load MPa` at `Not published` and stays in
+  the `HDT-LOAD-UNSTATED` count, which is what that warning is for.
+- **Within-publisher evidence strengthens it but is not the reason.** The same publisher's PPA-CF, PPA-CF Core and
+  PPA-GF sheets print "Method A @ 1.80 MPa" and "Method B 0.45 MPa" in full, so its `Method A/B` is demonstrably the
+  same mapping. The ruling would hold without that, because the standards agree; the sister sheets are why this
+  particular publisher's shorthand needed no owner judgement beyond confirming the rule.
+- **A sheet that contradicts the standard is transcribed, not corrected.** One source on file prints "Method A with
+  0.45 MPa and Method B with 1.80 MPa", inverting them. Its rows keep the loads the sheet printed, with the
+  disagreement in `Standard / load`. The method names the load only where the sheet does not name a different one.
+
+Reversing it would throw away a load the source does state, in the one class the screening back-test had to reach:
+`hdt045` would lose the cases these rows carry, and a reader would be told the load is unknown when the sheet named
+the test that fixes it. Extending it — typing a load from a bare standard, or from a temperature that looks like a
+0.45 MPa result — would be the real error, and is what the "method must be named" clause forbids.
+
+## D66. A templated safety data sheet is evidence only where it speaks about the product
+
+Siraya Tech's four filament safety data sheets are word-for-word identical in sections 5, 7, 10, 12 and 13, across
+three different polymers and two different fibres. Only section 3, the composition, differs. Two of the shared
+statements are false of the products carrying them: 10.4 "Avoid temperatures above 240 ºC" appears on three sheets
+whose own technical data sheets specify a 300-320 °C nozzle, and 5.3 and 10.6 name acetic acid among the
+decomposition products of all four, which is what a vinyl-acetate or cellulose-acetate polymer releases and not an
+ABS or a polyphthalamide.
+
+A safety data sheet is a `Manufacturer statement`, and the rule for those has always been to record what the
+publisher published. But `evidence.csv` rows are read per grade, and a row saying a material must stay below its own
+printing temperature is read as a design limit. Transcribing that faithfully would put a false limit on a product,
+sourced and page-cited, which is worse than not recording it.
+
+- **Composition is recorded, always.** It is the fact no technical data sheet prints, it is why the class exists, and
+  it is per-product on every sheet seen so far. It goes in `grades.Composition / filler` naming the SDS.
+- **A shared statement is recorded where it is true of any filament** — ventilation, dust, storage, disposal — with
+  `Exposure / conditions` saying it is identical across the publisher's sheets, so a reader knows it is a statement
+  about the publisher's filaments generally and not a measurement of this one.
+- **A shared statement that contradicts the product's own data sheet is not recorded**, and the migration header says
+  which statement, which sheets, and what contradicts it. The finding belongs in the audit record, not in a grade.
+- **The test is the contradiction, not the repetition.** A publisher whose sheets repeat a true statement is not
+  penalised. 3DXTECH's sheet names hydrogen cyanide, which is what an acrylonitrile polymer does produce, and its
+  flammability and stability rows are recorded in full.
+
+Reversing it would let boilerplate become per-grade evidence: a PPA-CF that "must not exceed 240 °C" beside the
+profile telling the reader to print it at 320 °C, each with a page citation. Dropping the whole document instead
+would lose the composition, which is the only reason this source class was added.
