@@ -19,6 +19,7 @@ export const LINT_RULES = {
   'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY.',
   'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
+  'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round. A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. Re-read the rows and correct whichever is on the wrong line.',
   'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
   'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
@@ -272,6 +273,42 @@ export function lintData(tables, schemas) {
         : (softHigh != null && value > softHigh) ? `above ${softHigh}, which is surprising`
         : null;
       if (beyond) add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where} is ${beyond} (${window.WindowID})`);
+    }
+  }
+
+  // Relations physics fixes between two values of one grade, source and state. These catch what a window cannot: a
+  // value that landed under the wrong property. A sheet prints its glass transition, heat deflection, Vicat and
+  // melting point as four numbers in one unit and one range, so a swapped pair is individually ordinary.
+  const elastomerIdentities = new Set((tables.polymers?.rows ?? []).filter((p) => p.Morphology === 'elastomer').map((p) => p.PolymerID));
+  const ORDERED = [
+    ['Glass transition temperature', 'Vicat softening temperature', 'a bar softens above the temperature at which its polymer goes rubbery'],
+    ['Vicat softening temperature', 'Melting temperature', 'a crystalline polymer melts above the temperature at which a needle sinks into it'],
+    ['Glass transition temperature', 'Melting temperature', 'a polymer melts above its glass transition'],
+    ['Crystallization temperature', 'Melting temperature', 'a polymer crystallises on cooling, below where it melted'],
+    ['Elongation at yield', 'Elongation at break', 'a bar yields before it breaks'],
+    ['Tensile yield strength', 'Tensile strength (endpoint unspecified)', 'the ultimate stress is the highest the bar reached, so it is at least the stress at yield'],
+  ];
+  // Two different tests can cross by a little where the polymer puts them close together: a PLA's Vicat at 10 N
+  // and its glass transition sit within a couple of degrees of each other, and which comes first is scatter. An
+  // inversion is only evidence of a swapped line when it is larger than that, so the margin is a tenth.
+  const ORDER_MARGIN = 0.1;
+  const elastomers = new Set((tables.materials?.rows ?? []).filter((m) => elastomerIdentities.has(m['Estimate identity'])).map((m) => m.MaterialID));
+  for (const rows of groups.values()) {
+    const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
+    for (const [lower, higher, why] of ORDERED) {
+      for (const a of of(lower)) {
+        for (const b of of(higher, (r) => r['Normalized unit'] === a['Normalized unit'] && r.Direction === a.Direction)) {
+          if (num(a) > num(b) * (1 + ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', a.MeasurementID, 'Normalized value', `${lower} ${num(a)} above ${higher} ${num(b)} (${b.MeasurementID}): ${why}`);
+        }
+      }
+    }
+    // A bar bends harder than it pulls, because its outer fibre carries the load: a flexural strength below the
+    // tensile strength of the same specimen is one of the two on the wrong line. An elastomer is left out: it
+    // never reaches the conventional deflection, so what its sheet calls a flexural strength is another quantity.
+    for (const flexural of of('Flexural strength', (r) => !elastomers.has(r.MaterialID))) {
+      for (const tensile of of('Tensile strength (endpoint unspecified)', (r) => r['Normalized unit'] === flexural['Normalized unit'] && r.Direction === flexural.Direction)) {
+        if (num(flexural) < num(tensile) * (1 - ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', flexural.MeasurementID, 'Normalized value', `Flexural strength ${num(flexural)} below tensile strength ${num(tensile)} (${tensile.MeasurementID}): a bar bends harder than it pulls, because its outer fibre carries the load`);
+      }
     }
   }
 

@@ -172,3 +172,21 @@ test('a value outside what its polymer can do is a finding, and a Z value is not
   // Some findings are the existence of the value, whatever its number.
   assert.match(run([row({ MaterialID: 'M1', Property: 'HDT', 'Normalized unit': '°C', 'Normalized value': '74', Direction: 'Not applicable' })])[0] ?? '', /no heat deflection temperature/);
 });
+
+test('two values a sheet orders the wrong way round are a swapped line, unless they are merely close', () => {
+  const thermal = (id, property, value) => row({ MeasurementID: id, Property: property, 'Normalized value': String(value),
+    'Normalized unit': '°C', Direction: 'Not applicable', Locator: `p. 1: ${property}` });
+  const run = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows } }, schemas)
+    .filter((f) => f.code === 'MEAS-PHYSICS-ORDER').map((f) => f.record);
+
+  // A needle cannot sink into a bar below the temperature at which its polymer goes rubbery.
+  assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 145), thermal('V2', 'Vicat softening temperature', 119)]), ['V1']);
+  // But two different tests cross by a little where the polymer puts them close: a PLA's Vicat and its glass
+  // transition sit within a couple of degrees, and which comes first is scatter, not a swapped line.
+  assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 60), thermal('V2', 'Vicat softening temperature', 57)]), []);
+  assert.deepEqual(run([thermal('V1', 'Vicat softening temperature', 190), thermal('V2', 'Melting temperature', 187.3)]), []);
+  // A polymer melts above its glass transition and crystallises below where it melted.
+  assert.deepEqual(run([thermal('V1', 'Crystallization temperature', 240), thermal('V2', 'Melting temperature', 180)]), ['V1']);
+  // Rows of different grades are not a pair.
+  assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 145), { ...thermal('V2', 'Vicat softening temperature', 119), GradeID: 'G2-01' }]), []);
+});

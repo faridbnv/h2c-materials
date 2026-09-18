@@ -61,6 +61,7 @@ what the source really prints, with the reason in its Notes.
 | V000765, V000766 | TPU | as above, on the iSANMATE sheet |
 | V000775, V000776 | TPU for AMS | a modulus its own hardness and elongation contradict |
 | V000970, V001013, V001206 | PA12-CF, PA12-GF, PA-ESD | a glass transition of 158 °C for a PA12, whose glass transition is 40 to 55 °C; a template value left in three sheets |
+| V001159, V000508, V000729 | PA6-CF, PETG-GF, PC-CF | 113 %, 98 % and "> 100 %" elongation on short-fibre compounds, which cannot draw past a few per cent. Each reads as the neat resin's elongation printed on a filled product's sheet (m52) |
 
 These need the manufacturer to be asked, not more reading. Ten more (`MEAS-PHYSICS-STRAIN`) are accepted with a
 reason: brittle bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across three
@@ -70,6 +71,12 @@ manufacturers, which reads as a difference in how modulus was measured rather th
 npm run sql --silent -- "select measurementid, materialid, property, normalized_value, notes from measurements
   where data_status like '%implausible%'"
 ```
+
+Two more are a pair a sheet orders the wrong way round, both transcribed correctly. The Bambu PC and PC FR sheets
+print a glass transition of 145 °C and a Vicat of 119 and 114 °C, and a needle cannot sink into a polycarbonate
+26 °C below the temperature at which it goes rubbery (V000679, V000700). Which of the two is wrong cannot be
+settled from the sheet; it is the same PC sheet as the heat-deflection pair above. Accepted with that reason under
+`MEAS-PHYSICS-ORDER`.
 
 ## 3. Four values that cannot be read at all
 
