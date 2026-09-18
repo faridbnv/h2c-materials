@@ -1,0 +1,30 @@
+Token,Modifier,Note
+cf,Carbon fibre,
+cf10,Carbon fibre,
+cf15,Carbon fibre,
+cf17,Carbon fibre,
+cf20,Carbon fibre,
+cf25,Carbon fibre,
+cf30,Carbon fibre,
+rcf08,Carbon fibre,recycled carbon fibre
+carbon,Carbon fibre,
+carbonfil,Carbon fibre,
+carbonx,,"a 3DXTECH brand line, not a filler declaration"
+gf,Glass fibre,
+gf10,Glass fibre,
+gf15,Glass fibre,
+gf20,Glass fibre,
+gf25,Glass fibre,
+gf30,Glass fibre,
+glass,Glass fibre,
+fiberglass,Glass fibre,
+esd,ESD formulation,
+3dxstat,ESD formulation,3DXTECH's ESD line
+antistatic,ESD formulation,
+lw,Foaming,
+aero,Foaming,
+foamy,Foaming,
+lightweight,Foaming,
+kevlar,,aramid has no modifier value yet: a ruling
+aramid,,as above
+conductive,,electrically conductive has no modifier value yet: a ruling
