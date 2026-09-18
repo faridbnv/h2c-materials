@@ -8,24 +8,23 @@ colorFabb,,ColorFabb;Colorfabb
 Dow,Resin supplier; the EVOLV3D line is its filament brand.,The Dow Chemical Company;Dow Chemical
 DSM,Resin supplier; the Arnitel line is its brand.,DSM Engineering Materials;Royal DSM
 DuPont,Resin supplier; the Delrin and Zytel lines are its brands.,DuPont Engineering Polymers;E. I. du Pont de Nemours
-DuPont / Celanese,"The Delrin acetal line, sold by DuPont and later by Celanese; a grade sheet carrying both names.",Celanese / DuPont
+DuPont / Celanese,"The Delrin acetal line, sold by DuPont and later by Celanese; a grade sheet that carries both names. Two companies, so it is not merged into either.",Celanese / DuPont
 Eryone,,Shenzhen Eryone Technology;ERYONE
-Essentium / Nexa3D,"Essentium's filament line, sold under Nexa3D after the 2024 acquisition.",Essentium;Nexa3D
+Essentium,Sold under Nexa3D since the 2024 acquisition.,Essentium / Nexa3D;Nexa3D
 eSUN,,ESUN;Shenzhen Esun Industrial;eSun
-Fabru / purefil,"Fabru AG, whose filament brand is purefil.",Fabru;purefil;Purefil
+Fabru,"Fabru AG, whose filament brand is purefil.",Fabru / purefil;purefil;Purefil
 Fillamentum,,Fillamentum Manufacturing Czech
 Flashforge,,FlashForge;Zhejiang Flashforge 3D Technology
 FormFutura,,Formfutura
 Grupa Azoty,Polish chemical group; the Tarfuse line is its filament brand.,Grupa Azoty S.A.;Tarfuse
-Guangzhou Yousu 3D Technology,Trades as Yousu.,Yousu;YOUSU;Guangzhou Yousu
 IPCON,,IPCON Polymer Material (Suzhou);IPCON Polymer
 iSANMATE,,ISANMATE;Isanmate;iSanmate
-Kimya / Airtech Europe,"Kimya, the filament line of Airtech Europe (Armor Group until 2022).",Kimya;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group)
-Polymaker,,PolyMaker;Polymaker Technology
-Polymaker (Fiberon),Polymaker's Fiberon line of filled-fibre filaments. Whether it is one test house with Polymaker is an open ruling (docs/audits/2026-09-18-v2-import/rulings).,Fiberon;Polymaker Fiberon
+Kimya,Airtech Europe's filament line; Armor Group until 2022.,Kimya / Airtech Europe;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group);Airtech
+Polymaker,,PolyMaker;Polymaker Technology;Polymaker (Fiberon)
 Prusa Research,The Prusament line is its brand.,Prusa;Prusament;Prusa Research a.s.
 Raise3D,,Raise 3D;Raise3D Technologies
 SIDDAMENT,,Siddament
 Siraya Tech,The Fibreheart line is its filled-fibre brand.,Siraya;SirayaTech
 Spectrum,Spectrum Filaments.,Spectrum Filaments;SPECTRUM
 Stratasys,,
+Yousu,Guangzhou Yousu 3D Technology.,Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU
