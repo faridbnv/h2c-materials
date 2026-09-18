@@ -78,6 +78,7 @@ break if it were reversed, because that is the part that gets lost.
 | D69 | A profile's qualitative notes are rows, and an empty column is not a fact | In force |
 | D70 | A constant is not a per-material fact, and a summary of the data is not data | In force |
 | D71 | How a source was classed and how it was reached are states, not sentences | In force |
+| D72 | A record may leave a table only where the build derives it, and only through a ledger | In force |
 
 <!-- end index -->
 
@@ -1533,3 +1534,26 @@ expression (`/^not retrieved/i`) that a rewording would have silently defeated.
   "owner-supplied".
 
 Reversing it brings back a register that cannot be counted, and a check on prose.
+
+## D72. A record may leave a table only where the build derives it, and only through a ledger
+
+*Narrows "nothing is deleted" (D45, D50).*
+
+Records are retired, never deleted, and the pre-commit hook and CI enforce it by failing on any removed row. That
+rule is right, and it is why a retired grade keeps its ID and a superseded finding keeps its text. But it also makes
+one legitimate change impossible: moving a record out of a table because the build can now derive it. There was no
+way to do that except to disable the check, which would have disabled it for everything in the same commit.
+
+- **The exception is a ledger, not a flag.** `data/review/removed-records.csv` names the table, the record, the
+  migration that moved it and where it went. A removal a row covers passes; every other removal still fails, with
+  the same message as before.
+- **The ledger is read from the version being checked.** The commit that removes a record is the commit that
+  authorises it, so a removal cannot be waved through by a ledger row added later, and a reviewer sees both halves
+  in one diff.
+- **A dropped column is still not a deleted record.** It never was, and the ledger does not change that: moving a
+  column's content into a child table is the shape m31, m42 and m44 used, and it needs no ledger row.
+- **The ledger accumulates.** A row that covers nothing in today's diff authorised a removal in an earlier commit,
+  which is history, not a defect. It is the audit trail the deleted rows no longer are.
+
+Reversing it leaves only the blunt instrument: `--no-verify`, which turns off every check at once and leaves no
+record of what was removed or why.

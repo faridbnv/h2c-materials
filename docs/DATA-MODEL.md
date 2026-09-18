@@ -50,6 +50,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
+`data/review/removed-records.csv` is not data either: it is the ledger of records that left a table because the
+build derives them instead, each naming its migration and where it went (D72). Nothing else may be deleted.
 Every column of every table, and every vocabulary, is listed in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).
 
 `data/manifest.json` holds the current count and SHA-256 of every table, and the build refuses to run when a table and

@@ -9,7 +9,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkData } from '../build/src/schema.js';
 import { openTables, nextId } from '../scripts/data/table-io.mjs';
-import { diffTables } from '../scripts/data/diff-lib.mjs';
+import { diffTables, allowedRemovals } from '../scripts/data/diff-lib.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -137,6 +137,29 @@ test('the changelog matches records by key: edits, additions and deletions', () 
     { table: 'coverage', record: 'C4', action: 'Added', field: null, before: null, after: null },
     { table: 'coverage', record: 'C2', action: 'Removed', field: null, before: null, after: null },
   ]);
+});
+
+test('a record leaves a table only where the ledger says which migration moved it and where', () => {
+  // Records are retired, never deleted (D45). The one exception is a record the build now derives instead, and it is
+  // an exception only with a row in data/review/removed-records.csv naming the migration (D72).
+  const log = [
+    { table: 'coverage', record: 'C1', action: 'Removed', field: null },
+    { table: 'coverage', record: 'C2', action: 'Removed', field: null },
+    { table: 'coverage', record: '(column)', action: 'Removed', field: 'Manufacturer count' },
+    { table: 'coverage', record: 'C3', action: 'Edited', field: 'Status' },
+  ];
+  const ledger = [{ Table: 'coverage', Record: 'C1', Migration: 'm48', Where: 'derived by the build' }];
+  const one = allowedRemovals(log, ledger);
+  assert.equal(one.removed.length, 2, 'a dropped column is not a deleted record');
+  assert.deepEqual(one.unledgered.map((c) => c.record), ['C2'], 'C2 has no ledger row and must still fail');
+  // A ledger row for another table does not cover this one.
+  assert.deepEqual(allowedRemovals(log, [{ Table: 'evidence', Record: 'C1' }]).unledgered.map((c) => c.record), ['C1', 'C2']);
+  // With no ledger at all, every removal fails, which is what the rule was before D72.
+  assert.equal(allowedRemovals(log, []).unledgered.length, 2);
+  assert.equal(allowedRemovals(log, undefined).unledgered.length, 2);
+  // A ledger row that covered nothing here is history, not a defect: it authorised a removal in an earlier commit.
+  assert.deepEqual(allowedRemovals(log, ledger).unused, []);
+  assert.equal(allowedRemovals([], ledger).unused.length, 1);
 });
 
 test('replacing a headline\'s value measurement is an edit, not a deletion; dropping a selection is a deletion', () => {

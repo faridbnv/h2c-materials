@@ -61,3 +61,27 @@ export function diffTables(schemas, readVersion) {
   }
   return log;
 }
+
+/**
+ * Records are retired, never deleted, so a removal fails the pre-commit hook and CI. The one exception is a record
+ * that left because the build now derives it: it has a row in data/review/removed-records.csv naming the migration
+ * that moved it and where it went. Every other removal still fails, and a ledger row that authorises nothing is
+ * itself a defect, because it would sit there permitting a future deletion nobody reviewed.
+ *
+ * Returns { removed, unledgered, unused }: removed is every deletion, unledgered the ones no row covers, unused the
+ * ledger rows that covered nothing in this diff.
+ */
+export function allowedRemovals(log, ledgerRows) {
+  const key = (table, record) => `${table}\u0000${record}`;
+  const ledger = new Map((ledgerRows ?? []).map((r) => [key(r.Table, r.Record), r]));
+  const removed = log.filter((c) => c.action === 'Removed' && c.record !== '(column)');
+  const seen = new Set();
+  const unledgered = [];
+  for (const c of removed) {
+    const k = key(c.table, c.record);
+    if (ledger.has(k)) seen.add(k);
+    else unledgered.push(c);
+  }
+  return { removed, unledgered, unused: [...ledger.keys()].filter((k) => !seen.has(k)).map((k) => ledger.get(k)) };
+}
+

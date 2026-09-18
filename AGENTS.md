@@ -79,7 +79,9 @@ Rules the tooling enforces:
 - **IDs are never reused.** Get the next one from `npm run data:new-id -- <table>` (for grades:
   `-- grades M020`, or `-- grades M055 --study` for an `-R#` study or reference grade).
 - **Nothing is deleted.** Retire instead (see below). The pre-commit hook and CI refuse a commit that
-  removes a record.
+  removes a record. The one exception is a record the build now derives instead: it needs a row in
+  `data/review/removed-records.csv` naming the migration and where it went, in the same commit, and
+  every other removal still fails (D72).
 - **No lists inside cells.** A relationship is a row: `headlines.csv` for headline selections,
   `material_links.csv` for a material's citations.
 - **Nothing derivable is stored, and no constant is repeated per row.** Headline values, price medians
