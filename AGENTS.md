@@ -190,6 +190,37 @@ and units. If it only means something for some filaments, set "Applies to", for 
 then value rows in `headlines.csv`. The filter rail, charts, table, export and drawer pick it up. Leave
 Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise.
 
+## Importing a batch of data sheets
+
+The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
+in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.
+
+```bash
+npm run ingest:inventory                          # the research workbooks -> the ledger; never loses a status
+npm run ingest:fetch -- --provider "SUNLU"        # the bytes, by digest, two at a time per host
+npm run ingest:extract -- --provider "SUNLU"      # the text, cached by digest, and the sheets that are one sheet twice
+npm run ingest:propose -- --provider "SUNLU" --compare    # score the reader on that maker's sheets already transcribed
+npm run ingest:propose -- --provider "SUNLU" --batch bNN  # then the rest: candidate rows, with the page each came from
+# review each row: accepted or rejected, by name
+npm run ingest:apply -- --batch bNN --dry-run
+npm run ingest:apply -- --batch bNN
+```
+
+The rules that differ from editing a table by hand:
+
+- **Parity before novelty.** A maker's layout is proved on the sheets somebody already transcribed before any sheet
+  of theirs that nobody has. Below about 95% the reader is not ready; what it misses is named per row.
+- **A proposal is not data.** Every row carries the page and line it was read from, and a review that records who
+  accepted it. `ingest:apply` writes nothing unless every row was accepted or rejected by a named person, every
+  document still hashes to what was recorded, and every number is printed on the page its Locator names.
+- **A copy is not a source.** A document is its bytes; the same file from a maker and a retailer is one document.
+  Where two sheets print the same numbers under different product names, the ledger queues them rather than
+  consolidating: that is a reading of the sheet, not a rule.
+- **An identity the rule cannot settle is a ruling**, written once in `rulings/rulings.csv` and applied to every
+  sheet that says the same thing. "Nylon" names a family, and a family owns no product (D44).
+- **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals and calls `applyBatch`, so
+  the migration sequence stays the one history of how the data got here, and a re-run is a no-op.
+
 ## Checking your work
 
 ```bash
