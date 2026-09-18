@@ -10,7 +10,7 @@ Label,Property,Direction,Notch,Note
 ^flexural modulus|^bending modulus,Flexural modulus,,Not applicable,
 ^flexural (stress|strength)|^bending strength,Flexural strength,,Not applicable,
 ^charpy[^a-z]*(impact )?(strength )?notched|^notched charpy,Charpy strength,Not applicable,Notched,
-^charpy|^impact strength,Charpy strength,Not applicable,Unnotched,an unqualified Charpy or impact row is the unnotched one; a sheet that prints both says so
+^charpy,Charpy strength,Not applicable,Unnotched,an unqualified Charpy row is the unnotched one; the method may say otherwise and wins
 ^izod[^a-z]*(impact )?(strength )?notched|^notched izod,Izod impact strength,Not applicable,Notched,
 ^izod,Izod impact strength,Not applicable,Unnotched,
 ^(temperature of deflection under load|heat (deflection|distortion) temperature|hdt),HDT,Not applicable,Not applicable,the load is a condition the row or the line above states
@@ -27,3 +27,4 @@ Label,Property,Direction,Notch,Note
 ^coefficient of (thermal|linear) expansion|^cte\b,Coefficient of thermal expansion,Not applicable,Not applicable,
 ^contin[uo]*s (service|use|operating) temperature,Continuous service temperature,Not applicable,Not applicable,a sheet spells it Continous; a source's own typo is not a reason to lose the row
 ^compressi(on|ve) strength,Compression strength,,Not applicable,
+^impact\b|^notched$|^unnotched$,Impact strength,Not applicable,Not published,"the sheet names no test; ISO 180 or ASTM D256 makes it Izod, ISO 179 or GB/T 1043 Charpy"

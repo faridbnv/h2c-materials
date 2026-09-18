@@ -1,20 +1,18 @@
-  3 of   9  S-SPECTRUM-en-tds-spectrum-asax-x-gf10
-      missed: Tensile break strength 55 MPa (Mechanical properties: Tensile Strength* at break); Elongation at yield 2.8 % (Mechanical properties: Tensile Elongation* at yield); HDT 100 °C (Thermal properties: Heat Deflection Temperature 0.45mn/m2*); HDT 90 °C (Thermal properties: Heat Deflection Temperature 1.81mn/m2*); Charpy strength 25 kJ/m² (Mechanical properties: Charpy impact strength* unnotched (at 23°C)); Charpy strength 8.3 kJ/m² (Mechanical properties: Charpy impact strength* notched (at 23°C))
+  5 of   9  S-SPECTRUM-en-tds-spectrum-asax-x-gf10
+      missed: Tensile break strength 55 MPa (Mechanical properties: Tensile Strength* at break); Elongation at yield 2.8 % (Mechanical properties: Tensile Elongation* at yield); HDT 100 °C (Thermal properties: Heat Deflection Temperature 0.45mn/m2*); HDT 90 °C (Thermal properties: Heat Deflection Temperature 1.81mn/m2*)
   6 of   7  S-SPECTRUM-en-tds-spectrum-hdpe
       missed: Hardness 80 Rockwell M (p. 1: Rockwell Hardness)
  13 of  13  S-SPECTRUM-en-tds-spectrum-hipsx
   9 of   9  S-SPECTRUM-en-tds-spectrum-pa12-cf15
   9 of   9  S-SPECTRUM-en-tds-spectrum-pa6-neat-bk
-  8 of   9  S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0
-      missed: HDT 90 °C (p. 1: Heat Deflection Temperature 1.8 MPa)
+  9 of   9  S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0
   7 of   9  S-SPECTRUM-en-tds-spectrum-pc-cf
       missed: Flexural modulus 2.353596 GPa (p. 1: Flexural Modulus**); Izod impact strength 686.4655 J/m (p. 1: Izod Impact Strength, Notched @ 23°C)
  11 of  11  S-SPECTRUM-en-tds-spectrum-pctg
-  7 of   9  S-SPECTRUM-en-tds-spectrum-pctg-cf10
-      missed: Impact strength 45 kJ/m² (p. 1: Izod Impact Strenght, Unnotched @ 23°C); Impact strength 4 kJ/m² (p. 1: Izod Impact Strenght, Notched @ 23°C)
+  9 of   9  S-SPECTRUM-en-tds-spectrum-pctg-cf10
   8 of   8  S-SPECTRUM-en-tds-spectrum-peba
  10 of  11  S-SPECTRUM-en-tds-spectrum-petg-esd
       missed: Density 1190 kg/m³ (p. 1: Density)
   9 of   9  S-SPECTRUM-en-tds-spectrum-pps-am230
 
-parity 88%: 100 of 113 recorded values on 12 sheet(s)
+parity 93%: 105 of 113 recorded values on 12 sheet(s)

@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { readRow, readSheet, targetUnit } from '../scripts/ingest/propose.mjs';
+import { readRow, readSheet, targetUnit, impactMethod, notchOf } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -93,4 +93,31 @@ test('a rate is a condition of a test, not its result', () => {
 test('everything a sheet prints is either a row or a reasoned omission', () => {
   const sheet = readSheet(text, registry);
   for (const s of sheet.skipped) assert.ok(s.reason && s.page, JSON.stringify(s));
+});
+
+test('an impact result is named by its method, not by the word above it', () => {
+  // ISO 180, ASTM D256 and GB/T 1843 are Izod; ISO 179 and GB/T 1043 are Charpy.
+  assert.equal(impactMethod('Impact strength', 'Notched impact', 'ISO 180').property, 'Izod impact strength');
+  assert.equal(impactMethod('Izod impact strength', 'Izod impact, notched', 'ASTM D256').property, 'Izod impact strength');
+  assert.equal(impactMethod('Impact strength', 'Impact strength', 'ISO 179').property, 'Charpy strength');
+  // A sheet that heads a row "Izod" and cites ISO 179 contradicts itself, and naming either test would invent a
+  // method the sheet denies. This is what V002092, V002093 and V002328 record, and why they are not Izod rows.
+  const contradiction = impactMethod('Izod impact strength', 'Izod Impact Strenght Unnotched @ 23°C', 'ISO 179-1eU');
+  assert.equal(contradiction.property, 'Impact strength');
+  assert.match(contradiction.note, /which is the other test/);
+  // A sheet that names no method keeps the generic property.
+  assert.equal(impactMethod('Impact strength', 'Impact strength (XY)', '').property, 'Impact strength');
+  // The method states the notch where the row does not.
+  assert.equal(notchOf('ISO 179/1eA'), 'Notched');
+  assert.equal(notchOf('ISO 179-1eU'), 'Unnotched');
+  assert.equal(notchOf('ISO 1183'), null);
+});
+
+test('a heading must be the heading, not a line that happens to contain the word', () => {
+  // A data sheet prints its marketing column beside the table, and extraction interleaves the two. "es the
+  // thermal resistance of the filament, further" once ended a section in the middle of one, which cost the sheet
+  // its impact rows.
+  const sheet = readSheet(text, registry);
+  assert.ok(sheet.values.some((v) => v.property === 'Charpy strength'), 'a section ended where no heading was');
+  assert.deepEqual(sheet.settings.map((s) => s.label), ['Nozzle temperature', 'Bed temperature']);
 });

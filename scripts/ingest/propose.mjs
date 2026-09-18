@@ -40,11 +40,17 @@ const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '
 const valueRe = () => new RegExp(`(-?\\d+(?:[.,]\\d+)?)\\s*(${UNIT_PATTERN})`, 'gi');
 
 // A section heading tells a value what it is: a printing guide is not a test result, and a storage note is neither.
+//
+// A heading must be the heading, not a line that happens to contain the word. A data sheet prints its marketing
+// text in a column beside the table, and extraction interleaves the two, so "es the thermal resistance of the
+// filament, further" arrived looking like a Thermal Properties heading and ended a section in the middle of one.
+// So: anchored at the start, and short enough to be a heading rather than a sentence.
 const SECTIONS = [
-  [/print(ing)? (settings|parameters|guide)|guideline for print|recommended settings/i, 'print'],
-  [/storage|shelf life|packaging|drying/i, 'storage'],
-  [/mechanical|thermal|physical|material propert|properties/i, 'properties'],
+  [/^(guideline for )?print(ing)?[\s-]*(settings|parameters|guide)|^recommended (print(ing)? )?settings/i, 'print'],
+  [/^(storage|packaging|drying|shelf life)\b/i, 'storage'],
+  [/^(material|mechanical|thermal|physical|general|electrical|optical)\s+propert/i, 'properties'],
 ];
+const HEADING_LENGTH = 60;
 
 const STANDARD_RE = /\b(?:ISO|ASTM|GB\/T|DIN|IEC|UL|EN)\s?\d+[\w./-]*(?:\s?\/\s?[\w.-]+)?/gi;
 
@@ -157,9 +163,9 @@ export function readSheet(text, registry) {
   const values = [], settings = [], skipped = [];
   for (const page of text.pages) {
     let section = 'properties';
-    let held = null, heldLabel = '';
+    let held = null, heldLabel = '', heldFor = 0;
     for (const line of page.lines) {
-      const heading = SECTIONS.find(([re]) => re.test(line.text) && !/\d/.test(line.text));
+      const heading = line.text.trim().length <= HEADING_LENGTH ? SECTIONS.find(([re]) => re.test(line.text.trim())) : null;
       if (heading) { section = heading[1]; held = null; continue; }
       const plain = repair(line.text).trim();
 
@@ -169,14 +175,16 @@ export function readSheet(text, registry) {
       // A label with nothing else on the line holds for the next one. It must have no digits at all: a hardness
       // states its value with no unit ("Shore D Hardness 43"), and testing for a unit instead threw those rows away.
       const bare = LABELS.find((l) => l.re.test(plain));
-      if (bare && !/\d/.test(plain)) { held = bare; heldLabel = plain; continue; }
+      if (bare && !/\d/.test(plain)) { held = bare; heldLabel = plain; heldFor = 0; continue; }
 
-      // A held label carries only to a row that states a condition rather than a property of its own: a sheet
-      // prints "Temperature of deflection under load" and then a row per load. It stops at the next row that
-      // names something, so a label cannot drift down the page and claim a value that is not its.
+      // A held label carries to the rows under it that state a value but name no property of their own: a sheet
+      // prints "Temperature of deflection under load" and then a row per load, or "Izod Impact Strenght" and then
+      // a row per notch. Three things keep it from drifting down the page and claiming a value that is not its:
+      // it stops at the next row that names a property, it stops after three rows, and the value it takes must be
+      // in a unit the held property is kept in, so a tensile elongation in per cent can never become an impact
+      // strength in kJ/m². Without the last of those, a held Charpy label once claimed a tensile elongation.
       const own = LABELS.find((l) => l.re.test(plain));
-      const condition = /^\s*[<>≤≥~@(]*\s*\d+(?:[.,]\d+)?\s*(MPa|N\/mm2|mn\/m2|psi|N\b)/i.test(plain);
-      const carry = Boolean(held && !own && condition);
+      const carry = Boolean(held && !own && heldFor < 3);
       // A printing guide names settings, not properties, so its rows are read without a property label: what a
       // sheet calls its nozzle temperature is its own words, and the profile parsers read those.
       if (section === 'print') {
@@ -189,20 +197,52 @@ export function readSheet(text, registry) {
 
       const read = readRow(line.text, registry, carry ? held : null);
       const carried = Boolean(carry && read);
-      if (own || (read && !carried)) held = null;
+      if (carried) heldFor += 1;
+      if (own || (read && !carried)) { held = null; heldFor = 0; }
       if (!read) { if (/\d/.test(line.text)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'no property and value this line states together' }); continue; }
       if (read.range) { skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'the upper end of a range: a window, not a result' }); continue; }
 
+      // What the row is called is the held label and the row's own words together: a sheet prints "Izod Impact
+      // Strenght" once and then a row per notch, and neither line says the whole thing on its own.
+      const fullLabel = carried ? `${heldLabel} ${read.conditions}`.replace(/\s+/g, ' ').trim() : read.label;
+      const standardText = [read.conditions, ...read.standards].join(' ');
+      const method = impactMethod(read.match.Property, fullLabel, standardText);
+      // The notch is what the row says, then what the method implies, then what the label's kind usually means.
+      const notch = /\bun-?notched\b/i.test(fullLabel) ? 'Unnotched'
+        : /\bnotched\b/i.test(fullLabel) ? 'Notched'
+        : notchOf(standardText) ?? read.match.Notch;
       values.push({
-        page: page.page, property: read.match.Property,
-        label: carried ? `${heldLabel} ${read.conditions}`.replace(/\s+/g, ' ').trim() : read.label,
-        condition: carried ? `${heldLabel} ${read.conditions}`.replace(/\s+/g, ' ').trim() : read.conditions,
-        direction: read.match.Direction, notch: read.match.Notch, read, target: read.target, line: line.text,
+        page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
+        label: fullLabel, condition: carried ? fullLabel : read.conditions,
+        direction: read.match.Direction, notch, read, target: read.target, line: line.text,
       });
     }
   }
   return { values, settings, skipped };
 }
+
+// An impact result is named by its method, not by the word above it. ISO 180, ASTM D256 and GB/T 1843 are Izod;
+// ISO 179 and GB/T 1043 are Charpy. Some sheets head a row "Izod" and then cite ISO 179, and the database records
+// exactly that case under the generic property with the contradiction in its note (V002092, V002093, V002328):
+// naming a test the sheet's own standard denies would be inventing a method. So where the label and the standard
+// disagree, the property is the generic one and the row says why.
+const IZOD = /ISO\s?180|ASTM\s?D\s?256|GB\/T\s?1843/i;
+const CHARPY = /ISO\s?179|GB\/T\s?1043/i;
+const NOTCHED_BY_METHOD = [[/ISO\s?179[-\/\s]?1eA|ISO\s?180[-\/\s]?1A|ASTM\s?D\s?256/i, 'Notched'], [/ISO\s?179[-\/\s]?1eU/i, 'Unnotched']];
+
+export function impactMethod(property, label, standardText) {
+  if (!['Izod impact strength', 'Charpy strength', 'Impact strength'].includes(property)) return null;
+  const saysIzod = /izod/i.test(label), saysCharpy = /charpy/i.test(label);
+  const byMethod = IZOD.test(standardText) ? 'Izod impact strength' : CHARPY.test(standardText) ? 'Charpy strength' : null;
+  if (!byMethod) return { property, note: null };
+  if ((saysIzod && byMethod === 'Charpy strength') || (saysCharpy && byMethod === 'Izod impact strength')) {
+    return { property: 'Impact strength', note: `the row is headed "${label.trim()}" and cites ${standardText.trim()}, which is the other test; recorded as unspecified` };
+  }
+  return { property: byMethod, note: null };
+}
+
+/** The notch a method states, for a row whose label does not say. */
+export const notchOf = (standardText) => NOTCHED_BY_METHOD.find(([re]) => re.test(standardText))?.[1] ?? null;
 
 const NUMBER = (s) => Number(String(s).replace(',', '.'));
 const round = (x) => Number(Number(x).toPrecision(10));
@@ -232,7 +272,7 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
     'Standard / load': standardText || NP, Standards: standards.length ? standards.join('; ') : NP,
     'Test load MPa': v.property === 'HDT' ? (load ? load[1].replace(',', '.') : NP) : NA,
     Notch: v.notch || NA, 'Specimen / print parameters': NP,
-    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: NA, 'Parse review': NA,
+    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: v.methodNote ?? NA, 'Parse review': NA,
   };
 }
 
