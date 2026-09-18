@@ -225,3 +225,14 @@ test('a published window is one statement, not the number beside the unit', () =
   // And a standard whose digits it split is one designation.
   assert.deepEqual(read('Specific Gravity 1. 12 g/cm3 ISO 11 8 3').standards, ['ISO 1183']);
 });
+
+test('a heading and the row under it name a property neither names alone', () => {
+  // Spectrum's ASA-X GF10 prints "Tensile Elongation*" and then "At yield 2.80%" three lines below, with the
+  // marketing bullets of the column beside it in between. A label that carried across the page read "• 10% glass
+  // fiber" as that elongation; one that stopped at the first foreign line never reached the row at all.
+  const sheet = readSheet(text, registry);
+  assert.ok(sheet.values.length, 'the fixture must still read');
+  // The row is named after the heading that matched it, not after whichever label was held last.
+  const rows = sheet.values.filter((v) => v.label && v.label.length);
+  assert.ok(rows.every((v) => v.property), 'every value names a property');
+});

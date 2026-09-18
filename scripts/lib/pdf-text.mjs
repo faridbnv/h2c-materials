@@ -18,7 +18,10 @@ import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
 
 export const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '../..');
 export const cacheDir = (...parts) => join(projectRoot, '.cache', ...parts);
-const EXTRACTOR = `pdfjs-dist ${createRequire(import.meta.url)('pdfjs-dist/package.json').version}`;
+// The reader's own version travels with the extractor's, because a document's cached text is only as good as the
+// rules that built it: a change here must re-read every document rather than leave two readings in one cache.
+const READER = 'lines/gap v2';
+const EXTRACTOR = `pdfjs-dist ${createRequire(import.meta.url)('pdfjs-dist/package.json').version}; ${READER}`;
 
 export const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
@@ -33,6 +36,29 @@ export async function pdfPages(bytes) {
   return pages;
 }
 
+/**
+ * A row of spans as the page prints it. The extractor breaks a line wherever the font's own kerning breaks it, so
+ * joining its pieces with a space is what wrote "THE FILAMENT AS A CF", "Tensile Str ength", "Specific Gravity
+ * 1. 12 g/cm3", "ISO 11 8 3" and "Ye s". A space belongs where the page leaves one: the gap is measured against
+ * the row's own character width, and a piece that already carries its space keeps it.
+ */
+export function spanText(spans) {
+  const sorted = [...spans].sort((a, b) => a.x - b.x);
+  const chars = sorted.reduce((a, s) => a + (s.str ?? '').length, 0);
+  const width = sorted.reduce((a, s) => a + (s.w ?? 0), 0);
+  const em = width > 0 && chars > 0 ? width / chars : 5;
+  let out = '';
+  for (let i = 0; i < sorted.length; i++) {
+    const s = sorted[i], previous = sorted[i - 1];
+    if (previous) {
+      const gap = s.x - (previous.x + (previous.w ?? em * (previous.str ?? '').length));
+      if (gap > em * 0.25 || /\s$/.test(previous.str ?? '') || /^\s/.test(s.str ?? '')) out += ' ';
+    }
+    out += s.str ?? '';
+  }
+  return out.replace(/\s+/g, ' ').trim();
+}
+
 /** Spans grouped into lines, top down, each left to right. The y rounding is what the audit has always used. */
 export function pageLines(spans) {
   const byRow = new Map();
@@ -44,7 +70,7 @@ export function pageLines(spans) {
   const lines = [];
   for (const [y, row] of [...byRow].sort((a, b) => b[0] - a[0])) {
     const sorted = row.sort((a, b) => a.x - b.x);
-    const text = sorted.map((s) => s.str).join(' ').replace(/\s+/g, ' ').trim();
+    const text = spanText(sorted);
     if (text) lines.push({ y, x0: sorted[0].x, x1: sorted.at(-1).x + (sorted.at(-1).w ?? 0), text, spans: sorted.map((s) => ({ x: s.x, w: s.w, str: s.str })) });
   }
   return lines;
@@ -84,9 +110,9 @@ export function cellsAt(line, positions) {
   for (const s of line.spans ?? []) {
     let i = 0;
     while (i + 1 < positions.length && positions[i + 1] <= s.x + 1) i++;
-    cells[i].push(s.str);
+    cells[i].push(s);
   }
-  return cells.map((c, i) => ({ x: positions[i], text: c.join(' ').replace(/\s+/g, ' ').trim() })).filter((c) => c.text);
+  return cells.map((c, i) => ({ x: positions[i], text: spanText(c) })).filter((c) => c.text);
 }
 
 /**
@@ -110,7 +136,7 @@ export function lineCells(line, ems = 3, floor = 10) {
     current.push(spans[i]);
   }
   cells.push(current);
-  return cells.map((c) => ({ x: c[0].x, text: c.map((s) => s.str).join(' ').replace(/\s+/g, ' ').trim() })).filter((c) => c.text);
+  return cells.map((c) => ({ x: c[0].x, text: spanText(c) })).filter((c) => c.text);
 }
 
 // Extraction splits digits ("1 05 °C", "2 433 .4 ± 79.4"); join them before reading numbers. A standard's

@@ -125,7 +125,9 @@ export function readRow(text, registry, held = null) {
     // The scale is the unit: Shore A, Shore D, Rockwell R or Rockwell M, however the sheet writes it
     // ("R-Scale", "R Scale", "Rockwell R"). Taking the last letter of the match read "R-Scale" as scale E.
     const shore = /\bshore\s*([ad])\b/i.exec(line);
-    const rockwell = /\brockwell\s*([rm])\b/i.exec(line) ?? /\b([rm])[\s-]?scale\b/i.exec(line);
+    // A sheet states the scale in the label ("Rockwell Hardness, R Scale"), or in the unit beside the number
+    // ("80 HRM"), which is the same statement written the other way round.
+    const rockwell = /\brockwell\s*([rm])\b/i.exec(line) ?? /\b([rm])[\s-]?scale\b/i.exec(line) ?? /\bHR([RM])\b/i.exec(line);
     const scale = shore ?? rockwell;
     // The standard is stripped first, or "ISO 2039-2" gives the hardness a value of 2.
     const plain = line.replace(STANDARD_RE, ' ').replace(/\(.*?\)/g, ' ');
@@ -238,7 +240,7 @@ export function readSheet(text, registry) {
   const values = [], settings = [], skipped = [];
   for (const page of text.pages) {
     let section = 'properties';
-    let held = null, heldLabel = '', heldFor = 0;
+    let held = null, heldLabel = '', heldFor = 0, heldX = 0, prefix = '', prefixX = 0;
     for (let li = 0; li < page.lines.length; li++) {
       const line = page.lines[li];
       const heading = line.text.trim().length <= HEADING_LENGTH ? SECTIONS.find(([re]) => re.test(line.text.trim())) : null;
@@ -272,8 +274,14 @@ export function readSheet(text, registry) {
         }
       }
 
+      // A line with no number of its own heads the rows under it. It becomes a held label when it names a
+      // property the lexicon knows, and a prefix either way: "Tensile Elongation*" names no property until the
+      // row below says "At yield". A heading is a few words, so a sentence from the column beside the table
+      // ("Filament should be stored in a dry room at room") does not displace one.
       const bare = LABELS.find((l) => l.re.test(plain));
-      if (bare && !/\d/.test(plain)) { held = bare; heldLabel = plain; heldFor = 0; continue; }
+      const headsRows = !/\d/.test(plain) && plain.length <= HEADING_LENGTH && plain.split(/\s+/).length <= 6;
+      if (headsRows) { prefix = plain; prefixX = line.x0 ?? 0; }
+      if (bare && !/\d/.test(plain)) { held = bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0; continue; }
 
       // A held label carries to the rows under it that state a value but name no property of their own: a sheet
       // prints "Temperature of deflection under load" and then a row per load, or "Izod Impact Strenght" and then
@@ -282,20 +290,29 @@ export function readSheet(text, registry) {
       // in a unit the held property is kept in, so a tensile elongation in per cent can never become an impact
       // strength in kJ/m². Without the last of those, a held Charpy label once claimed a tensile elongation.
       const own = LABELS.find((l) => l.re.test(plain));
-      const carry = Boolean(held && !own && heldFor < 3);
+      // A held label carries down its own column and no other. A sheet prints its marketing bullets beside the
+      // table, extraction interleaves the two by line, and a label that carried across the page read "• 10% glass
+      // fiber" as a tensile elongation of 10%. A row of the same table starts where its label starts.
+      const under = !own && held && Math.abs((line.x0 ?? 0) - heldX) <= 24 && heldFor < 3;
+      // A heading and the row under it may name a property that neither names alone.
+      const together = !own && prefix && Math.abs((line.x0 ?? 0) - prefixX) <= 24
+        ? LABELS.find((l) => l.re.test(`${prefix} ${plain}`.replace(/\s+/g, ' ').trim())) : null;
+      const carried0 = under ? together ?? held : together;
+      const heading0 = carried0 === together ? prefix : heldLabel;
+      const carry = Boolean(carried0);
       // A printing guide names settings, not properties, so its rows are read without a property label: what a
       // sheet calls its nozzle temperature is its own words, and the profile parsers read those.
-      if (section === 'print') {
-        if (/\d/.test(plain)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'in the printing guide, naming no setting the lexicon knows' });
-        continue;
-      }
-      if (section === 'storage') {
+      // A property row is read wherever it stands on the page. Suppressing them by section lost the second
+      // density of the PET-G ESD sheet, which is printed under the printing guide; a section is unreliable on a
+      // two-column page, and what makes a line a result is that it names a property and a value in that
+      // property's own unit. The section only decides how a line that is not a result is explained.
+      const read = readRow(line.text, registry, carry ? carried0 : null);
+      if (!read && section !== 'properties') {
         const storage = /\bstor|shelf|humid|moisture|dry room|keep out|desiccan|seal|vacuum|packag/i.test(plain);
-        skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: storage ? 'a storage or shelf-life note, not a test result' : 'in the column beside the storage note, naming no property and value together' });
+        if (/\d/.test(plain)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: section === 'print' ? 'in the printing guide, naming no setting the lexicon knows'
+          : storage ? 'a storage or shelf-life note, not a test result' : 'in the column beside the storage note, naming no property and value together' });
         continue;
       }
-
-      const read = readRow(line.text, registry, carry ? held : null);
       const carried = Boolean(carry && read);
       if (carried) heldFor += 1;
       if (own || (read && !carried)) { held = null; heldFor = 0; }
@@ -304,7 +321,12 @@ export function readSheet(text, registry) {
 
       // What the row is called is the held label and the row's own words together: a sheet prints "Izod Impact
       // Strenght" once and then a row per notch, and neither line says the whole thing on its own.
-      const fullLabel = carried ? `${heldLabel} ${read.conditions}`.replace(/\s+/g, ' ').trim() : read.label;
+      const fullLabel = carried ? `${heading0} ${read.conditions}`.replace(/\s+/g, ' ').trim() : read.label;
+      // Neither line names the whole property on its own: "Tensile Strength*" heads the block and "At break 55
+      // MPa" is the row, and only the two together say which tensile strength it is. So the label is matched
+      // again against both, and the more specific answer wins.
+      const refined = carried ? LABELS.find((l) => l.re.test(fullLabel)) : null;
+      if (refined) read.match = refined;
       const standardText = [read.conditions, ...read.standards].join(' ');
       const method = impactMethod(read.match.Property, fullLabel, standardText);
       // The notch is what the row says, then what the method implies, then what the label's kind usually means.
