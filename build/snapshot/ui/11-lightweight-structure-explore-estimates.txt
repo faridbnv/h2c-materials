@@ -37,16 +37,16 @@ ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
 ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
 CPE
 Copolyesters
- UNKNOWN 1,250 ~1.1–2.6† ~38–70† ~21–96† 80 — ☆
+ UNKNOWN 1,250 ~1.1–2.6† ~38–70† ~21–91† 80 — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~1.9–4.1† ~39–76† ~4–21† ~54–100† no price↗ ☆
+ UNKNOWN 1,160 ~1.9–4.1† ~39–76† ~4–19† ~54–100† no price↗ ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~4.0–8.2† ~50–104† ~2.3–11.6† 142 — ☆
+ UNKNOWN 1,140 ~4.0–8.2† ~50–104† ~2.3–11.2† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.4–3.0† ~52–94† ~31–66† ~89–132† — ☆
+ UNKNOWN ~990–1,070† ~1.4–3.0† ~52–94† ~31–65† ~89–132† — ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 ~75–98† 2.1 150 — ☆
@@ -55,7 +55,7 @@ Nylon / Polyamide
  PASS 1,230 7.8 ~83–106† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.7–6.4† ~48–133† ~4–30† ~91–149† 163↗ ☆
+ UNKNOWN 1,250 ~2.7–6.4† ~48–133† ~4–26† ~91–149† 163↗ ☆
 PA6-CF
 Nylon / Polyamide
  PASS 1,090 4.43 102 5.8 186 110↗ ☆
@@ -64,7 +64,7 @@ Nylon / Polyamide
  PASS 1,140 2.85 75 3.9 182 77↗ ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~1,010–1,080† ~1.41–2.39† ~41–72† ~9–24† ~85–138† — ☆
+ UNKNOWN ~1,010–1,080† ~1.41–2.38† ~41–73† ~8–23† ~87–140† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14 91.9 2.6 175 — ☆
@@ -73,13 +73,13 @@ Nylon / Polyamide
  PASS 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,180† ~3.2–6.0† ~56–106† ~2.4–6.8† ~155–207† — ☆
+ UNKNOWN ~1,070–1,180† ~3.2–6.0† ~56–106† ~2.3–6.3† ~156–208† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,060–1,140† ~1.5–2.9† ~40–76† ~9–28† ~104–169† — ☆
+ UNKNOWN ~1,060–1,140† ~1.5–2.9† ~40–76† ~8–26† ~106–171† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~4.5–8.9† ~67–130† ~2.4–7.5† ~187–250† — ☆
+ UNKNOWN ~1,070–1,170† ~4.5–8.8† ~67–130† ~2.0–6.3† ~187–249† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
@@ -107,4 +107,4 @@ High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆
 PVB
 PVB / Specialty Polymers
- UNKNOWN 1,100 ~1.4–2.8† ~53–81† ~15–43† 63 — ☆
+ UNKNOWN 1,100 ~1.4–2.8† ~53–81† ~15–40† 63 — ☆

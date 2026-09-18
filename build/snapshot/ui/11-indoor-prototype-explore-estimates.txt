@@ -38,13 +38,13 @@ ASA-CF UNKNOWN 1,020 4.2 34 9.6 110 no price↗ ☆
 ASA-GF UNKNOWN 1,110 2.76 39 5.8 98 — ☆
 CoPE
 Copolyesters
- UNKNOWN 1,300 2.52 51.6 ~5–42† ~52–69† — ☆
+ UNKNOWN 1,300 2.52 51.6 ~6–43† ~52–69† — ☆
 CPE
 Copolyesters
- UNKNOWN 1,250 ~1.1–2.6† ~38–70† ~21–96† 80 — ☆
+ UNKNOWN 1,250 ~1.1–2.6† ~38–70† ~21–91† 80 — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~1.9–4.1† ~39–76† ~4–21† ~54–100† no price↗ ☆
+ UNKNOWN 1,160 ~1.9–4.1† ~39–76† ~4–19† ~54–100† no price↗ ☆
 HIPS
 Styrenics
  PASS 1,040 1.35 ~40–52† 18 80 43↗ ☆
@@ -53,13 +53,13 @@ also called Amphora · Copolyesters
  UNKNOWN ~1,140–1,240† 1.7 54 11 ~55–81† — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.01–0.18† ~12–33† ~720–1,330† n/a — ☆
+ UNKNOWN 905 ~0.01–0.18† ~12–33† ~720–1,250† n/a — ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~4.0–8.2† ~50–104† ~2.3–11.6† 142 — ☆
+ UNKNOWN 1,140 ~4.0–8.2† ~50–104† ~2.3–11.2† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.4–3.0† ~52–94† ~31–66† ~89–132† — ☆
+ UNKNOWN ~990–1,070† ~1.4–3.0† ~52–94† ~31–65† ~89–132† — ☆
 PA12-CF
 Nylon / Polyamide
  UNKNOWN 1,160 8 ~75–98† 2.1 150 — ☆
@@ -71,7 +71,7 @@ Nylon / Polyamide
  UNKNOWN 1,120 2.22 66.2 9.9 111 — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~1,010–1,080† ~1.41–2.39† ~41–72† ~9–24† ~85–138† — ☆
+ UNKNOWN ~1,010–1,080† ~1.41–2.38† ~41–73† ~8–23† ~87–140† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN 1,030 5.14 91.9 2.6 175 — ☆
@@ -80,13 +80,13 @@ Nylon / Polyamide
  UNKNOWN 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,180† ~3.2–6.0† ~56–106† ~2.4–6.8† ~155–207† — ☆
+ UNKNOWN ~1,070–1,180† ~3.2–6.0† ~56–106† ~2.3–6.3† ~156–208† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,060–1,140† ~1.5–2.9† ~40–76† ~9–28† ~104–169† — ☆
+ UNKNOWN ~1,060–1,140† ~1.5–2.9† ~40–76† ~8–26† ~106–171† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~4.5–8.9† ~67–130† ~2.4–7.5† ~187–250† — ☆
+ UNKNOWN ~1,070–1,170† ~4.5–8.8† ~67–130† ~2.0–6.3† ~187–249† — ☆
 PC-ABS
 Polymer Blends
  UNKNOWN 1,140 2.2 ~60–76† 75 126 — ☆
@@ -107,7 +107,7 @@ Flexible Elastomers
  UNKNOWN 1,010 ~0.03–0.14† ~17.5–27.1† 520 n/a — ☆
 PET
 PET Engineering
- UNKNOWN 1,340 ~1.5–2.9† ~41–76† ~4–16† ~63.5–72.3† — ☆
+ UNKNOWN 1,340 ~1.5–2.9† ~41–75† ~4–17† ~63.3–72.2† — ☆
 PET-GF
 PET Engineering
  UNKNOWN 1,430 4.14 59.9 4 81.6 — ☆
@@ -141,7 +141,7 @@ also called Acetal · Acetals
  UNKNOWN 1,420 1.87 50 11 ~75–152† — ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.9–2.0† ~14–29† ~20–130† 92? — ☆
+ UNKNOWN 890 ~0.9–2.0† ~14–29† ~26–112† 92? — ☆
 PP Lightweight
 Polyolefins
  UNKNOWN 810 1.65 ~38–51† 13 94 — ☆
@@ -165,16 +165,16 @@ High-Performance Engineering
  UNKNOWN 1,360 5.76 72 1.6 241 — ☆
 PVB
 PVB / Specialty Polymers
- UNKNOWN 1,100 ~1.4–2.8† ~53–81† ~15–43† 63 — ☆
+ UNKNOWN 1,100 ~1.4–2.8† ~53–81† ~15–40† 63 — ☆
 PVDF
 Fluoropolymers
- UNKNOWN 1,710 2.45 ~52–67† 25 158 — ☆
+ UNKNOWN 1,710 2.45 ~52–68† 25 158 — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.010–0.051† ~19–52† ~530–970† n/a — ☆
+ UNKNOWN 1,150 ~0.011–0.051† ~19–52† ~530–940† n/a — ☆
 TPU
 Flexible Elastomers
- UNKNOWN 1,200 0.029 ~32–84† 330 n/a — ☆
+ UNKNOWN 1,200 0.029 ~32–85† 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  UNKNOWN 1,180 0.0068 12 700 n/a no price↗ ☆

@@ -58,12 +58,12 @@ Stretch before breaking %
 ASA-CF
 9.6
 CPE-CF
-~4–21†
+~4–19†
 PA-ESD
-~2.3–11.6†
+~2.3–11.2†
 0.8
 log scale
-2,050
+2,040
 all 98 candidates
 ASA-CF: XY · Printed specimen
 Heat resistance °C
