@@ -204,7 +204,8 @@ once, with a basis and a real range; and every free-text value that failed to pa
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
 
 It also checks that every property name the code relies on and every name the estimate model uses still
-resolves (D51); flags estimates too wide to guide a choice (EST-WIDE) and reinforced materials estimated below
+resolves (D51); flags an estimate left imprecise beside a usable published value (EST-WIDE), reports one that is
+wide because the evidence is thin (EST-THIN, D73), and flags reinforced materials estimated below
 their unfilled sibling (EST-FAMILY-ORDER); and lists measured headlines far from their prediction (EST-OUTLIER).
 
 It also checks **cross-record consistency**, not just whether referenced identifiers exist:

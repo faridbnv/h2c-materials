@@ -82,13 +82,37 @@ export function validateEstimates(db) {
   }
 
   // -- estimates a reader should not lean on, and family order ---------------------------------------------
-  // Each is listed by record so an accepted case can be baselined and a new one noticed.
+  // An imprecise estimate is two different things, and only one of them is a defect. Where the material publishes a
+  // value the headline could have used, the model is ignoring evidence it has, and a reviewer must say why
+  // (EST-WIDE). Where it publishes nothing, the range is wide because the evidence is thin, which is the honest
+  // answer and not something a reviewer can fix by reviewing it (EST-THIN). Before m47 both were EST-WIDE, so all
+  // thirteen records had to be accepted by hand, and a real defect would have arrived among them unnoticed.
+  const headlineDefs = new Map(db.registry.headlines.map((h) => [h.key, h]));
+  const byMaterial = new Map();
+  for (const m of db.measurements) {
+    if (!byMaterial.has(m.materialId)) byMaterial.set(m.materialId, []);
+    byMaterial.get(m.materialId).push(m);
+  }
+  /** A published value of this material that the headline could have shown: its own representative grade, the
+   * headline's property, direction, a printed or unstated specimen, unconditioned, and a usable number. */
+  const publishesUsableValue = (mat, key) => {
+    const def = headlineDefs.get(key);
+    if (!def) return false;
+    return (byMaterial.get(mat.id) ?? []).some((x) => x.gradeId === mat.representativeGrade
+      && def.valueProperties.includes(x.property) && x.numeric && !x.quarantined && !x.implausible
+      && ['printed', 'not-stated'].includes(x.specimenForm) && x.moistureState !== 'conditioned'
+      && (def.direction === 'Not applicable' ? x.direction === 'not-applicable' : x.direction === def.direction));
+  };
   const wide = [];
+  const thin = [];
   for (const mat of db.materials) for (const key of estimateKeys(db.registry)) {
     const e = mat.headline[key]?.estimate;
-    if (e?.precision === 'poor') wide.push({ record: `${mat.id} ${key}`, text: `${mat.name} ${key} ${e.lo}-${e.hi} ${e.unit} (plausible ${e.plausible.lo}-${e.plausible.hi}, ${e.strength})` });
+    if (e?.precision !== 'poor') continue;
+    const entry = { record: `${mat.id} ${key}`, text: `${mat.name} ${key} ${e.lo}-${e.hi} ${e.unit} (plausible ${e.plausible.lo}-${e.plausible.hi}, ${e.strength})` };
+    (publishesUsableValue(mat, key) ? wide : thin).push(entry);
   }
-  if (wide.length) issues.push(warn('EST-WIDE', 'materials', `${wide.length} estimates are too imprecise to guide a choice: ${wide.map((w) => w.text).join('; ')}`, { records: wide.map((w) => w.record) }));
+  if (wide.length) issues.push(warn('EST-WIDE', 'materials', `${wide.length} estimates are imprecise although the material publishes a usable value for the headline: ${wide.map((w) => w.text).join('; ')}`, { records: wide.map((w) => w.record) }));
+  if (thin.length) issues.push(warn('EST-THIN', 'materials', `${thin.length} estimates are too imprecise to guide a choice, on materials that publish nothing for the headline: ${thin.map((w) => w.text).join('; ')}`, { records: thin.map((w) => w.record) }));
 
   const valueOf = (m, key) => (m.headline[key]?.known ? m.headline[key].value : m.headline[key]?.estimate?.centre ?? null);
   const morphologyOf = (m) => polymers.get(identityOf(m))?.morphology;

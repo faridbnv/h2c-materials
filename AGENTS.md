@@ -158,8 +158,10 @@ with a reason.
 **Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
 its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.
 
-**Accept a build finding.** Outliers, imprecise estimates, family-order breaks, unstated loads and materials without
-measurements are reviewed per record: fix them, or `npm run data:lint -- --accept EST-WIDE "reason"`. `npm run
+**Accept a build finding.** Outliers, family-order breaks, unstated loads, materials without measurements and an
+estimate left imprecise beside a usable published value are reviewed per record: fix them, or `npm run data:lint --
+--accept EST-OUTLIER "reason"`. An estimate that is wide because the material publishes nothing is EST-THIN, which is
+informational: more data narrows it, not a reviewer (D73). `npm run
 audit:data` (in verify) fails on an unreviewed or stale one.
 
 **Add polymer-level behaviour.** A row in `polymer_environment.csv` per polymer, category and agent, from a resin

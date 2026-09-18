@@ -27,6 +27,10 @@ const MAP = new Map([
   ['45/45', DIRECTION.RASTER_45],
   ['Not applicable', DIRECTION.NOT_APPLICABLE],
   ['Not published', DIRECTION.UNKNOWN],
+  // Two reviewed forms of unknown (m47). Both are unknown to the build; they differ in what the source did, and in
+  // that someone has read it: "Not published" is a row nobody has checked, which is what the lint looks for.
+  ['Unstated', DIRECTION.UNKNOWN],
+  ['Stated, not a usable direction', DIRECTION.UNKNOWN],
 ]);
 
 // Which canonical directions may be compared with each other under Strict comparability.

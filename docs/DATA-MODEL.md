@@ -115,7 +115,8 @@ difference. A vocabulary can carry what the build needs about a wording: each Mo
 - **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
   its current replacement, and no measurement or headline may use it (D57).
 - **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings
-  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS), each with its reason (D57).
+  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS), each with its reason (D57). An
+  estimate that is wide only because the evidence is thin is EST-THIN, informational, and needs no reviewer (D73).
 
 ### Properties that apply to some filaments only
 

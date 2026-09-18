@@ -79,6 +79,7 @@ break if it were reversed, because that is the part that gets lost.
 | D70 | A constant is not a per-material fact, and a summary of the data is not data | In force |
 | D71 | How a source was classed and how it was reached are states, not sentences | In force |
 | D72 | A record may leave a table only where the build derives it, and only through a ledger | In force |
+| D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | In force |
 
 <!-- end index -->
 
@@ -1557,3 +1558,32 @@ way to do that except to disable the check, which would have disabled it for eve
 
 Reversing it leaves only the blunt instrument: `--no-verify`, which turns off every check at once and leaves no
 record of what was removed or why.
+
+## D73. A reviewed fact belongs in the row, and "not enough data" is not a defect to review
+
+Two checks had been answered by suppression rather than by the data, and both suppressions were hiding the check.
+
+**Direction.** Thirteen printed mechanical measurements carried Direction "Not published" and an accepted
+MEAS-PRINTED-NO-DIRECTION finding each. Every one had been re-read; the reason lived in
+`data/review/accepted-findings.csv`, so a reader of the table could not tell them from a row nobody had checked, and
+the lint could catch nothing new without a reviewer clearing thirteen old ones first. The reasons were not one case,
+so they did not become one value: `Unstated` says the source publishes the printed result and states no direction,
+and `Stated, not a usable direction` says the source states an orientation the database cannot use — a 0°-90° raster
+it has no value for, or an X-Z label the source's own numbers contradict, with the row's Notes saying which. Both are
+an unknown direction to the build, so nothing downstream moved. "Not published" now means what it should: nobody has
+looked.
+
+**Wide estimates.** EST-WIDE asked a reviewer to explain every imprecise estimate, and all thirteen answers said the
+same thing: the material publishes nothing for that headline, so the range is wide because the evidence is thin.
+That is the honest answer, and no amount of reviewing changes it — only data does (D58). Meanwhile the check that
+would matter had nowhere to fire.
+
+- **EST-WIDE now asks whether the model ignored evidence it has**: an imprecise estimate for a headline the
+  material's own representative grade publishes a usable value for, which would mean the value should have been the
+  headline, or the model should have used it. It is reviewed, and it fires on nothing in this snapshot. That is the
+  point: a build that raises it again has found something.
+- **EST-THIN reports the rest**, at level info, with its records. Nobody accepts it, and a new one is not noise.
+
+Thirteen acceptances of each retired. `build/snapshot/warnings.csv` lost thirteen rows.
+
+Reversing either brings back a review file doing a row's job, and a reviewer's signature standing in for a number.
