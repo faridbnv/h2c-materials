@@ -52,7 +52,8 @@
       "name": "Manufacturer",
       "type": "string",
       "role": "canonical",
-      "description": "Manufacturer or brand.",
+      "description": "The maker, one spelling each (schema/vocab/manufacturers.csv). A brand line (CarbonX, Ultrafuse, Prusament, Fiberon) is part of the Product name, not a second maker; the vocabulary's Aliases column lists the spellings that mean an existing value. The estimate model reads this as the test house.",
+      "vocabulary": "manufacturers",
       "constraints": {
         "required": true
       }

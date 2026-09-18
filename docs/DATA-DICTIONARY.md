@@ -123,7 +123,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | MaterialID | canonical | string | yes |  | → materials.MaterialID | Material the grade belongs to. |
 | Role | canonical | string | yes |  | [grade-roles](#vocab-grade-roles) | procurement: a buyable filament grade; study: a research specimen grade; reference: a moulded resin reference. Non-procurement grades carry an -R# ID suffix (checked by the build). |
 | Status | canonical | string | yes |  | [grade-status](#vocab-grade-status) | active or retired. A retired grade stays as an audit record and backs nothing. |
-| Manufacturer | canonical | string | yes |  |  | Manufacturer or brand. |
+| Manufacturer | canonical | string | yes |  | [manufacturers](#vocab-manufacturers) | The maker, one spelling each (schema/vocab/manufacturers.csv). A brand line (CarbonX, Ultrafuse, Prusament, Fiberon) is part of the Product name, not a second maker; the vocabulary's Aliases column lists the spellings that mean an existing value. The estimate model reads this as the test house. |
 | Product name | canonical | string | yes |  |  | Exact product name. |
 | Shared formulation key | canonical | string | yes |  |  | Grades with the same key share one formulation. |
 | Composition / filler | raw | string | yes |  |  | Declared composition. |
@@ -817,6 +817,44 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Official Bambu product |  |
 | Officially listed family |  |
 | Theoretical |  |
+
+<a id="vocab-manufacturers"></a>
+### manufacturers
+
+`schema/vocab/manufacturers.csv`, used by grades.Manufacturer.
+
+| Value | Meaning | Aliases |
+|---|---|---|
+| 3DXTECH | US maker; the CarbonX, FibreX, 3DXMAX and 3DXSTAT lines are its brands, not separate makers. | 3DXTech;3DXTECH LLC;3DXTECH Additive Manufacturing;3dxtech |
+| Bambu Lab | The printer's own filament line. | Bambu;BambuLab;Bambu Lab Canada |
+| BASF Forward AM | BASF's additive-manufacturing arm; the Ultrafuse line is its brand. | Forward AM;BASF;Ultrafuse;BASF Forward AM / Ultrafuse |
+| BigRep |  |  |
+| Braskem |  |  |
+| colorFabb |  | ColorFabb;Colorfabb |
+| Dow | Resin supplier; the EVOLV3D line is its filament brand. | The Dow Chemical Company;Dow Chemical |
+| DSM | Resin supplier; the Arnitel line is its brand. | DSM Engineering Materials;Royal DSM |
+| DuPont | Resin supplier; the Delrin and Zytel lines are its brands. | DuPont Engineering Polymers;E. I. du Pont de Nemours |
+| DuPont / Celanese | The Delrin acetal line, sold by DuPont and later by Celanese; a grade sheet carrying both names. | Celanese / DuPont |
+| Eryone |  | Shenzhen Eryone Technology;ERYONE |
+| Essentium / Nexa3D | Essentium's filament line, sold under Nexa3D after the 2024 acquisition. | Essentium;Nexa3D |
+| eSUN |  | ESUN;Shenzhen Esun Industrial;eSun |
+| Fabru / purefil | Fabru AG, whose filament brand is purefil. | Fabru;purefil;Purefil |
+| Fillamentum |  | Fillamentum Manufacturing Czech |
+| Flashforge |  | FlashForge;Zhejiang Flashforge 3D Technology |
+| FormFutura |  | Formfutura |
+| Grupa Azoty | Polish chemical group; the Tarfuse line is its filament brand. | Grupa Azoty S.A.;Tarfuse |
+| Guangzhou Yousu 3D Technology | Trades as Yousu. | Yousu;YOUSU;Guangzhou Yousu |
+| IPCON |  | IPCON Polymer Material (Suzhou);IPCON Polymer |
+| iSANMATE |  | ISANMATE;Isanmate;iSanmate |
+| Kimya / Airtech Europe | Kimya, the filament line of Airtech Europe (Armor Group until 2022). | Kimya;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group) |
+| Polymaker |  | PolyMaker;Polymaker Technology |
+| Polymaker (Fiberon) | Polymaker's Fiberon line of filled-fibre filaments. Whether it is one test house with Polymaker is an open ruling (docs/audits/2026-09-18-v2-import/rulings). | Fiberon;Polymaker Fiberon |
+| Prusa Research | The Prusament line is its brand. | Prusa;Prusament;Prusa Research a.s. |
+| Raise3D |  | Raise 3D;Raise3D Technologies |
+| SIDDAMENT |  | Siddament |
+| Siraya Tech | The Fibreheart line is its filled-fibre brand. | Siraya;SirayaTech |
+| Spectrum | Spectrum Filaments. | Spectrum Filaments;SPECTRUM |
+| Stratasys |  |  |
 
 <a id="vocab-material-links"></a>
 ### material-links

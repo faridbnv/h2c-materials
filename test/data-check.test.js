@@ -2,7 +2,7 @@
 // with a message that names the file, line, record and field.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { cpSync, mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { appendFileSync, cpSync, mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
@@ -247,6 +247,16 @@ test('the material scaffold writes a material and its grade, and names what it c
       'Certification claims', 'Selected-grade rationale', 'Source locator', 'Diameter compatibility'].flatMap((c) => ['--set', `${c}=recorded by the test`]);
     // The columns a vocabulary or a reference governs take a real value, as any row does.
     prose.push('--set', 'Modifier / filler=Unfilled / unspecified', '--set', 'Role=Structural / functional / appearance');
+    // A maker the vocabulary does not know is named by the gate: a new manufacturer is a deliberate
+    // vocabulary row in the same commit as the grade that uses it.
+    const unknownMaker = run(prose);
+    assert.equal(unknownMaker.status, 1);
+    assert.match(unknownMaker.stdout, /Arkema/);
+    rmSync(dir, { recursive: true, force: true });
+    cpSync(join(root, 'data'), join(dir, 'data'), { recursive: true });
+    cpSync(join(root, 'schema'), join(dir, 'schema'), { recursive: true });
+    appendFileSync(join(dir, 'schema/vocab/manufacturers.csv'), 'Arkema,Resin supplier; the Rilsan line is its brand.,\n');
+
     const written = run(prose);
     assert.equal(written.status, 0, written.stderr);
     const t = openTables(dir);

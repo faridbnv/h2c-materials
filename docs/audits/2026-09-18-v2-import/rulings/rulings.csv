@@ -1,0 +1,5 @@
+Ruling,Kind,Subject,Value,Reason,By,Date
+R001,identity-policy,A product matching an existing material,Grade under that material,"A new material only where the polymer x filler x variant-class combination does not exist. Bambu's product-level rows stay their own materials. Owner ruling, 2026-09-18.",owner,2026-09-18
+R002,scope,Documents in scope,"Manufacturer PDFs, web and viewer TDS captured as PDF, scanned sheets via OCR, retailer copies and retailer-only brands","Everything the corpus publishes is imported; H2C compatibility and price are filters applied later, not an import criterion. Owner ruling, 2026-09-18.",owner,2026-09-18
+R003,depth,How much of a sheet is transcribed,Everything it publishes,"Property tables, print settings, qualitative notes, chemical, flammability, certification and composition statements. Owner ruling, 2026-09-18.",owner,2026-09-18
+R004,estimates,How the estimate stage is handled,Import against the core; scale the model in parallel,"Every batch validates with --no-estimates and with the full build while it runs. Publishing v2 waits for the model work; the import does not. Owner ruling, 2026-09-18.",owner,2026-09-18
