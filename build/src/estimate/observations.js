@@ -1,8 +1,7 @@
 // Observations: which measurement says what about a headline (its conversion kind), and the snapshot of materials,
 // grades and usable measurements the model is fitted to.
 
-import { moistureState } from '../normalize/moisture.js';
-import { specimenForm, postProcessingState, annealedBesideAsPrinted } from '../normalize/specimen.js';
+import { specimenForm, annealedBesideAsPrinted } from '../normalize/specimen.js';
 import { median } from './numerics.js';
 import { identityOf, transform } from './model.js';
 
@@ -48,7 +47,7 @@ export function snapshot(materials, gradeList, measurements, model) {
   // The highest Vicat its own grades publish, as printed or unstated (an annealed Vicat describes another state).
   const max = (xs) => (xs.length ? Math.max(...xs) : null);
   const vicatOf = (m) => max((byMaterial.get(m.id) ?? []).filter((x) => x.property === 'Vicat softening temperature' && x.value > 30 && x.value < 420
-    && !mouldedValue(x) && postProcessingState(x.postProcessing ?? 'Not published') !== 'annealed').map((x) => x.value));
+    && !mouldedValue(x) && x.postProcessingState !== 'annealed').map((x) => x.value));
   const tgOf = (m) => own(m, 'Glass transition temperature', -150, 420)
     ?? median(pool.filter((p) => identityOf(p) === identityOf(m)).flatMap((p) => (byMaterial.get(p.id) ?? [])
       .filter((x) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !mouldedValue(x)).map((x) => x.value)));
@@ -75,7 +74,7 @@ export function kindOf(x, key, matrixClass, waterUptake = 'high') {
   // The vocabulary declares each moisture wording's state (normalize/moisture.js); a conditioned value converts to dry.
   // How far it converts depends on the polymer's water uptake (identities waterUptake); a polymer that takes up
   // almost none is read as dry.
-  const conditioned = moistureState(x.moisture ?? 'Not published') === 'conditioned';
+  const conditioned = x.moistureState === 'conditioned';
   const wet = conditioned && waterUptake === 'high' ? ' wet' : conditioned && waterUptake === 'low' ? ' wet-low' : '';
   const kind = (base) => `${base}${dir}${wet}${moulded}`;
   switch (key) {
@@ -137,7 +136,7 @@ export function rawObservations(key, S, model) {
       if (!kind) continue;
       // A polymer that prints amorphous and was annealed is crystallised: another state, which no estimate of an
       // as-printed part may learn from.
-      if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.info(m).morphology === 'semicrystalline' && postProcessingState(x.postProcessing ?? 'Not published') === 'annealed') continue;
+      if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.info(m).morphology === 'semicrystalline' && x.postProcessingState === 'annealed') continue;
       // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
       // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C.
       if (annealedBesideAsPrinted(x, S.byMaterial.get(m.id))) continue;
@@ -153,7 +152,7 @@ export function rawObservations(key, S, model) {
       if (model.properties[key].scale === 'log' && !side && !(lo > 0)) continue;
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       // The post-processing state and schedule, not its wording: three spellings of one schedule are one state.
-      const state = `${postProcessingState(x.postProcessing ?? 'Not published')}|${x.anneal?.tempC ?? ''}|${x.anneal?.hours ?? ''}`;
+      const state = `${x.postProcessingState}|${x.anneal?.tempC ?? ''}|${x.anneal?.hours ?? ''}`;
       add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
         item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
     }

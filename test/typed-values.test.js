@@ -50,15 +50,36 @@ test('an HDT test load is typed and checked the same way', () => {
 test('the annealing schedule is a typed pair the wording checks: three spellings of one schedule are one state', async () => {
   const { parseAnnealSchedule } = await import('../build/src/normalize/specimen.js');
   for (const text of ['All the specimens were annealed and dried at 55 °C for 8 h before testing', 'All the specimens were annealed and dried at 55 °C for 8 hours before testing', 'All the specimens were annealed and dried at 55 °C for 8 h ours before testing']) {
-    assert.deepEqual(parseAnnealSchedule(text), { tempC: 55, hours: 8 }, text);
+    assert.deepEqual(parseAnnealSchedule(text, 'annealed'), { tempC: 55, hours: 8 }, text);
   }
-  assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing'), { tempC: 80, hours: 0.5 });
-  assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%)'), { tempC: 100, hours: 16 });
-  assert.deepEqual(parseAnnealSchedule('HDT specimens annealed at 130 °C'), { tempC: 130, hours: null });
-  assert.deepEqual(parseAnnealSchedule('Annealed (schedule not stated)'), { tempC: null, hours: null });
-  assert.equal(parseAnnealSchedule('As printed'), null);
+  assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing', 'annealed'), { tempC: 80, hours: 0.5 });
+  assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%)', 'annealed'), { tempC: 100, hours: 16 });
+  assert.deepEqual(parseAnnealSchedule('HDT specimens annealed at 130 °C', 'annealed'), { tempC: 130, hours: null });
+  assert.deepEqual(parseAnnealSchedule('Annealed (schedule not stated)', 'annealed'), { tempC: null, hours: null });
+  assert.equal(parseAnnealSchedule('As printed', 'as-printed'), null);
   const annealed = base.Properties.rows.find((r) => r['Anneal °C'] === '55').MeasurementID;
   const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === annealed)['Anneal °C'] = '65'; });
   assert.ok(mismatches.some((m) => m.startsWith(`measurements ${annealed}: Anneal °C is 65`)), mismatches.join('\n'));
+});
+
+test('a typed state that contradicts the source\'s own words stops the build; a wording that says nothing does not', () => {
+  const meas = (wb, id) => wb.Properties.rows.find((r) => r.MeasurementID === id);
+  const annealed = base.Properties.rows.find((r) => r['Post-processing state'] === 'annealed').MeasurementID;
+  const one = run((wb) => { meas(wb, annealed)['Post-processing state'] = 'as-printed'; });
+  assert.ok(one.mismatches.some((m) => m.startsWith(`measurements ${annealed}: Post-processing state is as-printed`)), one.mismatches.join(' | '));
+
+  const wet = base.Properties.rows.find((r) => r['Moisture state'] === 'conditioned').MeasurementID;
+  const two = run((wb) => { meas(wb, wet)['Moisture state'] = 'dry'; });
+  assert.ok(two.mismatches.some((m) => m.startsWith(`measurements ${wet}: Moisture state is dry`)), two.mismatches.join(' | '));
+
+  // A new datasheet sentence is data, not a schema change: an unseen wording the reader has no opinion on compiles,
+  // and the typed column decides. This is what m43 bought; before it, the sentence had to be added to a vocabulary.
+  const unstated = base.Properties.rows.find((r) => r['Post-processing state'] === 'not-stated').MeasurementID;
+  const three = run((wb) => { meas(wb, unstated)['Post-processing'] = 'Specimens rested in the bag for a week'; });
+  assert.deepEqual(three.mismatches, []);
+
+  // The states stay tied to the schedule beside them: a row that states no heat treatment cannot carry one.
+  const four = run((wb) => { const r = meas(wb, annealed); r['Post-processing'] = 'Specimens rested in the bag for a week'; r['Post-processing state'] = 'not-stated'; });
+  assert.ok(four.mismatches.some((m) => /Anneal °C is/.test(m)), four.mismatches.join(' | '));
 });
 

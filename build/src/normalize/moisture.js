@@ -1,21 +1,26 @@
-// The moisture state at test, as the estimate model needs it: dry, conditioned (humidity or water) or not
-// stated. Each value of schema/vocab/moisture-conditions.csv declares its State, so a new wording is either
-// declared or fails the build; nothing is inferred from the words themselves.
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { readCsv } from '../csv.js';
-
+// The moisture state at test, as the estimate model needs it: dry, conditioned (humidity or water) or not stated.
+//
+// It is a typed column on the measurement (Moisture state, m43), not a property of the wording. The source's own
+// words stay beside it in Moisture condition, and readMoistureState below reads them as a check: where the words say
+// plainly what the state is and the column disagrees, the build stops (typed-values.js, PARSE-MISMATCH). A wording
+// that does not say plainly — storage advice, a drying recommendation — gets no opinion, and the column decides.
 export const MOISTURE_STATES = ['dry', 'conditioned', 'not-stated'];
 
-const here = dirname(fileURLToPath(import.meta.url));
-const STATE = new Map(readCsv(join(here, '../../../schema/vocab/moisture-conditions.csv')).records.map((r) => [r.values.Value, r.values.State]));
-for (const [value, state] of STATE) {
-  if (!MOISTURE_STATES.includes(state)) throw new Error(`schema/vocab/moisture-conditions.csv: "${value}" has State "${state ?? ''}"; write one of ${MOISTURE_STATES.join(', ')}`);
+/** The declared moisture state of a measurement row's typed column. */
+export function moistureState(state) {
+  if (!MOISTURE_STATES.includes(state)) throw new Error(`Moisture state "${state ?? ''}" is not one of ${MOISTURE_STATES.join(', ')}`);
+  return state;
 }
 
-/** The declared state of a Moisture condition value. */
-export function moistureState(value) {
-  const state = STATE.get(value);
-  if (!state) throw new Error(`Moisture condition "${value}" is not in schema/vocab/moisture-conditions.csv`);
-  return state;
+/**
+ * What the source's wording plainly says, or null where it does not say. Anchored at the start of the wording: a
+ * sentence that merely mentions drying ("Kept dry; TDS recommends drying before printing") describes storage, not
+ * the state of the specimen at test.
+ */
+export function readMoistureState(text) {
+  const s = String(text ?? '').trim();
+  if (s === 'Not published') return 'not-stated';
+  if (/^(Dry|Dried)\b/.test(s)) return 'dry';
+  if (/^(Conditioned|Wet\b|50% RH)/.test(s)) return 'conditioned';
+  return null;
 }

@@ -208,9 +208,18 @@
     {
       "name": "Moisture condition",
       "type": "string",
+      "role": "raw",
+      "description": "Moisture state at test, in the source's words. Moisture state is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Moisture state",
+      "type": "string",
       "role": "canonical",
-      "description": "Moisture state at test.",
-      "vocabulary": "moisture-conditions",
+      "description": "The reviewed moisture state at test: dry, conditioned or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it.",
+      "vocabulary": "moisture-states",
       "constraints": {
         "required": true
       }
@@ -219,8 +228,17 @@
       "name": "Post-processing",
       "type": "string",
       "role": "raw",
-      "description": "Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary.",
-      "vocabulary": "post-processing",
+      "description": "Annealing or other post-processing, in the source's words. Post-processing state is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Post-processing state",
+      "type": "string",
+      "role": "canonical",
+      "description": "The reviewed post-processing state: as-printed, annealed or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it.",
+      "vocabulary": "post-processing-states",
       "constraints": {
         "required": true
       }

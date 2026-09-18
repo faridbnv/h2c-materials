@@ -248,8 +248,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Data status | canonical | string | yes |  | [data-status](#vocab-data-status) | Whether the row is a usable number, a missing state, qualitative, quarantined or retired. |
 | Specimen type | canonical | string | yes |  | [specimen-types](#vocab-specimen-types) | Specimen form. |
 | Direction | canonical | string | yes |  | [directions](#vocab-directions) | Print direction of the specimen. |
-| Moisture condition | canonical | string | yes |  | [moisture-conditions](#vocab-moisture-conditions) | Moisture state at test. |
-| Post-processing | raw | string | yes |  | [post-processing](#vocab-post-processing) | Annealing or other post-processing, in the source's words. Each wording declares its State (as-printed, annealed, not-stated) in the vocabulary. |
+| Moisture condition | raw | string | yes |  |  | Moisture state at test, in the source's words. Moisture state is what the build reads. |
+| Moisture state | canonical | string | yes |  | [moisture-states](#vocab-moisture-states) | The reviewed moisture state at test: dry, conditioned or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it. |
+| Post-processing | raw | string | yes |  |  | Annealing or other post-processing, in the source's words. Post-processing state is what the build reads. |
+| Post-processing state | canonical | string | yes |  | [post-processing-states](#vocab-post-processing-states) | The reviewed post-processing state: as-printed, annealed or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it. |
 | Anneal °C | canonical | number | yes | Not published, Not applicable |  | Annealing temperature the Post-processing wording states; the build decides on this column and the parser checks it (PARSE-MISMATCH). Not published: annealed, temperature not stated. Not applicable: not annealed, or post-processing not stated. |
 | Anneal h | canonical | number | yes | Not published, Not applicable |  | Annealing time in hours the wording states (30 min is 0.5). Not published: annealed, time not stated. Not applicable: not annealed, or post-processing not stated. |
 | Test temperature | raw | string | yes |  |  | Test temperature as published. |
@@ -882,28 +884,16 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Glass fibre |  |
 | Unfilled / unspecified |  |
 
-<a id="vocab-moisture-conditions"></a>
-### moisture-conditions
+<a id="vocab-moisture-states"></a>
+### moisture-states
 
-`schema/vocab/moisture-conditions.csv`, used by measurements.Moisture condition.
+`schema/vocab/moisture-states.csv`, used by measurements.Moisture state.
 
-| Value | Meaning | State |
-|---|---|---|
-| <20% RH during printing/storage | Storage or printing humidity; the moisture state at test is not stated | not-stated |
-| 50% RH | Tested at 50% relative humidity | conditioned |
-| Conditioned: 70% RH | Conditioned at 70% relative humidity before testing | conditioned |
-| Conditioned: immerged at ambient temperature for 3 days (medium not stated) | Immersed at ambient temperature before testing; the sheet does not name the medium | conditioned |
-| Conditioned: standard climate (23 °C, 50% RH, 72 h) | Conditioned in a standard climate before testing, as the source specifies | conditioned |
-| Conditioned: water immersion | Immersed in water before testing | conditioned |
-| Dried before testing (see preparation) | Dried before testing; the Post-processing column says how | dry |
-| Dry | Tested dry | dry |
-| Dry (source row); table heading 50% RH | The row is dry although its table heading names 50% RH | dry |
-| Dry as moulded | Moulded specimens tested dry as moulded | dry |
-| Keep vacuum sealed; dry at 120 °C for 3-8 h if >200 ppm | Storage and drying guidance; the moisture state at test is not stated | not-stated |
-| Kept dry; TDS recommends drying before printing | Storage guidance; the moisture state at test is not stated | not-stated |
-| Not published | The source does not state the moisture state at test | not-stated |
-| Wet (conditioning specified in source) | Conditioned wet as the source specifies | conditioned |
-| Wet (the row is labelled Wet; the sheet states no conditioning) | The row is labelled Wet and the source states no conditioning procedure | conditioned |
+| Value | Meaning |
+|---|---|
+| dry | Dried before testing or published as dry. |
+| conditioned | Held at a stated humidity or immersed before testing. |
+| not-stated | The source does not say the moisture state at test. |
 
 <a id="vocab-notches"></a>
 ### notches
@@ -953,46 +943,16 @@ lists the missing states a column accepts instead of a value; a blank required c
 | absorbs | The reference reports the neat polymer absorbing the agent (moisture uptake) without stating attack. | FALSE |
 | stabilised-required | The reference reports resistance only with a stabiliser or additive the neat polymer does not carry. | FALSE |
 
-<a id="vocab-post-processing"></a>
-### post-processing
+<a id="vocab-post-processing-states"></a>
+### post-processing-states
 
-`schema/vocab/post-processing.csv`, used by measurements.Post-processing.
+`schema/vocab/post-processing-states.csv`, used by measurements.Post-processing state.
 
-| Value | Meaning | State |
-|---|---|---|
-| After annealing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%) | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 4.64%) | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 100 °C for 8 h, and immerged in ambient temperature for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 120 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 120 °C for 16 h (TDS note under the mechanical table) | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 130 °C for 10 h | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80 °C for 24 h, and immersed in ambient-temperature water for 3 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80 °C for 30 min, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80 °C for 6 h, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80˚C for 24h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were annealed at 80˚C for 6h and dried for 48h prior to testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All specimens were conditioned at room temperature for 24 h prior to testing | Rested at room temperature before testing, which is not an anneal: the sheet states the only treatment its specimens had, and it was not a heat treatment | as-printed |
-| All the specimens were annealed and dried at 50 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 55 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 55 °C for 8 h ours before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 55 °C for 8 hours before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 65 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 70 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 75 °C for 8 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 80 °C for 12 h before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were annealed and dried at 80 °C for 12 hours before testing | Annealed before testing (the schedule is in the wording) | annealed |
-| All the specimens were not annealed before testing | Tested as printed, without annealing | as-printed |
-| Annealed (per TDS annealed block) | Annealed before testing (the schedule is in the wording) | annealed |
-| Annealed (schedule not stated beside the HDT row) | Annealed before testing (the schedule is in the wording) | annealed |
-| Annealed (schedule not stated) | Annealed before testing; the source gives no schedule | annealed |
-| As printed | Tested as printed, without annealing | as-printed |
-| HDT specimens annealed at 130 °C | Annealed before testing (the schedule is in the wording) | annealed |
-| HDT specimens annealed at 230 °C (deeper coloration) | Annealed before testing (the schedule is in the wording) | annealed |
-| Not published | The source does not state post-processing | not-stated |
-| Unannealed | Tested as printed, without annealing | as-printed |
+| Value | Meaning |
+|---|---|
+| as-printed | Tested as printed; the source states no heat treatment. |
+| annealed | Heat treated after printing; Anneal °C and Anneal h carry the schedule where the source states one. |
+| not-stated | The source does not say what was done after printing. |
 
 <a id="vocab-process-requirements"></a>
 ### process-requirements

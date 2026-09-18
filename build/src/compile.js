@@ -18,7 +18,7 @@ import { classifyTopic, classifyFinding, countUsableByCategory } from './normali
 import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyProfileTyped, applyLoadTyped, applyAnnealTyped } from './typed-values.js';
+import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 
@@ -43,6 +43,7 @@ function compileMeasurements(rows, fatigueRows, issues) {
     const quarantined = !!status?.quarantined;
     const numeric = !!status?.numeric && value !== null && !quarantined;
 
+    applyStateTyped(r, issues);
     const m = {
       id: r.MeasurementID,
       materialId: r.MaterialID,
@@ -64,10 +65,11 @@ function compileMeasurements(rows, fatigueRows, issues) {
       direction: direction.canonical,
       directionText: direction.text,
       moisture: r['Moisture condition'],
+      moistureState: moistureState(r['Moisture state']),
       postProcessing: r['Post-processing'],
-      postProcessingState: postProcessingState(r['Post-processing']),
+      postProcessingState: postProcessingState(r['Post-processing state']),
       // The annealing schedule, from the typed columns; null when the value was not annealed.
-      anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing']), issues),
+      anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing'], r['Post-processing state']), issues),
       testTemperature: r['Test temperature'],
       standardText: r['Standard / load'],
       notch: r.Notch,
@@ -298,7 +300,7 @@ function compileHeadlines(mat, selections, registry, measurementsById, measureme
       : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
       : m.implausible ? `${id} is flagged physically implausible (Data status); see its Notes`
       : !isPartSpecimen(m.specimenType) ? `${id} is a ${m.specimenForm} specimen, not a printed part`
-      : moistureState(m.moisture ?? 'Not published') === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
+      : m.moistureState === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
       : annealedBesideAsPrinted(m, measurementsByMaterial.get(mat.MaterialID) ?? []) ? `${id} is annealed, and grade ${m.gradeId} publishes the property as printed`
       : null;
     if (problem) {
@@ -402,7 +404,7 @@ function impliedBounds(mat, def, measurementsByMaterial) {
   return own
     .filter((m) => m.numeric && !m.quarantined && !m.implausible && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
     .filter((m) => !annealedBesideAsPrinted(m, own))
-    .filter((m) => !(rel.excludeMoisture ?? []).includes(moistureState(m.moisture ?? 'Not published')))
+    .filter((m) => !(rel.excludeMoisture ?? []).includes(m.moistureState))
     .filter((m) => rel.properties.includes(m.property) && (rel.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - rel.loadMPa) < 0.05)))
     .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
       // The published value (the low end of a published range, the bound of a "> x"), never value + SD: a spread of

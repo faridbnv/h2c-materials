@@ -36,7 +36,7 @@ test('a selection of another grade, property, direction or material is an error'
     // A headline describes a dry, as-printed part (audit 2026-09-15, C-05).
     ['a film specimen', (wb) => { meas(wb, 'V000384')['Specimen type'] = 'Film specimen (ASTM D882); not a printed or moulded bar'; }, /V000384 is a film specimen, not a printed part/],
     ['a moulded bar', (wb) => { meas(wb, 'V000384')['Specimen type'] = 'Raw material value'; }, /V000384 is a moulded specimen/],
-    ['a conditioned value', (wb) => { meas(wb, 'V000384')['Moisture condition'] = 'Conditioned: 70% RH'; }, /V000384 was measured after moisture conditioning/],
+    ['a conditioned value', (wb) => { const m = meas(wb, 'V000384'); m['Moisture condition'] = 'Conditioned: 70% RH'; m['Moisture state'] = 'conditioned'; }, /V000384 was measured after moisture conditioning/],
     ['an annealed value beside the as-printed one', (wb) => { row(wb, 'M068', 'hdt045').MeasurementID = 'V001933'; }, /V001933 is annealed, and grade G068-02 publishes the property as printed/],
   ];
   for (const [label, edit, expected] of cases) {

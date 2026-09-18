@@ -74,6 +74,7 @@ break if it were reversed, because that is the part that gets lost.
 | D65 | A test method that defines its load states that load; the typed value says so in Parse review | In force |
 | D66 | A templated safety data sheet is evidence only where it speaks about the product | In force |
 | D67 | A property is a row, not a pair of columns: the reference envelopes are long | In force |
+| D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | In force |
 
 <!-- end index -->
 
@@ -1414,3 +1415,33 @@ The legacy `offset` on each property is the retired reference workbook's column 
 stays in code, not in the data, only because `schema/reference.schema.json` still requires it in `meta.properties`.
 
 Reversing it brings back a schema change for a number, and a loader that knows the shape of a spreadsheet.
+
+## D68. A datasheet sentence is data, not a vocabulary: the state is a column on the row
+
+*Amends D53 and D56, which put the state in the vocabulary.*
+
+D53 fixed a real bug by giving each Moisture condition wording a declared State, and D56 did the same for
+Post-processing: the build had been reading "wet" out of the words, so 84 conditioned rows, nylons among them, were
+read as dry. Declaring the state was right. Declaring it *in the vocabulary* meant the wording was the key, so every
+new datasheet sentence was a schema change. By this snapshot `post-processing.csv` held 33 sentences, 25 of them one
+manufacturer's annealing paragraph in its own punctuation, and a sheet whose sentence differed by a word stopped the
+build until someone added the sentence and declared its state again. m38 and m39 each carried that instruction in
+their headers.
+
+- **The state is a typed column.** `Moisture state` and `Post-processing state` sit beside the source's own words in
+  `Moisture condition` and `Post-processing`, and the build reads only the columns. This is D49's rule, which every
+  other decided value already followed: the profile windows, the drying schedule, the HDT load.
+- **The words are still checked.** `readMoistureState` and `readPostProcessingState` read what a wording plainly
+  says. Where the words say plainly and the column disagrees, the build stops (PARSE-MISMATCH) unless Parse review
+  explains it. "Not annealed" and "unannealed" are read before "anneal", so a sentence that denies annealing is
+  never read as annealing.
+- **Where the words say nothing, the column decides.** Four wordings in this snapshot say nothing about the state
+  of the specimen at test: storage humidity, a drying recommendation, a vacuum-sealing instruction, and resting at
+  room temperature, which is not a heat treatment. The reader has no opinion on those, and nothing is inferred.
+- **A new wording is data.** Adding a measurement whose sheet phrases its annealing differently is now a row, not a
+  vocabulary entry and a second declaration of a state that is already in the row.
+- **Specimen type keeps its vocabulary.** Its ten wordings are the database's own, not a publisher's, so declaring
+  the Form there still makes a new one a deliberate act.
+
+Reversing it brings back a build that stops on a sentence, and the pressure that creates to reuse a wording that is
+close enough rather than record what the sheet says.

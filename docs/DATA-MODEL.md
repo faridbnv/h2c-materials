@@ -103,9 +103,11 @@ difference. A vocabulary can carry what the build needs about a wording: each Mo
 - **Physically implausible measurements** (Data status "Published value (physically implausible)"): a number the source
   really publishes that physics rules out, with the reason in Notes. It is shown, flagged, and backs no headline,
   estimate, conversion, implied bound or plot point (D55).
-- **Declared states** (D53, D56): each Moisture condition declares a State (dry, conditioned, not-stated), each
-  Post-processing wording a State (as-printed, annealed, not-stated), and each Specimen type a Form (printed,
-  not-stated, moulded, film, filament). The build reads the declaration, never the words.
+- **Declared states** (D53, D56, D68): a measurement carries its Moisture state (dry, conditioned, not-stated) and
+  Post-processing state (as-printed, annealed, not-stated) as typed columns beside the source's own words, and each
+  Specimen type declares a Form (printed, not-stated, moulded, film, filament) in its vocabulary, because those ten
+  wordings are the database's own. The build reads the state, never the words; where the words plainly say otherwise
+  the build stops (PARSE-MISMATCH), and where they say nothing the column decides.
 - **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
   its current replacement, and no measurement or headline may use it (D57).
 - **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings

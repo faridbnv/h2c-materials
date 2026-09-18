@@ -86,9 +86,9 @@ Rules the tooling enforces:
   list, environmental evidence and printing guidance are calculated by the build. There is no column
   for them.
 - **A new column or vocabulary value is a schema change.** Add it to `schema/tables/<table>.schema.json`
-  or `schema/vocab/<name>.csv` in the same commit as the data that uses it. Some vocabularies carry a
-  column the build reads: a new Moisture condition wording declares its State (dry, conditioned,
-  not-stated), or the build stops.
+  or `schema/vocab/<name>.csv` in the same commit as the data that uses it. A source's own words are
+  never a vocabulary: a new datasheet sentence is written in the raw column and the state it means in
+  the typed column beside it (Moisture state, Post-processing state), which is what the build reads.
 - **A lint finding is fixed or accepted with a reason.** `npm run data:lint -- --accept CODE "reason"`
   writes `data/review/accepted-findings.csv`; an accepted finding that no longer occurs must be removed.
 - **Raw columns keep the source's own text.** Typed columns beside them (Test load MPa, the profile
@@ -107,9 +107,10 @@ and locator, the direction, specimen, moisture and standard as published. A shee
 (dry and conditioned, as printed and annealed, two print speeds) must say in each row which table it came
 from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as injection moulded is Specimen type
 "Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form). Post-processing
-is copied as printed ("As printed", the sheet's annealing sentence) and each wording declares its State in
-`schema/vocab/post-processing.csv`; a new wording is added there, or the build stops. Anneal °C and Anneal h carry the
-schedule the wording states (Not published when it states none); the parser checks them. A Fatigue life measurement
+is copied as printed ("As printed", the sheet's annealing sentence) and Post-processing state beside it says what it
+means (as-printed, annealed, not-stated); Moisture condition and Moisture state work the same way. The build reads the
+state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen wording is data, not a schema change.
+Anneal °C and Anneal h carry the schedule the wording states (Not published when it states none); the parser checks them. A Fatigue life measurement
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 

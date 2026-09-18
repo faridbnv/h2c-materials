@@ -263,7 +263,7 @@ test('a resin reference never vetoes a screen: implied bounds are the filament\'
         // The estimate respects what the material's own data prove (B-16).
         if (h.estimate) assert.ok(h.estimate.plausible.lo >= b.lo * 0.98, `${m.name} ${key} plausible from ${h.estimate.plausible.lo}, below its own ${b.measurementId} ${b.lo}`);
         assert.ok(!annealedBesideAsPrinted(x, db.measurements), `${m.name} ${b.measurementId} is annealed beside an as-printed value`);
-        if (key === 'elongationXY') assert.notEqual(moistureState(x.moisture), 'conditioned', `${m.name} ${b.measurementId} is conditioned`);
+        if (key === 'elongationXY') assert.notEqual(x.moistureState, 'conditioned', `${m.name} ${b.measurementId} is conditioned`);
         assert.equal(x.materialId, m.id, `${m.name} ${key} bound ${b.measurementId} is another material's`);
         assert.ok(lowerBounds[key]?.properties.includes(x.property), `${m.name} ${key}: ${x.property} does not bound it`);
         bounds++;
@@ -689,7 +689,7 @@ test('the estimate numerics: normal quantiles, soft limits and hardness', () => 
 });
 
 test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z value is never XY', () => {
-  const x = (o) => ({ numeric: true, direction: 'XY', moisture: 'Not published', specimenType: 'Printed specimen', ...o });
+  const x = (o) => ({ numeric: true, direction: 'XY', moisture: 'Not published', moistureState: 'not-stated', specimenType: 'Printed specimen', ...o });
   assert.equal(kindOf(x({ property: 'Tensile break strength' }), 'tensileStrengthXY', 'amorphous'), 'break XY');
   assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'Z' }), 'tensileModulusXY', 'amorphous'), 'tensile Z');
   assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'XZ' }), 'tensileModulusXY', 'amorphous'), 'tensile XY');
@@ -698,14 +698,15 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
   assert.equal(kindOf(x({ property: 'Tensile modulus', direction: 'vertical-xz-source-label' }), 'tensileModulusXY', 'amorphous'), 'tensile unk');
   assert.equal(kindOf(x({ property: 'HDT', specimenType: 'Raw material value', thermal: { loadStated: true, loadMPa: 0.455 } }), 'hdt045', 'amorphous'), 'HDT 0.45 moulded amorphous');
   assert.equal(kindOf(x({ property: 'Glass transition temperature' }), 'hdt045', 'semi-unfilled'), null);
-  // The moisture state comes from the vocabulary's declared State, not from the wording.
-  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
-  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Wet (conditioning specified in source)' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
-  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Dry as moulded', specimenType: 'Raw material value' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile moulded');
-  assert.throws(() => kindOf(x({ property: 'Tensile modulus', moisture: 'Soaked' }), 'tensileModulusXY', 'semi-unfilled'), /not in schema\/vocab\/moisture-conditions\.csv/);
+  // The moisture state comes from the row's typed column, not from the wording (m43).
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH', moistureState: 'conditioned' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Wet (conditioning specified in source)', moistureState: 'conditioned' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile XY wet');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Dry as moulded', moistureState: 'dry', specimenType: 'Raw material value' }), 'tensileModulusXY', 'semi-unfilled'), 'tensile moulded');
+  // A state outside the three stops the build where it is read from the row (compile.js), not deep in the model.
+  assert.throws(() => moistureState('Soaked'), /is not one of dry, conditioned, not-stated/);
   // How far a conditioned value converts depends on the polymer's water uptake; a polymer that takes up none reads as dry (B-14).
-  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH' }), 'tensileModulusXY', 'semi-unfilled', 'low'), 'tensile XY wet-low');
-  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH' }), 'tensileModulusXY', 'amorphous', null), 'tensile XY');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH', moistureState: 'conditioned' }), 'tensileModulusXY', 'semi-unfilled', 'low'), 'tensile XY wet-low');
+  assert.equal(kindOf(x({ property: 'Tensile modulus', moisture: 'Conditioned: 70% RH', moistureState: 'conditioned' }), 'tensileModulusXY', 'amorphous', null), 'tensile XY');
   // An elastomer's yield says nothing about its ultimate strength, and its heat deflection informs nothing (B-17, B-08).
   assert.equal(kindOf(x({ property: 'Tensile yield strength' }), 'tensileStrengthXY', 'elastomer'), null);
   assert.equal(kindOf(x({ property: 'HDT', thermal: { loadStated: true, loadMPa: 0.45 } }), 'hdt045', 'elastomer'), null);
