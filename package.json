@@ -23,6 +23,7 @@
     "verify:fast": "node scripts/data/fmt.mjs --check && node scripts/data/check.mjs && node scripts/data/lint.mjs && node scripts/docs-rules.mjs --check && node scripts/docs-dictionary.mjs --check && node scripts/docs-decisions.mjs --check && npm test",
     "verify": "npm run verify:fast && node scripts/audit-data.mjs && node scripts/snapshot.mjs --check && node scripts/ui-probe.mjs && node scripts/ui-fuzz.mjs --n 300",
     "data:export-xlsx": "node scripts/data/export-xlsx.mjs",
+    "ingest:inventory": "node scripts/ingest/inventory.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
     "audit:sources": "node scripts/audit/source-completeness.mjs",
@@ -37,7 +38,8 @@
     "ui:fuzz:full": "node scripts/ui-fuzz.mjs --n 2000"
   },
   "devDependencies": {
-    "pdfjs-dist": "4.10.38"
+    "pdfjs-dist": "4.10.38",
+    "xlsx": "^0.18.5"
   },
   "engines": {
     "node": ">=24"
