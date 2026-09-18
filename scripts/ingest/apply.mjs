@@ -1,0 +1,305 @@
+#!/usr/bin/env node
+// The one way a proposal becomes data.
+//
+// Under D35 a value enters only from a fetched, hashed document, re-read page by page. At seven documents that is a
+// discipline a person keeps; at 1,800 it is a discipline a program keeps or nobody does. So this refuses a batch,
+// writing nothing, unless all of the following hold for every row of it:
+//
+//   a person accepted or rejected the row, by name                 APPLY-UNREVIEWED
+//   the cached document still hashes to what the proposal recorded APPLY-HASH
+//   every number is printed on the page its Locator names          APPLY-NUMBER-NOT-ON-PAGE
+//   the property, the unit and every vocabulary value exist        APPLY-PROPERTY, APPLY-UNIT, APPLY-VOCAB
+//   the material is settled, or a ruling settles it                APPLY-IDENTITY
+//   the product, the document and the formulation are not already recorded under another name
+//                                                                  APPLY-PRODUCT-DUPLICATE, APPLY-SHA-DUPLICATE, APPLY-KEY
+//
+// and unless the result passes the schema gate, the lint and the core build (no estimates) on a copy of the tables
+// first. Only then is anything written. Applying twice changes nothing: a source is known by its SourceID, a grade
+// by its source and product, a measurement by its source and locator.
+//
+//   npm run ingest:apply -- --batch b01-spectrum --dry-run
+//   npm run ingest:apply -- --batch b01-spectrum
+//
+// A batch is also a migration: scripts/migrate/mNN-batch-<name>.mjs calls this with the batch it pins, so the
+// sequence of migrations stays the one history of how the data got here.
+
+import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { readCsv } from '../../build/src/csv.js';
+import { checkData } from '../../build/src/schema.js';
+import { lintData, findingKey } from '../../build/src/lint-rules.js';
+import { loadTables, snapshotDate } from '../../build/src/load.js';
+import { buildDatabase } from '../../build/src/pipeline.js';
+import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
+import { sha256, numberOnPage, cachedText } from '../lib/pdf-text.mjs';
+import { documentPath } from './extract.mjs';
+
+const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
+const SEP = String.fromCharCode(0);
+const NUMERIC_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Test load MPa', 'Anneal °C', 'Anneal h'];
+const PAGE = /^p\.\s*(\d+)\s*:/;
+
+export class Refusal extends Error {
+  constructor(problems) {
+    super(`${problems.length} reason(s) to write nothing:\n  ${problems.map((p) => `[${p.code}] ${p.where}: ${p.message}`).join('\n  ')}`);
+    this.problems = problems;
+  }
+}
+
+export const proposalsOf = (batch) => {
+  const dir = join(AUDIT, 'proposals', batch);
+  if (!existsSync(dir)) throw new Error(`no proposals at ${dir.replace(projectRoot + '/', '')}`);
+  return readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
+    .map((f) => ({ file: f, ...JSON.parse(readFileSync(join(dir, f), 'utf8')) }));
+};
+
+const rowsOf = (proposal) => [
+  ...(proposal.grades ?? []).map((g) => ({ kind: 'grade', ...g })),
+  ...(proposal.measurements ?? []).map((m) => ({ kind: 'measurement', ...m })),
+  ...(proposal.profiles ?? []).map((p) => ({ kind: 'profile', ...p })),
+  ...(proposal.evidence ?? []).map((e) => ({ kind: 'evidence', ...e })),
+];
+
+/**
+ * Everything that must hold before anything is written. Returns the problems; an empty list is permission.
+ * `world` is the tables as they stand, so this can be run against a copy as well as against the repository.
+ */
+export function guard(proposals, world) {
+  const problems = [];
+  const fail = (code, where, message) => problems.push({ code, where, message });
+  const seenDigest = new Map(world.sources.filter((s) => /^[0-9a-f]{64}$/.test(s.SHA256)).map((s) => [s.SHA256, s.SourceID]));
+  const seenUrl = new Map(world.sources.map((s) => [s.URL, s.SourceID]));
+  // A product is its maker and its name, compared as names: case, spaces and punctuation are spelling.
+  const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const productKey = (maker, product) => `${plain(maker)}${SEP}${plain(product)}`;
+  const seenProduct = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [productKey(g.Manufacturer, g['Product name']), g.GradeID]));
+  const keyOwner = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [g['Shared formulation key'], g.MaterialID]));
+  const properties = new Map(world.properties.map((p) => [p.Property, p]));
+  const materials = new Map(world.materials.map((m) => [m.MaterialID, m]));
+  const vocabularies = world.vocabularies ?? {};
+  const rulings = new Set((world.rulings ?? []).map((r) => r.Subject));
+
+  for (const proposal of proposals) {
+    const where = proposal.file ?? proposal.document?.sha256?.slice(0, 12) ?? 'proposal';
+    if (proposal.review?.status !== 'reviewed') fail('APPLY-UNREVIEWED', where, `the document is "${proposal.review?.status ?? 'unreviewed'}"; a person reads it before it enters`);
+
+    // The document, as bytes. Everything below is read off the text of exactly this file.
+    const sha = proposal.document?.sha256 ?? '';
+    const path = documentPath(sha);
+    if (!path) { fail('APPLY-HASH', where, `no cached document for ${sha.slice(0, 12) || '(none)'}`); continue; }
+    if (sha256(readFileSync(path)) !== sha) { fail('APPLY-HASH', where, `the cached document no longer hashes to ${sha.slice(0, 12)}`); continue; }
+    const text = cachedText(sha);
+    if (!text) { fail('APPLY-STALE', where, 'the text cache is missing or was written by another extractor; run ingest:extract --refresh'); continue; }
+
+    if (seenDigest.has(sha)) fail('APPLY-SHA-DUPLICATE', where, `this document is already registered as ${seenDigest.get(sha)}`);
+    const url = proposal.source?.row?.URL;
+    if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID) fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}`);
+
+    // Identity: a material that exists, or a ruling that creates one. Never a family entry.
+    for (const grade of proposal.grades ?? []) {
+      const id = grade.row?.MaterialID;
+      const material = materials.get(id);
+      if (!material && !(proposal.newMaterial && rulings.has(proposal.newMaterial['Original name']))) {
+        fail('APPLY-IDENTITY', `${where} ${grade.key}`, `${id ?? 'no material'} is not a material, and no ruling creates one`);
+      }
+      if (material?.Scope === 'Family entry') fail('APPLY-IDENTITY', `${where} ${grade.key}`, `${id} is a family entry and owns no product (D44)`);
+      const product = productKey(grade.row?.Manufacturer, grade.row?.['Product name']);
+      if (seenProduct.has(product)) fail('APPLY-PRODUCT-DUPLICATE', `${where} ${grade.key}`, `${grade.row?.Manufacturer} ${grade.row?.['Product name']} is already ${seenProduct.get(product)}`);
+      const key = grade.row?.['Shared formulation key'];
+      if (key && keyOwner.has(key) && keyOwner.get(key) !== id) fail('APPLY-KEY', `${where} ${grade.key}`, `formulation key ${key} belongs to ${keyOwner.get(key)}`);
+    }
+
+    for (const row of rowsOf(proposal)) {
+      const at = `${where} ${row.id ?? row.key ?? row.kind}`;
+      if (!['accepted', 'rejected'].includes(row.review?.status)) { fail('APPLY-UNREVIEWED', at, `the row is "${row.review?.status ?? 'unreviewed'}"`); continue; }
+      if (row.review.status === 'rejected') continue;
+      if (!row.review.by) fail('APPLY-UNREVIEWED', at, 'accepted by nobody: a review records who');
+      if (row.evidence?.ocr && !row.review?.visual) fail('APPLY-OCR-UNVERIFIED', at, 'read from an optical-character copy; a person looks at the page image before it enters');
+
+      const locator = row.row?.Locator ?? '';
+      const page = PAGE.exec(locator);
+      if (row.kind === 'measurement' || row.kind === 'profile') {
+        if (!page) { fail('APPLY-LOCATOR', at, `"${locator}" does not name a page ("p. 2: ...")`); continue; }
+        if (Number(page[1]) > text.pages.length) { fail('APPLY-LOCATOR', at, `page ${page[1]} of a ${text.pages.length}-page document`); continue; }
+      }
+      if (row.kind === 'measurement') {
+        const property = properties.get(row.row?.Property);
+        if (!property) fail('APPLY-PROPERTY', at, `"${row.row?.Property}" is not a property in properties.csv`);
+        else {
+          if (property['Replaced by'] && property['Replaced by'] !== 'Not applicable') fail('APPLY-PROPERTY', at, `"${row.row.Property}" is replaced by "${property['Replaced by']}"`);
+          const units = String(property.Units ?? '').split(';').map((u) => u.trim());
+          if (!units.includes(row.row?.['Normalized unit'])) fail('APPLY-UNIT', at, `${row.row?.['Normalized unit']} is not a unit of ${row.row?.Property} (${units.join(', ')})`);
+        }
+        for (const field of NUMERIC_FIELDS) {
+          const value = row.row?.[field];
+          if (value == null || !/^-?\d/.test(String(value))) continue;
+          if (!numberOnPage(text, Number(page[1]), value)) fail('APPLY-NUMBER-NOT-ON-PAGE', at, `${field} ${value} is not printed on page ${page[1]}`);
+        }
+      }
+      for (const [column, vocabulary] of Object.entries(row.vocabularies ?? {})) {
+        const allowed = vocabularies[vocabulary];
+        if (allowed && row.row?.[column] && !allowed.has(row.row[column])) fail('APPLY-VOCAB', at, `"${row.row[column]}" is not in schema/vocab/${vocabulary}.csv`);
+      }
+    }
+    if (!(proposal.measurements ?? []).some((m) => m.review?.status === 'accepted') && !proposal.review?.note) {
+      fail('APPLY-EMPTY', where, 'no accepted values and no note saying why the document is registered anyway');
+    }
+  }
+  return problems;
+}
+
+/** The tables as the guard reads them, from a checkout or a copy. */
+export function worldOf(root = projectRoot) {
+  const table = (n) => readCsv(join(root, 'data/tables', `${n}.csv`)).records.map((r) => r.values);
+  const vocabularies = {};
+  for (const f of readdirSync(join(root, 'schema/vocab')).filter((f) => f.endsWith('.csv'))) {
+    vocabularies[f.replace(/\.csv$/, '')] = new Set(readCsv(join(root, 'schema/vocab', f)).records.map((r) => r.values.Value));
+  }
+  const rulingsPath = join(AUDIT, 'rulings/rulings.csv');
+  return {
+    sources: table('sources'), grades: table('grades'), materials: table('materials'), properties: table('properties'),
+    vocabularies, rulings: existsSync(rulingsPath) ? readCsv(rulingsPath).records.map((r) => r.values) : [],
+  };
+}
+
+/** Write a reviewed batch into an open set of tables. Idempotent: what is already recorded is left alone. */
+export function writeBatch(t, proposals, { migration, date }) {
+  const log = [];
+  const note = (what) => log.push(what);
+  for (const proposal of proposals) {
+    const accepted = (rows) => (rows ?? []).filter((r) => r.review?.status === 'accepted');
+
+    if (proposal.newMaterial && !t.rows('materials').some((m) => m['Original name'] === proposal.newMaterial['Original name'])) {
+      const id = nextId('materials', t.rows('materials').map((m) => m.MaterialID));
+      proposal.newMaterial.MaterialID = id;
+      t.append('materials', proposal.newMaterial);
+      for (const grade of proposal.grades ?? []) grade.row.MaterialID = id;
+      note(`material ${id} ${proposal.newMaterial['Original name']}`);
+    }
+
+    const sourceId = proposal.source?.row?.SourceID;
+    const gradeIds = {};
+    for (const grade of accepted(proposal.grades)) {
+      const existing = t.rows('grades').find((g) => g.SourceID === grade.row.SourceID && g['Product name'] === grade.row['Product name']);
+      if (existing) { gradeIds[grade.key] = existing.GradeID; continue; }
+      const id = nextId('grades', t.rows('grades').map((g) => g.GradeID), { materialId: grade.row.MaterialID });
+      gradeIds[grade.key] = id;
+      t.append('grades', { GradeID: id, ...grade.row });
+      note(`grade ${id} ${grade.row.Manufacturer} ${grade.row['Product name']}`);
+    }
+    const resolve = (value) => String(value ?? '').replace(/\$\{grade:([^}]+)\}/g, (_, key) => gradeIds[key] ?? `\${grade:${key}}`);
+
+    if (sourceId && !t.find('sources', sourceId)) {
+      t.append('sources', { ...proposal.source.row, 'Applicable grades': resolve(proposal.source.row['Applicable grades']) });
+      note(`source ${sourceId}`);
+    }
+
+    const gradeOf = (key, fallback) => gradeIds[key] ?? fallback;
+    const materialOf = (gradeId, fallback) => t.find('grades', gradeId)?.MaterialID ?? fallback;
+
+    for (const m of accepted(proposal.measurements)) {
+      if (t.rows('measurements').some((x) => x.SourceID === m.row.SourceID && x.Locator === m.row.Locator)) continue;
+      const id = nextId('measurements', t.rows('measurements').map((x) => x.MeasurementID));
+      const gradeId = gradeOf(m.gradeKey, m.row.GradeID);
+      const added = `Added ${date} (${migration}): re-read from the source document, page ${PAGE.exec(m.row.Locator)?.[1] ?? '?'} (SHA-256 recorded in sources.csv).`;
+      t.append('measurements', {
+        MeasurementID: id, ...m.row, GradeID: gradeId, MaterialID: materialOf(gradeId, m.row.MaterialID),
+        Notes: m.row.Notes && m.row.Notes !== 'Not applicable' ? `${added} ${m.row.Notes}` : added,
+      });
+      note(`measurement ${id} ${m.row.Property}`);
+    }
+
+    for (const p of accepted(proposal.profiles)) {
+      if (t.rows('profiles').some((x) => x.SourceID === p.row.SourceID && x.Locator === p.row.Locator)) continue;
+      const id = nextId('profiles', t.rows('profiles').map((x) => x.ProfileID));
+      const gradeId = gradeOf(p.gradeKey, p.row.GradeID);
+      t.append('profiles', { ProfileID: id, ...p.row, GradeID: gradeId, MaterialID: materialOf(gradeId, p.row.MaterialID) });
+      for (const n of p.notes ?? []) if (!t.rows('profile_notes').some((x) => x.ProfileID === id && x.Topic === n.Topic)) t.append('profile_notes', { ProfileID: id, ...n });
+      note(`profile ${id}`);
+    }
+
+    for (const e of accepted(proposal.evidence)) {
+      if (t.rows('evidence').some((x) => x.SourceID === e.row.SourceID && x.Locator === e.row.Locator && x.Topic === e.row.Topic)) continue;
+      const id = nextId('evidence', t.rows('evidence').map((x) => x.EvidenceID));
+      const gradeId = gradeOf(e.gradeKey, e.row.GradeID);
+      t.append('evidence', { EvidenceID: id, ...e.row, GradeID: gradeId, MaterialID: materialOf(gradeId, e.row.MaterialID) });
+      note(`evidence ${id} ${e.row.Topic}`);
+    }
+
+    for (const h of proposal.headlines ?? []) {
+      const measurement = (proposal.measurements ?? []).find((m) => m.id === h.measurement);
+      const recorded = t.rows('measurements').find((x) => x.SourceID === measurement?.row?.SourceID && x.Locator === measurement?.row?.Locator);
+      if (!recorded) continue;
+      if (t.rows('headlines').some((x) => x.MaterialID === recorded.MaterialID && x.HeadlineKey === h.HeadlineKey && x.Use === h.Use)) continue;
+      t.append('headlines', { MaterialID: recorded.MaterialID, HeadlineKey: h.HeadlineKey, MeasurementID: recorded.MeasurementID, Use: h.Use });
+      note(`headline ${recorded.MaterialID} ${h.HeadlineKey}`);
+    }
+  }
+  return log;
+}
+
+/** Apply a batch to a copy of the tables and check the result. */
+export function rehearse(proposals, { migration, date }) {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-apply-'));
+  try {
+    cpSync(join(projectRoot, 'data'), join(dir, 'data'), { recursive: true });
+    cpSync(join(projectRoot, 'schema'), join(dir, 'schema'), { recursive: true });
+    const t = openTables(dir);
+    const log = writeBatch(t, proposals, { migration, date });
+    t.save();
+    const gate = checkData(join(dir, 'data'), join(dir, 'schema'));
+    let lint = [], build = [];
+    if (!gate.issues.length) {
+      const tables = Object.fromEntries(Object.keys(gate.schemas).map((n) => {
+        const { header, records } = readCsv(join(dir, 'data/tables', `${n}.csv`));
+        return [n, { header, rows: records.map((r) => r.values) }];
+      }));
+      const baseline = new Set(readCsv(join(projectRoot, 'data/review/accepted-findings.csv')).records
+        .map((r) => findingKey({ code: r.values.Code, table: r.values.Table, record: r.values.Record, field: r.values.Field ?? '' })));
+      lint = lintData(tables, gate.schemas).filter((f) => !baseline.has(findingKey(f)));
+      const wb = loadTables(join(dir, 'data'));
+      build = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'apply', estimates: false }).issues.filter((i) => i.level === 'error');
+    }
+    return { log, gate: gate.issues, lint, build };
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/** The whole of it: guard, rehearse, then write. Throws a Refusal and writes nothing if anything is wrong. */
+export function applyBatch(batch, { migration = batch, date = new Date().toISOString().slice(0, 10), dryRun = false } = {}) {
+  const proposals = proposalsOf(batch);
+  const problems = guard(proposals, worldOf());
+  if (problems.length) throw new Refusal(problems);
+
+  const rehearsal = rehearse(proposals, { migration, date });
+  const after = [
+    ...rehearsal.gate.map((i) => ({ code: 'APPLY-SCHEMA', where: i.where, message: i.message })),
+    ...rehearsal.lint.map((i) => ({ code: 'APPLY-LINT', where: i.where, message: `${i.code}: ${i.message}` })),
+    ...rehearsal.build.map((i) => ({ code: 'APPLY-CORE-BUILD', where: i.where, message: `${i.code}: ${i.message}` })),
+  ];
+  if (after.length) throw new Refusal(after);
+  if (dryRun) return { log: rehearsal.log, written: false };
+
+  const t = openTables();
+  const log = writeBatch(t, proposals, { migration, date });
+  t.save();
+  return { log, written: true };
+}
+
+if (process.argv[1]?.endsWith('apply.mjs')) {
+  const at = process.argv.indexOf('--batch');
+  const batch = at >= 0 ? process.argv[at + 1] : null;
+  if (!batch) { console.error('usage: npm run ingest:apply -- --batch <name> [--migration mNN] [--dry-run]'); process.exit(2); }
+  const migrationAt = process.argv.indexOf('--migration');
+  try {
+    const { log, written } = applyBatch(batch, { migration: migrationAt >= 0 ? process.argv[migrationAt + 1] : batch, dryRun: process.argv.includes('--dry-run') });
+    console.log(`${log.length} record(s) ${written ? 'written' : 'would be written'}`);
+    for (const line of log.slice(0, 40)) console.log(`  ${line}`);
+    if (log.length > 40) console.log(`  ... and ${log.length - 40} more`);
+  } catch (e) {
+    console.error(e instanceof Refusal ? `Nothing written. ${e.message}` : e.message);
+    process.exit(1);
+  }
+}
