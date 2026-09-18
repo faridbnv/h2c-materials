@@ -610,6 +610,17 @@ test('an estimated chamber band never sits beside published evidence and never d
   assert.equal(ppa.gates.chamber.verdict, 'unknown');
 });
 
+test('a band is attached by MaterialID, so renaming a material does not detach it', async () => {
+  const { chamberBandsFromTables, attachChamberEstimates } = await import('../build/src/chamber-estimates.js');
+  const wb = loadTables(join(root, 'data'));
+  const bands = chamberBandsFromTables(wb);
+  const renamed = db.materials.map((m) => ({ ...m, name: `${m.name} (renamed)`, print: { ...m.print, chamberEstimate: null } }));
+  const after = attachChamberEstimates(renamed, bands);
+  assert.equal(after.issues.length, 0, after.issues.map((i) => i.message).join(' | '));
+  assert.equal(after.applied.length, db.materials.filter((m) => m.print?.chamberEstimate).length);
+  assert.ok(after.applied.every((a) => a.material.endsWith('(renamed)')));
+});
+
 // --- 2026-09-13 coverage consolidation ----------------------------------------------------------
 // docs/audits/2026-09-13-coverage-consolidation/. The validator now checks that every record points
 // at the right material. Each test below breaks a copy of the snapshot in one way and requires the

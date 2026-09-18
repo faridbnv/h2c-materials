@@ -5,7 +5,7 @@
 //
 // They are authored, not computed. A researcher chose each band from peer profiles, so they live in
 // data/tables/chamber_bands.csv, one row per material by MaterialID, with the basis and caution the
-// research wrote. The build does not re-derive them.
+// research wrote. The build does not re-derive them, and attaches them by that ID.
 //
 // They never decide anything. A property estimate may screen a material out of a requirement its
 // plausible range wholly fails (D43). A chamber band cannot, because the most it could ever describe is a
@@ -21,26 +21,28 @@
  * form one band, in table order, and no-band rows record materials deliberately given none.
  */
 export function chamberBandsFromTables(wb) {
-  const nameOf = new Map(wb.Materials.rows.map((m) => [m.MaterialID, m['Original name']]));
   const out = { source: null, bands: [], noBand: {} };
   for (const r of wb['Chamber bands'].rows) {
     out.source ??= r.Source;
-    if (r.Kind === 'no-band') { out.noBand[nameOf.get(r.MaterialID)] = r.Basis; continue; }
+    if (r.Kind === 'no-band') { out.noBand[r.MaterialID] = r.Basis; continue; }
     const caution = r.Caution === 'Not applicable' ? undefined : r.Caution;
     const last = out.bands.at(-1);
     const lo = Number(r['Low °C']), hi = Number(r['High °C']);
-    if (last && last.lo === lo && last.hi === hi && last.basis === r.Basis && last.caution === caution) last.materials.push(nameOf.get(r.MaterialID));
-    else out.bands.push({ lo, hi, basis: r.Basis, ...(caution ? { caution } : {}), materials: [nameOf.get(r.MaterialID)] });
+    if (last && last.lo === lo && last.hi === hi && last.basis === r.Basis && last.caution === caution) last.materials.push(r.MaterialID);
+    else out.bands.push({ lo, hi, basis: r.Basis, ...(caution ? { caution } : {}), materials: [r.MaterialID] });
   }
   return out;
 }
 
 /**
+ * A band is attached by MaterialID, which is what the table records. It used to be attached by the material's
+ * Original name, so renaming a material silently detached its band, and the band said nothing about it.
+ *
  * @param materials compiled materials, with `print.chamberC` and `print.chamberGuidance` already set
  * @returns {{ applied: object[], superseded: object[], issues: object[] }}
  */
 export function attachChamberEstimates(materials, bands) {
-  const byName = new Map(materials.map((m) => [m.name, m]));
+  const byId = new Map(materials.map((m) => [m.id, m]));
   const applied = [], superseded = [], issues = [];
   const seen = new Set();
 
@@ -48,11 +50,12 @@ export function attachChamberEstimates(materials, bands) {
     if (!(band.lo < band.hi)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `Band ${band.lo}-${band.hi} °C is not a range` });
     if (!band.basis) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `Band ${band.lo}-${band.hi} °C does not say where it came from` });
 
-    for (const name of band.materials) {
-      const m = byName.get(name);
-      if (!m) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is not a material in the snapshot` }); continue; }
-      if (seen.has(name)) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is listed in more than one band` }); continue; }
-      seen.add(name);
+    for (const id of band.materials) {
+      const m = byId.get(id);
+      const name = m?.name ?? id;
+      if (!m) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `${id} is not a material in the snapshot` }); continue; }
+      if (seen.has(id)) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is listed in more than one band` }); continue; }
+      seen.add(id);
       if (m.excluded) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is outside the H2C scope and must not carry a band` }); continue; }
 
       const guidance = m.print?.chamberGuidance?.state;
@@ -68,8 +71,8 @@ export function attachChamberEstimates(materials, bands) {
       applied.push({ material: name, band: `${band.lo}-${band.hi} °C`, alongside: guidance ?? null });
     }
   }
-  for (const name of Object.keys(bands.noBand ?? {})) {
-    if (!byName.has(name)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" in noBand is not a material in the snapshot` });
+  for (const id of Object.keys(bands.noBand ?? {})) {
+    if (!byId.has(id)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `${id} in noBand is not a material in the snapshot` });
   }
   return { applied, superseded, issues };
 }
