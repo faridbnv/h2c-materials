@@ -27,6 +27,8 @@ import { cachedText, columnPositions, cellsAt, joinDigits, lineCells } from '../
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { profileCellsFromParsed } from '../../build/src/typed-values.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
+import { readPostProcessingState, parseAnnealSchedule } from '../../build/src/normalize/specimen.js';
+import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
 import { classifyProduct } from './classify.mjs';
 
@@ -40,7 +42,9 @@ const UNITS = lexicon('unit-aliases');
 const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).sort((a, b) => b.length - a.length).join('|');
 // A fresh pattern per call: a global regular expression keeps its place between calls, and sharing one made
 // every second line read as though it had no value.
-const valueRe = () => new RegExp(`(-?\\d+(?:[.,]\\d+)?)\\s*(${UNIT_PATTERN})`, 'gi');
+// The minus sign is a sign only where a number does not come before it: "55-60°C" is a window whose dash the
+// number swallowed, which read a PLA's glass transition as -60 °C.
+const valueRe = () => new RegExp(`((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)\\s*(${UNIT_PATTERN})`, 'gi');
 
 // A section heading tells a value what it is: a printing guide is not a test result, and a storage note is neither.
 //
@@ -63,9 +67,17 @@ const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
 // not a number, and joining them was what turned "ISO 527" into a fragment in the label.
-const joinLocal = (t) => t.replace(/(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/\bO\.(?=\d)/g, '0.');
+const joinLocal = (t) => t.replace(/(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
+// Extraction splits a standard's own number too ("ISO 11 8 3", "ISO 17 9", "D 2 56"), and the designation is
+// matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
+// is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
+// a number after a standard carries its unit ("ISO 75 80 °C"), and the suffix of ISO 179/1eU is not digits.
+const joinStandardDigits = (line) => line.replace(
+  /\b((?:ISO|ASTM\s?D?|DIN|IEC|UL|EN|GB\s?\/\s?T|[DE])\s?\d{1,4})((?:\s\d(?![\d.,]))+)(?![\s]*[°%\w])/g,
+  (m, head, frags) => (`${head}${frags}`.match(/\d/g) ?? []).length <= 5 ? head + frags.replace(/\s/g, '') : m);
+
 function repair(text) {
-  const line = String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2');
+  const line = joinStandardDigits(String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2'));
   const out = [];
   let last = 0;
   for (const m of line.matchAll(new RegExp(STANDARD_RE.source, 'gi'))) { out.push(joinLocal(line.slice(last, m.index)), m[0]); last = m.index + m[0].length; }
@@ -138,15 +150,24 @@ export function readRow(text, registry, held = null) {
     // A published spread shares its value's unit ("2433.4 ± 79.4 kJ/m2"), so the number beside the unit is the
     // spread and the one before the sign is the value. Reading left to right recorded the spread as the result.
     const spread = /(-?\d+(?:[.,]\d+)?)\s*(?:±|\+\/-)\s*$/.exec(before);
-    const value = spread ? spread[1] : candidate[1];
+    // A published window is one statement, not two: "Glass Transition Temperature 55-60°C" is a range whose low
+    // end carries no unit of its own. Reading the number beside the unit alone made it a point, and reading the
+    // dash as a sign made it -60 °C. The database keeps the pair (Raw upper bound), so the row is read as one.
+    const window = spread ? null : /(-?\d+(?:[.,]\d+)?)\s*[-–~]\s*$/.exec(before);
+    const value = spread ? spread[1] : window ? window[1] : candidate[1];
     const uncertainty = spread ? candidate[1] : null;
+    const upper = window ? candidate[1] : null;
     if (spread) before = before.slice(0, spread.index);
+    if (window) before = before.slice(0, window.index);
     return {
       match,
       label: before.replace(/[<>≤≥~@(,\s]+$/, '').trim(),
       conditions: before.trim(),
       uncertainty: uncertainty == null ? null : String(rawNumber(uncertainty)),
-      raw: `${value}${uncertainty ? ` ± ${uncertainty}` : ''} ${candidate[2]}`.replace(/\s+/g, ' ').trim(),
+      upper: upper == null ? null : String(rawNumber(upper)),
+      raw: window
+        ? `${value}-${upper} ${candidate[2]}`.replace(/\s+/g, ' ').trim()
+        : `${value}${uncertainty ? ` ± ${uncertainty}` : ''} ${candidate[2]}`.replace(/\s+/g, ' ').trim(),
       // The build's own reader decides what the digits mean: a decimal comma with one or two places, a thousands
       // comma with three ("13,085 psi" is thirteen thousand, not thirteen).
       rawNumber: String(rawNumber(value)),
@@ -154,7 +175,7 @@ export function readRow(text, registry, held = null) {
       // A sheet may print the method before the value or after it, so the standards are read from the whole line.
       standards: (line.match(new RegExp(STANDARD_RE.source, 'gi')) ?? []).map((m) => m.replace(/\s+/g, ' ').trim()),
       operator: /[<>≤≥]\s*$/.test(before) ? before.trim().slice(-1).replace('≤', '<').replace('≥', '>') : '=',
-      range: /[-–~]\s*$/.test(before),
+      range: !window && /[-–~]\s*$/.test(before),
       // "24.000 kg/cm2" is twenty-four thousand on a European sheet and twenty-four on an American one. Which it
       // is comes from reading the sheet, so the row says it is ambiguous and a person settles it (V000731 is the
       // precedent: the raw value records both the number and what the sheet printed).
@@ -204,6 +225,9 @@ export function readSetting(line, page = 1) {
       ? `${tail} ${source[i + 1]}` : tail;
     const raw = settingValue(joined) || settingValue(source[i + 1] ?? '');
     if (!raw || !/[a-z0-9]/i.test(raw)) return null;
+    // A note has to state something. "exceptional print quality at a speed of up to 600" wraps so that a line
+    // begins with the word speed, and read as guidance it put a marketing sentence in the print setup.
+    if (match.Field === 'note' && !/\d|\b(not|no|yes|necessary|required|recommended|needed)\b/i.test(raw)) return null;
     return { page, field: match.Field, topic: match.Topic || '', label: m[0].trim(), raw, line: String(line.text ?? '').slice(0, 200) };
   }
   return null;
@@ -431,39 +455,78 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
   // The property's own name is not the method: "Specific Gravity" belongs in the Property column and in the
   // Locator, and this column keeps what the row says about how it was measured. Leaving the label here is the
   // transcription damage OPEN-PROBLEMS §1 records, and writing it again would be repeating it.
-  const condition = String(v.condition ?? '').replace(v.read.match.re, ' ').replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
-  const load = /([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*MPa)/i.exec(condition);
+  // Where the property's own name ends and what the row says about the measurement begins. A sheet writes the
+  // condition after a comma, a bracket, an @ or a number, and the name before it; the label regex is not enough,
+  // because "Izod" matches and "Izod Impact Strength, Notched @ 23°C" is what the row prints.
+  const printed = String(v.condition ?? '');
+  const at0 = printed.search(/[,(@]|\d/);
+  const condition = (at0 > 0 ? printed.slice(at0) : printed.replace(v.read.match.re, ' '))
+    .replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
+  // A rate is a condition of the test, not a temperature it was run at: "VICAT, 50 N (heating rate 50°C/h)".
+  const withoutRate = condition.replace(/\([^)]*(?:rate|\/\s?(?:h|hr|min))[^)]*\)/gi, ' ');
+  // A load is printed in MPa, in MN/m² or in N/mm², which are the same unit under three names.
+  const load = /([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m\s?2|N\s?\/\s?mm\s?2))/i.exec(withoutRate);
   // What the row says about how it was measured: the standard it names and the load it was tested under. The
   // notch, the test temperature and the property's own name have columns of their own, so repeating them here
   // would be the label in the method column again. A row that names neither keeps whatever words are left.
-  const named = [...new Set([load ? load[1].trim() : null, ...v.read.standards].filter(Boolean))];
-  const leftover = condition
-    .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ').replace(/(-?\d+(?:[.,]\d+)?)\s*°\s*C/gi, ' ')
-    .replace(/([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*MPa)/gi, ' ').replace(/\b(un-?notched|notched)\b/gi, ' ')
-    .replace(/[,@()]/g, ' ').replace(/\s+/g, ' ').trim();
-  const standardText = named.length ? named.join(' ') : leftover;
+  const rest = withoutRate
+    .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ')
+    .replace(/([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m\s?2|N\s?\/\s?mm\s?2))/gi, ' ')
+    .replace(/\b(un-?notched|notched)\b/gi, ' ').replace(/\b3d\s*print\w*\b/gi, ' ')
+    .replace(/[,@()*<>≤≥]/g, ' ').replace(/\s+/g, ' ').trim();
+  // What is left of the row's words once the standard, the load and the notch are in their own columns is either
+  // a condition of the test or a piece of the property's own name that the label pattern did not reach
+  // ("Temperature" from Glass Transition Temperature, ". force" from Tensile Strength at Max. force). A condition
+  // states a number or names one of the things that can be done to a specimen; anything else is the name.
+  const CONDITION_WORD = /\d|\b(anneal\w*|as printed|dry|dried|conditioned|wet|method|saturation|equilibrium|specimen|injection|mou?ld\w*|printed|film|strand|parallel|perpendicular|flat|edge|upright)\b/i;
+  // A remnant that is made of the property's own vocabulary is the name, whatever else it contains: "strength -
+  // charpy method" is what the sheet calls the test, and the Property column already says it.
+  const LABEL_WORD = /\b(charpy|izod|impact|strength|stress|modulus|elongation|strain|temperature|softening|deflection|distortion|transition|density|gravity|hardness|absorption|content|shrinkage|resistance|conductivity|flexural|tensile|bending|melt|flow|index|rate|point|force|vicat|hdt|mfr|mvr)\b/i;
+  const leftover = CONDITION_WORD.test(rest) && (/\d/.test(rest) || !LABEL_WORD.test(rest)) ? rest : '';
+  const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, leftover || null, ...v.read.standards].filter(Boolean))];
+  const standardText = named.join(' ').trim();
   const standards = readStandards([condition, ...v.read.standards].join(' '));
+  // What the row says was done to the specimen before it was tested, and how wet it was, in the sheet's own
+  // words; the state beside each is what the build's own reader makes of those words (D49). A sheet that says
+  // "HDT 0.45 MN/m2, annealed" publishes an annealed value, and a row that does not say so reads as as-printed.
+  const annealWords = /\b(not annealed|unannealed|annealed|as printed)\b/i.exec(`${printed} ${v.label ?? ''}`);
+  const post = annealWords ? annealWords[1].replace(/^as printed$/i, 'As printed') : NP;
+  const postState = readPostProcessingState(post);
+  const schedule = parseAnnealSchedule(`${printed} ${v.line ?? ''}`, postState);
+  const moistureWords = /\b(dry|dried|conditioned|wet)\b/i.exec(withoutRate);
+  const moisture = moistureWords ? moistureWords[1].replace(/^./, (c) => c.toUpperCase()) : NP;
+  const moistureState = readMoistureState(moisture);
+  // A row whose own word and whose designation disagree about the notch is the sheet contradicting itself
+  // (ISO 179/1eU is the unnotched designation). The row's own word is kept and the disagreement is written down,
+  // which is what holds the row back for a person to read.
+  const designation = notchOf([...v.read.standards, v.read.conditions].join(' '));
+  const notchNote = v.notch && designation && v.notch !== designation
+    ? `the row says ${v.notch.toLowerCase()} and the standard it names is the ${designation.toLowerCase()} designation; the sheet's own word for the row is kept`
+    : null;
   // A test temperature the row states is a condition, not a result: "Izod Impact Strength, Notched @ -40°C" and
   // "@ 23°C" are two different tests of one property, and a row that does not say which is indistinguishable from
   // its twin (MEAS-CONDITIONS-INDISTINCT).
-  const at = /(-?\d+(?:[.,]\d+)?)\s*°\s*C/i.exec(condition.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
+  const at = /(-?\d+(?:[.,]\d+)?)\s*°\s*C/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
   const normalized = round(NUMBER(v.read.rawNumber) * v.target.factor);
   return {
     MaterialID: materialId, GradeID: gradeId, Property: v.property,
     'Raw value': v.read.raw, 'Raw unit': v.read.printedUnit, 'Raw numeric': v.read.rawNumber,
-    'Raw uncertainty ±': v.read.uncertainty ?? NA, 'Raw upper bound': NA, Operator: v.read.operator, 'Conversion factor': String(v.target.factor),
+    'Raw uncertainty ±': v.read.uncertainty ?? NA, 'Raw upper bound': v.read.upper ?? NA, Operator: v.read.operator, 'Conversion factor': String(v.target.factor),
     'Normalized value': String(normalized),
     'Normalized uncertainty ±': v.read.uncertainty == null ? NA : String(round(NUMBER(v.read.uncertainty) * v.target.factor)),
-    'Normalized upper bound': NA,
+    'Normalized upper bound': v.read.upper == null ? NA : String(round(NUMBER(v.read.upper) * v.target.factor)),
     'Normalized unit': v.target.unit, 'Data status': 'Published value',
     'Specimen type': v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
     Direction: v.direction || 'Unstated',
-    'Moisture condition': NP, 'Moisture state': 'not-stated', 'Post-processing': NP, 'Post-processing state': 'not-stated',
-    'Anneal °C': NA, 'Anneal h': NA, 'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
+    'Moisture condition': moisture, 'Moisture state': moistureState ?? 'not-stated',
+    'Post-processing': post, 'Post-processing state': postState ?? 'not-stated',
+    'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,
+    'Anneal h': postState === 'annealed' ? (schedule?.hours == null ? NP : String(schedule.hours)) : NA,
+    'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
     'Standard / load': standardText || NP, Standards: standards.length ? standards.join('; ') : NP,
     'Test load MPa': v.property === 'HDT' ? (load ? (/(\d+(?:[.,]\d+)?)/.exec(load[1])?.[1] ?? '').replace(',', '.') || NP : NP) : NA,
     Notch: v.notch || NA, 'Specimen / print parameters': NP,
-    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: v.methodNote ?? NA, 'Parse review': NA,
+    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote].filter(Boolean).join('; ') || NA, 'Parse review': NA,
   };
 }
 

@@ -209,3 +209,19 @@ test('the method column keeps how the row was measured, not the property it name
   // A word that ends in D does not start a designation.
   assert.deepEqual(readRow('LED 100 test 5 MPa', registry)?.standards ?? [], []);
 });
+
+test('a published window is one statement, not the number beside the unit', () => {
+  // "Glass Transition Temperature 55-60°C" read as a point recorded -60 °C, because the dash became a sign.
+  const tg = read('Glass Transition Temperature 55-60°C D3418');
+  assert.equal(tg.raw, '55-60 °C');
+  assert.equal(tg.rawNumber, '55');
+  assert.equal(tg.upper, '60');
+  assert.equal(tg.range, false);
+  // A minus with no number before it is still a sign.
+  assert.equal(read('Izod Impact Strength, Notched @ -40°C 57 J/m D 256').rawNumber, '57');
+  assert.equal(read('Charpy notched impact strength, -30°C 10 kJ/m2 ISO 179').rawNumber, '10');
+  // A decimal comma the extractor split apart is one number.
+  assert.equal(read('Impact strength - charpy method 5, 7 kJ/m2 ISO 179').rawNumber, '5.7');
+  // And a standard whose digits it split is one designation.
+  assert.deepEqual(read('Specific Gravity 1. 12 g/cm3 ISO 11 8 3').standards, ['ISO 1183']);
+});
