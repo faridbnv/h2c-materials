@@ -19,8 +19,8 @@ test('a document reads into pages of lines, top down and left to right', () => {
     'Property Testing Method Typical Value',
     'Density ISO 1183 1,24 g/cm3',
     'Tensile strength (X-Y) ISO 527 52 MPa',
-    'Heat deflection temperature ISO 75, 0.45 MPa 68 C',
-    'Melting temperature DSC, 10 C/min 160 C',
+    'Heat deflection temperature ISO 75, 0.45 MPa 68 °C',
+    'Melting temperature DSC, 10 °C/min 160 °C',
   ]);
 });
 
@@ -32,7 +32,7 @@ test('a table reads as columns, so a property, its method and its value stay apa
     ['Property', 'Testing Method', 'Typical Value'],
     ['Density', 'ISO 1183', '1,24 g/cm3'],
     ['Tensile strength (X-Y)', 'ISO 527', '52 MPa'],
-    ['Heat deflection temperature', 'ISO 75, 0.45 MPa', '68 C'],
+    ['Heat deflection temperature', 'ISO 75, 0.45 MPa', '68 °C'],
   ]);
   // Reading that row as one line is what left 133 measurements holding a fragment of the column beside them:
   // "Heat deflection temperature | ISO 75, 0.45 MPa" read straight across gives neither the property nor the method.
@@ -59,7 +59,7 @@ test('the squeezed page answers whether a number is printed on it, however the l
 test('a rate and a humidity are conditions, not results', () => {
   const found = allLines(text).flatMap(({ text: line }) => [...joinDigits(line).matchAll(statementRe())].map((m) => `${m[1]}${m[3]}`));
   assert.ok(found.includes('52MPa'), found.join(' '));
-  assert.ok(!found.includes('10C'), 'a 10 C/min heating rate is not a result');
+  assert.ok(!found.includes('10°C'), 'a 10 °C/min heating rate is not a result');
   assert.ok(!found.includes('20%'), 'a 20% RH storage limit is not a result');
 });
 

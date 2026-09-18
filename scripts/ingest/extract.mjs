@@ -81,23 +81,62 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
 
   // Twins, against everything already read rather than only this run.
   const all = [...prints.values()].filter((p) => p.print.length >= MIN_STATEMENTS);
-  let twins = 0;
+  const byKey = new Map(rows.map((r) => [r.doc_key, r]));
+  const named = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  // Documents that print the same numbers, gathered into clusters rather than paired off. Pairing left a copy
+  // pointing at another copy, because whether a document is the one that stays is only known once the whole
+  // cluster is known.
+  const head = new Map();
+  const find = (k) => { while (head.get(k) && head.get(k) !== k) k = head.get(k); return k; };
+  const union = (a, b) => { const x = find(a), y = find(b); if (x !== y) head.set(x, y); };
+  for (const p of all) head.set(p.row.doc_key, p.row.doc_key);
+  for (const r of rows) if (r.duplicate_kind === 'text-twin' && head.has(r.doc_key) && head.has(r.duplicate_of)) union(r.doc_key, r.duplicate_of);
   for (let i = 0; i < all.length; i++) {
     for (let j = i + 1; j < all.length; j++) {
-      if (agreement(all[i].print, all[j].print) < 0.9) continue;
-      // The manufacturer's copy is the one that stays; between two of a kind, the first by document key.
-      const [primary, copy] = all[i].row.provider_kind === 'retailer' && all[j].row.provider_kind !== 'retailer' ? [all[j].row, all[i].row] : [all[i].row, all[j].row];
-      if (copy.duplicate_of) continue;
-      copy.duplicate_of = primary.doc_key;
-      copy.duplicate_kind = 'text-twin';
-      copy.status = 'duplicate-of';
-      copy.status_note = `prints the same numbers as ${primary.doc_key} (${primary.provider})`;
-      twins++;
+      if (agreement(all[i].print, all[j].print) >= 0.9) union(all[i].row.doc_key, all[j].row.doc_key);
+    }
+  }
+  const clusters = new Map();
+  for (const p of all) {
+    const k = find(p.row.doc_key);
+    if (!clusters.has(k)) clusters.set(k, []);
+    clusters.get(k).push(p.row);
+  }
+
+  let twins = 0, checks = 0;
+  for (const members of clusters.values()) {
+    if (members.length < 2) continue;
+    // The sheet that stays is the maker's own, and the one the inventory listed as the preferred link; between two
+    // of a kind, the first by document key. Everything else in the cluster is that sheet again.
+    const rank = (r) => (r.provider_kind === 'manufacturer' ? 0 : 1) * 10 + (r.primary === 'TRUE' ? 0 : 1);
+    const keep = [...members].sort((a, b) => rank(a) - rank(b) || a.doc_key.localeCompare(b.doc_key))[0];
+    keep.duplicate_of = '';
+    keep.duplicate_kind = '';
+    if (keep.status === 'duplicate-of') keep.status = 'extracted';
+    for (const copy of members) {
+      if (copy === keep) continue;
+      copy.duplicate_of = keep.doc_key;
+      // Two products whose sheets print the same numbers are usually one sheet served twice. Where the names
+      // differ they may instead be two products a maker tests once and sells twice, and that is a reading of the
+      // sheet, not a rule: it is queued rather than consolidated, so nothing is dropped in silence.
+      if (named(copy.product_raw) === named(keep.product_raw)) {
+        copy.duplicate_kind = 'text-twin';
+        copy.status = 'duplicate-of';
+        copy.status_note = `the same sheet as ${keep.doc_key} (${keep.provider})`;
+        twins++;
+      } else {
+        copy.duplicate_kind = 'same-numbers';
+        copy.status = 'twin-check';
+        copy.status_note = `prints the same numbers as ${keep.doc_key} (${keep.provider}, "${keep.product_raw}"), under another name: one sheet served twice, or two products tested once?`;
+        checks++;
+      }
     }
   }
   writeFileSync(LEDGER, csvText(HEADER, rows));
   const counts = new Map();
   for (const r of wanted) counts.set(r.status, (counts.get(r.status) ?? 0) + 1);
   console.log([...counts].sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${String(n).padStart(4)}  ${s}`).join('\n'));
-  if (twins) console.log(`  ${twins} twin(s) found by the numbers they print`);
+  if (twins) console.log(`  ${twins} document(s) are a sheet already read, by the numbers they print`);
+  if (checks) console.log(`  ${checks} print the same numbers under another product name, queued as twin-check`);
 }
