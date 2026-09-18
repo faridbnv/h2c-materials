@@ -204,26 +204,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Family | canonical | string | yes |  | [families](#vocab-families) | Navigation family. |
 | H2C status | canonical | string | yes |  | [h2c-status](#vocab-h2c-status) | How the material relates to the Bambu Lab H2C. |
 | Representative grade | editorial | string | yes | Not published | → grades.GradeID | The exact commercial grade whose measurements back the headlines. |
-| Measurement conditions | prose | string | yes |  |  | Moisture and post-processing conditions behind the headlines. |
-| Price basis | prose | string | yes |  |  | How the headline price was formed. |
 | Best uses | prose | string | yes |  |  | Documented best uses. |
-| Limitations | prose | string | yes |  |  | Documented limitations. |
+| Limitations | prose | string | yes | Not published |  | What is true of this material alone. The general caveat that holds for every material here is a Method rule (Scope / Transferable allowables), shown on each; Not published where the material adds nothing to it. |
 | Full name | canonical | string | yes |  |  | Expanded polymer name. |
 | Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. |
 | Abbreviation | canonical | string | yes |  |  | Short display name. |
-| Normalized name | canonical | string | yes |  |  | Search-normalized name. |
 | Base polymer | canonical | string | yes |  |  | The base polymer, as the source names it. |
 | Estimate identity | canonical | string | yes | Not applicable | → polymers.PolymerID | The polymers.csv row the estimate model treats this material as: its base polymer, or for a blend its own name. Not applicable for a material the model does not estimate. |
 | Modifier / filler | canonical | string | yes |  | [modifiers](#vocab-modifiers) | Reinforcement or formulation modifier. |
 | Variant class | canonical | string | yes | Not applicable | [variant-classes](#vocab-variant-classes) | A commercial variant class the estimate model gives its own covariate, so its offset does not move its polymer: silk, particle-filled. |
 | Role | canonical | string | yes |  | [material-roles](#vocab-material-roles) | Structural material or support/interface material. |
-| Identity source | canonical | string | yes |  | → sources.SourceID | Source of the material identity. |
 | Identity notes | prose | string | yes |  |  | Notes on identity decisions. |
-| Headline basis | prose | string | yes |  |  | What the headline values represent. |
-| Impact / toughness | prose | string | yes |  |  | Impact and toughness note. |
-| Fatigue / creep | prose | string | yes |  |  | Fatigue and creep note. |
-| Printability rating 1–5 | editorial | number | yes | Not published |  | Analyst printability rating on rubric R-PRINT. |
-| Printability rubric | canonical | string | yes |  | [rubrics](#vocab-rubrics) | Rubric the printability rating uses. |
 
 ### measurements
 
@@ -1035,7 +1026,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-rubrics"></a>
 ### rubrics
 
-`schema/vocab/rubrics.csv`, used by evidence.RubricID, materials.Printability rubric.
+`schema/vocab/rubrics.csv`, used by evidence.RubricID.
 
 | Value | Meaning |
 |---|---|

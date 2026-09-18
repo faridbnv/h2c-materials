@@ -484,15 +484,28 @@ function compilePriceHeadline(mat, pricesByMaterial) {
   if (!sample.length) return { known: false, missing: NOT_IN_MARKET.missing, text: NOT_IN_MARKET.text, unit: 'CAD/kg' };
   return {
     known: true, value: cents(median(sample.map((p) => p.regularPerKg))), unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: true,
-    priceIds: sample.map((p) => p.id), observations: sample.length, basis: mat['Price basis'],
+    priceIds: sample.map((p) => p.id), observations: sample.length,
+    // Counted here, never typed: a stored sentence could disagree with the observations it describes (D47, m45).
+    basis: `${sample.length} in-stock regular-price observation(s), before tax/shipping`,
   };
+}
+
+/**
+ * What a material's headline values represent. It was a column of materials.csv, one of three sentences chosen by
+ * the material's own Scope and Representative grade, so it is derived (D47, m45). The Method row Scope / Headline
+ * basis states the rule this implements.
+ */
+function headlineBasis(mat) {
+  if (mat.Scope === FAMILY_ENTRY) return 'Family entry: no values of its own; see its member materials';
+  if (mat['Representative grade'] === 'Not published') return 'Insufficient comparable data';
+  return 'Single-grade observations; not a polymer-family range';
 }
 
 // ---------------------------------------------------------------------------- facets
 
 /** Facets the Materials sheet does not carry directly. Every one is tagged derived. */
 function deriveFacets(mat) {
-  const name = `${mat['Normalized name'] ?? ''} ${mat['Original name'] ?? ''}`;
+  const name = mat['Original name'] ?? '';
   const modifier = mat['Modifier / filler'] ?? '';
   const reinforcement =
     modifier === 'Carbon fibre' ? 'carbon-fibre' :
@@ -703,7 +716,6 @@ export function compile(wb, { snapshot, build }) {
     return {
       id: mat.MaterialID,
       name: mat['Original name'],
-      normalizedName: mat['Normalized name'],
       abbreviation: mat.Abbreviation,
       fullName: mat['Full name'],
       family: mat.Family,
@@ -721,8 +733,7 @@ export function compile(wb, { snapshot, build }) {
       representativeGrade: mat['Representative grade'],
       gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
       headline: { ...compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
-      headlineBasis: mat['Headline basis'],
-      measurementConditions: mat['Measurement conditions'],
+      headlineBasis: headlineBasis(mat),
       facets: deriveFacets(mat),
       guidance: { nozzle: guide('nozzle'), bed: guide('bed'), chamber: guide('chamber') },
       print: printSummary(mProfiles),
@@ -743,10 +754,7 @@ export function compile(wb, { snapshot, build }) {
       headlineEvidence: headlineEvidence(selections, registry),
       bestUses: mat['Best uses'],
       limitations: mat.Limitations,
-      impactNote: mat['Impact / toughness'],
-      fatigueCreep: mat['Fatigue / creep'],
-      printability: { rating: num(mat['Printability rating 1–5']), rubric: mat['Printability rubric'] },
-      identity: { source: mat['Identity source'], notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
+      identity: { notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
       evidenceIds: {
         use: linked(mat.MaterialID, 'use'), environmental: environmentalByMaterial.get(mat.MaterialID) ?? [],
         durability: linked(mat.MaterialID, 'durability'), safety: linked(mat.MaterialID, 'safety'),

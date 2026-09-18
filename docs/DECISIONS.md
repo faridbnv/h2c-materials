@@ -76,6 +76,7 @@ break if it were reversed, because that is the part that gets lost.
 | D67 | A property is a row, not a pair of columns: the reference envelopes are long | In force |
 | D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | In force |
 | D69 | A profile's qualitative notes are rows, and an empty column is not a fact | In force |
+| D70 | A constant is not a per-material fact, and a summary of the data is not data | In force |
 
 <!-- end index -->
 
@@ -1471,3 +1472,37 @@ overhangs could not see it, and a curator had no reason to record any more of it
 
 `profiles.csv` keeps what the build decides on: the typed temperature axes, drying, enclosure, abrasion and routing.
 Reversing it brings back a table that has to be widened to record a sentence, and evidence nobody can read.
+
+## D70. A constant is not a per-material fact, and a summary of the data is not data
+
+*Extends D47, which this snapshot had drifted from.*
+
+D47 moved the stored conclusions out of the workbook: headline values, price medians, grade lists. Nine columns of
+`materials.csv` had survived it, and three of them contradicted D47 outright. Price basis was a sentence counting a
+material's own price observations, which `compilePriceHeadline` counts anyway. Headline basis was three sentences
+chosen by the material's Scope and Representative grade, 102 of 103 rows derivable by that rule. Measurement
+conditions was two measurement columns joined by a slash, compiled and rendered nowhere.
+
+Four more were constants: Identity source said `LOCAL-CANON` on all 103 rows, Printability rubric `R-PRINT` on all
+103, Normalized name repeated Original name on all 103, and Fatigue / creep said one sentence on 99, where the other
+four are exactly the four materials with `fatigue_tests.csv` rows. The ten printability ratings were already ten
+`evidence.csv` rows, with the same ratings and the same rubric.
+
+- **Derived where the build can derive it.** `headlineBasis` and the price basis are computed, and m45 asserted the
+  derivation row by row before dropping the column. `build:diff` shows one difference in 103 for headline basis and
+  none at all for the price basis, which is the proof.
+- **A constant is a rule, and rules live in `method.csv`.** Two Method rows were added, Scope / Headline basis and
+  Scope / Transferable allowables.
+- **The caveat that is true of everything is shown once, on everything.** "No transferable long-term allowable" sat
+  on 82 materials, which reads as if the other 21 have one. It is true of every material here, so the drawer shows
+  it on every material, from the Method row, and a material's own Limitations now record only what it adds.
+- **Editorial prose the data contradicts is dropped, not kept.** Impact / toughness said "see distinct impact
+  records" on 52 materials while 84 have impact measurements, and two of the 52 have none. m45 prints that cross-tab
+  before dropping it. It was not rendered anywhere, so nobody had been reading a wrong thing; nobody had been
+  reading it at all.
+
+One sentence was lost text rather than a constant: M077, Support for PLA, said "mechanical values not published".
+That is true and specific, so it moved to its Identity notes, which the drawer shows as "About this entry".
+
+`materials.csv` is 16 columns. Reversing this brings back a table where a reader cannot tell which cells are facts
+about the material and which are the same sentence 103 times.

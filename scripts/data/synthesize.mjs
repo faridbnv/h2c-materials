@@ -43,10 +43,12 @@ export function synthesize(factor, outRoot) {
       for (const r of rows) t.append(table, { ...r, ...Object.fromEntries(fields.map((f) => [f, shift(r[f])])), ...extra(r) });
     };
     copy('materials', originals.materials.filter(own), ['MaterialID', 'Representative grade'], (r) => ({
-      'Original name': r['Original name'] + suffix, Abbreviation: r.Abbreviation + suffix, 'Normalized name': r['Normalized name'] + suffix,
+      'Original name': r['Original name'] + suffix, Abbreviation: r.Abbreviation + suffix,
     }));
     copy('grades', originals.grades.filter(own), ['GradeID', 'MaterialID'], (r) => ({ 'Shared formulation key': `${r['Shared formulation key']}${suffix}` }));
     copy('profiles', originals.profiles.filter(own), ['ProfileID', 'MaterialID', 'GradeID']);
+    const profileMaterial = new Map(originals.profiles.map((p) => [p.ProfileID, p.MaterialID]));
+    copy('profile_notes', originals.profile_notes.filter((r) => !familyEntries.has(profileMaterial.get(r.ProfileID))), ['ProfileID']);
     copy('measurements', originals.measurements.filter(own), ['MeasurementID', 'MaterialID', 'GradeID']);
     copy('evidence', originals.evidence.filter(own), ['EvidenceID', 'MaterialID', 'GradeID']);
     copy('prices', originals.prices.filter(own), ['PriceID', 'MaterialID', 'GradeID']);

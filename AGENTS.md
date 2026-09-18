@@ -82,9 +82,10 @@ Rules the tooling enforces:
   removes a record.
 - **No lists inside cells.** A relationship is a row: `headlines.csv` for headline selections,
   `material_links.csv` for a material's citations.
-- **Nothing derivable is stored.** Headline values, price medians, per-kg prices, a material's grade
-  list, environmental evidence and printing guidance are calculated by the build. There is no column
-  for them.
+- **Nothing derivable is stored, and no constant is repeated per row.** Headline values, price medians
+  and their basis sentence, per-kg prices, a material's grade list, what its headlines represent,
+  environmental evidence and printing guidance are calculated by the build. There is no column for them.
+  A sentence that is the same on every row is a rule: it goes in `method.csv` and is shown from there.
 - **A new column or vocabulary value is a schema change.** Add it to `schema/tables/<table>.schema.json`
   or `schema/vocab/<name>.csv` in the same commit as the data that uses it. A source's own words are
   never a vocabulary: a new datasheet sentence is written in the raw column and the state it means in

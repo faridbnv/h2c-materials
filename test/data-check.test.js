@@ -217,12 +217,10 @@ test('the material scaffold writes a material and its grade, and names what it c
     assert.equal(refused.status, 1);
     assert.match(refused.stderr, /--set "Modifier \/ filler=\.\.\."/);
     assert.match(refused.stdout, /"PA11" has no row in polymers.csv/);
-    const prose = ['Measurement conditions', 'Price basis', 'Best uses', 'Limitations', 'Identity notes', 'Headline basis',
-      'Impact / toughness', 'Fatigue / creep', 'Shared formulation key', 'Composition / filler', 'Colour caveat', 'Availability',
+    const prose = ['Best uses', 'Identity notes', 'Shared formulation key', 'Composition / filler', 'Colour caveat', 'Availability',
       'Certification claims', 'Selected-grade rationale', 'Source locator', 'Diameter compatibility'].flatMap((c) => ['--set', `${c}=recorded by the test`]);
     // The columns a vocabulary or a reference governs take a real value, as any row does.
-    prose.push('--set', 'Modifier / filler=Unfilled / unspecified', '--set', 'Role=Structural / functional / appearance',
-      '--set', 'Identity source=H2C-MANUAL', '--set', 'Printability rubric=R-PRINT');
+    prose.push('--set', 'Modifier / filler=Unfilled / unspecified', '--set', 'Role=Structural / functional / appearance');
     const written = run(prose);
     assert.equal(written.status, 0, written.stderr);
     const t = openTables(dir);

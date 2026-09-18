@@ -281,10 +281,12 @@ function usesSection(m, c) {
   } else if (stated(m.bestUses)) {
     out.push(`<h3 class="sec">Good for</h3><p>${esc(m.bestUses)}</p>`);
   }
-  if (g.limitations) {
-    if (g.limitations.prose) out.push(`<h3 class="sec">Watch out for</h3><p>${esc(g.limitations.prose)}</p>`);
-  } else if (m.limitations) {
-    out.push(`<h3 class="sec">Watch out for</h3><p>${esc(m.limitations)}</p>`);
+  // What is true of this material, then the caveat that is true of every one of them. The second was stored on 82
+  // materials until m45; it is a Method rule now, shown once here so a reader still meets it (D70).
+  const own = g.limitations ? g.limitations.prose : stated(m.limitations) ? m.limitations : '';
+  const standing = c.db.method.find((r) => r.topic === 'Transferable allowables')?.rule;
+  if (own || standing) {
+    out.push(`<h3 class="sec">Watch out for</h3>${own ? `<p>${esc(own)}</p>` : ''}${standing ? `<p class="fine">${esc(standing)}</p>` : ''}`);
   }
   if (g.guidance.length || g.unresolved.length) {
     const owners = [...new Set(g.guidance.map(g.owner))];

@@ -42,7 +42,7 @@ try {
     like,
     set: {
       ...set.materials,
-      'Original name': name, 'Normalized name': name, Abbreviation: opt('abbreviation') ?? name,
+      'Original name': name, Abbreviation: opt('abbreviation') ?? name,
       'Full name': opt('full-name') ?? name, Family: opt('family') ?? (like ? t.get('materials', like).Family : undefined),
       'Base polymer': polymer, 'Estimate identity': known ? polymer : 'Not applicable',
       Scope: opt('scope') ?? 'H2C-relevant', 'H2C status': opt('h2c-status') ?? 'Conditional',

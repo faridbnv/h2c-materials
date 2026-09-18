@@ -11,7 +11,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 | Table | What it holds |
 |---|---|
-| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, prose |
+| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, and the prose that is true of this material alone |
 | `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
@@ -59,9 +59,10 @@ the manifest disagree, so a count change is always visible in the commit that ma
 ### One fact, one home
 
 Nothing a table can derive is stored. A headline value lives only in its measurement; the price
-headline is the median of the flagged observations; per-kg prices are list price over net mass; a
-material's grade list is its active procurement grades; its environmental evidence is its own
-exposure records; its nozzle, bed and chamber guidance is its first cited profile. No table holds a
+headline is the median of the flagged observations, and the sentence describing that sample counts it;
+per-kg prices are list price over net mass; a material's grade list is its active procurement grades; what
+its headline values represent follows from its Scope and representative grade (D70); its environmental
+evidence is its own exposure records; its nozzle, bed and chamber guidance is its first cited profile. No table holds a
 list of identifiers inside a cell, except a profile's `H2C SourceID`, whose items are checked like
 any reference; `sources.csv` "Applicable grades" is prose, and every grade ID it mentions is checked.
 

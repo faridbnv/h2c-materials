@@ -1606,7 +1606,6 @@
       "required": [
         "id",
         "name",
-        "normalizedName",
         "abbreviation",
         "fullName",
         "family",
@@ -1623,7 +1622,6 @@
         "gradeIds",
         "headline",
         "headlineBasis",
-        "measurementConditions",
         "facets",
         "guidance",
         "print",
@@ -1634,9 +1632,6 @@
         "headlineEvidence",
         "bestUses",
         "limitations",
-        "impactNote",
-        "fatigueCreep",
-        "printability",
         "identity",
         "evidenceIds"
       ],
@@ -1646,9 +1641,6 @@
           "pattern": "^M\\d{3}$"
         },
         "name": {
-          "type": "string"
-        },
-        "normalizedName": {
           "type": "string"
         },
         "abbreviation": {
@@ -1719,9 +1711,6 @@
           }
         },
         "headlineBasis": {
-          "type": "string"
-        },
-        "measurementConditions": {
           "type": "string"
         },
         "facets": {
@@ -1803,43 +1792,14 @@
         "limitations": {
           "type": "string"
         },
-        "impactNote": {
-          "type": "string"
-        },
-        "fatigueCreep": {
-          "type": "string"
-        },
-        "printability": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "rating",
-            "rubric"
-          ],
-          "properties": {
-            "rating": {
-              "type": [
-                "number",
-                "null"
-              ]
-            },
-            "rubric": {
-              "type": "string"
-            }
-          }
-        },
         "identity": {
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "source",
             "notes",
             "h2cEvidence"
           ],
           "properties": {
-            "source": {
-              "type": "string"
-            },
             "notes": {
               "type": "string"
             },
