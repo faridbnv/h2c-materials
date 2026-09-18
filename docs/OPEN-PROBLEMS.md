@@ -159,6 +159,45 @@ npm run sql --silent -- "select sourceid, access_state, access_note from sources
 
 ---
 
+## 9. Fifteen print setups carry a neighbouring column's sentence
+
+The same transcription damage as item 1, in `profiles.csv` rather than `measurements.csv`. A data sheet prints its
+storage paragraph or its marketing column beside the printing table, extraction interleaves the two by line, and
+the setting cell kept what followed it:
+
+```
+Nozzle °C = 230-260°C STORAGE AND SHELF LIFE
+Bed °C    = 60-80°C Filament should be stored in a dr y room at room
+Nozzle °C = 250-300 °C Printing speed Up to 300mm/s
+Bed °C    = 40-50 °C Drying temp. and time 100 °C/10H PolySupport(TM) for PA
+Nozzle material = Ye s
+```
+
+**The windows are not affected.** `parseTemperature` reads the range at the head of the cell and stops, so
+`Nozzle min °C`, `Nozzle max °C` and every state and requirement beside them are right, and nothing downstream
+reads the raw text. What is wrong is the text a reader is shown, and what is lost is the data sitting inside it:
+the Fiberon and Polymaker sheets state a print speed, a drying schedule and a support pairing in those cells,
+which belong in `profile_notes.csv`, `Drying` and `Support pairing`.
+
+Five `profile_notes` rows carry the same damage (`P0092`, `P0111`, `P0114` and both notes of `P0120`).
+
+**The fix** is a re-read of each source (D35), which `scripts/ingest/propose.mjs` now does correctly: it reads a
+setting by its own label, takes the value from the label's own cell, and stops where the next column begins. Ten
+of the fifteen are Spectrum sheets and are corrected by that maker's import batch; the other five are Polymaker
+and Fiberon sheets, and wait for theirs, because moving their print speed and drying schedule into the columns
+that own them is the same re-read.
+
+```bash
+npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), substr(bed_c,1,40) from profiles
+  where nozzle_c like '%stored%' or nozzle_c like '%STORAGE%' or nozzle_c like '%Printing speed%'
+     or nozzle_c like '%shelf%' or bed_c like '%stored%' or bed_c like '%Drying temp%' or bed_c like '%shelf%'
+     or bed_c like '%Recommended storage%' or nozzle_c like '%is ca.%' or bed_c like '%is ca.%'
+     or nozzle_material in ('Ye s','recommended No') or nozzle_c like '%- standard speed%'
+     or nozzle_c like '%is a professional%' or bed_c like '%filament for 3D%' order by 2"
+```
+
+---
+
 ## Coverage, in one number
 
 294 coverage rows record a gap, 93 a comparability limitation, 31 a reviewed limitation, 13 a partial resolution.
