@@ -28,6 +28,7 @@
     "ingest:extract": "node scripts/ingest/extract.mjs",
     "ingest:classify": "node scripts/ingest/classify.mjs",
     "ingest:propose": "node scripts/ingest/propose.mjs",
+    "ingest:review": "node scripts/ingest/review.mjs",
     "ingest:apply": "node scripts/ingest/apply.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
