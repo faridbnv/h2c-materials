@@ -62,7 +62,8 @@
       "name": "Product name",
       "type": "string",
       "role": "canonical",
-      "description": "Exact product name.",
+      "description": "Exact product name, as the maker prints it. Two makers may name a product alike (\"PC CF\"), so this column holds many spellings by design; one maker naming one product twice is GRADE-PRODUCT-DUPLICATE.",
+      "spellings": "many",
       "constraints": {
         "required": true
       }

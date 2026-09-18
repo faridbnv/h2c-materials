@@ -10,6 +10,8 @@
 //   role        key | canonical | raw | editorial | derived | prose   (documentation; see DATA-MODEL.md)
 //   missing     explicit missing-state words accepted instead of a value (schema/vocab/missing-states.csv)
 //   vocabulary  name of a schema/vocab/<name>.csv file; the value must be one of its Value column
+//   spellings   "many": more than one spelling of a value is legitimate here, because different publishers name
+//               their own products; VOCAB-NEAR-DUPLICATE leaves the column alone
 //   reference   { table, field } or a list of them; the value must exist in one of them
 //   type "list" a ";"-separated list; `item` holds the pattern/reference each element must satisfy
 //   embeddedReferences  [{ pattern, table, field }]: prose that mentions identifiers; every match of

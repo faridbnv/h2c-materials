@@ -20,6 +20,11 @@ export const LINT_RULES = {
   'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
+  'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
+  'FORMULATION-KEY-SPANS-MATERIALS': 'One Shared formulation key on active grades of more than one material. The estimate model reads a key as one product and predicts it once, so two materials cannot both own it (D12, D44); file the product under the material it is.',
+  'GRADE-KEY-PRODUCTS': 'One Shared formulation key on active grades with different product names. A sheet that prints several products gives each its own key (SourceID#product), or the model reads two products as one.',
+  'MEAS-CROSS-SOURCE-TWIN': 'Two sources publish almost the same numbers under the same conditions: one document registered twice, usually a retailer\'s copy of a manufacturer sheet. Keep the manufacturer\'s, retire the copy\'s rows as a duplicate record naming the twin and give its source the corroboration role, or accept with the reason the two really are separate tests.',
+  'SOURCE-SHA-DUPLICATE': 'Two source records hold the same document: one SHA-256 under two SourceIDs. A copy on another host is the same document, not a second source.',
   'SOURCE-UNCITED': 'A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has.',
   'SOURCE-ROLE-CITED': 'A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
@@ -63,15 +68,22 @@ export function lintData(tables, schemas) {
     }
   }
 
-  // Spellings of one value in short-list columns (a raw column with a handful of distinct values).
+  // Spellings of one value, in the columns where one spelling is intended. There is no cap on how many
+  // distinct values a column may hold: a cap switches the check off silently as the data grows, which is
+  // exactly when brand-name drift starts (it stopped at 60, and Manufacturer was at 30).
   const norm = (s) => s.normalize('NFKC').toLowerCase().replace(/[^a-z0-9%<>=+.]/g, '').replace(/\.(?=\D|$)/g, '');
+  const ONE_SPELLING = new Set(['canonical', 'editorial']);
   for (const t of ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'polymer_environment']) {
     const rows = tables[t]?.rows ?? [];
     for (const field of tables[t]?.header ?? []) {
-      // Raw columns keep the source's own spelling by design (m07 changes no wording); their typed columns are checked.
-      if (schemas[t]?.fields?.find((f) => f.name === field)?.role === 'raw') continue;
+      const f = schemas[t]?.fields?.find((x) => x.name === field);
+      // Raw and prose columns keep the source's own words by design (m07 changes no wording); their typed columns are
+      // checked instead. A vocabulary or a reference already allows one spelling each. A number is not a spelling:
+      // the normaliser drops its sign, so -35 and 35 would read as one value. `spellings: "many"` is a column where
+      // more than one spelling is legitimate, because different publishers name their own products.
+      if (!ONE_SPELLING.has(f?.role) || f.type === 'number' || f.vocabulary || f.item?.vocabulary || f.reference || f.spellings === 'many') continue;
       const values = [...new Set(rows.map((r) => r[field]).filter((v) => typeof v === 'string'))];
-      if (values.length < 2 || values.length > 60) continue;
+      if (values.length < 2) continue;
       const groups = new Map();
       for (const v of values) { const k = norm(v); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(v); }
       for (const vs of groups.values()) if (vs.length > 1) add('VOCAB-NEAR-DUPLICATE', t, vs.sort().join(' ~ '), field, `${vs.length} spellings`);
@@ -158,7 +170,64 @@ export function lintData(tables, schemas) {
     }
   }
 
+  // One document registered twice. A retailer's copy of a manufacturer sheet carries the same table, so the two
+  // sources publish the same values under the same conditions; MEAS-DUPLICATE cannot see it, because its key
+  // includes the SourceID and the Locator. Rare tuples only: a density every PLA sheet prints says nothing, and
+  // pairing every source that shares one would be quadratic in the register.
+  const TWIN_FIELDS = ['Property', 'Normalized value', 'Normalized unit', 'Direction', 'Notch', 'Test load MPa', 'Moisture state', 'Post-processing state'];
+  const TWIN_COMMON = 10;   // a tuple more sources than this publish is a common value, not a fingerprint
+  const TWIN_FLOOR = 5;     // a sheet with fewer values than this cannot be told from a coincidence
+  const TWIN_SHARE = 0.8;   // of the smaller sheet's values
+  const perSource = new Map();
+  const tupleSources = new Map();
+  for (const r of measurements.filter((m) => DATA_STATUS[m['Data status']]?.numeric)) {
+    const tuple = TWIN_FIELDS.map((f) => r[f]).join('\u0000');
+    if (!perSource.has(r.SourceID)) perSource.set(r.SourceID, new Set());
+    perSource.get(r.SourceID).add(tuple);
+    if (!tupleSources.has(tuple)) tupleSources.set(tuple, new Set());
+    tupleSources.get(tuple).add(r.SourceID);
+  }
+  const sharedValues = new Map();
+  for (const ss of tupleSources.values()) {
+    if (ss.size < 2 || ss.size > TWIN_COMMON) continue;
+    const ids = [...ss].sort();
+    for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
+      const k = `${ids[i]}\u0000${ids[j]}`;
+      sharedValues.set(k, (sharedValues.get(k) ?? 0) + 1);
+    }
+  }
+  for (const [k, count] of sharedValues) {
+    const [a, b] = k.split('\u0000');
+    const smaller = Math.min(perSource.get(a).size, perSource.get(b).size);
+    if (smaller < TWIN_FLOOR || count < smaller * TWIN_SHARE) continue;
+    add('MEAS-CROSS-SOURCE-TWIN', 'sources', `${a} | ${b}`, '', `${count} of ${perSource.get(a).size} and ${perSource.get(b).size} values are the same under the same conditions`);
+  }
+
+  // Grades: one product, one grade, one formulation key.
+  const activeGrades = (tables.grades?.rows ?? []).filter((g) => g.Status === 'active');
+  const productKey = (s) => String(s ?? '').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const byProduct = new Map();
+  for (const g of activeGrades) {
+    const k = `${productKey(g.Manufacturer)}\u0000${productKey(g['Product name'])}`;
+    if (byProduct.has(k)) add('GRADE-PRODUCT-DUPLICATE', 'grades', g.GradeID, 'Product name', `${g.Manufacturer} ${g['Product name']} is already ${byProduct.get(k)}`);
+    else byProduct.set(k, g.GradeID);
+  }
+  const byFormulation = new Map();
+  for (const g of activeGrades) {
+    const k = g['Shared formulation key'];
+    if (!k) continue;
+    if (!byFormulation.has(k)) byFormulation.set(k, []);
+    byFormulation.get(k).push(g);
+  }
+  for (const [k, gs] of byFormulation) {
+    const materials = [...new Set(gs.map((g) => g.MaterialID))];
+    if (materials.length > 1) add('FORMULATION-KEY-SPANS-MATERIALS', 'grades', gs.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${materials.join(', ')}`);
+    const products = [...new Set(gs.map((g) => productKey(g['Product name'])))];
+    if (materials.length === 1 && products.length > 1) add('GRADE-KEY-PRODUCTS', 'grades', gs.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${gs.map((g) => g['Product name']).join(', ')}`);
+  }
+
   // Sources.
+  const byDigest = new Map();
   const cited = new Set();
   for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'polymer_environment']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
   for (const r of tables.profiles?.rows ?? []) for (const s of String(r['H2C SourceID'] ?? '').split(';')) cited.add(s.trim());
@@ -169,6 +238,10 @@ export function lintData(tables, schemas) {
     if (role === 'not-retrieved' && cited.has(r.SourceID)) add('SOURCE-ROLE-CITED', 'sources', r.SourceID, 'Citation role', r['Access state']);
     if (r.URL && !/^https?:\/\//.test(r.URL)) add('SOURCE-LOCAL-PATH', 'sources', r.SourceID, 'URL', r.URL);
     if (r.Title && !isTitle(r.Title)) add('SOURCE-TITLE-NOT-TITLE', 'sources', r.SourceID, 'Title', JSON.stringify(r.Title.slice(0, 80)));
+    if (/^[0-9a-f]{64}$/.test(r.SHA256 ?? '')) {
+      if (byDigest.has(r.SHA256)) add('SOURCE-SHA-DUPLICATE', 'sources', r.SourceID, 'SHA256', `the same document as ${byDigest.get(r.SHA256)}`);
+      else byDigest.set(r.SHA256, r.SourceID);
+    }
   }
 
   // Coverage.

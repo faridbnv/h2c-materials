@@ -95,3 +95,44 @@ test('a per-record build finding needs an acceptance, and an acceptance that no 
   assert.deepEqual(fresh.map((f) => f.record), ['M094 elongationXY']);
   assert.deepEqual(stale.map((b) => b.Record), ['M019 hdt045']);
 });
+
+test('one product has one grade, and one formulation key names one product of one material', () => {
+  const grade = (o) => ({ GradeID: 'G1-01', MaterialID: 'M1', Status: 'active', Manufacturer: 'Spectrum', 'Product name': 'PETG CF', 'Shared formulation key': 'S-PETG-CF', ...o });
+  const run = (rows) => lintData({ grades: { header: Object.keys(rows[0]), rows } }, { grades: { primaryKey: 'GradeID', fields: [] } }).map((f) => `${f.code} ${f.record}`);
+  // Two makers may both sell a "PETG CF"; one maker selling it twice is a duplicate.
+  assert.deepEqual(run([grade({}), grade({ GradeID: 'G2-01', MaterialID: 'M2', Manufacturer: 'iSANMATE', 'Shared formulation key': 'I-PETG-CF' })]), []);
+  assert.deepEqual(run([grade({}), grade({ GradeID: 'G1-02', 'Product name': 'petg cf', 'Shared formulation key': 'S-PETG-CF-2' })]), ['GRADE-PRODUCT-DUPLICATE G1-02']);
+  // A retired copy is an audit trail, not a second product.
+  assert.deepEqual(run([grade({}), grade({ GradeID: 'G1-02', Status: 'retired' })]), []);
+  // One key on two materials: the estimate model predicts a formulation once, so it cannot belong to both. This is
+  // the Panchroma case, where two products came from columns of one sheet and the model read them as one.
+  assert.deepEqual(run([grade({}), grade({ GradeID: 'G2-01', MaterialID: 'M2', 'Product name': 'CoPE' })]), ['FORMULATION-KEY-SPANS-MATERIALS G1-01 | G2-01']);
+  // A sheet that prints several products gives each its own key.
+  assert.deepEqual(run([grade({}), grade({ GradeID: 'G1-02', 'Product name': 'PETG GF' })]), ['GRADE-KEY-PRODUCTS G1-01 | G1-02']);
+  assert.deepEqual(run([grade({ 'Shared formulation key': 'S-SHEET#petg-cf' }), grade({ GradeID: 'G1-02', 'Product name': 'PETG GF', 'Shared formulation key': 'S-SHEET#petg-gf' })]), []);
+});
+
+test('two sources that publish the same sheet are one document registered twice', () => {
+  const value = (id, source, property, v) => row({ MeasurementID: id, SourceID: source, Property: property, 'Normalized value': String(v), Locator: `p. 1: ${property}` });
+  const sheet = (source, offset = 0) => [
+    value(`${source}1`, source, 'Tensile modulus', 2.1 + offset), value(`${source}2`, source, 'Tensile strength (endpoint unspecified)', 47 + offset),
+    value(`${source}3`, source, 'Elongation at break', 8.4 + offset), value(`${source}4`, source, 'Flexural modulus', 2.3 + offset),
+    value(`${source}5`, source, 'Flexural strength', 71 + offset), value(`${source}6`, source, 'HDT', 68 + offset),
+  ];
+  const run = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows } }, schemas).filter((f) => f.code === 'MEAS-CROSS-SOURCE-TWIN').map((f) => f.record);
+  assert.deepEqual(run([...sheet('A'), ...sheet('B')]), ['A | B']);
+  // A sheet whose numbers are its own is not a copy, however much it looks like one.
+  assert.deepEqual(run([...sheet('A'), ...sheet('B', 0.5)]), []);
+  // Too few values to tell a copy from a coincidence.
+  assert.deepEqual(run([...sheet('A').slice(0, 4), ...sheet('B').slice(0, 4)]), []);
+});
+
+test('two source records may not hold the same document', () => {
+  const digest = 'a'.repeat(64);
+  const src = (id, sha) => ({ SourceID: id, Title: 'Technical Data Sheet', 'Source class': 'Manufacturer TDS', 'Citation role': 'corroboration', 'Access state': 'retrieved', URL: `https://example.com/${id}`, SHA256: sha });
+  const run = (rows) => lintData({ sources: { header: Object.keys(rows[0]), rows } }, { sources: { primaryKey: 'SourceID', fields: [] } }).filter((f) => f.code === 'SOURCE-SHA-DUPLICATE').map((f) => f.record);
+  assert.deepEqual(run([src('S1', digest), src('S2', digest)]), ['S2']);
+  assert.deepEqual(run([src('S1', digest), src('S2', 'b'.repeat(64))]), []);
+  // "Not recorded" is not a digest, so it is not a match.
+  assert.deepEqual(run([src('S1', 'Not recorded'), src('S2', 'Not recorded')]), []);
+});

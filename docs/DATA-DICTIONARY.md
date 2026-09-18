@@ -124,7 +124,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Role | canonical | string | yes |  | [grade-roles](#vocab-grade-roles) | procurement: a buyable filament grade; study: a research specimen grade; reference: a moulded resin reference. Non-procurement grades carry an -R# ID suffix (checked by the build). |
 | Status | canonical | string | yes |  | [grade-status](#vocab-grade-status) | active or retired. A retired grade stays as an audit record and backs nothing. |
 | Manufacturer | canonical | string | yes |  | [manufacturers](#vocab-manufacturers) | The maker, one spelling each (schema/vocab/manufacturers.csv). A brand line (CarbonX, Ultrafuse, Prusament, Fiberon) is part of the Product name, not a second maker; the vocabulary's Aliases column lists the spellings that mean an existing value. The estimate model reads this as the test house. |
-| Product name | canonical | string | yes |  |  | Exact product name. |
+| Product name | canonical | string | yes |  |  | Exact product name, as the maker prints it. Two makers may name a product alike ("PC CF"), so this column holds many spellings by design; one maker naming one product twice is GRADE-PRODUCT-DUPLICATE. |
 | Shared formulation key | canonical | string | yes |  |  | Grades with the same key share one formulation. |
 | Composition / filler | raw | string | yes |  |  | Declared composition. |
 | Variant | editorial | string | yes | Not applicable | [grade-variants](#vocab-grade-variants) | The product is a variant its material's Modifier / filler does not describe (schema/vocab/grade-variants.csv). Its values stay its own; the estimate model gives it a variant covariate so it does not pull its family. Say why in Composition / filler. |
