@@ -51,7 +51,8 @@
       "properties": {
         "documentedPairs": { "type": "number", "minimum": 0 }, "minPairsForSpread": { "type": "integer", "minimum": 2 },
         "keepKindsWithinSpread": { "type": "number", "minimum": 1 }, "minBetweenProductPairs": { "type": "integer", "minimum": 1 },
-        "conflictZ": { "type": "number", "exclusiveMinimum": 0 }, "conflictNoiseFactor": { "type": "number", "minimum": 1 }, "conflictPasses": { "type": "integer", "minimum": 0 }
+        "conflictZ": { "type": "number", "exclusiveMinimum": 0 }, "conflictNoiseFactor": { "type": "number", "minimum": 1 }, "conflictPasses": { "type": "integer", "minimum": 0 },
+        "spreadSampleMax": { "type": "integer", "minimum": 50 }
       }
     },
     "calibration": {

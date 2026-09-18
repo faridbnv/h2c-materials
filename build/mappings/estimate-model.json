@@ -487,7 +487,9 @@
     "conflictZ": 3.5,
     "conflictNoiseFactor": 25,
     "conflictPasses": 2,
-    "conflictWhy": "An observation whose leave-one-out residual exceeds conflictZ standard deviations has its noise variance multiplied by conflictNoiseFactor (its spread by 5), at most conflictPasses times, and is reported. A material's only evidence for a headline is never down-weighted."
+    "conflictWhy": "An observation whose leave-one-out residual exceeds conflictZ standard deviations has its noise variance multiplied by conflictNoiseFactor (its spread by 5), at most conflictPasses times, and is reported. A material's only evidence for a headline is never down-weighted.",
+    "spreadSampleMax": 400,
+    "spreadSampleMaxWhy": "The spread search sees at most this many observations: every measured headline, then the rest one material at a time in turn. A search is hundreds of fits and a fit is cubic in what it sees, so this is where the stage's cost is. The posterior, the calibration and the screening back-test still see every observation. At 400 the searched spreads match a search on everything to within 0.02 of a scale unit (DECISIONS D77)."
   },
   "calibration": {
     "_comment": "How the likely and plausible ranges are scaled to hold hidden measured headlines as often as they claim, and when the build refuses the result.",

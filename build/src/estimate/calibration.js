@@ -32,7 +32,7 @@ export function makeHoldOut({ key, raw, model, conv, obs, S, hp: fullSpreads }) 
       const hidden = (o) => foldOf.get(o.m.id) === fold && o.kind === HEAD[key];
       const between = betweenProductSpread(key, raw.filter((o) => !hidden(o)), S);
       const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, model.properties[key].floors.w) : null;
-      const hp = hyperparameters(key, spreadObservations(key, obs.filter((o) => !hidden(o))), S, model, fixedW, { start: { ...fullSpreads, ...(fixedW != null ? { w: fixedW } : {}) }, sweeps: 1 });
+      const hp = hyperparameters(key, spreadObservations(key, obs.filter((o) => !hidden(o)), model.fitting.spreadSampleMax), S, model, fixedW, { start: { ...fullSpreads, ...(fixedW != null ? { w: fixedW } : {}) }, sweeps: 1 });
       fits.set(fold, { hp, P: posterior(fitModel(key, obs, S, model, hp)) });
     }
     return fits.get(fold);

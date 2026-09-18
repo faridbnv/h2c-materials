@@ -67,7 +67,7 @@ async function main() {
   const { wb, referenceRows, referenceWhere } = readSource(projectRoot);
   const SNAPSHOT = snapshotDate(wb.Method.rows);
 
-  const { db, issues: buildIssues } = buildDatabase(wb, { snapshot: SNAPSHOT, build: BUILD, estimates: withEstimates });
+  const { db, issues: buildIssues, timing } = buildDatabase(wb, { snapshot: SNAPSHOT, build: BUILD, estimates: withEstimates });
   issues.push(...buildIssues);
 
   const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
@@ -82,6 +82,7 @@ async function main() {
 
   console.log(`\nmaterials ${db.meta.counts.materials}  measurements ${db.meta.counts.measurements}  profiles ${db.meta.counts.profiles}  reference ${reference.meta.count}`);
   console.log(`errors ${errors.length}   warnings ${warnings.length}`);
+  console.log(`stages  ${Object.entries(timing).map(([name, ms]) => `${name} ${ms} ms`).join('   ')}`);
   for (const e of errors.slice(0, 20)) console.log(`  ERROR  [${e.code}] ${e.where}: ${e.message}`);
   for (const w of warnings.slice(0, 10)) console.log(`  warn   [${w.code}] ${w.where}: ${w.message}`);
   console.log(`\nreport -> build/reports/validation-report.md`);

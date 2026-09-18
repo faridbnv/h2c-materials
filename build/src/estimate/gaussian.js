@@ -124,10 +124,46 @@ export function predict(P, hp, m, f, manufacturer, hide = []) {
 /**
  * The observations the spreads are estimated on: the headline and the single most direct kind per formulation, which
  * identifies them as well as the full set does at a fraction of the cost.
+ *
+ * Above `max` it is a sample, because the spread search is where the fit's cost lives: each search is hundreds of
+ * fits, and a fit is cubic in the observations it sees. The sample keeps every measured headline, which is what the
+ * spreads are judged against, and takes the rest one material at a time in turn, so a polymer with two products is
+ * heard before a polymer with two hundred is heard twice. Sampling in proportion instead would drop the small
+ * material altogether, and the spread between materials is exactly what such a material says most about. The order
+ * is by identifier, not random, because the build is deterministic. The posterior, the calibration and the
+ * screening back-test still see every observation: this samples what the spreads are *searched* on, not what the
+ * model is fitted to (DECISIONS D77).
  */
-export function spreadObservations(key, obs) {
+export function spreadObservations(key, obs, max = Infinity) {
   const hasHead = new Set(obs.filter((o) => o.kind === HEAD[key]).map((o) => `${o.m.id}|${o.f}`));
-  return obs.filter((o) => o.kind === HEAD[key] || !hasHead.has(`${o.m.id}|${o.f}`));
+  const thinned = obs.filter((o) => o.kind === HEAD[key] || !hasHead.has(`${o.m.id}|${o.f}`));
+  if (thinned.length <= max) return thinned;
+  const head = thinned.filter((o) => o.kind === HEAD[key]);
+  const room = max - head.length;
+  if (room <= 0) return head;
+  const byMaterial = new Map();
+  for (const o of thinned.filter((o) => o.kind !== HEAD[key])) {
+    if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, []);
+    byMaterial.get(o.m.id).push(o);
+  }
+  let queues = [...byMaterial.entries()].sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([, rows]) => rows.sort((a, b) => `${a.f}|${a.kind}`.localeCompare(`${b.f}|${b.kind}`)));
+  // More materials than room: take them at an even stride across the sorted identifiers rather than the first
+  // handful, because identifiers run in the order materials were added and so cluster by chemistry.
+  if (queues.length > room) {
+    const step = (queues.length - 1) / (room - 1 || 1);
+    queues = Array.from({ length: room }, (_, i) => queues[Math.round(i * step)]);
+  }
+  const sample = [];
+  for (let round = 0; sample.length < room; round++) {
+    let took = 0;
+    for (const queue of queues) {
+      if (sample.length >= room) break;
+      if (round < queue.length) { sample.push(queue[round]); took++; }
+    }
+    if (!took) break;
+  }
+  return [...head, ...sample];
 }
 
 /**

@@ -65,7 +65,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     const between = betweenProductSpread(key, raw, S);
     const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, floors.w) : null;
 
-    const hp = hyperparameters(key, spreadObservations(key, converted), S, model, fixedW);
+    const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixedW);
 
     const { P, obs, conflicts } = fitWithConflicts(key, converted, S, model, hp);
     diagnostics.conflicts.push(...conflicts);

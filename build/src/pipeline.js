@@ -14,9 +14,13 @@ import { attachEstimates } from './estimate/index.js';
 import { validateEstimates } from './estimate/validate.js';
 
 export function buildDatabase(wb, { snapshot = snapshotDate(wb.Method.rows), build = 'dev', estimates = true } = {}) {
-  const { db, issues } = compile(wb, { snapshot, build });
-  if (estimates) attachEstimates(db);
-  issues.push(...validate(db, wb));
-  if (estimates) issues.push(...validateEstimates(db));
-  return { db, issues };
+  // Each stage's wall time, so a build that is getting slower says which stage is. The estimate stage is cubic in
+  // observations, and the import ahead multiplies them, so this is the number to watch (DECISIONS D77).
+  const timing = {};
+  const stage = (name, run) => { const t = performance.now(); const value = run(); timing[name] = Math.round(performance.now() - t); return value; };
+  const { db, issues } = stage('compile', () => compile(wb, { snapshot, build }));
+  if (estimates) stage('estimate', () => attachEstimates(db));
+  stage('validate', () => issues.push(...validate(db, wb)));
+  if (estimates) stage('validateEstimates', () => issues.push(...validateEstimates(db)));
+  return { db, issues, timing };
 }

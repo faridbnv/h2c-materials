@@ -83,6 +83,7 @@ break if it were reversed, because that is the part that gets lost.
 | D74 | A coverage row is a judgement; that a material has records is derived | In force |
 | D75 | A generated SQLite file for asking questions, with the schema's types in it | In force |
 | D76 | The standards a measurement names are a typed list, and a fragment is not a standard | In force |
+| D77 | The spread search sees a sample; the model still sees everything | In force |
 
 <!-- end index -->
 
@@ -1690,3 +1691,44 @@ whose usual standard is obvious. A standard nobody read off the sheet is exactly
 exists not to hold.
 
 Reversing it brings back a column that can only be read by eye, and a parser per question.
+
+## D77. The spread search sees a sample; the model still sees everything
+
+The estimate stage is 3.9 seconds of a 4.0 second build, and almost all of it is one thing: the search for the
+model's spreads. Each search fits the Gaussian model about 330 times over a grid, the calibration refits it once per
+fold on top, and a fit is cubic in the observations it sees, with three dense n×n matrices alive at once. At today's
+146 to 313 observations per headline that is seconds. The Version 2 import multiplies observations by about ten, and
+cubic is not a slope you wait out: the same search at 3,000 observations is hours, and runs out of memory first.
+
+The search is also the part that needs the data least. It is estimating ten spreads, each a single number, from
+whatever the pool shows; it is not predicting any material. So:
+
+- **The spread search sees at most `fitting.spreadSampleMax` observations** (400). Every measured headline stays,
+  because the spreads are judged against those. The rest are taken one material at a time in turn, so a polymer
+  with two products is heard before a polymer with two hundred is heard twice. Sampling in proportion instead would
+  drop the small material altogether, and the spread between materials is what such a material says most about.
+  Where there are more materials than room, they are taken at an even step across the sorted identifiers, first and
+  last included, because identifiers run in the order materials were added and so cluster by chemistry.
+- **The order is by identifier, not random.** The same data builds the same bytes.
+- **Everything else still sees every observation**: the posterior the estimates come from, the calibration that
+  scales the ranges, and the screening back-test that decides where an estimate may screen. This samples what the
+  spreads are searched on, not what the model is fitted to.
+
+Measured on this snapshot by lowering the cap until it bit, since 400 is above today's counts:
+
+| Cap | Build | What the spreads did |
+|---|---|---|
+| 400 (none today) | 3.9 s | baseline |
+| 150 | 3.5 s | one spread of one headline moved one grid step; every calibration scale identical |
+| 80 | 1.9 s | four spreads moved, stiffness's calibration scale 1.23 to 1.29 |
+
+So the sample must stay a good multiple of the model's columns, which is what 400 is for: the kernel has about
+thirty columns on this snapshot and grows with manufacturers and polymers, not with products.
+
+This is the cheap half of the problem. The exact half, if the stage gets slow again, is to block the kernel by
+chemical group with the shared columns solved as a low-rank correction, which changes no result at all. The trigger
+is in the plan: any headline above 4,000 observations, or the estimate stage above five minutes. `npm run build`
+prints each stage's time so the trend is visible rather than remembered.
+
+Reversing it makes the build's cost cubic in a number the import is about to multiply by ten, for spreads that do
+not change.
