@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { readRow, readSheet, targetUnit, impactMethod, notchOf } from '../scripts/ingest/propose.mjs';
+import { readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -120,4 +120,79 @@ test('a heading must be the heading, not a line that happens to contain the word
   const sheet = readSheet(text, registry);
   assert.ok(sheet.values.some((v) => v.property === 'Charpy strength'), 'a section ended where no heading was');
   assert.deepEqual(sheet.settings.map((s) => s.label), ['Nozzle temperature', 'Bed temperature']);
+});
+
+test('a printing setting is read by its own label, wherever the page puts it', () => {
+  // The sections cannot be trusted on a two-column sheet: extraction interleaves the printing table with the
+  // storage paragraph beside it, and "Bed temperature 60-80°C" arrived under a Storage heading.
+  const bed = readSetting({ text: 'Bed temperature 60-80°C Filament should be stored in a dry room at room' });
+  assert.equal(bed.field, 'bed');
+  assert.equal(bed.raw, '60-80°C');
+  const fan = readSetting({ text: 'Active cooling fan YES (up to 100%)' });
+  assert.deepEqual([fan.field, fan.topic, fan.raw], ['note', 'Cooling', 'YES (up to 100%)']);
+  // A chamber row with no temperature of its own is about the enclosure, not about a chamber setpoint.
+  assert.equal(readSetting({ text: 'Closed chamber not necessary' }).field, 'enclosure');
+  assert.equal(readSetting({ text: 'Chamber temperature 60°C' }).field, 'chamber');
+  // "Abrasion resistance" is a measured property (ISO 4649), not a statement about the nozzle.
+  assert.equal(readSetting({ text: 'Abrasion Resistance 30 mm3 ISO 4649' }), null);
+  assert.equal(readSetting({ text: 'Tensile strength 55 MPa' }), null);
+});
+
+test("a setting's value stops where the next column begins", () => {
+  // What follows a complete value is the neighbouring column's text, not part of the setting: the register holds
+  // "230-260°C STORAGE AND SHELF LIFE" and "recommended No" because nothing cut them.
+  assert.equal(settingValue('230-260°C STORAGE AND SHELF LIFE'), '230-260°C');
+  assert.equal(settingValue('60-80°C Filament should be stored in a dry room'), '60-80°C');
+  assert.equal(settingValue('** 30 - 70 mm/s'), '30 - 70 mm/s');
+  // A value that continues into its own parenthesis or bound is not cut.
+  assert.equal(settingValue('YES (up to 100%)'), 'YES (up to 100%)');
+  assert.equal(settingValue('not necessary'), 'not necessary');
+});
+
+test('a print setup is the sheet’s words and what the build’s own parsers read from them', () => {
+  const settings = [
+    { page: 1, field: 'nozzle', topic: '', label: 'Nozzle temperature', raw: '230-255°C', line: 'Nozzle temperature 230-255°C' },
+    { page: 1, field: 'bed', topic: '', label: 'Bed temperature', raw: '60-80°C', line: 'Bed temperature 60-80°C' },
+    { page: 1, field: 'enclosure', topic: '', label: 'Closed chamber', raw: 'for printing not necessary', line: 'Closed chamber for printing not necessary' },
+    { page: 1, field: 'note', topic: 'Cooling', label: 'Active cooling fan', raw: '0-20%', line: 'Active cooling fan 0-20%' },
+  ];
+  const p = profileFor(settings, { sourceId: 'S-X', materialId: 'M020', modifier: 'Unfilled / unspecified' });
+  assert.equal(p.row['Nozzle °C'], '230-255°C');
+  assert.deepEqual([p.row['Nozzle state'], p.row['Nozzle min °C'], p.row['Nozzle max °C']], ['range', '230', '255']);
+  assert.deepEqual([p.row['Bed min °C'], p.row['Bed max °C']], ['60', '80']);
+  // A cell the build's parser cannot read is a cell the build cannot use, so the raw words and the state agree.
+  assert.equal(p.row['Enclosure state'], 'not-needed');
+  assert.equal(p.row['Chamber state'], 'unknown');
+  assert.deepEqual(p.notes, [{ Topic: 'Cooling', Text: '0-20%' }]);
+  assert.equal(p.row.Locator, 'Recommended printing settings');
+});
+
+test('a sheet that prints a nozzle temperature per speed publishes two setups, not one', () => {
+  const settings = [
+    { page: 1, field: 'nozzle', topic: '', label: 'Nozzle temperature - standard speed', raw: '190 - 215°C', line: 'a' },
+    { page: 1, field: 'nozzle', topic: '', label: 'Nozzle temperature - high speed', raw: '225 - 250°C', line: 'b' },
+    { page: 1, field: 'bed', topic: '', label: 'Bed temperature', raw: '40-50°C', line: 'c' },
+  ];
+  const profiles = profilesFor(settings, { sourceId: 'S-X', materialId: 'M001', modifier: 'Unfilled / unspecified' });
+  assert.equal(profiles.length, 2);
+  assert.deepEqual(profiles.map((p) => p.row['Nozzle °C']), ['190 - 215°C', '225 - 250°C']);
+  // Each names the row of the sheet it came from, so neither is the other's duplicate.
+  assert.equal(new Set(profiles.map((p) => p.row.Locator)).size, 2);
+  assert.deepEqual(profiles.map((p) => p.row['Bed °C']), ['40-50°C', '40-50°C']);
+});
+
+test('what wears a nozzle out is the sheet’s statement, and the register’s rule only where the sheet is silent', () => {
+  const says = [{ page: 1, field: 'nozzle-material', topic: '', label: 'Ruby or hardened nozzle', raw: 'Yes', line: 'Ruby or hardened nozzle Yes' }];
+  const said = profileFor(says, { sourceId: 'S-X', materialId: 'M001', modifier: 'Unfilled / unspecified' });
+  assert.equal(said.row['Abrasion / clogging'], 'Ruby or hardened nozzle Yes');
+  assert.equal(said.row['Hardened nozzle'], 'TRUE');
+  assert.deepEqual(said.editorial, []);
+  // A sheet that says one is not needed is not paraphrased into a claim it did not make.
+  const no = profileFor([{ ...says[0], raw: 'not necessary' }], { sourceId: 'S-X', materialId: 'M001', modifier: 'Unfilled / unspecified' });
+  assert.equal(no.row['Abrasion / clogging'], 'Not published');
+  assert.equal(no.row['Nozzle material'], 'not necessary');
+  // A fibre wears brass out whatever the sheet says about it, and the proposal says those words are ours.
+  const fibre = profileFor([{ page: 1, field: 'bed', topic: '', label: 'Bed temperature', raw: '80°C', line: 'x' }], { sourceId: 'S-X', materialId: 'M049', modifier: 'Carbon fibre' });
+  assert.match(fibre.row['Abrasion / clogging'], /abrasion-resistant nozzle/);
+  assert.deepEqual(fibre.editorial, ['Abrasion / clogging']);
 });

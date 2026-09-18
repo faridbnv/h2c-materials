@@ -23,7 +23,9 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { cachedText, columnPositions, cellsAt, joinDigits } from '../lib/pdf-text.mjs';
+import { cachedText, columnPositions, cellsAt, joinDigits, lineCells } from '../lib/pdf-text.mjs';
+import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
+import { profileCellsFromParsed } from '../../build/src/typed-values.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
 import { classifyProduct } from './classify.mjs';
@@ -33,6 +35,7 @@ const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `$
 const table = (name) => readCsv(join(projectRoot, 'data/tables', `${name}.csv`)).records.map((r) => r.values);
 
 const LABELS = lexicon('property-labels').map((r) => ({ ...r, re: new RegExp(r.Label, 'i') }));
+const SETTINGS = lexicon('setting-labels').map((r) => ({ ...r, re: new RegExp(r.Label, 'i') }));
 const UNITS = lexicon('unit-aliases');
 const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).sort((a, b) => b.length - a.length).join('|');
 // A fresh pattern per call: a global regular expression keeps its place between calls, and sharing one made
@@ -158,13 +161,59 @@ export function readRow(text, registry, held = null) {
   return null;
 }
 
+// A printing setting is read by its own label, wherever on the page it sits. Reading it by the section it falls
+// under does not survive a two-column sheet: extraction interleaves the printing table with the storage paragraph
+// beside it, so "Bed temperature 60-80°C" arrived under a Storage heading and was thrown away, while
+// "Nozzle temperature 230-260°C STORAGE AND SHELF LIFE" kept the neighbouring column's heading in its cell.
+//
+// The value is taken from the label's own cell (the page's own column gaps, pdf-text.mjs), and what follows a
+// complete value is the next column's text, not part of the setting.
+const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[-–—]|to)\s*)?\d+(?:[.,]\d+)?\s*(?:°\s?C|°C|C\b|%|mm\/s|mm\/min|mm|m\/s)?/i;
+const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±)/i;
+// Where a neighbouring column's sentence begins: a run of capitals, or a sentence's subject and verb.
+const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)/;
+
+export function settingValue(text) {
+  const value = String(text ?? '').replace(/^[\s:*•–—-]+/, '').trim();
+  const head = VALUE_HEAD.exec(value);
+  if (head && head[0].trim()) {
+    const rest = value.slice(head[0].length).trim();
+    return CONTINUES.test(rest) && rest.length <= 24 ? value : head[0].trim();
+  }
+  const cut = value.search(FOREIGN);
+  return (cut > 0 ? value.slice(0, cut) : value).trim().slice(0, 80);
+}
+
+/** What a line says about how to print, if it says anything: the setting it names and the sheet's own words for it. */
+export function readSetting(line, page = 1) {
+  const cells = lineCells(line).map((c) => repair(c.text).trim()).filter(Boolean);
+  const source = cells.length ? cells : [repair(line.text).trim()];
+  for (let i = 0; i < source.length; i++) {
+    const match = SETTINGS.find((sl) => sl.re.test(source[i]));
+    if (!match) continue;
+    const m = match.re.exec(source[i]);
+    const tail = source[i].slice(m.index + m[0].length);
+    // "Closed chamber for printing not necessary" is printed across two cells, and the half that says what it is
+    // ("not necessary") is in the second. A tail that states neither a number nor a state is only the start of the
+    // sentence, so the next cell finishes it.
+    const STATE = /\d|\b(not|no|yes|necessary|required|recommended|needed|advised|optional)\b/i;
+    const joined = !STATE.test(tail) && source[i + 1] && STATE.test(source[i + 1]) && `${tail} ${source[i + 1]}`.length <= 60
+      ? `${tail} ${source[i + 1]}` : tail;
+    const raw = settingValue(joined) || settingValue(source[i + 1] ?? '');
+    if (!raw || !/[a-z0-9]/i.test(raw)) return null;
+    return { page, field: match.Field, topic: match.Topic || '', label: m[0].trim(), raw, line: String(line.text ?? '').slice(0, 200) };
+  }
+  return null;
+}
+
 /** Every value a sheet publishes, with the page and the line it was read from. */
 export function readSheet(text, registry) {
   const values = [], settings = [], skipped = [];
   for (const page of text.pages) {
     let section = 'properties';
     let held = null, heldLabel = '', heldFor = 0;
-    for (const line of page.lines) {
+    for (let li = 0; li < page.lines.length; li++) {
+      const line = page.lines[li];
       const heading = line.text.trim().length <= HEADING_LENGTH ? SECTIONS.find(([re]) => re.test(line.text.trim())) : null;
       if (heading) { section = heading[1]; held = null; continue; }
       const plain = repair(line.text).trim();
@@ -174,6 +223,28 @@ export function readSheet(text, registry) {
       // belong to once read a tensile elongation as a Charpy strength.
       // A label with nothing else on the line holds for the next one. It must have no digits at all: a hardness
       // states its value with no unit ("Shore D Hardness 43"), and testing for a unit instead threw those rows away.
+      // A printing setting is read wherever it is named, before the section decides what a line is: the sections
+      // themselves are unreliable on a two-column page, and a setting names itself. A line that names a property
+      // is never a setting, so a property the lexicon knows is never taken for one.
+      if (!LABELS.some((l) => l.re.test(plain))) {
+        const setting = readSetting(line, page.page);
+        if (setting) {
+          // A statement can run onto the next line: extraction breaks "Closed chamber for printing not necessary"
+          // after "printing", and the half that says what it is is on the line below. A value that states neither
+          // a number nor a state is unfinished, and the next short line finishes it.
+          const next = page.lines[li + 1];
+          if (!/\d|\b(not|no|yes|necessary|required|recommended|needed)\b/i.test(setting.raw) && next) {
+            const tail = repair(next.text).trim();
+            if (tail.length <= 30 && /\b(not|no|yes|necessary|required|recommended|needed)\b/i.test(tail) && !readSetting(next, page.page) && !LABELS.some((l) => l.re.test(tail))) {
+              setting.raw = `${setting.raw} ${tail}`.replace(/\s+/g, ' ').trim();
+              setting.line = `${setting.line} ${tail}`.slice(0, 200);
+              li += 1;
+            }
+          }
+          settings.push(setting); held = null; continue;
+        }
+      }
+
       const bare = LABELS.find((l) => l.re.test(plain));
       if (bare && !/\d/.test(plain)) { held = bare; heldLabel = plain; heldFor = 0; continue; }
 
@@ -188,12 +259,14 @@ export function readSheet(text, registry) {
       // A printing guide names settings, not properties, so its rows are read without a property label: what a
       // sheet calls its nozzle temperature is its own words, and the profile parsers read those.
       if (section === 'print') {
-        const at = plain.search(/-?\d/);
-        if (at > 0 && valueRe().test(plain)) settings.push({ page: page.page, label: plain.slice(0, at).replace(/[:\s-]+$/, '').trim(), raw: plain.slice(at).trim(), line: line.text });
-        else if (/\d/.test(plain)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'in the printing guide, with no setting this line states' });
+        if (/\d/.test(plain)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'in the printing guide, naming no setting the lexicon knows' });
         continue;
       }
-      if (section === 'storage') { skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'a storage or shelf-life note, not a test result' }); continue; }
+      if (section === 'storage') {
+        const storage = /\bstor|shelf|humid|moisture|dry room|keep out|desiccan|seal|vacuum|packag/i.test(plain);
+        skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: storage ? 'a storage or shelf-life note, not a test result' : 'in the column beside the storage note, naming no property and value together' });
+        continue;
+      }
 
       const read = readRow(line.text, registry, carry ? held : null);
       const carried = Boolean(carry && read);
@@ -271,6 +344,82 @@ const NUMBER = (s) => Number(String(s).replace(',', '.'));
 const round = (x) => Number(Number(x).toPrecision(10));
 const NA = 'Not applicable';
 const NP = 'Not published';
+
+// What the register writes on every row rather than per product: the H2C columns are a judgement about our own
+// printers that a maker's sheet cannot make, so an imported profile carries the same reservation as the 145 rows
+// already there, and the H2C wiki is its source.
+const H2C_CELLS = {
+  'H2C left': 'Verify exact grade/nozzle; no blanket approval',
+  'H2C right': 'Verify exact grade/nozzle; no blanket approval',
+  'AMS 2 Pro': 'Not verified for every grade',
+  'AMS HT': 'Not verified for every grade',
+  'AMS published': NP, 'Support pairing': NP, 'Failure modes': NP,
+};
+
+// A fibre-filled filament wears a brass nozzle out whatever its sheet says about it, and every fibre row in the
+// register carries this sentence. It is the register's own words, not the sheet's, so the proposal says so and a
+// reviewer sees it beside the rows that were read from the page.
+const ABRASIVE = 'Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.';
+const FIBRE = /fibre|fiber/i;
+
+/**
+ * The print setup a sheet publishes, as the profile row the database keeps and the notes beside it. The raw cells
+ * are the sheet's own words; the typed cells are what the build's own parsers read from them, so a proposal cannot
+ * disagree with the build about what it says (D49).
+ */
+export function profilesFor(settings, opts) {
+  const nozzles = settings.filter((x) => x.field === 'nozzle');
+  if (nozzles.length <= 1) { const one = profileFor(settings, opts); return one ? [one] : []; }
+  // A sheet that prints a nozzle temperature per print speed publishes two setups, not one. Keeping only the
+  // first loses the other; merging them invents a window neither row states. So each is its own profile, and its
+  // Locator names the row of the sheet it came from, the way a measurement's Locator names its table.
+  return nozzles
+    .map((n) => profileFor(settings.filter((x) => x.field !== 'nozzle' || x === n), { ...opts, locator: `Recommended printing settings: ${n.label}` }))
+    .filter(Boolean);
+}
+
+export function profileFor(settings, { sourceId, materialId, modifier, locator = 'Recommended printing settings' }) {
+  const named = settings.filter((s) => s.field !== 'note');
+  const notes = settings.filter((s) => s.field === 'note' && s.topic);
+  if (!named.length && !notes.length) return null;
+  const of = (field) => named.find((s) => s.field === field)?.raw ?? NP;
+  const abrasive = FIBRE.test(modifier ?? '');
+  // A sheet that says a hardened or ruby nozzle is needed says so in its own words, and those words are what the
+  // abrasion column keeps. A sheet that says one is not needed leaves the column unpublished rather than being
+  // paraphrased into a claim it did not make; its statement stays in Nozzle material, as the register writes it.
+  const hardened = named.find((x) => x.field === 'nozzle-material');
+  const affirms = hardened && /\b(yes|recommended|required|necessary|advised)\b/i.test(hardened.raw) && !/\b(not|no)\b/i.test(hardened.raw);
+  const raw = {
+    'Nozzle °C': of('nozzle'), 'Bed °C': of('bed'), 'Chamber °C': of('chamber'),
+    Enclosure: of('enclosure'), Plate: of('plate'), Drying: of('drying'),
+    'Nozzle material': of('nozzle-material'), 'Nozzle diameter': of('nozzle-diameter'),
+    'Abrasion / clogging': affirms ? `${hardened.label} ${hardened.raw}`.replace(/\s+/g, ' ').trim() : abrasive ? ABRASIVE : NP,
+  };
+  const parsed = {
+    nozzle: parseTemperature(raw['Nozzle °C']), bed: parseTemperature(raw['Bed °C']), chamber: parseTemperature(raw['Chamber °C']),
+    enclosure: parseEnclosure(raw.Enclosure), drying: parseDrying(raw.Drying), abrasion: parseAbrasion(raw['Abrasion / clogging']),
+  };
+  const typed = profileCellsFromParsed(parsed);
+  const row = {
+    MaterialID: materialId ?? '', GradeID: '', Profile: 'Manufacturer published guidance',
+    'Nozzle °C': raw['Nozzle °C'], 'Nozzle state': typed['Nozzle state'], 'Nozzle min °C': typed['Nozzle min °C'], 'Nozzle max °C': typed['Nozzle max °C'], 'Nozzle requirement': typed['Nozzle requirement'],
+    'Bed °C': raw['Bed °C'], 'Bed state': typed['Bed state'], 'Bed min °C': typed['Bed min °C'], 'Bed max °C': typed['Bed max °C'], 'Bed requirement': typed['Bed requirement'],
+    'Chamber °C': raw['Chamber °C'], 'Chamber state': typed['Chamber state'], 'Chamber min °C': typed['Chamber min °C'], 'Chamber max °C': typed['Chamber max °C'], 'Chamber requirement': typed['Chamber requirement'],
+    Enclosure: raw.Enclosure, 'Enclosure state': typed['Enclosure state'], Plate: raw.Plate,
+    Drying: raw.Drying, 'Drying state': typed['Drying state'], 'Drying °C': typed['Drying °C'], 'Drying hours': typed['Drying hours'],
+    'Nozzle material': raw['Nozzle material'], 'Nozzle diameter': raw['Nozzle diameter'],
+    'Abrasion / clogging': raw['Abrasion / clogging'], 'Hardened nozzle': typed['Hardened nozzle'],
+    ...H2C_CELLS,
+    SourceID: sourceId, 'H2C SourceID': 'H2C-WIKI', Locator: locator, 'Parse review': NA,
+  };
+  return {
+    gradeKey: 'main', row,
+    notes: notes.map((n) => ({ Topic: n.topic, Text: n.raw })),
+    editorial: abrasive && !affirms ? ['Abrasion / clogging'] : [],
+    evidence: { page: (named[0] ?? notes[0]).page, text: (named[0] ?? notes[0]).line.slice(0, 200) },
+    review: { status: 'proposed' },
+  };
+}
 
 /** One measurement row, filled the way the schema requires: raw text as printed, typed columns beside it. */
 function measurementRow(v, { sourceId, materialId, gradeId }) {
@@ -362,6 +511,8 @@ export function propose(row, text, world) {
   // What the sheet's own density says about what is in the product. A grade whose density sits outside the neat
   // polymer's range is carrying something its name does not declare, which is how Spectrum's PA6 Neat was found to
   // hold an undisclosed dense filler (m26). The classifier reads words; this reads the number beside them.
+  const profiles = profilesFor(sheet.settings, { sourceId, materialId: identity.materialId ?? '', modifier: identity.modifier });
+
   const polymer = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer);
   const density = measurements.find((m) => m.row.Property === 'Density');
   const neat = [Number(polymer?.['Neat density min kg/m³']), Number(polymer?.['Neat density max kg/m³'])];
@@ -388,7 +539,7 @@ export function propose(row, text, world) {
       evidence: { page: 1, text: title },
       review: { status: 'proposed' },
     },
-    grades: [grade], measurements, profiles: [], evidence: [], headlines: [], coverage: [],
+    grades: [grade], measurements, profiles, evidence: [], headlines: [], coverage: [],
     settings: sheet.settings, skipped: sheet.skipped,
     review: { status: 'proposed' },
   };
@@ -420,7 +571,8 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))
-    .filter((r) => doc || (!SKIP.has(r.status) && !r.registered_source_id));
+    // --compare reads the sheets the database already holds, which is exactly what a batch run leaves out.
+    .filter((r) => doc || (process.argv.includes('--compare') ? r.registered_source_id : !SKIP.has(r.status) && !r.registered_source_id));
   if (!rows.length) { console.error('nothing read to propose from'); process.exit(2); }
 
   if (process.argv.includes('--compare')) {

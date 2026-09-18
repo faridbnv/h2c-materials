@@ -1,0 +1,16 @@
+Label,Field,Topic,Note
+^(nozzle|print(ing)?|extrusion|extruder|hot ?end)\s*temp\w*(\s*[-(]?\s*(standard|high)\s*speed\)?)?,nozzle,,a sheet that prints two speeds prints two nozzle rows; the first is the standard one
+^(bed|heat ?bed|heated bed|build plate|platform|table)\s*temp\w*,bed,,
+^(chamber|enclosure|housing)\s*temp\w*,chamber,,
+^(closed chamber|chamber|enclosure|housing),enclosure,,a chamber statement with no temperature of its own is about the enclosure
+^(build plate|print(ing)? (surface|plate)|bed surface|plate)\b,plate,,
+^(drying|dry)\s*(temperature|conditions|settings|parameters|recommendations)|^dry(ing)? before,drying,,
+^(ruby or hardened nozzle|hardened nozzle|abrasion[- ]resistant nozzle|nozzle (type|material)),nozzle-material,,"'Abrasion resistance' is a measured property (ISO 4649), not a statement about the nozzle"
+^nozzle (diameter|size),nozzle-diameter,,
+^(active )?cooling( fan| fan speed| rate)?|^(part(-| )?)?fan( speed)?,note,Cooling,
+^(print(ing)? )?speed,note,Speed,
+^(recommended )?layer (height|thickness),note,Layer height,
+^(shell|wall|perimeter)s?\s*(thickness|count|number)?,note,Shell / walls,
+^retraction( distance| speed| settings)?,note,Retraction,
+^(first layer|raft|brim|adhesion|adhesive|bed adhesion),note,Adhesion / release,
+^(warping|shrinkage|warp),note,Warping / shrinkage,
