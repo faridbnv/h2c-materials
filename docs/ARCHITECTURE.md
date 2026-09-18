@@ -43,6 +43,12 @@ No database server or SQLite file sits in the build path. For one person and two
 thousand rows, text files under a schema give the same integrity checks with none of the operations,
 and the build is where those checks run anyway.
 
+A SQLite file is generated beside it, for reading only: `npm run db:sqlite` writes `dist/h2c.sqlite`
+from the same tables and the same schema, with numbers typed, missing states in a sibling column and
+every CSV header recoverable from `_columns` (DECISIONS D75). `npm run sql -- "select ..."` queries it.
+Nothing reads it back, and it is gitignored with the rest of `dist/`, so data still changes in one
+place; it exists because a question that spans records is a join, not a script.
+
 ## Why a build step, rather than reading the tables in the browser
 
 Reading the tables in the browser would couple the interface to their layout, push validation

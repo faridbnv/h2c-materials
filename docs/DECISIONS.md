@@ -81,6 +81,7 @@ break if it were reversed, because that is the part that gets lost.
 | D72 | A record may leave a table only where the build derives it, and only through a ledger | In force |
 | D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | In force |
 | D74 | A coverage row is a judgement; that a material has records is derived | In force |
+| D75 | A generated SQLite file for asking questions, with the schema's types in it | In force |
 
 <!-- end index -->
 
@@ -1627,3 +1628,33 @@ IDs. `coverage.csv` is 673 rows, and every one of them says something a reader c
 
 Reversing it brings back a table where the eight sentences nobody wrote for a material outnumber the findings
 somebody did.
+
+## D75. A generated SQLite file for asking questions, with the schema's types in it
+
+*Answers the open question in D45.*
+
+D45 chose schema-checked CSV over SQLite and said the same schema could generate one later if it were ever needed.
+What made it needed was not concurrent editing: it was that every question spanning more than one record had to be
+written as a script. "Which materials publish a 0.45 MPa heat deflection on a printed specimen, and from how many
+manufacturers" is a four-table join, and the alternative was a one-off file each time, thrown away, unreviewed, and
+wrong in a way nobody would notice.
+
+- **Generated, never authored.** `npm run db:sqlite` writes `dist/h2c.sqlite` from the CSV tables and the schema.
+  It is in `dist/`, which is gitignored, and nothing reads it back: there is still exactly one place data changes.
+- **The schema's types go in with it.** A `number` column is REAL. A missing state is NULL, and the word that stood
+  in its place ("Not published", "Not applicable") is kept in a sibling `<column>_state`. So `AVG()` cannot read a
+  missing state as zero, and a query can still tell "no value" from "the source did not publish one" without
+  parsing prose. That is D3 carried into SQL rather than abandoned at its edge.
+- **Every column name is recoverable.** The naming rule is mechanical and keeps the unit marks a header carries
+  ("Nozzle min °C" is `nozzle_min_c`), and `_columns` maps each SQL name back to its CSV header, position, declared
+  type and role. A collision is an error, not a silent overwrite.
+- **Two views carry the joins that matter.** `v_measurements` gives a measurement with its material, grade and
+  source, and with the conditions that decide whether two values may be compared, because leaving those out of the
+  convenient view is how a query ends up averaging a dry value with a conditioned one.
+  `headlines_compiled` gives what a reader is shown, from `dist/db.json`.
+- **No dependency.** `node:sqlite` is in the standard library from Node 24, which CI now pins and `engines` requires.
+
+`test/sqlite.test.js` checks every table against `data/manifest.json`, that `_columns` reproduces each CSV header in
+order, that no row carries both a value and a missing state, and that the joined view loses nothing.
+
+Reversing it brings back the one-off script, and the temptation to read a column of numbers as text.

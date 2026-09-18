@@ -186,6 +186,7 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 
 ```bash
 npm run trace -- M020                  # every headline of a material, back to its source
+npm run sql -- "select ..."             # ask a question across records (dist/h2c.sqlite, D75)
 npm run trace -- V000384               # a measurement, and the headlines that cite it
 npm run build && open dist/H2C_Material_Selector_*.html
 git diff build/snapshot                  # what the change did to headlines, estimates, gates, templates, warnings
