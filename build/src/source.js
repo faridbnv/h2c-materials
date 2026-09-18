@@ -10,7 +10,7 @@ const sha256 = (path) => createHash('sha256').update(readFileSync(path)).digest(
 
 export function readSource(projectRoot) {
   const dataDir = join(projectRoot, 'data');
-  const files = [...TABLES.map((t) => t.file), 'reference'].map((f) => tablePath(dataDir, f));
+  const files = [...TABLES.map((t) => t.file), 'reference', 'reference_envelopes'].map((f) => tablePath(dataDir, f));
   return {
     wb: loadTables(dataDir),
     referenceRows: loadReference(dataDir),

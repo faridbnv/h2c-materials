@@ -73,6 +73,7 @@ break if it were reversed, because that is the part that gets lost.
 | D64 | Polymer-level behaviour is shown and may screen, never passes | In force |
 | D65 | A test method that defines its load states that load; the typed value says so in Parse review | In force |
 | D66 | A templated safety data sheet is evidence only where it speaks about the product | In force |
+| D67 | A property is a row, not a pair of columns: the reference envelopes are long | In force |
 
 <!-- end index -->
 
@@ -1389,3 +1390,27 @@ sourced and page-cited, which is worse than not recording it.
 Reversing it would let boilerplate become per-grade evidence: a PPA-CF that "must not exceed 240 °C" beside the
 profile telling the reader to print it at 320 °C, each with a page citation. Dropping the whole document instead
 would lose the composition, which is the only reason this source class was added.
+
+## D67. A property is a row, not a pair of columns: the reference envelopes are long
+
+`reference.csv` held a `min` and a `max` column for each of eight properties. Adding a ninth meant two new columns,
+a schema change, an edit to the loader's column-pair walk, and 114 rows widened for a value most of them would not
+have. That is the shape D46 had already rejected for measured properties, kept here only because the reference layer
+is a drawing layer nobody was extending.
+
+- **The envelopes are rows.** `reference_envelopes.csv` holds one row per reference material and property (Name,
+  Property, Min, Max), 912 of them. `reference.csv` keeps the identity it owns: Category and Name.
+- **The property list is data.** `schema/vocab/reference-properties.csv` declares each property and its unit, and
+  `build/src/reference-properties.js` reads it. A ninth reference property is a vocabulary row and its envelope
+  rows; no column, no schema change, no code change.
+- **The unit is declared once.** It was a literal in the code beside the column names; it is now the vocabulary's
+  `Unit` column, which is what the compiled `dist/reference.json` carries into the chart.
+- **The order is the vocabulary's.** Every material presents its properties in the declared order, whatever order
+  its rows are written in, so a hand-appended envelope cannot reorder a compiled file.
+- **Proven, not assumed.** m42 refuses to drop a column unless every one of the 912 envelopes is a numeric pair.
+  `npm run build:diff` reports no difference, and `dist/reference.json` is byte-identical to the build before it.
+
+The legacy `offset` on each property is the retired reference workbook's column position. Nothing reads it, and it
+stays in code, not in the data, only because `schema/reference.schema.json` still requires it in `meta.properties`.
+
+Reversing it brings back a schema change for a number, and a loader that knows the shape of a spreadsheet.

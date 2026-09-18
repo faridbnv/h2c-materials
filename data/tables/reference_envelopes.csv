@@ -1,0 +1,913 @@
+Name,Property,Min,Max
+Aluminum/silicon carbide,density,2660,2900
+Aluminum/silicon carbide,tensileModulus,81,100
+Aluminum/silicon carbide,yieldStrength,280,324
+Aluminum/silicon carbide,tensileStrength,290,365
+Aluminum/silicon carbide,compressiveStrength,280,325
+Aluminum/silicon carbide,elongation,1,5
+Aluminum/silicon carbide,fractureToughness,15,24
+Aluminum/silicon carbide,thermalExpansion,15,23
+Aluminum-polyethylene sandwich,density,1370,1400
+Aluminum-polyethylene sandwich,tensileModulus,17,20
+Aluminum-polyethylene sandwich,yieldStrength,50,70
+Aluminum-polyethylene sandwich,tensileStrength,70,90
+Aluminum-polyethylene sandwich,compressiveStrength,30,40
+Aluminum-polyethylene sandwich,elongation,1.9,5
+Aluminum-polyethylene sandwich,fractureToughness,30,35
+Aluminum-polyethylene sandwich,thermalExpansion,21,24
+"CFRP, epoxy matrix (isotropic)",density,1500,1600
+"CFRP, epoxy matrix (isotropic)",tensileModulus,69,150
+"CFRP, epoxy matrix (isotropic)",yieldStrength,550,1050
+"CFRP, epoxy matrix (isotropic)",tensileStrength,550,1050
+"CFRP, epoxy matrix (isotropic)",compressiveStrength,440,700
+"CFRP, epoxy matrix (isotropic)",elongation,0.32,0.35
+"CFRP, epoxy matrix (isotropic)",fractureToughness,6.12,20
+"CFRP, epoxy matrix (isotropic)",thermalExpansion,1,4
+"DMC or BMC, dough (bulk) molding compound",density,1800,2100
+"DMC or BMC, dough (bulk) molding compound",tensileModulus,12,14
+"DMC or BMC, dough (bulk) molding compound",yieldStrength,25,55
+"DMC or BMC, dough (bulk) molding compound",tensileStrength,34,70
+"DMC or BMC, dough (bulk) molding compound",compressiveStrength,140,180
+"DMC or BMC, dough (bulk) molding compound",elongation,1.4,1.9
+"DMC or BMC, dough (bulk) molding compound",fractureToughness,3,6
+"DMC or BMC, dough (bulk) molding compound",thermalExpansion,24,34
+"GFRP, epoxy matrix (isotropic)",density,1750,1970
+"GFRP, epoxy matrix (isotropic)",tensileModulus,15,28
+"GFRP, epoxy matrix (isotropic)",yieldStrength,110,192
+"GFRP, epoxy matrix (isotropic)",tensileStrength,138,241
+"GFRP, epoxy matrix (isotropic)",compressiveStrength,138,207
+"GFRP, epoxy matrix (isotropic)",elongation,0.85,0.95
+"GFRP, epoxy matrix (isotropic)",fractureToughness,7,23
+"GFRP, epoxy matrix (isotropic)",thermalExpansion,8.64,33
+"SMC, sheet molding compound",density,1800,2000
+"SMC, sheet molding compound",tensileModulus,9,14
+"SMC, sheet molding compound",yieldStrength,50,90
+"SMC, sheet molding compound",tensileStrength,60,100
+"SMC, sheet molding compound",compressiveStrength,240,310
+"SMC, sheet molding compound",elongation,2.5,3.2
+"SMC, sheet molding compound",fractureToughness,5,13
+"SMC, sheet molding compound",thermalExpansion,18,33
+Ceramic tile,density,2050,2400
+Ceramic tile,tensileModulus,4,8
+Ceramic tile,yieldStrength,3,6
+Ceramic tile,tensileStrength,3,6
+Ceramic tile,compressiveStrength,20,50
+Ceramic tile,elongation,0,0
+Ceramic tile,fractureToughness,1,2
+Ceramic tile,thermalExpansion,5,8
+Common brick,density,1690,1950
+Common brick,tensileModulus,5,15
+Common brick,yieldStrength,2,6
+Common brick,tensileStrength,2,6
+Common brick,compressiveStrength,20,50
+Common brick,elongation,0,0
+Common brick,fractureToughness,1,2
+Common brick,thermalExpansion,5,8
+Engineering brick,density,2100,2500
+Engineering brick,tensileModulus,30,35
+Engineering brick,yieldStrength,5,15
+Engineering brick,tensileStrength,5,15
+Engineering brick,compressiveStrength,45,150
+Engineering brick,elongation,0,0
+Engineering brick,fractureToughness,0.00143,0.015
+Engineering brick,thermalExpansion,5,8
+Facing brick,density,2050,2300
+Facing brick,tensileModulus,4,8
+Facing brick,yieldStrength,3,6
+Facing brick,tensileStrength,3,6
+Facing brick,compressiveStrength,20,50
+Facing brick,elongation,0,0
+Facing brick,fractureToughness,0.00225,0.018
+Facing brick,thermalExpansion,5,8
+Refractory brick (low density),density,600,900
+Refractory brick (low density),tensileModulus,2,5
+Refractory brick (low density),yieldStrength,0.75,0.95
+Refractory brick (low density),tensileStrength,0.75,0.95
+Refractory brick (low density),compressiveStrength,4,5
+Refractory brick (low density),elongation,0,0
+Refractory brick (low density),fractureToughness,0.1,0.13
+Refractory brick (low density),thermalExpansion,4.5,6
+Terracotta,density,1900,2750
+Terracotta,tensileModulus,4,8
+Terracotta,yieldStrength,15,20
+Terracotta,tensileStrength,15,20
+Terracotta,compressiveStrength,25,28
+Terracotta,elongation,0,0
+Terracotta,fractureToughness,1,2
+Terracotta,thermalExpansion,5,10
+Cement (ordinary Portland),density,3000,3200
+Cement (ordinary Portland),tensileModulus,40.2,41.6
+Cement (ordinary Portland),yieldStrength,1.9,2.1
+Cement (ordinary Portland),tensileStrength,1.9,2.1
+Cement (ordinary Portland),compressiveStrength,18,24
+Cement (ordinary Portland),elongation,0,0
+Cement (ordinary Portland),fractureToughness,0.35,0.45
+Cement (ordinary Portland),thermalExpansion,12,13
+Asphalt concrete,density,2200,2800
+Asphalt concrete,tensileModulus,10,50
+Asphalt concrete,yieldStrength,0.1,0.3
+Asphalt concrete,tensileStrength,0.1,0.3
+Asphalt concrete,compressiveStrength,0.5,1.3
+Asphalt concrete,elongation,0.4,2
+Asphalt concrete,fractureToughness,0.3,3
+Asphalt concrete,thermalExpansion,12,14
+Autoclaved aerated concrete (AAC),density,400,900
+Autoclaved aerated concrete (AAC),tensileModulus,12,18
+Autoclaved aerated concrete (AAC),yieldStrength,0.6,1.1
+Autoclaved aerated concrete (AAC),tensileStrength,0.6,1.1
+Autoclaved aerated concrete (AAC),compressiveStrength,1.2,1.87
+Autoclaved aerated concrete (AAC),elongation,0,0
+Autoclaved aerated concrete (AAC),fractureToughness,0.04,0.06
+Autoclaved aerated concrete (AAC),thermalExpansion,7,12
+Concrete (structural lightweight),density,1400,2000
+Concrete (structural lightweight),tensileModulus,11,21
+Concrete (structural lightweight),yieldStrength,1.1,2.8
+Concrete (structural lightweight),tensileStrength,1.1,2.8
+Concrete (structural lightweight),compressiveStrength,11.3,28
+Concrete (structural lightweight),elongation,0,0
+Concrete (structural lightweight),fractureToughness,0.04,0.07
+Concrete (structural lightweight),thermalExpansion,7,12
+Dense concrete,density,2000,2400
+Dense concrete,tensileModulus,13.5,42
+Dense concrete,yieldStrength,1,1.2
+Dense concrete,tensileStrength,1,3
+Dense concrete,compressiveStrength,14,14.4
+Dense concrete,elongation,0,0
+Dense concrete,fractureToughness,0.35,0.45
+Dense concrete,thermalExpansion,12,13
+High performance concrete,density,2500,2700
+High performance concrete,tensileModulus,25,27
+High performance concrete,yieldStrength,6,10
+High performance concrete,tensileStrength,6,9
+High performance concrete,compressiveStrength,55.2,75.8
+High performance concrete,elongation,0,0
+High performance concrete,fractureToughness,0.1,0.4
+High performance concrete,thermalExpansion,7,11
+High volume fly ash concrete,density,1830,2200
+High volume fly ash concrete,tensileModulus,30,41
+High volume fly ash concrete,yieldStrength,1.5,2.5
+High volume fly ash concrete,tensileStrength,1.5,2.5
+High volume fly ash concrete,compressiveStrength,45,58
+High volume fly ash concrete,elongation,0,0
+High volume fly ash concrete,fractureToughness,0.35,0.45
+High volume fly ash concrete,thermalExpansion,12,13
+Reactive powder concrete,density,2500,2750
+Reactive powder concrete,tensileModulus,28,32
+Reactive powder concrete,yieldStrength,40,45
+Reactive powder concrete,tensileStrength,5,8
+Reactive powder concrete,compressiveStrength,200,600
+Reactive powder concrete,elongation,2,3
+Reactive powder concrete,fractureToughness,2,3
+Reactive powder concrete,thermalExpansion,7,11
+Plaster of Paris,density,1180,1700
+Plaster of Paris,tensileModulus,4.5,8
+Plaster of Paris,yieldStrength,1,4.5
+Plaster of Paris,tensileStrength,1,4.5
+Plaster of Paris,compressiveStrength,14,20
+Plaster of Paris,elongation,0,0
+Plaster of Paris,fractureToughness,0.01,0.014
+Plaster of Paris,thermalExpansion,8,10
+Granite,density,2630,2800
+Granite,tensileModulus,40,60
+Granite,yieldStrength,9,18
+Granite,tensileStrength,9,18
+Granite,compressiveStrength,160,240
+Granite,elongation,0,0
+Granite,fractureToughness,0.9,2.2
+Granite,thermalExpansion,10,12
+Limestone,density,2150,2500
+Limestone,tensileModulus,20,50
+Limestone,yieldStrength,3,10
+Limestone,tensileStrength,3,10
+Limestone,compressiveStrength,28,50
+Limestone,elongation,0,0
+Limestone,fractureToughness,0.6,1
+Limestone,thermalExpansion,3.7,6.3
+Marble,density,2720,2850
+Marble,tensileModulus,45,80
+Marble,yieldStrength,6,10
+Marble,tensileStrength,6,10
+Marble,compressiveStrength,55,105
+Marble,elongation,0,0
+Marble,fractureToughness,0.6,1.2
+Marble,thermalExpansion,3,5
+Standstone,density,2240,2650
+Standstone,tensileModulus,14,40
+Standstone,yieldStrength,4,15
+Standstone,tensileStrength,4,15
+Standstone,compressiveStrength,70,90
+Standstone,elongation,0,0
+Standstone,fractureToughness,0.7,1.5
+Standstone,thermalExpansion,7.5,8.5
+Slate,density,2600,2900
+Slate,tensileModulus,60,90
+Slate,yieldStrength,20,50
+Slate,tensileStrength,20,50
+Slate,compressiveStrength,75,175
+Slate,elongation,0,0
+Slate,fractureToughness,0.4,1.1
+Slate,thermalExpansion,10,12
+Borosilicate glass (Pyrex),density,2200,2300
+Borosilicate glass (Pyrex),tensileModulus,70,76
+Borosilicate glass (Pyrex),yieldStrength,22,32
+Borosilicate glass (Pyrex),tensileStrength,22,32
+Borosilicate glass (Pyrex),compressiveStrength,264,384
+Borosilicate glass (Pyrex),elongation,0,0
+Borosilicate glass (Pyrex),fractureToughness,0.5,0.7
+Borosilicate glass (Pyrex),thermalExpansion,3.2,4
+Laminated glass,density,2350,2450
+Laminated glass,tensileModulus,66,68
+Laminated glass,yieldStrength,33,38
+Laminated glass,tensileStrength,33,38
+Laminated glass,compressiveStrength,370,410
+Laminated glass,elongation,0,0
+Laminated glass,fractureToughness,1,1.3
+Laminated glass,thermalExpansion,9.1,9.5
+Low-e glass,density,2440,2490
+Low-e glass,tensileModulus,68,72
+Low-e glass,yieldStrength,31,35
+Low-e glass,tensileStrength,31,35
+Low-e glass,compressiveStrength,360,420
+Low-e glass,elongation,0,0
+Low-e glass,fractureToughness,0.55,0.7
+Low-e glass,thermalExpansion,9.1,9.5
+Silica glass (Vycor),density,2180,2190
+Silica glass (Vycor),tensileModulus,87,90
+Silica glass (Vycor),yieldStrength,45,155
+Silica glass (Vycor),tensileStrength,45,155
+Silica glass (Vycor),compressiveStrength,1100,1600
+Silica glass (Vycor),elongation,0,0
+Silica glass (Vycor),fractureToughness,0.6,0.8
+Silica glass (Vycor),thermalExpansion,0.55,0.75
+Soda-Lime glass (float glass),density,2500,2540
+Soda-Lime glass (float glass),tensileModulus,68,72
+Soda-Lime glass (float glass),yieldStrength,30,35
+Soda-Lime glass (float glass),tensileStrength,31,35
+Soda-Lime glass (float glass),compressiveStrength,360,420
+Soda-Lime glass (float glass),elongation,0,0
+Soda-Lime glass (float glass),fractureToughness,0.55,0.7
+Soda-Lime glass (float glass),thermalExpansion,8.5,9.5
+Alumina,density,3800,3980
+Alumina,tensileModulus,343,390
+Alumina,yieldStrength,350,588
+Alumina,tensileStrength,350,588
+Alumina,compressiveStrength,690,5500
+Alumina,elongation,0,0
+Alumina,fractureToughness,3.3,4.8
+Alumina,thermalExpansion,7,7.9
+Aluminum nitride,density,3260,3330
+Aluminum nitride,tensileModulus,302,348
+Aluminum nitride,yieldStrength,197,270
+Aluminum nitride,tensileStrength,197,270
+Aluminum nitride,compressiveStrength,1970,2700
+Aluminum nitride,elongation,0.08,0.08
+Aluminum nitride,fractureToughness,2.5,3.4
+Aluminum nitride,thermalExpansion,4.6,5.3
+Boron carbide,density,2350,2550
+Boron carbide,tensileModulus,440,472
+Boron carbide,yieldStrength,350,560
+Boron carbide,tensileStrength,350,560
+Boron carbide,compressiveStrength,2580,5690
+Boron carbide,elongation,0.1,0.1
+Boron carbide,fractureToughness,2.5,3.5
+Boron carbide,thermalExpansion,3.2,3.4
+Glass ceramic,density,2400,2600
+Glass ceramic,tensileModulus,67,75
+Glass ceramic,yieldStrength,62,75
+Glass ceramic,tensileStrength,62,75
+Glass ceramic,compressiveStrength,340,355
+Glass ceramic,elongation,0.08,0.09
+Glass ceramic,fractureToughness,1.4,1.7
+Glass ceramic,thermalExpansion,7.4,9.3
+Slilicon,density,2300,2350
+Slilicon,tensileModulus,140,155
+Slilicon,yieldStrength,160,180
+Slilicon,tensileStrength,160,180
+Slilicon,compressiveStrength,3200,3460
+Slilicon,elongation,0.1,0.15
+Slilicon,fractureToughness,0.83,0.94
+Slilicon,thermalExpansion,2,3.2
+Silicon carbide,density,3100,3210
+Silicon carbide,tensileModulus,400,460
+Silicon carbide,yieldStrength,400,610
+Silicon carbide,tensileStrength,400,610
+Silicon carbide,compressiveStrength,1000,5250
+Silicon carbide,elongation,0,0
+Silicon carbide,fractureToughness,3,5.6
+Silicon carbide,thermalExpansion,4,4.8
+Silicon nitride,density,3100,3400
+Silicon nitride,tensileModulus,290,318
+Silicon nitride,yieldStrength,600,720
+Silicon nitride,tensileStrength,600,720
+Silicon nitride,compressiveStrength,524,5500
+Silicon nitride,elongation,0,0
+Silicon nitride,fractureToughness,4,6.7
+Silicon nitride,thermalExpansion,3.2,3.6
+Tungsten carbide,density,1530,1590
+Tungsten carbide,tensileModulus,625,700
+Tungsten carbide,yieldStrength,335,550
+Tungsten carbide,tensileStrength,370,550
+Tungsten carbide,compressiveStrength,3350,6830
+Tungsten carbide,elongation,0.07,0.074
+Tungsten carbide,fractureToughness,2,3.8
+Tungsten carbide,thermalExpansion,5.2,7.1
+Zirconia,density,5900,6150
+Zirconia,tensileModulus,200,250
+Zirconia,yieldStrength,500,710
+Zirconia,tensileStrength,500,710
+Zirconia,compressiveStrength,3600,5200
+Zirconia,elongation,0,0
+Zirconia,fractureToughness,6,8
+Zirconia,thermalExpansion,10.5,11
+Ceramic foam,density,550,670
+Ceramic foam,tensileModulus,2.1,2.6
+Ceramic foam,yieldStrength,0.6,2.1
+Ceramic foam,tensileStrength,0.6,2.1
+Ceramic foam,compressiveStrength,0.8,2.8
+Ceramic foam,elongation,0,0
+Ceramic foam,fractureToughness,0.08,0.1
+Ceramic foam,thermalExpansion,8.5,11
+Elastomeric polyurethane foam,density,100,200
+Elastomeric polyurethane foam,tensileModulus,0.0005,0.0014
+Elastomeric polyurethane foam,yieldStrength,0.045,0.051
+Elastomeric polyurethane foam,tensileStrength,0.25,0.3
+Elastomeric polyurethane foam,compressiveStrength,0.25,0.3
+Elastomeric polyurethane foam,elongation,300,400
+Elastomeric polyurethane foam,fractureToughness,0.0158,0.0208
+Elastomeric polyurethane foam,thermalExpansion,150,160
+Fireproof phenolic foam,density,35,70
+Fireproof phenolic foam,tensileModulus,0.004,0.007
+Fireproof phenolic foam,yieldStrength,0.09,0.11
+Fireproof phenolic foam,tensileStrength,0.15,0.21
+Fireproof phenolic foam,compressiveStrength,0.084,0.172
+Fireproof phenolic foam,elongation,4,5
+Fireproof phenolic foam,fractureToughness,0.004,0.006
+Fireproof phenolic foam,thermalExpansion,40,70
+Metal foam,density,140,180
+Metal foam,tensileModulus,0.16,0.2
+Metal foam,yieldStrength,0.11,0.23
+Metal foam,tensileStrength,0.3,0.5
+Metal foam,compressiveStrength,0.2,0.26
+Metal foam,elongation,40,50
+Metal foam,fractureToughness,0.35,0.4
+Metal foam,thermalExpansion,22,23
+Rigid polystyrene foam,density,47,53
+Rigid polystyrene foam,tensileModulus,0.025,0.03
+Rigid polystyrene foam,yieldStrength,0.8,1
+Rigid polystyrene foam,tensileStrength,1,1.2
+Rigid polystyrene foam,compressiveStrength,0.8,1
+Rigid polystyrene foam,elongation,4,5
+Rigid polystyrene foam,fractureToughness,0.01,0.02
+Rigid polystyrene foam,thermalExpansion,60,80
+"Cast iron, gray (flake graphite)",density,6900,7350
+"Cast iron, gray (flake graphite)",tensileModulus,80,150
+"Cast iron, gray (flake graphite)",yieldStrength,65,293
+"Cast iron, gray (flake graphite)",tensileStrength,100,450
+"Cast iron, gray (flake graphite)",compressiveStrength,130,590
+"Cast iron, gray (flake graphite)",elongation,0.17,0.7
+"Cast iron, gray (flake graphite)",fractureToughness,10,24
+"Cast iron, gray (flake graphite)",thermalExpansion,11,13
+"Cast iron, nodular (spheroidal, ductile)",density,7050,7250
+"Cast iron, nodular (spheroidal, ductile)",tensileModulus,165,180
+"Cast iron, nodular (spheroidal, ductile)",yieldStrength,215,790
+"Cast iron, nodular (spheroidal, ductile)",tensileStrength,350,1000
+"Cast iron, nodular (spheroidal, ductile)",compressiveStrength,229,799
+"Cast iron, nodular (spheroidal, ductile)",elongation,2,29
+"Cast iron, nodular (spheroidal, ductile)",fractureToughness,22,54
+"Cast iron, nodular (spheroidal, ductile)",thermalExpansion,10,12.5
+"Cast iron, white",density,7600,7800
+"Cast iron, white",tensileModulus,185,215
+"Cast iron, white",yieldStrength,230,460
+"Cast iron, white",tensileStrength,230,460
+"Cast iron, white",compressiveStrength,500,900
+"Cast iron, white",elongation,0,0
+"Cast iron, white",fractureToughness,9,28
+"Cast iron, white",thermalExpansion,10,11
+Galvanized steel,density,7800,7900
+Galvanized steel,tensileModulus,200,215
+Galvanized steel,yieldStrength,250,395
+Galvanized steel,tensileStrength,420,600
+Galvanized steel,compressiveStrength,250,395
+Galvanized steel,elongation,26,47
+Galvanized steel,fractureToughness,41,82
+Galvanized steel,thermalExpansion,11.5,13
+Terne coated stainless steel,density,7600,8100
+Terne coated stainless steel,tensileModulus,189,197
+Terne coated stainless steel,yieldStrength,310,480
+Terne coated stainless steel,tensileStrength,585,660
+Terne coated stainless steel,compressiveStrength,310,480
+Terne coated stainless steel,elongation,50,50
+Terne coated stainless steel,fractureToughness,77,150
+Terne coated stainless steel,thermalExpansion,18.8,18.8
+Terne coated steel,density,7850,7900
+Terne coated steel,tensileModulus,185,200
+Terne coated steel,yieldStrength,250,395
+Terne coated steel,tensileStrength,345,580
+Terne coated steel,compressiveStrength,250,395
+Terne coated steel,elongation,28,45
+Terne coated steel,fractureToughness,41,82
+Terne coated steel,thermalExpansion,12.4,12.9
+High carbon steel,density,7800,7900
+High carbon steel,tensileModulus,200,215
+High carbon steel,yieldStrength,400,1160
+High carbon steel,tensileStrength,550,1640
+High carbon steel,compressiveStrength,335,1160
+High carbon steel,elongation,7,30
+High carbon steel,fractureToughness,27,92
+High carbon steel,thermalExpansion,11,13.5
+Low alloy steel,density,7800,7900
+Low alloy steel,tensileModulus,205,217
+Low alloy steel,yieldStrength,400,1100
+Low alloy steel,tensileStrength,460,1200
+Low alloy steel,compressiveStrength,245,2260
+Low alloy steel,elongation,3,38
+Low alloy steel,fractureToughness,35,110
+Low alloy steel,thermalExpansion,10.5,13.5
+low carbon steel,density,7800,7900
+low carbon steel,tensileModulus,200,215
+low carbon steel,yieldStrength,250,395
+low carbon steel,tensileStrength,345,580
+low carbon steel,compressiveStrength,250,395
+low carbon steel,elongation,26,47
+low carbon steel,fractureToughness,41,82
+low carbon steel,thermalExpansion,11.5,13
+medium carbon steel,density,7800,7900
+medium carbon steel,tensileModulus,200,216
+medium carbon steel,yieldStrength,305,900
+medium carbon steel,tensileStrength,410,1200
+medium carbon steel,compressiveStrength,305,1760
+medium carbon steel,elongation,4,39
+medium carbon steel,fractureToughness,12,92
+medium carbon steel,thermalExpansion,10,14
+structural steel,density,7800,7900
+structural steel,tensileModulus,200,221
+structural steel,yieldStrength,205,275
+structural steel,tensileStrength,350,510
+structural steel,compressiveStrength,205,275
+structural steel,elongation,23,24
+structural steel,fractureToughness,26.4,38.1
+structural steel,thermalExpansion,11,13
+stainless steel,density,7810,8010
+stainless steel,tensileModulus,189,197
+stainless steel,yieldStrength,310,515
+stainless steel,tensileStrength,585,860
+stainless steel,compressiveStrength,310,515
+stainless steel,elongation,30,50
+stainless steel,fractureToughness,77,203
+stainless steel,thermalExpansion,16,20
+Wrought iron,density,7400,7800
+Wrought iron,tensileModulus,185,195
+Wrought iron,yieldStrength,210,210
+Wrought iron,tensileStrength,302,432
+Wrought iron,compressiveStrength,270,280
+Wrought iron,elongation,34,36
+Wrought iron,fractureToughness,60,80
+Wrought iron,thermalExpansion,12,12.5
+"Aluminum alloy, wrought (6061, T4)",density,2700,2730
+"Aluminum alloy, wrought (6061, T4)",tensileModulus,68,71.5
+"Aluminum alloy, wrought (6061, T4)",yieldStrength,103,124
+"Aluminum alloy, wrought (6061, T4)",tensileStrength,172,241
+"Aluminum alloy, wrought (6061, T4)",compressiveStrength,97,172
+"Aluminum alloy, wrought (6061, T4)",elongation,14,16.3
+"Aluminum alloy, wrought (6061, T4)",fractureToughness,34,35
+"Aluminum alloy, wrought (6061, T4)",thermalExpansion,23,24.6
+"Aluminum, pure (1200, H4)",density,2680,2740
+"Aluminum, pure (1200, H4)",tensileModulus,68,72
+"Aluminum, pure (1200, H4)",yieldStrength,109,121
+"Aluminum, pure (1200, H4)",tensileStrength,119,131
+"Aluminum, pure (1200, H4)",compressiveStrength,109,121
+"Aluminum, pure (1200, H4)",elongation,7.4,8.6
+"Aluminum, pure (1200, H4)",fractureToughness,32,35
+"Aluminum, pure (1200, H4)",thermalExpansion,22.8,24
+Brass,density,7800,8800
+Brass,tensileModulus,90,120
+Brass,yieldStrength,70,500
+Brass,tensileStrength,150,850
+Brass,compressiveStrength,70,500
+Brass,elongation,5,55
+Brass,fractureToughness,30,86
+Brass,thermalExpansion,16.5,20.7
+Bronze,density,8500,9000
+Bronze,tensileModulus,70,120
+Bronze,yieldStrength,65,700
+Bronze,tensileStrength,140,800
+Bronze,compressiveStrength,65,700
+Bronze,elongation,2,60
+Bronze,fractureToughness,24,90
+Bronze,thermalExpansion,16.5,19
+Copper,density,8930,8940
+Copper,tensileModulus,112,148
+Copper,yieldStrength,30,500
+Copper,tensileStrength,100,550
+Copper,compressiveStrength,30,500
+Copper,elongation,3,50
+Copper,fractureToughness,30,90
+Copper,thermalExpansion,16.9,18
+Lead alloys,density,10000,11400
+Lead alloys,tensileModulus,12.5,15
+Lead alloys,yieldStrength,8,14
+Lead alloys,tensileStrength,12,20
+Lead alloys,compressiveStrength,8,14
+Lead alloys,elongation,30,60
+Lead alloys,fractureToughness,5,15
+Lead alloys,thermalExpansion,18,32
+Lead coated copper,density,8930,8940
+Lead coated copper,tensileModulus,112,148
+Lead coated copper,yieldStrength,50,400
+Lead coated copper,tensileStrength,100,450
+Lead coated copper,compressiveStrength,30,400
+Lead coated copper,elongation,3,50
+Lead coated copper,fractureToughness,30,90
+Lead coated copper,thermalExpansion,16.9,18
+Magnesium alloys,density,1740,1950
+Magnesium alloys,tensileModulus,42,47
+Magnesium alloys,yieldStrength,70,400
+Magnesium alloys,tensileStrength,185,475
+Magnesium alloys,compressiveStrength,70,400
+Magnesium alloys,elongation,3.5,18
+Magnesium alloys,fractureToughness,12,18
+Magnesium alloys,thermalExpansion,24.6,28
+Nickel alloys,density,8830,8950
+Nickel alloys,tensileModulus,190,220
+Nickel alloys,yieldStrength,70,1100
+Nickel alloys,tensileStrength,345,1200
+Nickel alloys,compressiveStrength,70,1100
+Nickel alloys,elongation,2,60
+Nickel alloys,fractureToughness,80,110
+Nickel alloys,thermalExpansion,12,13.5
+Tin,density,7260,7270
+Tin,tensileModulus,41,45
+Tin,yieldStrength,7,15
+Tin,tensileStrength,11,18
+Tin,compressiveStrength,7,15
+Tin,elongation,55,75
+Tin,fractureToughness,15,30
+Tin,thermalExpansion,22.5,23.5
+Titanium alloys,density,4400,4800
+Titanium alloys,tensileModulus,90,120
+Titanium alloys,yieldStrength,250,1250
+Titanium alloys,tensileStrength,300,1630
+Titanium alloys,compressiveStrength,130,1400
+Titanium alloys,elongation,1,40
+Titanium alloys,fractureToughness,14,120
+Titanium alloys,thermalExpansion,7.9,11
+Tungsten alloys,density,1780,1960
+Tungsten alloys,tensileModulus,310,380
+Tungsten alloys,yieldStrength,525,800
+Tungsten alloys,tensileStrength,720,3000
+Tungsten alloys,compressiveStrength,555,800
+Tungsten alloys,elongation,1,17
+Tungsten alloys,fractureToughness,50,60
+Tungsten alloys,thermalExpansion,4,5.6
+Zinc alloys,density,4950,7000
+Zinc alloys,tensileModulus,68,95
+Zinc alloys,yieldStrength,80,320
+Zinc alloys,tensileStrength,135,350
+Zinc alloys,compressiveStrength,80,450
+Zinc alloys,elongation,1,30
+Zinc alloys,fractureToughness,20,40
+Zinc alloys,thermalExpansion,23,28
+Butyl rubber,density,900,920
+Butyl rubber,tensileModulus,0.001,0.002
+Butyl rubber,yieldStrength,2,3
+Butyl rubber,tensileStrength,5,10
+Butyl rubber,compressiveStrength,2.2,3.3
+Butyl rubber,elongation,400,500
+Butyl rubber,fractureToughness,0.07,0.1
+Butyl rubber,thermalExpansion,120,300
+Ethylene propylene terpolymer (EPDM),density,860,870
+Ethylene propylene terpolymer (EPDM),tensileModulus,0.0007,0.021
+Ethylene propylene terpolymer (EPDM),yieldStrength,3.4,24
+Ethylene propylene terpolymer (EPDM),tensileStrength,3.4,24
+Ethylene propylene terpolymer (EPDM),compressiveStrength,4.08,28.8
+Ethylene propylene terpolymer (EPDM),elongation,100,700
+Ethylene propylene terpolymer (EPDM),fractureToughness,0.1,0.3
+Ethylene propylene terpolymer (EPDM),thermalExpansion,550,590
+Ethylene vinyl acetate (EVA),density,945,955
+Ethylene vinyl acetate (EVA),tensileModulus,0.1,0.4
+Ethylene vinyl acetate (EVA),yieldStrength,12,18
+Ethylene vinyl acetate (EVA),tensileStrength,16,20
+Ethylene vinyl acetate (EVA),compressiveStrength,13.2,19.8
+Ethylene vinyl acetate (EVA),elongation,730,770
+Ethylene vinyl acetate (EVA),fractureToughness,0.5,0.7
+Ethylene vinyl acetate (EVA),thermalExpansion,160,190
+Isoprene (IR),density,930,940
+Isoprene (IR),tensileModulus,0.0014,0.004
+Isoprene (IR),yieldStrength,20,25
+Isoprene (IR),tensileStrength,20,25
+Isoprene (IR),compressiveStrength,23,25
+Isoprene (IR),elongation,500,550
+Isoprene (IR),fractureToughness,0.07,0.1
+Isoprene (IR),thermalExpansion,150,450
+Natural rubber (NR),density,920,930
+Natural rubber (NR),tensileModulus,0.0015,0.0025
+Natural rubber (NR),yieldStrength,20,30
+Natural rubber (NR),tensileStrength,22,32
+Natural rubber (NR),compressiveStrength,22,33
+Natural rubber (NR),elongation,500,800
+Natural rubber (NR),fractureToughness,0.15,0.25
+Natural rubber (NR),thermalExpansion,150,450
+"Polychloroprene (neoprene, CR)",density,1230,1250
+"Polychloroprene (neoprene, CR)",tensileModulus,0.0007,0.002
+"Polychloroprene (neoprene, CR)",yieldStrength,3.4,24
+"Polychloroprene (neoprene, CR)",tensileStrength,3.4,24
+"Polychloroprene (neoprene, CR)",compressiveStrength,3.72,28.8
+"Polychloroprene (neoprene, CR)",elongation,100,800
+"Polychloroprene (neoprene, CR)",fractureToughness,0.1,0.3
+"Polychloroprene (neoprene, CR)",thermalExpansion,575,610
+Polyurethane (eIPU),density,1020,1250
+Polyurethane (eIPU),tensileModulus,0.002,0.3
+Polyurethane (eIPU),yieldStrength,25,51
+Polyurethane (eIPU),tensileStrength,25,51
+Polyurethane (eIPU),compressiveStrength,50,100
+Polyurethane (eIPU),elongation,380,720
+Polyurethane (eIPU),fractureToughness,0.2,0.4
+Polyurethane (eIPU),thermalExpansion,150,165
+Silicone elastomers,density,1300,1800
+Silicone elastomers,tensileModulus,0.005,0.02
+Silicone elastomers,yieldStrength,2.4,5.5
+Silicone elastomers,tensileStrength,2.4,5.5
+Silicone elastomers,compressiveStrength,10,30
+Silicone elastomers,elongation,80,300
+Silicone elastomers,fractureToughness,0.05,0.3
+Silicone elastomers,thermalExpansion,250,300
+Acrylonitrile butadiene styrene (ABS),density,1010,1210
+Acrylonitrile butadiene styrene (ABS),tensileModulus,1.1,2.9
+Acrylonitrile butadiene styrene (ABS),yieldStrength,18.5,51
+Acrylonitrile butadiene styrene (ABS),tensileStrength,27.6,55.2
+Acrylonitrile butadiene styrene (ABS),compressiveStrength,31,86.2
+Acrylonitrile butadiene styrene (ABS),elongation,4,22
+Acrylonitrile butadiene styrene (ABS),fractureToughness,1.19,4.29
+Acrylonitrile butadiene styrene (ABS),thermalExpansion,84.6,234
+Cellulose polymers (CA),density,980,1300
+Cellulose polymers (CA),tensileModulus,1.6,2
+Cellulose polymers (CA),yieldStrength,25,45
+Cellulose polymers (CA),tensileStrength,25,50
+Cellulose polymers (CA),compressiveStrength,27.5,49.5
+Cellulose polymers (CA),elongation,5,50
+Cellulose polymers (CA),fractureToughness,1,2.5
+Cellulose polymers (CA),thermalExpansion,150,300
+Ethylene tetrafluoroethylene (ETFE),density,1680,1720
+Ethylene tetrafluoroethylene (ETFE),tensileModulus,0.81,1.5
+Ethylene tetrafluoroethylene (ETFE),yieldStrength,34.2,37.7
+Ethylene tetrafluoroethylene (ETFE),tensileStrength,42,47
+Ethylene tetrafluoroethylene (ETFE),compressiveStrength,46.6,51.4
+Ethylene tetrafluoroethylene (ETFE),elongation,200,400
+Ethylene tetrafluoroethylene (ETFE),fractureToughness,3.12,6.47
+Ethylene tetrafluoroethylene (ETFE),thermalExpansion,104,111
+Ionomer (I),density,930,960
+Ionomer (I),tensileModulus,0.2,0.424
+Ionomer (I),yieldStrength,8.27,15.9
+Ionomer (I),tensileStrength,17.2,37.2
+Ionomer (I),compressiveStrength,9.1,17.5
+Ionomer (I),elongation,300,700
+Ionomer (I),fractureToughness,1.14,3.43
+Ionomer (I),thermalExpansion,180,306
+"Polyamides (nylons, PA)",density,1120,1140
+"Polyamides (nylons, PA)",tensileModulus,2.62,3.2
+"Polyamides (nylons, PA)",yieldStrength,50,94.8
+"Polyamides (nylons, PA)",tensileStrength,90,165
+"Polyamides (nylons, PA)",compressiveStrength,55,104
+"Polyamides (nylons, PA)",elongation,30,100
+"Polyamides (nylons, PA)",fractureToughness,2.22,5.62
+"Polyamides (nylons, PA)",thermalExpansion,144,149
+Polycarbonate (PC),density,1140,1210
+Polycarbonate (PC),tensileModulus,2,2.44
+Polycarbonate (PC),yieldStrength,59,70
+Polycarbonate (PC),tensileStrength,60,72.4
+Polycarbonate (PC),compressiveStrength,69,86.9
+Polycarbonate (PC),elongation,70,150
+Polycarbonate (PC),fractureToughness,2.1,4.6
+Polycarbonate (PC),thermalExpansion,120,137
+Polyetheretherketone (PEEK),density,1300,1320
+Polyetheretherketone (PEEK),tensileModulus,3.75,3.95
+Polyetheretherketone (PEEK),yieldStrength,65,95
+Polyetheretherketone (PEEK),tensileStrength,70,103
+Polyetheretherketone (PEEK),compressiveStrength,71.5,105
+Polyetheretherketone (PEEK),elongation,30,150
+Polyetheretherketone (PEEK),fractureToughness,2.73,4.3
+Polyetheretherketone (PEEK),thermalExpansion,72,194
+Polyethylene (PE),density,939,960
+Polyethylene (PE),tensileModulus,0.621,0.896
+Polyethylene (PE),yieldStrength,17.9,29
+Polyethylene (PE),tensileStrength,20.7,44.8
+Polyethylene (PE),compressiveStrength,19.7,31.9
+Polyethylene (PE),elongation,200,800
+Polyethylene (PE),fractureToughness,1.44,1.72
+Polyethylene (PE),thermalExpansion,126,198
+"Polyethylene terephthalate (PET, PETE)",density,1290,1400
+"Polyethylene terephthalate (PET, PETE)",tensileModulus,2.76,4.14
+"Polyethylene terephthalate (PET, PETE)",yieldStrength,56.5,62.3
+"Polyethylene terephthalate (PET, PETE)",tensileStrength,48.3,72.4
+"Polyethylene terephthalate (PET, PETE)",compressiveStrength,62.2,68.5
+"Polyethylene terephthalate (PET, PETE)",elongation,30,300
+"Polyethylene terephthalate (PET, PETE)",fractureToughness,4.5,5.5
+"Polyethylene terephthalate (PET, PETE)",thermalExpansion,115,119
+"Polymethyl methacrylate (acrylic, PMMA)",density,1160,1220
+"Polymethyl methacrylate (acrylic, PMMA)",tensileModulus,2.24,3.8
+"Polymethyl methacrylate (acrylic, PMMA)",yieldStrength,53.8,72.4
+"Polymethyl methacrylate (acrylic, PMMA)",tensileStrength,48.3,79.6
+"Polymethyl methacrylate (acrylic, PMMA)",compressiveStrength,72.4,131
+"Polymethyl methacrylate (acrylic, PMMA)",elongation,2,10
+"Polymethyl methacrylate (acrylic, PMMA)",fractureToughness,0.7,1.6
+"Polymethyl methacrylate (acrylic, PMMA)",thermalExpansion,72,162
+"Polyoxymethylene (acetal, POM)",density,1390,1430
+"Polyoxymethylene (acetal, POM)",tensileModulus,2.5,5
+"Polyoxymethylene (acetal, POM)",yieldStrength,48.6,72.4
+"Polyoxymethylene (acetal, POM)",tensileStrength,60,89.6
+"Polyoxymethylene (acetal, POM)",compressiveStrength,74.9,124
+"Polyoxymethylene (acetal, POM)",elongation,10,75
+"Polyoxymethylene (acetal, POM)",fractureToughness,1.71,4.2
+"Polyoxymethylene (acetal, POM)",thermalExpansion,75.7,202
+Polypropylene (PP),density,890,910
+Polypropylene (PP),tensileModulus,0.896,1.55
+Polypropylene (PP),yieldStrength,20.7,37.2
+Polypropylene (PP),tensileStrength,27.6,41.4
+Polypropylene (PP),compressiveStrength,25.1,55.2
+Polypropylene (PP),elongation,100,600
+Polypropylene (PP),fractureToughness,3,4.5
+Polypropylene (PP),thermalExpansion,122,180
+Polystyrene (PS),density,1040,1050
+Polystyrene (PS),tensileModulus,1.2,2.6
+Polystyrene (PS),yieldStrength,28.7,56.2
+Polystyrene (PS),tensileStrength,35.9,56.2
+Polystyrene (PS),compressiveStrength,31.6,61.8
+Polystyrene (PS),elongation,1.2,3.6
+Polystyrene (PS),fractureToughness,0.7,1.1
+Polystyrene (PS),thermalExpansion,90,153
+Polytetrafluoroethylene (PTFE),density,2140,2200
+Polytetrafluoroethylene (PTFE),tensileModulus,0.4,0.552
+Polytetrafluoroethylene (PTFE),yieldStrength,15,25
+Polytetrafluoroethylene (PTFE),tensileStrength,20,30
+Polytetrafluoroethylene (PTFE),compressiveStrength,16.5,27.5
+Polytetrafluoroethylene (PTFE),elongation,200,400
+Polytetrafluoroethylene (PTFE),fractureToughness,1.32,1.8
+Polytetrafluoroethylene (PTFE),thermalExpansion,126,216
+Polyurethane (tpPUR),density,1120,1240
+Polyurethane (tpPUR),tensileModulus,1.31,2.07
+Polyurethane (tpPUR),yieldStrength,40,53.8
+Polyurethane (tpPUR),tensileStrength,31,62
+Polyurethane (tpPUR),compressiveStrength,44,59.2
+Polyurethane (tpPUR),elongation,60,550
+Polyurethane (tpPUR),fractureToughness,1.84,4.97
+Polyurethane (tpPUR),thermalExpansion,90,144
+Polyvinylchloride (tpPVC),density,1300,1580
+Polyvinylchloride (tpPVC),tensileModulus,2.14,4.14
+Polyvinylchloride (tpPVC),yieldStrength,35.4,52.1
+Polyvinylchloride (tpPVC),tensileStrength,40.7,65.1
+Polyvinylchloride (tpPVC),compressiveStrength,42.5,89.6
+Polyvinylchloride (tpPVC),elongation,11.9,80
+Polyvinylchloride (tpPVC),fractureToughness,1.46,5.12
+Polyvinylchloride (tpPVC),thermalExpansion,100,150
+Epoxies,density,1110,1400
+Epoxies,tensileModulus,2.35,3.08
+Epoxies,yieldStrength,36,71.7
+Epoxies,tensileStrength,45,89.6
+Epoxies,compressiveStrength,39.6,78.8
+Epoxies,elongation,2,10
+Epoxies,fractureToughness,0.7,1.8
+Epoxies,thermalExpansion,58,117
+Phenolics,density,1240,1320
+Phenolics,tensileModulus,2.76,4.83
+Phenolics,yieldStrength,27.6,49.7
+Phenolics,tensileStrength,34.5,62.1
+Phenolics,compressiveStrength,30.4,54.6
+Phenolics,elongation,1.5,2
+Phenolics,fractureToughness,0.787,1.21
+Phenolics,thermalExpansion,120,125
+Polyester,density,1040,1400
+Polyester,tensileModulus,2.07,4.41
+Polyester,yieldStrength,33,40
+Polyester,tensileStrength,41.4,89.6
+Polyester,compressiveStrength,36.3,44
+Polyester,elongation,2,2.6
+Polyester,fractureToughness,1.09,1.69
+Polyester,thermalExpansion,99,180
+Bamboo,density,600,800
+Bamboo,tensileModulus,15,20
+Bamboo,yieldStrength,35,44
+Bamboo,tensileStrength,36,45
+Bamboo,compressiveStrength,50,100
+Bamboo,elongation,2.88,5.5
+Bamboo,fractureToughness,5,7
+Bamboo,thermalExpansion,2.6,10
+Cork,density,120,240
+Cork,tensileModulus,0.013,0.05
+Cork,yieldStrength,0.3,0.8
+Cork,tensileStrength,0.5,2.5
+Cork,compressiveStrength,0.54,2
+Cork,elongation,20,80
+Cork,fractureToughness,0.05,0.1
+Cork,thermalExpansion,130,230
+Glulam,density,500,650
+Glulam,tensileModulus,12,14
+Glulam,yieldStrength,9,12
+Glulam,tensileStrength,9.65,12.4
+Glulam,compressiveStrength,8.3,11
+Glulam,elongation,1.5,2.5
+Glulam,fractureToughness,4,6
+Glulam,thermalExpansion,3,10
+Hardboard parallel to board,density,800,1050
+Hardboard parallel to board,tensileModulus,2.4,3.5
+Hardboard parallel to board,yieldStrength,12,18
+Hardboard parallel to board,tensileStrength,15,21
+Hardboard parallel to board,compressiveStrength,30,45
+Hardboard parallel to board,elongation,0.1,0.11
+Hardboard parallel to board,fractureToughness,0.5,1
+Hardboard parallel to board,thermalExpansion,10,15
+Hardboard perpendicular to board,density,800,1050
+Hardboard perpendicular to board,tensileModulus,0.5,1
+Hardboard perpendicular to board,yieldStrength,0.5,0.9
+Hardboard perpendicular to board,tensileStrength,0.6,1
+Hardboard perpendicular to board,compressiveStrength,20,40
+Hardboard perpendicular to board,elongation,0.44,0.54
+Hardboard perpendicular to board,fractureToughness,1,2
+Hardboard perpendicular to board,thermalExpansion,10,15
+Hardwood (oak) parallel to the grain,density,660,700
+Hardwood (oak) parallel to the grain,tensileModulus,13.2,13.9
+Hardwood (oak) parallel to the grain,yieldStrength,43,55
+Hardwood (oak) parallel to the grain,tensileStrength,110,140
+Hardwood (oak) parallel to the grain,compressiveStrength,49,70
+Hardwood (oak) parallel to the grain,elongation,1.99,2.43
+Hardwood (oak) parallel to the grain,fractureToughness,6.5,8
+Hardwood (oak) parallel to the grain,thermalExpansion,2,11
+Hardwood (oak) transverse to the grain,density,660,800
+Hardwood (oak) transverse to the grain,tensileModulus,0.5,3
+Hardwood (oak) transverse to the grain,yieldStrength,2,6
+Hardwood (oak) transverse to the grain,tensileStrength,4,9
+Hardwood (oak) transverse to the grain,compressiveStrength,4.5,4.9
+Hardwood (oak) transverse to the grain,elongation,1,1.5
+Hardwood (oak) transverse to the grain,fractureToughness,0.5,0.8
+Hardwood (oak) transverse to the grain,thermalExpansion,33,44
+Softwood (pine) parallel to the grain,density,380,420
+Softwood (pine) parallel to the grain,tensileModulus,7.4,7.8
+Softwood (pine) parallel to the grain,yieldStrength,30,50
+Softwood (pine) parallel to the grain,tensileStrength,55,70
+Softwood (pine) parallel to the grain,compressiveStrength,16.7,17.1
+Softwood (pine) parallel to the grain,elongation,1.99,2.43
+Softwood (pine) parallel to the grain,fractureToughness,5,9
+Softwood (pine) parallel to the grain,thermalExpansion,2,11
+Softwood (pine) transverse to the grain,density,380,420
+Softwood (pine) transverse to the grain,tensileModulus,0.5,1
+Softwood (pine) transverse to the grain,yieldStrength,2,2.5
+Softwood (pine) transverse to the grain,tensileStrength,2.7,3.1
+Softwood (pine) transverse to the grain,compressiveStrength,3.8,4.2
+Softwood (pine) transverse to the grain,elongation,1,1.5
+Softwood (pine) transverse to the grain,fractureToughness,0.5,0.8
+Softwood (pine) transverse to the grain,thermalExpansion,24,34
+Straw bale,density,80,191
+Straw bale,tensileModulus,0.0005,0.002
+Straw bale,yieldStrength,0.16,0.48
+Straw bale,tensileStrength,0.01,0.02
+Straw bale,compressiveStrength,0.16,0.48
+Straw bale,elongation,10,20
+Straw bale,fractureToughness,0.02,0.03
+Straw bale,thermalExpansion,2,11
+Medium density fiberboard parallel to board,density,640,800
+Medium density fiberboard parallel to board,tensileModulus,2.4,3.4
+Medium density fiberboard parallel to board,yieldStrength,12,18
+Medium density fiberboard parallel to board,tensileStrength,13,22
+Medium density fiberboard parallel to board,compressiveStrength,4.5,10.5
+Medium density fiberboard parallel to board,elongation,0.45,0.55
+Medium density fiberboard parallel to board,fractureToughness,0.5,1
+Medium density fiberboard parallel to board,thermalExpansion,10,15
+Medium density fiberboard perpendicular to board,density,640,800
+Medium density fiberboard perpendicular to board,tensileModulus,1.8,3.2
+Medium density fiberboard perpendicular to board,yieldStrength,4.5,5.5
+Medium density fiberboard perpendicular to board,tensileStrength,8.5,21
+Medium density fiberboard perpendicular to board,compressiveStrength,3,7
+Medium density fiberboard perpendicular to board,elongation,0.3,0.36
+Medium density fiberboard perpendicular to board,fractureToughness,1,2
+Medium density fiberboard perpendicular to board,thermalExpansion,10,15
+Particleboard parallel to board,density,640,800
+Particleboard parallel to board,tensileModulus,1.6,2.4
+Particleboard parallel to board,yieldStrength,5.04,8.64
+Particleboard parallel to board,tensileStrength,8,14
+Particleboard parallel to board,compressiveStrength,9.6,19.2
+Particleboard parallel to board,elongation,0.37,0.45
+Particleboard parallel to board,fractureToughness,0.5,1
+Particleboard parallel to board,thermalExpansion,10,15
+Particleboard perpendicular to board,density,640,800
+Particleboard perpendicular to board,tensileModulus,1.2,2.7
+Particleboard perpendicular to board,yieldStrength,4.2,7.2
+Particleboard perpendicular to board,tensileStrength,7,12
+Particleboard perpendicular to board,compressiveStrength,8,16
+Particleboard perpendicular to board,elongation,0.29,0.35
+Particleboard perpendicular to board,fractureToughness,1,2
+Particleboard perpendicular to board,thermalExpansion,10,15
+Polywood parallel to board,density,700,800
+Polywood parallel to board,tensileModulus,6.9,13
+Polywood parallel to board,yieldStrength,9,22
+Polywood parallel to board,tensileStrength,10,28
+Polywood parallel to board,compressiveStrength,27,34
+Polywood parallel to board,elongation,2.43,2.97
+Polywood parallel to board,fractureToughness,1,1.8
+Polywood parallel to board,thermalExpansion,6,8
+Polywood perpendicular to board,density,700,800
+Polywood perpendicular to board,tensileModulus,3.4,5.1
+Polywood perpendicular to board,yieldStrength,4,6
+Polywood perpendicular to board,tensileStrength,4,6
+Polywood perpendicular to board,compressiveStrength,17.5,26.5
+Polywood perpendicular to board,elongation,2.38,2.91
+Polywood perpendicular to board,fractureToughness,0.5,1
+Polywood perpendicular to board,thermalExpansion,6,8

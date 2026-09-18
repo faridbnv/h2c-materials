@@ -20,7 +20,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `sources.csv` | The source register, with access dates, hashes and a Citation role |
 | `coverage.csv` | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
 | `method.csv` | The rules the database was built under |
-| `reference.csv` | Generic reference envelopes, a drawing layer only |
+| `reference.csv` | Generic reference materials, a drawing layer only: category and name |
+| `reference_envelopes.csv` | Each reference material's min/max envelope, one row per property (D67); the properties and their units are `schema/vocab/reference-properties.csv` |
 
 **Selections and citations**
 

@@ -29,7 +29,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
 | [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. |
 | [properties](#properties) | Property | One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all). |
-| [reference](#reference) | Name | Uncited bulk and molded min/max envelopes from a general engineering reference, drawn on Ashby charts for scale only. |
+| [reference](#reference) | Name | Uncited bulk and molded envelopes from a general engineering reference, drawn on Ashby charts for scale only. Its envelopes are rows of reference_envelopes.csv, one per property. |
+| [reference_envelopes](#reference_envelopes) | Name + Property | One row per reference material and property: the min/max envelope drawn on Ashby charts for scale only. A property is a row here and a value of schema/vocab/reference-properties.csv, which carries its unit, so a new reference property is data and needs no column and no schema change. |
 | [sources](#sources) | SourceID | One row per source document or page, with its retrieval record and SHA-256. |
 
 ### chamber_bands
@@ -413,28 +414,23 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 ### reference
 
-`data/tables/reference.csv` (Generic reference envelopes). Uncited bulk and molded min/max envelopes from a general engineering reference, drawn on Ashby charts for scale only.
+`data/tables/reference.csv` (Generic reference envelopes). Uncited bulk and molded envelopes from a general engineering reference, drawn on Ashby charts for scale only. Its envelopes are rows of reference_envelopes.csv, one per property.
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
 | Category | raw | string | yes |  |  | Reference category. |
 | Name | key | string | yes |  | `^.+$` | Reference material name. |
-| density min | raw | number |  |  |  | density lower envelope. |
-| density max | raw | number |  |  |  | density upper envelope. |
-| tensileModulus min | raw | number |  |  |  | tensileModulus lower envelope. |
-| tensileModulus max | raw | number |  |  |  | tensileModulus upper envelope. |
-| yieldStrength min | raw | number |  |  |  | yieldStrength lower envelope. |
-| yieldStrength max | raw | number |  |  |  | yieldStrength upper envelope. |
-| tensileStrength min | raw | number |  |  |  | tensileStrength lower envelope. |
-| tensileStrength max | raw | number |  |  |  | tensileStrength upper envelope. |
-| compressiveStrength min | raw | number |  |  |  | compressiveStrength lower envelope. |
-| compressiveStrength max | raw | number |  |  |  | compressiveStrength upper envelope. |
-| elongation min | raw | number |  |  |  | elongation lower envelope. |
-| elongation max | raw | number |  |  |  | elongation upper envelope. |
-| fractureToughness min | raw | number |  |  |  | fractureToughness lower envelope. |
-| fractureToughness max | raw | number |  |  |  | fractureToughness upper envelope. |
-| thermalExpansion min | raw | number |  |  |  | thermalExpansion lower envelope. |
-| thermalExpansion max | raw | number |  |  |  | thermalExpansion upper envelope. |
+
+### reference_envelopes
+
+`data/tables/reference_envelopes.csv` (Generic reference envelopes, by property). One row per reference material and property: the min/max envelope drawn on Ashby charts for scale only. A property is a row here and a value of schema/vocab/reference-properties.csv, which carries its unit, so a new reference property is data and needs no column and no schema change.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| Name | key | string | yes |  | → reference.Name | The reference material. |
+| Property | key | string | yes |  | [reference-properties](#vocab-reference-properties) | The property this envelope is of; its unit is declared in the vocabulary. |
+| Min | raw | number | yes |  |  | Lower envelope, in the property's declared unit. |
+| Max | raw | number | yes |  |  | Upper envelope, in the property's declared unit. |
 
 ### sources
 
@@ -1044,6 +1040,22 @@ lists the missing states a column accepts instead of a value; a blank required c
 | mechanical | Mechanical tab and Mechanical coverage domain. |
 | physical | Physical properties such as density, water absorption and melt flow; neither mechanical nor thermal evidence. |
 | thermal | Thermal tab and Thermal coverage domain. |
+
+<a id="vocab-reference-properties"></a>
+### reference-properties
+
+`schema/vocab/reference-properties.csv`, used by reference_envelopes.Property.
+
+| Value | Meaning | Unit |
+|---|---|---|
+| density | Density envelope. | kg/m3 |
+| tensileModulus | Tensile (Young's) modulus envelope. | GPa |
+| yieldStrength | Yield strength envelope. | MPa |
+| tensileStrength | Tensile strength envelope. | MPa |
+| compressiveStrength | Compressive strength envelope. | MPa |
+| elongation | Elongation at break envelope. | % |
+| fractureToughness | Fracture toughness envelope. | MPa.m^0.5 |
+| thermalExpansion | Coefficient of thermal expansion envelope. | um/m/K |
 
 <a id="vocab-rubrics"></a>
 ### rubrics

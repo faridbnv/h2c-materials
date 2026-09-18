@@ -67,14 +67,24 @@ export function loadTables(dataDir) {
   return out;
 }
 
-/** The generic reference envelopes: [{category, name, properties, __row}]. */
+/**
+ * The generic reference envelopes: [{category, name, properties, __row}]. A material's envelopes are its rows of
+ * reference_envelopes.csv (m42); the property order is the vocabulary's, not the file's, so every material presents
+ * its properties in the same order whatever order its rows were written in.
+ */
 export function loadReference(dataDir) {
+  const envelopes = new Map();
+  for (const { values } of readCsv(tablePath(dataDir, 'reference_envelopes')).records) {
+    if (!envelopes.has(values.Name)) envelopes.set(values.Name, new Map());
+    envelopes.get(values.Name).set(values.Property, values);
+  }
   const { records } = readCsv(tablePath(dataDir, 'reference'));
   return records.map(({ values, line }) => {
+    const own = envelopes.get(values.Name) ?? new Map();
     const properties = {};
     for (const p of REFERENCE_PROPERTIES) {
-      const lo = values[`${p.key} min`] == null ? null : Number(values[`${p.key} min`]);
-      const hi = values[`${p.key} max`] == null ? null : Number(values[`${p.key} max`]);
+      const lo = own.get(p.key)?.Min == null ? null : Number(own.get(p.key).Min);
+      const hi = own.get(p.key)?.Max == null ? null : Number(own.get(p.key).Max);
       properties[p.key] = Number.isFinite(lo) && Number.isFinite(hi) ? { min: lo, max: hi, unit: p.unit } : null;
     }
     return { category: values.Category, name: values.Name, properties, __row: line };

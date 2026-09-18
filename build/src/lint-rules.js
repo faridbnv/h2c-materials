@@ -39,7 +39,7 @@ const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google
 const FILE_NAME = /^B [A-Za-z]|_|\.(xlsx|xls|csv|pdf|docx?)$/i;
 export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
 
-const TEXT_TABLES = ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'properties', 'headline_definitions', 'polymer_environment'];
+const TEXT_TABLES = ['materials', 'grades', 'profiles', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 export function lintData(tables, schemas) {
