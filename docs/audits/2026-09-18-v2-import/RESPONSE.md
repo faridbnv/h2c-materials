@@ -46,6 +46,32 @@ What it has established so far, on real documents:
 - **88% parity** on the twelve Spectrum sheets the database already holds: 100 of 113 recorded values, five sheets
   exact. The residue is named in [census/spectrum-parity.txt](census/spectrum-parity.txt).
 
+## Accuracy: what a scientific review of the whole corpus found
+
+Two reviews were run over everything, and every claim was checked against the code or re-read from the source
+before anything changed. Both found real defects.
+
+**Values.** Ten rows in the database hold a number outside what their polymer can do. Five the database already
+flags. Five did not, and re-reading their sheets (hash-checked, page by page) confirmed all five:
+
+| Row | What it is |
+|---|---|
+| V001161 | The iSANMATE PA6 CF sheet prints "ISO 180-A 4 5": the standard is ISO 180-A and the value is 45 kJ/m², its digits split. The row carried 180, the standard's number. Corrected in m52, and the property became the Izod its own standard names |
+| V001157 | The same sheet prints "Vicat Softening Point A/120 ASTM D-648 140": A/120 is the condition and 140 °C the value. The row carried the heating rate. Corrected |
+| V001159, V000508, V000729 | 113 %, 98 % and "> 100 %" elongation on short-fibre compounds, which cannot draw. The sheets really print them, so they are kept and flagged (D55). The last was a ">" bound, asserting that a carbon-filled polycarbonate stretches at least 100 % |
+
+`data/tables/plausibility_windows.csv` now holds 79 windows so the next such value is refused as it is read, and
+`MEAS-PHYSICS-ORDER` checks the relations physics fixes between two values of one sheet, which is what catches a
+value that landed under the wrong property. That check found the Bambu PC sheet printing a Vicat 26 °C below its
+own glass transition; both values are transcribed correctly, so it is the sheet.
+
+**Identities.** Thirteen systematic defects in the classifier, several giving a confident wrong answer rather than
+a question: PES read as polyethylene, PC ABS as ABS, PA6/66 as PA6, PET G as PET, a blend as one of its polymers, a
+support product as the material it supports, and any of the 723 documents that name no maker taking Bambu's SKU
+rows. Nine existing materials were unreachable, so an import would have duplicated them. All fixed, each pinned by
+a test. Across the corpus: 1,227 products find their material, 115 name a combination that does not exist, 594 ask
+a question.
+
 ## What is still to do
 
 The batches themselves. No document has been applied yet: the proposer is at 88% on one maker, and the rule is
