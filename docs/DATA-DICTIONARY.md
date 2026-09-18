@@ -119,7 +119,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
-| GradeID | key | string | yes |  | `^G\d{3}-(\d{2}\|R\d+)$` | Stable grade identifier: G + material number + sequence; -R# marks a study or resin-reference grade. |
+| GradeID | key | string | yes |  | `^G\d{3}-(\d{2,3}\|R\d+)$` | Stable grade identifier: G + material number + sequence; -R# marks a study or resin-reference grade. The sequence is two digits to 99 and three from 100, because a generic material collects one grade per manufacturer. |
 | MaterialID | canonical | string | yes |  | → materials.MaterialID | Material the grade belongs to. |
 | Role | canonical | string | yes |  | [grade-roles](#vocab-grade-roles) | procurement: a buyable filament grade; study: a research specimen grade; reference: a moulded resin reference. Non-procurement grades carry an -R# ID suffix (checked by the build). |
 | Status | canonical | string | yes |  | [grade-status](#vocab-grade-status) | active or retired. A retired grade stays as an audit record and backs nothing. |

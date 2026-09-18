@@ -175,8 +175,9 @@ export function nextId(name, ids, { materialId, study = false } = {}) {
   if (name === 'grades') {
     if (!/^M\d{3}$/.test(materialId ?? '')) throw new Error('grades: pass the MaterialID (e.g. M020) to get its next GradeID');
     const base = `G${materialId.slice(1)}-`;
-    const re = study ? /^G\d{3}-R(\d+)$/ : /^G\d{3}-(\d{2})$/;
+    const re = study ? /^G\d{3}-R(\d+)$/ : /^G\d{3}-(\d{2,3})$/;
     const n = Math.max(0, ...ids.filter((id) => id.startsWith(base)).map((id) => Number(re.exec(id)?.[1] ?? 0))) + 1;
+    // Two digits to 99, three from 100: a generic material collects one grade per manufacturer.
     return study ? `${base}R${n}` : `${base}${String(n).padStart(2, '0')}`;
   }
   const f = ID_FORMATS[name];

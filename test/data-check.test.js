@@ -125,6 +125,9 @@ test('new IDs continue each sequence and are never reused', () => {
   assert.equal(nextId('grades', ['G020-01', 'G020-03', 'G021-05'], { materialId: 'M020' }), 'G020-04');
   assert.equal(nextId('grades', ['G055-01', 'G055-R1'], { materialId: 'M055', study: true }), 'G055-R2');
   assert.equal(nextId('grades', [], { materialId: 'M103' }), 'G103-01');
+  // A generic material collects one grade per manufacturer, so the sequence runs past 99 into three digits.
+  assert.equal(nextId('grades', ['G020-98', 'G020-99'], { materialId: 'M020' }), 'G020-100');
+  assert.equal(nextId('grades', ['G020-100'], { materialId: 'M020' }), 'G020-101');
   assert.throws(() => nextId('grades', []), /pass the MaterialID/);
 });
 

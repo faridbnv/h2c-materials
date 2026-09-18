@@ -8,10 +8,10 @@
       "name": "GradeID",
       "type": "string",
       "role": "key",
-      "description": "Stable grade identifier: G + material number + sequence; -R# marks a study or resin-reference grade.",
+      "description": "Stable grade identifier: G + material number + sequence; -R# marks a study or resin-reference grade. The sequence is two digits to 99 and three from 100, because a generic material collects one grade per manufacturer.",
       "constraints": {
         "required": true,
-        "pattern": "^G\\d{3}-(\\d{2}|R\\d+)$",
+        "pattern": "^G\\d{3}-(\\d{2,3}|R\\d+)$",
         "unique": true
       }
     },

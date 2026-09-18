@@ -122,7 +122,7 @@
       },
       "embeddedReferences": [
         {
-          "pattern": "\\bG\\d{3}-(?:\\d{2}|R\\d+)\\b",
+          "pattern": "\\bG\\d{3}-(?:\\d{2,3}|R\\d+)\\b",
           "table": "grades",
           "field": "GradeID"
         }
