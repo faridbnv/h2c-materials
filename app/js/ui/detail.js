@@ -832,7 +832,7 @@ function tabBody(tab, c) {
     if (!cov.length) return nothingRecorded([], { toCoverage: false });
     return cov.map((r) => `<div class="evidence-row cov-row">
       <div><strong>${esc(r.domain)}</strong> ${chip(statusToState(r.status), r.status)}</div>
-      <div>${esc(r.finding)} ${tag(r.id, 'Coverage record')}</div>
+      <div>${esc(r.finding)} ${r.derived ? '<span class="fine-src" title="No coverage row is stored for this domain; the build reports what the material\'s own records show">derived from the records</span>' : tag(r.id, 'Coverage record')}</div>
     </div>`).join('');
   }
   return '';

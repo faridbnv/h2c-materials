@@ -1,0 +1,542 @@
+CoverageID,MaterialID,Domain,Status,Manufacturer count,Finding
+C00065,M001,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00066,M001,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00067,M001,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00068,M001,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00069,M001,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00070,M001,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00075,M002,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00076,M002,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00077,M002,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00078,M002,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00079,M002,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00080,M002,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00082,M002,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00085,M003,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00086,M003,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00087,M003,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00088,M003,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00089,M003,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00090,M003,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00092,M003,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00095,M004,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00096,M004,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00104,M005,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00105,M005,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00106,M005,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00107,M005,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00108,M005,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00109,M005,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00114,M006,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00115,M006,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00116,M006,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00117,M006,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00118,M006,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00119,M006,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00121,M006,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00124,M007,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00125,M007,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00126,M007,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00127,M007,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00128,M007,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00129,M007,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00131,M007,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00134,M008,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00135,M008,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00143,M009,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00144,M009,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00145,M009,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00146,M009,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00147,M009,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00148,M009,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00150,M009,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00153,M010,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00154,M010,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00155,M010,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00156,M010,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00157,M010,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00158,M010,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00160,M010,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00163,M011,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00164,M011,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00165,M011,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00166,M011,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00167,M011,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00168,M011,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00170,M011,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00173,M012,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00174,M012,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00175,M012,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00176,M012,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00177,M012,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00178,M012,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00180,M012,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00183,M013,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00184,M013,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00185,M013,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00186,M013,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00187,M013,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00188,M013,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00190,M013,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00193,M014,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00194,M014,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00195,M014,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00196,M014,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00197,M014,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00198,M014,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00200,M014,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00203,M015,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00204,M015,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00205,M015,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00206,M015,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00207,M015,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00208,M015,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00210,M015,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00213,M016,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00214,M016,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00215,M016,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00216,M016,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00217,M016,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00218,M016,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00220,M016,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00223,M017,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00224,M017,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00225,M017,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00226,M017,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00227,M017,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00228,M017,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00230,M017,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00233,M018,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00234,M018,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00235,M018,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00236,M018,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00237,M018,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00238,M018,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00240,M018,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00243,M019,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00244,M019,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00245,M019,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00246,M019,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00247,M019,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00248,M019,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00253,M020,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00254,M020,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00255,M020,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00256,M020,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00257,M020,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00258,M020,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00263,M021,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00264,M021,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00265,M021,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00266,M021,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00267,M021,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00268,M021,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00270,M021,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00273,M022,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00274,M022,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00275,M022,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00276,M022,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00277,M022,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00278,M022,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00283,M023,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00284,M023,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00285,M023,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00286,M023,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00287,M023,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00288,M023,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00290,M023,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00293,M024,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00294,M024,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00295,M024,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00296,M024,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00297,M024,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00298,M024,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00300,M024,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00303,M025,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00304,M025,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00313,M026,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00314,M026,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00315,M026,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00316,M026,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00317,M026,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00318,M026,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00323,M027,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00324,M027,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00325,M027,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00326,M027,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00327,M027,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00328,M027,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00330,M027,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00333,M028,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00334,M028,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00335,M028,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00336,M028,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00337,M028,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00338,M028,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00340,M028,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00343,M029,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00344,M029,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00345,M029,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00346,M029,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00347,M029,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00353,M030,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00354,M030,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00355,M030,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00356,M030,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00357,M030,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00363,M031,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00364,M031,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00365,M031,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00366,M031,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00367,M031,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00368,M031,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00370,M031,Canadian price,Evidence recorded,Not applicable,"3 in-stock regular-price observation(s), before tax/shipping"
+C00373,M032,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00374,M032,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00375,M032,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00376,M032,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00377,M032,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00378,M032,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00380,M032,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00383,M033,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00384,M033,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00385,M033,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00386,M033,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00387,M033,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00388,M033,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00393,M034,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00394,M034,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00403,M035,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00404,M035,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00405,M035,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00406,M035,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00407,M035,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00408,M035,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00410,M035,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00413,M036,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00414,M036,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00415,M036,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00416,M036,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00417,M036,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00418,M036,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00420,M036,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00423,M037,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00424,M037,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00425,M037,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00426,M037,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00427,M037,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00433,M038,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00434,M038,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00436,M038,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00437,M038,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00438,M038,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00443,M039,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00444,M039,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00445,M039,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00446,M039,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00448,M039,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00453,M040,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00454,M040,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00455,M040,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00456,M040,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00457,M040,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00458,M040,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00460,M040,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00463,M041,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00464,M041,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00465,M041,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00466,M041,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00467,M041,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00468,M041,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00470,M041,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00473,M042,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00474,M042,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00475,M042,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00476,M042,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00477,M042,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00478,M042,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00480,M042,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00483,M043,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00484,M043,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00485,M043,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00486,M043,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00487,M043,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00488,M043,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00493,M044,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00494,M044,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00503,M045,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00504,M045,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00505,M045,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00506,M045,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00507,M045,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00513,M046,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00514,M046,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00515,M046,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00517,M046,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00523,M047,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00524,M047,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00533,M048,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00534,M048,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00535,M048,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00536,M048,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00537,M048,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00538,M048,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00540,M048,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00543,M049,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00544,M049,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00545,M049,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00546,M049,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00550,M049,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00553,M050,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00554,M050,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00555,M050,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00556,M050,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00557,M050,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00558,M050,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00560,M050,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00563,M051,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00564,M051,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00565,M051,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00566,M051,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00567,M051,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00568,M051,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00570,M051,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00573,M052,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00574,M052,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00575,M052,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00578,M052,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00582,M053,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00583,M053,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00584,M053,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00585,M053,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00586,M053,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00587,M053,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00592,M054,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00593,M054,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00594,M054,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00595,M054,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00596,M054,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00602,M055,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00603,M055,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00612,M056,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00613,M056,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00622,M057,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00623,M057,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00624,M057,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00625,M057,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00626,M057,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00627,M057,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00632,M058,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00633,M058,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00642,M059,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00643,M059,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00644,M059,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00645,M059,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00646,M059,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00652,M060,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00653,M060,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00662,M061,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00663,M061,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00672,M062,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00673,M062,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00682,M063,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00683,M063,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00692,M064,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00693,M064,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00695,M064,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00696,M064,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00702,M065,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00703,M065,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00704,M065,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00705,M065,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00712,M066,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00713,M066,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00714,M066,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00715,M066,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00716,M066,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00722,M067,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00723,M067,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00724,M067,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00725,M067,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00726,M067,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00727,M067,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00729,M067,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00732,M068,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00733,M068,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00734,M068,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00741,M069,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00742,M069,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00743,M069,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00744,M069,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00745,M069,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00752,M070,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00753,M070,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00754,M070,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00755,M070,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00756,M070,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00757,M070,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00759,M070,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00762,M071,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00763,M071,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00764,M071,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00765,M071,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00766,M071,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00772,M072,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00773,M072,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00774,M072,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00775,M072,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00776,M072,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00782,M073,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00783,M073,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00784,M073,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00785,M073,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00786,M073,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00787,M073,Moisture / environmental,Evidence recorded,Not applicable,"7 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00789,M073,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00792,M074,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00793,M074,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00794,M074,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00795,M074,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00796,M074,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00802,M075,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00803,M075,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00804,M075,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00806,M075,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00807,M075,Moisture / environmental,Evidence recorded,Not applicable,"7 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00809,M075,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00813,M076,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00814,M076,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00815,M076,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00816,M076,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00817,M076,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00824,M077,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00825,M077,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00834,M078,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00835,M078,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00836,M078,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00838,M078,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00839,M078,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00841,M078,Canadian price,Evidence recorded,Not applicable,"2 in-stock regular-price observation(s), before tax/shipping"
+C00845,M079,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00846,M079,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00847,M079,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00849,M079,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00850,M079,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00852,M079,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00856,M080,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00857,M080,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00858,M080,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00860,M080,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00861,M080,Moisture / environmental,Evidence recorded,Not applicable,"5 exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical design limit."
+C00867,M081,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00868,M081,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00869,M081,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00870,M081,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00871,M081,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00872,M081,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00874,M081,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00877,M082,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00878,M082,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00880,M082,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00881,M082,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00887,M083,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00888,M083,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00889,M083,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00890,M083,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00891,M083,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00897,M084,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00898,M084,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00900,M084,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00901,M084,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00907,M085,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00908,M085,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00909,M085,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00910,M085,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00918,M086,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00919,M086,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00920,M086,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00921,M086,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00922,M086,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00923,M086,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00928,M087,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00929,M087,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00933,M087,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00938,M088,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00939,M088,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00940,M088,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00941,M088,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00942,M088,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00945,M088,Canadian price,Evidence recorded,Not applicable,"1 in-stock regular-price observation(s), before tax/shipping"
+C00948,M089,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00949,M089,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00953,M089,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00957,M090,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00958,M090,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00960,M090,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00961,M090,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00962,M090,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00967,M091,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00968,M091,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00976,M092,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00977,M092,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00985,M093,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00986,M093,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00987,M093,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00988,M093,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00989,M093,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C00990,M093,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C00995,M094,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C00996,M094,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C00997,M094,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C00998,M094,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C00999,M094,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01000,M094,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C01005,M095,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01006,M095,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01007,M095,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01008,M095,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01009,M095,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01010,M095,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C01015,M096,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01016,M096,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01017,M096,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01018,M096,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01019,M096,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01026,M097,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01027,M097,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01028,M097,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01029,M097,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01030,M097,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01031,M097,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C01037,M098,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01038,M098,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01039,M098,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01040,M098,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01041,M098,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01048,M099,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01049,M099,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01050,M099,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01051,M099,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01052,M099,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01053,M099,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C01059,M100,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01060,M100,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01061,M100,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01062,M100,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01063,M100,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01064,M100,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C01070,M101,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01071,M101,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01072,M101,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01073,M101,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01074,M101,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01081,M102,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01082,M102,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01083,M102,Print setup,Evidence recorded,Not applicable,Published nozzle and bed profile available; check other setup fields individually.
+C01084,M102,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01085,M102,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."
+C01086,M102,Moisture / environmental,Evidence recorded,Not applicable,Some exposure or moisture evidence recorded; chemical conditions may remain unspecified.
+C01190,M103,Identity,Evidence recorded,Not applicable,Original canonical entry retained once; aliases and disputed entries are visible.
+C01191,M103,H2C status,Evidence recorded,Not applicable,Status explicitly recorded; generic inclusion is not automatic grade or route approval.
+C01193,M103,Mechanical,Evidence recorded,Not applicable,"See specimen, direction, moisture, preparation and standard before comparing."
+C01194,M103,Thermal,Evidence recorded,Not applicable,"HDT, Tg and Vicat are not continuous-service ratings."

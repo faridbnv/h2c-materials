@@ -47,6 +47,35 @@ test('every numeric headline equals the measurement it cites', () => {
   assert.ok(checked >= 359, 'headlines have gone missing since the 2026-09-15 audit flagged physically implausible values');
 });
 
+test('a derived coverage row speaks only where no stored row does, and only for what the records prove', () => {
+  // m48 moved 541 templated "Evidence recorded" rows out of coverage.csv. The build reports those pairs from the
+  // material's own records instead. A stored row is a judgement and always wins; a derived one must never invent a
+  // pair, contradict a stored status, or carry an identifier that is not in the tables.
+  const stored = db.coverage.filter((c) => !c.derived);
+  const derived = db.coverage.filter((c) => c.derived);
+  assert.ok(derived.length > 400, `only ${derived.length} derived coverage rows`);
+
+  const storedPairs = new Set(stored.filter((c) => c.status !== 'Superseded').map((c) => `${c.materialId} | ${c.domain}`));
+  for (const c of derived) {
+    assert.ok(!storedPairs.has(`${c.materialId} | ${c.domain}`), `${c.id} speaks for a pair a stored row already speaks for`);
+    assert.equal(c.status, 'Evidence recorded');
+    assert.equal(c.manufacturerCount, null, `${c.id} quotes a manufacturer count, which only a stored Grades row does`);
+    assert.match(c.id, /^derived-M\d{3}-[a-z0-9-]+$/);
+    assert.ok(c.finding && c.finding.length > 20, `${c.id} has no finding worth reading`);
+  }
+  // Every derived row must be provable by the same rule the validator checks stored rows with.
+  const byId = new Map(db.materials.map((m) => [m.id, m]));
+  for (const c of derived) {
+    const data = domainData(db, byId.get(c.materialId));
+    assert.ok((data[c.domain] ?? []).length > 0, `${c.id} claims evidence the coverage rules cannot see`);
+  }
+  // No derived row may carry an ID any record cites: nothing in the tables points at one.
+  const ids = new Set(derived.map((c) => c.id));
+  assert.ok(!stored.some((c) => ids.has(c.id)));
+  assert.equal(db.meta.counts.coverageDerived, derived.length);
+  assert.equal(db.meta.counts.coverage, stored.length);
+});
+
 test('every profile note reaches the reader: the table and the compiled profiles hold the same rows', () => {
   // The notes were columns of profiles.csv until m44, where most were empty on most rows and three were empty on
   // every row. They are rows now, and a note that never reaches a profile is a note nobody reads.
@@ -647,6 +676,7 @@ import { measurementIssues, rawNumber } from '../build/src/measurement-rules.js'
 import { normalQuantile, boundedQuantile } from '../build/src/estimate/numerics.js';
 import { modulusFromShore, kindOf } from '../build/src/estimate/observations.js';
 import { annealedBesideAsPrinted } from '../build/src/normalize/specimen.js';
+import { domainData } from '../build/src/coverage-rules.js';
 import { moistureState } from '../build/src/normalize/moisture.js';
 
 test('raw values reconcile, including decimal commas and grouped cycle counts', () => {

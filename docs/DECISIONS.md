@@ -80,6 +80,7 @@ break if it were reversed, because that is the part that gets lost.
 | D71 | How a source was classed and how it was reached are states, not sentences | In force |
 | D72 | A record may leave a table only where the build derives it, and only through a ledger | In force |
 | D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | In force |
+| D74 | A coverage row is a judgement; that a material has records is derived | In force |
 
 <!-- end index -->
 
@@ -1587,3 +1588,42 @@ would matter had nowhere to fire.
 Thirteen acceptances of each retired. `build/snapshot/warnings.csv` lost thirteen rows.
 
 Reversing either brings back a review file doing a row's job, and a reviewer's signature standing in for a number.
+
+## D74. A coverage row is a judgement; that a material has records is derived
+
+*Extends D39 and D47 to the table D39 created.*
+
+D39 made coverage true: a Gap beside data, or an evidence claim without data, stops the build. What it did not ask
+is why a row asserting the second thing was stored at all. By this snapshot 632 of 1,214 coverage rows said
+"Evidence recorded", and 541 of those said it in one of eight sentences repeated once per material. "Original
+canonical entry retained once" stood on all 103. "See specimen, direction, moisture, preparation and standard before
+comparing" stood on 78, and is a caveat about the database, not a finding about a material. "1 in-stock
+regular-price observation(s), before tax/shipping" stood on 24, the same sentence D70 had just stopped storing on
+the material itself.
+
+None was a judgement about a particular material. Each asserted that the material had records of a kind, and
+`coverage-rules.js` already defined what that means precisely enough for the validator to check it.
+
+- **The build derives them.** A (material, domain) pair the records prove and no stored row speaks for gets a row
+  from the build, marked `derived`, naming what proves it: the measurement count, the profile IDs, the price
+  observations. That is more than the sentence said, and it cannot go stale.
+- **A stored row always wins.** Nothing is derived for a pair a stored row speaks for, because a stored row is
+  somebody's judgement and this is a restatement of records. The 47 pairs that had both now show the judgement alone.
+- **What a reader sees is unchanged, and that was checked.** The 1,121 (material, domain) pairs before and after are
+  the same set, with the same weakest status in each. No cell of the coverage grid moved.
+- **A derived row carries no identifier.** Its id is `derived-M020-mechanical`, not a C##### key, nothing cites it,
+  and the drawer prints "derived from the records" where it would print a record tag. A reader is never shown an ID
+  that is not in the tables.
+- **Two domains became checkable.** Identity and H2C status were outside `domainData`, so COVERAGE-UNTRUE never
+  tested them; they are in it now.
+- **One domain is deliberately left alone.** "Post-processing / application" distinguishes grade-specific evidence
+  from family notes a material owns, and no rule over evidence domains expresses that: six materials truthfully say
+  Gap there beside records of their own. Its 53 templated rows stay stored. A check that would have to be weakened
+  to pass is not a check, and a rule that cannot be stated is not derived.
+
+The 541 rows left through the removal ledger (D72) into
+[audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md), which holds them verbatim with their
+IDs. `coverage.csv` is 673 rows, and every one of them says something a reader could not work out.
+
+Reversing it brings back a table where the eight sentences nobody wrote for a material outnumber the findings
+somebody did.

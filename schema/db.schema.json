@@ -805,12 +805,13 @@
           "domain",
           "status",
           "manufacturerCount",
-          "finding"
+          "finding",
+          "derived"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^C\\d{5}$"
+            "pattern": "^(C\\d{5}|derived-M\\d{3}-[a-z0-9-]+)$"
           },
           "materialId": {
             "type": "string"
@@ -829,6 +830,9 @@
           },
           "finding": {
             "type": "string"
+          },
+          "derived": {
+            "type": "boolean"
           }
         }
       }

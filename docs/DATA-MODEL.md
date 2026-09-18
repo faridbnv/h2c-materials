@@ -19,7 +19,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `evidence.csv` | Chemical, environmental and application evidence |
 | `prices.csv` | Canadian price observations |
 | `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
-| `coverage.csv` | Gaps, conflicts and unresolved items; a replaced finding is Superseded, not deleted |
+| `coverage.csv` | Gaps, conflicts, judgements and unresolved items; a replaced finding is Superseded, not deleted. The build adds a row of its own for each domain a material's records prove and no stored row speaks for (D74) |
 | `method.csv` | The rules the database was built under |
 | `reference.csv` | Generic reference materials, a drawing layer only: category and name |
 | `reference_envelopes.csv` | Each reference material's min/max envelope, one row per property (D67); the properties and their units are `schema/vocab/reference-properties.csv` |

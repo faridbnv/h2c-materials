@@ -132,7 +132,8 @@ pulling the family.
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
 invent the prose a reader is told (pass each as `--set "Column=..."`), and lists what is still needed: its
-measurements, headline selections, profiles, `material_links.csv` citations and `coverage.csv` rows. To be estimated it names its Estimate identity, a row
+measurements, headline selections, profiles, `material_links.csv` citations, and a `coverage.csv` row per gap or
+judgement (the build reports the domains its own records prove, D74). To be estimated it names its Estimate identity, a row
 of `polymers.csv` (its base polymer, or for a blend its own name); a new polymer is a new row there with its group,
 morphology, how it solidifies in a print, water uptake and neat density, and where those come from. A commercial
 variant class (silk, particle-filled) goes in Variant class. The build names the fix if either is missing.

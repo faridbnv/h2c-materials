@@ -11,7 +11,7 @@
 import { writeFileSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readCsv, writeCsv } from '../../build/src/csv.js';
+import { readCsv, writeCsv, csvText } from '../../build/src/csv.js';
 import { loadSchemas, buildManifest } from '../../build/src/schema.js';
 
 export const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -27,6 +27,7 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
     tables[name] = { header, rows: records.map((r) => r.values), dirty: false };
   }
   const changes = [];
+  const removals = [];
   const pkOf = (name) => schemas[name].primaryKey;
   const table = (name) => {
     if (!tables[name]) throw new Error(`No table "${name}"; tables: ${Object.keys(tables).join(', ')}`);
@@ -114,6 +115,21 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       t.dirty = true;
       changes.push({ table: name, record: '(column)', action: 'Removed', field: column, before: null, after: null });
     },
+    /**
+     * Remove a record, which is allowed only where the build derives it instead (D72). Both `migration` and `where`
+     * are required and go to data/review/removed-records.csv, because a record may leave only with a written account
+     * of where it went; the pre-commit hook and CI read that ledger and refuse every removal it does not name.
+     */
+    remove(name, id, { migration, where } = {}) {
+      if (!migration || !where) throw new Error(`${name} ${id}: remove needs { migration, where }; a record leaves only with a ledger row saying which migration moved it and where it went`);
+      const t = table(name);
+      const i = t.rows.findIndex((r) => r[pkOf(name)] === id);
+      if (i < 0) throw new Error(`${name}: no row with ${pkOf(name)} ${id}`);
+      t.rows.splice(i, 1);
+      t.dirty = true;
+      removals.push({ Table: name, Record: id, Migration: migration, Where: where });
+      changes.push({ table: name, record: id, action: 'Removed', field: null, before: null, after: null });
+    },
     /** Create a new table. Structural: add schema/tables/<name>.schema.json in the same change. */
     createTable(name, header, rows = []) {
       if (tables[name]) throw new Error(`Table "${name}" already exists`);
@@ -126,6 +142,12 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
     },
     changes: () => [...changes],
     save() {
+      if (removals.length) {
+        const path = join(root, 'data/review/removed-records.csv');
+        const header = ['Table', 'Record', 'Migration', 'Where'];
+        const existing = existsSync(path) ? readCsv(path).records.map((r) => r.values) : [];
+        writeFileSync(path, csvText(header, [...existing, ...removals]));
+      }
       for (const [name, t] of Object.entries(tables)) {
         if (t.dirty) writeCsv(join(dataDir, 'tables', `${name}.csv`), t.header, t.rows);
         t.dirty = false;

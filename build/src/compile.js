@@ -15,7 +15,7 @@ import {
   H2C_BASELINE, PROCESS_STATE, REQUIREMENT,
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
-import { ENVIRONMENT_CATEGORIES } from './coverage-rules.js';
+import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped } from './typed-values.js';
@@ -665,6 +665,9 @@ export function compile(wb, { snapshot, build }) {
 
   const coverage = wb.Coverage.rows.map((r) => ({
     id: r.CoverageID, materialId: r.MaterialID, domain: r.Domain, status: r.Status, manufacturerCount: num(r['Manufacturer count']), finding: r.Finding,
+    // A stored row is somebody's judgement. The build adds rows of its own for the pairs no judgement speaks for
+    // and the records prove (m48), and they say so, so a reader is never shown an ID that is not in the tables.
+    derived: false,
   }));
 
   const method = wb.Method.rows.map((r) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
@@ -807,5 +810,9 @@ export function compile(wb, { snapshot, build }) {
       registry,
   };
   attachPolymerEnvironment(db, polymerEnvironment);
+  // Derived after the materials are whole: the proof reads a material's compiled headline, profiles and citations.
+  const derived = derivedCoverage(db);
+  db.coverage.push(...derived);
+  db.meta.counts.coverageDerived = derived.length;
   return { db, issues };
 }
