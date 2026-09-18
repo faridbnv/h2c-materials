@@ -18,7 +18,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { documentText, allLines, joinDigits, statementRe, cacheDir } from '../lib/pdf-text.mjs';
+import { documentText, allLines, joinDigits, statementRe, cacheDir, sha256 } from '../lib/pdf-text.mjs';
 import { HEADER } from './inventory.mjs';
 
 const LEDGER = join(projectRoot, 'docs/audits/2026-09-18-v2-import/ledger.csv');
@@ -27,7 +27,18 @@ const MIN_STATEMENTS = 8;   // below this, two sheets agreeing about their numbe
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 ? process.argv[i + 1] : null; };
 const flag = (name) => process.argv.includes(`--${name}`);
 
-export const documentPath = (sha) => ['pdf', 'html'].map((ext) => cacheDir('sources/by-sha', `${sha}.${ext}`)).find(existsSync) ?? null;
+/**
+ * Where a document's bytes are. The store is by digest, but the documents already in the register were cached by
+ * SourceID before this pipeline existed (npm run audit:sources still writes them there), so a source that names
+ * one is looked up there too, and only accepted if it hashes to what was recorded.
+ */
+export function documentPath(sha, sourceId = '') {
+  const byDigest = ['pdf', 'html'].map((ext) => cacheDir('sources/by-sha', `${sha}.${ext}`)).find(existsSync);
+  if (byDigest) return byDigest;
+  const byName = sourceId ? cacheDir('sources', `${sourceId}.pdf`) : null;
+  if (byName && existsSync(byName) && sha256(readFileSync(byName)) === sha) return byName;
+  return null;
+}
 
 /** The numbers a document prints, as a sorted multiset: its fingerprint. */
 export function fingerprint(text) {
@@ -52,7 +63,7 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
   const rows = readCsv(LEDGER).records.map((r) => r.values);
   const provider = arg('provider'), batch = arg('batch');
   if (!provider && !batch && !flag('all')) { console.error('name what to read: --provider, --batch or --all'); process.exit(2); }
-  const wanted = rows.filter((r) => r.sha256 && documentPath(r.sha256)
+  const wanted = rows.filter((r) => r.sha256 && documentPath(r.sha256, r.registered_source_id)
     && (provider ? r.provider === provider || r.manufacturer === provider : true)
     && (batch ? r.batch === batch : true));
   if (!wanted.length) { console.log('nothing fetched to read'); process.exit(0); }
@@ -60,12 +71,12 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
   const prints = new Map();
   let read = 0, failed = 0;
   for (const row of wanted) {
-    const path = documentPath(row.sha256);
+    const path = documentPath(row.sha256, row.registered_source_id);
     try {
       const text = await documentText(readFileSync(path), { sha: row.sha256, refresh: flag('refresh') });
       const print = fingerprint(text);
       prints.set(row.doc_key, { row, print, pages: text.pages.length });
-      if (row.status === 'fetched' || row.status === 'fetched-page') {
+      if (['fetched', 'fetched-page', 'registered'].includes(row.status)) {
         row.status = print.length ? 'extracted' : 'needs-ocr';
         row.status_note = print.length ? '' : `${text.pages.length} page(s) with no readable text: a scan`;
       }

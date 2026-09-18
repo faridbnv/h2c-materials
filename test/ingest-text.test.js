@@ -21,6 +21,8 @@ test('a document reads into pages of lines, top down and left to right', () => {
     'Tensile strength (X-Y) ISO 527 52 MPa',
     'Heat deflection temperature ISO 75, 0.45 MPa 68 °C',
     'Melting temperature DSC, 10 °C/min 160 °C',
+    'Charpy impact strength 2 43 3 .4 ± 79.4 kJ/m2 ISO 179',
+    'Shore D Hardness 43 ISO 868',
   ]);
 });
 
@@ -50,7 +52,7 @@ test('a number the extractor split is joined before it is read, and a standard i
 });
 
 test('the squeezed page answers whether a number is printed on it, however the layout split it', () => {
-  assert.equal(numberOnPage(text, 2, '2433.4'), true);   // printed as "2 43 3 .4"
+  assert.equal(numberOnPage(text, 1, '2433.4'), true);   // printed as "2 43 3 .4"
   assert.equal(numberOnPage(text, 1, '1.24'), true);     // printed with a decimal comma
   assert.equal(numberOnPage(text, 1, '99'), false);
   assert.equal(numberOnPage(text, 9, '52'), false);      // no such page

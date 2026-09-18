@@ -12,7 +12,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R >> >> /Contents 6 0 R >>
 endobj
 5 0 obj
-<< /Length 582 >>
+<< /Length 710 >>
 stream
 BT
 /F1 10 Tf
@@ -29,19 +29,22 @@ BT
 1 0 0 1 72 630 Tm (Heat deflection temperature) Tj
 1 0 0 1 240 630 Tm (ISO 75, 0.45 MPa) Tj
 1 0 0 1 400 630 Tm (68 °C) Tj
-1 0 0 1 72 600 Tm (Melting temperature DSC, 10 °C/min 160 °C) Tj
+1 0 0 1 72 610 Tm (Melting temperature DSC, 10 °C/min 160 °C) Tj
+1 0 0 1 72 590 Tm (Charpy impact strength 2 43 3 .4 ± 79.4 kJ/m2 ISO 179) Tj
+1 0 0 1 72 570 Tm (Shore D Hardness 43 ISO 868) Tj
 ET
 endstream
 endobj
 6 0 obj
-<< /Length 222 >>
+<< /Length 244 >>
 stream
 BT
 /F1 10 Tf
 1 0 0 1 72 720 Tm (Printing settings) Tj
-1 0 0 1 72 690 Tm (Nozzle temperature 230 - 250 °C) Tj
-1 0 0 1 72 670 Tm (Charpy impact strength 2 43 3 .4 ± 79.4 kJ/m2) Tj
-1 0 0 1 72 650 Tm (Store below 20% RH) Tj
+1 0 0 1 72 700 Tm (Nozzle temperature 230 - 250 °C) Tj
+1 0 0 1 72 680 Tm (Bed temperature 80 °C) Tj
+1 0 0 1 72 650 Tm (Storage and shelf life) Tj
+1 0 0 1 72 630 Tm (Store below 20% RH) Tj
 ET
 endstream
 endobj
@@ -56,10 +59,10 @@ xref
 0000000121 00000 n 
 0000000247 00000 n 
 0000000373 00000 n 
-0000001006 00000 n 
-0000001279 00000 n 
+0000001134 00000 n 
+0000001429 00000 n 
 trailer
 << /Size 8 /Root 1 0 R >>
 startxref
-1376
+1526
 %%EOF

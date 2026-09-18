@@ -86,7 +86,7 @@ export function guard(proposals, world) {
 
     // The document, as bytes. Everything below is read off the text of exactly this file.
     const sha = proposal.document?.sha256 ?? '';
-    const path = documentPath(sha);
+    const path = documentPath(sha, proposal.source?.row?.SourceID ?? '');
     if (!path) { fail('APPLY-HASH', where, `no cached document for ${sha.slice(0, 12) || '(none)'}`); continue; }
     if (sha256(readFileSync(path)) !== sha) { fail('APPLY-HASH', where, `the cached document no longer hashes to ${sha.slice(0, 12)}`); continue; }
     const text = cachedText(sha);

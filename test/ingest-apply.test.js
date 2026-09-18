@@ -88,7 +88,7 @@ test('a number that is not printed on the page its locator names stops the batch
   const split = proposal();
   split.measurements[0].row = { ...split.measurements[0].row, Property: 'Charpy strength', 'Raw value': '2433.4 kJ/m²',
     'Raw unit': 'kJ/m²', 'Raw numeric': '2433.4', 'Normalized value': '2433.4', 'Normalized unit': 'kJ/m²',
-    Notch: 'Unnotched', Locator: 'p. 2: Charpy impact strength' };
+    Notch: 'Unnotched', Locator: 'p. 1: Charpy impact strength' };
   assert.deepEqual(codes(split), []);
 });
 
