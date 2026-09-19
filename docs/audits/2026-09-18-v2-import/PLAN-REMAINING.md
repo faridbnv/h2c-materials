@@ -30,7 +30,6 @@ any sheet nobody has read:
 | Essentium / Nexa3D | 20 | 0 |
 | eSUN | 18 | 1 |
 | Bambu Lab | 41 | 40 |
-| 3DXTECH | 72 | 27 |
 | Polymaker / Fiberon | 53 | 24 |
 | iSANMATE | 33 | 14 |
 | others under 15 | ~90 | some |
@@ -78,10 +77,12 @@ Today: 377 observations on the largest headline, 9 seconds.
 - **Evidence rows.** `propose` reads properties, print settings and the sheet's certification claims, but does not
   yet propose `evidence.csv` rows for chemical, safety or certification statements. Spectrum's sheets carry few;
   the makers with medical or food-contact lines carry many.
-- **Headline selection for a new material.** A new material enters with its grade and its measurements, and the
-  build estimates its headlines. The plan's rule (the grade with the most eligible XY values becomes
-  representative and gets one `value` row per eligible key) is not implemented, so a new material shows estimates
-  where it could show its own published values.
 - **`material_links.csv` citations** for a new material.
-- **The second read.** The plan asks for a seeded sample of accepted rows to be re-read by a different reviewer
-  per batch. Both batches so far were reviewed once, by the agent, and every decision records that.
+- **Corrections to a document already registered.** A proposal for a registered document produces new rows, not
+  corrections. The plan's `edits[]`, through `scripts/migrate/source-edits.mjs`, is what turns a re-read into
+  corrections that each name the value they replace, and it is what OPEN-PROBLEMS §1 and §9 wait on.
+- **The second read at every batch.** The first two batches were read a second time by a different reviewer, which
+  found the source collision m55 repairs and five readings the pipeline was losing. The third was not.
+
+Headline selection for a new material is done: a material the database creates carries one `value` row per key
+its own measurements support, chosen by the rules the build judges them by.
