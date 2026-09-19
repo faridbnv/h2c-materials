@@ -1,0 +1,933 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-pa12-TDS-en.pdf",
+    "pages": 2,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "51da63ecbeeacbc0"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12"
+    ],
+    "materialId": "M052",
+    "materialName": "PA12",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+      "Publisher": "Extrudr",
+      "Title": "TECHNICAL DATA SHEET DURAPRO PA12",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-pa12-TDS-en.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET DURAPRO PA12"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M052",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO PA12",
+        "Shared formulation key": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET DURAPRO PA12"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.01 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.01",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1010",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Density ISO 1183 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cm³ 1.01"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "8.0 cm³/10min",
+        "Raw unit": "cm³/10min",
+        "Raw numeric": "8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "235°C",
+        "Standard / load": "MVR 235°C/5.0 kg cm³/10min ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Melt Volume Rate (MVR) 235°C/5.0 kg ISO 1133 cm³/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Volume Rate (MVR) 235°C/5.0 kg ISO 1133 cm³/10min 8.0"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "Saturation 23°C % ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Water Absorption (Saturation 23°C) ISO 62 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water Absorption (Saturation 23°C) ISO 62 % 1.6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1440 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1440",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.44",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Tensile Modulus ISO 527-1 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus ISO 527-1 MPa 1440"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "43.0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "43",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Tensile Strength (Indentation Depth) ISO 527-2 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (Indentation Depth) ISO 527-2 MPa 43.0"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "50 %",
+        "Raw unit": "%",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Nominal Elongation at Break ISO 527-2 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nominal Elongation at Break ISO 527-2 % >50"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "11 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "11",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "+23°C kJ/m² ISO 179/1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Charpy Notched Impact Strength (+23°C) ISO 179/1eA kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy Notched Impact Strength (+23°C) ISO 179/1eA kJ/m² 11"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "6.0 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-30°C",
+        "Standard / load": "-30°C kJ/m² ISO 179/1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Charpy Notched Impact Strength (-30°C) ISO 179/1eA kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy Notched Impact Strength (-30°C) ISO 179/1eA kJ/m² 6.0"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "135 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "135",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "135",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "unannealed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75-2/B",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Heat Deflection Temperature (DTUL) 0.45 MPa, unannealed ISO 75-2/B °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temperature (DTUL) 0.45 MPa, unannealed ISO 75-2/B °C 135"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "55.0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "unannealed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8 MPa ISO 75-2/A",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Heat Deflection Temperature (DTUL) 1.8 MPa, unannealed ISO 75-2/A °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temperature (DTUL) 1.8 MPa, unannealed ISO 75-2/A °C 55.0"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "142 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "142",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "142",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306/B50",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "Locator": "p. 1: Vicat Softening Temperature ISO 306/B50 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature ISO 306/B50 °C 142"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260-290 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "110 °C",
+        "Bed state": "range",
+        "Bed min °C": "110",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "yes",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "no",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "recommended"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "max. 150 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "8 mm³/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle 260-290 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "260-290 °C",
+      "line": "Nozzle 260-290 °C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed",
+      "raw": "110 °C",
+      "line": "Heatbed 110 °C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "recommended",
+      "line": "Adhesive recommended"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "max. 150 mm/s",
+      "line": "Speed max. 150 mm/s"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0-50%",
+      "line": "Cooling 0-50%"
+    },
+    {
+      "page": 2,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed Space",
+      "raw": "yes",
+      "line": "Enclosed Space yes"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened Nozzle",
+      "raw": "no",
+      "line": "Hardened Nozzle no"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. Volumetric Speed",
+      "raw": "8 mm³/s",
+      "line": "Max. Volumetric Speed 8 mm³/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "DURAPRO PA12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DuraPro PA12 is a highly functional polyamide (nylon) that is ideal for industrial applications. It is characterised by exceptionally",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "absorption and easy handling, it is the ideal choice for demanding 3D printing projects.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. FEATURES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• High thermal resistance (VICAT A 142°C) • Good chemical resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPERTIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Elongation (Indentation Depth) ISO 527-2 % 5.0",
+      "reason": "properties.csv carries no property for \"Tensile Elongation (Indentation Depth)\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Unnotched Impact Strength (+23°C) ISO 179/1eU No Break (NB)",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Unnotched Impact Strength (-30°C) ISO 179/1eU No Break (NB)",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Puncture Maximum Force (-30°C) ISO 6603-2 J 60.0",
+      "reason": "properties.csv carries no property for \"Puncture Maximum Force (-30°C)\" (J)"
+    },
+    {
+      "page": 1,
+      "text": "Multiaxial Instrumented Impact Test, Peak Force -30°C ISO 6603-2 N 4800",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mass Temperature ISO 11357-3 °C 180",
+      "reason": "properties.csv carries no property for \"Mass Temperature\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "CLTE Flow ISO 11359-2 cm/cm/°C 1.0E-4",
+      "reason": "properties.csv carries no property for \"CLTE Flow\""
+    },
+    {
+      "page": 1,
+      "text": "Specific Surface Resistance IEC 60093 ohms 1.0E+14",
+      "reason": "properties.csv carries no property for \"Specific Surface Resistance\""
+    },
+    {
+      "page": 1,
+      "text": "Specific Volume Resistivity IEC 60093 ohms cm 1.0E+14",
+      "reason": "properties.csv carries no property for \"Specific Volume Resistivity\""
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Strength IEC 60243-1 kV/mm 30",
+      "reason": "properties.csv carries no property for \"Dielectric Strength\" (kV/mm)"
+    },
+    {
+      "page": 1,
+      "text": "Comparative Tracking Index (CTI) IEC 60112 V 600",
+      "reason": "properties.csv carries no property for \"Comparative Tracking Index (CTI)\" (V)"
+    },
+    {
+      "page": 1,
+      "text": "*Temperature resistance tested at a minimum wall thickness of 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET Page 1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DURAPRO PA12 22.07.2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Recommended settings for printers with a 0.4mm Nozzle. Max. 50% layerheight.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "4. CERTIFICATIONS & ADDITIONAL INFORMATION",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "5. STORAGE AND SHELF LIFE",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "Store in a dry room at room temperature (18-27°C / 65-80°F). Keep out of direct heat and sunlight.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "When stored correctly, this material has a shelf life of 2 years.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "TECHNICAL DATA SHEET Page 2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "DURAPRO PA12 22.07.2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

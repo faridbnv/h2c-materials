@@ -1,0 +1,755 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "2b65164d221a783a94f56324ea332360d3d3c8d2e3c9ee2e58d903c5b19d870e",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/pla-basic-cf-TDS-en.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "2b65164d221a783a"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "filler: cf"
+    ],
+    "materialId": "M018",
+    "materialName": "PLA-CF",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+      "Publisher": "Extrudr",
+      "Title": "TECHNICAL DATA SHEET PLA BASIC CF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/pla-basic-cf-TDS-en.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2b65164d221a783a94f56324ea332360d3d3c8d2e3c9ee2e58d903c5b19d870e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET PLA BASIC CF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M018",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "PLA BASIC CF",
+        "Shared formulation key": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Composition / filler": "PLA Basic CF combines the user-friendly nature of PLA with the enhanced stiffness and technical appearance of carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET PLA BASIC CF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "500 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "500",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Tensile modulus (E-Modulus) ASTM D882 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (E-Modulus) ASTM D882 MPa 500 (3,5) Nozzle 200-230°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "53 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Tensile strength ASTM D882 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength ASTM D882 MPa 53 Heatbed 20-60°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Stress at break ASTM D882 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Stress at break ASTM D882 MPa 60 Adhesive not required"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Nominal elongation at break ASTM D882 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nominal elongation at break ASTM D882 % 6 Speed 20-200mm/s"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "0,3 kj/m²",
+        "Raw unit": "kj/m²",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Notched impact strength ASTM D256 kj/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched impact strength ASTM D256 kj/m² 0,3 Cooling 30-100%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "55 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "E2092",
+        "Standards": "ASTM E2092",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: HDT ASTM E2092 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT ASTM E2092 °C 55* Enclosed Space no"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "180-200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "200",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "200",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 3146-C",
+        "Standards": "ISO 3146",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Melting temperature ISO 3146-C °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature ISO 3146-C °C 180-200 Hardened Nozzle yes"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "10min ASTM D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: MFR ASTM D1238 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR ASTM D1238 g/10min 6 Max. Volumetric Speed 21 mm³/s"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,24 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Locator": "p. 1: Density ASTM D792 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ASTM D792 g/cm³ 1,24"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "ruling R045: this sheet reprints the PLA Basic table value for value, so its numbers are the unfilled material's measurements and are not recorded again on a carbon fibre one"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200-230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "20-60°C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "no",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "yes",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Hardened Nozzle yes",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "not required"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "20-200mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "30-100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "21 mm³/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 200-230°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "200-230°C",
+      "line": "Nozzle 200-230°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed",
+      "raw": "20-60°C",
+      "line": "Heatbed 20-60°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "not required",
+      "line": "Adhesive not required"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "20-200mm/s",
+      "line": "Speed 20-200mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "30-100%",
+      "line": "Cooling 30-100%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed Space",
+      "raw": "no",
+      "line": "Enclosed Space no"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened Nozzle",
+      "raw": "yes",
+      "line": "Hardened Nozzle yes"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. Volumetric Speed",
+      "raw": "21 mm³/s",
+      "line": "Max. Volumetric Speed 21 mm³/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. FEATURES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPERTIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shrinking ASTM D955 % 0,4",
+      "reason": "properties.csv carries no property for \"Shrinking\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "or ruby nozzle). A nozzle diameter of at least 0.6 mm is also",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Temperature resistance tested at a minimum wall thickness of 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS & ADDITIONAL INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. STORAGE AND SHELF LIFE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Store in a dry room at room temperature (18-27°C / 65-80°F). Keep out of direct heat and sunlight.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "When stored correctly, this material has a shelf life of 2 years.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET Page 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA BASIC CF 04.05.2026",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19",
+    "note": "ruling R045, 2026-09-19: the product and its sheet are registered because both are real; no value is taken from it, because every one it prints is the PLA Basic sheet's, and a coverage row says so"
+  }
+}

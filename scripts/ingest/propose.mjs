@@ -104,8 +104,11 @@ const methodsOf = (line) => [...new Set((String(line).match(new RegExp(STANDARD_
 // A designation may cite several parts of one standard at once: "ISO 527-1,-2" is one method, not a method and a
 // number. Left out of the designation, that ",-2" is a minus sign in front of a 2, and a yield strength printed
 // as "ISO 527-1,-2 MPa 70,2" read as -2 MPa. Only a comma that introduces another part is taken, so "ISO 527,
-// 23°C" keeps its condition.
-const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?,\s?-\d+[\w.-]*)*(?:\s?\/\s?[\w.-]+)?(?::\s?\d{4})?/gi;
+// 23°C" keeps its condition. A comma may also introduce the specimen the method was run on ("DIN 53504, S2",
+// "ISO 815-1, method A"); left out, the S2 put a 2 in front of the unit and a tensile strength read as 2 MPa.
+// A method variant may also stand apart from the number it belongs to ("ISO 306 A50", "ISO 306/B50"): Extrudr's
+// PLA Tough prints "Vicat softening temp. ISO 306 A50 °C 65", and the A50 read as a Vicat point of 50 °C.
+const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?,\s?(?:-\d+[\w.-]*|[A-Za-z]\d{1,2}\b|method\s+[A-Za-z]\b))*(?:\s?\/\s?[\w.-]+)?(?:\s[A-Z]\d{1,3}\b)?(?::\s?\d{4})?/gi;
 
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
@@ -175,7 +178,11 @@ export function readRow(text, registry, held = null) {
   // each other: "Density ISO 1183 g/cc 1.35" offers "1183 g/cc" to a reader that does not know that.
   const designations = [...line.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]);
   const inDesignation = (at) => designations.some(([from, to]) => at >= from && at < to);
-  const candidates = [...line.matchAll(valueRe())].filter((m) => !inDesignation(m.index));
+  // A number written into a designation's own slashes is not a value either, whatever is left of the designation:
+  // extraction dropped the I of "ISO 527-2/5A/500" on one sheet, and the 500 that survived next to "MPa" was read
+  // as a modulus of 500 where the sheet prints 42.
+  const afterSlash = (at) => /\/$/.test(line.slice(0, at));
+  const candidates = [...line.matchAll(valueRe())].filter((m) => !inDesignation(m.index) && !afterSlash(m.index));
   // The table may have put the unit in a column before the value, and a row that does may still carry a "number
   // unit" pair that is not its result: "Notched impact strength ASTM D256 kj/m² 100 @ 23°C" states the test
   // temperature that way. Offering only the temperature lost every impact row of that layout, so both readings
@@ -819,7 +826,9 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   const at0 = [...printed.matchAll(/[,(@]|\d/g)].map((m) => m.index)
     .find((i) => !spans.some(([from, to]) => i >= from && i < to)) ?? -1;
   const condition = (at0 > 0 ? printed.slice(at0) : printed.replace(v.read.match.re, ' '))
-    .replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
+    // The opening bracket and the punctuation before a condition are not part of it; a minus sign in front of a
+    // number is. Stripping it turned "Charpy Notched Impact Strength (-30°C)" into a test run at +30 °C.
+    .replace(/^[\s,;:@(]+/, '').replace(/^-(?!\s?\d)/, '').replace(/\s+/g, ' ').trim();
   // A rate is a condition of the test, not a temperature it was run at: "VICAT, 50 N (heating rate 50°C/h)".
   const withoutRate = condition
     .replace(/\([^)]*(?:rate|\/\s?(?:h|hr|min))[^)]*\)/gi, ' ')
@@ -858,10 +867,13 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
   const axis = /\(\s*(X\s?[-‑–]?\s?Y|XY|Z|XZ|ZX)\s*\)/i.exec(`${v.label ?? ''} ${printed}`)?.[1];
   const stated = axis ? axis.replace(/[\s-‑–]/g, '').toUpperCase() : null;
-  const annealWords = /\b(not annealed|unannealed|annealed|as printed)\b/i.exec(says);
+  // A treatment the sheet names for one row is that row's own words, whatever the build's reader makes of them:
+  // Extrudr prints a Vicat point of 65 °C and a second, "(*sintered)", above 150 °C, and a row that recorded
+  // neither word was the same measurement twice with two answers.
+  const annealWords = /\b(not annealed|unannealed|annealed|as printed|sintered|heat[- ]treated|tempered)\b/i.exec(says);
   const post = annealWords ? annealWords[1].replace(/^as printed$/i, 'As printed') : NP;
   const postState = readPostProcessingState(post);
-  const schedule = parseAnnealSchedule(`${printed} ${v.line ?? ''}`, postState);
+  const schedule = parseAnnealSchedule(`${printed} ${v.line ?? ''}`, postState ?? 'not-stated');
   const moistureWords = /\b(dry|dried|conditioned|wet)\b/i.exec(`${withoutRate} ${v.footnote ?? ''}`);
   const moisture = moistureWords ? moistureWords[1].replace(/^./, (c) => c.toUpperCase()) : NP;
   const moistureState = readMoistureState(moisture);
@@ -1213,7 +1225,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources'), headlineDefinitions: table('headline_definitions'), rulings: readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values) };
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
-  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet']);
+  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'rejected']);
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))

@@ -1,0 +1,783 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/flex-semisoft-TDS-en.pdf",
+    "pages": 2,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "3296681c4e5852f9"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+      "Publisher": "Extrudr",
+      "Title": "TECHNICAL DATA SHEET FLEX SEMISOFT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/flex-semisoft-TDS-en.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET FLEX SEMISOFT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX SEMISOFT",
+        "Shared formulation key": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET FLEX SEMISOFT"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "42 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "42",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.042",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "500 MPa E-Modulus SO 527-2/5A/",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Tensile modulus (E-Modulus) SO 527-2/5A/500 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (E-Modulus) SO 527-2/5A/500 MPa 42 Nozzle 220-250°C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "550 %",
+        "Raw unit": "%",
+        "Raw numeric": "550",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "550",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/5A/500",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Ultimate elongation ISO 527-2/5A/500 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Ultimate elongation ISO 527-2/5A/500 % 550 Heatbed 50-90°C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "98 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "98",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "98",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: VICAT A (VST) ISO 306 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT A (VST) ISO 306 °C 98* Enclosed Space no"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "180-230 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "230",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "230",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 3146-C",
+        "Standards": "ISO 3146",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Melting temperature ISO 3146-C °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature ISO 3146-C °C 180-230 Hardened Nozzle no"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.18 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.18",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 2781",
+        "Standards": "ISO 2781",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Density ISO 2781 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 2781 g/cm³ 1.18 Max. Volumetric Speed 2,8 mm³/s"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "85",
+        "Raw unit": "Shore A",
+        "Raw numeric": "85",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 868",
+        "Standards": "ISO 868",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Shore hardness ISO 868 Shore",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore hardness ISO 868 Shore 85A - 88A"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "-34 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-34",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-34",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Glass transition temperature °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature °C -34"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Compression strength",
+        "Raw value": "42 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "42",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "42",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DIN 53452",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Locator": "p. 1: Compressive strength DIN 53452 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Compressive strength DIN 53452 MPa 42"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220-250°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "50-90°C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "no",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "no",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "not required"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "20-100mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-30%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "2,8 mm³/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 220-250°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "220-250°C",
+      "line": "Nozzle 220-250°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed",
+      "raw": "50-90°C",
+      "line": "Heatbed 50-90°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "not required",
+      "line": "Adhesive not required"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "20-100mm/s",
+      "line": "Speed 20-100mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0-30%",
+      "line": "Cooling 0-30%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed Space",
+      "raw": "no",
+      "line": "Enclosed Space no"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened Nozzle",
+      "raw": "no",
+      "line": "Hardened Nozzle no"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. Volumetric Speed",
+      "raw": "2,8 mm³/s",
+      "line": "Max. Volumetric Speed 2,8 mm³/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "extensibility of up to 550%, high material quality, high chemical resistance, and a heat distortion resistance of up to 98°C, making",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. FEATURES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Very impact and breakage resistant • Shore hardness A85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPERTIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stress at break ISO 527-2/5A/500 MPa 9 (50%) Adhesive not required",
+      "reason": "a stress at 50 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2/5A/500 MPa 11 (100%) Speed 20-100mm/s",
+      "reason": "a stress at 100 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2/5A/500 MPa 22 (300%) Cooling 0-30%",
+      "reason": "a stress at 300 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "Abrasion resistance ISO 4649-A mm³ 25",
+      "reason": "properties.csv carries no property for \"Abrasion resistance\" (mm³)"
+    },
+    {
+      "page": 1,
+      "text": "Max. 50% layerheight. Optimal print settings may vary",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Tear strength ISO 34-1B kN/m 135",
+      "reason": "properties.csv carries no property for \"Tear strength\" (kN/m)"
+    },
+    {
+      "page": 1,
+      "text": "Permeability AIR DIN 53380 25°/60°C 550/-",
+      "reason": "properties.csv carries no property for \"Permeability AIR\""
+    },
+    {
+      "page": 1,
+      "text": "Permeability N2 DIN 53380 25°/60°C 380/2200",
+      "reason": "properties.csv carries no property for \"Permeability N2\""
+    },
+    {
+      "page": 1,
+      "text": "Permeability O2 DIN 53380 25°/60°C 950/5100",
+      "reason": "properties.csv carries no property for \"Permeability O2\""
+    },
+    {
+      "page": 1,
+      "text": "Permeability CO2 DIN 53380 25°/60°C 7300/19900",
+      "reason": "properties.csv carries no property for \"Permeability CO2\""
+    },
+    {
+      "page": 1,
+      "text": "Permeability N2O DIN 53380 25°/60°C 13800/-",
+      "reason": "properties.csv carries no property for \"Permeability N2O\""
+    },
+    {
+      "page": 1,
+      "text": "Poisson-ratio acc. to Hencky 0.46",
+      "reason": "properties.csv carries no property for \"Poisson-ratio\""
+    },
+    {
+      "page": 1,
+      "text": "Fogging value DIN 75201 MB mg <1.0",
+      "reason": "properties.csv carries no property for \"Fogging value\" (mg)"
+    },
+    {
+      "page": 1,
+      "text": "*Temperature resistance tested at a minimum wall thickness of 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS & ADDITIONAL INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET Page 1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEX SEMISOFT 19. 06. 2026",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5. STORAGE AND SHELF LIFE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Store in a dry room at room temperature (18-27°C / 65-80°F). Keep out of direct heat and sunlight.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "When stored correctly, this material has a shelf life of 2 years.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TECHNICAL DATA SHEET Page 2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FLEX SEMISOFT 19. 06. 2026",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

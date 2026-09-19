@@ -342,3 +342,21 @@ test('a row the reader cannot read says what the database is missing, and propos
   // A sentence that happens to carry a number is not a row of a table, and gets no such reason.
   assert.equal(unreadRowReason(at([67, 'Store in a dry room at room temperature (18-27°C / 65-80°F).']), registry), null);
 });
+
+test('a label the lexicon cannot read in full is not read as the unqualified one', () => {
+  // Extrudr's DuraPro PA12 prints both "Tensile Elongation (Indentation Depth) 5 %" and "Nominal Elongation at
+  // Break > 50 %". Read as one property they are a grade that breaks at 5 % and at over 50 %.
+  assert.equal(read('Nominal Elongation at Break ISO 527-2 % >50').match.Property, 'Elongation at break');
+  assert.equal(read('Tensile Elongation (Indentation Depth) ISO 527-2 % 5.0'), null);
+  // A bracket that states a direction, a unit or a condition is not a qualifier of that kind.
+  assert.equal(read('Elongation (X-Y) ISO 527 % 28').match.Property, 'Elongation at break');
+  assert.equal(read('Elongation (23°C) ISO 527 % 28').match.Property, 'Elongation at break');
+});
+
+test('a test temperature keeps its minus sign', () => {
+  // "(-30°C)" and "(+23°C)" are two tests of one property; stripping the bracket took the minus with it, and an
+  // impact strength measured at minus thirty was recorded as measured at plus thirty.
+  const row = read('Charpy Notched Impact Strength (-30°C) ISO 179/1eA kJ/m² 6.0');
+  assert.equal(row.rawNumber, '6');
+  assert.match(row.conditions, /\(-30\s?°C\)/);
+});
