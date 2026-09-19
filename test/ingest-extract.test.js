@@ -38,3 +38,23 @@ test('agreement is measured against the smaller sheet, so a long sheet cannot sw
   // Repeats count once each: a sheet printing 1 MPa three times does not match a sheet printing it once.
   assert.equal(agreement(['1MPa', '1MPa', '1MPa'], ['1MPa', '9MPa', '9MPa']), 1 / 3);
 });
+
+const sheet = (...lines) => ({ pages: [{ page: 1, lines: lines.map((text) => ({ text })) }] });
+
+test('a table that prints its unit before the value states numbers too', () => {
+  // Extrudr's four Flex grades differ in every result and share every test condition. Read value-first only, the
+  // conditions were all a fingerprint could see, and four products arrived looking like one sheet served four times.
+  const hard = fingerprint(sheet('Tensile modulus ISO 527-2/5A/500 MPa 40', 'VICAT A (VST) ISO 306 °C 140'));
+  const medium = fingerprint(sheet('Tensile modulus ISO 527-2/5A/500 MPa 45', 'VICAT A (VST) ISO 306 °C 110'));
+  assert.ok(hard.includes('40MPa') && hard.includes('140°C'), hard.join(' '));
+  assert.ok(agreement(hard, medium) < 0.9, String(agreement(hard, medium)));
+  // Where the line states the pair the usual way round, the unit-first reading does not double it.
+  assert.deepEqual(fingerprint(sheet('Tensile strength 52 MPa')), ['52MPa']);
+});
+
+test('a decimal comma states the same number as a decimal point', () => {
+  const english = fingerprint(sheet('Heat deflection 0.45 MPa 135 °C'));
+  const italian = fingerprint(sheet('Temperatura di deflessione 0,45 MPa 135 °C'));
+  assert.ok(english.includes('0.45MPa'), english.join(' '));
+  assert.deepEqual(english, italian);
+});

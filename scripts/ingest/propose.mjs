@@ -23,7 +23,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { cachedText, columnPositions, cellsAt, joinDigits, lineCells } from '../lib/pdf-text.mjs';
+import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, spanText } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { readPostProcessingState, parseAnnealSchedule, specimenForm } from '../../build/src/normalize/specimen.js';
@@ -63,12 +63,20 @@ const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '
 // every second line read as though it had no value.
 // The minus sign is a sign only where a number does not come before it: "55-60°C" is a window whose dash the
 // number swallowed, which read a PLA's glass transition as -60 °C.
-const valueRe = () => new RegExp(`((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)\\s*\\(?\\s*(${UNIT_PATTERN})`, 'gi');
+const NUMBER_PATTERN = '(?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?';
+const valueRe = () => new RegExp(`(${NUMBER_PATTERN})\\s*\\(?\\s*(${UNIT_PATTERN})`, 'gi');
 // A table may print its unit in a column of its own, before the value: 3DXTECH's sheets are
 // "Tensile Strength, Break | ISO 527 | MPa | 62.8", and every one of their 214 recorded values was invisible to
 // a reader that only knows "number unit". The match is shaped like the other one, value first, so the rest of
 // the reading does not care which way round the page put them.
-const unitFirstRe = () => new RegExp(`(?:^|\\s)(${UNIT_PATTERN})\\s+((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)(?![\\d.,])`, 'gi');
+//
+// What a value carries comes after it when the unit came before it, and it is the same statement either way
+// round: a bound the sheet states in front of the number ("% > 50"), a spread behind it ("% 3,5 ± 0,1") and a
+// window behind it ("°C 190-210"). Reading only the number recorded a melting temperature of 190 for a sheet
+// that prints 190 to 210, and lost every bound Extrudr prints in this layout.
+const unitFirstRe = () => new RegExp(
+  `(?:^|\\s)(${UNIT_PATTERN})\\s+(?:[<>≤≥]\\s*)?(${NUMBER_PATTERN})(?![\\d.,])`
+  + `(?:\\s*(?:±|\\+\\/-)\\s*(\\d+(?:[.,]\\d+)?)|\\s*[-–~]\\s*(\\d+(?:[.,]\\d+)?))?`, 'gi');
 
 // A section heading tells a value what it is: a printing guide is not a test result, and a storage note is neither.
 //
@@ -85,15 +93,27 @@ const HEADING_LENGTH = 60;
 // What a wrapped table row looks like when it continues on the next line: a standard, a method or a unit first.
 const CONTINUES_ROW = new RegExp(`^\\s*(?:ISO|ASTM|DIN|IEC|UL|EN|GB\\s?/\\s?T|DSC|TGA|TMA|[DE]\\s?\\d{3,4}|${UNIT_PATTERN})\\b`, 'i');
 
+/** The methods a line names, at family level: "ISO 527-1" and "ISO 527-2" are one method, "ISO 6721" another. */
+const methodsOf = (line) => [...new Set((String(line).match(new RegExp(STANDARD_RE.source, 'gi')) ?? [])
+  .map((m) => m.replace(/\s+/g, '').toUpperCase().match(/^[A-Z/]+\d+/)?.[0]).filter(Boolean))];
+
 // ASTM's own sheets print the designation without the body: "D 792", "D638", "D 256", "E 2092". Requiring ASTM
 // left every one of those rows with no standard at all, and put the property's label in the column that keeps the
 // sheet's words for the method. The lookahead is what keeps a word ending in D from starting a designation.
-const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?\/\s?[\w.-]+)?(?::\s?\d{4})?/gi;
+//
+// A designation may cite several parts of one standard at once: "ISO 527-1,-2" is one method, not a method and a
+// number. Left out of the designation, that ",-2" is a minus sign in front of a 2, and a yield strength printed
+// as "ISO 527-1,-2 MPa 70,2" read as -2 MPa. Only a comma that introduces another part is taken, so "ISO 527,
+// 23°C" keeps its condition.
+const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?,\s?-\d+[\w.-]*)*(?:\s?\/\s?[\w.-]+)?(?::\s?\d{4})?/gi;
 
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
 // not a number, and joining them was what turned "ISO 527" into a fragment in the label.
-const joinLocal = (t) => t.replace(/(\d) (?=\d+(?![\d.,]))/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
+// A unit can end in a digit, and that digit belongs to the unit: "kJ/m2 19" joined into "kJ/m219" and the
+// impact rows of every sheet that prints its unit in a column of its own were invisible. The same guard is in
+// pdf-text.mjs's joinDigits; this reader has its own because it joins around the designations it found itself.
+const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³])(\d) (?=\d+(?![\d.,]))/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
 // Extraction splits a standard's own number too ("ISO 11 8 3", "ISO 17 9", "D 2 56"), and the designation is
 // matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
 // is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
@@ -156,12 +176,22 @@ export function readRow(text, registry, held = null) {
   const designations = [...line.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]);
   const inDesignation = (at) => designations.some(([from, to]) => at >= from && at < to);
   const candidates = [...line.matchAll(valueRe())].filter((m) => !inDesignation(m.index));
-  // Where the line states no "number unit" pair, the table may have put the unit in a column before the value.
-  if (!candidates.length) {
+  // The table may have put the unit in a column before the value, and a row that does may still carry a "number
+  // unit" pair that is not its result: "Notched impact strength ASTM D256 kj/m² 100 @ 23°C" states the test
+  // temperature that way. Offering only the temperature lost every impact row of that layout, so both readings
+  // are candidates and the one that counts is still the first in a unit the property is kept in.
+  {
     for (const m of line.matchAll(unitFirstRe())) {
       const reordered = [m[0], m[2], m[1]];
-      reordered.index = m.index + m[0].indexOf(m[2]);
+      // The number is looked for past the unit, because a unit may end in a digit: "kJ/m2 11" placed the value at
+      // the 2 of the unit, and everything measured from there was a character out.
+      reordered.index = m.index + m[0].indexOf(m[2], m[0].indexOf(m[1]) + m[1].length);
+      reordered.end = m.index + m[0].length;
       reordered.input = m.input;
+      // Where the unit came first, what qualifies the value comes after it, not before it.
+      reordered.unitFirst = true;
+      reordered.spread = m[3] ?? null;
+      reordered.upper = m[4] ?? null;
       if (!inDesignation(reordered.index)) candidates.push(reordered);
     }
   }
@@ -170,12 +200,15 @@ export function readRow(text, registry, held = null) {
   if (!candidates.length && match.Property === 'Hardness') {
     // The scale is the unit: Shore A, Shore D, Rockwell R or Rockwell M, however the sheet writes it
     // ("R-Scale", "R Scale", "Rockwell R"). Taking the last letter of the match read "R-Scale" as scale E.
-    const shore = /\bshore\s*([ad])\b/i.exec(line);
+    // A sheet may put the scale after the word it qualifies ("Shore hardness D") as well as before it.
+    const shore = /\bshore\s*(?:hardness\s*)?([ad])\b/i.exec(line);
     // A sheet states the scale in the label ("Rockwell Hardness, R Scale"), or in the unit beside the number
     // ("80 HRM"), which is the same statement written the other way round.
-    const rockwell = /\brockwell\s*([rm])\b/i.exec(line) ?? /\b([rm])[\s-]?scale\b/i.exec(line) ?? /\bHR([RM])\b/i.exec(line);
+    // A maker may print the scale in its own language: Extrudr's English sheets carry "R-Skala".
+    const rockwell = /\brockwell\s*([rm])\b/i.exec(line) ?? /\b([rm])[\s-]?(?:scale|skala)\b/i.exec(line) ?? /\bHR([RM])\b/i.exec(line);
     // A shore hardness may carry its scale on the number instead of in the label: "Shore hardness ... 95A".
-    const suffix = /\bshore\b/i.test(line) ? /\b\d{2,3}\s?([ad])\b/i.exec(line) : null;
+    // A shore hardness may carry its scale on the number, behind it ("95A") or in front of it ("A95").
+    const suffix = /\bshore\b/i.test(line) ? (/\b\d{2,3}\s?([ad])\b/i.exec(line) ?? /\b([ad])\s?\d{2,3}\b/i.exec(line)) : null;
     const scale = shore ?? rockwell ?? suffix;
     // The standard is stripped first, or "ISO 2039-2" gives the hardness a value of 2.
     const plain = line.replace(STANDARD_RE, ' ').replace(/\(.*?\)/g, ' ');
@@ -195,15 +228,18 @@ export function readRow(text, registry, held = null) {
     const target = targetUnit(match.Property, candidate[2], registry);
     if (!target) continue;
     let before = line.slice(0, candidate.index);
-    const after = line.slice(candidate.index + candidate[0].length);
+    const after = line.slice(candidate.end ?? (candidate.index + candidate[0].length));
     if (RATE_OR_CONDITION.test(after)) continue;
+    // Where the unit came first, what qualifies the value is behind it and the regular expression already has it.
+    // Looking in front of such a value instead reads the unit's own digit as a number: "g/cm3 1.14" offered the 3
+    // of the unit as the value and its 1.14 as the spread, and every density printed that way became 3000 kg/m³.
     // A published spread shares its value's unit ("2433.4 ± 79.4 kJ/m2"), so the number beside the unit is the
     // spread and the one before the sign is the value. Reading left to right recorded the spread as the result.
-    let spread = /(-?\d+(?:[.,]\d+)?)\s*(?:±|\+\/-|\+)\s*$/.exec(before);
+    let spread = candidate.unitFirst ? null : /(-?\d+(?:[.,]\d+)?)\s*(?:±|\+\/-|\+)\s*$/.exec(before);
     // The sign itself may be lost: Polymaker's sheets come out as "Elongation at break (X-Y) 2.77 0.45%", where
     // 0.45 is the spread of 2.77 and the glyph between them did not survive. A number standing alone before the
     // value, with the value a fraction of it, is that.
-    if (!spread) {
+    if (!spread && !candidate.unitFirst) {
       const bare = /(-?\d+(?:[.,]\d+)?)\s+$/.exec(before);
       const of = (x) => Math.abs(Number(String(x).replace(',', '.')));
       if (bare && !inDesignation(bare.index) && of(candidate[1]) > 0 && of(candidate[1]) <= 0.5 * of(bare[1])) spread = bare;
@@ -211,10 +247,10 @@ export function readRow(text, registry, held = null) {
     // A published window is one statement, not two: "Glass Transition Temperature 55-60°C" is a range whose low
     // end carries no unit of its own. Reading the number beside the unit alone made it a point, and reading the
     // dash as a sign made it -60 °C. The database keeps the pair (Raw upper bound), so the row is read as one.
-    const window = spread ? null : /(-?\d+(?:[.,]\d+)?)\s*[-–~]\s*$/.exec(before);
+    const window = spread || candidate.unitFirst ? null : /(-?\d+(?:[.,]\d+)?)\s*[-–~]\s*$/.exec(before);
     const value = spread ? spread[1] : window ? window[1] : candidate[1];
-    const uncertainty = spread ? candidate[1] : null;
-    const upper = window ? candidate[1] : null;
+    const uncertainty = spread ? candidate[1] : candidate.spread ?? null;
+    const upper = window ? candidate[1] : candidate.upper ?? null;
     if (spread) before = before.slice(0, spread.index);
     if (window) before = before.slice(0, window.index);
     return {
@@ -223,7 +259,7 @@ export function readRow(text, registry, held = null) {
       conditions: before.trim(),
       uncertainty: uncertainty == null ? null : String(rawNumber(uncertainty)),
       upper: upper == null ? null : String(rawNumber(upper)),
-      raw: window
+      raw: upper != null
         ? `${value}-${upper} ${candidate[2]}`.replace(/\s+/g, ' ').trim()
         : `${value}${uncertainty ? ` ± ${uncertainty}` : ''} ${candidate[2]}`.replace(/\s+/g, ' ').trim(),
       // The build's own reader decides what the digits mean: a decimal comma with one or two places, a thousands
@@ -254,7 +290,7 @@ export function readRow(text, registry, held = null) {
 //
 // The value is taken from the label's own cell (the page's own column gaps, pdf-text.mjs), and what follows a
 // complete value is the next column's text, not part of the setting.
-const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[-–—]|to)\s*)?\d+(?:[.,]\d+)?\s*(?:°\s?C|°C|C\b|%|mm\/s|mm\/min|mm|m\/s)?/i;
+const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[-–—]|to)\s*)?\d+(?:[.,]\d+)?\s*(?:°\s?C|°C|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?/i;
 const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±)/i;
 // Where a neighbouring column's sentence begins: a run of capitals, or a sentence's subject and verb.
 const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)/;
@@ -268,6 +304,33 @@ export function settingValue(text) {
   }
   const cut = value.search(FOREIGN);
   return (cut > 0 ? value.slice(0, cut) : value).trim().slice(0, 80);
+}
+
+/**
+ * A page that prints its property table and its print-settings table side by side runs the two together on one
+ * line, because extraction reads a page by rows: Extrudr's sheets come out as "Tensile modulus ISO 527-2/5A/500
+ * MPa 40 Nozzle 230-260°C". Both halves are the sheet's own statements and both belong in the proposal, so the
+ * line is cut where the second table's first cell names a setting: what is left of the cut is the row, what is
+ * right of it is the setting.
+ *
+ * Read whole instead, such a line offered the row a temperature from the column beside it, which is the candidate
+ * the property's own unit never matched and the reason a modulus printed as "MPa 40" was never read; and because
+ * a line that names a property is never taken for a setting, the nozzle, the bed, the enclosure and the maximum
+ * volumetric speed were never read either.
+ */
+export function splitAtNeighbour(line) {
+  const cells = lineCells(line);
+  for (let i = 1; i < cells.length; i++) {
+    if (!SETTINGS.some((s) => s.re.test(repair(cells[i].text).trim()))) continue;
+    const spans = line.spans ?? [];
+    const left = spans.filter((s) => s.x < cells[i].x), right = spans.filter((s) => s.x >= cells[i].x);
+    if (!left.length || !right.length) continue;
+    // A cut is only a cut where the half that stays still states something of its own.
+    const rowText = spanText(left);
+    if (!/\d/.test(rowText)) continue;
+    return [{ ...line, text: rowText, spans: left }, { ...line, text: spanText(right), spans: right, x0: cells[i].x }];
+  }
+  return [line, null];
 }
 
 /** What a line says about how to print, if it says anything: the setting it names and the sheet's own words for it. */
@@ -336,6 +399,57 @@ export function footnoteFor(label, footnotes) {
   return FOOTNOTE_MATTERS.test(said) ? said : '';
 }
 
+/**
+ * The unit a row prints beside its value, in the sheet's own characters, or null where it prints none. A unit is
+ * short and is not an ordinary word: "mm³", "kN/m", "mg" and "Shore" are units; "Hencky" is the man the ratio is
+ * named after.
+ */
+function printedUnitOf(plain) {
+  const tokens = plain.replace(new RegExp(STANDARD_RE.source, 'gi'), ' ').split(/\s+/).filter(Boolean);
+  const at = tokens.findIndex((t) => /^[<>≤≥]?-?\d+(?:[.,]\d+)?$/.test(t));
+  const before = at > 0 ? tokens[at - 1] : null;
+  // A flammability rating ("V-2", "HB 1,5 mm") stands where a unit stands and is not one.
+  const looksLikeAUnit = before && /[a-zµ°%²³]/i.test(before) && !/^[A-Za-z]{1,2}-?\d/.test(before)
+    && (before.length <= 5 || /[/°%²³·\d]/.test(before)) && before.length <= 12;
+  return looksLikeAUnit ? before : null;
+}
+
+/**
+ * Why a line that is plainly a row of a property table was not read. The audit closes the loop on these, and
+ * "no property and value this line states together" does not tell the owner whether what is missing is a label
+ * the lexicon does not know, a unit the property is not kept in, or a property properties.csv does not carry.
+ *
+ * It names what is missing and proposes nothing: a property, a unit and a vocabulary value are the owner's, and
+ * adding one is a change to data/ and schema/ in its own commit.
+ */
+export function unreadRowReason(line, registry) {
+  const plain = repair(String(line.text ?? '')).trim();
+  if (!/\d/.test(plain)) return null;
+  // A bullet is not a label, and the sentence beside it is not a row.
+  const cells = lineCells(line).map((c) => repair(c.text).trim()).filter((t) => t && !/^[•–—*-]+$/.test(t));
+  // The label is what the row is called, which ends where the method column begins whether or not the page
+  // left a gap there.
+  const label = (cells[0] ?? '').split(new RegExp(STANDARD_RE.source, 'i'))[0].replace(/\s+/g, ' ').trim();
+  if (!/[A-Za-z]{2}/.test(label) || label.split(/\s+/).length > 6) return null;
+  // A row of a table, rather than a sentence that happens to hold a number: it names a method, or it reads as a
+  // label, a method and a value in cells of its own.
+  const shaped = new RegExp(STANDARD_RE.source, 'i').test(plain)
+    || (cells.length >= 3 && /^[<>≤≥]?-?\d+(?:[.,]\d+)?$/.test(cells.at(-1)) && label.length <= 40 && !/\d/.test(label));
+  if (!shaped) return null;
+  const printed = printedUnitOf(plain);
+  const known = LABELS.find((l) => l.re.test(plain));
+  if (known) {
+    const units = String(registry.get(known.Property)?.Units ?? '').trim() || 'nothing';
+    return printed
+      ? `the sheet states ${known.Property} in ${printed}, and the database keeps it in ${units}`
+      : `the line names ${known.Property} and states no value in a unit the database keeps it in (${units})`;
+  }
+  if (!label) return null;
+  return printed
+    ? `properties.csv carries no property for "${label}" (${printed})`
+    : `properties.csv carries no property for "${label}"`;
+}
+
 /** Every value a sheet publishes, with the page and the line it was read from. */
 export function readSheet(text, registry) {
   const values = [], settings = [], skipped = [];
@@ -350,8 +464,21 @@ export function readSheet(text, registry) {
     .find(Boolean);
   for (const page of text.pages) {
     const footnotes = footnotesOf(page);
-    let section = 'properties';
-    let held = null, heldLabel = '', heldFor = 0, heldX = 0, prefix = '', prefixX = 0;
+    // A heading governs the column it stands in and no other. Extrudr prints "Recommended settings for printers
+    // with a 0.4mm Nozzle." in the print-settings column, halfway down the property table; a section that took
+    // the whole page from there explained every row below it as printing guidance, including the four the sheet
+    // prints under the heading it was still in.
+    let section = 'properties', sectionX = null;
+    let held = null, heldLabel = '', heldFor = 0, heldX = 0, heldMethods = [], prefix = '', prefixX = 0;
+    // A line that names a property but states no value the property is kept in becomes the label of the rows
+    // under it, and until now it left the page without a word either way: Extrudr's "Tensile modulus ISO
+    // 527-2/5A/500 MPa 40 Nozzle 230-260°C" simply vanished. A number the sheet prints is a row or a reasoned
+    // omission, so the line is remembered and written down if the label is dropped without a row having claimed it.
+    let pendingHeld = null;
+    const dropHeld = () => {
+      if (pendingHeld) skipped.push({ page: pendingHeld.page, text: pendingHeld.text, reason: pendingHeld.reason });
+      pendingHeld = null;
+    };
     // A sheet may print its table twice, once as printed and once annealed, and say which above each block. A row
     // that does not carry the words itself takes them from the block it is in (MEAS-CONDITIONS-INDISTINCT).
     let block = '';
@@ -360,8 +487,25 @@ export function readSheet(text, registry) {
       const blockHeading = /^\s*\(?(as[- ]printed|annealed|after annealing|not annealed|un-?annealed)\)?\s*$/i.exec(line.text.trim());
       if (blockHeading) { block = blockHeading[1].toLowerCase().replace('after annealing', 'annealed'); continue; }
       const heading = line.text.trim().length <= HEADING_LENGTH ? SECTIONS.find(([re]) => re.test(line.text.trim())) : null;
-      if (heading) { section = heading[1]; held = null; continue; }
-      const plain = repair(line.text).trim();
+      if (heading) { section = heading[1]; sectionX = line.x0 ?? 0; dropHeld(); held = null; continue; }
+      // Both tables of a two-column page arrive on one line. The row is what is left of the neighbour's first
+      // cell, the setting is what is right of it, and the sheet states both.
+      const [rowLine, neighbour] = splitAtNeighbour(line);
+      if (neighbour) { const beside = readSetting(neighbour, page.page); if (beside) settings.push(beside); }
+      const plain = repair(rowLine.text).trim();
+      const inSection = sectionX == null || Math.abs((line.x0 ?? 0) - sectionX) <= 24 ? section : 'properties';
+
+      // A stress the sheet states at an elongation is not the strength at break its label names: Extrudr prints
+      // "Stress at break ISO 527-2/5A/500 MPa 16 (50%)" and then two more rows, 16 at 100 % and 29 at 300 %, and
+      // the label is written once for all three. properties.csv carries no property for a stress at a stated
+      // elongation and no vocabulary states the condition, so the row is left for the owner rather than recorded
+      // against a property it does not belong to.
+      const atElongation = /\d(?:[.,]\d+)?\s*\(\s*(\d{1,4})\s*%\s*\)/.exec(plain);
+      if (atElongation && /MPa|N\s?\/\s?mm/i.test(plain)) {
+        skipped.push({ page: page.page, text: line.text.slice(0, 160),
+          reason: `a stress at ${atElongation[1]} % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names` });
+        continue;
+      }
 
       // A label with no value of its own holds for the next line, which is how a sheet prints a heat deflection
       // temperature and then a row per load. It holds for one line only: a label that survived a row it did not
@@ -375,7 +519,7 @@ export function readSheet(text, registry) {
       // "All testing specimens were printed under the following conditions: nozzle temperature = 205 °C".
       const aboutSpecimens = /\b(test(ing)? specimens?|specimens? were|test bars?)\b/i.test(plain);
       if (!aboutSpecimens && !LABELS.some((l) => l.re.test(plain))) {
-        const setting = readSetting(line, page.page);
+        const setting = readSetting(rowLine, page.page);
         if (setting) {
           // A statement can run onto the next line: extraction breaks "Closed chamber for printing not necessary"
           // after "printing", and the half that says what it is is on the line below. A value that states neither
@@ -389,7 +533,7 @@ export function readSheet(text, registry) {
               li += 1;
             }
           }
-          settings.push(setting); held = null; continue;
+          settings.push(setting); dropHeld(); held = null; continue;
         }
       }
 
@@ -403,8 +547,21 @@ export function readSheet(text, registry) {
       // A label line with a number in it but no value of its own still heads the rows under it: 3DXTECH prints
       // "Deflection Temperature at 0.45" and then "ISO 75 °C 172" and then "MPa (66psi)", and the 0.45 is the load,
       // not the result.
-      if (bare && (!/\d/.test(plain) || !readRow(line.text, registry))) {
-        held = bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0;
+      // A heading is a heading, not a paragraph that begins with the word. Extrudr footnotes its table with
+      // "HDT B, 0.45MPa flatwise. HDT depends on processing conditions. For crystaline resins, formulation
+      // included 3-7% nucleating agent", and held as a label it gave the storage paragraph's "18-27°C" and the
+      // tool temperature of the footnote itself to the heat deflection temperature.
+      const headsRowsBelow = plain.length <= HEADING_LENGTH && plain.split(/\s+/).length <= 8;
+      if (bare && headsRowsBelow && (!/\d/.test(plain) || !readRow(rowLine.text, registry))) {
+        // A label line that holds a number of its own and never gives it to a row below is a number the sheet
+        // prints and the proposal lost. It is written down when the label is dropped, not here, because until
+        // then the row under it may still be the one that states it.
+        dropHeld();
+        if (/\d/.test(plain)) {
+          pendingHeld = { page: page.page, text: line.text.slice(0, 160),
+            reason: unreadRowReason(rowLine, registry) ?? 'a label the lexicon knows, with a number its property is not kept in and no row below that stated one' };
+        }
+        held = bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0; heldMethods = methodsOf(plain);
         if (!/\d/.test(plain)) { prefix = plain; prefixX = line.x0 ?? 0; }
         continue;
       }
@@ -423,7 +580,12 @@ export function readSheet(text, registry) {
       // at the label's x and "DSC °C 187" at the value column's. Prose never begins with a standard or a unit, so
       // a line that does is the rest of the row above it wherever the page put it.
       const continuation = CONTINUES_ROW.test(plain);
-      const under = !own && held && (continuation || Math.abs((line.x0 ?? 0) - heldX) <= 24) && heldFor < 3;
+      // A row that names a method of its own is a row of its own. A wrapped row carries the method of the row it
+      // belongs to or names none at all, so a held "Flexural modulus ISO 178 MPa -", whose value the sheet left
+      // as a dash, may not claim the tensile storage modulus printed under it to ISO 6721.
+      const methods = methodsOf(plain);
+      const sameMethod = !heldMethods.length || !methods.length || methods.some((m) => heldMethods.includes(m));
+      const under = !own && held && sameMethod && (continuation || Math.abs((line.x0 ?? 0) - heldX) <= 24) && heldFor < 3;
       // A heading and the row under it may name a property that neither names alone.
       const together = !own && prefix && (continuation || Math.abs((line.x0 ?? 0) - prefixX) <= 24)
         ? LABELS.find((l) => l.re.test(`${prefix} ${plain}`.replace(/\s+/g, ' ').trim())) : null;
@@ -436,11 +598,14 @@ export function readSheet(text, registry) {
       // density of the PET-G ESD sheet, which is printed under the printing guide; a section is unreliable on a
       // two-column page, and what makes a line a result is that it names a property and a value in that
       // property's own unit. The section only decides how a line that is not a result is explained.
-      const read = readRow(line.text, registry, carry ? carried0 : null);
-      if (!read && section !== 'properties') {
+      const read = readRow(rowLine.text, registry, carry ? carried0 : null);
+      if (!read && inSection !== 'properties') {
         const storage = /\bstor|shelf|humid|moisture|dry room|keep out|desiccan|seal|vacuum|packag/i.test(plain);
-        if (/\d/.test(plain)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: section === 'print' ? 'in the printing guide, naming no setting the lexicon knows'
-          : storage ? 'a storage or shelf-life note, not a test result' : 'in the column beside the storage note, naming no property and value together' });
+        // A row of the property table standing inside another section is still a row, and what it is missing is
+        // what the reason should say.
+        const unread = unreadRowReason(rowLine, registry);
+        if (/\d/.test(plain)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: unread ?? (inSection === 'print' ? 'in the printing guide, naming no setting the lexicon knows'
+          : storage ? 'a storage or shelf-life note, not a test result' : 'in the column beside the storage note, naming no property and value together') });
         continue;
       }
       // A chart's axis is a number and a unit alone: "100MPa" on the comparison page of a Polymaker sheet was
@@ -449,10 +614,11 @@ export function readSheet(text, registry) {
       const unitLetters = String(read?.printedUnit ?? '').replace(/[^a-z]/gi, '');
       const bareNumber = Boolean(read) && letters.toLowerCase() === unitLetters.toLowerCase();
       const carried = Boolean(carry && read && !bareNumber);
-      if (carried) heldFor += 1;
-      if (own || (read && !carried)) { held = null; heldFor = 0; }
+      // The row below claimed the held label, so the label's own line is accounted for.
+      if (carried) { heldFor += 1; pendingHeld = null; }
+      if (own || (read && !carried)) { dropHeld(); held = null; heldFor = 0; }
       if (read && carry && bareNumber) { skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'a number and its unit alone, with no row of its own: a chart or a comparison, not a result' }); continue; }
-      if (!read) { if (/\d/.test(line.text)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'no property and value this line states together' }); continue; }
+      if (!read) { if (/\d/.test(line.text)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: unreadRowReason(rowLine, registry) ?? 'no property and value this line states together' }); continue; }
       if (read.range) { skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'the upper end of a range: a window, not a result' }); continue; }
 
       // What the row is called is the held label and the row's own words together: a sheet prints "Izod Impact
@@ -484,6 +650,7 @@ export function readSheet(text, registry) {
         printedSpecimens, orientation, block,
       });
     }
+    dropHeld();
   }
   return { values, settings, skipped };
 }
@@ -645,7 +812,12 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // two rows of one sheet, and without the words after the number they say the same thing.
   const after = /\(([^)]{2,40})\)\s*$/.exec(String(v.line ?? '').trim())?.[1] ?? '';
   const printed = [String(v.condition ?? ''), /anneal|as printed|dry|conditioned|moist|wet|flat|edge|upright/i.test(after) ? after : '', v.block ?? ''].filter(Boolean).join(' ');
-  const at0 = printed.search(/[,(@]|\d/);
+  // A designation's own digits do not begin the condition. A table that prints its method before its unit runs
+  // them together — "Flexural modulus (E-Modulus) ASTM D790 MPa" — and a cut at the first digit made the
+  // condition "790 MPa", which the load pattern then read as a test load of 790 MPa the sheet never printed.
+  const spans = [...printed.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]);
+  const at0 = [...printed.matchAll(/[,(@]|\d/g)].map((m) => m.index)
+    .find((i) => !spans.some(([from, to]) => i >= from && i < to)) ?? -1;
   const condition = (at0 > 0 ? printed.slice(at0) : printed.replace(v.read.match.re, ' '))
     .replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
   // A rate is a condition of the test, not a temperature it was run at: "VICAT, 50 N (heating rate 50°C/h)".
@@ -654,8 +826,11 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
     // A rate outside its brackets is still a rate: "Melting temperature (DSC), 10°C/min 185°C" recorded 10 °C as
     // the temperature the test was run at.
     .replace(/-?\d+(?:[.,]\d+)?\s*[°º˚]?\s*C\s*\/\s*(?:min|h|hr)\b/gi, ' ');
-  // A load is printed in MPa, in MN/m² or in N/mm², which are the same unit under three names.
-  const load = /([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m\s?2|N\s?\/\s?mm\s?2))/i.exec(withoutRate);
+  // A load is printed in MPa, in MN/m² or in N/mm², which are the same unit under three names. It is looked for
+  // with the designations out of the way: "ASTM D790 MPa" is a method beside a unit column, and read whole it
+  // gave every row of that layout a test load of 790 MPa.
+  const withoutStandard = withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' ');
+  const load = /([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m\s?2|N\s?\/\s?mm\s?2))/i.exec(withoutStandard);
   // What the row says about how it was measured: the standard it names and the load it was tested under. The
   // notch, the test temperature and the property's own name have columns of their own, so repeating them here
   // would be the label in the method column again. A row that names neither keeps whatever words are left.

@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor } from '../scripts/ingest/propose.mjs';
+import { readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -236,4 +236,109 @@ test('a heading and the row under it name a property neither names alone', () =>
   // The row is named after the heading that matched it, not after whichever label was held last.
   const rows = sheet.values.filter((v) => v.label && v.label.length);
   assert.ok(rows.every((v) => v.property), 'every value names a property');
+});
+
+
+// A page as the extractor leaves it: pieces at the x the page's own columns stand at. A data sheet that prints
+// its property table and its print-settings table side by side arrives one row at a time, both columns together.
+const at = (...pieces) => {
+  const spans = pieces.map(([x, str]) => ({ x, w: str.length * 5, str }));
+  return { y: 0, x0: spans[0].x, x1: spans.at(-1).x + spans.at(-1).w, text: spans.map((s) => s.str).join('  '), spans };
+};
+
+test('a line that runs two tables together states a row and a setting, and both are read', () => {
+  // Extrudr prints "LABEL | TEST METHOD | UNIT | VALUE" with the print settings in a column beside it, so
+  // extraction interleaves the two. Read whole, the row was offered the nozzle's temperature as its value; and
+  // because a line that names a property is never taken for a setting, the nozzle was never read at all.
+  const line = at([67, 'Tensile modulus (E-Modulus) ISO 527-2/5A/500 MPa 40'], [391, 'Nozzle 230-260°C']);
+  const [row, neighbour] = splitAtNeighbour(line);
+  assert.equal(row.text, 'Tensile modulus (E-Modulus) ISO 527-2/5A/500 MPa 40');
+  assert.deepEqual([readSetting(neighbour).field, readSetting(neighbour).raw], ['nozzle', '230-260°C']);
+  assert.equal(read(row.text).match.Property, 'Tensile modulus');
+  assert.equal(read(row.text).rawNumber, '40');
+  // A line with nothing beside it is not cut.
+  assert.equal(splitAtNeighbour(at([67, 'Compressive strength DIN 53453 MPa 40']))[1], null);
+});
+
+test('a standard designation is never a value, however many parts it names', () => {
+  // "ISO 527-2/5A/500" ends in 500 and "DIN 53453" in 53453; neither is a number the sheet published.
+  assert.equal(read('Tensile modulus (E-Modulus) ISO 527-2/5A/500 MPa 40').rawNumber, '40');
+  assert.deepEqual(read('Tensile modulus (E-Modulus) ISO 527-2/5A/500 MPa 40').standards, ['ISO 527-2/5A/500']);
+  assert.equal(read('Compressive strength DIN 53453 MPa 40').rawNumber, '40');
+  // "ISO 527-1,-2" is one method. Half-read, its ",-2" was a minus sign and the yield strength read as -2 MPa.
+  const yielded = read('Yield Strength ISO 527-1,-2 MPa 70,2');
+  assert.deepEqual([yielded.match.Property, yielded.rawNumber], ['Tensile yield strength', '70.2']);
+  assert.deepEqual(yielded.standards, ['ISO 527-1,-2']);
+});
+
+test('where the unit comes first, what qualifies the value comes after it', () => {
+  // A window: read as a point, a sheet that publishes 190 to 210 recorded a melting temperature of 190.
+  const melting = read('Melting temperature ISO 3146-C °C 190-210');
+  assert.deepEqual([melting.rawNumber, melting.upper, melting.raw], ['190', '210', '190-210 °C']);
+  assert.equal(melting.range, false);
+  // A spread behind the value is the same statement as one in front of it.
+  const elongation = read('Elongation at yield ISO 527-2 % 3,5 ± 0,1');
+  assert.deepEqual([elongation.rawNumber, elongation.uncertainty], ['3.5', '0.1']);
+  // A bound is a bound, and a negative value is negative.
+  const bound = read('Tensile Elongation, Break ISO 527 % >300');
+  assert.deepEqual([bound.rawNumber, bound.operator], ['300', '>']);
+  assert.equal(read('Glass transition temperature °C -24').rawNumber, '-24');
+  // The unit may stand beside a "number unit" pair that is not the result: the test temperature is a condition.
+  assert.equal(read('Notched impact strength ASTM D256 kj/m² 100 @ 23°C').rawNumber, '100');
+});
+
+test('a unit that ends in a digit keeps its digit, and does not lend it to the value', () => {
+  // "kJ/m2 19" joined into "kJ/m219" and the impact rows of that layout were invisible; "g/cm3 1.14" offered the
+  // 3 of the unit as the value and its 1.14 as the spread, and the density read as 3000 kg/m³.
+  assert.equal(read('Notched impact strength ISO 179/1eA kJ/m2 19').rawNumber, '19');
+  const density = read('Density ASTM D792 g/cm3 1.14');
+  assert.deepEqual([density.rawNumber, density.uncertainty], ['1.14', null]);
+});
+
+// A page laid out the way Extrudr lays one out.
+const twoColumns = { pages: [{ page: 1, lines: [
+  at([67, '3. PROPERTIES']),
+  at([67, 'Tensile modulus (E-Modulus) ISO 527-2/5A/500 MPa 40'], [391, 'Nozzle 230-260°C']),
+  at([67, 'Ultimate elongation ISO 527-2/5A/500 % 490'], [391, 'Heatbed 50-90°C']),
+  at([67, 'Stress at break ISO 527-2/5A/500 MPa 16 (50%)'], [391, 'Adhesive not required']),
+  at([67, 'Density ISO 2781 g/cm³ 1.2'], [391, 'Max. Volumetric Speed 4,6 mm³/s']),
+  at([391, 'Recommended settings for printers with a 0.4mm Nozzle.']),
+  at([67, 'Tear strength ISO 34-1B kN/m 175']),
+  at([67, 'Compressive strength DIN 53453 MPa 40']),
+] }] };
+
+test('a section heading governs the column it stands in, not the rest of the page', () => {
+  const sheet = readSheet(twoColumns, registry);
+  // The print-settings column heads itself halfway down the property table. A section that took the whole page
+  // from there explained the four rows below it as printing guidance and read none of them.
+  assert.deepEqual(sheet.values.map((v) => [v.property, v.read.rawNumber]), [
+    ['Tensile modulus', '40'], ['Elongation at break', '490'], ['Density', '1.2'], ['Compression strength', '40'],
+  ]);
+  // The settings of the column beside it are read, on the same lines as the rows.
+  assert.deepEqual(sheet.settings.map((s) => [s.field, s.raw]), [
+    ['nozzle', '230-260°C'], ['bed', '50-90°C'], ['note', 'not required'], ['note', '4,6 mm³/s'],
+  ]);
+});
+
+test('a stress the sheet states at an elongation is not the strength at break its label names', () => {
+  // "16 (50%)" is one of three stresses printed under one label, at 50 %, 100 % and 300 % elongation.
+  // properties.csv carries no property for a stress at a stated elongation and no vocabulary states the
+  // condition, so the number is left for the owner rather than recorded as a tensile strength at break.
+  const sheet = readSheet(twoColumns, registry);
+  assert.ok(!sheet.values.some((v) => v.read.rawNumber === '16'));
+  const left = sheet.skipped.find((s) => /Stress at break/.test(s.text));
+  assert.match(left.reason, /stress at 50 % elongation/);
+});
+
+test('a row the reader cannot read says what the database is missing, and proposes nothing', () => {
+  // "no property and value this line states together" does not tell the owner whether the fix is a lexicon
+  // entry, a unit or a property; the audit closes the loop on these reasons.
+  const sheet = readSheet(twoColumns, registry);
+  const tear = sheet.skipped.find((s) => /Tear strength/.test(s.text));
+  assert.equal(tear.reason, 'properties.csv carries no property for "Tear strength" (kN/m)');
+  assert.equal(
+    unreadRowReason(at([67, 'MFR ASTM D1238 g/cm³ 9']), registry),
+    'the sheet states Melt mass-flow rate in g/cm³, and the database keeps it in g/10 min');
+  // A sentence that happens to carry a number is not a row of a table, and gets no such reason.
+  assert.equal(unreadRowReason(at([67, 'Store in a dry room at room temperature (18-27°C / 65-80°F).']), registry), null);
 });

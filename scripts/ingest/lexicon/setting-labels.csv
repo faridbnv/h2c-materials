@@ -1,14 +1,14 @@
 Label,Field,Topic,Note
-^(nozzle|print(ing)?|extrusion|extruder|hot ?end)\s*temp\w*(\s*[-(]?\s*(standard|high)\s*speed\)?)?,nozzle,,a sheet that prints two speeds prints two nozzle rows; the first is the standard one
-^(bed|heat ?bed|heated bed|build plate|platform|table)\s*temp\w*,bed,,
+"^(nozzle|print(ing)?|extrusion|extruder|hot ?end)\s*temp\w*(\s*[-(]?\s*(standard|high)\s*speed\)?)?|^nozzle(?!\s*(material|type|diameter|size))\b",nozzle,,"a sheet that prints two speeds prints two nozzle rows; the first is the standard one. A table with a temperature column names the setting alone (""Nozzle 230-260°C""), and the value must still state a temperature"
+"^(bed|heat ?bed|heated bed|build plate|platform|table)\s*temp\w*|^heat ?bed\b",bed,,a table with a temperature column names the bed alone
 ^(chamber|enclosure|housing)\s*temp\w*,chamber,,
-^(closed chamber|chamber|enclosure|housing),enclosure,,a chamber statement with no temperature of its own is about the enclosure
+^(closed|enclosed)\s*(chamber|space|build ?(chamber|volume))|^(chamber|enclosure|housing),enclosure,,a chamber statement with no temperature of its own is about the enclosure
 ^(build plate|print(ing)? (surface|plate)|bed surface|plate)\b,plate,,
 ^(drying|dry)\s*(temperature|conditions|settings|parameters|recommendations)|^dry(ing)? before,drying,,
 ^(ruby or hardened nozzle|hardened nozzle|abrasion[- ]resistant nozzle|nozzle (type|material)),nozzle-material,,"'Abrasion resistance' is a measured property (ISO 4649), not a statement about the nozzle"
 ^nozzle (diameter|size),nozzle-diameter,,
 ^(active )?cooling( fan| fan speed| rate)?|^(part(-| )?)?fan( speed)?,note,Cooling,
-^(print(ing)? )?speed,note,Speed,
+"^(print(ing)? )?speed|^(max\.?|maximum)?\s*volumetric\s*(flow\s*)?(speed|rate)?",note,Speed,a maximum volumetric speed is a limit on the print speed and the register keeps it as speed guidance
 ^(recommended )?layer (height|thickness),note,Layer height,
 ^(shell|wall|perimeter)s?\s*(thickness|count|number)?,note,Shell / walls,
 ^retraction( distance| speed| settings)?,note,Retraction,

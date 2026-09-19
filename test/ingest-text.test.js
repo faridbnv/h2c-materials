@@ -76,3 +76,18 @@ test('lines are rebuilt from spans, so a caller may read a document without the 
   const pages = await pdfPages(bytes);
   assert.deepEqual(pageLines(pages[0].spans).map((l) => l.text), text.pages[0].lines.map((l) => l.text));
 });
+
+test('a designation is taken out whole, however many parts it has', () => {
+  // Extrudr states the specimen and the speed in the designation ("ISO 527-2/5A/500"), and what was left of it
+  // ("A/500") put a 500 next to the unit of the value beside it.
+  assert.equal(joinDigits('Tensile modulus ISO 527-2/5A/500 MPa 40').replace(/\s+/g, ' ').trim(), 'Tensile modulus § MPa 40');
+  assert.equal(joinDigits('Vicat ISO 306/B50 °C 142').replace(/\s+/g, ' ').trim(), 'Vicat § °C 142');
+  assert.equal(joinDigits('Charpy ISO 179/1eA kJ/m² 11').replace(/\s+/g, ' ').trim(), 'Charpy § kJ/m² 11');
+  assert.equal(joinDigits('Abrasion ISO 4649-A mm³ 26').replace(/\s+/g, ' ').trim(), 'Abrasion § mm³ 26');
+});
+
+test("a unit's own digit is not joined to the value beside it", () => {
+  assert.match(joinDigits('Density ISO 1183 g/cm3 1.24'), /g\/cm3 1\.24/);
+  // The joining that splits digits back together still does its work.
+  assert.match(joinDigits('HDT 1 05 °C'), /105 °C/);
+});

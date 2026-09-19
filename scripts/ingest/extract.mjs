@@ -11,6 +11,7 @@
 //   npm run ingest:extract -- --batch b06
 //   npm run ingest:extract -- --all                    everything fetched and not yet read
 //   npm run ingest:extract -- ... --refresh            read again, ignoring the cache
+//   npm run ingest:extract -- ... --rescan             decide twins and translations again, from what it reads now
 //
 // Writes .cache/text/<sha>.json (gitignored) and records twins in the ledger. Nothing here touches data/.
 
@@ -18,7 +19,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { documentText, allLines, joinDigits, statementRe, cacheDir, sha256 } from '../lib/pdf-text.mjs';
+import { documentText, allLines, joinDigits, statementRe, unitFirstStatementRe, cacheDir, sha256 } from '../lib/pdf-text.mjs';
 import { HEADER } from './inventory.mjs';
 
 const LEDGER = join(projectRoot, 'docs/audits/2026-09-18-v2-import/ledger.csv');
@@ -65,13 +66,43 @@ export function languageOf(text) {
   return best[1] ? best[0] : '';
 }
 
-/** A language marker in a document's own file name, which is how a publisher usually says which it is. */
-export const languageFromUrl = (url) => /(?:^|[_/-])(en|pl|de|fr|es|it|cs|cz|nl|pt|ru|jp|zh)[_-]/i.exec(String(url ?? '').split('/').pop() ?? '')?.[1]?.toLowerCase() ?? '';
+/**
+ * A language marker in a document's own link, which is how a publisher usually says which it is. Extrudr names
+ * the edition at the end ("durapro-pa12-TDS-it.pdf") and again in the folder ("/tds/tds-it/"), so the marker is
+ * looked for in the whole path, at either end of a word: a marker seen only as "-it.pdf" was read as no marker
+ * at all, and seven Italian, French and German editions queued as documents of their own.
+ */
+const LANGUAGE_CODES = 'en|pl|de|fr|es|it|cs|cz|nl|pt|ru|jp|zh';
+export const languageFromUrl = (url) => {
+  const path = String(url ?? '').split('?')[0];
+  const file = path.split('/').pop() ?? '';
+  const inFile = new RegExp(`(?:^|[_-])(${LANGUAGE_CODES})(?:[_-]|\\.[a-z0-9]+$)`, 'i').exec(file);
+  if (inFile) return inFile[1].toLowerCase();
+  const inPath = new RegExp(`/(?:tds|docs?|datasheets?|files?)[_-](${LANGUAGE_CODES})/`, 'i').exec(path);
+  return inPath ? inPath[1].toLowerCase() : '';
+};
+
+/** The same link with its language markers taken out: two editions of one sheet differ by nothing else. */
+export const withoutLanguage = (url) => String(url ?? '').split('?')[0].toLowerCase()
+  .replace(new RegExp(`/(?:tds|docs?|datasheets?|files?)[_-](?:${LANGUAGE_CODES})/`, 'i'), '/')
+  .replace(new RegExp(`[_-](?:${LANGUAGE_CODES})(\\.[a-z0-9]+)$`, 'i'), '$1');
 
 export function fingerprint(text) {
   const statements = [];
   for (const { text: line } of allLines(text)) {
-    for (const m of joinDigits(line).matchAll(statementRe())) statements.push(`${m[1]}${m[3].replace(/\s/g, '')}`);
+    // A German or Italian edition writes 0,45 where an English one writes 0.45, and a thousands separator goes the
+    // other way round; reading either as a decimal point makes both editions of a sheet state the same numbers.
+    // A standard's designation is not a result either, and "ISO 527-2/5A/500 MPa 40" states 40, not 500.
+    const joined = joinDigits(line).replace(/(\d),(\d)/g, '$1.$2');
+    const before = statements.length;
+    for (const m of joined.matchAll(statementRe())) statements.push(`${m[1]}${m[3].replace(/\s/g, '')}`);
+    // Where the line puts the unit in a column before the value, read it that way round. Extrudr's four Flex
+    // grades state every result as "ISO 527-2/5A/500 MPa 40", so the only numbers a value-first fingerprint could
+    // see were the test conditions their sheets share, and four different products arrived as one sheet served
+    // four times.
+    if (statements.length === before) {
+      for (const m of joined.matchAll(unitFirstStatementRe())) statements.push(`${m[2]}${m[1].replace(/\s/g, '')}`);
+    }
   }
   return statements.sort();
 }
@@ -94,6 +125,22 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
     && (provider ? r.provider === provider || r.manufacturer === provider : true)
     && (batch ? r.batch === batch : true));
   if (!wanted.length) { console.log('nothing fetched to read'); process.exit(0); }
+
+  // Twin and translation findings are a reading of the numbers, so a reader that has learned to see more of them
+  // has to be allowed to say so again. --rescan puts the documents this run covers back to `extracted` and lets
+  // the clustering below decide afresh; a document already registered or applied keeps its status.
+  if (flag('rescan')) {
+    let reset = 0;
+    for (const row of wanted) {
+      if (!['duplicate-of', 'twin-check'].includes(row.status)) continue;
+      row.duplicate_of = '';
+      row.duplicate_kind = '';
+      row.status = 'extracted';
+      row.status_note = '';
+      reset++;
+    }
+    if (reset) console.log(`${reset} earlier twin or translation finding(s) reopened`);
+  }
 
   const prints = new Map();
   let read = 0, failed = 0;
@@ -166,6 +213,12 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
       if ((a.row.manufacturer || a.row.provider) !== (b.row.manufacturer || b.row.provider)) continue;
       const [la, lb] = [languageFromUrl(a.row.url) || a.row.language, languageFromUrl(b.row.url) || b.row.language];
       if (!la || !lb || la === lb || lb !== 'en') continue;
+      // The same sheet, not merely a sheet whose numbers look alike: one link but for the language marker, or one
+      // product name. Extrudr's PLA Basic Bundle prints seven numbers, all of them conditions every one of its
+      // sheets repeats, and on the numbers alone its German and Italian editions matched a document of another
+      // product entirely.
+      if (named(a.row.product_raw) !== named(b.row.product_raw)
+        && withoutLanguage(a.row.url) !== withoutLanguage(b.row.url)) continue;
       if (agreement(a.print, b.print) < 0.75) continue;
       a.row.duplicate_of = b.row.doc_key;
       a.row.duplicate_kind = 'translation';

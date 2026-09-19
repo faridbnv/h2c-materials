@@ -3,17 +3,27 @@ Label,Property,Direction,Notch,Note
 ^tensile (stress|strength)[^a-z]*(at )?break|^tensile break,Tensile break strength,,Not applicable,
 ^tensile (stress|strength)[^a-z]*(at )?yield|^tensile yield,Tensile yield strength,,Not applicable,
 ^tensile (stress|strength)\b,Tensile strength (endpoint unspecified),,Not applicable,
+"^strength\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile strength (endpoint unspecified),,Not applicable,"a row labelled only ""Strength"" under a tensile standard states no endpoint, which is the property this is"
+"^stress at break\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile break strength,,Not applicable,"the sheet names the endpoint and the method column names the tensile test; a stress the sheet states at an elongation is not this row and is left for the owner"
+"^breaking stress\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile break strength,,Not applicable,"the same row under the maker’s other name for it"
+"^yield (stress|strength)\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile yield strength,,Not applicable,"the method column names the tensile test, so the yield is the tensile one"
+"^yield strain\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Elongation at yield,,Not applicable,"the strain at yield of a tensile test is the elongation at yield"
 ^(tensile |young.?s |elastic )?e?-?modulus (of elasticity|tensile)|^modulus of elasticity|^(tensile|young.?s|elastic) modulus,Tensile modulus,,Not applicable,
+"^e-?modulus\b(?=.*\b(?:ISO\s?178|ASTM\s?D\s?790)\b)",Flexural modulus,,Not applicable,"a sheet may head the row with the modulus alone; which modulus it is is the test it names, and ISO 178 is the bending test"
+"^e-?modulus\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile modulus,,Not applicable,"the same row where the test it names is the tensile one"
 "^(tensile )?elongation[^a-z]{0,3}\(?(at )?break|^tensile strain at break|^tensile elongation[^a-z]*(at )?break|^elongation[^a-z]*at break|^tensile strain \(break\)",Elongation at break,,Not applicable,
 "^(tensile )?elongation[^a-z]{0,3}\(?(at )?yield|^tensile strain at yield|^tensile strain \(yield\)|^tensile elongation[^a-z]*(at )?yield",Elongation at yield,,Not applicable,
 ^tensile strain at (strength|max)|^elongation at max,Tensile strain at strength,,Not applicable,
+"^elongation at stren\w*",Tensile strain at strength,,Not applicable,"a sheet spells it strenght; a source’s own typo is not a reason to lose the row"
 ^flexural modulus|^bending modulus,Flexural modulus,,Not applicable,
 ^flexural (stress|strength)|^bending strength,Flexural strength,,Not applicable,
 ^charpy[^a-z]*(impact )?(strength )?notched|^notched charpy,Charpy strength,Not applicable,Notched,
 ^charpy,Charpy strength,Not applicable,Unnotched,an unqualified Charpy row is the unnotched one; the method may say otherwise and wins
 ^izod[^a-z]*(impact )?(strength )?notched|^notched izod,Izod impact strength,Not applicable,Notched,
 ^izod,Izod impact strength,Not applicable,Unnotched,
-^(temperature of deflection under load|heat (deflection|distortion) temperature|deflection temperature|hdt),HDT,Not applicable,Not applicable,the load is a condition the row or the line above states
+"^notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Notched,"the row names the notch and not the test, and the method column names which test it is; a row that names no method is left to the label above it, which is where a sheet that prints a block per notch says Charpy or Izod"
+"^un-?notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Unnotched,the same row unnotched
+"^(temperature of deflection under load|heat (deflection|distortion) temp(erature)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."""
 ^vicat,Vicat softening temperature,Not applicable,Not applicable,
 ^glass transition,Glass transition temperature,Not applicable,Not applicable,
 ^melt(ing)? (temperature|point),Melting temperature,Not applicable,Not applicable,
@@ -29,4 +39,4 @@ Label,Property,Direction,Notch,Note
 ^compressi(on|ve) strength,Compression strength,,Not applicable,
 ^low temperature impact( strength)?,Impact strength,Not applicable,Not published,"a maker's name for an impact test run below room temperature; which test it is comes from the standard it names, and the temperature is the row's own condition"
 ^impact\b|^notched$|^unnotched$,Impact strength,Not applicable,Not published,"the sheet names no test; ISO 180 or ASTM D256 makes it Izod, ISO 179 or GB/T 1043 Charpy"
-^tensile elongation\b|^elongation\b,Elongation at break,,Not applicable,"an unqualified ISO 527 elongation is the value at failure, which is how this database records the sheets that print one figure; a sheet that labels its endpoint matches the row above this one"
+^tensile elongation\b|^elongation\b|^ultimate elongation\b|^nominal (elongation|strain) at break\b|^strain at break\b,Elongation at break,,Not applicable,"an unqualified ISO 527 elongation is the value at failure, which is how this database records the sheets that print one figure; a sheet that labels its endpoint matches the row above this one"
