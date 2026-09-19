@@ -1,0 +1,919 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_Polymaker_ABS-v6.0_2025-12-04.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Polymaker",
+    "docKey": "bd97c433b2003462"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "Publisher": "Polymaker",
+      "Title": "TECHNICAL",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_Polymaker_ABS-v6.0_2025-12-04.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker ABS",
+        "Shared formulation key": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.04 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.04",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1040",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1183 ISO1183 GB/T1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Density ISO1183, GB/T1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO1183, GB/T1033 1.04 g/cm at 23°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "101 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "101",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "101",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Glass transition temp. DSC, 10°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temp. DSC, 10°C/min 101°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "104 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "104",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "104",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "306 ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Vicat softening temp. ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. ISO 306, GB/T 1633 104°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2246.6 ± 58.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2246.6",
+        "Raw uncertainty ±": "58.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.2466",
+        "Normalized uncertainty ±": "0.0582",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Young’s modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X-Y) 2246.6 + 58.2 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2080.9 ± 92.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2080.9",
+        "Raw uncertainty ±": "92.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.0809",
+        "Normalized uncertainty ±": "0.0927",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Young’s modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (Z) 2080.9 + 92.7 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "33.4 ± 0.6 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "33.4",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "33.4",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Tensile strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) 33.4 + 0.6 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "29.7 ± 0.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "29.7",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29.7",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Tensile strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (Z) 29.7 + 0.3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "18.0 ± 0.9 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "18",
+        "Raw uncertainty ±": "0.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "18",
+        "Normalized uncertainty ±": "0.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "Locator": "p. 1: Notched Charpy impact strength (X-Y) ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched Charpy impact strength (X-Y) ISO 179, GB/T 1043 18.0 + 0.9 kJ/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "245-265°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "245",
+        "Nozzle max °C": "265",
+        "Nozzle requirement": "required",
+        "Bed °C": "90-100°C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Retraction",
+          "Text": "1-3 (mm)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 245-265°C Printing Speed 50-200mm/s"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "90-100°C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Retraction",
+          "Text": "1-3 (mm)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Build plate temperature 90-100°C Drying temp. and time 70°C/6H"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "245-265°C",
+      "line": "Nozzle temperature 245-265°C Printing Speed 50-200mm/s"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "90-100°C",
+      "line": "Build plate temperature 90-100°C Drying temp. and time 70°C/6H"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "1-3 (mm)",
+      "line": "Build surface treatment PC and Textured PEI Retraction distance 1-3 (mm)"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "260°C",
+      "line": "Printing temperature 260°C Infill 100%"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "90°C",
+      "line": "Bed temperature 90°C Shell 2"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "V6.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "70% RH, 23°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 2 4 6 8 9 10 11 12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Equilibrium Water Absorption 0.35%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.8 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melting temp. DSC, 10°C/min N/A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DSC, 10°C/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Decompoaition temp. TGA, 20°C/min >380°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "-0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 25 50 75 100 125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection temp. ISO 75 1.8MPa 98°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "98.299.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection temp. ISO 75 0.45MPa 100°C Temperature / °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Curve results are the average of 3 samples",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "17.9 1.3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.1 0.3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2127.2 29.9 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "56.2 _ 0.3 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling fan OFF Retraction Speed 20-40 (mm/s)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "*Based on 0.4mm nozzle. Printing conditions may vary",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Top & bottom layer 3 Cooling fan OFF",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Environmental Temperature 90°C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341 ISO 527, GB/T 1040 ISO 179, GB/T 1043",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "150.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "114.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "60.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "45.00°",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "20.00 10.00 10.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "10.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "4*R25",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "4.00 4.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "4.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

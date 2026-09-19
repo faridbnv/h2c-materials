@@ -1,0 +1,1741 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "457e311c965fc2f124faa04c893340683a98f9467686e874ae4d2dce5d34e7a7",
+    "url": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_HT-PLA-GF_V1.2_2025-12-09_EN.pdf",
+    "pages": 1,
+    "provider": "Polymaker / Fiberon",
+    "manufacturer": "Polymaker",
+    "docKey": "457e311c965fc2f1"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: htpla",
+      "filler: gf"
+    ],
+    "materialId": "M019",
+    "materialName": "PLA-GF",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+      "Publisher": "Polymaker",
+      "Title": "TECHNICAL",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_HT-PLA-GF_V1.2_2025-12-09_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "457e311c965fc2f124faa04c893340683a98f9467686e874ae4d2dce5d34e7a7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M019",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker HT PLA GF",
+        "Shared formulation key": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "V1.2 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.34 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.34",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1340",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1183 ISO1183 GB/T1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Density ISO1183, GB/T1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO1183, GB/T1033 1.34 g/cm at 23°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "22.9 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "22.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "210°C 2.16kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Melt index 210°C, 2.16kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt index 210°C, 2.16kg 22.9g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "59.76 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "59.76",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.76",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Glass transition temp. DSC, 10°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temp. DSC, 10°C/min 59.76°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "148.9 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "148.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "148.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "306 ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Vicat softening temp. ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. ISO 306, GB/T 1633 148.9°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "148.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "148.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "148.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "306 annealed as printed ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Vicat softening temp. ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. ISO 306, GB/T 1633 148.3°C (annealed)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3793.85 ± 129.17 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3793.85",
+        "Raw uncertainty ±": "129.17",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.79385",
+        "Normalized uncertainty ±": "0.12917",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Young’s modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X-Y) 3793.85 + 129.17 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3018.1 ± 83.42 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3018.1",
+        "Raw uncertainty ±": "83.42",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.0181",
+        "Normalized uncertainty ±": "0.08342",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Z as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Young’s modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (Z) 3018.1 + 83.42 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "50.09 ± 0.73 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50.09",
+        "Raw uncertainty ±": "0.73",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50.09",
+        "Normalized uncertainty ±": "0.73",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Tensile strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) 50.09 + 0.73 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "23.68 ± 1.28 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "23.68",
+        "Raw uncertainty ±": "1.28",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "23.68",
+        "Normalized uncertainty ±": "1.28",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Z as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Tensile strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (Z) 23.68 + 1.28 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.77 ± 0.45 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.77",
+        "Raw uncertainty ±": "0.45",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.77",
+        "Normalized uncertainty ±": "0.45",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (X-Y) 2.77 0.45%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "0.85 ± 0.05 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.85",
+        "Raw uncertainty ±": "0.05",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.85",
+        "Normalized uncertainty ±": "0.05",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Z as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Elongation at break (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (Z) 0.85 + 0.05%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "29.21 ± 1.42 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "29.21",
+        "Raw uncertainty ±": "1.42",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29.21",
+        "Normalized uncertainty ±": "1.42",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Z as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Bending strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength (Z) 29.21 + 1.42 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "4.28 ± 0.18 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "4.28",
+        "Raw uncertainty ±": "0.18",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.28",
+        "Normalized uncertainty ±": "0.18",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Z as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Notched Charpy impact strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched Charpy impact strength (Z) 4.28 + 0.18 kJ/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4206.91 ± 182.01 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4206.91",
+        "Raw uncertainty ±": "182.01",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.20691",
+        "Normalized uncertainty ±": "0.18201",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Young’s modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X-Y) 4206.91 +182.01 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3052.15 ± 101.57 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3052.15",
+        "Raw uncertainty ±": "101.57",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.05215",
+        "Normalized uncertainty ±": "0.10157",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Young’s modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (Z) 3052.15 + 101.57 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "50.2 ± 0.93 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50.2",
+        "Raw uncertainty ±": "0.93",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50.2",
+        "Normalized uncertainty ±": "0.93",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Tensile strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) 50.2 +0.93 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "22.46 ± 1.54 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "22.46",
+        "Raw uncertainty ±": "1.54",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22.46",
+        "Normalized uncertainty ±": "1.54",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Tensile strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (Z) 22.46 + 1.54 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.3 ± 0.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.3",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.3",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (X-Y) 2.3 0.2%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "0.79 ± 0.07 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.79",
+        "Raw uncertainty ±": "0.07",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.79",
+        "Normalized uncertainty ±": "0.07",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Elongation at break (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (Z) 0.79 + 0.07%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1953.62 ± 260.81 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1953.62",
+        "Raw uncertainty ±": "260.81",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.95362",
+        "Normalized uncertainty ±": "0.26081",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "Locator": "p. 1: Bending modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus (Z) 1953.62 + 260.81 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210-230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "25-60°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(X-Y) 0.05%"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(Z) 0.05%"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(D) 0.10%"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20-40 (mm/s)"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Up to 350mm/s"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 210-230°C Drying temp. and time 60°C/6H"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M019",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "25-60°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(X-Y) 0.05%"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(Z) 0.05%"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(D) 0.10%"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20-40 (mm/s)"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Up to 350mm/s"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Build plate temperature 25-60°C Annealing temp."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Shrinkage",
+      "raw": "(X-Y) 0.05%",
+      "line": "Shrinkage (X-Y) 0.05%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Shrinkage",
+      "raw": "(Z) 0.05%",
+      "line": "Shrinkage (Z) 0.05%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Shrinkage",
+      "raw": "(D) 0.10%",
+      "line": "Shrinkage (D) 0.10%"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "210-230°C",
+      "line": "Nozzle temperature 210-230°C Drying temp. and time 60°C/6H"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "25-60°C",
+      "line": "Build plate temperature 25-60°C Annealing temp."
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Speed",
+      "raw": "20-40 (mm/s)",
+      "line": "Closure chamber Not Needed Retraction Speed 20-40 (mm/s)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "Up to 350mm/s",
+      "line": "Printing Speed Up to 350mm/s Additional requirements"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "230°C",
+      "line": "Printing temperature 230°C Infill 100%"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "50°C",
+      "line": "Bed temperature 50°C Shell 2"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "V1.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "mechanical stress and temperatures up to 100°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "70% RH, 23°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 2 4 6 8 10 12 14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "T E S T I N G M E T H O D 0.30 As Printed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.25 Annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melting temp. DSC, 10°C/min 174.87°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.05",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Crystallization temp. DSC, 10°C/min 81.56°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "-0.05",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "23 24 36 47 58 69 79 90 100 110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Decompoaition temp. TGA, 20°C/min 348.15°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "75.5 114.7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection temp. ISO 75, 1.8MPa 59.7°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.25 1.8 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection temp. ISO 75, 0.45MPa 75.5°C Annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.05",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "-0.05",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection temp. ISO 75 1.8MPa 84°C (annealed)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "24.5 27 35 44 52 60 69 76 83",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "59.7 71.7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection temp. ISO 75, 0.45MPa 114.7°C (annealed)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Curve results are the average of 3 samples",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3684.87 _ 115.49 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "86.41 1.38 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.31 0.46 kJ/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 179, GB/T 1043",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3948.4 _ 67.03 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "87.76 1.96 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.92 0.5 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 179, GB/T 1043",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80-100°C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(Reccomended 100°C)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "20-30 Mins",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(Reccomended 30 mins)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling fan ON Retraction distance 1-3 (mm)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "*Based on 0.4mm nozzle. Printing conditions",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Top & bottom layer 3 Cooling fan ON",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341 ISO 527, GB/T 1040 ISO 179, GB/T 1043",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "150.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "114.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "60.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "45.00°",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "20.00 10.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "10.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "10.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "4*R25",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "4.00 4.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "4.00",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "*Based on testing with Polymaker™ HT-PLA-GF Grey (SKU: PA18003)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

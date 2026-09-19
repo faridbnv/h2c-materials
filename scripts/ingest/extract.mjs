@@ -55,6 +55,8 @@ const LANGUAGES = [
 ];
 
 export const SAFETY_SHEET = /\b(safety data sheet|material safety data sheet|msds|karta charakterystyki|sicherheitsdatenblatt)\b/i;
+// A user guide is not a data sheet either: it tells a reader how to print, and its numbers are settings.
+export const NOT_A_DATA_SHEET = /\b(user guide|user manual|handbook|instruction manual|quick start)\b/i;
 
 export function languageOf(text) {
   const words = allLines(text).map((l) => l.text).join(' ').slice(0, 6000);
@@ -103,9 +105,14 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
       row.language = languageOf(text) || languageFromUrl(row.url) || row.language;
       // A safety data sheet is not a technical one: it publishes hazards, not properties, and a batch that
       // registered one would hold a source with no values and no reason for being there.
-      if (SAFETY_SHEET.test(allLines(text).slice(0, 12).map((l) => l.text).join(' ')) || /msds|sds/i.test((row.url ?? '').split('/').pop() ?? '')) {
+      const head = allLines(text).slice(0, 12).map((l) => l.text).join(' ');
+      const file = (row.url ?? '').split('/').pop() ?? '';
+      if (SAFETY_SHEET.test(head) || /msds|sds/i.test(file)) {
         row.status = 'safety-data-sheet';
         row.status_note = 'a safety data sheet: hazards and handling, not properties';
+      } else if (NOT_A_DATA_SHEET.test(head) || NOT_A_DATA_SHEET.test(file.replace(/[-_]/g, ' '))) {
+        row.status = 'not-a-data-sheet';
+        row.status_note = 'a user guide: how to print the material, not what it is';
       }
       prints.set(row.doc_key, { row, print, pages: text.pages.length });
       if (['fetched', 'fetched-page', 'registered'].includes(row.status)) {

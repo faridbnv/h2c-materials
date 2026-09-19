@@ -63,7 +63,7 @@ const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '
 // every second line read as though it had no value.
 // The minus sign is a sign only where a number does not come before it: "55-60°C" is a window whose dash the
 // number swallowed, which read a PLA's glass transition as -60 °C.
-const valueRe = () => new RegExp(`((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)\\s*(${UNIT_PATTERN})`, 'gi');
+const valueRe = () => new RegExp(`((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)\\s*\\(?\\s*(${UNIT_PATTERN})`, 'gi');
 // A table may print its unit in a column of its own, before the value: 3DXTECH's sheets are
 // "Tensile Strength, Break | ISO 527 | MPa | 62.8", and every one of their 214 recorded values was invisible to
 // a reader that only knows "number unit". The match is shaped like the other one, value first, so the rest of
@@ -88,12 +88,12 @@ const CONTINUES_ROW = new RegExp(`^\\s*(?:ISO|ASTM|DIN|IEC|UL|EN|GB\\s?/\\s?T|DS
 // ASTM's own sheets print the designation without the body: "D 792", "D638", "D 256", "E 2092". Requiring ASTM
 // left every one of those rows with no standard at all, and put the property's label in the column that keeps the
 // sheet's words for the method. The lookahead is what keeps a word ending in D from starting a designation.
-const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?\/\s?[\w.-]+)?/gi;
+const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?\/\s?[\w.-]+)?(?::\s?\d{4})?/gi;
 
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
 // not a number, and joining them was what turned "ISO 527" into a fragment in the label.
-const joinLocal = (t) => t.replace(/(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
+const joinLocal = (t) => t.replace(/(\d) (?=\d+(?![\d.,]))/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
 // Extraction splits a standard's own number too ("ISO 11 8 3", "ISO 17 9", "D 2 56"), and the designation is
 // matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
 // is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
@@ -103,7 +103,12 @@ const joinStandardDigits = (line) => line.replace(
   (m, head, frags) => (`${head}${frags}`.match(/\d/g) ?? []).length <= 5 ? head + frags.replace(/\s/g, '') : m);
 
 function repair(text) {
-  const line = joinStandardDigits(String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2'));
+  // A superscript the extractor dropped rather than separated: Polymaker's sheets come out as "1.25 g/cm" and
+  // "2.6 kJ/m". A density is per cubic centimetre and an impact strength is per square metre; there is no other
+  // reading, and without the exponent the unit is not one the property is kept in and the row is lost.
+  const line = joinStandardDigits(String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2'))
+    .replace(/\bg\/cm(?![\d²³])/g, 'g/cm3')
+    .replace(/\bkJ\/m(?![\d²³])/g, 'kJ/m2');
   const out = [];
   let last = 0;
   for (const m of line.matchAll(new RegExp(STANDARD_RE.source, 'gi'))) { out.push(joinLocal(line.slice(last, m.index)), m[0]); last = m.index + m[0].length; }
@@ -169,12 +174,14 @@ export function readRow(text, registry, held = null) {
     // A sheet states the scale in the label ("Rockwell Hardness, R Scale"), or in the unit beside the number
     // ("80 HRM"), which is the same statement written the other way round.
     const rockwell = /\brockwell\s*([rm])\b/i.exec(line) ?? /\b([rm])[\s-]?scale\b/i.exec(line) ?? /\bHR([RM])\b/i.exec(line);
-    const scale = shore ?? rockwell;
+    // A shore hardness may carry its scale on the number instead of in the label: "Shore hardness ... 95A".
+    const suffix = /\bshore\b/i.test(line) ? /\b\d{2,3}\s?([ad])\b/i.exec(line) : null;
+    const scale = shore ?? rockwell ?? suffix;
     // The standard is stripped first, or "ISO 2039-2" gives the hardness a value of 2.
     const plain = line.replace(STANDARD_RE, ' ').replace(/\(.*?\)/g, ' ');
     const bare = /(-?\d+(?:[.,]\d+)?)/.exec(plain.slice(scale ? plain.search(/\d/) : 0));
     if (scale && bare) {
-      const unit = shore ? `Shore ${shore[1].toUpperCase()}` : `Rockwell ${rockwell[1].toUpperCase()}`;
+      const unit = shore || suffix ? `Shore ${(shore ?? suffix)[1].toUpperCase()}` : `Rockwell ${rockwell[1].toUpperCase()}`;
       const target = targetUnit('Hardness', unit, registry);
       if (target) return { match, label: line.slice(0, line.indexOf(bare[1])).trim(), conditions: line.slice(0, line.indexOf(bare[1])).trim(),
         raw: bare[1], rawNumber: rawNumber(bare[1]) == null ? bare[1] : String(rawNumber(bare[1])), printedUnit: unit,
@@ -192,7 +199,15 @@ export function readRow(text, registry, held = null) {
     if (RATE_OR_CONDITION.test(after)) continue;
     // A published spread shares its value's unit ("2433.4 ± 79.4 kJ/m2"), so the number beside the unit is the
     // spread and the one before the sign is the value. Reading left to right recorded the spread as the result.
-    const spread = /(-?\d+(?:[.,]\d+)?)\s*(?:±|\+\/-)\s*$/.exec(before);
+    let spread = /(-?\d+(?:[.,]\d+)?)\s*(?:±|\+\/-|\+)\s*$/.exec(before);
+    // The sign itself may be lost: Polymaker's sheets come out as "Elongation at break (X-Y) 2.77 0.45%", where
+    // 0.45 is the spread of 2.77 and the glyph between them did not survive. A number standing alone before the
+    // value, with the value a fraction of it, is that.
+    if (!spread) {
+      const bare = /(-?\d+(?:[.,]\d+)?)\s+$/.exec(before);
+      const of = (x) => Math.abs(Number(String(x).replace(',', '.')));
+      if (bare && !inDesignation(bare.index) && of(candidate[1]) > 0 && of(candidate[1]) <= 0.5 * of(bare[1])) spread = bare;
+    }
     // A published window is one statement, not two: "Glass Transition Temperature 55-60°C" is a range whose low
     // end carries no unit of its own. Reading the number beside the unit alone made it a point, and reading the
     // dash as a sign made it -60 °C. The database keeps the pair (Raw upper bound), so the row is read as one.
@@ -226,7 +241,7 @@ export function readRow(text, registry, held = null) {
       // "24.000 kg/cm2" is twenty-four thousand on a European sheet and twenty-four on an American one. Which it
       // is comes from reading the sheet, so the row says it is ambiguous and a person settles it (V000731 is the
       // precedent: the raw value records both the number and what the sheet printed).
-      ambiguous: /\d[.,]\d{3}(?!\d)/.test(value) ? `"${value}" may be a thousands separator or a decimal one` : null,
+      ambiguous: /^(?!0[.,])\d{1,3}[.,]\d{3}(?!\d)$/.test(value) ? `"${value}" may be a thousands separator or a decimal one` : null,
     };
   }
   return null;
@@ -245,7 +260,7 @@ const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±)/i;
 const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)/;
 
 export function settingValue(text) {
-  const value = String(text ?? '').replace(/^[\s:*•–—-]+/, '').trim();
+  const value = String(text ?? '').replace(/^[\s:=*•–—-]+/, '').trim();
   const head = VALUE_HEAD.exec(value);
   if (head && head[0].trim()) {
     const rest = value.slice(head[0].length).trim();
@@ -279,6 +294,9 @@ export function readSetting(line, page = 1) {
     // A note has to state something. "exceptional print quality at a speed of up to 600" wraps so that a line
     // begins with the word speed, and read as guidance it put a marketing sentence in the print setup.
     if (match.Field === 'note' && !/\d|\b(not|no|yes|necessary|required|recommended|needed)\b/i.test(raw)) return null;
+    // A temperature setting states a temperature. A table whose cells the page ran together offered
+    // "Nozzle temperature 50-300mm/s", which is the print speed from the column beside it.
+    if (['nozzle', 'bed', 'chamber'].includes(match.Field) && !/[°º˚]\s?[cf]|\d\s?c\b|\b(not|no|yes|necessary|required|recommended|needed|ambient|room)\b/i.test(raw)) return null;
     return { page, field: match.Field, topic: match.Topic || '', label: m[0].trim(), raw, line: String(line.text ?? '').slice(0, 200) };
   }
   return null;
@@ -334,8 +352,13 @@ export function readSheet(text, registry) {
     const footnotes = footnotesOf(page);
     let section = 'properties';
     let held = null, heldLabel = '', heldFor = 0, heldX = 0, prefix = '', prefixX = 0;
+    // A sheet may print its table twice, once as printed and once annealed, and say which above each block. A row
+    // that does not carry the words itself takes them from the block it is in (MEAS-CONDITIONS-INDISTINCT).
+    let block = '';
     for (let li = 0; li < page.lines.length; li++) {
       const line = page.lines[li];
+      const blockHeading = /^\s*\(?(as[- ]printed|annealed|after annealing|not annealed|un-?annealed)\)?\s*$/i.exec(line.text.trim());
+      if (blockHeading) { block = blockHeading[1].toLowerCase().replace('after annealing', 'annealed'); continue; }
       const heading = line.text.trim().length <= HEADING_LENGTH ? SECTIONS.find(([re]) => re.test(line.text.trim())) : null;
       if (heading) { section = heading[1]; held = null; continue; }
       const plain = repair(line.text).trim();
@@ -348,7 +371,10 @@ export function readSheet(text, registry) {
       // A printing setting is read wherever it is named, before the section decides what a line is: the sections
       // themselves are unreliable on a two-column page, and a setting names itself. A line that names a property
       // is never a setting, so a property the lexicon knows is never taken for one.
-      if (!LABELS.some((l) => l.re.test(plain))) {
+      // A sentence about how the test bars were made is not the printing guidance a reader should follow:
+      // "All testing specimens were printed under the following conditions: nozzle temperature = 205 °C".
+      const aboutSpecimens = /\b(test(ing)? specimens?|specimens? were|test bars?)\b/i.test(plain);
+      if (!aboutSpecimens && !LABELS.some((l) => l.re.test(plain))) {
         const setting = readSetting(line, page.page);
         if (setting) {
           // A statement can run onto the next line: extraction breaks "Closed chamber for printing not necessary"
@@ -417,9 +443,15 @@ export function readSheet(text, registry) {
           : storage ? 'a storage or shelf-life note, not a test result' : 'in the column beside the storage note, naming no property and value together' });
         continue;
       }
-      const carried = Boolean(carry && read);
+      // A chart's axis is a number and a unit alone: "100MPa" on the comparison page of a Polymaker sheet was
+      // claimed by the bending-strength label four pages earlier. A row of a table says something else too.
+      const letters = plain.replace(/[\d\s.,±+/()°º˚%-]/g, '');
+      const unitLetters = String(read?.printedUnit ?? '').replace(/[^a-z]/gi, '');
+      const bareNumber = Boolean(read) && letters.toLowerCase() === unitLetters.toLowerCase();
+      const carried = Boolean(carry && read && !bareNumber);
       if (carried) heldFor += 1;
       if (own || (read && !carried)) { held = null; heldFor = 0; }
+      if (read && carry && bareNumber) { skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'a number and its unit alone, with no row of its own: a chart or a comparison, not a result' }); continue; }
       if (!read) { if (/\d/.test(line.text)) skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'no property and value this line states together' }); continue; }
       if (read.range) { skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'the upper end of a range: a window, not a result' }); continue; }
 
@@ -449,7 +481,7 @@ export function readSheet(text, registry) {
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
         direction: read.match.Direction, notch, read, target: read.target, line: line.text,
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
-        printedSpecimens, orientation,
+        printedSpecimens, orientation, block,
       });
     }
   }
@@ -609,7 +641,10 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // Where the property's own name ends and what the row says about the measurement begins. A sheet writes the
   // condition after a comma, a bracket, an @ or a number, and the name before it; the label regex is not enough,
   // because "Izod" matches and "Izod Impact Strength, Notched @ 23°C" is what the row prints.
-  const printed = String(v.condition ?? '');
+  // A condition may follow its value as well as precede it: "156.2°C (as printed)" and "155.2°C (annealed)" are
+  // two rows of one sheet, and without the words after the number they say the same thing.
+  const after = /\(([^)]{2,40})\)\s*$/.exec(String(v.line ?? '').trim())?.[1] ?? '';
+  const printed = [String(v.condition ?? ''), /anneal|as printed|dry|conditioned|moist|wet|flat|edge|upright/i.test(after) ? after : '', v.block ?? ''].filter(Boolean).join(' ');
   const at0 = printed.search(/[,(@]|\d/);
   const condition = (at0 > 0 ? printed.slice(at0) : printed.replace(v.read.match.re, ' '))
     .replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
@@ -646,6 +681,8 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // "HDT 0.45 MN/m2, annealed" publishes an annealed value, and a row that does not say so reads as as-printed.
   // What the row says about the specimen is its own words and the footnote its mark points at, together.
   const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
+  const axis = /\(\s*(X\s?[-‑–]?\s?Y|XY|Z|XZ|ZX)\s*\)/i.exec(`${v.label ?? ''} ${printed}`)?.[1];
+  const stated = axis ? axis.replace(/[\s-‑–]/g, '').toUpperCase() : null;
   const annealWords = /\b(not annealed|unannealed|annealed|as printed)\b/i.exec(says);
   const post = annealWords ? annealWords[1].replace(/^as printed$/i, 'As printed') : NP;
   const postState = readPostProcessingState(post);
@@ -677,6 +714,7 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
     const of = { ...window, condition: ['Notched', 'Unnotched'].includes(v.notch) ? v.notch : 'any' };
     const mineOk = couldBe(v.property, v.target.unit, normalized, of);
     const otherOk = couldBe(v.property, v.target.unit, other, of);
+    v.ambiguityResolved = (mineOk && !otherOk) || (!mineOk && otherOk);
     if (!mineOk && otherOk) {
       const was = round(NUMBER(v.read.rawNumber) * v.target.factor);
       rawNumeric = String(NUMBER(rawNumeric) * 1000);
@@ -703,7 +741,9 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
     'Specimen type': /injection mou?ld/i.test(says) ? 'Raw material value'
       : /\b3d print|printed (specimen|bar|part)/i.test(says) || v.printedSpecimens ? 'Printed specimen'
       : v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
-    Direction: v.direction || (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
+    // A row may name its own direction, and then it is the row's whatever the property usually is: Polymaker
+    // prints "Tensile strength (X-Y)" and "Tensile strength (Z)" as two rows of one table.
+    Direction: stated ?? v.direction ?? (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
     'Moisture condition': moisture, 'Moisture state': moistureState ?? 'not-stated',
     'Post-processing': post, 'Post-processing state': postState ?? 'not-stated',
     'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,
@@ -725,8 +765,14 @@ export function sourceIdFor(row, sources) {
   const mine = sources.filter((s) => s.Publisher === row.manufacturer || s.Publisher === row.provider);
   const maker = (row.manufacturer || row.provider || '').toUpperCase().replace(/[^A-Z0-9]+/g, '-').replace(/^-|-$/g, '');
   const prefix = mine.map((s) => /^([A-Z0-9]+-[A-Z0-9]+-)/.exec(s.SourceID)?.[1]).find(Boolean) ?? `R-${maker}-`;
-  const file = decodeURIComponent((row.url || '').split('?')[0].split('/').pop() ?? '')
+  const url = row.url || '';
+  const plain = decodeURIComponent(url.split('?')[0].split('/').pop() ?? '')
     .replace(/\.(pdf|html?)$/i, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  // A maker may serve every sheet from one script: Polymaker's older library is all index.php?...id_attachment=236,
+  // so the file name names nothing. What tells those apart is the query, and failing that the digest.
+  const generic = /^(index|download|file|attachment|view|get|dl)(-php|-aspx?)?$/i.test(plain) || plain.length < 4;
+  const query = decodeURIComponent(url.split('?')[1] ?? '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const file = generic ? [plain, query || String(row.sha256 ?? '').slice(0, 8)].filter(Boolean).join('-').slice(0, 60) : plain;
   const name = file || (row.product_raw || '').replace(/[^A-Za-z0-9]+/g, '-');
   const id = `${prefix}${name}`.slice(0, 90);
   // A maker may publish two documents under one file name: Spectrum's PP sheet is at .../2022/05/en_tds_spectrum_pp.pdf
@@ -756,7 +802,7 @@ export function productName(printed) {
 }
 
 // A line that is a table's column headings, a revision marker or a section name is not a product's name.
-const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^page\b|data sheet$/i;
+const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^version\b|^page\b|data sheet$/i;
 
 export function printedTitle(text) {
   const head = (text.pages[0]?.lines ?? []).slice(0, 6).map((l) => l.text.trim()).filter(Boolean);
@@ -766,8 +812,9 @@ export function printedTitle(text) {
   // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.
   const sameLine = head[at].replace(/^.*?(tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet)\s*[:\-–—]?\s*/i, '').trim();
   const below = head.slice(at + 1).find((l) => l.length < 60 && /[A-Za-z]/.test(l) && !NOT_A_PRODUCT.test(l)) ?? '';
-  const product = sameLine || below;
-  return { title: [head[at], sameLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
+  // "Nov. 2018 Technical Data Sheet Version 4.0" carries a version where another maker carries the name.
+  const product = (sameLine && !NOT_A_PRODUCT.test(sameLine) ? sameLine : '') || below;
+  return { title: [head[at], product === sameLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
 }
 
 /**
@@ -886,7 +933,7 @@ export function propose(row, text, world) {
     id: `m${String(i + 1).padStart(2, '0')}`, gradeKey: 'main',
     row: measurementRow(v, { sourceId, materialId: identity.materialId ?? '', gradeId: '', window }),
     evidence: { page: v.page, text: v.line.slice(0, 200) },
-    ...(v.read.ambiguous ? { ambiguous: v.read.ambiguous } : {}),
+    ...(v.read.ambiguous && !v.ambiguityResolved ? { ambiguous: v.read.ambiguous } : {}),
     confidence: identity.confidence,
     review: { status: 'proposed' },
   }));
@@ -988,7 +1035,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources'), headlineDefinitions: table('headline_definitions'), rulings: readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values) };
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
-  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet']);
+  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet']);
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))
@@ -1016,7 +1063,9 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   let values = 0;
   for (const r of rows) {
     const p = propose(r, cachedText(r.sha256), world);
-    writeFileSync(join(dir, `${r.doc_key}.json`), `${JSON.stringify(p, null, 2)}\n`);
+    // A document the research had no identifier for is keyed by its URL, which is not a file name. Its digest is.
+    const name = /^[A-Za-z0-9._-]{1,64}$/.test(r.doc_key ?? '') ? r.doc_key : String(r.sha256 ?? '').slice(0, 16);
+    writeFileSync(join(dir, `${name}.json`), `${JSON.stringify(p, null, 2)}\n`);
     values += p.measurements.length;
   }
   console.log(`${rows.length} proposal(s), ${values} candidate value(s) -> ${dir.replace(projectRoot + '/', '')}`);

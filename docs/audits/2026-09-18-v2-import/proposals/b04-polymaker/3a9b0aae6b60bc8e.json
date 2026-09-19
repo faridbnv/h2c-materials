@@ -1,0 +1,652 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "3a9b0aae6b60bc8e092887e81035a37102e94e90699ae5af8782e03b5794976e",
+    "url": "https://3d.nice-cdn.com/upload/file/PolyFlex_TPU95_TDS_V4.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Polymaker",
+    "docKey": "3a9b0aae6b60bc8e"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+      "Publisher": "Polymaker",
+      "Title": "Nov. 2018 Technical Data Sheet Version 4.0 PolyFlex™ TPU95",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PolyFlex_TPU95_TDS_V4.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3a9b0aae6b60bc8e092887e81035a37102e94e90699ae5af8782e03b5794976e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Nov. 2018 Technical Data Sheet Version 4.0 PolyFlex™ TPU95"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyFlex TPU95",
+        "Shared formulation key": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nov. 2018 Technical Data Sheet Version 4.0 PolyFlex™ TPU95"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.20-1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.24",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1240",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "792 ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Locator": "p. 1: Density ASTM D792 (ISO 1183, GB/T 1033)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ASTM D792 (ISO 1183, GB/T 1033) 1.20 – 1.24 (g/cm3 at 21.5˚C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3-6 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "6",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "6",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "210 °C 1.2 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Locator": "p. 1: Melt index 210 °C, 1.2 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt index 210 °C, 1.2 kg 3-6 (g/10 min)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "29.0 ± 2.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "29",
+        "Raw uncertainty ±": "2.8",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29",
+        "Normalized uncertainty ±": "2.8",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Locator": "p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040) 29.0 ± 2.8 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "330.1 ± 14.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "330.1",
+        "Raw uncertainty ±": "14.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "330.1",
+        "Normalized uncertainty ±": "14.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Locator": "p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040) 330.1 ± 14.9 (%)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "95",
+        "Raw unit": "Shore A",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2240 ~ ASTM D2240 ISO 7619 GB/T 31",
+        "Standards": "ASTM D2240; ISO 7619; GB/T 31",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "Locator": "p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31) ~",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore hardness ASTM D2240 (ISO 7619, GB/T 31) ~95A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "225 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "225",
+        "Nozzle max °C": "225",
+        "Nozzle requirement": "required",
+        "Bed °C": "25 - 60 (˚C)",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20-40 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.2 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "nozzle temperature = 225 °C, printing speed = 30 mm/s, build plate temperature = 30 °C, infill = 100%"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 - 230 (˚C)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "25 - 60 (˚C)",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU95-TDS-V4",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20-40 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.2 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 210 - 230 (˚C)"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "nozzle temperature",
+      "raw": "225 °C",
+      "line": "nozzle temperature = 225 °C, printing speed = 30 mm/s, build plate temperature = 30 °C, infill = 100%"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "210 - 230 (˚C)",
+      "line": "Nozzle temperature 210 - 230 (˚C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "25 - 60 (˚C)",
+      "line": "Build plate temperature 25 - 60 (˚C)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "20-40 (mm/s)",
+      "line": "Printing speed 20-40 (mm/s)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Raft",
+      "raw": "separation distance 0.2 (mm)",
+      "line": "Raft separation distance 0.2 (mm)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "1 (mm)",
+      "line": "Retraction distance 1 (mm)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "20 (mm/s)",
+      "line": "Retraction speed 20 (mm/s)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Nov. 2018 Technical Data Sheet Version 4.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 is a thermoplastic polyurethane (TPU) based filament specifically engineered to work on most desktop 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "printers. It has a shore hardness of 95A and can stretch more than 3 times its original length.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tested with 3D printed specimen of 100% infill",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040) 9.4 ± 0.3 (MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All specimens were conditioned at room temperature for 24h prior to testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended environmental temperature Room temperature - 45 (˚C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Threshold overhang angle 35 (˚)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended support material PolySupport™ and PolyDissolve™ S1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Based on 0.4 mm nozzle and Simplify 3D v.3.1. Printing conditions may vary with different nozzle diameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nov. 2018 Technical Data Sheet Version 4.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "115.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "33.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "25.00 R25.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "R14.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

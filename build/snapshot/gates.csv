@@ -37,7 +37,7 @@ M035,PC,within,within,within,within,unknown,required
 M036,PC FR,within,within,within,within,unknown,required
 M037,PC-CF,within,within,within,unknown,requires-hardened,required
 M038,PC-GF,within,within,within,within,requires-hardened,required
-M039,TPU,within,within,within,within,requires-hardened,unknown
+M039,TPU,within,within,within,within,requires-hardened,required
 M040,TPU for AMS,within,within,within,within,unknown,required
 M041,TPU 95A HF,within,within,within,within,unknown,required
 M042,TPU 90A,within,within,within,within,unknown,required

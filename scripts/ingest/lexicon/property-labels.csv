@@ -20,12 +20,13 @@ Label,Property,Direction,Notch,Note
 ^crystalli[sz]ation temperature,Crystallization temperature,Not applicable,Not applicable,
 ^mfr\b|^melt (mass[- ]flow|flow) rate|^melt index|^melt flow (index|rate),Melt mass-flow rate,Not applicable,Not applicable,
 ^mvr\b|^melt volume,Melt volume-flow rate,Not applicable,Not applicable,
-^water absorption|^moisture absorption,Water absorption,Not applicable,Not applicable,
+^(equilibrium )?water absorption|^(equilibrium )?moisture absorption,Water absorption,Not applicable,Not applicable,
 ^moisture content,Moisture content,Not applicable,Not applicable,
 ^(shore|rockwell) hardness|^hardness|^shore [ad]\b,Hardness,Not applicable,Not applicable,"the scale is part of the unit, and the sheet states it"
 ^thermal conductivity,Thermal conductivity,Not applicable,Not applicable,
 ^coefficient of (thermal|linear) expansion|^cte\b,Coefficient of thermal expansion,Not applicable,Not applicable,
 ^contin[uo]*s (service|use|operating) temperature,Continuous service temperature,Not applicable,Not applicable,a sheet spells it Continous; a source's own typo is not a reason to lose the row
 ^compressi(on|ve) strength,Compression strength,,Not applicable,
+^low temperature impact( strength)?,Impact strength,Not applicable,Not published,"a maker's name for an impact test run below room temperature; which test it is comes from the standard it names, and the temperature is the row's own condition"
 ^impact\b|^notched$|^unnotched$,Impact strength,Not applicable,Not published,"the sheet names no test; ISO 180 or ASTM D256 makes it Izod, ISO 179 or GB/T 1043 Charpy"
 ^tensile elongation\b|^elongation\b,Elongation at break,,Not applicable,"an unqualified ISO 527 elongation is the value at failure, which is how this database records the sheets that print one figure; a sheet that labels its endpoint matches the row above this one"

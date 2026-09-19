@@ -42,7 +42,7 @@ export const REQUIREMENT = {
   UNKNOWN: 'unknown',
 };
 
-const NOT_REQUIRED_RE = /^(not\s+required|not\s+necessary|for printing not necessary)\b/i;
+const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|for printing not necessary)\b/i;
 const RECOMMENDED_RE = /^recommended\b/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;

@@ -1,0 +1,928 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=167",
+    "pages": 2,
+    "provider": "Filament2Print",
+    "manufacturer": "Polymaker",
+    "docKey": "4dfc3fbf078a0b07"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc"
+    ],
+    "materialId": "M035",
+    "materialName": "PC",
+    "estimateIdentity": "PC",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+      "Publisher": "Polymaker",
+      "Title": "Nov. 2018 Technical Data Sheet Version 4.1 PolyMax™ PC",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=167",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Nov. 2018 Technical Data Sheet Version 4.1 PolyMax™ PC"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M035",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMax PC",
+        "Shared formulation key": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nov. 2018 Technical Data Sheet Version 4.1 PolyMax™ PC"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.18-1.20 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.18",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.2",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1200",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "792 ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Density ASTM D792 (ISO 1183, GB/T 1033)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ASTM D792 (ISO 1183, GB/T 1033) 1.18 – 1.20 (g/cm3 at 21.5˚C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "113 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "113",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "113",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Glass transition temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature DSC, 10 °C/min 113 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6-8 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "8",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "8",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "260°C",
+        "Standard / load": "260 °C 1.2 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Melt index 260 °C, 1.2 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt index 260 °C, 1.2 kg 6-8 (g/10 min)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2048 ± 66 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2048",
+        "Raw uncertainty ±": "66",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.048",
+        "Normalized uncertainty ±": "0.066",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040) 2048 ± 66 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "59.7 ± 1.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "59.7",
+        "Raw uncertainty ±": "1.8",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.7",
+        "Normalized uncertainty ±": "1.8",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040) 59.7 ± 1.8 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "12.2 ± 1.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "12.2",
+        "Raw uncertainty ±": "1.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12.2",
+        "Normalized uncertainty ±": "1.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040) 12.2 ± 1.4 (%)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2044 ± 55 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2044",
+        "Raw uncertainty ±": "55",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.044",
+        "Normalized uncertainty ±": "0.055",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "790 ASTMD790 ISO 178 GB/T 9341",
+        "Standards": "ASTM D790; ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus ASTMD790 (ISO 178, GB/T 9341) 2044 ± 55 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "94.1 ± 0.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "94.1",
+        "Raw uncertainty ±": "0.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "94.1",
+        "Normalized uncertainty ±": "0.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "790 ASTMD790 ISO 178 GB/T 9341",
+        "Standards": "ASTM D790; ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength ASTMD790 (ISO 178, GB/T 9341) 94.1 ±0.9 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "25.1 ± 1.9 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "25.1",
+        "Raw uncertainty ±": "1.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25.1",
+        "Normalized uncertainty ±": "1.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "256 ASTM D256 ISO 179 GB/T 1043",
+        "Standards": "ASTM D256; ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)",
+        "Notes": "the row is headed \"Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)\" and cites Charpy impact strength ASTM D256 (ISO 179, GB/T 1043) ASTM D256 ISO 179 GB/T 1043, which is the other test; recorded as unspecified",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength ASTM D256 (ISO 179, GB/T 1043) 25.1 ±1.9 (kJ/m )"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the sheet heads the row Charpy and names both ASTM D256, which is Izod, and ISO 179, which is Charpy. Neither test is written; the row keeps the generic impact property with the contradiction in its Notes"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "29.1 ± 4.1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "29.1",
+        "Raw uncertainty ±": "4.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29.1",
+        "Normalized uncertainty ±": "4.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "Locator": "p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040) 29.1 ± 4.1 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "255 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "255",
+        "Nozzle max °C": "255",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 - 105 (˚C)",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "105",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 50 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.2 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "nozzle temperature = 255 °C, printing speed = 60 mm/s, build plate temperature = 100 °C, infill = 100%"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250 - 270 (˚C)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 - 105 (˚C)",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "105",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 50 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.2 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 250 - 270 (˚C)"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "nozzle temperature",
+      "raw": "255 °C",
+      "line": "nozzle temperature = 255 °C, printing speed = 60 mm/s, build plate temperature = 100 °C, infill = 100%"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "250 - 270 (˚C)",
+      "line": "Nozzle temperature 250 - 270 (˚C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "90 - 105 (˚C)",
+      "line": "Build plate temperature 90 - 105 (˚C)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "30 - 50 (mm/s)",
+      "line": "Printing speed 30 - 50 (mm/s)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Raft",
+      "raw": "separation distance 0.2 (mm)",
+      "line": "Raft separation distance 0.2 (mm)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "1 (mm)",
+      "line": "Retraction distance 1 (mm)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "20 (mm/s)",
+      "line": "Retraction speed 20 (mm/s)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Nov. 2018 Technical Data Sheet Version 4.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Decomposition temperature TGA, 20 °C/min >360 (˚C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tested with 3D printed specimen of 100% infill",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All specimens were conditioned at room temperature for 24h prior to testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended environmental temperature 70 – 80 (recommended) (˚C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Threshold overhang angle 50 (˚)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Based on 0.4 mm nozzle and Simplify 3D v.3.1. Printing conditions may vary with different nozzle diameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Annealing settings: 100˚C for 2h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nov. 2018 Technical Data Sheet Version 4.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "150.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "114.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20.00 10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4*R25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "60.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural testing specimen; ASTMD790 (ISO 178, GB/T 9341)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "45.00°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

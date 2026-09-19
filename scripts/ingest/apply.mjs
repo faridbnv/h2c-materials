@@ -85,6 +85,18 @@ export function guard(proposals, world) {
   const vocabularies = world.vocabularies ?? {};
   const rulings = new Set((world.rulings ?? []).map((r) => r.Subject));
 
+  // Two documents of one batch may derive one identifier as easily as one document and one already registered.
+  const claimed = new Map();
+  for (const proposal of proposals) {
+    const id = proposal.source?.row?.SourceID;
+    const sha = proposal.document?.sha256;
+    if (!id || !sha) continue;
+    if (claimed.has(id) && claimed.get(id) !== sha) {
+      problems.push({ code: 'APPLY-SOURCE-COLLISION', where: proposal.file ?? sha.slice(0, 12), message: `${id} is also the identifier of another document in this batch` });
+    }
+    claimed.set(id, sha);
+  }
+
   for (const proposal of proposals) {
     const where = proposal.file ?? proposal.document?.sha256?.slice(0, 12) ?? 'proposal';
     if (proposal.review?.status !== 'reviewed') fail('APPLY-UNREVIEWED', where, `the document is "${proposal.review?.status ?? 'unreviewed'}"; a person reads it before it enters`);

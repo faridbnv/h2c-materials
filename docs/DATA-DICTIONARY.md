@@ -1076,6 +1076,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Odour / emissions | What the source says about odour, fumes and ventilation. |
 | Layer height | The layer height the source recommends. |
 | Shell / walls | The wall or shell thickness the source recommends. |
+| Retraction | The retraction the source recommends. |
 
 <a id="vocab-property-domains"></a>
 ### property-domains
@@ -1166,6 +1167,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
+| GB/T 31 | As Polymaker's sheets print it beside ISO 7619 for a shore hardness. GB/T 531 is that standard; the sheets print 31, and a source's own words are recorded as printed (D76). |
 | ASTM D1238 | Melt flow rates by extrusion plastometer. |
 | ASTM D1505 | Density by density-gradient technique. |
 | ASTM D1525 | Vicat softening temperature. |

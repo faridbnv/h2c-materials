@@ -624,3 +624,179 @@ P0266,Layer height,0.25mm
 P0267,Layer height,0.25mm
 P0268,Layer height,0.25mm
 P0269,Layer height,0.25mm
+P0270,Speed,40-60 (mm/s)
+P0270,Adhesion / release,separation distance 0.2 (mm)
+P0270,Retraction,1 (mm)
+P0270,Shell / walls,2
+P0271,Retraction,(Direct Drive) 1-3 (mm)
+P0271,Cooling,OFF-20%
+P0272,Retraction,(Direct Drive) 1-3 (mm)
+P0272,Cooling,OFF-20%
+P0273,Retraction,(Direct Drive) 1-3 (mm)
+P0274,Speed,40-100 (mm/s)
+P0274,Retraction,1-3 (mm)
+P0275,Speed,40-100 (mm/s)
+P0275,Retraction,1-3 (mm)
+P0276,Retraction,1-3 (mm)
+P0277,Retraction,1-3 (mm)
+P0278,Retraction,1-3 (mm)
+P0279,Retraction,1-3 (mm)
+P0280,Speed,30-60 (mm/s)
+P0280,Retraction,1-3 (mm)
+P0281,Speed,30-60 (mm/s)
+P0281,Retraction,1-3 (mm)
+P0282,Speed,30 - 50 (mm/s)
+P0282,Adhesion / release,separation distance 0.1 - 0.2 (mm)
+P0282,Retraction,3-6 (mm)
+P0283,Speed,30 - 50 (mm/s)
+P0283,Adhesion / release,separation distance 0.1 - 0.2 (mm)
+P0283,Retraction,3-6 (mm)
+P0284,Speed,20-40 (mm/s)
+P0284,Adhesion / release,separation distance 0.2 (mm)
+P0284,Retraction,1 (mm)
+P0285,Speed,20-40 (mm/s)
+P0285,Adhesion / release,separation distance 0.2 (mm)
+P0285,Retraction,1 (mm)
+P0286,Retraction,1 - 3 (mm)
+P0287,Retraction,1 - 3 (mm)
+P0288,Retraction,(Direct Drive) 1 (mm)
+P0288,Cooling,0-30%
+P0289,Retraction,(Direct Drive) 1 (mm)
+P0289,Cooling,0-30%
+P0290,Retraction,3-6 (mm)
+P0291,Retraction,3-6 (mm)
+P0292,Retraction,1 (mm)
+P0292,Cooling,0-30%
+P0293,Retraction,1 (mm)
+P0293,Cooling,0-30%
+P0294,Warping / shrinkage,(X-Y) 0.88%
+P0294,Speed,Up to 300 (mm/s)
+P0294,Retraction,1-3 (mm)
+P0294,Shell / walls,2
+P0295,Warping / shrinkage,(X-Y) 0.88%
+P0295,Speed,Up to 300 (mm/s)
+P0295,Retraction,1-3 (mm)
+P0295,Shell / walls,2
+P0296,Warping / shrinkage,(X-Y) 0.05%
+P0296,Retraction,20-40 (mm/s)
+P0296,Speed,Up to 350mm/s
+P0297,Warping / shrinkage,(X-Y) 0.05%
+P0297,Retraction,20-40 (mm/s)
+P0297,Speed,Up to 350mm/s
+P0298,Retraction,3-6 (mm)
+P0299,Retraction,3-6 (mm)
+P0300,Warping / shrinkage,(X-Y) 0.88%
+P0300,Speed,Up to 300 (mm/s)
+P0300,Retraction,1-3 (mm)
+P0300,Shell / walls,2
+P0301,Warping / shrinkage,(X-Y) 0.88%
+P0301,Speed,Up to 300 (mm/s)
+P0301,Retraction,1-3 (mm)
+P0301,Shell / walls,2
+P0302,Speed,30-70 (mm/s)
+P0302,Adhesion / release,separation distance 0.2 (mm)
+P0302,Retraction,1 - 3 (mm)
+P0302,Shell / walls,2
+P0303,Speed,30 - 50 (mm/s)
+P0303,Adhesion / release,separation distance 0.2 (mm)
+P0303,Retraction,1 (mm)
+P0304,Speed,30 - 50 (mm/s)
+P0304,Adhesion / release,separation distance 0.2 (mm)
+P0304,Retraction,1 (mm)
+P0305,Speed,60 (mm/s)
+P0305,Adhesion / release,separation distance 0.2 (mm)
+P0305,Retraction,1 (mm)
+P0306,Speed,60 (mm/s)
+P0306,Adhesion / release,separation distance 0.2 (mm)
+P0306,Retraction,1 (mm)
+P0307,Retraction,1-3 (mm)
+P0308,Retraction,1-3 (mm)
+P0309,Speed,45 (mm/s)
+P0309,Adhesion / release,separation distance 0.14 (mm)
+P0309,Retraction,1-3 (mm)
+P0310,Speed,45 (mm/s)
+P0310,Adhesion / release,separation distance 0.14 (mm)
+P0310,Retraction,1-3 (mm)
+P0311,Speed,30-70 (mm/s)
+P0311,Adhesion / release,separation distance 0.2 (mm)
+P0311,Retraction,1 (mm)
+P0311,Shell / walls,2
+P0312,Speed,30-50 (mm/s)
+P0312,Adhesion / release,separation distance 0.2 (mm)
+P0312,Retraction,3 (mm)
+P0312,Shell / walls,2
+P0313,Layer height,0.1
+P0314,Retraction,20-40 (mm/s)
+P0314,Speed,50-250mm/s
+P0315,Speed,30-50 (mm/s)
+P0315,Adhesion / release,separation distance 0.2 (mm)
+P0315,Retraction,1 (mm)
+P0315,Shell / walls,2
+P0316,Speed,30 - 70 (mm/s)
+P0316,Adhesion / release,separation distance 0.2 (mm)
+P0316,Retraction,1 - 3 (mm)
+P0316,Shell / walls,2
+P0317,Retraction,1-3 (mm)
+P0318,Retraction,1-3 (mm)
+P0319,Layer height,0.2
+P0320,Retraction,3-6 (mm)
+P0321,Retraction,3-6 (mm)
+P0322,Speed,30 - 50 (mm/s)
+P0322,Adhesion / release,separation distance 0.15 – 0.2 (mm)
+P0322,Retraction,1 -3 (mm)
+P0323,Speed,30 - 50 (mm/s)
+P0323,Adhesion / release,separation distance 0.15 – 0.2 (mm)
+P0323,Retraction,1 -3 (mm)
+P0324,Layer height,0.1
+P0325,Retraction,1-3 (mm)
+P0325,Cooling,20%
+P0326,Retraction,1-3 (mm)
+P0326,Cooling,20%
+P0327,Speed,50-200mm/s
+P0327,Retraction,3-6 (mm)
+P0328,Speed,50-200mm/s
+P0328,Retraction,3-6 (mm)
+P0329,Speed,of your 3D printer and witness new levels of
+P0329,Retraction,1 - 3 (mm)
+P0330,Speed,of your 3D printer and witness new levels of
+P0330,Retraction,1 - 3 (mm)
+P0331,Retraction,1-3 (mm)
+P0332,Retraction,1-3 (mm)
+P0333,Retraction,3-6 (mm)
+P0334,Retraction,3-6 (mm)
+P0336,Retraction,1-3 (mm)
+P0337,Retraction,1-3 (mm)
+P0338,Retraction,1-3 (mm)
+P0339,Retraction,1-3 (mm)
+P0340,Retraction,1 - 3 (mm)
+P0341,Retraction,1 - 3 (mm)
+P0342,Retraction,1-3 (mm)
+P0343,Retraction,1-3 (mm)
+P0344,Retraction,1-3 (mm)
+P0345,Retraction,1-3 (mm)
+P0347,Retraction,(Direct Drive) 1-3 (mm)
+P0348,Retraction,(Direct Drive) 1-3 (mm)
+P0349,Retraction,1-3 (mm)
+P0349,Cooling,100%
+P0350,Retraction,1-3 (mm)
+P0350,Cooling,100%
+P0351,Speed,50 - 200 (mm/s)
+P0351,Retraction,1 - 3 (mm)
+P0351,Shell / walls,2
+P0352,Retraction,1-3 (mm)
+P0353,Retraction,1-3 (mm)
+P0354,Speed,30-70 (mm/s)
+P0354,Adhesion / release,separation distance 0.2 (mm)
+P0354,Retraction,3 (mm)
+P0354,Shell / walls,2
+P0355,Cooling,OFF-20%
+P0355,Speed,30-50 (mm/s)
+P0355,Adhesion / release,separation distance 0.14 (mm)
+P0355,Retraction,1 (mm)
+P0355,Shell / walls,2
+P0356,Retraction,1-3 (mm)
+P0357,Retraction,1-3 (mm)
+P0358,Retraction,1-3 (mm)
+P0358,Cooling,OFF-20%
+P0359,Retraction,1-3 (mm)
+P0359,Cooling,OFF-20%

@@ -35,10 +35,10 @@ Stiffness at least 3 GPa
 ASA-CF
 4.2
 ASA-EC
-~2.0–4.2†
+~2.0–4.4†
 CPE-CF
-~2.1–4.8†
-0.00303
+~2.0–4.7†
+0.0046
 log scale
 12.5
 all 123 candidates
@@ -47,9 +47,9 @@ Strength MPa
 ASA-CF
 34
 ASA-EC
-~35–65†
+~37–67†
 CPE-CF
-~39–74†
+~39–71†
 11
 172
 all 123 candidates
@@ -58,12 +58,12 @@ Stretch before breaking %
 ASA-CF
 9.6
 ASA-EC
-~2.9–9.9†
+~3.1–8.9†
 CPE-CF
-~3–14†
+~3.4–11.9†
 0.8
 log scale
-1,830
+1,340
 all 123 candidates
 ASA-CF: XY · Printed specimen
 Heat resistance °C
@@ -74,7 +74,7 @@ ASA-EC
 ~100–102†
 CPE-CF
 ~53–97†
-41.3
+41.4
 300
 all 123 candidates
 ASA-CF: Printed specimen

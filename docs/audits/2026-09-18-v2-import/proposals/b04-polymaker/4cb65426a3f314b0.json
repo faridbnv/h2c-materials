@@ -1,0 +1,1199 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "4cb65426a3f314b09c7d1b787bcd305a6dc071fa6b113450fe16d724a5547ec2",
+    "url": "https://3d.nice-cdn.com/upload/file/Polylite_PLA_Pro_EN_V5.1_3_[6].pdf",
+    "pages": 8,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Polymaker",
+    "docKey": "4cb65426a3f314b0"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+      "Publisher": "Polymaker",
+      "Title": "Innovators in 3D printing",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/Polylite_PLA_Pro_EN_V5.1_3_[6].pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4cb65426a3f314b09c7d1b787bcd305a6dc071fa6b113450fe16d724a5547ec2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Innovators in 3D printing"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PolyLite PLA PRO Army Beige",
+        "Shared formulation key": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Innovators in 3D printing"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.22 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1220",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1183 ISO1183 GB/T1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 2: Density ISO1183, GB/T1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ISO1183, GB/T1033 1.22 g/cm at 21.5°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "210°C 2.16 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 2: Melt index 210°C, 2.16 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt index 210°C, 2.16 kg 6 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "62 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "62",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "62",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 4: Glass transition temperature DSC, 10°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Glass transition temperature DSC, 10°C/min 62 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "150 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 4: Melting temperature DSC, 10°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Melting temperature DSC, 10°C/min 150 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "62.7 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "62.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "62.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "306 ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 4: Vicat softening temperature ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Vicat softening temperature ISO 306, GB/T 1633 62.7 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "57.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "57.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8MPa 75 ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 4: Heat deflection temperature ISO 75 1.8MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Heat deflection temperature ISO 75 1.8MPa 57.6 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "59.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "59.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa 75 ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 4: Heat deflection temperature ISO 75 0.45MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Heat deflection temperature ISO 75 0.45MPa 59.3 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2681 ± 215 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2681",
+        "Raw uncertainty ±": "215",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.681",
+        "Normalized uncertainty ±": "0.215",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Young’s modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s modulus (X-Y) 2681 ± 215 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2551 ± 335 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2551",
+        "Raw uncertainty ±": "335",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.551",
+        "Normalized uncertainty ±": "0.335",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Young’s modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s modulus (Z) 2551 ± 335 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "35.65 ± 0.93 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "35.65",
+        "Raw uncertainty ±": "0.93",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35.65",
+        "Normalized uncertainty ±": "0.93",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Tensile strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Tensile strength (X-Y) 35.65 ± 0.93 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "39.66 ± 0.60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "39.66",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "39.66",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Tensile strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Tensile strength (Z) 39.66 ±0.60 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.02 ± 2.43 %",
+        "Raw unit": "%",
+        "Raw numeric": "6.02",
+        "Raw uncertainty ±": "2.43",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.02",
+        "Normalized uncertainty ±": "2.43",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Elongation at break (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation at break (Z) 6.02 ± 2.43 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2700 ± 154 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2700",
+        "Raw uncertainty ±": "154",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.7",
+        "Normalized uncertainty ±": "0.154",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Bending modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Bending modulus (X-Y) 2700 ± 154 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "68.08 ± 2.21 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "68.08",
+        "Raw uncertainty ±": "2.21",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "68.08",
+        "Normalized uncertainty ±": "2.21",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Bending strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Bending strength (X-Y) 68.08 ± 2.21 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "13.44 ± 1.17 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "13.44",
+        "Raw uncertainty ±": "1.17",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.44",
+        "Normalized uncertainty ±": "1.17",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "Locator": "p. 5: Charpy impact strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Charpy impact strength (X-Y) 13.44 ±1.17 kJ/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "30 - 60 (˚C)",
+        "Bed state": "range",
+        "Bed min °C": "30",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 5: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-70 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.2 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1 - 3 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "30 - 60 (mm/s)"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 5,
+        "text": "Build plate temperature 30 - 60 (˚C)"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 5,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "30 - 60 (˚C)",
+      "line": "Build plate temperature 30 - 60 (˚C)"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "30-70 (mm/s)",
+      "line": "Printing speed 30-70 (mm/s)"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Raft",
+      "raw": "separation distance 0.2 (mm)",
+      "line": "Raft separation distance 0.2 (mm)"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "1 - 3 (mm)",
+      "line": "Retraction distance 1 - 3 (mm)"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "30 - 60 (mm/s)",
+      "line": "Retraction speed 30 - 60 (mm/s)"
+    },
+    {
+      "page": 7,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "210 °C",
+      "line": "Printing temperature 210 °C"
+    },
+    {
+      "page": 7,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "25 °C",
+      "line": "Bed temperature 25 °C"
+    },
+    {
+      "page": 7,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell",
+      "raw": "2",
+      "line": "Shell 2"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Innovators in 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "70% RH - 23 ̊C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0 2 4 6 8 10 12 14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Decomposition temperature TGA, 20°C/min N/A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.45Mpa-1.8Mpa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "-0.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0 20 40 60 80 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "57.659.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.45 Mpa 1.8 Mpa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2.45 ± 0.61 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 179, GB/T 1043",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Nozzle temperature 190 – 220 (℃)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Environmental temperature 0 - 40 (˚C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Threshold overhang angle 60 (˚)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Recommended support material PolySupport™ and PolyDissolve™ S1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "* Based on 0.4 mm nozzle and Simplify 3D v.4.0. Printing conditions may vary with different nozzle diameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ISO 179, GB/T 1043",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Top & bottom layer 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Infill 100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Environmental temperature 25 ˚C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "*All specimens were conditioned at room temperature for 24h prior to testing",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m11",
+      "code": "MEAS-PHYSICS-Z-ABOVE-XY",
+      "field": "Direction",
+      "reason": "the sheet publishes a Z strength above its own X-Y one. Both are transcribed as printed; a layer-bonded part stronger across its layers than along them is the maker's own claim and the check is what surfaces it.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m03",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "the sheet prints a glass transition of 62 C and a Vicat softening point below it. A Vicat on a printed bar can sit under the DSC glass transition where the bar is porous, and both numbers are the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
+}
