@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 128,
-      "sha256": "cd6c847be6c2534a5180c3839f9c631456b03a11a18dd93a89deccfc3bbaf902"
+      "rows": 129,
+      "sha256": "1c523fa064e9d328aeeaf23aa6392f24d0558a099f1ae32f14b369e41191292e"
     },
     "grades": {
-      "rows": 306,
-      "sha256": "e31e3c5e6423ceb15d2b63b3c2755a2f809d73ecb6b823a69d5776f95771e776"
+      "rows": 313,
+      "sha256": "b6aa02678b3707ef5c7187f3c5e60fd03138a9d7849782280cb23d8e63f75da5"
     },
     "profiles": {
-      "rows": 359,
-      "sha256": "a064b30a13739cdf716fb9a92182d661b0d55f49fb0c76fd992530b4b48b78c8"
+      "rows": 369,
+      "sha256": "7325bbcb8ef15622e8452455d0ad99cc348e81f6d33e2e80e0ce9a2cb277937b"
     },
     "profile_notes": {
-      "rows": 801,
-      "sha256": "268d727ddd180854cd5eb8106ede6682ba00e0d56207c67096fa6b8c1f2c9d7b"
+      "rows": 837,
+      "sha256": "7e2826fa56cbd8aab3b660a02542bf3b143f2421c03fc57a5b9fc256a4f0eb92"
     },
     "measurements": {
-      "rows": 4025,
-      "sha256": "9d86907596445fa207168dc4c59d44551fac9755e562da8b7271c1cc663bb0b7"
+      "rows": 4081,
+      "sha256": "e4d574ce241044f16174f5328282e8769c7aea6630b058cc679e6e240baf27d2"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -38,8 +38,8 @@
       "sha256": "490c13bcfc668287ed10685f2b8b5b871d32df2e959931c59fd5e63cb4e3330f"
     },
     "sources": {
-      "rows": 448,
-      "sha256": "b2167f38576295e0eebf404c12a5b7457079f5546810e75f6488ea0cbf0d7fb6"
+      "rows": 458,
+      "sha256": "9a2629a784c380ed38c8fa5dfb5ec97b528ac5b640a07d48a1acc6b13b59ae0d"
     },
     "coverage": {
       "rows": 676,
@@ -58,8 +58,8 @@
       "sha256": "f189d525924e1b3d0f0510406bf42d1e417bfeaea72cf0888dde020236251406"
     },
     "headlines": {
-      "rows": 447,
-      "sha256": "5a219e6a22340ae47a5d4d813e3d7ee698b9642d68c5b6e0fdb765422ad026e0"
+      "rows": 448,
+      "sha256": "2d7c9a75a58fb28ed4c2661290e190de81a50ecb8b5cc466e6dd6f591a66dd3e"
     },
     "material_links": {
       "rows": 707,

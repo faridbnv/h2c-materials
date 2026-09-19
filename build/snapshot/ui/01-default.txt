@@ -1,4 +1,4 @@
-COUNT 123 materials no requirements set
+COUNT 124 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-123 materials, 109 of them in H2C scope
-3870 measurements, each traceable to a source
-107 have a density, 88 a modulus, 38 a Canadian price
+124 materials, 110 of them in H2C scope
+3926 measurements, each traceable to a source
+108 have a density, 88 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -332,6 +332,9 @@ Flexible Elastomers
 TPU for AMS
 Flexible Elastomers
  not tested 1,260 1.19* 22.4 650 n/a 47.5↗ ☆
+TPU-CF
+Flexible Elastomers
+ not tested 1,230 2.2* 61* 15* n/a — ☆
 TPU-ESD
 Flexible Elastomers
  not tested 1,180 — 12 — n/a — ☆

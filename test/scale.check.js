@@ -1,3 +1,8 @@
+// Scaling by entries. This file is named .check.js rather than .test.js and runs on its own (`npm run scale`,
+// inside `npm run verify`), because it measures a time budget: run beside the rest of the suite it competes with
+// every other test file for the machine and has read 40 seconds one run and 95 the next on the same data. What it
+// is for is the trend in the estimate stage, and that is only readable when it has the machine to itself.
+//
 // Scaling by entries: at twice today's data (every material and everything recorded against it cloned
 // under new IDs, scripts/data/synthesize.mjs) the schema gate, compiler and validator still hold, and
 // the build stays inside a time budget. The one kind of error a doubling legitimately produces is named

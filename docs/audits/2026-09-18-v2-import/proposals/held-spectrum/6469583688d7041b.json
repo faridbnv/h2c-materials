@@ -464,5 +464,15 @@
   ],
   "review": {
     "status": "proposed"
-  }
+  },
+  "acceptances": [
+    {
+      "row": "m01",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "a metal-filled PLA carries 60 to 70 per cent copper, brass or bronze powder by weight, and weighs what the metal makes it weigh. The window is drawn from polymers and their fibre and mineral loads, and no row of it describes a metal powder.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

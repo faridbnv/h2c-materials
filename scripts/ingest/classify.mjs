@@ -169,7 +169,9 @@ export function classifyProduct(product, context = {}, world = {}) {
   const modifier = inName ?? (inBody && nearFiller(inBody.token) ? inBody : null);
   if (modifier) signals.push(`filler: ${modifier.token}${inName ? '' : ' (from the sheet, not the name)'}`);
   const variant = findToken(tokens, VARIANT_ORDER, 'Variant class');
-  if (variant?.value) signals.push(`variant: ${variant.token}`);
+  // Which finish it is, not only which class: the database has a material per finish (Metal, Wood, Glow).
+  const finish = variant ? VARIANT_ORDER.find((v) => v.Token === variant.token)?.['Finish name'] ?? '' : '';
+  if (variant?.value) signals.push(`variant: ${variant.token}${finish ? ` (${finish})` : ''}`);
 
   // A support or soluble product is not the material it supports: "PolySupport for PA12" is a support, not a PA12.
   // A support product says so in its own words as often as in its name: "AquaPrint is a water-soluble support
@@ -207,6 +209,7 @@ export function classifyProduct(product, context = {}, world = {}) {
     polymer: polymer?.value ?? '',
     modifier: modifier?.value || (polymer?.value ? 'Unfilled / unspecified' : ''),
     variantClass: variant?.value ?? '',
+    finish,
     family: polymer?.Family ?? POLYMERS.find((p) => p.Token === polymer?.token)?.Family ?? '',
     hardness, support, signals,
   };
@@ -290,6 +293,17 @@ export function matchMaterial(identity, materials, context = {}) {
     const byName = open.find((m) => mayAnswer(m) && names(m).some((n) => named(n, context.product)));
     if (byName) return byName;
   }
+  // A finish is an identity, and the material for it exists: PLA Metal, PLA Wood, PLA Glow and their siblings
+  // carry other makers' products of the same finish, which is how PLA Silk already holds Polymaker's and eSUN's
+  // (owner ruling R039). Their own rows declare one maker, so the product-level test would otherwise refuse them.
+  if (identity.finish) {
+    const wanted = `${identity.polymer} ${identity.finish}`;
+    const byFinish = open.find((m) => m['Estimate identity'] === identity.polymer
+      && m['Variant class'] === (identity.variantClass || 'Not applicable')
+      && names(m).some((n) => named(n, wanted)));
+    if (byFinish) return byFinish;
+  }
+
   const byIdentity = open.find((m) => same(m) && !ownProduct(m));
   if (byIdentity) return byIdentity;
   // A material the estimate model cannot identify (the high-temperature six, whose polymers have no row) can only

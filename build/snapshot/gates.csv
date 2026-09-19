@@ -9,7 +9,7 @@ M007,PLA Translucent,within,within,within,within,unknown,required
 M008,PLA Silk,within,within,within,within,unknown,required
 M009,PLA Silk+,within,within,within,within,unknown,required
 M010,PLA Silk Dual Color,within,within,within,within,unknown,required
-M011,PLA Metal,within,within,within,within,unknown,required
+M011,PLA Metal,within,within,within,within,requires-hardened,required
 M012,PLA Marble,within,within,within,within,unknown,required
 M013,PLA Sparkle,within,within,within,within,unknown,required
 M014,PLA Wood,within,within,within,within,unknown,required
@@ -127,3 +127,4 @@ M125,PEEK-CF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
 M126,TPU-ESD,within,within,within,unknown,unknown,unknown
 M127,PEEK-GF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
 M128,PC-ABS-CF,within,within,within,unknown,requires-hardened,unknown
+M129,TPU-CF,within,within,within,within,requires-hardened,unknown

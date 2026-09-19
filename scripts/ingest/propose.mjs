@@ -980,7 +980,7 @@ export function propose(row, text, world) {
   const polymer = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer);
   const density = measurements.find((m) => m.row.Property === 'Density');
   const neat = [Number(polymer?.['Neat density min kg/m³']), Number(polymer?.['Neat density max kg/m³'])];
-  if (density && identity.modifier === 'Unfilled / unspecified' && Number.isFinite(neat[0]) && Number.isFinite(neat[1])) {
+  if (density && identity.modifier === 'Unfilled / unspecified' && !identity.variantClass && Number.isFinite(neat[0]) && Number.isFinite(neat[1])) {
     const value = Number(density.row['Normalized value']);
     if (value > neat[1] * 1.05) identity.reasons.push(`its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare`);
     if (value < neat[0] * 0.95) identity.reasons.push(`its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}), so the product is foamed or carries a lightweight additive`);

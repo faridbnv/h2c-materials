@@ -132,7 +132,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     },
     {
@@ -179,7 +182,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     },
     {
@@ -226,7 +232,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     },
     {
@@ -273,7 +282,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     },
     {
@@ -320,7 +332,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     },
     {
@@ -367,7 +382,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     },
     {
@@ -414,7 +432,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: the product is called WOOD and its description says PLA"
       }
     }
   ],

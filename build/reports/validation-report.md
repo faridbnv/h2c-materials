@@ -8,31 +8,31 @@ Database snapshot 2026-09-16 · build 2026-09-18
 
 | Entity | Records |
 |---|---:|
-| materials | 128 |
-| h2cRelevant | 109 |
+| materials | 129 |
+| h2cRelevant | 110 |
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 306 |
-| measurements | 3870 |
-| numericMeasurements | 3709 |
+| grades | 313 |
+| measurements | 3926 |
+| numericMeasurements | 3765 |
 | quarantined | 4 |
-| profiles | 359 |
+| profiles | 369 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 448 |
+| sources | 458 |
 | coverage | 676 |
 | polymerEnvironment | 353 |
-| polymerEvidence | 295 |
-| coverageDerived | 592 |
+| polymerEvidence | 302 |
+| coverageDerived | 596 |
 
 ## Headline coverage
 
-What a selection criterion can actually decide, out of 128 canonical materials.
+What a selection criterion can actually decide, out of 129 canonical materials.
 
 | Headline | Materials with a value |
 |---|---:|
-| density | 107 |
+| density | 108 |
 | tensileModulusXY | 88 |
 | tensileStrengthXY | 74 |
 | elongationXY | 88 |
@@ -45,23 +45,23 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 105 | n/a | 14 | 0 | 9 |
-| bed | 102 | n/a | 16 | 0 | 10 |
-| chamber | 71 | 4 | 5 | 2 | 46 |
+| nozzle | 106 | n/a | 14 | 0 | 9 |
+| bed | 103 | n/a | 16 | 0 | 10 |
+| chamber | 72 | 4 | 5 | 2 | 46 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
 
 ## Chamber evidence
 
-What the 114 in-scope materials publish about the chamber, strongest kind first. A statement
+What the 115 in-scope materials publish about the chamber, strongest kind first. A statement
 in words is manufacturer evidence but never a temperature. An estimated band is inference from
 data/tables/chamber_bands.csv; it is shown beside the chamber question and changes no verdict.
 
 | Kind | Materials |
 |---|---:|
 | Published temperature window | 54 |
-| No heated chamber needed, in words | 24 |
+| No heated chamber needed, in words | 25 |
 | Chamber recommended, no temperature | 3 |
 | Data sheet lists no setpoint | 1 |
 | Nothing published | 32 |
@@ -77,36 +77,36 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials | From the base polymer |
 |---|---|---:|---:|---:|---:|
-| alkali | verdict | 63 | 61 | 50 | 44 |
-| acid | verdict | 67 | 59 | 51 | 44 |
-| organic-solvent | verdict | 63 | 45 | 53 | 47 |
-| oil-grease | verdict | 57 | 45 | 52 | 42 |
-| water-solubility | verdict | 42 | 41 | 41 | 30 |
+| alkali | verdict | 63 | 61 | 50 | 45 |
+| acid | verdict | 67 | 59 | 51 | 45 |
+| organic-solvent | verdict | 63 | 45 | 53 | 48 |
+| oil-grease | verdict | 57 | 45 | 52 | 43 |
+| water-solubility | verdict | 42 | 41 | 41 | 31 |
 | flammability | verdict | 42 | 36 | 41 | 12 |
 | food-contact | indicator | 2 | 0 | 2 | 0 |
-| uv-outdoor | verdict | 7 | 0 | 6 | 17 |
+| uv-outdoor | verdict | 7 | 0 | 6 | 18 |
 | moisture | verdict | 12 | 0 | 10 | 23 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |
-| hydrolysis | verdict | 4 | 0 | 4 | 36 |
+| hydrolysis | verdict | 4 | 0 | 4 | 37 |
 
 ## Polymer-level behaviour
 
-353 rows of published base-polymer behaviour, attached as 295 inferred records to 81 materials
+353 rows of published base-polymer behaviour, attached as 302 inferred records to 82 materials
 with no grade-level record in the category (D64). A record is shown in the drawer, counted apart in the filter rail, may screen a
 material out under inference where the polymer is attacked or dissolved, and never passes a requirement.
 
 | Category | Polymers | Agent rows | Materials covered | Of which may screen |
 |---|---:|---:|---:|---:|
-| acid | 21 | 94 | 44 | 11 |
-| alkali | 20 | 43 | 44 | 8 |
+| acid | 21 | 94 | 45 | 12 |
+| alkali | 20 | 43 | 45 | 9 |
 | flammability | 4 | 4 | 12 | 10 |
-| hydrolysis | 12 | 19 | 36 | 9 |
+| hydrolysis | 12 | 19 | 37 | 9 |
 | moisture | 2 | 2 | 23 | 0 |
-| oil-grease | 20 | 78 | 42 | 0 |
-| organic-solvent | 23 | 87 | 47 | 13 |
-| uv-outdoor | 8 | 8 | 17 | 1 |
-| water-solubility | 15 | 18 | 30 | 1 |
+| oil-grease | 20 | 78 | 43 | 0 |
+| organic-solvent | 23 | 87 | 48 | 14 |
+| uv-outdoor | 8 | 8 | 18 | 1 |
+| water-solubility | 15 | 18 | 31 | 1 |
 
 ## Estimates
 
@@ -118,38 +118,38 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 257 | 92 | 80% | 96% | ×1.15 | 0.0176 (735 pairs) |
-| tensileModulusXY | 497 | 74 | 81% | 96% | ×1.49 | 0.147 (199 pairs) |
-| tensileStrengthXY | 435 | 54 | 82% | 96% | ×1.6 | 0.17 (198 pairs) |
-| elongationXY | 348 | 74 | 81% | 96% | ×2.55 | 0.727 (181 pairs) |
-| hdt045 | 372 | 63 | 81% | 95% | 17.3 °C | 7.34 (133 pairs) |
+| density | 262 | 93 | 81% | 96% | ×1.18 | 0.0178 (742 pairs) |
+| tensileModulusXY | 500 | 74 | 81% | 96% | ×1.49 | 0.147 (199 pairs) |
+| tensileStrengthXY | 449 | 54 | 82% | 96% | ×1.6 | 0.17 (198 pairs) |
+| elongationXY | 352 | 74 | 81% | 96% | ×2.57 | 0.727 (181 pairs) |
+| hdt045 | 374 | 63 | 81% | 95% | 17.3 °C | 7.34 (133 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 16 | 11 | 3 | 2 | 0 | 0 | 16 |
-| tensileModulusXY | 34 | 21 | 3 | 5 | 5 | 0 | 29 |
-| tensileStrengthXY | 48 | 37 | 4 | 2 | 5 | 0 | 37 |
-| elongationXY | 34 | 17 | 6 | 6 | 5 | 0 | 29 |
-| hdt045 | 40 | 18 | 5 | 3 | 14 | 0 | 25 |
+| tensileModulusXY | 35 | 22 | 3 | 5 | 5 | 0 | 30 |
+| tensileStrengthXY | 49 | 38 | 4 | 2 | 5 | 0 | 38 |
+| elongationXY | 35 | 18 | 6 | 6 | 5 | 0 | 30 |
+| hdt045 | 41 | 18 | 5 | 3 | 15 | 0 | 25 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
 
 | Headline | Class | Held | Top: beyond plausible | Top taken at | Bottom: beyond plausible | Bottom taken at |
 |---|---|---:|---:|---:|---:|---:|
 | density | this-grade | 0 | 0 | cannot screen | 0 | cannot screen |
-| density | this-material | 45 | 2 | 99.23% point | 2 | 1.18% point |
-| density | family | 92 | 2 | 97.5% point | 0 | 2.5% point |
+| density | this-material | 47 | 2 | 99.01% point | 1 | 2.5% point |
+| density | family | 93 | 1 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-grade | 71 | 4 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-material | 39 | 2 | 98.19% point | 2 | 1.18% point |
-| tensileModulusXY | family | 74 | 2 | 97.5% point | 0 | 2.5% point |
+| tensileModulusXY | this-material | 41 | 2 | 98.21% point | 2 | 1.16% point |
+| tensileModulusXY | family | 74 | 1 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | this-grade | 52 | 1 | 97.5% point | 2 | 2.5% point |
-| tensileStrengthXY | this-material | 27 | 1 | 97.61% point | 0 | 2.5% point |
+| tensileStrengthXY | this-material | 30 | 1 | 97.68% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 54 | 0 | 97.5% point | 1 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 38 | 1 | 97.5% point | 1 | 2.5% point |
+| elongationXY | this-material | 40 | 1 | 97.5% point | 1 | 2.5% point |
 | elongationXY | family | 74 | 1 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 53 | 2 | 97.5% point | 0 | 2.5% point |
-| hdt045 | this-material | 31 | 4 | 99.92% point | 0 | 2.5% point |
+| hdt045 | this-material | 32 | 4 | 99.92% point | 0 | 2.5% point |
 | hdt045 | family | 63 | 5 | 98.81% point | 1 | 2.5% point |
 
 - Unstated-load bracket, amorphous: top at the published value + 13 °C (63 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 13 °C, the third largest gap observed).
@@ -159,18 +159,22 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 
 Evidence that contradicts everything else and was down-weighted:
 
+- PLA Metal, density: density 1250 (V000184)
+- PLA Metal, density: density 2360, 2360 (V004044, V004066)
+- PLA Metal, density: density 2330, 2330 (V004048, V004062)
+- PLA Metal, density: density 2280, 2280 (V004058, V004070)
+- PLA Sparkle, density: density 1240 (V004026)
 - PLA Aero, density: density 1210 (V000303)
 - PLA Aero, density: density 1240 (V002975)
 - PLA Aero, density: density 900 (V003554)
 - PLA Aero, density: density 900 (V003652)
 - PETG, density: density 1180 (V002844)
-- PETG, density: density 1350 (V002955)
 - ABS, density: density 1120 (V002349)
+- PC, density: density 1200 (V000677)
+- PC-CF, density: density 1360 (V000719)
 - PC-CF, density: density 1180 (V000733)
-- PA6-CF, density: density 1250 (V002935)
-- PA6-GF, density: density 1140 (V000943)
-- PA6-GF, density: density 1350 (V001163)
-- PA6-GF, density: density 1340 (V002711)
+- PC-CF, density: density 1360 (V003361)
+- PPA-CF, density: density 1250 (V001302)
 - PAHT-CF, tensileModulusXY: tensile XY 8.386 (V002469)
 - PAHT-CF, tensileModulusXY: tensile Z 3.532 (V002470)
 - PA612-ESD, tensileModulusXY: tensile Z 1.7844 (V001239)
@@ -211,17 +215,17 @@ Evidence that contradicts everything else and was down-weighted:
 
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
-- PLA Aero, density: 1210 kg/m³, expected about 974
-- PA6-GF, density: 1140 kg/m³, expected about 1260
-- TPU, elongationXY: 330.1 %, expected about 517
+- PLA Metal, density: 1250 kg/m³, expected about 2170
+- PLA Aero, density: 1210 kg/m³, expected about 931
+- TPU, elongationXY: 330.1 %, expected about 513
 
 ## Consistency
 
-Every one of the 128 materials was checked, and any failure below stops the build:
+Every one of the 129 materials was checked, and any failure below stops the build:
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade, and the representative grade is one of them;
-- every headline cites a measurement of its own material and of the representative grade (438 checked);
+- every headline cites a measurement of its own material and of the representative grade (439 checked);
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
@@ -239,5 +243,5 @@ interface can say so rather than implying a certainty it does not have.
 
 - `HDT-LOAD-UNSTATED` **materials** — 7 of 81 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
-- `EST-OUTLIER` **materials** — 3 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Aero density 1210 (expected about 974); PA6-GF density 1140 (expected about 1260); TPU elongationXY 330.1 (expected about 517)
+- `EST-OUTLIER` **materials** — 3 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Metal density 1250 (expected about 2170); PLA Aero density 1210 (expected about 931); TPU elongationXY 330.1 (expected about 513)
 - `EST-FAMILY-ORDER` **materials** — 1 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865

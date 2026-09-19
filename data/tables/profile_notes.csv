@@ -800,3 +800,39 @@ P0358,Retraction,1-3 (mm)
 P0358,Cooling,OFF-20%
 P0359,Retraction,1-3 (mm)
 P0359,Cooling,OFF-20%
+P0360,Cooling,YES (up to 100%)
+P0360,Layer height,0.05 - 0.30 mm
+P0360,Shell / walls,0.40 – 2.70 mm
+P0360,Speed,40-90 mm/s
+P0361,Cooling,YES (up to 100%)
+P0361,Layer height,0.05 - 0.30 mm
+P0361,Shell / walls,0.40 – 2.70 mm
+P0361,Speed,20-50 mm/s
+P0362,Cooling,YES (up to 100%)
+P0362,Layer height,0.05 - 0.30 mm
+P0362,Shell / walls,≥ 0.20 mm
+P0362,Adhesion / release,not necessary
+P0363,Cooling,YES (up to 100%)
+P0363,Layer height,0.05 - 0.30 mm
+P0363,Shell / walls,≥ 0.20 mm
+P0363,Adhesion / release,not necessary
+P0365,Cooling,YES (up to 100%)
+P0365,Layer height,0.05 - 0.30 mm
+P0365,Shell / walls,≥ 0.20 mm
+P0365,Adhesion / release,not necessary
+P0366,Cooling,YES (up to 100%)
+P0366,Layer height,0.05 - 0.30 mm
+P0366,Shell / walls,≥ 0.20 mm
+P0366,Adhesion / release,not necessary
+P0367,Cooling,YES (up to 100%)
+P0367,Layer height,0.05 - 0.30 mm
+P0367,Shell / walls,≥ 0.20 mm
+P0367,Adhesion / release,not necessary
+P0368,Cooling,YES (up to 100%)
+P0368,Layer height,0.05 - 0.30 mm
+P0368,Shell / walls,≥ 0.20 mm
+P0368,Adhesion / release,not necessary
+P0369,Cooling,do 100%
+P0369,Layer height,0.05 - 0.3 mm
+P0369,Shell / walls,0.4 - 2.7 mm
+P0369,Speed,20 - 50 mm/s

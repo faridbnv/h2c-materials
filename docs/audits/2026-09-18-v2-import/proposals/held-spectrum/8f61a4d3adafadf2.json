@@ -455,5 +455,15 @@
   ],
   "review": {
     "status": "proposed"
-  }
+  },
+  "acceptances": [
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "the sheet prints a yield above its own unqualified tensile stress. A filled PLA yields and then the stress falls; both numbers are the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

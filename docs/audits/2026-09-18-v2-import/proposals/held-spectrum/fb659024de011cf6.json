@@ -671,5 +671,47 @@
   ],
   "review": {
     "status": "proposed"
-  }
+  },
+  "acceptances": [
+    {
+      "row": "m03",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "S-Flex Carbon is a TPU with a 20 per cent carbon fibre load (owner ruling R042). Its sheet publishes a hard composite's numbers under a flexible product line, and the elastomer windows are drawn from the unfilled TPU grades this database holds. Every value is the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "S-Flex Carbon is a TPU with a 20 per cent carbon fibre load (owner ruling R042). Its sheet publishes a hard composite's numbers under a flexible product line, and the elastomer windows are drawn from the unfilled TPU grades this database holds. Every value is the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "S-Flex Carbon is a TPU with a 20 per cent carbon fibre load (owner ruling R042). Its sheet publishes a hard composite's numbers under a flexible product line, and the elastomer windows are drawn from the unfilled TPU grades this database holds. Every value is the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "S-Flex Carbon is a TPU with a 20 per cent carbon fibre load (owner ruling R042). Its sheet publishes a hard composite's numbers under a flexible product line, and the elastomer windows are drawn from the unfilled TPU grades this database holds. Every value is the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m08",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "S-Flex Carbon is a TPU with a 20 per cent carbon fibre load (owner ruling R042). Its sheet publishes a hard composite's numbers under a flexible product line, and the elastomer windows are drawn from the unfilled TPU grades this database holds. Every value is the sheet's own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }
