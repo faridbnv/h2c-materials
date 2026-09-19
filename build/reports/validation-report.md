@@ -20,7 +20,7 @@ Database snapshot 2026-09-16 · build 2026-09-19
 | profiles | 427 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 524 |
+| sources | 528 |
 | coverage | 688 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 302 |

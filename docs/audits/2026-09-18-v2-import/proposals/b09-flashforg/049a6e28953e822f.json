@@ -1,0 +1,811 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "049a6e28953e822f8aaa69971695795400c8fbbef4ed1ac58a8374c9aa72b32a",
+    "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/PETG_HS_TDS_EN.pdf",
+    "pages": 4,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "049a6e28953e822f"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+      "Publisher": "Flashforge",
+      "Title": "Technical Data Sheet HS PETG Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/PETG_HS_TDS_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "049a6e28953e822f8aaa69971695795400c8fbbef4ed1ac58a8374c9aa72b32a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet HS PETG Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "HS PETG",
+        "Shared formulation key": "D-FLASH-PETG-HS-TDS-EN",
+        "Composition / filler": "Build Surface Material Tempered glass, PEI, Carbon fiber plate (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet HS PETG Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.27-1.28 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.28",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1270",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1280",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Density ISO 1183 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cm³ 1.27~1.28"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "8-12 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "12",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "12",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "220°C",
+        "Standard / load": "MFR 220℃/2.16Kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Melt Flow Rate (MFR) (220℃/2.16Kg) ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Flow Rate (MFR) (220℃/2.16Kg) ISO 1133 g/10min 8~12"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "0.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃/24h ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Water Absorption (23℃/24h) ISO 62 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water Absorption (23℃/24h) ISO 62 % ＜0.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "41-45 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "41",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "45",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "41",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "45",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Tensile Strength (X-Y) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (X-Y) ISO 527 Mpa 41~45"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "10-12 %",
+        "Raw unit": "%",
+        "Raw numeric": "10",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "12",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "12",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Elongation at Break (X-Y) ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Break (X-Y) ISO 527 % 10~12"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1400-1500 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "1400",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1500",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1.5",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Modulus of Elasticity (X-Y) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of Elasticity (X-Y) ISO 527 Mpa 1400~1500"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "64-66 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "64",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "66",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "64",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "66",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Bending Strength (X-Y) ISO 178 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending Strength (X-Y) ISO 178 Mpa 64~66"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "68 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "68",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "68",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.455 MPa （66 psi） ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: HDT@ 0.455 MPa(66 psi) ISO 75 ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT@ 0.455 MPa（66 psi） ISO 75 ℃ 68"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Continuous service temperature",
+        "Raw value": "65 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "65",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "65",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "IEC 60216",
+        "Standards": "IEC 60216",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Continuous Service Temperature IEC 60216 ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Continuous Service Temperature IEC 60216 ℃ 65"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "50"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.12"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "100"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "30"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle Diameter 0.4mm"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4mm",
+      "line": "Nozzle Diameter 0.4mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "φ0.4/0.6mm (φ0.4mm recommended)",
+      "line": "Nozzle Diameter φ0.4/0.6mm (φ0.4mm recommended)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "50",
+      "line": "Cooling Fan 50~100%"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Thickness",
+      "raw": "0.12",
+      "line": "Layer Thickness 0.12~0.3mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "100",
+      "line": "Printing Speed 100~350mm/s"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Distance",
+      "raw": "1",
+      "line": "Retraction Distance 1~2mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Speed",
+      "raw": "30",
+      "line": "Retraction Speed 30~50mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "HS PETG is an FFF 3D printing filament, which is produced using a modified PETG. It",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high-speed FFF 3D printers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact Strength (X-Y) ISO 180 KJ/㎡ 5~6",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 2,
+      "text": "Test Equipment Adventurer 5M (Flashforge)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Printing Parameter 0.02mm Standard @Flashforge AD5M 0.4 Nozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill Direction 45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Standard Testing Specimen Specific dimensions are shown in Attachment 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nozzle Temperature 220~260℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Build Platform Temperature Room temperature~60℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Travel Speed 150~600mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ambient Temperature for Printing Room temperature~40℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Attachment 1:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "150.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "114.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "80.00 Zaxis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "20.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4*R25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
+      "reason": "properties.csv carries no property for \"Tensile testing specimen;\""
+    },
+    {
+      "page": 4,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "60.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Flexural testing specimen; ASTM D790 (ISO 178, GB/T 9341)",
+      "reason": "properties.csv carries no property for \"Flexural testing specimen;\""
+    },
+    {
+      "page": 4,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "45.00° Zaxis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

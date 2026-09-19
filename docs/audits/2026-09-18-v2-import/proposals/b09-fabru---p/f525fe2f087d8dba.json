@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "f525fe2f087d8dba3e8c6abb2efe5c6e5c01ad723bb5e20c55f8e578be4b4f25",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/656%2FMaterialdatenblatt+PBT+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "f525fe2f087d8dba"
+  },
+  "identity": {
+    "polymer": "PBT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pbt"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"PBT\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Polybutylenterephthalat (PBT)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/656%2FMaterialdatenblatt+PBT+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f525fe2f087d8dba3e8c6abb2efe5c6e5c01ad723bb5e20c55f8e578be4b4f25"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polybutylenterephthalat (PBT)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Allgemein",
+        "Shared formulation key": "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Brennbarkeit (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Polybutylenterephthalat (PBT)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "23 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "23",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "23",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+        "Locator": "p. 1: Vicat Erweichungstemperatur A - °C Wärmeleitzahl",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Wärmeleitzahl 23°C - W/(K*m)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "- hohe Temperaturbeständigkeit bis zu 180°C Bauraumheizung erforderlich",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Auch bei Minustemperaturen bis -50°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Schwindung (ISO 294-4, 2577) - %",
+      "reason": "properties.csv carries no property for \"Schwindung (\""
+    },
+    {
+      "page": 1,
+      "text": "240-260 °C MFR (ISO 1133) 19 g/10min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Streckspannung (ISO 527-1/-2) 59 MPa",
+      "reason": "properties.csv carries no property for \"Streckspannung (\""
+    },
+    {
+      "page": 1,
+      "text": "160-200 °C Streckdehnung (ISO 527-1/-2) 8 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reissdehnung (ISO 527-1/-2) 30 %",
+      "reason": "properties.csv carries no property for \"Reissdehnung (\""
+    },
+    {
+      "page": 1,
+      "text": "120°C Zug-E-Modul (ISO 527-1/-2) 2600 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Formbeständigkeitstemperatur 180 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2-4h 0.45 MPa (ISO 75-1/2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D1525)",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Brennbarkeit (UL 94) HB",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Dichte (ASTM D792) 1.31 g/cm3",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

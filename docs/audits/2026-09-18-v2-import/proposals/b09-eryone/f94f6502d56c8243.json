@@ -1,0 +1,434 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "f94f6502d56c82432a189c14d192747835a3e77494897b46d85ed3418f478404",
+    "url": "https://hub.globalso.com/b/file_manager_downLoad?path=/file_manage/3828/20250903/eryone-pa6-cf-tds.pdf",
+    "pages": 4,
+    "provider": "Eryone",
+    "manufacturer": "Eryone",
+    "docKey": "f94f6502d56c8243"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa6"
+    ],
+    "materialId": "M049",
+    "materialName": "PA6",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ERYONE-file-manager-downLoad",
+      "Publisher": "Eryone",
+      "Title": "Technical Data Sheet (TDS)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://hub.globalso.com/b/file_manager_downLoad?path=/file_manage/3828/20250903/eryone-pa6-cf-tds.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f94f6502d56c82432a189c14d192747835a3e77494897b46d85ed3418f478404"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet (TDS)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Eryone",
+        "Product name": "(TDS)",
+        "Shared formulation key": "R-ERYONE-file-manager-downLoad",
+        "Composition / filler": "equipment.The carbon fiber content is approximately 20%. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet (TDS)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "35.1-37.5 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "35.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "37.5",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "37.5",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "g/10 min 210 ° C 2.16kg. D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "Locator": "p. 1: Melt Index(g/10 min) 210 ° C, 2.16kg. D1238 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Index(g/10 min) 210 ° C, 2.16kg. D1238 g/10min 35.1-37.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "21.3-25.5 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "21.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "25.5",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "21.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "25.5",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "Locator": "p. 2: Charpy Impact strenght D256 kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Charpy Impact strenght D256 kJ/m2 21.3-25.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260-290 ℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "80-100℃",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "85℃",
+        "Drying state": "stated",
+        "Drying °C": "85",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-100mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "60mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 260-290 ℃"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "260-290 ℃",
+      "line": "Nozzle temperature 260-290 ℃"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "80-100℃",
+      "line": "Bed temperature 80-100℃"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "30-100mm/s",
+      "line": "Printing speed 30-100mm/s"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying conditions",
+      "raw": "85℃",
+      "line": "Drying conditions 85℃, 12h"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "60mm/s",
+      "line": "printing speed=60mm/s, base plate 100 ° C, filling=100%, nozzle diameter=0.4mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "08/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eryone PA6-CF is which is specially designed for 3D FDM printer. As a specific",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "product used in 3D printing, our product shows excellent mechanical and physical properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "after printed as a part.With excellent heat resistance up to 185°C and outstanding mechanical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "equipment.The carbon fiber content is approximately 20%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.09",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density(g/cm³ at 21.5 ° C）",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) /",
+      "reason": "the sheet publishes no value for Vicat softening temperature in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa 185",
+      "reason": "the sheet states HDT in 0.45MPa, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Glass transition temperature (° C) DSC, 10 ° C/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50mm/min D638",
+      "reason": "properties.csv carries no property for \"50mm/min\""
+    },
+    {
+      "page": 2,
+      "text": "MPa 53-55",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 2,
+      "text": "50mm/min D638 MPa 47-53",
+      "reason": "properties.csv carries no property for \"50mm/min\""
+    },
+    {
+      "page": 2,
+      "text": "50mm/min D638",
+      "reason": "properties.csv carries no property for \"50mm/min\""
+    },
+    {
+      "page": 2,
+      "text": "MPa 4020-4360",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 2,
+      "text": "% 8.9-10.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Elongation X-Y 5mm/min D638",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "2mm/min D790 MPa 140-145",
+      "reason": "properties.csv carries no property for \"2mm/min\""
+    },
+    {
+      "page": 2,
+      "text": "2mm/min D790 MPa 4240-4580",
+      "reason": "properties.csv carries no property for \"2mm/min\""
+    },
+    {
+      "page": 2,
+      "text": "4mm，23℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Note: All splines are printed under the following conditions: printing temperature=280 ° C,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

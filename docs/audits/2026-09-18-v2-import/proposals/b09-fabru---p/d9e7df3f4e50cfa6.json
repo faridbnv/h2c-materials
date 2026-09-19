@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "d9e7df3f4e50cfa6f1f892941b784000ec4c30b8995aded2ca0b8a74799cf33c",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/680%2FMaterialdatenblatt+ABS+GF10+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "d9e7df3f4e50cfa6"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Acrylnitrilbutadienstyrol Glasfaser 10% (ABS GF10)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/680%2FMaterialdatenblatt+ABS+GF10+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d9e7df3f4e50cfa6f1f892941b784000ec4c30b8995aded2ca0b8a74799cf33c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Acrylnitrilbutadienstyrol Glasfaser 10% (ABS GF10)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Allgemein",
+        "Shared formulation key": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Brennbarkeit (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Acrylnitrilbutadienstyrol Glasfaser 10% (ABS GF10)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "95 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Vicat Erweichungstemperatur A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Erweichungstemperatur A 95 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Acrylnitrilbutadienstyrol Glasfaser 10% (ABS GF10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Modifikation. Um die Steifigkeit zu erhöhen werden zusätzlich 10% Glasfasern zugegeben.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS GF10 hat eine geringere Schwindung gegenüber unverstärktem ABS und lässt sich",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Hitzebeständig bis 100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Schwindung (ISO 294-4, 2577) 0.2-0.4 %",
+      "reason": "properties.csv carries no property for \"Schwindung (\""
+    },
+    {
+      "page": 1,
+      "text": "240-260 °C MFR (ISO 1133) 24 g/10min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Streckspannung (ISO 527-1,2) 81 MPa",
+      "reason": "properties.csv carries no property for \"Streckspannung (\""
+    },
+    {
+      "page": 1,
+      "text": "80-110 °C Streckdehnung (ASTM D638) 3 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reissdehnung (ISO 527-1,2) 3 %",
+      "reason": "properties.csv carries no property for \"Reissdehnung (\""
+    },
+    {
+      "page": 1,
+      "text": "80°C Zug-E-Modul (ISO 178) 4200 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Formbeständigkeitstemperatur 100 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2-4h 0.45 MPa (ASTM D648)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D1525)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wärmeleitzahl 23°C - W/(K*m)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Brennbarkeit (UL 94) HB",
+      "reason": "properties.csv carries no property for \"Brennbarkeit (\""
+    },
+    {
+      "page": 1,
+      "text": "Dichte (ISO 1183) 1.11 g/cm3",
+      "reason": "properties.csv carries no property for \"Dichte (\""
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

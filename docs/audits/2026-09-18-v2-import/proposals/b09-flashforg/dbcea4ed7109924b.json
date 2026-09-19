@@ -1,0 +1,621 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "dbcea4ed7109924b8dfa64d552e019c0d32d77e5c96a729071307b7808350df1",
+    "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/PA6_GF_TDS_EN.pdf",
+    "pages": 4,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "dbcea4ed7109924b"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6",
+      "filler: gf20"
+    ],
+    "materialId": "M051",
+    "materialName": "PA6-GF",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+      "Publisher": "Flashforge",
+      "Title": "Technical Data Sheet PA6-GF20 Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/PA6_GF_TDS_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "dbcea4ed7109924b8dfa64d552e019c0d32d77e5c96a729071307b7808350df1"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet PA6-GF20 Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M051",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "PA6-GF20",
+        "Shared formulation key": "D-FLASH-PA6-GF-TDS-EN",
+        "Composition / filler": "reinforced with 20% glass fiber. It offers excellent dimensional stability and rigidity, along (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet PA6-GF20 Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.31-1.32 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.31",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.32",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1310",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1320",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "Locator": "p. 1: Density ISO 1183 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cm³ 1.31~1.32"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "1 %",
+        "Raw unit": "%",
+        "Raw numeric": "1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃/24h ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "Locator": "p. 1: Water Absorption (23℃/24h) ISO 62 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water Absorption (23℃/24h) ISO 62 % ＜1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "98.9-107.3 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "98.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "107.3",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "98.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "107.3",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "Locator": "p. 1: Tensile Strength (X-Y) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (X-Y) ISO 527 Mpa 98.9~107.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.08-7.32 %",
+        "Raw unit": "%",
+        "Raw numeric": "6.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "7.32",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.08",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "7.32",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "Locator": "p. 1: Elongation at Break (X-Y) ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Break (X-Y) ISO 527 % 6.08~7.32"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "180 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.455 MPa 66 psi ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "Locator": "p. 1: HDT@ 0.455 MPa (66 psi) ISO 75 ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT@ 0.455 MPa (66 psi) ISO 75 ℃ 180"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "270 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "270",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FLASH-PA6-GF-TDS-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "150mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.12"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Length 0.5~2mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle Diameter 0.4mm"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4mm",
+      "line": "Nozzle Diameter 0.4mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "270 °C",
+      "line": "Nozzle Temperature 270 °C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "150mm/s",
+      "line": "Printing Speed 150mm/s"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "φ0.4/0.6mm",
+      "line": "Nozzle Diameter φ0.4/0.6mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "0",
+      "line": "Cooling Fan 0~50%"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Thickness",
+      "raw": "0.12",
+      "line": "Layer Thickness 0.12~0.3mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "40",
+      "line": "Printing Speed 40~200mm/s (Higher speeds require higher"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Length 0.5~2mm",
+      "line": "Retraction Length 0.5~2mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Speed",
+      "raw": "20",
+      "line": "Retraction Speed 20~40mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6-GF20 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF20 is an FFF 3D printing filament, which is produced using a modified PA6 material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "reinforced with 20% glass fiber. It offers excellent dimensional stability and rigidity, along",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133 g/10min 3~6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt Index (MFR) (250℃/2.16Kg)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178 Mpa",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus (X-Y) 200~203.5",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus (X-Z) 57.5~59.7",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178 Mpa",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength (X-Y) 5545~5879",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength (X-Z) 1582~1653",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "ISO 180 KJ/m2",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact Strength (X-Y) 14.5~15.6",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact Strength (X-Z) 3.5~4.7",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Test Equipment Flashforge Guider 3 Ultra",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill Density 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Standard Testing Specimen Specific dimensions are shown in Attachment 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nozzle Temperature 250~300℃ (270℃ recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Build Platform Temperature 80~110℃ (90℃ recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Travel Speed 60~300mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ambient Temperature for Printing Room temperature~80℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "dry air oven at 100℃ for at least 6 hours is recommended in order to ensure the print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "If PA6-GF20 is used as the support material for itself, please remove the support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "After the printing process, it is recommended to dry the model in the oven at 80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "for 1-3 hours to increase the strength of the model.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Attachment 1:",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

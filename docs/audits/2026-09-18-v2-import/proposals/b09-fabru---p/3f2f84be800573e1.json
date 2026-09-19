@@ -1,0 +1,490 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "3f2f84be800573e1115d3f948cc6cb4ceae09b00e9ca15a1548644116e7bdd3f",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/82%2Fmaterial+data+sheet+LW-PLA+purefil.pdf",
+    "pages": 3,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "3f2f84be800573e1"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "its density of -1240 kg/m³ is below what neat PLA reaches (1170), so the product is foamed or carries a lightweight additive"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Lightweight Polylactide (LW-PLA)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/82%2Fmaterial+data+sheet+LW-PLA+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3f2f84be800573e1115d3f948cc6cb4ceae09b00e9ca15a1548644116e7bdd3f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Lightweight Polylactide (LW-PLA)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "General",
+        "Shared formulation key": "R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Lightweight Polylactide (LW-PLA)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil",
+        "Locator": "p. 1: Yield stress (ASTM D638)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield stress (ASTM D638) 60 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "-1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "-1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "-1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.35 ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil",
+        "Locator": "p. 1: Density (ASTM D792) 0.35*",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ASTM D792) 0.35*-1.24 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(ISO 294-4, 2577)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Shrinkage (ISO 294-4, 2577) - %"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Shrinkage",
+      "raw": "(ISO 294-4, 2577)",
+      "line": "Shrinkage (ISO 294-4, 2577) - %"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Lightweight polyactide is a polymer that expands during 3D printing. With the active foaming",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "technology, parts can be achieved with a weight reduction of up to 70%. From a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature of approx. 200 ° C, the material begins to foam. The expansion effect increases",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "of approx. 250-260 ° C. With optimal settings, the flow factor can be reduced to a value of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.3, which leads to extremely light PLA components. Use the foaming technology to produce",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "parts with a low density, print parts with a single layer, which has a width of up to 1.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(with a 0.4mm nozzle) and thus reduce the printing time by a factor of 3 or you increase the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Ideal material for model airplanes - Can become soft again from 60 degrees",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Weight reduction by up to 70% - Optimal print settings must be tested",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Expansion by a factor of 3 individually for each printer model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 times more parts than with a spool of - Color becomes paler after expansion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "200-260 °C MFR (ASTM D1238) 6 g/10min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50-70 °C Elongation at yield (ASTM D882) 6 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80°C D882)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (ASTM 6 %",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "2-4h Heat deflection temperature 55 °C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa (ASTM E2092)",
+      "reason": "properties.csv carries no property for \"0.45 MPa (ASTM\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile modulus (ASTM D790) - MPa",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D1525)",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Flammability (UL 94) HB",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Thermal conductivity 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "The component is designed for a 0.4mm nozzle. With a different nozzle diameter, the wall",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Start at a temperature of 200 ° C and print the component «Parameter test LW-PLA» with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the usual parameters. We recommend a printing speed of 30mm / s and a layer height of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.2mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Next, print the same component at 210 ° C, 220 ° C, 230 ° C, 240 ° C, 250 ° C and possibly",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "260 ° C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "220°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "250°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "240°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "In our test with a Longer3D LK1, the material reaches the greatest expansion at 250 ° C with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "a layer width of approx. 1.24mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1. The extrusion width is adjusted in the slicing software.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2. The flow is reduced.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "software. We show you the two settings for Simplify3D here. With other software, you may",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "At Simplify3D you can find the extrusion width in the menu \"Extruder\"",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "The goal of reducing the flow is to bring the width of the layer back to the usual 0.4mm. The",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "extrusion multiplier is reduced step by step. We'll start with an extrusion multiplier of 0.5.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "With an extrusion multiplier of 0.3, we achieve a layer width of 0.42mm. So we print the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "parts with a reduced flow of 70%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Now you have successfully set all the important parameters for 3D printing with LW-PLA and",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

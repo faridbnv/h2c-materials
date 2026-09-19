@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282",
+    "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPU_64D_TDS_EN.pdf",
+    "pages": 4,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "fec4a0619b2ccb3f"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "64D",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 64D"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+      "Publisher": "Flashforge",
+      "Title": "Technical Data Sheet TPU 64D Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPU_64D_TDS_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet TPU 64D Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "TPU 64D",
+        "Shared formulation key": "D-FLASH-TPU-64D-TDS-EN",
+        "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet TPU 64D Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.22-1.24 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.24",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1220",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1240",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Locator": "p. 1: Density ISO 1183 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cm³ 1.22~1.24"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "30-35 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "35",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "35",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Locator": "p. 1: Tensile Strength (X-Y) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (X-Y) ISO 527 Mpa 30~35"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "540-550 %",
+        "Raw unit": "%",
+        "Raw numeric": "540",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "550",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "540",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "550",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Locator": "p. 1: Elongation at Break (X-Y) ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Break (X-Y) ISO 527 % 540~550"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "490-500 %",
+        "Raw unit": "%",
+        "Raw numeric": "490",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "500",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "490",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "500",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Locator": "p. 1: Elongation at Break (X-Z) ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Break (X-Z) ISO 527 % 490~500"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "35°C",
+        "Bed state": "range",
+        "Bed min °C": "35",
+        "Bed max °C": "35",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "150mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "1.8mm"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "1.2mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "≤150mm/s(150mm/s recommended)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle Diameter 0.4mm"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4mm",
+      "line": "Nozzle Diameter 0.4mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "230°C",
+      "line": "Nozzle Temperature 230°C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "150mm/s",
+      "line": "Printing Speed 150mm/s"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated bed temperature",
+      "raw": "35°C",
+      "line": "Heated bed temperature 35°C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Wall Thickness",
+      "raw": "1.8mm",
+      "line": "Wall Thickness 1.8mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "1.2mm",
+      "line": "Shell thickness 1.2mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "φ0.4/0.6mm(0.4mm recommended)",
+      "line": "Nozzle Diameter φ0.4/0.6mm(0.4mm recommended)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "50%",
+      "line": "Cooling Fan 50%~100%"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Thickness",
+      "raw": "0.2mm",
+      "line": "Layer Thickness 0.2mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "≤150mm/s(150mm/s recommended)",
+      "line": "Printing Speed ≤150mm/s(150mm/s recommended)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TPU 64D Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Flashforge TPU 64D filament is a high-performance flexible 3D printing material. Compared to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "conventional TPU 95A, the TPU 64D offers greater hardness and moderate elasticity, making it",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "compatible with most direct-drive 3D printers. Its higher hardness prevents feeding issues often",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133 g/10min 40~50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Rate (MFR) (210℃/2.16Kg)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Maximum force (X-Y) 5~10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO178 Mpa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural modulus (X-Y) 100~200",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "ISO 179 KJ/m2",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Notch impact strength2 (X-Y) 62~66",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tear strength (X-Z) ASTMD 624 N/mm 150~160",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Impact strength (Z-X) 20~25",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Test Equipment Flashforge AD5X",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Standard Testing Specimen Specific dimensions are shown in Appendix 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "220~240℃ (230℃ recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Build Platform Temperature 35~55℃(40℃ recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "at 90℃-100℃ for at least 12 hours is recommended in order to ensure the print success rate and",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "After the printing process, it is recommended to dry the model in the oven at 120-130°C for 6-8",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 4,
+      "text": "Attachment 1:",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

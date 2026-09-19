@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "662ed5ad5edc88207d290f15ccfb2d264f642a8efad2461a17cc88455faeea28",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/7782%2FMaterialdatenblatt-PVC-P-purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "662ed5ad5edc8820"
+  },
+  "identity": {
+    "polymer": "PVC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pvc"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"PVC\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Polyvinylchlorid weich 94A (PVC-P)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/7782%2FMaterialdatenblatt-PVC-P-purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "662ed5ad5edc88207d290f15ccfb2d264f642a8efad2461a17cc88455faeea28"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polyvinylchlorid weich 94A (PVC-P)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Allgemein",
+        "Shared formulation key": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Brennbarkeit (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Polyvinylchlorid weich 94A (PVC-P)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "23 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "23",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "23",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
+        "Locator": "p. 1: Vicat Erweichungstemperatur A - °C Wärmeleitzahl",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Wärmeleitzahl 23°C - W/(K*m)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Polyvinylchlorid weich 94A (PVC-P)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PVC-Weich Filament ist ein flexibles 3D-Druckmaterial, das sich durch seine Weichheit und",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "gummiähnliche Eigenschaften erforderlich sind. Die Shore Härte beträgt 94A.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "geschlossenen 3D-Druckern mit integriertem Aktivkohlefilter.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190-230 °C MFR - g/10min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Streckspannung (ISO 527) 24.8 MPa",
+      "reason": "properties.csv carries no property for \"Streckspannung (\""
+    },
+    {
+      "page": 1,
+      "text": "60-70 °C Streckdehnung - %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reissdehnung (ISO 527) 366 %",
+      "reason": "properties.csv carries no property for \"Reissdehnung (\""
+    },
+    {
+      "page": 1,
+      "text": "nicht notwendig 0.45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Brennbarkeit (UL 94) HB",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Dichte (ISO 1183-1) 1.269 g/cm3",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}
