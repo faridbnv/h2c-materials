@@ -874,6 +874,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Siraya Tech | The Fibreheart line is its filled-fibre brand. | Siraya;SirayaTech |
 | Spectrum | Spectrum Filaments. | Spectrum Filaments;SPECTRUM |
 | Stratasys |  |  |
+| SUNLU | Chinese maker (Shenzhen Sunlu Industrial); sells worldwide under its own name. | Sunlu;sunlu;SUNLU 3D;Shenzhen Sunlu Industrial;三绿 |
 | Yousu | Guangzhou Yousu 3D Technology. | Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU |
 
 <a id="vocab-material-links"></a>

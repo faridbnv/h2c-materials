@@ -1,7 +1,7 @@
 // Observations: which measurement says what about a headline (its conversion kind), and the snapshot of materials,
 // grades and usable measurements the model is fitted to.
 
-import { specimenForm, annealedBesideAsPrinted } from '../normalize/specimen.js';
+import { specimenForm, annealedBesideAsPrinted, conditionedBesideDry } from '../normalize/specimen.js';
 import { median } from './numerics.js';
 import { identityOf, transform } from './model.js';
 
@@ -140,6 +140,9 @@ export function rawObservations(key, S, model) {
       // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
       // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C.
       if (annealedBesideAsPrinted(x, S.byMaterial.get(m.id))) continue;
+      // And the same for water where the conversion kind does not already separate the two: a heat deflection
+      // measured on a conditioned bar beside its own dry one is the other state of that bar, not a repeat.
+      if (key === 'hdt045' && conditionedBesideDry(x, S.byMaterial.get(m.id))) continue;
       if (x.value < pl || x.value > ph) { rejected.push({ key, materialId: m.id, material: m.name, measurementId: x.id, property: x.property, value: x.value, unit: x.unit }); continue; }
       // A one-sided bound ("> 16.5 MPa", "< 0.8 %") says the value lies beyond it. Read as an exact point it became
       // the most precise observation of all (PEBA's strength estimate 16.4-16.6 MPa); left out, elastomers lost

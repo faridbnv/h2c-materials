@@ -26,7 +26,7 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 126 materials, 112 of them in H2C scope
-4188 measurements, each traceable to a source
+4646 measurements, each traceable to a source
 109 have a density, 89 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
@@ -234,7 +234,7 @@ PLA Lite not tested 1,230 — 53 3.89 53? — ☆
 PLA Marble not tested 1,220 2.33 33 6.7 56 32↗ ☆
 PLA Matte not tested 1,310 1.96 30 14.8 58 28↗ ☆
 PLA Metal not tested 1,250 2.01 34 14.7 62 32↗ ☆
-PLA Silk not tested 1,240 2.4 41.1 11.7* 50* — ☆
+PLA Silk not tested 1,240 2.4 41.1 11.7* 57* — ☆
 PLA Silk Dual Color not tested 1,320 1.83 27 3.5 53 32↗ ☆
 PLA Silk+ not tested 1,270 2.13 33 2.8 60 31↗ ☆
 PLA Sparkle not tested 1,260 1.94 39 11.7 55 32↗ ☆
@@ -250,7 +250,7 @@ also called Acetal · Acetals
  not tested 1,420 1.87 50 11 160* — ☆
 PP
 Polyolefins
- not tested 890 — 13.9* 460* 92? — ☆
+ not tested 890 — 19* 850* 92? — ☆
 PP Lightweight
 Polyolefins
  not tested 810 1.65 38* 13 94 — ☆
@@ -292,7 +292,7 @@ Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,240 2.1 52 8 172? — ☆
 PVA
 Support / Soluble
- not tested 1,270 n/a n/a n/a n/a 102↗ ☆
+ not tested 1,270 n/a 23* 215* 55* 102↗ ☆
 PVB
 PVB / Specialty Polymers
  not tested 1,100 2.2* 51.8* 14.5* 63 — ☆

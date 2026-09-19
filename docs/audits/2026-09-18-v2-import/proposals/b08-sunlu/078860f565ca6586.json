@@ -21,12 +21,12 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "sheet: petg"
+      "name: petg"
     ],
     "materialId": "M020",
     "materialName": "PETG",
     "estimateIdentity": "PETG",
-    "confidence": 0.8,
+    "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
         "MaterialID": "M020",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "版本/版次 A/0",
+        "Product name": "PETG 2.0",
         "Shared formulation key": "R-SUNLU-30522971789539747056",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -128,9 +131,12 @@
         "page": 1,
         "text": "拉伸模量(X-Y) Tensile Modulus ISO 527/2 50 mm/min MPa 500±50"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -175,9 +181,12 @@
         "page": 1,
         "text": "拉伸模量(Z-X) Tensile Modulus ISO 527/2 50 mm/min MPa 300±50"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -222,9 +231,12 @@
         "page": 1,
         "text": "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 43±10"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -269,9 +281,12 @@
         "page": 1,
         "text": "拉伸强度(Z-X) Tensile Strength ISO 527/2 50 mm/min MPa 20±5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -316,9 +331,12 @@
         "page": 1,
         "text": "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 12±5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -363,9 +381,12 @@
         "page": 1,
         "text": "断裂伸长率(Z-X) Elongation at break ISO 527/2 50 mm/min % 8±3"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -410,9 +431,12 @@
         "page": 1,
         "text": "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 1900±300"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -457,9 +481,12 @@
         "page": 1,
         "text": "弯曲模量(Z-X) Flexural Modulus ISO 178 2 mm/min MPa 1650±300"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -504,9 +531,12 @@
         "page": 1,
         "text": "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 70±10"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -551,9 +581,12 @@
         "page": 1,
         "text": "弯曲强度(Z-X) Flexural Strength ISO 178 2 mm/min MPa 35±10"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -598,9 +631,12 @@
         "page": 1,
         "text": "ISO 180 23℃ KJ/m2 38±8"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -645,9 +681,12 @@
         "page": 1,
         "text": "ISO 180 23℃ KJ/m2 4.5±2.5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -692,9 +731,12 @@
         "page": 1,
         "text": "ISO 180 23℃ KJ/m2 4±2"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -739,9 +781,12 @@
         "page": 1,
         "text": "邵氏硬度 Shore Hardness ISO 868 23℃ HA/HD 80D"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -786,9 +831,12 @@
         "page": 1,
         "text": "热变形温度(X-Y) Heat Distortion (HDT) ISO 75 0.45 MPa ℃ 71±4"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -833,9 +881,12 @@
         "page": 1,
         "text": "玻璃化转变温度 Glass Transition (Tg) ISO 11357-2 10 ℃/min ℃ 83"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -872,7 +923,7 @@
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-SUNLU-30522971789539747056",
-        "Locator": "p. 1: 熔体指数（线材） Melt Mass-flow Rate ISO 1133 210℃/2.16 kg g/10 min",
+        "Locator": "p. 1: 熔体指数(线材) Melt Mass-flow Rate ISO 1133 210℃/2.16 kg g/10 min",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -880,9 +931,12 @@
         "page": 1,
         "text": "熔体指数（线材） Melt Mass-flow Rate ISO 1133 210℃/2.16 kg g/10 min 3.42±2"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -927,9 +981,12 @@
         "page": 1,
         "text": "密度 Density ISO 1183 23℃ g/cm3 1.22"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -1181,6 +1238,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m01",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU publishes both moduli for PETG 2.0: a tensile modulus of 500 MPa beside a flexural modulus of 1900 MPa. The pair is the maker's own, printed on one sheet, and the tensile figure is recorded as printed; it backs no headline.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU publishes both moduli for PETG 2.0: a tensile modulus of 300 MPa beside a flexural modulus of 1900 MPa. The pair is the maker's own, printed on one sheet, and the tensile figure is recorded as printed; it backs no headline.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

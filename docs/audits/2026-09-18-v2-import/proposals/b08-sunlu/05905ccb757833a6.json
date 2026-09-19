@@ -15,18 +15,19 @@
   "identity": {
     "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
-    "variantClass": "",
-    "finish": "",
+    "variantClass": "silk",
+    "finish": "Silk",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "sheet: pla"
+      "name: pla",
+      "variant: silk (Silk)"
     ],
-    "materialId": "M001",
-    "materialName": "PLA",
+    "materialId": "M008",
+    "materialName": "PLA Silk",
     "estimateIdentity": "PLA",
-    "confidence": 0.8,
+    "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "版本/版次 A/0",
+        "Product name": "PLA+ Silk 2.0",
         "Shared formulation key": "R-SUNLU-56889371789540318047",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -90,7 +94,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "597 ± 50 MPa",
@@ -128,16 +132,19 @@
         "page": 1,
         "text": "拉伸模量(X-Y) Tensile Modulus ISO 527/2 50 mm/min MPa 597±50"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "363 ± 30 MPa",
@@ -175,16 +182,19 @@
         "page": 1,
         "text": "拉伸模量(Z-X) Tensile Modulus ISO 527/2 50 mm/min MPa 363±30"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "51 ± 4 MPa",
@@ -222,16 +232,19 @@
         "page": 1,
         "text": "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 51±4"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "18 ± 3 MPa",
@@ -269,16 +282,19 @@
         "page": 1,
         "text": "拉伸强度(Z-X) Tensile Strength ISO 527/2 50 mm/min MPa 18±3"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "11 ± 3 %",
@@ -316,16 +332,19 @@
         "page": 1,
         "text": "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 11±3"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "5 ± 1.5 %",
@@ -363,16 +382,19 @@
         "page": 1,
         "text": "断裂伸长率(Z-X) Elongation at break ISO 527/2 50 mm/min % 5±1.5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "2473 ± 300 MPa",
@@ -410,16 +432,19 @@
         "page": 1,
         "text": "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 2473±300"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "1719 ± 200 MPa",
@@ -457,16 +482,19 @@
         "page": 1,
         "text": "弯曲模量(Z-X) Flexural Modulus ISO 178 2 mm/min MPa 1719±200"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m09",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Flexural strength",
         "Raw value": "77 ± 5 MPa",
@@ -504,16 +532,19 @@
         "page": 1,
         "text": "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 77±5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m10",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Flexural strength",
         "Raw value": "27 ± 3 MPa",
@@ -551,16 +582,19 @@
         "page": 1,
         "text": "弯曲强度(Z-X) Flexural Strength ISO 178 2 mm/min MPa 27±3"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m11",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "15.5 ± 1.5 KJ/m2",
@@ -598,16 +632,19 @@
         "page": 1,
         "text": "ISO 180 23℃ KJ/m2 15.5±1.5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m12",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "6.5 ± 1.5 KJ/m2",
@@ -645,16 +682,19 @@
         "page": 1,
         "text": "ISO 180 23℃ KJ/m2 6.5±1.5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m13",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "4.29 ± 1.5 KJ/m2",
@@ -692,16 +732,19 @@
         "page": 1,
         "text": "ISO 180 23℃ KJ/m2 4.29±1.5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m14",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Hardness",
         "Raw value": "82.5",
@@ -739,16 +782,19 @@
         "page": 1,
         "text": "邵氏硬度 Shore Hardness ISO 868 23℃ HA/HD 82.5"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m15",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "57 ± 3 ℃",
@@ -786,16 +832,19 @@
         "page": 1,
         "text": "热变形温度(X-Y) Heat Distortion (HDT) ISO 75 0.45 MPa ℃ 57±3"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m16",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Glass transition temperature",
         "Raw value": "60.9 ℃",
@@ -833,16 +882,19 @@
         "page": 1,
         "text": "玻璃化转变温度 Glass Transition (Tg) ISO 11357-2 10 ℃/min ℃ 60.9"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m17",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Melting temperature",
         "Raw value": "164 ℃",
@@ -880,16 +932,19 @@
         "page": 1,
         "text": "熔点温度 Melting Temperature ISO 11357-3 10 ℃/min ℃ 164"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m18",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Vicat softening temperature",
         "Raw value": "54 ℃",
@@ -927,16 +982,19 @@
         "page": 1,
         "text": "维卡软化温度 Vicat Softening Temp. ISO 306 5kg, 50℃/h ℃ 54"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m19",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "4 ± 2 g/10 min",
@@ -966,7 +1024,7 @@
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-SUNLU-56889371789540318047",
-        "Locator": "p. 1: 熔体指数（线材） Melt Mass-flow Rate ISO 1133 190℃/2.16 kg g/10 min",
+        "Locator": "p. 1: 熔体指数(线材) Melt Mass-flow Rate ISO 1133 190℃/2.16 kg g/10 min",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -974,16 +1032,19 @@
         "page": 1,
         "text": "熔体指数（线材） Melt Mass-flow Rate ISO 1133 190℃/2.16 kg g/10 min 4±2"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m20",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.25 g/cm3",
@@ -1021,9 +1082,12 @@
         "page": 1,
         "text": "密度 Density ISO 1183 23℃ g/cm3 1.25"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -1245,6 +1309,42 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m01",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU publishes both moduli for PLA+ Silk 2.0: a tensile modulus of 597 MPa beside a flexural modulus of 2473 MPa. The pair is the maker's own, printed on one sheet, and the tensile figure is recorded as printed; it backs no headline.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU publishes both moduli for PLA+ Silk 2.0: a tensile modulus of 363 MPa beside a flexural modulus of 2473 MPa. The pair is the maker's own, printed on one sheet, and the tensile figure is recorded as printed; it backs no headline.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m14",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m16",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "The sheet measures its Vicat point under 5 kg (ISO 306, the B load) and its glass transition by DSC at 10 °C/min. A B-load Vicat sits below the A-load one and can sit below the glass transition; PLA+ Silk 2.0 publishes 60.9 °C against 54 °C, which is what those two methods give on one material rather than a contradiction.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

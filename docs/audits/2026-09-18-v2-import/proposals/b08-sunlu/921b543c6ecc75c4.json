@@ -21,7 +21,7 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: asa"
+      "name: asa"
     ],
     "materialId": "M031",
     "materialName": "ASA",
@@ -34,7 +34,7 @@
     "row": {
       "SourceID": "R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO ASA",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +50,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO ASA"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
         "MaterialID": "M031",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "ASA",
         "Shared formulation key": "R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +84,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO ASA"
       }
     }
   ],
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -318,7 +333,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -365,7 +383,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -412,7 +433,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -459,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -506,7 +533,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -553,7 +583,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -600,7 +633,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -647,7 +683,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -694,7 +733,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -763,7 +805,10 @@
         "text": "Plate Temp. 80-100℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -991,6 +1036,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m09",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "The sheet measures its Vicat point under 5 kg (ISO 306, the B load) and its glass transition by DSC at 10 °C/min. A B-load Vicat sits below the A-load one and can sit below the glass transition; ASA publishes 108 °C against 105 °C, which is what those two methods give on one material rather than a contradiction.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

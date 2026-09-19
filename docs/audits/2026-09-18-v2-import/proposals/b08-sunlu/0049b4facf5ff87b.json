@@ -15,16 +15,17 @@
   "identity": {
     "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
-    "variantClass": "",
-    "finish": "",
+    "variantClass": "silk",
+    "finish": "Silk",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pla"
+      "name: pla",
+      "variant: silk (Silk)"
     ],
-    "materialId": "M001",
-    "materialName": "PLA",
+    "materialId": "M008",
+    "materialName": "PLA Silk",
     "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
@@ -34,7 +35,7 @@
     "row": {
       "SourceID": "R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO Silk PLA+ Four-Color",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO Silk PLA+ Four-Color"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "Silk PLA+ Four-Color",
         "Shared formulation key": "R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +85,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO Silk PLA+ Four-Color"
       }
     }
   ],
@@ -90,7 +94,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "50 ± 4 MPa",
@@ -130,14 +134,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "11 ± 3 %",
@@ -177,14 +184,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Flexural strength",
         "Raw value": "78 ± 5 MPa",
@@ -224,14 +234,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "2600 ± 300 MPa",
@@ -271,14 +284,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "3.5 ± 1.5 KJ/m2",
@@ -318,14 +334,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "4 ± 1.5 KJ/m2",
@@ -365,14 +384,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Hardness",
         "Raw value": "79.6",
@@ -412,14 +434,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "57 ± 3 ℃",
@@ -459,14 +484,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m09",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Glass transition temperature",
         "Raw value": "60.9 ℃",
@@ -506,14 +534,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m10",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Melting temperature",
         "Raw value": "164 ℃",
@@ -553,14 +584,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m11",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Vicat softening temperature",
         "Raw value": "54 ℃",
@@ -600,14 +634,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m12",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "7 ± 2.5 g/10 min",
@@ -647,14 +684,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m13",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.23 g/cm3",
@@ -694,7 +734,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -702,7 +745,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "Not published",
@@ -763,7 +806,10 @@
         "text": "Plate Temp. 50-60℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -986,6 +1032,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m09",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "The sheet measures its Vicat point under 5 kg (ISO 306, the B load) and its glass transition by DSC at 10 °C/min. A B-load Vicat sits below the A-load one and can sit below the glass transition; Silk PLA+ Four-Color publishes 60.9 °C against 54 °C, which is what those two methods give on one material rather than a contradiction.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

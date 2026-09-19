@@ -80,3 +80,14 @@ export function annealedBesideAsPrinted(m, measurements) {
   return stateOf(m) === 'annealed' && (measurements ?? []).some((x) => x !== m && x.gradeId === m.gradeId
     && x.property === m.property && !x.quarantined && stateOf(x) === 'as-printed');
 }
+
+/**
+ * The same, for water. A sheet that publishes a property dry and conditioned publishes two states of one part,
+ * and a headline describes the dry one. Averaged they became one figure neither test gives: Siraya's Fibreheart
+ * PPA prints a heat deflection of 81 °C dry and 61 °C conditioned, and the pair read as one 71 °C bar.
+ */
+export function conditionedBesideDry(m, measurements) {
+  return m?.moistureState === 'conditioned' && (measurements ?? []).some((x) => x !== m && x.gradeId === m.gradeId
+    && x.property === m.property && !x.quarantined && x.moistureState !== 'conditioned'
+    && (x.thermal?.loadMPa ?? null) === (m.thermal?.loadMPa ?? null));
+}

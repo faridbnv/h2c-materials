@@ -84,6 +84,7 @@ break if it were reversed, because that is the part that gets lost.
 | D75 | A generated SQLite file for asking questions, with the schema's types in it | In force |
 | D76 | The standards a measurement names are a typed list, and a fragment is not a standard | In force |
 | D77 | The spread search sees a sample; the model still sees everything | In force |
+| D78 | A limit a material's own grades publish is a floor for its shown range | In force |
 
 <!-- end index -->
 
@@ -1732,3 +1733,31 @@ prints each stage's time so the trend is visible rather than remembered.
 
 Reversing it makes the build's cost cubic in a number the import is about to multiply by ten, for spreads that do
 not change.
+
+## D78. A limit a material's own grades publish is a floor for its shown range
+
+The estimate model already treated a material's own published limits as observations at the limit with a declared
+half-width: a bound a sheet prints (`> 16.5 MPa`), and a bound its own numbers imply (a yield stress under the
+ultimate, HDT at 1.8 MPa under HDT at 0.45 MPa). The model's own words for the second half of that rule are "in
+the material's own estimate it is also a soft limit with this spread, so no range crosses a limit its own grade
+publishes".
+
+A soft limit crosses. On the log scale the limit's spread is 0.02, and a range may sit about that far past it:
+when SUNLU's PETG grades arrived, PETG's plausible range began at 49.7 MPa while PETG itself publishes 50.8 MPa.
+A reader is then shown a range that says the material might be weaker than it has been measured to be.
+
+- **The shown ranges are held to the material's own limits.** After the quantiles are taken, the plausible range —
+  and with it the likely range and the centre — is held inside the strongest lower and upper limit the material's
+  own grades publish. Nothing else changes: the limits still enter the fit as soft observations, so they still
+  inform the family and still leave room for a product that measures beyond them to be read as one.
+- **Only the material's own.** A family's limits, a resin reference's, a sibling grade's filed elsewhere: none of
+  them holds a range. This is the rule the screening tests already state — an implied bound is the filament's own.
+- **The likely range is held inside the plausible one.** They are quantiles of one distribution at two
+  calibrations, and against a near limit the wider calibration piles mass at the limit and can lift its own lower
+  end above the narrower one's: PVA's elongation came out likely 220-392 % inside a plausible 221-1610 %, which is
+  not a range anyone can be shown. Where the two disagree the plausible range wins, because it is the one that
+  carries the limits.
+
+The alternative was to make the limits hard in the fit, which would have thrown away their spread and with it the
+model's ability to learn that a maker's bound is sometimes conservative. This changes what is shown, not what is
+learned.

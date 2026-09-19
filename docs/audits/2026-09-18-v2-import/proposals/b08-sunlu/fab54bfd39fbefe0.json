@@ -21,7 +21,7 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pvb"
+      "name: pvb"
     ],
     "materialId": "M093",
     "materialName": "PVB",
@@ -34,7 +34,7 @@
     "row": {
       "SourceID": "R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO PVB",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +50,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO PVB"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       },
       "row": {
         "MaterialID": "M093",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "PVB",
         "Shared formulation key": "R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +84,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO PVB"
       }
     }
   ],
@@ -120,7 +123,7 @@
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c",
-        "Locator": "p. 1: （X-Y) Tensile Strength ISO 527/2 50 mm/min MPa",
+        "Locator": "p. 1: (X-Y) Tensile Strength ISO 527/2 50 mm/min MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -318,7 +333,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -365,7 +383,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -412,7 +433,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -459,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -506,7 +533,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -553,7 +583,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -600,7 +633,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     },
     {
@@ -647,7 +683,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     }
   ],
@@ -716,7 +755,10 @@
         "text": "Plate Temp. 50-60℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page"
       }
     }
   ],
@@ -949,6 +991,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m09",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "The sheet measures its Vicat point under 5 kg (ISO 306, the B load) and its glass transition by DSC at 10 °C/min. A B-load Vicat sits below the A-load one and can sit below the glass transition; PVB publishes 70 °C against 60 °C, which is what those two methods give on one material rather than a contradiction.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

@@ -18,10 +18,11 @@
     "variantClass": "",
     "finish": "",
     "family": "Flexible Elastomers",
-    "hardness": null,
+    "hardness": "95A",
     "support": false,
     "signals": [
-      "title: tpu"
+      "name: tpu",
+      "hardness: 95A"
     ],
     "materialId": "M039",
     "materialName": "TPU",
@@ -34,7 +35,7 @@
     "row": {
       "SourceID": "R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO TPU 95A",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO TPU 95A"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
         "MaterialID": "M039",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "TPU 95A",
         "Shared formulation key": "R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +85,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO TPU 95A"
       }
     }
   ],
@@ -130,7 +134,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -177,7 +184,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -224,7 +234,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -271,7 +284,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -318,7 +334,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -365,7 +384,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -412,7 +434,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -481,7 +506,10 @@
         "text": "Plate Temp. 50-60℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -744,6 +772,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "A polypropylene drawn along its layers goes far past the window's ceiling, and TPU 95A's sheet publishes 900 % with its own spread.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

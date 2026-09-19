@@ -33,7 +33,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
     const limits = (b) => b.kind === HEAD[key] || (b.side === 'lower' && key !== 'hdt045' && key !== 'density' && b.kind === HEAD[key].replace(' XY', ' unk'));
     for (const b of ownBounds ? oneSided.filter((b) => b.materialId === subject.id && limits(b)) : []) {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
-      bounds.push({ side: b.side, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
+      bounds.push({ side: b.side, own: b.value, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
     }
     // What the material's own printed measurements prove (compile.js impliedBounds, from headline_definitions.csv Lower bound: a yield or break stress under
     // the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa) limits its
@@ -43,7 +43,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       for (const b of m.headline[key]?.impliedBounds ?? []) {
         if (!(b.lo > 0) && scaleName === 'log') continue;
-        bounds.push({ side: 'lower', value: toModel(b.lo), sd: model.bounds.oneSided.sd[scaleName], why: `at least ${b.lo} ${h.unit}: its own ${b.property.toLowerCase()} (${b.measurementId}) bounds it` });
+        bounds.push({ side: 'lower', own: b.lo, value: toModel(b.lo), sd: model.bounds.oneSided.sd[scaleName], why: `at least ${b.lo} ${h.unit}: its own ${b.property.toLowerCase()} (${b.measurementId}) bounds it` });
       }
     }
     if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
@@ -79,9 +79,23 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       if (Math.abs(without - withIt) > Math.abs(withIt) * 0.01 + 1e-9) bounds.push(b);
     }
     const q = qWith(bounds);
-    const centre = q(0.5, calLikely);
-    const range = [q(0.5 - likely / 2, calLikely), q(0.5 + likely / 2, calLikely)];
-    const wide = [q(0.5 - plausible / 2, calPlausible), q(0.5 + plausible / 2, calPlausible)];
+    // A limit the material's own grades publish is a floor and a ceiling, not a suggestion: the model's own words
+    // for it are "no range crosses a limit its own grade publishes". As a soft observation it was crossed by about
+    // its own half-width, which is how PETG's plausible range came to start at 49.7 MPa below the 50.8 MPa PETG
+    // itself publishes. The shown range is held to what the material has measured (D78).
+    const own = (side) => bounds.filter((b) => b.side === side && b.own != null).map((b) => b.own);
+    const floor = own('lower').length ? Math.max(...own('lower')) : -Infinity;
+    const ceiling = own('upper').length ? Math.min(...own('upper')) : Infinity;
+    const held = (v) => Math.min(Math.max(v, floor), Math.max(ceiling, floor));
+    const wide = [held(q(0.5 - plausible / 2, calPlausible)), held(q(0.5 + plausible / 2, calPlausible))];
+    // The likely range sits inside the plausible one. Both are quantiles of the same distribution, but at
+    // different calibrations, and against a near bound the wider calibration piles mass at the bound and can
+    // lift its own lower end above the narrower one's: PVA's elongation came out likely 220-392 % inside a
+    // plausible 221-1610 %. Where that happens the likely range is held to the plausible one, never the other
+    // way round, because the plausible range is the one that carries the material's own bounds.
+    const clamp = (v) => Math.min(Math.max(held(v), wide[0]), wide[1]);
+    const centre = clamp(q(0.5, calLikely));
+    const range = [clamp(q(0.5 - likely / 2, calLikely)), clamp(q(0.5 + likely / 2, calLikely))];
 
     return { bounds, centre, range, wide, at: (pr) => q(pr, calPlausible), cdf: (value) => boundedCdf(p.mu, p.sd * calPlausible, bounds, toModel(value)) };
   };

@@ -15,16 +15,17 @@
   "identity": {
     "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
-    "variantClass": "",
-    "finish": "",
+    "variantClass": "particle-filled",
+    "finish": "Galaxy",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pla"
+      "name: pla",
+      "variant: galaxy (Galaxy)"
     ],
-    "materialId": "M001",
-    "materialName": "PLA",
+    "materialId": "M015",
+    "materialName": "PLA Galaxy",
     "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
@@ -34,7 +35,7 @@
     "row": {
       "SourceID": "R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO PLA Galaxy",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO PLA Galaxy"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "PLA Galaxy",
         "Shared formulation key": "R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +85,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO PLA Galaxy"
       }
     }
   ],
@@ -90,7 +94,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "43.3 ± 6 MPa",
@@ -130,14 +134,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "16.3 ± 5 %",
@@ -177,14 +184,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Flexural strength",
         "Raw value": "80.3 ± 10 MPa",
@@ -224,14 +234,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "3273 ± 300 MPa",
@@ -271,14 +284,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "3.8 ± 2 KJ/m2",
@@ -318,14 +334,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "15 ± 5 KJ/m2",
@@ -365,14 +384,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Hardness",
         "Raw value": "82",
@@ -412,14 +434,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "54.6 ± 3 ℃",
@@ -459,14 +484,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m09",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Glass transition temperature",
         "Raw value": "60.9 ℃",
@@ -506,14 +534,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m10",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Melting temperature",
         "Raw value": "167 ℃",
@@ -553,14 +584,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m11",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "5.46 ± 2.5 g/10 min",
@@ -600,14 +634,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m12",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.22 g/cm3",
@@ -647,7 +684,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -655,7 +695,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M015",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "Not published",
@@ -716,7 +756,10 @@
         "text": "Plate Temp. 50-60℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -936,6 +979,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

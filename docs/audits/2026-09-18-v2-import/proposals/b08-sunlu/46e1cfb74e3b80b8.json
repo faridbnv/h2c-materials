@@ -21,22 +21,20 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: peek"
+      "name: peek"
     ],
-    "materialId": null,
-    "materialName": null,
-    "estimateIdentity": "",
+    "materialId": "M097",
+    "materialName": "PEEK",
+    "estimateIdentity": "Not applicable",
     "confidence": 1,
-    "needsRuling": true,
-    "reasons": [
-      "a new material for this identity would be a second PEEK (M097): PEEK / Unfilled / unspecified"
-    ]
+    "needsRuling": false,
+    "reasons": []
   },
   "source": {
     "row": {
       "SourceID": "R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO PEEK",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -52,7 +50,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO PEEK"
     },
     "review": {
       "status": "proposed"
@@ -62,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "PEEK",
         "Shared formulation key": "R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -83,7 +84,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO PEEK"
       }
     }
   ],
@@ -92,7 +93,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "77 MPa",
@@ -132,14 +133,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "21 %",
@@ -179,14 +183,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Flexural strength",
         "Raw value": "122 MPa",
@@ -226,14 +233,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "3163 MPa",
@@ -273,14 +283,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "138 KJ/m2",
@@ -294,7 +307,7 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kJ/m²",
-        "Data status": "Published value",
+        "Data status": "Published value (physically implausible)",
         "Specimen type": "Printed specimen",
         "Direction": "XY",
         "Moisture condition": "Not published",
@@ -311,7 +324,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873",
         "Locator": "p. 1: (X-Y) Izod Impact Strength of Notched ISO 180 23℃ KJ/m2 Specimen",
-        "Notes": "Not applicable",
+        "Notes": "The sheet prints this as the notched Izod strength of a PEEK, and no notched PEEK reaches 138 kJ/m²: the maker's own unnotched row on the same sheet prints no value, and a notched PEEK is a few kJ/m². Recorded as printed.",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -320,14 +333,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> The sheet prints this as the notched Izod strength of a PEEK, and no notched PEEK reaches 138 kJ/m²: the maker's own unnotched row on the same sheet prints no value, and a notched PEEK is a few kJ/m². Recorded as printed."
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Hardness",
         "Raw value": "83",
@@ -367,14 +383,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "147 ℃",
@@ -414,14 +433,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Glass transition temperature",
         "Raw value": "143 ℃",
@@ -461,14 +483,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m09",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Melting temperature",
         "Raw value": "343 ℃",
@@ -508,14 +533,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m10",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "17 g/10 min",
@@ -555,14 +583,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
       "id": "m11",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.1965 g/cm3",
@@ -602,7 +633,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -610,7 +644,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M097",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "Not published",
@@ -671,7 +705,10 @@
         "text": "Plate Temp. 110-120℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -914,6 +951,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

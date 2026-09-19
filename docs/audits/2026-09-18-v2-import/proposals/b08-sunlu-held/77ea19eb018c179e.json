@@ -21,7 +21,7 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pcl"
+      "name: pcl"
     ],
     "materialId": null,
     "materialName": null,
@@ -36,7 +36,7 @@
     "row": {
       "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO PCL",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -52,7 +52,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO PCL"
     },
     "review": {
       "status": "proposed"
@@ -69,7 +69,7 @@
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "PCL",
         "Shared formulation key": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -83,7 +83,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO PCL"
       }
     }
   ],

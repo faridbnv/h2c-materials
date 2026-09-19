@@ -15,26 +15,29 @@
   "identity": {
     "polymer": "TPU",
     "modifier": "Unfilled / unspecified",
-    "variantClass": "",
-    "finish": "",
+    "variantClass": "silk",
+    "finish": "Silk",
     "family": "Flexible Elastomers",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: tpu"
+      "name: tpu",
+      "variant: silk (Silk)"
     ],
-    "materialId": "M039",
-    "materialName": "TPU",
+    "materialId": null,
+    "materialName": null,
     "estimateIdentity": "TPU",
     "confidence": 1,
-    "needsRuling": false,
-    "reasons": []
+    "needsRuling": true,
+    "reasons": [
+      "a new material for this identity would be a second TPU (M039): TPU / Unfilled / unspecified / silk"
+    ]
   },
   "source": {
     "row": {
       "SourceID": "R-SUNLU-04545ebf-ef5c-4fd9-b425-42a06d39c7c0",
       "Publisher": "SUNLU",
-      "Title": "TECHNICAL DATA SHEET ISO",
+      "Title": "TECHNICAL DATA SHEET ISO TPU Silk",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +53,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ISO"
+      "text": "TECHNICAL DATA SHEET ISO TPU Silk"
     },
     "review": {
       "status": "proposed"
@@ -63,11 +66,11 @@
         "status": "proposed"
       },
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "ISO",
+        "Product name": "TPU Silk",
         "Shared formulation key": "R-SUNLU-04545ebf-ef5c-4fd9-b425-42a06d39c7c0",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +84,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ISO"
+        "text": "TECHNICAL DATA SHEET ISO TPU Silk"
       }
     }
   ],
@@ -90,7 +93,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "22 ± 5 MPa",
@@ -137,7 +140,7 @@
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "190 ± 30 MPa",
@@ -184,7 +187,7 @@
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "950 %",
@@ -231,7 +234,7 @@
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "52 ± 4 KJ/m2",
@@ -278,7 +281,7 @@
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Hardness",
         "Raw value": "97.5",
@@ -325,7 +328,7 @@
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "8.3 ± 2 g/10 min",
@@ -372,7 +375,7 @@
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.21 g/cm3",
@@ -420,7 +423,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "Not published",

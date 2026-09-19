@@ -912,3 +912,67 @@ P0394,Cooling,10-40%
 P0395,Adhesion / release,recommended
 P0395,Speed,150 mm/s
 P0395,Cooling,0-50%
+P0396,Adhesion / release,Distance 0.2-0.4mm
+P0396,Retraction,0.8-1.2mm
+P0397,Adhesion / release,Distance 0.2-0.4mm
+P0397,Retraction,0.8-1.2mm
+P0398,Adhesion / release,Distance 0.2-0.4mm
+P0398,Retraction,0.8-1.2mm
+P0399,Adhesion / release,Distance 0.2-0.4mm
+P0399,Retraction,0.8-1.2mm
+P0400,Adhesion / release,Distance 0.2-0.4mm
+P0400,Retraction,0.8-1.2mm
+P0401,Adhesion / release,Distance 0.1-0.2mm
+P0401,Retraction,0.8mm
+P0402,Adhesion / release,Distance 0.2-0.4mm
+P0402,Retraction,0.8-1.2mm
+P0403,Adhesion / release,Distance 0.2-0.4mm
+P0403,Retraction,0.8-1.2mm
+P0404,Adhesion / release,Distance 0.2-0.4mm
+P0404,Retraction,0.8-1.2mm
+P0405,Adhesion / release,Distance 0.2-0.4mm
+P0405,Retraction,0.8-1.2mm
+P0406,Adhesion / release,Distance 0.2-0.4mm
+P0406,Retraction,0.8-1.2mm
+P0407,Adhesion / release,Distance 0.4-0.6mm
+P0407,Retraction,1-1.5mm
+P0408,Adhesion / release,Distance 0.2-0.4mm
+P0408,Retraction,0.8-1.2mm
+P0409,Adhesion / release,Distance 0.2-0.4mm
+P0409,Retraction,0.8-1.2mm
+P0410,Adhesion / release,Distance 0.2-0.4mm
+P0410,Retraction,0.8-1.2mm
+P0411,Adhesion / release,Distance 0.2-0.4mm
+P0411,Retraction,0.8-1.2mm
+P0412,Adhesion / release,Distance 0.2-0.4mm
+P0412,Retraction,0.8-1.2mm
+P0413,Adhesion / release,Distance 0.2-0.4mm
+P0413,Retraction,0.8-1.2mm
+P0414,Adhesion / release,Distance 0.2-0.4mm
+P0414,Retraction,0.8-1.2mm
+P0415,Adhesion / release,Distance 0.2-0.4mm
+P0415,Retraction,0.8-1.2mm
+P0416,Adhesion / release,Distance 0.2-0.4mm
+P0416,Retraction,0.8-1.2mm
+P0417,Adhesion / release,Distance 0.2-0.4mm
+P0417,Retraction,0.8-1.2mm
+P0418,Adhesion / release,Distance 0.2-0.4mm
+P0418,Retraction,0.8-1.2mm
+P0419,Adhesion / release,Distance 0.2-0.4mm
+P0419,Retraction,0.8-1.2mm
+P0420,Adhesion / release,Distance 0.2-0.4mm
+P0420,Retraction,0.8-1.2mm
+P0421,Adhesion / release,Distance 0.2-0.4mm
+P0421,Retraction,0.8-1.2mm
+P0422,Adhesion / release,Distance 0.2-0.4mm
+P0422,Retraction,0.8-1.2mm
+P0423,Adhesion / release,Distance 0.2-0.4mm
+P0423,Retraction,0.8-1.2mm
+P0424,Adhesion / release,Distance 0.2-0.4mm
+P0424,Retraction,0.8-1.2mm
+P0425,Adhesion / release,Distance 0.2-0.4mm
+P0425,Retraction,0.8-1.2mm
+P0426,Adhesion / release,Distance 0.2-0.4mm
+P0426,Retraction,0.8-1.2mm
+P0427,Adhesion / release,Distance 0.2-0.4mm
+P0427,Retraction,0.8-1.2mm

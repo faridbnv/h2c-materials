@@ -62,17 +62,20 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       },
       "row": {
         "MaterialID": "M082",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "SUNLU",
-        "Product name": "版本/版次 A/0",
+        "Product name": "PP2.0",
         "Shared formulation key": "R-SUNLU-25182761789529093884",
-        "Composition / filler": "Not published",
-        "Variant": "Not applicable",
+        "Composition / filler": "The sheet publishes a density of 1.01 g/cm³, above the 0.90 to 0.96 a neat polypropylene reaches, so the product carries a filler SUNLU does not name (D57). Its flexural modulus of 500 MPa and elongation at break of 900 % are a soft grade's, so the filler is not a reinforcement.",
+        "Variant": "undisclosed dense filler",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "阻燃性 Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
@@ -132,7 +135,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -179,7 +185,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -226,7 +235,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -273,7 +285,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -320,7 +335,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -367,7 +385,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -414,7 +435,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -461,7 +485,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -508,7 +535,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     },
     {
@@ -555,7 +585,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: the value stands above the label that names its property, its method, its condition and its unit"
       }
     }
   ],
@@ -767,6 +800,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "A polypropylene drawn along its layers goes far past the window's ceiling, and PP2.0's sheet publishes 900 % with its own spread.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    },
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "SUNLU's unit column names both scales (\"HA/HD\") and the row does not say which, so the value is recorded in the unit the register keeps for exactly this case (V000420, V002456). The missing scale is the sheet's, and this finding is the right record of it: the number is kept and compared with nothing.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

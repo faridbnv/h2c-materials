@@ -18,7 +18,7 @@ M016,PLA Glow,within,within,within,within,unknown,required
 M017,PLA Aero,within,within,within,within,unknown,required
 M018,PLA-CF,within,within,within,within,requires-hardened,required
 M019,PLA-GF,within,within,within,within,requires-hardened,unknown
-M020,PETG,within,within,within,within,unknown,unknown
+M020,PETG,within,within,within,within,unknown,required
 M021,PETG Basic,within,within,within,within,unknown,required
 M022,PETG HF,within,within,within,within,unknown,required
 M023,PETG Translucent,within,within,within,within,unknown,required
@@ -80,7 +80,7 @@ M078,Support for PLA/PETG,within,within,within,within,unknown,required
 M079,Support for ABS,within,within,within,within,unknown,required
 M080,Support for PA/PET,within,within,within,within,unknown,required
 M081,HIPS,within,within,within,within,unknown,required
-M082,PP,within,within,within,unknown,unknown,unknown
+M082,PP,within,within,within,unknown,unknown,required
 M083,PP-CF,within,within,within,within,requires-hardened,required
 M084,PP-GF,within,within,within,unknown,requires-hardened,unknown
 M085,PE,within,within,within,unknown,unknown,unknown
@@ -95,7 +95,7 @@ M093,PVB,within,within,within,unknown,unknown,required
 M094,PC-ABS,within,within,within,within,unknown,required
 M095,PC-PBT,within,within,within,exceeds,unknown,unknown
 M096,PVDF,within,within,within,unknown,unknown,required
-M097,PEEK,excluded,exceeds,exceeds,exceeds-recommended,unknown,required
+M097,PEEK,excluded,exceeds,within,exceeds-recommended,unknown,required
 M098,PEKK,excluded,exceeds,exceeds,exceeds-recommended,unknown,required
 M099,PEI / ULTEM,excluded,exceeds,exceeds,exceeds,unknown,required
 M100,PSU,excluded,exceeds,exceeds,unknown,unknown,required

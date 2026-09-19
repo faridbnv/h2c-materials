@@ -851,7 +851,10 @@ export function readSheet(text, registry) {
       const below = carried ? lines[li + 1] : null;
       const rest = below && !/\d/.test(repair(below.text)) && repair(below.text).trim().length <= HEADING_LENGTH
         && !labelFor(repair(below.text).trim()) && Math.abs((below.x0 ?? 0) - heldX) <= 24 ? repair(below.text).trim() : '';
-      const fullLabel = carried ? `${heading0} ${read.conditions} ${rest}`.replace(/\s+/g, ' ').trim() : read.label;
+      // A full-width bracket is a bracket. A sheet typeset in Chinese prints "（X-Y)", and the axis a row states
+      // that way went unread, leaving a stray ")" in the locator and the direction unrecorded (D49's typed column
+      // and MEAS-LOCATOR-DIRECTION both saw it). The ideographs stay as the sheet prints them.
+      const fullLabel = asciiPunctuation(carried ? `${heading0} ${read.conditions} ${rest}`.replace(/\s+/g, ' ').trim() : read.label);
       // Neither line names the whole property on its own: "Tensile Strength*" heads the block and "At break 55
       // MPa" is the row, and only the two together say which tensile strength it is. So the label is matched
       // again against both, and the more specific answer wins.
@@ -1098,7 +1101,12 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
   // A sheet may write the axis with the plane's letters apart ("(Z-X)"), as it writes "(X-Y)"; the database keeps
   // ZX and XZ, so a row that states one must not be read as stating none.
-  const axis = /[（(]\s*(X\s?[-‑–]?\s?Y|XY|Z\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|XZ|ZX|Z)\s*[)）]/i.exec(`${v.label ?? ''} ${printed}`)?.[1];
+  // The bracket may have lost its opening: one SUNLU sheet's text layer begins a row "X-Y) Heat Distortion",
+  // and a direction the row plainly states went unrecorded (MEAS-LOCATOR-DIRECTION found it).
+  const AXIS = String.raw`(X\s?[-‑–]?\s?Y|XY|Z\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|XZ|ZX|Z)`;
+  const said = `${v.label ?? ''} ${printed}`;
+  const axis = new RegExp(`[（(]\\s*${AXIS}\\s*[)）]`, 'i').exec(said)?.[1]
+    ?? new RegExp(`^\\s*${AXIS}\\s*[)）]`, 'i').exec(said)?.[1];
   const stated = axis ? axis.replace(/[\s-‑–]/g, '').toUpperCase() : null;
   // A treatment the sheet names for one row is that row's own words, whatever the build's reader makes of them:
   // Extrudr prints a Vicat point of 65 °C and a second, "(*sintered)", above 150 °C, and a row that recorded
@@ -1209,6 +1217,10 @@ export function sourceIdFor(row, sources) {
  * ABS 3D Printing Filament" is the ABS; the tail is a category, and keeping it would make the next revision of
  * the same sheet look like a second product.
  */
+/** Full-width punctuation written as the ASCII character it stands for; CJK ideographs are left alone. */
+const FULLWIDTH = { '（': '(', '）': ')', '［': '[', '］': ']', '：': ':', '；': ';', '，': ',', '％': '%', '－': '-', '＋': '+', '／': '/' };
+export const asciiPunctuation = (text) => String(text ?? '').replace(/[（）［］：；，％－＋／]/g, (c) => FULLWIDTH[c] ?? c);
+
 export function productName(printed) {
   return String(printed ?? '')
     .replace(/[™®©]/g, '')
@@ -1221,19 +1233,38 @@ export function productName(printed) {
     .trim();
 }
 
-// A line that is a table's column headings, a revision marker or a section name is not a product's name.
-const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^version\b|^page\b|data sheet$/i;
+// A line that is a table's column headings, a revision marker, a section name or the name of a standards body
+// is not a product's name. SUNLU heads its sheets "TECHNICAL DATA SHEET ISO", and read as a name that made
+// forty-two products called ISO.
+const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^version\b|^page\b|data sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
+// A sheet that labels its product says so plainly, and that beats any guess from where a line sits. The label
+// may stand after the same label in the maker's own language ("产品名称 Product Name:PLA+丝绸 2.0").
+const PRODUCT_LABEL = /(?:product\s*name|produkt(?:name)?|产品名称|nom\s+du\s+produit)\s*[:：]\s*(.+)$/i;
+
+/**
+ * The name a sheet gives in two languages at once. "PLA+丝绸 2.0 (PLA+ Silk 2.0)" names one product twice, and
+ * the database keeps product names in the script its other names are in; where the bracket holds the Latin
+ * reading of what precedes it, that is the name. A bracket that opened on another line leaves its close behind.
+ */
+const latinName = (printed) => {
+  const text = String(printed ?? '').trim();
+  const bracket = /\(([^()]*[A-Za-z][^()]*)\)\s*$/.exec(text);
+  if (bracket && /[^\u0000-\u024F]/.test(text.slice(0, bracket.index))) return bracket[1].trim();
+  return text.replace(/^\s*\)|\(\s*$/g, '').replace(/\)\s*$/, (m, at) => (text.slice(0, at).includes('(') ? m : '')).trim();
+};
 
 export function printedTitle(text) {
-  const head = (text.pages[0]?.lines ?? []).slice(0, 6).map((l) => l.text.trim()).filter(Boolean);
+  const lines = (text.pages[0]?.lines ?? []).map((l) => l.text.trim()).filter(Boolean);
+  const labelled = lines.slice(0, 14).map((l) => PRODUCT_LABEL.exec(l)?.[1]).map((v) => (v ? latinName(v) : v)).find((v) => v && !NOT_A_PRODUCT.test(v));
+  const head = lines.slice(0, 6);
   const at = head.findIndex((l) => /tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet/i.test(l));
-  if (at < 0) return { title: head[0] ?? '', product: head[1] ?? '' };
+  if (at < 0) return { title: head[0] ?? '', product: labelled || head[1] || '' };
   // The name may be on the same line as the words that announce it ("Technical Data Sheet: AmideX PA6-GF30"),
   // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.
   const sameLine = head[at].replace(/^.*?(tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet)\s*[:\-–—]?\s*/i, '').trim();
   const below = head.slice(at + 1).find((l) => l.length < 60 && /[A-Za-z]/.test(l) && !NOT_A_PRODUCT.test(l)) ?? '';
   // "Nov. 2018 Technical Data Sheet Version 4.0" carries a version where another maker carries the name.
-  const product = (sameLine && !NOT_A_PRODUCT.test(sameLine) ? sameLine : '') || below;
+  const product = labelled || (sameLine && !NOT_A_PRODUCT.test(sameLine) ? sameLine : '') || below;
   return { title: [head[at], product === sameLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
 }
 
