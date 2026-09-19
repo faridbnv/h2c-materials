@@ -108,6 +108,22 @@ const SUPPORT = /\b(support|breakaway|dissolv|soluble|polysupport|sr-?30|rapidri
  * @param context   { title, body, manufacturer } what else the sheet says, used only to confirm or to lower confidence
  * @param world     { materials, polymers } the tables as they stand
  */
+/**
+ * An identity ruling that names this product's polymer. The Subject is the product as the sheet prints it, with
+ * or without its maker in front of it; the Value is a PolymerID. Nothing else in a ruling reaches the reader:
+ * a ruling that settles a material or a filler is read by apply.mjs, where the material is created.
+ */
+function identityRuling(product, context, world) {
+  const norm = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9/+]+/g, ' ').trim();
+  const names = new Set([norm(product), norm(`${context.manufacturer ?? ''} ${product}`)].filter(Boolean));
+  const polymers = new Set((world.polymers ?? []).map((p) => p.PolymerID));
+  for (const r of world.rulings ?? []) {
+    if (r.Kind !== 'identity' || !names.has(norm(r.Subject)) || !polymers.has(r.Value)) continue;
+    return { ruling: r.Ruling, token: norm(product), value: r.Value, note: r.Reason };
+  }
+  return null;
+}
+
 export function classifyProduct(product, context = {}, world = {}) {
   const signals = [];
   const tokens = tokenise(product);
@@ -180,6 +196,15 @@ export function classifyProduct(product, context = {}, world = {}) {
   const support = SUPPORT.test(product) || SUPPORT.test(context.title ?? '') || SAYS_SUPPORT.test(context.body ?? '');
   const hardness = shoreFromName(product);
   if (hardness) signals.push(`hardness: ${hardness}`);
+
+  // An identity the rule cannot settle is a ruling, written once and applied to every sheet that says the same
+  // thing. SUNLU's Easy PA sheet says only "PA", which names a family; SUNLU's own store calls it a PA6/66
+  // copolymer, and the ruling carries that answer here so the reader does not have to guess it twice.
+  const namedByRuling = identityRuling(product, context, world);
+  if (namedByRuling) {
+    polymer = { token: namedByRuling.token, value: namedByRuling.value, note: namedByRuling.note };
+    signals.push(`ruling ${namedByRuling.ruling}: ${namedByRuling.value}`);
+  }
 
   const reasons = [];
   if (support) reasons.push(`"${product}" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports`);

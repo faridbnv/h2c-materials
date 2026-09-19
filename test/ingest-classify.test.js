@@ -191,3 +191,20 @@ test('a polymer named only to be contrasted with is not the product', () => {
   assert.equal(support.support, true);
   assert.equal(support.needsRuling, true);
 });
+
+test('an identity ruling answers a name that says only a family', () => {
+  // SUNLU's Easy PA sheet says "PA", which names a family and owns no product (D44). Its own store says the
+  // product is a PA6/66 copolymer, and the ruling carries that answer to every sheet that says the same thing.
+  const before = classifyProduct('Easy PA', { manufacturer: 'SUNLU' }, { ...world, rulings: [] });
+  assert.equal(before.needsRuling, true);
+  assert.match(before.reasons.join(' '), /names a family/);
+  const ruled = [{ Ruling: 'R054', Kind: 'identity', Subject: 'SUNLU Easy PA', Value: 'PA6/66', Reason: 'its own store' }];
+  const after = classifyProduct('Easy PA', { manufacturer: 'SUNLU' }, { ...world, rulings: ruled });
+  assert.equal(after.polymer, 'PA6/66');
+  assert.equal(after.needsRuling, false);
+  // A ruling of another kind, for another product, or naming something that is not a polymer, answers nothing.
+  const other = [{ Ruling: 'R0', Kind: 'identity', Subject: 'SUNLU Easy PA', Value: 'Nylon', Reason: '' }];
+  assert.equal(classifyProduct('Easy PA', { manufacturer: 'SUNLU' }, { ...world, rulings: other }).needsRuling, true);
+  const elsewhere = [{ Ruling: 'R0', Kind: 'identity', Subject: 'Eryone Easy PA', Value: 'PA6/66', Reason: '' }];
+  assert.equal(classifyProduct('Easy PA', { manufacturer: 'SUNLU' }, { ...world, rulings: elsewhere }).needsRuling, true);
+});
