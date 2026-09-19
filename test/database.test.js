@@ -524,7 +524,17 @@ test('an annealed value is not averaged with its as-printed twin, and mixed sche
   // measurement. Whether such a group also conflicts is a separate thing: an honest single-state value may
   // contradict its family and be down-weighted on purpose (fitWithConflicts), and PLA-GF's as-printed pair does,
   // its 15.8 C gap between the loads being the widest of any amorphous filament on record.
-  for (const c of conflicts.filter((x) => x.key === 'hdt045')) assert.equal(c.measurementIds.length, 1, `${c.material}'s ${c.kind} averages ${c.measurementIds.length} measurements of different states`);
+  // What a group may not mix is two states: an annealed value with an as-printed one, or two loads. Two sources
+  // that publish one product's one value are one observation, and 3DXTECH's two revisions of its high-temperature
+  // nylon sheet are that: both print 240 °C at 0.45 MPa as printed.
+  const stateOf = (id) => {
+    const m = db.measurements.find((x) => x.id === id);
+    return `${m?.postProcessingState ?? '?'}|${m?.moistureState ?? '?'}|${m?.anneal?.tempC ?? ''}`;
+  };
+  for (const c of conflicts.filter((x) => x.key === 'hdt045')) {
+    const states = new Set(c.measurementIds.map(stateOf));
+    assert.equal(states.size, 1, `${c.material}'s ${c.kind} averages measurements of different states: ${[...states].join(' and ')}`);
+  }
   assert.ok(!outliers.some((o) => o.material === 'PET-GF'), 'PET-GF is still an outlier');
 });
 

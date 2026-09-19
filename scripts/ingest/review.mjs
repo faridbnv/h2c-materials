@@ -116,11 +116,18 @@ if (process.argv[1]?.endsWith('review.mjs')) {
   // A finding the reviewer has read and accepts, recorded against the row it is about. The record it will get is
   // not known until the batch is applied, so the acceptance names the proposal's row and the applier resolves it.
   if (arg('accept-finding')) {
-    const [rowId, code, field] = String(arg('accept-finding')).split(':');
+    // <row>:<CODE>[:<Field>], or record:<the record as it will be written>:<CODE>:<table>, whose record may
+    // itself contain a colon, so the code and the field are taken from the end.
+    const parts = String(arg('accept-finding')).split(':');
+    let rowId, code, field;
+    if (parts[0] === 'record') { field = parts.pop(); code = parts.pop(); rowId = parts.join(':'); }
+    else [rowId, code, field] = parts;
     const reason = arg('note');
     if (!by || !reason || !code) { console.error('usage: --accept-finding <row>:<CODE>[:<Field>] --note "<reason>" --by <name>'); process.exit(2); }
     for (const { path, proposal } of found) {
-      if (!rowsOf(proposal).some((r) => String(r.id) === rowId)) continue;
+      // A finding may be about a record that is not one of the proposal's rows: two sources that print the same
+      // values are a finding about the pair, and the pair is named as it will be written.
+      if (!rowId.startsWith('record:') && !rowsOf(proposal).some((r) => String(r.id) === rowId)) continue;
       proposal.acceptances = [...(proposal.acceptances ?? []).filter((a) => !(a.row === rowId && a.code === code)), { row: rowId, code, field: field ?? '', reason, by, date: today() }];
       save(path, proposal);
       console.log(`${proposal.document?.docKey}: ${code} accepted on ${rowId}`);

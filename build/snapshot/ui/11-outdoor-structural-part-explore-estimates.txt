@@ -1,7 +1,7 @@
-COUNT 26 shown PASS + UNKNOWN
-STATUS ☑ PASS 15 | ☑ UNKNOWN 25 | ☐ FAIL 68 | ☐ SCREENED 14
-15 of the 108 materials in this database meet these requirements, and 25 more could not be checked for missing data
-Include uncertain lists those 25 flagged, except the 14 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Outdoor structural part template. Click any criterion to remove it.
+COUNT 28 shown PASS + UNKNOWN
+STATUS ☑ PASS 16 | ☑ UNKNOWN 26 | ☐ FAIL 81 | ☐ SCREENED 14
+16 of the 123 materials in this database meet these requirements, and 26 more could not be checked for missing data
+Include uncertain lists those 26 flagged, except the 14 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
@@ -37,34 +37,37 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
-ASA-EC UNKNOWN ~1,160–1,180† ~2.1–4.1† ~36–66† ~2.9–10.0† ~100–102† — ☆
+ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.2† ~35–65† ~2.9–9.9† ~100–102† — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~2.0–4.3† ~39–74† ~3–15† ~56–96† no price↗ ☆
+ UNKNOWN 1,160 ~2.1–4.8† ~39–74† ~3–14† ~53–97† no price↗ ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~3.9–8.0† ~52–102† ~2.1–10.0† 142 — ☆
+ UNKNOWN 1,140 ~3.1–6.6† ~51–100† ~2.7–11.9† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~988–1,060† ~1.4–3.0† ~51–90† ~31–66† ~88–122† — ☆
+ UNKNOWN ~980–1,060† ~1.3–3.1† ~51–90† ~31–66† ~91–134† — ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 ~75–97† 2.1 150 — ☆
 PA12-GF
 Nylon / Polyamide
- PASS 1,230 7.8 ~83–104† 4.5 150 — ☆
+ PASS 1,230 7.8 ~83–105† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.8–6.8† ~52–134† ~3–26† ~97–143† 163↗ ☆
+ UNKNOWN 1,250 ~2.7–7.1† ~52–136† ~4–26† ~95–145† 163↗ ☆
 PA6-CE
 Nylon / Polyamide
- UNKNOWN ~1,480–1,500† ~2.9–6.8† ~45–100† ~3–16† ~82–115† — ☆
+ UNKNOWN ~1,480–1,500† ~2.9–7.4† ~45–102† ~3–16† ~79–118† — ☆
 PA6-CF
 Nylon / Polyamide
  PASS 1,090 4.43 102 5.8 186 110↗ ☆
 PA6-GS
 Nylon / Polyamide
- UNKNOWN ~1,000–1,020† ~2.6–6.2† ~52–115† ~4–20† ~82–115† — ☆
+ UNKNOWN ~1,000–1,020† ~2.6–6.8† ~52–116† ~4–19† ~79–118† — ☆
+PA612
+Nylon / Polyamide
+ UNKNOWN ~990–1,070† ~1.5–2.8† ~44–73† ~10–21† ~87–142† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14 91.9 2.6 175 — ☆
@@ -73,28 +76,31 @@ Nylon / Polyamide
  PASS 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,240† ~3.3–6.1† ~58–104† ~2.4–5.6† ~163–206† — ☆
+ UNKNOWN ~1,050–1,240† ~3.6–7.1† ~60–107† ~2.4–5.2† ~155–210† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,060–1,160† ~1.6–2.8† ~42–75† ~10–23† ~107–159† — ☆
+ UNKNOWN ~1,060–1,160† ~1.6–3.0† ~42–76† ~10–22† ~108–170† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,210† ~4.6–8.7† ~71–132† ~2.3–5.1† ~197–249† — ☆
+ UNKNOWN ~1,070–1,220† ~4.6–9.2† ~70–132† ~2.2–4.8† ~188–251† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
+PC-ABS-CF
+Polymer Blends
+ PASS 1,240 5.9 62 2 130 — ☆
 PC-CF
 Polycarbonate
- PASS 1,360 6.2 ~71–90† 2 135 — ☆
+ PASS 1,360 6.2 ~74–92† 2 135 — ☆
 PC-PTFE
 Polycarbonate
- UNKNOWN ~1,310–1,330† ~1.8–3.5† ~43–85† ~3.6–12.6† ~139–141† — ☆
+ UNKNOWN ~1,310–1,330† ~1.8–3.7† ~43–85† ~3.6–12.5† ~139–141† — ☆
 PET-CF
 PET Engineering
  PASS 1,290 4.73 74 4.5 205 116↗ ☆
 PP-CF
 Polyolefins
- PASS 1,100 6.15 ~78–96† 1.5 124 — ☆
+ PASS 1,100 6.15 ~78–97† 1.5 124 — ☆
 PP-GF
 Polyolefins
  PASS 1,120 6.75 ~65–80† 1.7 139 — ☆

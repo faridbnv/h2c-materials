@@ -1,0 +1,683 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "d2a92ebae3f2ecfa64e28820576e513d42f60089d42c98183f487e44d5c7f8dd",
+    "url": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/CarbonX_CF_PC_ABS_TDS_v1.1.pdf?v=1723942768",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "d2a92ebae3f2ecfa"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc-abs",
+      "filler: carbonfiber"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PC-ABS-CF",
+    "Family": "Polymer Blends",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Polycarbonate / Acrylonitrile Butadiene Styrene Blend (Carbon fibre)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PC-ABS-CF",
+    "Base polymer": "PC-ABS",
+    "Estimate identity": "PC-ABS",
+    "Modifier / filler": "Carbon fibre",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1 (p. 1): name: pc-abs; filler: carbonfiber."
+  },
+  "source": {
+    "row": {
+      "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+      "Publisher": "3DXTECH",
+      "Title": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/CarbonX_CF_PC_ABS_TDS_v1.1.pdf?v=1723942768",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d2a92ebae3f2ecfa64e28820576e513d42f60089d42c98183f487e44d5c7f8dd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "CarbonX Carbon Fiber PC/ABS",
+        "Shared formulation key": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Composition / filler": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1183 g/cc ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Density ISO 1183 g/cc",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cc 1.24"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "62 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "62",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "62",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "527 MPa ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Tensile Strength, Break ISO 527 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength, Break ISO 527 MPa 62"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "5900 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5900",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "5.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "527 MPa ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Tensile Modulus ISO 527 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus ISO 527 MPa 5900"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Tensile Elongation, Break ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation, Break ISO 527 % 2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "80 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "178 MPa ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Flexural Strength ISO 178 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength ISO 178 MPa 80"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "5420 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5420",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "5.42",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "178 MPa ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Flexural Modulus ISO 178 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus ISO 178 MPa 5420"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "137 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "137",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "137",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Glass Transition Temperature DSC °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "DSC °C 137"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "130 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "130",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "0.45°C",
+        "Standard / load": "0.45 °C ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Locator": "p. 1: Deflection Temperature at 0.45 ISO 75 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ISO 75 °C 130"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "285°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "285",
+        "Nozzle max °C": "285",
+        "Nozzle requirement": "required",
+        "Bed °C": "120°C",
+        "Bed state": "range",
+        "Bed min °C": "120",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.25mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion Temp: 285°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [
+    {
+      "HeadlineKey": "density",
+      "measurement": "m01",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "tensileModulusXY",
+      "measurement": "m03",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "tensileStrengthXY",
+      "measurement": "m02",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "elongationXY",
+      "measurement": "m04",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "hdt045",
+      "measurement": "m08",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.25mm",
+      "line": "Layer Height: 0.25mm"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion Temp",
+      "raw": "285°C",
+      "line": "Extrusion Temp: 285°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temp",
+      "raw": "120°C",
+      "line": "Bed Temp: 120°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TDS Rev 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MPa (66psi)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Surface Resistance ASTM D257 Ohm/sq >10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle: 0.4mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infill: 100%, +/- 45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.3dxtech.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  }
+}

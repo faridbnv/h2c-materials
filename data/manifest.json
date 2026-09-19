@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 113,
-      "sha256": "89680c51caeb320e7b4df69dcce019e1ceed0770f70d0647166fd98256801a2e"
+      "rows": 128,
+      "sha256": "cd6c847be6c2534a5180c3839f9c631456b03a11a18dd93a89deccfc3bbaf902"
     },
     "grades": {
-      "rows": 240,
-      "sha256": "1cb373af80322523c53f4d27b59dc6f6e1ddf479ef91870791c8cb282d30087a"
+      "rows": 271,
+      "sha256": "b7e80857717c1c23512ef489acbd020e71571302f327c256f9376cb0499389ad"
     },
     "profiles": {
-      "rows": 237,
-      "sha256": "25feb5ae714d88e68ad5ac12047c55ee49c14abacbb64f94da72e6dd9cedacdd"
+      "rows": 269,
+      "sha256": "c355ce26fff90bff7caf38ad1df62b9ec4b8d2c989caabf49041ad2e1eea34f3"
     },
     "profile_notes": {
-      "rows": 593,
-      "sha256": "17d0a7e48e5af31e41dfa401ba53e640c7d23db9a9b03d90027fd16551c5db2f"
+      "rows": 625,
+      "sha256": "69cb4af3dae0b6333ab89a2c8568b9fa06f8aac7c9c3fef3c3d05167209b42ff"
     },
     "measurements": {
-      "rows": 3133,
-      "sha256": "60ba0654a19b38a5f67a4e3e576830d45759bacb372350bcd32f2c1115cc9e8a"
+      "rows": 3384,
+      "sha256": "08540e39ec7a9fe384c7315eabdf184fb01410fa860afef459a31dc344d1914b"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -38,8 +38,8 @@
       "sha256": "490c13bcfc668287ed10685f2b8b5b871d32df2e959931c59fd5e63cb4e3330f"
     },
     "sources": {
-      "rows": 362,
-      "sha256": "e13da66baabe87d9d0650c4f8d26dbc38f48c7b77abba1049fbaad9db28e4b77"
+      "rows": 395,
+      "sha256": "0ff0d94d4387e45948b19a0607dd7e64c47e2772488956eff37cbd54a3bbc89b"
     },
     "coverage": {
       "rows": 676,
@@ -58,8 +58,8 @@
       "sha256": "f189d525924e1b3d0f0510406bf42d1e417bfeaea72cf0888dde020236251406"
     },
     "headlines": {
-      "rows": 377,
-      "sha256": "63e235d3d50c4c7b348712ea2b9e0b972753cdc0115279f7ceedbf8d5e0fed05"
+      "rows": 447,
+      "sha256": "5a219e6a22340ae47a5d4d813e3d7ee698b9642d68c5b6e0fdb765422ad026e0"
     },
     "material_links": {
       "rows": 707,
@@ -78,8 +78,8 @@
       "sha256": "488e05886a34917db04b226426e1b1b19c94fcf87344463f016d5cefdb255f79"
     },
     "plausibility_windows": {
-      "rows": 79,
-      "sha256": "bd10d60db52c4818283f5011f129f15273073f8c8527f4387d0ff32bd4035df5"
+      "rows": 82,
+      "sha256": "f60f2b62a12d2aff29602e81aee5f05b763226fbbd096af2c5412c07706a1554"
     },
     "chamber_bands": {
       "rows": 44,

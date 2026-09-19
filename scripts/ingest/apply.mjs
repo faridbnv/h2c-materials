@@ -101,6 +101,12 @@ export function guard(proposals, world) {
     // second run writes nothing rather than refusing. Under any other identifier it is a second registration of
     // one document, which is what this refuses.
     if (seenDigest.has(sha) && seenDigest.get(sha) !== proposal.source?.row?.SourceID) fail('APPLY-SHA-DUPLICATE', where, `this document is already registered as ${seenDigest.get(sha)}`);
+    // The other way round: an identifier already taken by a different document. Nine values of Spectrum's 2025 PP
+    // sheet were recorded against its 2022 one because both files are called en_tds_spectrum_pp.pdf.
+    const registered = world.sources.find((x) => x.SourceID === proposal.source?.row?.SourceID);
+    if (registered && /^[0-9a-f]{64}$/.test(registered.SHA256) && registered.SHA256 !== sha) {
+      fail('APPLY-SOURCE-COLLISION', where, `${registered.SourceID} is already a document whose SHA-256 is ${registered.SHA256.slice(0, 12)}, not this one`);
+    }
     const url = proposal.source?.row?.URL;
     if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID) fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}`);
 
@@ -187,13 +193,21 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
   const alreadyAccepted = new Set(readCsv(acceptanceFile).records.map((r) => acceptanceKey(r.values)));
   for (const proposal of proposals) {
     const accepted = (rows) => (rows ?? []).filter((r) => r.review?.status === 'accepted');
+    // Whether this proposal is the one that creates its material, or joins one an earlier document created.
+    let createdHere = !proposal.newMaterial;
 
-    if (proposal.newMaterial && !t.rows('materials').some((m) => m['Original name'] === proposal.newMaterial['Original name'])) {
-      const id = nextId('materials', t.rows('materials').map((m) => m.MaterialID));
-      proposal.newMaterial.MaterialID = id;
-      t.append('materials', proposal.newMaterial);
-      for (const grade of proposal.grades ?? []) grade.row.MaterialID = id;
-      note(`material ${id} ${proposal.newMaterial['Original name']}`);
+    if (proposal.newMaterial) {
+      // Two of a maker's documents may be two products of one new material (an ESD Ultem and an ESD Ultem 1010).
+      // The first creates it; the second finds it by the name the proposal gave it, and its grade belongs there.
+      const existing = t.rows('materials').find((m) => m['Original name'] === proposal.newMaterial['Original name']);
+      createdHere = !existing;
+      const id = existing?.MaterialID ?? nextId('materials', t.rows('materials').map((m) => m.MaterialID));
+      if (!existing) {
+        proposal.newMaterial.MaterialID = id;
+        t.append('materials', proposal.newMaterial);
+        note(`material ${id} ${proposal.newMaterial['Original name']}`);
+      }
+      for (const grade of proposal.grades ?? []) grade.row.MaterialID = grade.row.MaterialID || id;
     }
 
     const sourceId = proposal.source?.row?.SourceID;
@@ -260,7 +274,9 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       note(`evidence ${id} ${e.row.Topic}`);
     }
 
-    for (const h of proposal.headlines ?? []) {
+    // A material's headlines are its representative grade's. Where this proposal's material was created by an
+    // earlier document of the same batch, that grade is not this one's and the selections are already made.
+    for (const h of createdHere ? proposal.headlines ?? [] : []) {
       const measurement = (proposal.measurements ?? []).find((m) => m.id === h.measurement);
       const recorded = t.rows('measurements').find((x) => x.SourceID === measurement?.row?.SourceID && x.Locator === measurement?.row?.Locator);
       if (!recorded) continue;
@@ -272,13 +288,17 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     // A finding the reviewer accepted, now that the record it is about has an identifier. It is written into the
     // batch's own acceptance rows so the lint that runs on the result sees the same baseline a commit will.
     for (const a of proposal.acceptances ?? []) {
-      const proposed = (proposal.measurements ?? []).find((m) => m.id === a.row);
-      const recorded = t.rows('measurements').find((x) => x.SourceID === proposed?.row?.SourceID && x.Locator === proposed?.row?.Locator);
-      if (!recorded) continue;
-      const row = { Code: a.code, Table: 'measurements', Record: recorded.MeasurementID, Field: a.field ?? '', Reason: a.reason, Accepted: date };
+      // A finding about a record the batch does not create a row for names that record itself.
+      const literal = String(a.row ?? '').startsWith('record:');
+      const proposed = literal ? null : (proposal.measurements ?? []).find((m) => m.id === a.row);
+      const recorded = literal ? null : t.rows('measurements').find((x) => x.SourceID === proposed?.row?.SourceID && x.Locator === proposed?.row?.Locator);
+      if (!literal && !recorded) continue;
+      const row = literal
+        ? { Code: a.code, Table: a.field || 'sources', Record: String(a.row).slice('record:'.length), Field: '', Reason: a.reason, Accepted: date }
+        : { Code: a.code, Table: 'measurements', Record: recorded.MeasurementID, Field: a.field ?? '', Reason: a.reason, Accepted: date };
       if (alreadyAccepted.has(acceptanceKey(row))) continue;
       accepting.push(row);
-      note(`accepted ${a.code} on ${recorded.MeasurementID}`);
+      note(`accepted ${a.code} on ${row.Record}`);
     }
   }
 

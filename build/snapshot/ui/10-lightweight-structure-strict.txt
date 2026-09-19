@@ -1,7 +1,7 @@
-COUNT 22 shown PASS
-STATUS ☑ PASS 22 | ☐ UNKNOWN 25 | ☐ FAIL 61
-22 of the 108 materials in this database meet these requirements
-25 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
+COUNT 23 shown PASS
+STATUS ☑ PASS 23 | ☐ UNKNOWN 26 | ☐ FAIL 74
+23 of the 123 materials in this database meet these requirements
+26 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -55,6 +55,9 @@ Nylon / Polyamide
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
+PC-ABS-CF
+Polymer Blends
+ PASS 1,240 5.9 62 2 130 — ☆
 PC-GF
 Polycarbonate
  PASS 1,176 2.67 36.1 2.4 134 — ☆

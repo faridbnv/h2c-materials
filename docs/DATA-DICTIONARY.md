@@ -1206,6 +1206,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 179 | Charpy impact strength. |
 | ISO 180 | Izod impact strength. |
 | ISO 2039 | Hardness by ball indentation. |
+| ISO 2781 | Density by immersion. |
 | ISO 306 | Vicat softening temperature. |
 | ISO 3146 | Melting behaviour of semi-crystalline polymers. |
 | ISO 37 | Tensile properties of vulcanised or thermoplastic rubber. |

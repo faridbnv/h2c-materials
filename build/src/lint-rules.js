@@ -237,7 +237,12 @@ export function lintData(tables, schemas) {
     const materials = new Map((tables.materials?.rows ?? []).map((m) => [m.MaterialID, m]));
     const morphology = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
     const number = (v) => (v == null || /^Not /.test(String(v)) ? null : Number(v));
-    const classOf = (m) => morphology.get(m?.['Estimate identity']) ?? 'high-temp';
+    // How a material solidifies comes from its polymer's row. A material with no row is judged as a
+    // high-temperature one only where its family says it is: the blends and specialities that have no row yet
+    // (a PC/ASA, a PPE/PS) are ordinary printable polymers, and judging them against PEEK's windows called their
+    // glass transition surprisingly low. Where nothing says, nothing is assumed and only an "any" window applies.
+    const classOf = (m) => morphology.get(m?.['Estimate identity'])
+      ?? (/High-Temperature/i.test(m?.Family ?? '') ? 'high-temp' : 'any');
     const fillOf = (m) => (['Carbon fibre', 'Glass fibre'].includes(m?.['Modifier / filler']) ? 'fibre'
       : m?.['Modifier / filler'] === 'Unfilled / unspecified' ? 'unfilled' : 'any');
     const fits = (window, want, field) => window[field] === want[field] || window[field] === 'any';

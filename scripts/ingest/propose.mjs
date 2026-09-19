@@ -26,7 +26,7 @@ import { projectRoot } from '../data/table-io.mjs';
 import { cachedText, columnPositions, cellsAt, joinDigits, lineCells } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
-import { readPostProcessingState, parseAnnealSchedule } from '../../build/src/normalize/specimen.js';
+import { readPostProcessingState, parseAnnealSchedule, specimenForm } from '../../build/src/normalize/specimen.js';
 import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
 import { profileCellsFromParsed, loadCellFromParsed } from '../../build/src/typed-values.js';
@@ -64,6 +64,11 @@ const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '
 // The minus sign is a sign only where a number does not come before it: "55-60°C" is a window whose dash the
 // number swallowed, which read a PLA's glass transition as -60 °C.
 const valueRe = () => new RegExp(`((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)\\s*(${UNIT_PATTERN})`, 'gi');
+// A table may print its unit in a column of its own, before the value: 3DXTECH's sheets are
+// "Tensile Strength, Break | ISO 527 | MPa | 62.8", and every one of their 214 recorded values was invisible to
+// a reader that only knows "number unit". The match is shaped like the other one, value first, so the rest of
+// the reading does not care which way round the page put them.
+const unitFirstRe = () => new RegExp(`(?:^|\\s)(${UNIT_PATTERN})\\s+((?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?)(?![\\d.,])`, 'gi');
 
 // A section heading tells a value what it is: a printing guide is not a test result, and a storage note is neither.
 //
@@ -77,6 +82,8 @@ const SECTIONS = [
   [/^(material|mechanical|thermal|physical|general|electrical|optical)\s+propert/i, 'properties'],
 ];
 const HEADING_LENGTH = 60;
+// What a wrapped table row looks like when it continues on the next line: a standard, a method or a unit first.
+const CONTINUES_ROW = new RegExp(`^\\s*(?:ISO|ASTM|DIN|IEC|UL|EN|GB\\s?/\\s?T|DSC|TGA|TMA|[DE]\\s?\\d{3,4}|${UNIT_PATTERN})\\b`, 'i');
 
 // ASTM's own sheets print the designation without the body: "D 792", "D638", "D 256", "E 2092". Requiring ASTM
 // left every one of those rows with no standard at all, and put the property's label in the column that keeps the
@@ -139,7 +146,20 @@ export function readRow(text, registry, held = null) {
   const line = repair(text);
   const match = LABELS.find((l) => l.re.test(line.trim())) ?? held;
   if (!match) return null;
-  const candidates = [...line.matchAll(valueRe())];
+  // A standard's designation is not a value, and on a table that prints its unit in a column the two sit next to
+  // each other: "Density ISO 1183 g/cc 1.35" offers "1183 g/cc" to a reader that does not know that.
+  const designations = [...line.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]);
+  const inDesignation = (at) => designations.some(([from, to]) => at >= from && at < to);
+  const candidates = [...line.matchAll(valueRe())].filter((m) => !inDesignation(m.index));
+  // Where the line states no "number unit" pair, the table may have put the unit in a column before the value.
+  if (!candidates.length) {
+    for (const m of line.matchAll(unitFirstRe())) {
+      const reordered = [m[0], m[2], m[1]];
+      reordered.index = m.index + m[0].indexOf(m[2]);
+      reordered.input = m.input;
+      if (!inDesignation(reordered.index)) candidates.push(reordered);
+    }
+  }
   // A hardness states its scale in the label and prints a bare number ("Rockwell Hardness (R-Scale) 55"), because
   // the scale is the unit. Every other property prints its unit beside the value.
   if (!candidates.length && match.Property === 'Hardness') {
@@ -197,7 +217,11 @@ export function readRow(text, registry, held = null) {
       printedUnit: candidate[2], target,
       // A sheet may print the method before the value or after it, so the standards are read from the whole line.
       standards: (line.match(new RegExp(STANDARD_RE.source, 'gi')) ?? []).map((m) => m.replace(/\s+/g, ' ').trim()),
-      operator: /[<>≤≥]\s*$/.test(before) ? before.trim().slice(-1).replace('≤', '<').replace('≥', '>') : '=',
+      // "from 200 °C" and "min. 5 %" are bounds the sheet states in words, and a bound limits an estimate where a
+      // point would move it.
+      operator: /[<>≤≥]\s*$/.test(before) ? before.trim().slice(-1).replace('≤', '<').replace('≥', '>')
+        : /(?:^|[^/\w])(from|minimum|at least|>=)\s*$/i.test(before) ? '>'
+        : /(?:^|[^/\w])(up to|maximum|<=)\s*$/i.test(before) ? '<' : '=',
       range: !window && /[-–~]\s*$/.test(before),
       // "24.000 kg/cm2" is twenty-four thousand on a European sheet and twenty-four on an American one. Which it
       // is comes from reading the sheet, so the row says it is ambiguous and a person settles it (V000731 is the
@@ -260,10 +284,54 @@ export function readSetting(line, page = 1) {
   return null;
 }
 
+// A footnote is the rest of a row's sentence. A sheet marks a value with an asterisk and says at the bottom of
+// the page what the mark means: "*injection moulding", "*dry", "* 3D printed at 100% infill and annealed at
+// 110°C/20 min, XY axis". Read without them, 83 rows of the first two batches said a printed specimen where their
+// own sheet says a moulded bar, which is the difference D55 exists for.
+const FOOTNOTE_MATTERS = /injection mou?ld|^dry\b|\bdry\b|conditioned|anneal|3d print|printed|xy|z axis|speed \d/i;
+
+export function footnotesOf(page) {
+  const marks = new Map();
+  for (const line of page.lines ?? []) {
+    const text = String(line.text ?? '').trim();
+    if (!/^\*/.test(text)) continue;
+    for (const m of text.matchAll(/(\*{1,4})\s*([^*]+)/g)) {
+      const marker = m[1];
+      const said = m[2].trim().replace(/\s+/g, ' ');
+      if (!said) continue;
+      if (!marks.has(marker)) marks.set(marker, []);
+      marks.get(marker).push(said);
+    }
+  }
+  // Where one marker carries two footnotes on a page (a print-settings note and a specimen note), the one that
+  // says something about the specimen is the one a value's row is asking about.
+  const chosen = new Map();
+  for (const [marker, said] of marks) chosen.set(marker, said.find((x) => FOOTNOTE_MATTERS.test(x)) ?? said[0]);
+  return chosen;
+}
+
+/** The footnote a value's own label points at, if it points at one. */
+export function footnoteFor(label, footnotes) {
+  const marker = /(\*{1,4})/.exec(String(label ?? ''))?.[1];
+  if (!marker) return '';
+  const said = footnotes.get(marker) ?? '';
+  return FOOTNOTE_MATTERS.test(said) ? said : '';
+}
+
 /** Every value a sheet publishes, with the page and the line it was read from. */
 export function readSheet(text, registry) {
   const values = [], settings = [], skipped = [];
+  // A sheet that prints the conditions its specimens were made under is describing printed bars, and says so once
+  // for the whole table: 3DXTECH heads a block "Printed Specimen Conditions" and lists the printer, the nozzle,
+  // the layer height and the orientation under it.
+  const printedSpecimens = text.pages.some((p) => (p.lines ?? []).some((l) => /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed/i.test(l.text)));
+  // A sheet that says how its specimens were laid on the plate has stated the direction its values are in:
+  // "Specimen Orientation: XY Flat". A headline in a direction cannot cite a row that does not state one.
+  const orientation = text.pages.flatMap((p) => p.lines ?? [])
+    .map((l) => /specimen orientation\s*:?\s*(XY|XZ|ZX|Z)\b/i.exec(l.text)?.[1])
+    .find(Boolean);
   for (const page of text.pages) {
+    const footnotes = footnotesOf(page);
     let section = 'properties';
     let held = null, heldLabel = '', heldFor = 0, heldX = 0, prefix = '', prefixX = 0;
     for (let li = 0; li < page.lines.length; li++) {
@@ -306,7 +374,14 @@ export function readSheet(text, registry) {
       const bare = LABELS.find((l) => l.re.test(plain));
       const headsRows = !/\d/.test(plain) && plain.length <= HEADING_LENGTH && plain.split(/\s+/).length <= 6;
       if (headsRows) { prefix = plain; prefixX = line.x0 ?? 0; }
-      if (bare && !/\d/.test(plain)) { held = bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0; continue; }
+      // A label line with a number in it but no value of its own still heads the rows under it: 3DXTECH prints
+      // "Deflection Temperature at 0.45" and then "ISO 75 °C 172" and then "MPa (66psi)", and the 0.45 is the load,
+      // not the result.
+      if (bare && (!/\d/.test(plain) || !readRow(line.text, registry))) {
+        held = bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0;
+        if (!/\d/.test(plain)) { prefix = plain; prefixX = line.x0 ?? 0; }
+        continue;
+      }
 
       // A held label carries to the rows under it that state a value but name no property of their own: a sheet
       // prints "Temperature of deflection under load" and then a row per load, or "Izod Impact Strenght" and then
@@ -318,9 +393,13 @@ export function readSheet(text, registry) {
       // A held label carries down its own column and no other. A sheet prints its marketing bullets beside the
       // table, extraction interleaves the two by line, and a label that carried across the page read "• 10% glass
       // fiber" as a tensile elongation of 10%. A row of the same table starts where its label starts.
-      const under = !own && held && Math.abs((line.x0 ?? 0) - heldX) <= 24 && heldFor < 3;
+      // A row the table wrapped continues where its label ended, in another column: "Glass Transition Temperature"
+      // at the label's x and "DSC °C 187" at the value column's. Prose never begins with a standard or a unit, so
+      // a line that does is the rest of the row above it wherever the page put it.
+      const continuation = CONTINUES_ROW.test(plain);
+      const under = !own && held && (continuation || Math.abs((line.x0 ?? 0) - heldX) <= 24) && heldFor < 3;
       // A heading and the row under it may name a property that neither names alone.
-      const together = !own && prefix && Math.abs((line.x0 ?? 0) - prefixX) <= 24
+      const together = !own && prefix && (continuation || Math.abs((line.x0 ?? 0) - prefixX) <= 24)
         ? LABELS.find((l) => l.re.test(`${prefix} ${plain}`.replace(/\s+/g, ' ').trim())) : null;
       const carried0 = under ? together ?? held : together;
       const heading0 = carried0 === together ? prefix : heldLabel;
@@ -369,6 +448,8 @@ export function readSheet(text, registry) {
         page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
         direction: read.match.Direction, notch, read, target: read.target, line: line.text,
+        footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
+        printedSpecimens, orientation,
       });
     }
   }
@@ -399,14 +480,30 @@ export function impactMethod(property, label, standardText) {
 export const notchOf = (standardText) => NOTCHED_BY_METHOD.find(([re]) => re.test(standardText))?.[1] ?? null;
 
 /** What a sheet says its product is made of, where it says a fraction: "15% carbon fibers", "30 % glass fibre". */
+// What a sheet says is in the product. The load may come before its fraction ("Aramid fibers reinforced (10%)")
+// or after it ("10% PTFE content"), and a sheet may name the load without any fraction at all ("enriched with
+// carbon nanotubes"). All three are the maker's own statement of the composition, which is what this column keeps.
+const FILLER_NAMED = /\b(carbon|glass|aramid|kevlar|basalt|wood|metal|mineral|graphene|nanotubes?|cnt|ptfe|teflon|ceramic|chalk|calcium|talc|bronze|copper|brass|steel|iron|tungsten|cork|bamboo)\b/i;
+const FILLER_FRACTION = /\d{1,2}(?:[.,]\d)?\s?(?:wt\.?\s?%|%|percent)/i;
+const FILLER_VERB = /\b(reinforced|filled|enriched|loaded|addition of|content|composite)\b/i;
+// A load named in full is a statement of what is in the product even where the sentence around it is not.
+const FILLER_PHRASE = /\b(carbon nanotubes?|(carbon|glass|aramid|basalt) fib(?:re|er)s?|glass (spheres|beads|bubbles)|metal powder)\b/i;
+
 export function composition(text) {
+  const said = (line, page) => `${String(line.text).trim().slice(0, 160)} (p. ${page.page}, as the sheet states it)`;
+  let named = null;
   for (const page of text.pages) {
     for (const line of page.lines) {
-      const m = /(\d{1,2}(?:[.,]\d)?)\s?(?:wt\.?%|%|percent)\s*(?:of\s*)?(carbon|glass|aramid|kevlar|basalt|wood|metal|mineral|graphene)\s*(fib(?:re|er)s?|powder|filler|flour)?/i.exec(line.text);
-      if (m) return `${line.text.trim().slice(0, 160)} (p. ${page.page}, as the sheet states it)`;
+      const words = String(line.text ?? '');
+      if (!FILLER_NAMED.test(words)) continue;
+      // A glass transition temperature is not a glass load, and a carbon footprint is not a carbon load.
+      if (/glass transition|carbon footprint|carbon neutral|carbon dioxide/i.test(words)) continue;
+      // A line that states how much is better than one that only says there is some.
+      if (FILLER_FRACTION.test(words)) return said(line, page);
+      if (!named && (FILLER_VERB.test(words) || FILLER_PHRASE.test(words))) named = said(line, page);
     }
   }
-  return null;
+  return named;
 }
 
 /** A certification the sheet claims, as printed. */
@@ -517,7 +614,11 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   const condition = (at0 > 0 ? printed.slice(at0) : printed.replace(v.read.match.re, ' '))
     .replace(/^[\s,;:@(-]+/, '').replace(/\s+/g, ' ').trim();
   // A rate is a condition of the test, not a temperature it was run at: "VICAT, 50 N (heating rate 50°C/h)".
-  const withoutRate = condition.replace(/\([^)]*(?:rate|\/\s?(?:h|hr|min))[^)]*\)/gi, ' ');
+  const withoutRate = condition
+    .replace(/\([^)]*(?:rate|\/\s?(?:h|hr|min))[^)]*\)/gi, ' ')
+    // A rate outside its brackets is still a rate: "Melting temperature (DSC), 10°C/min 185°C" recorded 10 °C as
+    // the temperature the test was run at.
+    .replace(/-?\d+(?:[.,]\d+)?\s*[°º˚]?\s*C\s*\/\s*(?:min|h|hr)\b/gi, ' ');
   // A load is printed in MPa, in MN/m² or in N/mm², which are the same unit under three names.
   const load = /([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m\s?2|N\s?\/\s?mm\s?2))/i.exec(withoutRate);
   // What the row says about how it was measured: the standard it names and the load it was tested under. The
@@ -532,22 +633,24 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // a condition of the test or a piece of the property's own name that the label pattern did not reach
   // ("Temperature" from Glass Transition Temperature, ". force" from Tensile Strength at Max. force). A condition
   // states a number or names one of the things that can be done to a specimen; anything else is the name.
-  const CONDITION_WORD = /\d|\b(anneal\w*|as printed|dry|dried|conditioned|wet|method|saturation|equilibrium|specimen|injection|mou?ld\w*|printed|film|strand|parallel|perpendicular|flat|edge|upright|foam\w*)\b/i;
+  const CONDITION_WORD = /\d|\b(anneal\w*|as printed|dry|dried|conditioned|wet|method|saturation|equilibrium|specimen|injection|mou?ld\w*|printed|film|strand|parallel|perpendicular|flat|edge|upright|foam\w*|dsc|tga|tma|dmta?)\b/i;
   // A remnant that is made of the property's own vocabulary is the name, whatever else it contains: "strength -
   // charpy method" is what the sheet calls the test, and the Property column already says it.
   const LABEL_WORD = /\b(charpy|izod|impact|strength|stress|modulus|elongation|strain|temperature|softening|deflection|distortion|transition|density|gravity|hardness|absorption|content|shrinkage|resistance|conductivity|flexural|tensile|bending|melt|flow|index|rate|point|force|vicat|hdt|mfr|mvr)\b/i;
   const leftover = CONDITION_WORD.test(rest) && (/\d/.test(rest) || !LABEL_WORD.test(rest)) ? rest : '';
   const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, leftover || null, ...v.read.standards].filter(Boolean))];
   const standardText = named.join(' ').trim();
-  const standards = readStandards([condition, ...v.read.standards].join(' '));
+  const standards = readStandards(standardText);
   // What the row says was done to the specimen before it was tested, and how wet it was, in the sheet's own
   // words; the state beside each is what the build's own reader makes of those words (D49). A sheet that says
   // "HDT 0.45 MN/m2, annealed" publishes an annealed value, and a row that does not say so reads as as-printed.
-  const annealWords = /\b(not annealed|unannealed|annealed|as printed)\b/i.exec(`${printed} ${v.label ?? ''}`);
+  // What the row says about the specimen is its own words and the footnote its mark points at, together.
+  const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
+  const annealWords = /\b(not annealed|unannealed|annealed|as printed)\b/i.exec(says);
   const post = annealWords ? annealWords[1].replace(/^as printed$/i, 'As printed') : NP;
   const postState = readPostProcessingState(post);
   const schedule = parseAnnealSchedule(`${printed} ${v.line ?? ''}`, postState);
-  const moistureWords = /\b(dry|dried|conditioned|wet)\b/i.exec(withoutRate);
+  const moistureWords = /\b(dry|dried|conditioned|wet)\b/i.exec(`${withoutRate} ${v.footnote ?? ''}`);
   const moisture = moistureWords ? moistureWords[1].replace(/^./, (c) => c.toUpperCase()) : NP;
   const moistureState = readMoistureState(moisture);
   // A row whose own word and whose designation disagree about the notch is the sheet contradicting itself
@@ -560,7 +663,7 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // A test temperature the row states is a condition, not a result: "Izod Impact Strength, Notched @ -40°C" and
   // "@ 23°C" are two different tests of one property, and a row that does not say which is indistinguishable from
   // its twin (MEAS-CONDITIONS-INDISTINCT).
-  const at = /(-?\d+(?:[.,]\d+)?)\s*°\s*C/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
+  const at = /(-?\d+(?:[.,]\d+)?)\s*[°º˚]\s*C/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
   let rawNumeric = v.read.rawNumber;
   let raw = v.read.raw;
   let normalized = round(NUMBER(rawNumeric) * v.target.factor);
@@ -595,8 +698,12 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
     'Normalized uncertainty ±': v.read.uncertainty == null ? NA : String(round(NUMBER(v.read.uncertainty) * v.target.factor)),
     'Normalized upper bound': v.read.upper == null ? NA : String(round(NUMBER(v.read.upper) * v.target.factor)),
     'Normalized unit': v.target.unit, 'Data status': 'Published value',
-    'Specimen type': v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
-    Direction: v.direction || 'Unstated',
+    // A sheet that says its bars were injection moulded is not describing a printed part (D55), and one that says
+    // they were printed is. Where it says neither, nothing is assumed.
+    'Specimen type': /injection mou?ld/i.test(says) ? 'Raw material value'
+      : /\b3d print|printed (specimen|bar|part)/i.test(says) || v.printedSpecimens ? 'Printed specimen'
+      : v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
+    Direction: v.direction || (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
     'Moisture condition': moisture, 'Moisture state': moistureState ?? 'not-stated',
     'Post-processing': post, 'Post-processing state': postState ?? 'not-stated',
     'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,
@@ -621,16 +728,46 @@ export function sourceIdFor(row, sources) {
   const file = decodeURIComponent((row.url || '').split('?')[0].split('/').pop() ?? '')
     .replace(/\.(pdf|html?)$/i, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const name = file || (row.product_raw || '').replace(/[^A-Za-z0-9]+/g, '-');
-  return `${prefix}${name}`.slice(0, 90);
+  const id = `${prefix}${name}`.slice(0, 90);
+  // A maker may publish two documents under one file name: Spectrum's PP sheet is at .../2022/05/en_tds_spectrum_pp.pdf
+  // and again at .../2025/11/en_tds_spectrum_pp.pdf, and both derive the same identifier. The second one took the
+  // first one's identifier, so nine of its values were recorded against a page that does not print them. A
+  // document is its bytes, so where the name is taken by another document the digest tells them apart.
+  const taken = sources.find((x) => x.SourceID === id);
+  return taken && taken.SHA256 !== row.sha256 ? `${id}-${String(row.sha256 ?? '').slice(0, 6)}`.slice(0, 96) : id;
 }
 
 /** The document's own title, as its head prints it, and the product name under it (D63). */
+/**
+ * A product's name as the sheet prints it, without the words every one of a maker's products carries. "3DXMAX®
+ * ABS 3D Printing Filament" is the ABS; the tail is a category, and keeping it would make the next revision of
+ * the same sheet look like a second product.
+ */
+export function productName(printed) {
+  return String(printed ?? '')
+    .replace(/[™®©]/g, '')
+    .replace(/\s*\[[^\]]*\]\s*/g, ' ')
+    .replace(/\b3d\s*(print(ing|er)?\s*)?filament\b/gi, '')
+    .replace(/\b3d\s*$/i, '')
+    .replace(/\bfilament\b\s*$/i, '')
+    .replace(/\s*[-–—:,]\s*$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// A line that is a table's column headings, a revision marker or a section name is not a product's name.
+const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^page\b|data sheet$/i;
+
 export function printedTitle(text) {
   const head = (text.pages[0]?.lines ?? []).slice(0, 6).map((l) => l.text.trim()).filter(Boolean);
-  const at = head.findIndex((l) => /technical data sheet|technisches datenblatt|product data sheet|datasheet/i.test(l));
+  const at = head.findIndex((l) => /tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet/i.test(l));
   if (at < 0) return { title: head[0] ?? '', product: head[1] ?? '' };
-  const product = head.slice(at + 1).find((l) => l.length < 60 && /[A-Za-z]/.test(l)) ?? '';
-  return { title: [head[at], product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
+  // The name may be on the same line as the words that announce it ("Technical Data Sheet: AmideX PA6-GF30"),
+  // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.
+  const sameLine = head[at].replace(/^.*?(tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet)\s*[:\-–—]?\s*/i, '').trim();
+  const below = head.slice(at + 1).find((l) => l.length < 60 && /[A-Za-z]/.test(l) && !NOT_A_PRODUCT.test(l)) ?? '';
+  const product = sameLine || below;
+  return { title: [head[at], sameLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
 }
 
 /**
@@ -648,7 +785,31 @@ export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
   // does not make a new family, and reading them from a sibling keeps one polymer's rows saying one thing.
   const siblings = materials.filter((m) => m['Estimate identity'] === identity.polymer && m.Scope !== 'Family entry');
   const plain = siblings.find((m) => m['Modifier / filler'] === 'Unfilled / unspecified') ?? siblings[0];
-  if (!plain) return null;
+  // A polymer no material stands for yet takes what the lexicon knows: its family, and no estimate identity,
+  // because the model identifies a material by a row of polymers.csv and there is none. Its own published values
+  // are all it will show until somebody writes that row from a reference (the six high-temperature materials are
+  // the precedent, and they have stood like this since the database was built).
+  if (!plain) {
+    if (!identity.family) return null;
+    const excluded = /High-Temperature/i.test(identity.family);
+    return {
+      'Original name': name,
+      Family: identity.family,
+      'H2C status': excluded ? 'Excluded' : 'Theoretical',
+      'Representative grade': '${grade:main}',
+      'Best uses': NP,
+      Limitations: NP,
+      'Full name': name,
+      Scope: excluded ? 'Excluded' : 'H2C-relevant',
+      Abbreviation: name,
+      'Base polymer': identity.polymer,
+      'Estimate identity': NA,
+      'Modifier / filler': identity.modifier,
+      'Variant class': identity.variantClass || NA,
+      Role: 'Structural / functional / appearance',
+      'Identity notes': `Identity read from ${sourceId} (p. ${page}): ${identity.signals.join('; ')}. No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish.`,
+    };
+  }
   return {
     'Original name': name,
     Family: plain.Family,
@@ -670,13 +831,45 @@ export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
   };
 }
 
+/**
+ * The headline selections a material that the database does not hold yet needs. A material with no selection and
+ * no estimate identity shows nothing at all (HEADLINE-BLANK), and a material that publishes its own value should
+ * show it rather than an estimate. One `value` row per key, from the material's own measurements: the property
+ * the key names, in the unit it is kept in, in its direction, on a printed or unstated specimen, not conditioned,
+ * not annealed, and a point rather than a bound.
+ */
+export function headlinesFor(measurements, definitions) {
+  const chosen = [];
+  for (const key of definitions.filter((d) => d.Kind === 'measurement')) {
+    const properties = String(key['Value properties'] ?? '').split(';').map((x) => x.trim()).filter(Boolean);
+    const wanted = (m) => properties.includes(m.row.Property)
+      && m.row['Normalized unit'] === key.Unit
+      && m.row.Operator === '='
+      && m.row['Data status'] === 'Published value'
+      && ['printed', 'not-stated'].includes(specimenForm(m.row['Specimen type']))
+      && m.row['Moisture state'] !== 'conditioned'
+      && m.row['Post-processing state'] !== 'annealed'
+      && (key.Direction === 'Not applicable' || m.row.Direction === key.Direction)
+      // A heat deflection headline is the 0.45 MPa one; the 1.8 MPa value is a different test and bounds it.
+      && (key.HeadlineKey !== 'hdt045' || ['0.45', 'Not published'].includes(m.row['Test load MPa']));
+    // The property the key names first wins, so a stated endpoint is preferred to an unspecified one.
+    const found = properties.map((property) => measurements.find((m) => m.row.Property === property && wanted(m))).find(Boolean);
+    if (found) chosen.push({ HeadlineKey: key.HeadlineKey, measurement: found.id, Use: 'value', review: { status: 'proposed' } });
+  }
+  return chosen;
+}
+
 /** A document as a proposal: the source, its grade, its values, and everything left out with the reason. */
 export function propose(row, text, world) {
   // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
   // enough, and they are the maker's own description rather than a catalogue title.
   const body = (text.pages[0]?.lines ?? []).map((l) => l.text).join(' ').slice(0, 2000);
   const head = printedTitle(text);
-  const identity = classifyProduct(row.product_raw, { manufacturer: row.manufacturer, title: head.title, body }, world);
+  // The name the sheet prints is the product's own; the catalogue name a link carries is a copy of it, and the
+  // two disagree ("paht" for a sheet whose own title says CarbonX Carbon Fiber High Temp Nylon). Two revisions of
+  // one sheet must classify alike, so the sheet's own name is what is read, and the catalogue's is kept beside it.
+  const named = productName(head.product && !NOT_A_PRODUCT.test(head.product) ? head.product : row.product_raw);
+  const identity = classifyProduct(named || row.product_raw, { manufacturer: row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body }, world);
   const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
   // How this polymer solidifies and whether it is reinforced: the two things the build's own physics windows are
   // keyed on, so a reading judged here is judged the way the build will judge it.
@@ -704,7 +897,9 @@ export function propose(row, text, world) {
     key: 'main', review: { status: 'proposed' },
     row: {
       MaterialID: identity.materialId ?? '', Role: 'procurement', Status: 'active',
-      Manufacturer: row.manufacturer || row.provider, 'Product name': product || row.product_raw,
+      Manufacturer: row.manufacturer || row.provider,
+      // The name the sheet prints, unless what it prints there is not a name at all.
+      'Product name': named || productName(product),
       'Shared formulation key': sourceId, 'Composition / filler': composition(text) ?? NP,
       Variant: NA, 'Colour caveat': 'Properties may vary by colour; use TDS scope',
       Availability: NP, 'Certification claims': certification(text) ?? NP,
@@ -762,7 +957,10 @@ export function propose(row, text, world) {
       evidence: { page: 1, text: title },
       review: { status: 'proposed' },
     },
-    grades: [grade], measurements, profiles, evidence: [], headlines: [], coverage: [],
+    grades: [grade], measurements, profiles, evidence: [],
+    // A material the database already holds keeps the headlines it has; the pipeline never moves one.
+    headlines: newMaterial ? headlinesFor(measurements, world.headlineDefinitions ?? []) : [],
+    coverage: [],
     settings: sheet.settings, skipped: sheet.skipped,
     review: { status: 'proposed' },
   };
@@ -787,7 +985,7 @@ export function compare(proposal, recorded) {
 if (process.argv[1]?.endsWith('propose.mjs')) {
   const arg = (n) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 ? process.argv[i + 1] : null; };
   const provider = arg('provider'), batch = arg('batch'), doc = arg('doc');
-  const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources') };
+  const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources'), headlineDefinitions: table('headline_definitions'), rulings: readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values) };
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
   const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet']);

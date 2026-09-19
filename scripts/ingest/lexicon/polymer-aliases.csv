@@ -9,6 +9,7 @@ copa,PA6/66,Nylon / Polyamide,"a copolymer of nylon 6 and 6,6; CoPA is an alias 
 cope,CoPE,Copolyesters,
 cpe,CPE,Copolyesters,
 epla,PLA,PLA,
+extem,TPI,Industrial High-Temperature - Outside H2C Practical Envelope,SABIC's brand of thermoplastic polyimide
 filaflex,,Flexible Elastomers,Recreus's elastomer line is a TPU except its SEBS grade: a ruling
 greentec,,PLA,Extrudr's PLA-based biopolymer; which grade is a ruling
 hdpe,PE,Polyolefins,
@@ -35,7 +36,7 @@ pbat,PBAT,PVB / Specialty Polymers,no polymers.csv row yet
 pbt,PBT,Polymer Blends,no polymers.csv row yet
 pc,PC,Polycarbonate,
 pc-abs,PC-ABS,Polymer Blends,
-pc-asa,,Polymer Blends,"a polycarbonate/ASA blend has no identity here: which it is, is a ruling"
+pc-asa,PC-ASA,Polymer Blends,"a polycarbonate and ASA blend; the estimate model identifies a blend by its own name, and there is no polymers.csv row for this one (ruling R017)"
 pc-pbt,PC-PBT,Polymer Blends,
 pcabs,PC-ABS,Polymer Blends,
 pcl,PCL,PVB / Specialty Polymers,no polymers.csv row yet
@@ -60,8 +61,8 @@ polyurethane,TPU,,"a sheet that names the chemistry rather than the class: therm
 pom,POM,Acetals,
 pp,PP,Polyolefins,
 ppa,PPA,High-Performance Engineering,
-ppe,,Polymer Blends,"polyphenylene ether, sold as a blend with polystyrene: a ruling, and not polypropylene"
-ppe-ps,,Polymer Blends,
+ppe,PPE-PS,Polymer Blends,"polyphenylene ether is sold as a blend with polystyrene, which is what 3DXTECH prints on its sheet (ruling R018); it is not polypropylene"
+ppe-ps,PPE-PS,Polymer Blends,as above
 pps,PPS,High-Performance Engineering,
 ppsf,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
 ppsu,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
@@ -79,6 +80,7 @@ tarfuse,POM,Acetals,Grupa Azoty's acetal line
 tpc,TPC,Flexible Elastomers,
 tpe,,Flexible Elastomers,"TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"
 tpee,TPC,Flexible Elastomers,
+tpi,TPI,Industrial High-Temperature - Outside H2C Practical Envelope,"thermoplastic polyimide (SABIC EXTEM): a polymer with no row in polymers.csv, and a 300 C extrusion temperature (ruling R019)"
 tps,TPS,Flexible Elastomers,a styrenic thermoplastic elastomer; no polymers.csv row yet
 tpu,TPU,Flexible Elastomers,
 ultem,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,

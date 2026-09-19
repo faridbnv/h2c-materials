@@ -226,7 +226,14 @@ export function classifyProduct(product, context = {}, world = {}) {
     if (collision) reasons.push(`a new material here would duplicate ${collision.MaterialID} ${collision['Original name']}, which already holds ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
   }
   const known = (world.polymers ?? []).some((p) => p.PolymerID === identity.polymer);
-  if (identity.polymer && !known) reasons.push(`"${identity.polymer}" has no row in polymers.csv, so a material of it cannot be estimated`);
+  // A polymer with no row cannot be estimated, so a material of it cannot be created without one. It can still be
+  // filed under a material that already exists and already says so: PEEK, PEKK and PEI are six such materials,
+  // deliberately not estimated (their Estimate identity is Not applicable), and their products are ordinary.
+  // A polymer with no row in polymers.csv cannot be estimated, so a material of it is not created on the reader's
+  // own authority. A ruling may say otherwise, and then the material stands for what its sheets publish and for
+  // nothing more, which is how the six high-temperature materials have always stood.
+  const ruled = (world.rulings ?? []).some((r) => r.Kind === 'polymer-no-row' && r.Subject === identity.polymer);
+  if (identity.polymer && !known && !match && !ruled) reasons.push(`"${identity.polymer}" has no row in polymers.csv, so a material of it cannot be created`);
 
   return {
     ...identity,
@@ -289,7 +296,10 @@ export function matchMaterial(identity, materials, context = {}) {
   // be reached by name, so a name inside the product's own words finds it: "THERMAX PES" is the PESU material.
   // This is last, or "Carbon Fiber PETG" would stop at PETG instead of reaching PETG-CF.
   if (context.tokens?.length) {
+    // The name finds the material, but a filler the name declares still has to match: 3DXTECH's carbon fibre PEEK
+    // is not the unfilled PEEK material, and filing it there judged a 10 GPa modulus against an unfilled window.
     return open.find((m) => m['Estimate identity'] === 'Not applicable' && mayAnswer(m)
+      && (m['Modifier / filler'] === identity.modifier || undisclosed(m))
       && names(m).some((n) => context.tokens.some((t) => named(n, t)))) ?? null;
   }
   return null;

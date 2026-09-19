@@ -15,3 +15,25 @@ R013,new-material,PCTG-GF,PCTG with a glass fibre load,"Spectrum PCTG GF10 state
 R014,identity,Spectrum S-Flex,TPU,"S-Flex 85A and S-Flex 98A both state ""a filament based on a thermoplastic polyether polyurethane"", which is TPU. S-Flex 90A and S-Flex Carbon carry the same product name and the same Shore-A hardness scale but name no polymer; they are read as the same line. Recorded by the agent rather than the owner, and open to be overturned.",claude-opus-5,2026-09-18
 R015,new-material,PA6-GS,PA6 with a hollow glass sphere load,"Spectrum PA6 GK10 states ""Filled with hollow glass spheres, it is stiffer"". A hollow sphere stiffens a little and lowers density; it does not carry load along a fibre, so filing it under PA6-GF would pull the glass-fibre family towards a material that is not reinforced. schema/vocab/modifiers.csv gains ""Glass spheres"" with this batch.",claude-opus-5,2026-09-18
 R016,new-material,TPU-CF,TPU with a carbon fibre load,"Spectrum S-Flex Carbon states ""the flexibility of traditional flex filament with the added strength and durability provided by a 20% carbon fiber reinforcement"". Its polymer is TPU by ruling R014; no material held TPU x carbon fibre.",claude-opus-5,2026-09-18
+R017,polymer-no-row,PC-ASA,A material with no estimate identity,"3DXMAX PC/ASA is a polycarbonate and ASA blend, which the product name states. The estimate model identifies a blend by its own name and polymers.csv has no row for this one, so the material stands for what its sheet publishes and is not estimated. A row written from a resin producer reference would let it be, and that is the better fix.",claude-opus-5,2026-09-18
+R018,polymer-no-row,PPE-PS,A material with no estimate identity,"THERMAX PPE/PS prints ""[Polyphenylene Ether + Polystyrene]"" under its own title. Same reasoning as R017.",claude-opus-5,2026-09-18
+R019,polymer-no-row,TPI,A material with no estimate identity,"ThermaX TPI prints ""[Made using SABIC EXTEM TPI]"": a thermoplastic polyimide. It prints above 300 C, so it files under the industrial high-temperature family with the other six that are outside the H2C envelope and are not estimated.",claude-opus-5,2026-09-18
+R020,new-material,PC-ESD,PC with an ESD formulation,3DXSTAT ESD-PC. ESD formulation is a modifier value already; no material held PC x ESD.,claude-opus-5,2026-09-18
+R021,new-material,PVDF-ESD,PVDF with an ESD formulation,3DXSTAT ESD-PVDF. As R020.,claude-opus-5,2026-09-18
+R022,new-material,PPS-ESD,PPS with an ESD formulation,3DXSTAT ESD-PPS. As R020.,claude-opus-5,2026-09-18
+R023,new-material,TPU-ESD,TPU with an ESD formulation,3DXSTAT ESD-TPU (90A). As R020.,claude-opus-5,2026-09-18
+R024,new-material,PC-ABS-CF,PC-ABS with a carbon fibre load,CarbonX Carbon Fiber PC/ABS. PC-ABS is already a material and a polymers.csv identity; no material held it with a fibre.,claude-opus-5,2026-09-18
+R025,new-material,PPE-PS,The PPE/PS blend as its own material,See R018 for why it is not estimated.,claude-opus-5,2026-09-18
+R026,new-material,PC-ASA,The PC/ASA blend as its own material,See R017.,claude-opus-5,2026-09-18
+R027,new-material,TPI,The thermoplastic polyimide as its own material,See R019.,claude-opus-5,2026-09-18
+R028,new-material,TPC-ESD,TPC with an ESD formulation,3DXSTAT ESD-TPC (90A). ESD formulation is a modifier value already; no material held a copolyester elastomer with it.,claude-opus-5,2026-09-18
+R029,polymer-no-row,PEEK,A material with no estimate identity,"3DXTECH publishes carbon-fibre and glass-fibre PEEK beside the unfilled PEEK the database already holds (M097, Estimate identity Not applicable). A filled PEEK is not the unfilled material and needs its own, and polymers.csv has no PEEK row, so it is not estimated either. The same reasoning as R017 to R019.",claude-opus-5,2026-09-18
+R030,polymer-no-row,PEKK,A material with no estimate identity,"As R029, for M098 PEKK and 3DXTECH's carbon-fibre and ESD grades.",claude-opus-5,2026-09-18
+R031,polymer-no-row,PEI,A material with no estimate identity,"As R029, for M099 PEI / ULTEM and 3DXTECH's carbon-fibre, glass-fibre and ESD grades.",claude-opus-5,2026-09-18
+R032,new-material,PEEK-CF,PEEK with a carbon fibre load,3DXTECH CarbonX Carbon Fiber PEEK and its 20% grade. Not estimated (R029).,claude-opus-5,2026-09-18
+R033,new-material,PEEK-GF,PEEK with a glass fibre load,3DXTECH ThermaX PEEK GF20. Not estimated (R029).,claude-opus-5,2026-09-18
+R034,new-material,PEKK-CF,PEKK with a carbon fibre load,3DXTECH CarbonX Carbon Fiber PEKK-A CF15. Not estimated (R030).,claude-opus-5,2026-09-18
+R035,new-material,PEKK-ESD,PEKK with an ESD formulation,3DXTECH 3DXSTAT ESD-PEKK. Not estimated (R030).,claude-opus-5,2026-09-18
+R036,new-material,PEI-CF,PEI with a carbon fibre load,3DXTECH CarbonX Carbon Fiber Ultem PEI and Ultem 9085. Not estimated (R031).,claude-opus-5,2026-09-18
+R037,new-material,PEI-GF,PEI with a glass fibre load,3DXTECH ThermaX PEI GF30. Not estimated (R031).,claude-opus-5,2026-09-18
+R038,new-material,PEI-ESD,PEI with an ESD formulation,3DXTECH 3DXSTAT ESD-Ultem and ESD-Ultem 1010. Not estimated (R031).,claude-opus-5,2026-09-18

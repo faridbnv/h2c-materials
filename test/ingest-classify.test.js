@@ -63,8 +63,11 @@ test('a name that does not say what the polymer is becomes a question, never a g
   // conductive load gained values with the Spectrum batch that needed them; tungsten has none.
   assert.match(classify('Spectrum PETG Tungsten', 'Spectrum').reasons.join(' '), /tungsten/);
   assert.equal(classify('Spectrum ABS Kevlar', 'Spectrum').modifier, 'Aramid fibre');
-  // A polymer with no row in polymers.csv cannot be estimated, and says so.
-  assert.match(classify('PEEK', '3DXTECH').reasons.join(' '), /polymers\.csv/);
+  // A polymer with no row in polymers.csv cannot be estimated, so no material of it can be created. It can still
+  // be filed under one that exists and already says so: the six high-temperature materials are not estimated.
+  assert.equal(classify('PEEK', '3DXTECH').materialId, 'M097');
+  assert.equal(classify('PEEK', '3DXTECH').needsRuling, false);
+  assert.match(classify('Spectrum PBT', 'Spectrum').reasons.join(' '), /polymers\.csv/);
 });
 
 test('a hardness a product states in its own name is read from it', () => {
