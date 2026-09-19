@@ -11,6 +11,7 @@
 //   npm run ingest:review -- --doc <key> --accept m01,m02 --by "farid"
 //   npm run ingest:review -- --doc <key> --reject m03 --note "the sheet prints this as a range" --by "farid"
 //   npm run ingest:review -- --doc <key> --set m03,m04 "Direction=XY" --by "farid"
+//   npm run ingest:review -- --doc <key> --visual m01,m02 --by "farid"   (a row read from a scan)
 //   npm run ingest:review -- --doc <key> --done --by "farid" [--note "..."]
 //
 // --accept takes only rows the pipeline is confident about: nothing flagged ambiguous, nothing read from an
@@ -132,6 +133,21 @@ if (process.argv[1]?.endsWith('review.mjs')) {
       save(path, proposal);
       console.log(`${proposal.document?.docKey}: ${code} accepted on ${rowId}`);
     }
+  } else if (arg('visual')) {
+    // A row read from a scan needs a person to look at the page image and say the number is the number. The
+    // images are in .cache/pages/<sha>/, one per page, written by ingest:ocr.
+    const targets = new Set(String(arg('visual')).split(',').map((x) => x.trim()).filter(Boolean));
+    if (!by) { console.error('usage: --visual <row[,row...]> --by <name> [--note "..."]'); process.exit(2); }
+    let n = 0;
+    for (const { path, proposal } of found) {
+      for (const row of rowsOf(proposal)) {
+        if (!targets.has(String(row.id))) continue;
+        row.of.review = { ...(row.review ?? {}), status: 'accepted', by, date: today(), visual: true, ...(arg('note') ? { note: arg('note') } : {}) };
+        n++;
+      }
+      save(path, proposal);
+    }
+    console.log(`${n} row(s) read against the page image`);
   } else if (arg('accept')) decide('accepted', arg('accept'), arg('note'));
   else if (arg('reject')) decide('rejected', arg('reject'), arg('note'));
   else if (arg('set')) {

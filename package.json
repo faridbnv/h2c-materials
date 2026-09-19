@@ -26,6 +26,7 @@
     "ingest:inventory": "node scripts/ingest/inventory.mjs",
     "ingest:fetch": "node scripts/ingest/fetch.mjs",
     "ingest:extract": "node scripts/ingest/extract.mjs",
+    "ingest:ocr": "node scripts/ingest/ocr.mjs",
     "ingest:classify": "node scripts/ingest/classify.mjs",
     "ingest:propose": "node scripts/ingest/propose.mjs",
     "ingest:review": "node scripts/ingest/review.mjs",

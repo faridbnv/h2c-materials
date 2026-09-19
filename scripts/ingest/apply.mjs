@@ -108,6 +108,14 @@ export function guard(proposals, world) {
     if (sha256(readFileSync(path)) !== sha) { fail('APPLY-HASH', where, `the cached document no longer hashes to ${sha.slice(0, 12)}`); continue; }
     const text = cachedText(sha);
     if (!text) { fail('APPLY-STALE', where, 'the text cache is missing or was written by another extractor; run ingest:extract --refresh'); continue; }
+    // A scan read by optical character recognition is a guess about a picture, however well it reads. Every row
+    // from one is looked at on the page image by a person before it enters, and says so.
+    if (text.ocr) {
+      for (const row of rowsOf(proposal)) {
+        if (row.review?.status !== 'accepted' || !row.row) continue;
+        if (!row.review?.visual) fail('APPLY-OCR-UNVERIFIED', `${where} ${row.id}`, `read optically (${text.ocr.tool}); nobody says they read it against the page image`);
+      }
+    }
 
     // A document already registered under this proposal's own SourceID is this proposal, applied before: a
     // second run writes nothing rather than refusing. Under any other identifier it is a second registration of
