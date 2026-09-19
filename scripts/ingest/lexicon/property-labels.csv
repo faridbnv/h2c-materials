@@ -17,24 +17,24 @@ Label,Property,Direction,Notch,Note
 "^elongation at stren\w*",Tensile strain at strength,,Not applicable,"a sheet spells it strenght; a source’s own typo is not a reason to lose the row"
 ^flexural modulus|^bending modulus,Flexural modulus,,Not applicable,
 ^flexural (stress|strength)|^bending strength,Flexural strength,,Not applicable,
-^charpy[^a-z]*(impact )?(strength )?notched|^notched charpy,Charpy strength,Not applicable,Notched,
+^charpy[^a-z]*(impact )?(strength )?(of )?notched|^notched charpy,Charpy strength,Not applicable,Notched,a sheet may put a word between the test and its notch: Charpy Impact Strength of Notched Specimen
 ^charpy,Charpy strength,Not applicable,Unnotched,an unqualified Charpy row is the unnotched one; the method may say otherwise and wins
-^izod[^a-z]*(impact )?(strength )?notched|^notched izod,Izod impact strength,Not applicable,Notched,
+^izod[^a-z]*(impact )?(strength )?(of )?notched|^notched izod,Izod impact strength,Not applicable,Notched,the same row as the one above it: Izod Impact Strength of Notched Specimen
 ^izod,Izod impact strength,Not applicable,Unnotched,
 "^notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Notched,"the row names the notch and not the test, and the method column names which test it is; a row that names no method is left to the label above it, which is where a sheet that prints a block per notch says Charpy or Izod"
 "^un-?notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Unnotched,the same row unnotched
-"^(temperature of deflection under load|heat (deflection|distortion) temp(erature)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."""
+"^(temperature of deflection under load|heat (deflection|distortion)( temp(erature)?)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."" or print the abbreviation in place of the word: ""Heat Distortion (HDT)"""
 ^vicat,Vicat softening temperature,Not applicable,Not applicable,
 ^glass transition,Glass transition temperature,Not applicable,Not applicable,
 ^melt(ing)? (temperature|point),Melting temperature,Not applicable,Not applicable,
 ^crystalli[sz]ation temperature,Crystallization temperature,Not applicable,Not applicable,
 ^mfr\b|^melt (mass[- ]flow|flow) rate|^melt index|^melt flow (index|rate),Melt mass-flow rate,Not applicable,Not applicable,
 ^mvr\b|^melt volume,Melt volume-flow rate,Not applicable,Not applicable,
-^(equilibrium )?water absorption|^(equilibrium )?moisture absorption,Water absorption,Not applicable,Not applicable,
+^(equilibrium |saturated |saturation )?water absorption|^(equilibrium |saturated |saturation )?moisture absorption,Water absorption,Not applicable,Not applicable,a sheet may call the equilibrium value the saturated one
 ^moisture content,Moisture content,Not applicable,Not applicable,
 ^(shore|rockwell) hardness|^hardness|^shore [ad]\b,Hardness,Not applicable,Not applicable,"the scale is part of the unit, and the sheet states it"
 ^thermal conductivity,Thermal conductivity,Not applicable,Not applicable,
-^coefficient of (thermal|linear) expansion|^cte\b,Coefficient of thermal expansion,Not applicable,Not applicable,
+^coefficient of (thermal|linear) exp(ansion)?\b|^cte\b,Coefficient of thermal expansion,Not applicable,Not applicable,a sheet may abbreviate it: Coefficient of Thermal Exp.
 ^contin[uo]*s (service|use|operating) temperature,Continuous service temperature,Not applicable,Not applicable,a sheet spells it Continous; a source's own typo is not a reason to lose the row
 ^compressi(on|ve) strength,Compression strength,,Not applicable,
 ^low temperature impact( strength)?,Impact strength,Not applicable,Not published,"a maker's name for an impact test run below room temperature; which test it is comes from the standard it names, and the temperature is the row's own condition"

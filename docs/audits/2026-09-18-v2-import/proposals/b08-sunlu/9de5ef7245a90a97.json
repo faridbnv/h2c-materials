@@ -1,0 +1,817 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-19"
+  },
+  "document": {
+    "sha256": "9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331",
+    "url": "https://media.sunlu.com/prod/20260330/48f9a499-b97a-4844-be4b-35ca349b5b64.pdf?filename=TDS",
+    "pages": 4,
+    "provider": "SUNLU",
+    "manufacturer": null,
+    "docKey": "9de5ef7245a90a97"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+      "Publisher": "SUNLU",
+      "Title": "文件编号 SL-TE-WI-110",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://media.sunlu.com/prod/20260330/48f9a499-b97a-4844-be4b-35ca349b5b64.pdf?filename=TDS",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "文件编号 SL-TE-WI-110"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "版本/版次 A/1",
+        "Shared formulation key": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "UL94@1.6mm V-0 阻燃材料 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "文件编号 SL-TE-WI-110"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "31.4 ± 4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "31.4",
+        "Raw uncertainty ±": "4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "31.4",
+        "Normalized uncertainty ±": "4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min ISO 527/2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 31.4±4"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "11.6 ± 2 %",
+        "Raw unit": "%",
+        "Raw numeric": "11.6",
+        "Raw uncertainty ±": "2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11.6",
+        "Normalized uncertainty ±": "2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min ISO 527/2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 11.6±2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "55 ± 5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 mm/min ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 55±5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1750 ± 200 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1750",
+        "Raw uncertainty ±": "200",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.75",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 mm/min ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 1750±200"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "13.7 ± 3 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "13.7",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.7",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ KJ/m2 Strength of Specimen ISO 180",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 悬 臂 梁 缺 口 冲 击 强 度 (X-Y) Izod Impact ISO 180 23℃ KJ/m2 Strength of Notched Specimen",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ISO 180 23℃ KJ/m2 13.7±3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "3.9 ± 1.5 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "3.9",
+        "Raw uncertainty ±": "1.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.9",
+        "Normalized uncertainty ±": "1.5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ KJ/m2 Strength of Specimen ISO 180",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 悬臂梁无缺口冲击强度(Z-X) Izod Impact ISO 180 23℃ KJ/m2 Strength of Unnotched Specimen",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ISO 180 23℃ KJ/m2 3.9±1.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "79",
+        "Raw unit": "Shore (scale not specified by source)",
+        "Raw numeric": "79",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "79",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore (scale not specified by source)",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ HA/HD ISO 868",
+        "Standards": "ISO 868",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 邵氏硬度 Shore Hardness ISO 868 23℃ HA/HD",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "邵氏硬度 Shore Hardness ISO 868 23℃ HA/HD 79"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "90.5 ± 3 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "90.5",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90.5",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 热变形温度(X-Y) Heat Distortion (HDT) ISO 75 0.45 MPa ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "热变形温度(X-Y) Heat Distortion (HDT) ISO 75 0.45 MPa ℃ 90.5±3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "132 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "132",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "132",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 熔点温度 Melting Temperature ISO 11357-3 10 ℃/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔点温度 Melting Temperature ISO 11357-3 10 ℃/min ℃ 132"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "28.6 ± 3 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "28.6",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "28.6",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "220°C",
+        "Standard / load": "220℃/10 kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 熔体指数 Melt Mass-flow Rate ISO 1133 220℃/10 kg g/10 min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔体指数 Melt Mass-flow Rate ISO 1133 220℃/10 kg g/10 min 28.6±3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.15 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64",
+        "Locator": "p. 1: 密度 Density ISO 1183 23℃ g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "密度 Density ISO 1183 23℃ g/cm3 1.15"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "文件编号 SL-TE-WI-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "版本/版次 A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "页码/总页数 1/4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UL94@1.6mm V-0 阻燃材料",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "[1] [2]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "杨氏模量(X-Y) Young’s Modulus ISO 527/2 1 mm/min MPa /",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "玻璃化转变温度 Glass Transition (Tg) ISO 11357-2 10 ℃/min ℃ /",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "分解温度@5%Decomposition Temp. ISO 11358 20 ℃/min ℃ ≥375",
+      "reason": "properties.csv carries no property for \"分解温度@5%Decomposition Temp.\""
+    },
+    {
+      "page": 1,
+      "text": "维卡软化温度 Vicat Softening Temp. ISO 306 5kg, 50℃/h ℃ /",
+      "reason": "the sheet publishes no value for Vicat softening temperature in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "收缩率 Moulding Shrinkage ISO 294 23℃ % 0.4-0.9",
+      "reason": "properties.csv carries no property for \"收缩率 Moulding Shrinkage\""
+    },
+    {
+      "page": 1,
+      "text": "热膨胀系数 Coefficient of Thermal Exp. ISO 11359-2 ㎛（m·℃） 60.7",
+      "reason": "the sheet states Coefficient of thermal expansion in ㎛（m·℃）, and the database keeps it in µm/m/K"
+    },
+    {
+      "page": 1,
+      "text": "体积电阻率 Volume Resistivity IEC 60093 - ohm-cm 6.75×1014",
+      "reason": "properties.csv carries no property for \"体积电阻率 Volume Resistivity\""
+    },
+    {
+      "page": 1,
+      "text": "介电常数 Permittivity IEC 60250 1 kHz 2.64",
+      "reason": "properties.csv carries no property for \"介电常数 Permittivity\" (kHz)"
+    },
+    {
+      "page": 1,
+      "text": "阻燃性 Flammability UL 94 1.5 mm Class V-0",
+      "reason": "properties.csv carries no property for \"阻燃性 Flammability\""
+    },
+    {
+      "page": 1,
+      "text": "弱酸 Weak Acid (pH 3-6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strong Acid (pH<3) 一般",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "弱碱 Weak Bases (pH 8-10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strong Bases (pH >10) 优异",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "表单编号：SL-PM-FM-001 版本：A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "文件编号 SL-TE-WI-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "版本/版次 A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "页码/总页数 2/4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "240-250 50-100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "250-260 100-200",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "平台温度 Plate Temp. 80-100℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "底阀分离距离 Raft Distance 0.2-0.4mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "回抽距离 Retraction Distance 0.8-1.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "回抽速度 Retraction Speed 30-40mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "烘干温度 Drying Temp. 80℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "表单编号：SL-PM-FM-001 版本：A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "文件编号 SL-TE-WI-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "版本/版次 A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "页码/总页数 3/4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "[1] 测试样条打印速度 45 mm/s，打印温度 270 ℃。填充 100%，走线方式为 90 度。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "[2] 典型值是指实验室平均数据，仅用于使用时的参考，不作为产品的标准，不同打印机打印有区别。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "表单编号：SL-PM-FM-001 版本：A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "文件编号 SL-TE-WI-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "版本/版次 A/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "页码/总页数 4/4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "表单编号：SL-PM-FM-001 版本：A/1",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

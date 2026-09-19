@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason } from '../scripts/ingest/propose.mjs';
+import { propose, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -359,4 +359,151 @@ test('a test temperature keeps its minus sign', () => {
   const row = read('Charpy Notched Impact Strength (-30°C) ISO 179/1eA kJ/m² 6.0');
   assert.equal(row.rawNumber, '6');
   assert.match(row.conditions, /\(-30\s?°C\)/);
+});
+
+// A page whose value column is set on a baseline of its own: the pieces at the x and y the page prints them at.
+// SUNLU's sheets are laid out this way, and every one of the numbers below stands a point or two off the line
+// its label is on, which is the whole of what made them invisible.
+const piece = (y, ...pieces) => {
+  const spans = pieces.map(([x, str, w]) => ({ x, w: w ?? str.length * 5, str }));
+  return { y, x0: spans[0].x, x1: spans.at(-1).x + spans.at(-1).w, text: spans.map((s) => s.str).join('  '), spans };
+};
+
+test('a value set a point above its label is part of that row, and the page says so', () => {
+  // The extractor groups spans by baseline, so a line is a baseline and not a row. Read a line at a time, the
+  // sheet offered a label with no value and a number with no label on every row of its table.
+  const rows = pageRows([
+    piece(538, [498, '35±5']),
+    piece(537, [67, '(X-Y) Tensile Strength'], [274, 'ISO 527/2'], [350, '50 mm/min'], [431, 'MPa']),
+    piece(522, [507, '/']),
+    piece(521, [67, '(X-Y) Young’s Modulus'], [274, 'ISO 527/2'], [352, '1 mm/min'], [431, 'MPa']),
+  ]);
+  assert.deepEqual(rows.map((r) => r.text), [
+    '(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 35±5',
+    '(X-Y) Young’s Modulus ISO 527/2 1 mm/min MPa /',
+  ]);
+  // The row keeps the label's place on the page, because that is where the table's column starts.
+  assert.deepEqual(rows.map((r) => r.x0), [67, 67]);
+});
+
+test('a piece of the column beside the table is not a piece of the row', () => {
+  // Spectrum prints its marketing text three points off the table's baselines. A row that took whatever shared
+  // its band read "Charpy impact strength* ness, making printed parts resistant to loads and" and lost the
+  // three values of that block; what keeps it out is that a row's own piece is a short statement of a number.
+  const rows = pageRows([
+    piece(656, [26, 'Charpy impact strength*']),
+    piece(653, [390, 'ness, making printed parts resistant to loads and']),
+    piece(640, [26, 'unnotched (at 23°C) 25 kJ/m2 ISO 179-1eU']),
+    piece(638, [390, 'prolonged exposure to UV radiation.']),
+  ]);
+  assert.equal(rows.length, 4, 'four lines of two columns are four lines');
+});
+
+test('a superscript joins the unit it raises, and an exponent is not a digit of the number below it', () => {
+  // "kJ/m" and its 2 are printed hard against each other, and a value stands a column away. Joined, the unit is
+  // the one the property is kept in; read apart, every impact row of the layout was lost.
+  const [impact] = pageRows([
+    piece(450, [448, '2', 3]),
+    piece(448, [498, '15±5']),
+    piece(447, [278, 'ISO 180'], [363, '23℃'], [428, 'KJ/m']),
+  ]);
+  assert.equal(impact.text, 'ISO 180 23℃ KJ/m2 15±5');
+  // "6.75×10" and a raised "14" run together read as 1014, which is neither the number nor a reading of it.
+  const [power] = pageRows([
+    piece(204, [523, '14', 7]),
+    piece(201, [488, '6.75×10']),
+    piece(199, [67, 'Volume Resistivity'], [273, 'IEC 60093'], [424, 'ohm-cm']),
+  ]);
+  assert.equal(power.text, 'Volume Resistivity IEC 60093 ohm-cm 6.75×10^14');
+  // A power of ten is one number: neither 6.75 nor 10 is offered as a value, and the reason says why the row
+  // waits for the owner rather than proposing one.
+  assert.equal(readRow(power.text, registry), null);
+  assert.match(unreadRowReason(power, registry), /no property for "Volume Resistivity".*power of ten \("6\.75×10\^14"\)/);
+});
+
+test('the axis a row states, and the maker’s own language, are not part of the property’s name', () => {
+  // "(X-Y) Tensile Strength" and "拉伸强度(X-Y) Tensile Strength" are the tensile strength, and the axis has a
+  // column of its own. Matched whole, neither line named a property at all.
+  assert.equal(labelFor('(X-Y) Tensile Strength ISO 527/2 MPa 35').Property, 'Tensile strength (endpoint unspecified)');
+  assert.equal(labelFor('拉伸强度(X-Y) Tensile Strength ISO 527/2 MPa 43').Property, 'Tensile strength (endpoint unspecified)');
+  // A maker may set its own language one character to a space, and it is still a prefix and not a sentence.
+  assert.equal(labelHeads('悬 臂 梁 缺 口 冲 击 强 度 (X-Y) Izod Impact').at(-1), 'Izod Impact');
+  const sheet = readSheet({ pages: [{ page: 1, lines: pageRows([
+    piece(538, [498, '35±5']),
+    piece(537, [67, '(X-Y) Tensile Strength'], [274, 'ISO 527/2'], [350, '50 mm/min'], [431, 'MPa']),
+    piece(505, [498, '20±5']),
+    piece(504, [67, '(Z-X) Tensile Strength'], [274, 'ISO 527/2'], [350, '50 mm/min'], [431, 'MPa']),
+  ]) }] }, registry);
+  assert.deepEqual(sheet.values.map((v) => [v.property, v.read.rawNumber, v.read.uncertainty]), [
+    ['Tensile strength (endpoint unspecified)', '35', '5'],
+    ['Tensile strength (endpoint unspecified)', '20', '5'],
+  ]);
+  // The database keeps ZX and XZ, so a row that states the plane's letters apart still states a direction, which
+  // is read from the label the row keeps.
+  assert.deepEqual(sheet.values.map((v) => v.label.slice(0, 5)), ['(X-Y)', '(Z-X)']);
+});
+
+test('a test condition the row states is a condition, whichever degree sign it is written with', () => {
+  // "10 ℃/min" is the rate the test was heated at and "23℃" is the temperature it was run at. Read as results
+  // they are a glass transition of 10 °C; read as nothing, the temperature the sheet states is lost.
+  const glass = readRow('Glass Transition (Tg) ISO 11357-2 10 ℃/min ℃ 109', registry);
+  assert.deepEqual([glass.match.Property, glass.rawNumber, glass.target.unit], ['Glass transition temperature', '109', '°C']);
+  const density = readRow('Density ISO 1183 23℃ g/cm3 1.02', registry);
+  assert.deepEqual([density.rawNumber, density.printedUnit], ['1.02', 'g/cm3']);
+  const flow = readRow('Melt Mass-flow Rate ISO 1133 220℃/10 kg g/10 min 20±10', registry);
+  assert.deepEqual([flow.rawNumber, flow.uncertainty, flow.target.unit], ['20', '10', 'g/10 min']);
+});
+
+test('a hardness whose scale the sheet does not settle is recorded as the scale not settled', () => {
+  // "HA/HD" names the durometer family and settles nothing: Shore A 85 and Shore D 85 are different hardnesses,
+  // and the database has a unit for exactly this reading (V000420, V002456).
+  const family = readRow('Shore Hardness ISO 868 23℃ HA/HD 85', registry);
+  assert.deepEqual([family.rawNumber, family.printedUnit], ['85', 'Shore (scale not specified by source)']);
+  // The row states the temperature it was measured at, and reading the first number on the line recorded a
+  // hardness of 23.
+  const stated = readRow('Shore Hardness ISO 868 23℃ HA/HD 90A±2', registry);
+  assert.deepEqual([stated.rawNumber, stated.uncertainty, stated.printedUnit], ['90', '2', 'Shore A']);
+  assert.equal(readRow('Shore Hardness ISO 868 23℃ HA/HD 80D', registry).printedUnit, 'Shore D');
+});
+
+test('a row whose value column is empty publishes no value, and says so', () => {
+  // "the line states no value in a unit the database keeps it in" is true and useless where the sheet states no
+  // value at all: nothing is missing here but the maker's measurement.
+  const [row] = pageRows([
+    piece(522, [507, '/']),
+    piece(521, [67, '(X-Y) Young’s Modulus'], [274, 'ISO 527/2'], [352, '1 mm/min'], [431, 'MPa']),
+  ]);
+  assert.equal(unreadRowReason(row, registry), 'the sheet publishes no value for Tensile modulus in this row: its value column prints "/"');
+});
+
+test('a bound is a bound however the sheet types it, and never a point', () => {
+  // A Chinese sheet writes "＞950" with the fullwidth sign; read as a point it is a filament that breaks at
+  // exactly 950 %, and read as nothing it is a row the sheet published and the proposal lost.
+  const wide = readRow('(X-Y) Elongation at break ISO 527/2 50 mm/min % ＞950', registry);
+  assert.deepEqual([wide.rawNumber, wide.operator], ['950', '>']);
+  const plain = readRow('(X-Y) Elongation at break ISO 527/2 50 mm/min % ≥1000', registry);
+  assert.deepEqual([plain.rawNumber, plain.operator], ['1000', '>']);
+});
+
+test('a row that states the plane its bars were printed in states a direction the database keeps', () => {
+  // "(X-Y)" and "(Z-X)" are two rows of one table, and a reader that could not read the second wrote Unstated
+  // over a direction the sheet prints.
+  const world = {
+    materials: readCsv(join(root, 'data/tables/materials.csv')).records.map((r) => r.values),
+    polymers: readCsv(join(root, 'data/tables/polymers.csv')).records.map((r) => r.values),
+    grades: [], sources: [], headlineDefinitions: [], rulings: [],
+    properties: readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => r.values),
+  };
+  const pages = [{ page: 1, lines: pageRows([
+    piece(700, [67, 'TECHNICAL DATA SHEET']),
+    piece(698, [67, 'Product Name: ABS']),
+    piece(538, [498, '35±5']),
+    piece(537, [67, '(X-Y) Tensile Strength'], [274, 'ISO 527/2'], [350, '50 mm/min'], [431, 'MPa']),
+    piece(505, [498, '20±5']),
+    piece(504, [67, '(Z-X) Tensile Strength'], [274, 'ISO 527/2'], [350, '50 mm/min'], [431, 'MPa']),
+  ]) }];
+  const p = propose({ sha256: 'x'.repeat(64), url: 'https://example.invalid/tds.pdf', provider: 'SUNLU', product_raw: 'ABS' }, { pages }, world);
+  assert.deepEqual(p.measurements.map((m) => [m.row.Direction, m.row['Raw numeric'], m.row['Raw uncertainty ±']]), [['XY', '35', '5'], ['ZX', '20', '5']]);
+  // The condition column keeps what the row says about the test, and not the property's own name or the axis.
+  assert.deepEqual(p.measurements.map((m) => m.row['Standard / load']), ['50 mm/min ISO 527/2', '50 mm/min ISO 527/2']);
 });
