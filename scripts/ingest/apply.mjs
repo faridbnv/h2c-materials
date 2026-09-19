@@ -391,7 +391,34 @@ export function applyBatch(batch, { migration = batch, date = new Date().toISOSt
   const t = openTables();
   const log = writeBatch(t, proposals, { migration, date });
   t.save();
-  return { log, written: true };
+  // The ledger is the one place that says where a document stands, and until now it never learned that a
+  // document had entered the database: five batches' worth of sheets still read "extracted". A document is
+  // applied when a source carries its digest.
+  const applied = markApplied(proposals, t);
+  return { log, written: true, applied };
+}
+
+/** Every document of this batch, in the ledger, as applied, with the SourceID its bytes were registered under. */
+function markApplied(proposals, t) {
+  const path = join(AUDIT, 'ledger.csv');
+  if (!existsSync(path)) return 0;
+  const { records } = readCsv(path);
+  const rows = records.map((r) => r.values);
+  const head = Object.keys(rows[0] ?? {});
+  const bySha = new Map(t.rows('sources').filter((x) => x.SHA256).map((x) => [x.SHA256, x.SourceID]));
+  const digests = new Set(proposals.map((p) => p.document?.sha256).filter(Boolean));
+  let n = 0;
+  for (const row of rows) {
+    if (!digests.has(row.sha256) || !bySha.has(row.sha256)) continue;
+    if (row.status === 'applied' && row.registered_source_id === bySha.get(row.sha256)) continue;
+    row.registered_source_id = bySha.get(row.sha256);
+    row.registered_by = 'sha';
+    row.status = 'applied';
+    row.updated = new Date().toISOString().slice(0, 10);
+    n++;
+  }
+  if (n) writeFileSync(path, csvText(head, rows));
+  return n;
 }
 
 if (process.argv[1]?.endsWith('apply.mjs')) {
@@ -400,8 +427,9 @@ if (process.argv[1]?.endsWith('apply.mjs')) {
   if (!batch) { console.error('usage: npm run ingest:apply -- --batch <name> [--migration mNN] [--dry-run]'); process.exit(2); }
   const migrationAt = process.argv.indexOf('--migration');
   try {
-    const { log, written } = applyBatch(batch, { migration: migrationAt >= 0 ? process.argv[migrationAt + 1] : batch, dryRun: process.argv.includes('--dry-run') });
+    const { log, written, applied } = applyBatch(batch, { migration: migrationAt >= 0 ? process.argv[migrationAt + 1] : batch, dryRun: process.argv.includes('--dry-run') });
     console.log(`${log.length} record(s) ${written ? 'written' : 'would be written'}`);
+    if (applied) console.log(`  ${applied} ledger row(s) now say applied`);
     for (const line of log.slice(0, 40)) console.log(`  ${line}`);
     if (log.length > 40) console.log(`  ... and ${log.length - 40} more`);
   } catch (e) {
