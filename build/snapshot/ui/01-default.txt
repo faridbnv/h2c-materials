@@ -1,4 +1,4 @@
-COUNT 124 materials no requirements set
+COUNT 125 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-124 materials, 110 of them in H2C scope
-3926 measurements, each traceable to a source
-108 have a density, 88 a modulus, 38 a Canadian price
+125 materials, 111 of them in H2C scope
+3934 measurements, each traceable to a source
+109 have a density, 89 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -266,6 +266,9 @@ High-Performance Engineering
 PPA-GF
 High-Performance Engineering
  not tested 1,280 6.56 106 2.1 227 — ☆
+PPE-PS
+Polymer Blends
+ not tested 1,100 2.25 67 12 112* — ☆
 PPS
 High-Performance Engineering
  not tested 1,280 2.65 50* 18 90 no price↗ ☆

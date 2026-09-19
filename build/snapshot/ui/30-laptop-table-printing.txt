@@ -2,5 +2,5 @@ viewport 1180x760
 document width 1180
 spill: none
 clipped cells:
-  #lens: 0 of 992
+  #lens: 0 of 1000
 hidden controls: 0

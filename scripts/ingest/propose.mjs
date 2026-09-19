@@ -838,6 +838,9 @@ export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
   // the precedent, and they have stood like this since the database was built).
   if (!plain) {
     if (!identity.family) return null;
+    // A polymer the database knows can be estimated even where no material stands for it yet: the model needs a
+    // row of polymers.csv, not a sibling.
+    const known = (world.polymers ?? []).some((p) => p.PolymerID === identity.polymer);
     const excluded = /High-Temperature/i.test(identity.family);
     return {
       'Original name': name,
@@ -850,11 +853,11 @@ export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
       Scope: excluded ? 'Excluded' : 'H2C-relevant',
       Abbreviation: name,
       'Base polymer': identity.polymer,
-      'Estimate identity': NA,
+      'Estimate identity': known ? identity.polymer : NA,
       'Modifier / filler': identity.modifier,
       'Variant class': identity.variantClass || NA,
       Role: 'Structural / functional / appearance',
-      'Identity notes': `Identity read from ${sourceId} (p. ${page}): ${identity.signals.join('; ')}. No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish.`,
+      'Identity notes': `Identity read from ${sourceId} (p. ${page}): ${identity.signals.join('; ')}.${known ? '' : ' No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish.'}`,
     };
   }
   return {

@@ -1,6 +1,6 @@
 COUNT 23 shown PASS
-STATUS ☑ PASS 23 | ☐ UNKNOWN 27 | ☐ FAIL 74
-23 of the 124 materials in this database meet these requirements
+STATUS ☑ PASS 23 | ☐ UNKNOWN 27 | ☐ FAIL 75
+23 of the 125 materials in this database meet these requirements
 27 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements

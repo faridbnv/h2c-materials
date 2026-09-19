@@ -1,6 +1,6 @@
 COUNT 12 shown PASS
-STATUS ☑ PASS 12 | ☐ UNKNOWN 29 | ☐ FAIL 83
-12 of the 124 materials in this database meet these requirements
+STATUS ☑ PASS 12 | ☐ UNKNOWN 29 | ☐ FAIL 84
+12 of the 125 materials in this database meet these requirements
 29 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements

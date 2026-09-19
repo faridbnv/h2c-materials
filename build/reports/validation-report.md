@@ -8,34 +8,34 @@ Database snapshot 2026-09-16 · build 2026-09-18
 
 | Entity | Records |
 |---|---:|
-| materials | 129 |
-| h2cRelevant | 110 |
+| materials | 130 |
+| h2cRelevant | 111 |
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 313 |
-| measurements | 3926 |
-| numericMeasurements | 3765 |
+| grades | 314 |
+| measurements | 3934 |
+| numericMeasurements | 3773 |
 | quarantined | 4 |
-| profiles | 369 |
+| profiles | 370 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 458 |
+| sources | 460 |
 | coverage | 676 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 302 |
-| coverageDerived | 596 |
+| coverageDerived | 600 |
 
 ## Headline coverage
 
-What a selection criterion can actually decide, out of 129 canonical materials.
+What a selection criterion can actually decide, out of 130 canonical materials.
 
 | Headline | Materials with a value |
 |---|---:|
-| density | 108 |
-| tensileModulusXY | 88 |
-| tensileStrengthXY | 74 |
-| elongationXY | 88 |
+| density | 109 |
+| tensileModulusXY | 89 |
+| tensileStrengthXY | 75 |
+| elongationXY | 89 |
 | hdt045 | 81 |
 | priceCADkg | 38 |
 
@@ -45,16 +45,16 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 106 | n/a | 14 | 0 | 9 |
-| bed | 103 | n/a | 16 | 0 | 10 |
-| chamber | 72 | 4 | 5 | 2 | 46 |
+| nozzle | 107 | n/a | 14 | 0 | 9 |
+| bed | 104 | n/a | 16 | 0 | 10 |
+| chamber | 72 | 4 | 5 | 2 | 47 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
 
 ## Chamber evidence
 
-What the 115 in-scope materials publish about the chamber, strongest kind first. A statement
+What the 116 in-scope materials publish about the chamber, strongest kind first. A statement
 in words is manufacturer evidence but never a temperature. An estimated band is inference from
 data/tables/chamber_bands.csv; it is shown beside the chamber question and changes no verdict.
 
@@ -64,7 +64,7 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 | No heated chamber needed, in words | 25 |
 | Chamber recommended, no temperature | 3 |
 | Data sheet lists no setpoint | 1 |
-| Nothing published | 32 |
+| Nothing published | 33 |
 | Carrying an estimated band (any of the last three) | 19 |
 
 24 research bands are superseded by evidence and not used: PLA Basic (20-45 °C; publishes 25-45 °C), PLA Matte (20-45 °C; publishes 25-45 °C), PLA Lite (20-45 °C; a source says no heated chamber is needed), PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; a source says no heated chamber is needed), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG Basic (20-50 °C; publishes 35-50 °C), PETG HF (20-50 °C; publishes 35-50 °C), PETG-CF (20-50 °C; publishes 35-50 °C), PEBA (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; a source says no heated chamber is needed), PPS-CF (60-90 °C; publishes 60-90 °C), PPA-CF (80-120 °C; publishes 50-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
@@ -118,11 +118,11 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 262 | 93 | 81% | 96% | ×1.18 | 0.0178 (742 pairs) |
-| tensileModulusXY | 500 | 74 | 81% | 96% | ×1.49 | 0.147 (199 pairs) |
-| tensileStrengthXY | 449 | 54 | 82% | 96% | ×1.6 | 0.17 (198 pairs) |
-| elongationXY | 352 | 74 | 81% | 96% | ×2.57 | 0.727 (181 pairs) |
-| hdt045 | 374 | 63 | 81% | 95% | 17.3 °C | 7.34 (133 pairs) |
+| density | 263 | 94 | 81% | 96% | ×1.18 | 0.0178 (742 pairs) |
+| tensileModulusXY | 502 | 75 | 80% | 96% | ×1.47 | 0.147 (199 pairs) |
+| tensileStrengthXY | 450 | 54 | 82% | 96% | ×1.61 | 0.17 (198 pairs) |
+| elongationXY | 353 | 75 | 80% | 96% | ×2.53 | 0.727 (181 pairs) |
+| hdt045 | 375 | 63 | 81% | 95% | 17.3 °C | 7.34 (133 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -130,7 +130,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | tensileModulusXY | 35 | 22 | 3 | 5 | 5 | 0 | 30 |
 | tensileStrengthXY | 49 | 38 | 4 | 2 | 5 | 0 | 38 |
 | elongationXY | 35 | 18 | 6 | 6 | 5 | 0 | 30 |
-| hdt045 | 41 | 18 | 5 | 3 | 15 | 0 | 25 |
+| hdt045 | 42 | 19 | 5 | 3 | 15 | 0 | 26 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
 
@@ -138,19 +138,19 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 |---|---|---:|---:|---:|---:|---:|
 | density | this-grade | 0 | 0 | cannot screen | 0 | cannot screen |
 | density | this-material | 47 | 2 | 99.01% point | 1 | 2.5% point |
-| density | family | 93 | 1 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-grade | 71 | 4 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-material | 41 | 2 | 98.21% point | 2 | 1.16% point |
-| tensileModulusXY | family | 74 | 1 | 97.5% point | 0 | 2.5% point |
+| density | family | 94 | 1 | 97.5% point | 0 | 2.5% point |
+| tensileModulusXY | this-grade | 72 | 3 | 97.5% point | 0 | 2.5% point |
+| tensileModulusXY | this-material | 41 | 2 | 98.21% point | 2 | 1.15% point |
+| tensileModulusXY | family | 75 | 1 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | this-grade | 52 | 1 | 97.5% point | 2 | 2.5% point |
 | tensileStrengthXY | this-material | 30 | 1 | 97.68% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 54 | 0 | 97.5% point | 1 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-material | 40 | 1 | 97.5% point | 1 | 2.5% point |
-| elongationXY | family | 74 | 1 | 97.5% point | 1 | 2.5% point |
+| elongationXY | family | 75 | 1 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 53 | 2 | 97.5% point | 0 | 2.5% point |
 | hdt045 | this-material | 32 | 4 | 99.92% point | 0 | 2.5% point |
-| hdt045 | family | 63 | 5 | 98.81% point | 1 | 2.5% point |
+| hdt045 | family | 63 | 5 | 98.88% point | 1 | 2.5% point |
 
 - Unstated-load bracket, amorphous: top at the published value + 13 °C (63 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 13 °C, the third largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 3 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
@@ -221,11 +221,11 @@ Measured headlines far outside their prediction (worth a second look at the sour
 
 ## Consistency
 
-Every one of the 129 materials was checked, and any failure below stops the build:
+Every one of the 130 materials was checked, and any failure below stops the build:
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade, and the representative grade is one of them;
-- every headline cites a measurement of its own material and of the representative grade (439 checked);
+- every headline cites a measurement of its own material and of the representative grade (443 checked);
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

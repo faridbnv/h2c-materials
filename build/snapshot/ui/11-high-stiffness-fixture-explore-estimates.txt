@@ -1,6 +1,6 @@
 COUNT 22 shown PASS + UNKNOWN
-STATUS ☑ PASS 12 | ☑ UNKNOWN 29 | ☐ FAIL 83 | ☐ SCREENED 19
-12 of the 124 materials in this database meet these requirements, and 29 more could not be checked for missing data
+STATUS ☑ PASS 12 | ☑ UNKNOWN 29 | ☐ FAIL 84 | ☐ SCREENED 19
+12 of the 125 materials in this database meet these requirements, and 29 more could not be checked for missing data
 Include uncertain lists those 29 flagged, except the 19 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -36,10 +36,10 @@ ABS-CF PASS 1,110 5.21 ~47–60† 2 76 — ☆
 ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.4† ~37–68† ~3.0–8.7† ~100–102† — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~2.0–4.7† ~39–72† ~3.3–11.6† ~54–97† no price↗ ☆
+ UNKNOWN 1,160 ~2.0–4.7† ~39–72† ~3.3–11.5† ~53–97† no price↗ ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~3.3–7.0† ~51–94† ~2.8–10.4† 142 — ☆
+ UNKNOWN 1,140 ~3.4–7.0† ~51–94† ~2.8–10.3† 142 — ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 ~75–96† 2.1 150 — ☆
@@ -48,13 +48,13 @@ Nylon / Polyamide
  PASS 1,230 7.8 ~83–105† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~3.0–7.7† ~54–134† ~4–23† ~92–148† 163↗ ☆
+ UNKNOWN 1,250 ~3.0–7.7† ~54–135† ~4–23† ~92–148† 163↗ ☆
 PA6-CE
 Nylon / Polyamide
- UNKNOWN ~1,480–1,500† ~2.9–7.7† ~46–101† ~3.0–12.4† ~77–120† — ☆
+ UNKNOWN ~1,480–1,500† ~2.9–7.5† ~46–101† ~3.0–12.3† ~77–120† — ☆
 PA6-GS
 Nylon / Polyamide
- UNKNOWN ~1,000–1,020† ~2.6–6.9† ~54–117† ~4–17† ~77–120† — ☆
+ UNKNOWN ~1,000–1,020† ~2.6–6.8† ~54–118† ~4–17† ~77–120† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14≈ 91.9 2.6 175 — ☆
@@ -63,16 +63,16 @@ Nylon / Polyamide
  UNKNOWN ~1,040–1,270† ~3.5–8.2† ~59–116† ~2.5–4.7† ~150–210† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,250† ~4.3–10.1† ~67–136† ~2.3–4.2† ~183–252† — ☆
+ UNKNOWN ~1,070–1,250† ~4.3–10.0† ~67–137† ~2.3–4.1† ~183–252† — ☆
 PC-ABS-CF
 Polymer Blends
  PASS 1,240 5.9 62 2 130 — ☆
 PC-CF
 Polycarbonate
- PASS 1,360 6.2 ~74–90† 2 135 — ☆
+ PASS 1,360 6.2 ~74–91† 2 135 — ☆
 PCTG-GF
 Copolyesters
- UNKNOWN ~1,300–1,320† ~1.6–4.7† ~34–64† ~3.4–12.0† ~77.9–78.1† — ☆
+ UNKNOWN ~1,300–1,320† ~1.6–4.7† ~34–64† ~3.4–11.9† ~77.9–78.1† — ☆
 PP-CF
 Polyolefins
  PASS 1,100 6.15 ~78–96† 1.5 124 — ☆
@@ -93,4 +93,4 @@ High-Performance Engineering
  PASS 1,360 5.76 72 1.6 241 — ☆
 TPU-ESD
 Flexible Elastomers
- UNKNOWN 1,180 ~0.01–2.2† 12 ~120–540† n/a — ☆
+ UNKNOWN 1,180 ~0.01–2.8† 12 ~120–540† n/a — ☆

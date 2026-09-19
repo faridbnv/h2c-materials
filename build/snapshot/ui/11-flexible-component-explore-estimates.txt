@@ -1,6 +1,6 @@
 COUNT 17 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 29 | ☐ FAIL 88 | ☐ SCREENED 19
-7 of the 124 materials in this database meet these requirements, and 29 more could not be checked for missing data
+STATUS ☑ PASS 7 | ☑ UNKNOWN 29 | ☐ FAIL 89 | ☐ SCREENED 19
+7 of the 125 materials in this database meet these requirements, and 29 more could not be checked for missing data
 Include uncertain lists those 29 flagged, except the 19 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -31,31 +31,31 @@ n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 CoPE
 Copolyesters
- UNKNOWN 1,300 2.52 51.6 ~7–37† ~52–69† — ☆
+ UNKNOWN 1,300 2.52 51.6 ~7–36† ~52–69† — ☆
 CPE
 Copolyesters
- UNKNOWN 1,250 ~1.1–2.7† ~39–66† ~22–78† 80 — ☆
+ UNKNOWN 1,250 ~1.1–2.6† ~39–66† ~23–77† 80 — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.007–0.62† ~12–32† ~700–860† n/a — ☆
+ UNKNOWN 905 ~0.01–0.89† ~12–32† ~700–850† n/a — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~979–1,060† ~1.2–2.8† ~52–91† ~31–61† ~91–136† — ☆
+ UNKNOWN ~979–1,060† ~1.2–2.8† ~52–92† ~31–60† ~91–136† — ☆
 PE
 Polyolefins
  PASS 954 0.752 18.5 208 66 — ☆
 PEBA
 Flexible Elastomers
- PASS 1,010 ~0.03–0.16† ~17.4–25.8† 520 n/a — ☆
+ PASS 1,010 ~0.04–0.17† ~17.4–25.9† 520 n/a — ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.62–1.41† ~12.7–22.3† ~50–180† 92? — ☆
+ UNKNOWN 890 ~0.63–1.41† ~12.7–22.4† ~50–180† 92? — ☆
 PVB
 PVB / Specialty Polymers
  UNKNOWN 1,100 ~1.4–2.9† ~53–76† ~15–35† 63 — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.008–0.061† ~19–48† ~520–780† n/a — ☆
+ UNKNOWN 1,150 ~0.008–0.062† ~19–49† ~520–780† n/a — ☆
 TPC-ESD
 Flexible Elastomers
  UNKNOWN 1,280 1.4 70 ~110–510† 50 — ☆
@@ -76,7 +76,7 @@ Flexible Elastomers
  PASS 1,260 ~0.02–0.19† 22.4 650 n/a 47.5↗ ☆
 TPU-CF
 Flexible Elastomers
- UNKNOWN 1,230 ~1.1–2.8† ~28–73† ~23–75† n/a — ☆
+ UNKNOWN 1,230 ~1.1–2.8† ~28–74† ~23–74† n/a — ☆
 TPU-ESD
 Flexible Elastomers
- UNKNOWN 1,180 ~0.01–2.2† 12 ~120–540† n/a — ☆
+ UNKNOWN 1,180 ~0.01–2.8† 12 ~120–540† n/a — ☆

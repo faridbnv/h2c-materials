@@ -320,7 +320,7 @@ export function lintData(tables, schemas) {
   // Sources.
   const byDigest = new Map();
   const cited = new Set();
-  for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'polymer_environment']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
+  for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'polymer_environment', 'polymers']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
   for (const r of tables.profiles?.rows ?? []) for (const s of String(r['H2C SourceID'] ?? '').split(';')) cited.add(s.trim());
   for (const r of tables.material_links?.rows ?? []) cited.add(r.RecordID);
   for (const r of tables.sources?.rows ?? []) {

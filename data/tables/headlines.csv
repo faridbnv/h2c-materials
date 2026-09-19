@@ -447,3 +447,7 @@ M128,tensileStrengthXY,V003378,value
 M128,elongationXY,V003380,value
 M128,hdt045,V003384,value
 M129,density,V004074,value
+M130,density,V004082,value
+M130,tensileModulusXY,V004084,value
+M130,tensileStrengthXY,V004083,value
+M130,elongationXY,V004085,value
