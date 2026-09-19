@@ -30,7 +30,6 @@ any sheet nobody has read:
 | Essentium / Nexa3D | 20 | 0 |
 | eSUN | 18 | 1 |
 | Bambu Lab | 41 | 40 |
-| Polymaker / Fiberon | 53 | 24 |
 | iSANMATE | 33 | 14 |
 | others under 15 | ~90 | some |
 
@@ -78,6 +77,9 @@ Today: 377 observations on the largest headline, 9 seconds.
   yet propose `evidence.csv` rows for chemical, safety or certification statements. Spectrum's sheets carry few;
   the makers with medical or food-contact lines carry many.
 - **`material_links.csv` citations** for a new material.
+- **A sheet that covers several products.** One document becomes one proposal and one product, so a shared data
+  table (Polymaker's PolyTerra family sheet, Markforged's) reads as one of the products it lists. The plan's rule
+  is one proposal per product named.
 - **Corrections to a document already registered.** A proposal for a registered document produces new rows, not
   corrections. The plan's `edits[]`, through `scripts/migrate/source-edits.mjs`, is what turns a re-read into
   corrections that each name the value they replace, and it is what OPEN-PROBLEMS §1 and §9 wait on.
