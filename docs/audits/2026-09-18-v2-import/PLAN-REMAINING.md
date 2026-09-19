@@ -1,90 +1,86 @@
 # What is left of the plan
 
 The plan the owner approved is in the session record; this is the part of it that has not been done, with what
-each step now knows that the plan could not.
+each step now knows that the plan could not. Rewritten 2026-09-19, after batches b01 to b08.
 
-## 1. Fourteen Spectrum documents wait on a ruling
+## Where the import stands
 
-[rulings/pending.csv](rulings/pending.csv) Q003, Q004 and Q005. Q004 is the one that matters beyond Spectrum:
-every maker sells silk, wood, marble, glitter and metal-filled PLA, so whichever way it is ruled decides where
-several hundred later documents file. The evidence for it is in the question.
+| | Documents |
+|---|---:|
+| Applied: their values are in the database | 363 |
+| Read and waiting for a batch | 274 |
+| One sheet under another name, or another language's edition | 311 |
+| Fetched but not yet read, or not yet fetched | 976 |
+| Dead links, a user guide, a safety sheet | 12 |
 
-## 2. Wave B: the large PDF libraries
+Eight batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr
+and SUNLU. The database holds 131 materials, 375 grades, 4,801 measurements and 524 sources, against the 103, 179,
+2,645 and 300 it held when the plan was written.
 
-One maker per batch, in this order, each with a parity run against the sheets the database already holds before
-any sheet nobody has read:
+Nothing in the corpus is now unreadable for want of a text layer: `npm run ingest:ocr` reads a scan on a copy,
+caches it under the document's own digest as an optical reading, and `ingest:apply` refuses a row from one that
+nobody has checked against the page image. Fiberlogy's whole library came in that way.
 
-| Maker | Documents | Already registered |
-|---|---:|---:|
-| SUNLU | 53 | 0 |
-| Flashforge | 41 | 1 |
-| colorFabb | 39 | 0 |
-| Eryone | 38 | 1 |
-| Extrudr | 38 | 0 |
-| SIDDAMENT | 32 | 0 |
-| Raise3D | 29 | 1 |
-| IPCON | 27 | 1 |
-| 3D4Makers | 26 | 0 |
-| Fillamentum | 25 | 2 |
-| Prusament | 20 | 2 |
-| Essentium / Nexa3D | 20 | 0 |
-| eSUN | 18 | 1 |
-| Bambu Lab | 41 | 40 |
-| iSANMATE | 33 | 14 |
-| others under 15 | ~90 | some |
+## 1. The five libraries already read and waiting
 
-Bambu, 3DXTECH, Polymaker and iSANMATE are re-reads as much as imports: their share of the transcription damage in
-[../../OPEN-PROBLEMS.md](../../OPEN-PROBLEMS.md) §1 and §9 is corrected by reading their sheets again, which is the
-same work as importing the rest of their libraries.
+colorFabb (67), Fabru / purefil (38), Flashforge (37), Eryone (30), Fiberlogy (43, all but ten of them scans).
+Their proposals exist; what they need is what every maker's first batch needs — the reader taught that maker's
+layout, proved against the three makers whose sheets are transcribed by hand, and then a review.
 
-What each of those batches needs that Spectrum did not:
+Four SUNLU products and eight Extrudr products wait beside them: a polymer nobody names, a finish material that
+does not exist yet, or a sheet that reprints another product's table.
 
-- **A polymer the database has no row for.** PBT, PCL, PHA, TPS, COC, SEBS, SAN, PA11, LCP, PVC and PBAT appear in
-  the corpus and have no row in `polymers.csv`. Each needs its group, morphology, how it solidifies in a print,
-  water uptake and neat density, from a resin producer's reference that was fetched and hashed.
-- **A family for them.** `Specialty / Other`, per the plan.
-- **Imperial units.** 3DXTECH publishes in psi and ksi. The conversion table holds them; a °F-only sheet would need
-  an affine conversion the schema cannot express, and the census says whether one exists.
+## 2. What each new maker's batch costs
 
-## 3. Wave C: what is not a PDF
+Every library so far has needed the reader taught something, and each thing it learned was a rule rather than a
+special case: a unit printed before its value, a value printed above its label, a designation whose digits are not
+a value, a table printed beside another table, a bracket that lost its opening, a label the lexicon cannot read in
+full. Parity on Spectrum, 3DXTECH and Polymaker is the gate that says none of it broke what was already right:
+100%, 100% and 93% through all eight batches.
 
-151 documents behind a viewer (FormFutura 63, Nanovia 37, QIDI 36, Siraya 20, Recreus 16), 57 web pages, 99 scanned
-sheets with no text layer (Fiberlogy 32, 3DJake copies 61), 76 dead links and 33 behind a request form. The fetch
-adapters and the OCR path are written but only the direct-PDF path has been used. A scanned sheet's rows need
-`review.visual` before `ingest:apply` will take them.
+Two things are still missing from the reader, and both cost values on every maker:
+
+- **A property the database does not carry.** Flammability class, decomposition temperature, volume resistivity,
+  permittivity, moulding shrinkage, tear strength, abrasion loss, compression set, Poisson's ratio: 162 rows on
+  SUNLU's sheets alone, and the reader names each one. `properties.csv` rows and the units beside them are a data
+  decision, and the plan's Phase 1.9 is where they belong.
+- **A polymer with no row.** PBT, PHA, TPS, COC, SEBS, SAN, PA11, LCP, PVC and PBAT are still missing; PCL and the
+  PPE/PS blend now have rows, each written from a producer's reference that was fetched and hashed.
+
+## 3. What is not fetched
+
+976 documents. 3DJake's 317 are Wave D, and most are copies of sheets that arrive with their makers. The rest are
+the libraries in the table below, being fetched as this is written, and the ones behind a viewer or a request form:
+FormFutura's SharePoint (64), Nanovia (73), QIDI (36), Siraya (20), Recreus (16), INTAMSYS's request form (33).
 
 ## 4. Wave D: the retailers
 
-737 rows, most of them copies of what Waves A to C bring in. Fetch and dedupe first, then the ~120 documents of
-brands that reach the market only through a retailer.
+737 rows, most of them copies. Fetch and dedupe first, then the ~120 documents of brands that reach the market
+only through a retailer. Last, so every twin has a manufacturer's sheet to point at.
 
 ## 5. The estimate stage at scale
 
-`test/scale.test.js` builds twice today's data and holds compile and validate inside 90 seconds. It passes today at
-about 40 seconds, and the margin is the thing to watch: the spread search is hundreds of fits per headline and a
-fit is a dense Cholesky, cubic in what it sees. The cap that keeps it affordable is `fitting.spreadSampleMax` in
-`build/mappings/estimate-model.json`, and the fits themselves are now shared between calibration folds whose
-hyperparameters land on the same grid point.
+`npm run scale` builds twice today's data and holds compile and validate inside its budget; the margin is the
+thing to watch, because the spread search is hundreds of fits per headline and a fit is cubic in what it sees. The
+cap that keeps it affordable is `fitting.spreadSampleMax` (D77). The trigger for the exact block solve is a
+headline above 4,000 observations or the estimate stage above five minutes: today the largest headline has about
+600 observations and the stage takes 12 seconds.
 
-The plan's Phase 5 option 2 is the next step when the margin goes: an exact block solve by chemical group with the
-shared columns applied through a Woodbury identity, which is 5 to 10 times cheaper again and changes no result.
-Its trigger is a headline above 4,000 observations or the estimate stage above five minutes in `npm run build`.
-Today: 377 observations on the largest headline, 9 seconds.
+What the batches have already taught the model, each in its own place: a support product with no measurements is
+not characterised and one with them is read like any other material; a conditioned bar beside its own dry one is
+another state, not a repeat; a limit a material's own grades publish is a floor for its shown range (D78); and
+whether a declared variant moves its family is measured against an ordinary sibling.
 
 ## 6. What the pipeline still does not do
 
-- **Evidence rows.** `propose` reads properties, print settings and the sheet's certification claims, but does not
-  yet propose `evidence.csv` rows for chemical, safety or certification statements. Spectrum's sheets carry few;
-  the makers with medical or food-contact lines carry many.
+- **Evidence rows.** `propose` reads properties, print settings and certification claims, but proposes no
+  `evidence.csv` rows for chemical, safety or certification statements.
 - **`material_links.csv` citations** for a new material.
-- **A sheet that covers several products.** One document becomes one proposal and one product, so a shared data
-  table (Polymaker's PolyTerra family sheet, Markforged's) reads as one of the products it lists. The plan's rule
-  is one proposal per product named.
+- **A sheet that covers several products.** One document is one proposal and one product, so a shared table reads
+  as one of the products it lists. Eleven SUNLU sheets and several Polymaker family sheets wait on this; the
+  owner's ruling R053 says what they become: a grade each, citing its own sheet, with the values recorded once.
 - **Corrections to a document already registered.** A proposal for a registered document produces new rows, not
-  corrections. The plan's `edits[]`, through `scripts/migrate/source-edits.mjs`, is what turns a re-read into
-  corrections that each name the value they replace, and it is what OPEN-PROBLEMS §1 and §9 wait on.
-- **The second read at every batch.** The first two batches were read a second time by a different reviewer, which
-  found the source collision m55 repairs and five readings the pipeline was losing. The third was not.
-
-Headline selection for a new material is done: a material the database creates carries one `value` row per key
-its own measurements support, chosen by the rules the build judges them by.
+  corrections. m62 did that work by hand for 84 rows after the reader improved; `edits[]` through
+  `scripts/migrate/source-edits.mjs` is what would make it a part of the pipeline.
+- **The second read at every batch.** b01 and b02 were read a second time by a different reviewer, which found the
+  source collision m55 repairs. b03 to b08 were not.
