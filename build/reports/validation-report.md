@@ -1,6 +1,6 @@
 # Validation report
 
-Database snapshot 2026-09-16 · build 2026-09-18
+Database snapshot 2026-09-16 · build 2026-09-19
 
 **No errors.**
 
@@ -119,10 +119,10 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
 | density | 263 | 94 | 81% | 96% | ×1.18 | 0.0178 (742 pairs) |
-| tensileModulusXY | 502 | 75 | 80% | 96% | ×1.47 | 0.147 (199 pairs) |
-| tensileStrengthXY | 450 | 54 | 82% | 96% | ×1.61 | 0.17 (198 pairs) |
-| elongationXY | 353 | 75 | 80% | 96% | ×2.53 | 0.727 (181 pairs) |
-| hdt045 | 375 | 63 | 81% | 95% | 17.3 °C | 7.34 (133 pairs) |
+| tensileModulusXY | 502 | 75 | 80% | 96% | ×1.46 | 0.147 (199 pairs) |
+| tensileStrengthXY | 450 | 54 | 80% | 96% | ×1.6 | 0.17 (198 pairs) |
+| elongationXY | 348 | 75 | 80% | 96% | ×2.5 | 0.727 (181 pairs) |
+| hdt045 | 373 | 63 | 81% | 95% | 17.1 °C | 7.34 (134 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -130,7 +130,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | tensileModulusXY | 35 | 22 | 3 | 5 | 5 | 0 | 30 |
 | tensileStrengthXY | 49 | 38 | 4 | 2 | 5 | 0 | 38 |
 | elongationXY | 35 | 18 | 6 | 6 | 5 | 0 | 30 |
-| hdt045 | 42 | 19 | 5 | 3 | 15 | 0 | 26 |
+| hdt045 | 42 | 19 | 5 | 3 | 15 | 0 | 25 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
 
@@ -140,19 +140,19 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | density | this-material | 47 | 2 | 99.01% point | 1 | 2.5% point |
 | density | family | 94 | 1 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-grade | 72 | 3 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-material | 41 | 2 | 98.21% point | 2 | 1.15% point |
+| tensileModulusXY | this-material | 41 | 2 | 98.06% point | 2 | 1.11% point |
 | tensileModulusXY | family | 75 | 1 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | this-grade | 52 | 1 | 97.5% point | 2 | 2.5% point |
-| tensileStrengthXY | this-material | 30 | 1 | 97.68% point | 0 | 2.5% point |
+| tensileStrengthXY | this-material | 30 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 54 | 0 | 97.5% point | 1 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-material | 40 | 1 | 97.5% point | 1 | 2.5% point |
 | elongationXY | family | 75 | 1 | 97.5% point | 1 | 2.5% point |
-| hdt045 | this-grade | 53 | 2 | 97.5% point | 0 | 2.5% point |
-| hdt045 | this-material | 32 | 4 | 99.92% point | 0 | 2.5% point |
-| hdt045 | family | 63 | 5 | 98.88% point | 1 | 2.5% point |
+| hdt045 | this-grade | 53 | 3 | 97.99% point | 0 | 2.5% point |
+| hdt045 | this-material | 32 | 4 | 99.96% point | 0 | 2.5% point |
+| hdt045 | family | 63 | 5 | 98.68% point | 1 | 2.5% point |
 
-- Unstated-load bracket, amorphous: top at the published value + 13 °C (63 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 13 °C, the third largest gap observed).
+- Unstated-load bracket, amorphous: top at the published value + 13 °C (62 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 13 °C, the third largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 3 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 - Unstated-load bracket, semi-filled: its top cannot screen (only 17 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 - Unstated-load bracket, elastomer: its top cannot screen (only 0 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
@@ -199,6 +199,7 @@ Evidence that contradicts everything else and was down-weighted:
 - PLA, hdt045: Vicat amorphous 148.3 (V003900)
 - PLA-CF, hdt045: Tg amorphous 60 (V003308)
 - PLA-CF, hdt045: HDT 0.45 91 (V003309)
+- ABS-CF, hdt045: Tg amorphous 105 (V000593)
 - ABS-CF, hdt045: HDT 0.45 76 (V000594)
 - PAHT-CF, hdt045: Tm semi-filled 234 (V002459)
 - PA6-CF, hdt045: HDT 1.8 semi-filled 65 (V002731)
@@ -244,4 +245,4 @@ interface can say so rather than implying a certainty it does not have.
 - `HDT-LOAD-UNSTATED` **materials** — 7 of 81 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-OUTLIER` **materials** — 3 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Metal density 1250 (expected about 2170); PLA Aero density 1210 (expected about 931); TPU elongationXY 330.1 (expected about 513)
-- `EST-FAMILY-ORDER` **materials** — 1 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865
+- `EST-FAMILY-ORDER` **materials** — 2 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865; ASA-AF tensileModulusXY 2.26 (estimate) < ASA 2.45

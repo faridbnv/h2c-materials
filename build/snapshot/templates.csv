@@ -97,7 +97,7 @@ Outdoor structural part,Explore with estimates,M109,PETG-PTFE,UNKNOWN,screened,h
 Outdoor structural part,Explore with estimates,M110,PCTG-GF,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M111,PLA-EC,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M112,PC-PTFE,UNKNOWN,yes,
-Outdoor structural part,Explore with estimates,M113,ASA-AF,UNKNOWN,screened,hdt045 >= 100
+Outdoor structural part,Explore with estimates,M113,ASA-AF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,hdt045 >= 100
@@ -678,7 +678,7 @@ High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,screened,tensileM
 High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M093,PVB,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M104,PA6-CE,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,yes,
+High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M106,ABS-AF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M107,PLA-ESD,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M108,PA6-GS,UNKNOWN,yes,
