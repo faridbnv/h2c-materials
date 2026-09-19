@@ -403,3 +403,192 @@ P0183,Cooling,0 - 30%
 P0183,Layer height,≥ 0.15mm
 P0183,Shell / walls,0.50 - 3.00 mm
 P0183,Speed,30-60 mm/s
+P0184,Cooling,0 - 10%
+P0184,Layer height,≥ 0.20mm
+P0184,Shell / walls,0.50 – 3.00 mm
+P0184,Speed,30-70 mm/s
+P0185,Cooling,YES (up to 100%)
+P0185,Layer height,0.05 - 0.30 mm
+P0185,Shell / walls,0.40 - 2.70 mm
+P0185,Speed,15-50 mm/s
+P0186,Cooling,0-20%
+P0186,Shell / walls,0.4 - 2.7 mm
+P0186,Layer height,0.5 - 3.0 mm
+P0186,Adhesion / release,not necessary
+P0187,Cooling,0 - 25%
+P0187,Layer height,≥ 0.15mm
+P0187,Shell / walls,0.40 – 2.70 mm
+P0187,Speed,30-70 mm/s
+P0188,Cooling,Up to 100%
+P0189,Cooling,YES (up to 100%)
+P0189,Layer height,0.05 - 0.30 mm
+P0189,Shell / walls,0.40 - 2.70 mm
+P0189,Speed,40-110 mm/s
+P0190,Cooling,YES (up to 100%)
+P0190,Layer height,0.05 - 0.30 mm
+P0190,Shell / walls,0.40 - 2.70 mm
+P0190,Speed,40 - 350 mm/s
+P0191,Cooling,0 - 25%
+P0191,Layer height,0.05 - 0.30 mm
+P0191,Shell / walls,0.40 – 2.70 mm
+P0191,Speed,30-200 mm/s
+P0192,Cooling,0 - 20%
+P0192,Layer height,0.05 - 0.30 mm
+P0192,Shell / walls,0.40 – 2.70 mm
+P0192,Speed,40-200 mm/s
+P0193,Cooling,up to 100%
+P0193,Adhesion / release,not necessary*
+P0194,Cooling,Up to 100%
+P0195,Cooling,0-20%
+P0195,Layer height,0.05-0.30 mm
+P0195,Shell / walls,0.40–2.70 mm
+P0195,Speed,30-70 mm/s
+P0196,Cooling,75-100%
+P0196,Layer height,0.4 - 2.7 mm
+P0196,Shell / walls,0.05-0.3 mm
+P0196,Adhesion / release,not necessary (if increased adhesion needed or to prevent warping:
+P0197,Cooling,75-100%
+P0197,Layer height,0.4 - 2.7 mm
+P0197,Shell / walls,0.05-0.3 mm
+P0197,Adhesion / release,not necessary (if increased adhesion needed or to prevent warping:
+P0198,Cooling,0 - 100%
+P0198,Layer height,0.05 - 0.3 mm
+P0198,Shell / walls,0.4 - 2.7 mm
+P0198,Speed,30 - 100 mm/s
+P0199,Cooling,0 - 30%
+P0199,Layer height,0.05 - 0.30 mm
+P0199,Shell / walls,0.40 – 2.70 mm
+P0199,Speed,40-100 mm/s
+P0200,Cooling,0 - 10%
+P0200,Layer height,≥ 0.15mm
+P0200,Shell / walls,0.40 - 2.70 mm
+P0200,Speed,30-80 mm/s
+P0201,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0201,Cooling,Up to 100%
+P0202,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0202,Cooling,40-80%
+P0203,Cooling,0 - 20%
+P0203,Layer height,0.05 - 0.30 mm
+P0203,Shell / walls,0.40 - 2.70 mm
+P0203,Speed,30 - 200 mm/s
+P0203,Adhesion / release,required
+P0204,Cooling,0 - 25%
+P0204,Layer height,0.05 - 0.30 mm
+P0204,Shell / walls,0.40 – 2.70 mm
+P0204,Speed,30-150 mm/s
+P0205,Cooling,YES (up to 100%)
+P0205,Layer height,0.05 - 0.30 mm
+P0205,Shell / walls,0.40 – 2.70 mm
+P0205,Speed,40-110 mm/s
+P0206,Cooling,YES (up to 100%)
+P0206,Layer height,0.05 - 0.30 mm
+P0206,Shell / walls,0.40 – 2.70 mm
+P0206,Speed,30-90 mm/s
+P0207,Cooling,50-85%
+P0207,Layer height,0.05-0.30 mm
+P0207,Shell / walls,0.40–2.70 mm
+P0207,Speed,30-70 mm/s
+P0208,Cooling,75-100%
+P0208,Layer height,0.05 - 0.30 mm
+P0208,Shell / walls,0.40 – 2.70 mm
+P0208,Speed,30-70 mm/s
+P0209,Cooling,50-85%
+P0209,Layer height,0.05 - 0.30 mm
+P0209,Shell / walls,0.40 – 2.70 mm
+P0209,Speed,30-80 mm/s
+P0210,Cooling,0 - 10%
+P0210,Layer height,≥ 0.20mm
+P0210,Shell / walls,0.50 - 3.00 mm
+P0210,Speed,30-60 mm/s
+P0211,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0211,Cooling,Up to 100%
+P0212,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0212,Cooling,Up to 100%
+P0213,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0213,Cooling,75-100%
+P0214,Cooling,YES (up to 100%)
+P0214,Layer height,0.05 - 0.30 mm
+P0214,Shell / walls,0.40 – 2.70 mm
+P0214,Speed,30-70 mm/s
+P0215,Warping / shrinkage,"0,80%"
+P0215,Cooling,YES (up to 100%)
+P0215,Layer height,0.05 - 0.30 mm
+P0215,Shell / walls,0.40 - 2.70 mm
+P0215,Speed,20-70 mm/s
+P0216,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0216,Cooling,Up to 100%
+P0217,Cooling,up to 100%
+P0217,Shell / walls,0.4 - 2.7 mm
+P0217,Layer height,0.5 - 3.0 mm
+P0217,Adhesion / release,recommended
+P0218,Cooling,0 - 30%
+P0218,Layer height,≥ 0.15mm
+P0218,Shell / walls,0.40 - 2.70 mm
+P0218,Speed,30-70 mm/s
+P0219,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0219,Cooling,0-20%
+P0220,Warping / shrinkage,"(Flow), 3,2mm"
+P0220,Cooling,0 - 25%
+P0220,Layer height,0.05 - 0.30 mm
+P0220,Shell / walls,0.40 – 2.70 mm
+P0220,Speed,40-100 mm/s
+P0221,Cooling,0 - 10%
+P0221,Layer height,≥ 0.15mm
+P0221,Shell / walls,0.40 - 2.70 mm
+P0221,Speed,30-70 mm/s
+P0222,Adhesion / release,"not necessary (if increased adhesion nedded or to prevent warping: glue stick, D"
+P0222,Cooling,Up to 100%
+P0223,Cooling,YES (up to 100%)
+P0223,Layer height,0.05 - 0.30 mm
+P0223,Shell / walls,0.40 - 2.70 mm
+P0224,Cooling,0 - 30%
+P0224,Layer height,≥ 0.20mm
+P0224,Shell / walls,0.50 – 3.00 mm
+P0224,Speed,30-80 mm/s
+P0225,Cooling,0-20%
+P0225,Shell / walls,0.4 - 2.7 mm
+P0225,Layer height,0.5 - 3.0 mm
+P0225,Adhesion / release,recommended
+P0226,Warping / shrinkage,"0,80%"
+P0226,Cooling,YES (up to 100%)
+P0226,Layer height,0.05 - 0.30 mm
+P0226,Shell / walls,0.40 - 2.70 mm
+P0226,Speed,20-70 mm/s
+P0227,Cooling,Up to 100%
+P0227,Shell / walls,0.4 - 2.7 mm
+P0227,Layer height,0.5 - 3.0 mm
+P0227,Adhesion / release,not necessary
+P0228,Cooling,0 - 10%
+P0228,Layer height,0.05 - 0.30 mm
+P0228,Shell / walls,0.40 - 2.70 mm
+P0228,Speed,30-80 mm/s
+P0228,Adhesion / release,required
+P0229,Cooling,Up to 100%
+P0230,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0230,Cooling,75-100%
+P0231,Cooling,YES (up to 100%)
+P0231,Layer height,0.05 - 0.30 mm
+P0231,Shell / walls,0.40 – 2.70 mm
+P0231,Speed,40-120 mm/s
+P0232,Adhesion / release,"not necessary (if increased adhesion nedded or to prevent warping: glue stick, D"
+P0232,Cooling,75-100%
+P0233,Cooling,YES (up to 100%)
+P0233,Layer height,0.05 - 0.30 mm
+P0233,Shell / walls,0.40 - 2.70 mm
+P0233,Speed,40-70 mm/s
+P0234,Cooling,YES (up to 100%)
+P0234,Layer height,0.05 - 0.30 mm
+P0234,Shell / walls,0.40 - 2.70 mm
+P0234,Speed,40 - 200 mm/s
+P0235,Cooling,YES (up to 100%)
+P0235,Layer height,0.05 - 0.30 mm
+P0235,Shell / walls,0.40 – 2.70 mm
+P0235,Speed,40-150 mm/s
+P0236,Cooling,0 - 25%
+P0236,Layer height,≥ 0.15 mm
+P0236,Shell / walls,0.40 – 2.70 mm
+P0236,Speed,30-70 mm/s
+P0237,Cooling,YES (up to 100%)
+P0237,Layer height,0.05 - 0.30 mm
+P0237,Shell / walls,0.40 - 2.70 mm
+P0237,Speed,40 - 150 mm/s

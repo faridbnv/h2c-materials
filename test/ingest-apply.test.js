@@ -115,10 +115,18 @@ test('a document, a product or a formulation already recorded is not recorded tw
   const already = { ...world, sources: [...world.sources, { SourceID: 'R-OTHER', SHA256: sha, URL: 'https://example.invalid/other.pdf' }] };
   assert.ok(guard([proposal()], already).map((x) => x.code).includes('APPLY-SHA-DUPLICATE'));
 
-  const twin = proposal();
-  twin.grades[0].row.Manufacturer = 'Polymaker';
-  twin.grades[0].row['Product name'] = 'PolyLite PETG';
-  assert.ok(codes(twin).includes('APPLY-PRODUCT-DUPLICATE'));
+  // A product already recorded under another material is a mis-filing, and is refused. Under the same material it
+  // is a second sheet for one product, a revision or a copy, and its rows go on the grade that is already there.
+  const misfiled = proposal();
+  misfiled.grades[0].row.Manufacturer = 'Polymaker';
+  misfiled.grades[0].row['Product name'] = 'PolyLite PETG';
+  misfiled.grades[0].row.MaterialID = 'M024';
+  assert.ok(codes(misfiled).includes('APPLY-PRODUCT-DUPLICATE'));
+
+  const revision = proposal();
+  revision.grades[0].row.Manufacturer = 'Polymaker';
+  revision.grades[0].row['Product name'] = 'PolyLite PETG';
+  assert.ok(!codes(revision).includes('APPLY-PRODUCT-DUPLICATE'));
 
   const borrowed = proposal();
   borrowed.grades[0].row['Shared formulation key'] = 'S-POLYCN-PolyLite-PETG-TDS-V5-3';

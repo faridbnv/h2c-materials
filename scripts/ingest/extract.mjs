@@ -54,6 +54,8 @@ const LANGUAGES = [
   ['cs', /\b(technický list|vlastnosti|pevnost|hustota)\b/i],
 ];
 
+export const SAFETY_SHEET = /\b(safety data sheet|material safety data sheet|msds|karta charakterystyki|sicherheitsdatenblatt)\b/i;
+
 export function languageOf(text) {
   const words = allLines(text).map((l) => l.text).join(' ').slice(0, 6000);
   const scores = LANGUAGES.map(([code, re]) => [code, (words.match(new RegExp(re.source, 'gi')) ?? []).length]);
@@ -99,6 +101,12 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
       const text = await documentText(readFileSync(path), { sha: row.sha256, refresh: flag('refresh') });
       const print = fingerprint(text);
       row.language = languageOf(text) || languageFromUrl(row.url) || row.language;
+      // A safety data sheet is not a technical one: it publishes hazards, not properties, and a batch that
+      // registered one would hold a source with no values and no reason for being there.
+      if (SAFETY_SHEET.test(allLines(text).slice(0, 12).map((l) => l.text).join(' ')) || /msds|sds/i.test((row.url ?? '').split('/').pop() ?? '')) {
+        row.status = 'safety-data-sheet';
+        row.status_note = 'a safety data sheet: hazards and handling, not properties';
+      }
       prints.set(row.doc_key, { row, print, pages: text.pages.length });
       if (['fetched', 'fetched-page', 'registered'].includes(row.status)) {
         row.status = print.length ? 'extracted' : 'needs-ocr';

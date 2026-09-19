@@ -1,35 +1,35 @@
 Headline,Class,End,Held,BeyondPlausible,Rank,Quantile,Screens
 density,this-grade,top,0,0,,,no
 density,this-grade,bottom,0,0,,,no
-density,this-material,top,41,1,2,0.975,yes
-density,this-material,bottom,41,0,2,0.025,yes
-density,family,top,86,3,5,0.975,yes
+density,this-material,top,45,1,2,0.975,yes
+density,this-material,bottom,45,1,2,0.025,yes
+density,family,top,86,1,5,0.975,yes
 density,family,bottom,86,0,5,0.025,yes
 tensileModulusXY,this-grade,top,66,3,4,0.975,yes
 tensileModulusXY,this-grade,bottom,66,0,4,0.025,yes
-tensileModulusXY,this-material,top,36,0,1,0.975,yes
-tensileModulusXY,this-material,bottom,36,2,1,0.0156047,yes
-tensileModulusXY,family,top,69,1,4,0.975,yes
-tensileModulusXY,family,bottom,69,1,4,0.025,yes
+tensileModulusXY,this-material,top,39,0,2,0.975,yes
+tensileModulusXY,this-material,bottom,39,2,2,0.0236386,yes
+tensileModulusXY,family,top,69,3,4,0.975,yes
+tensileModulusXY,family,bottom,69,2,4,0.025,yes
 tensileStrengthXY,this-grade,top,52,1,3,0.975,yes
-tensileStrengthXY,this-grade,bottom,52,2,3,0.025,yes
-tensileStrengthXY,this-material,top,24,0,1,0.975,yes
-tensileStrengthXY,this-material,bottom,24,0,1,0.025,yes
+tensileStrengthXY,this-grade,bottom,52,1,3,0.025,yes
+tensileStrengthXY,this-material,top,27,0,1,0.975,yes
+tensileStrengthXY,this-material,bottom,27,0,1,0.025,yes
 tensileStrengthXY,family,top,54,0,3,0.975,yes
 tensileStrengthXY,family,bottom,54,1,3,0.025,yes
 elongationXY,this-grade,top,51,0,2,0.975,yes
 elongationXY,this-grade,bottom,51,0,2,0.025,yes
-elongationXY,this-material,top,35,2,1,0.993356,yes
-elongationXY,this-material,bottom,35,1,1,0.0000956832,yes
+elongationXY,this-material,top,38,2,2,0.985506,yes
+elongationXY,this-material,bottom,38,1,2,0.025,yes
 elongationXY,family,top,70,2,4,0.975,yes
-elongationXY,family,bottom,70,0,4,0.025,yes
-hdt045,this-grade,top,51,2,2,0.988386,yes
+elongationXY,family,bottom,70,1,4,0.025,yes
+hdt045,this-grade,top,51,2,2,0.98797,yes
 hdt045,this-grade,bottom,51,0,2,0.025,yes
-hdt045,this-material,top,28,3,1,0.999996,yes
-hdt045,this-material,bottom,28,1,1,0.00127127,yes
-hdt045,family,top,59,3,3,0.977921,yes
+hdt045,this-material,top,31,2,1,,no
+hdt045,this-material,bottom,31,1,1,0.000549856,yes
+hdt045,family,top,59,4,3,0.982087,yes
 hdt045,family,bottom,59,1,3,0.025,yes
-hdt045 unstated-load bracket,amorphous,top,47,,2,gap 15.8,yes
+hdt045 unstated-load bracket,amorphous,top,57,,3,gap 13,yes
 hdt045 unstated-load bracket,semi-unfilled,top,3,,,,no
 hdt045 unstated-load bracket,semi-filled,top,17,,,,no
 hdt045 unstated-load bracket,elastomer,top,0,,,,no

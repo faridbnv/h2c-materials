@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "de028fbd1c3f412286bbf785677d11e63c459b8b55b22c4ea31a26ed27e458f9",
@@ -60,7 +60,9 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
         "MaterialID": "M024",
@@ -130,7 +132,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -177,7 +181,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -224,7 +230,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -271,7 +279,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -318,7 +328,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -383,7 +395,9 @@
         "text": "Nozzle temperature 240-265°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -473,6 +487,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

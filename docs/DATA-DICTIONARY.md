@@ -936,14 +936,19 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 `schema/vocab/modifiers.csv`, used by materials.Modifier / filler.
 
-| Value | Meaning |
-|---|---|
-| Carbon fibre |  |
-| Commercial variant / undisclosed |  |
-| ESD formulation |  |
-| Foaming |  |
-| Glass fibre |  |
-| Unfilled / unspecified |  |
+| Value | Meaning | Abbreviation |
+|---|---|---|
+| Aramid fibre | An aramid (Kevlar) fibre load: tough and light, and it does not raise stiffness the way carbon or glass does. | AF |
+| Carbon fibre |  | CF |
+| Ceramic | A ceramic or mineral particle load. | CE |
+| Commercial variant / undisclosed |  |  |
+| Electrically conductive | A conductive load (carbon black, graphite or fibre) that carries current, not only static. | EC |
+| ESD formulation |  | ESD |
+| Foaming |  | LW |
+| Glass fibre |  | GF |
+| Glass spheres | A hollow glass sphere (bead) load: it stiffens a little and lowers density, and it does not carry load along a fibre the way a reinforcement does. | GS |
+| PTFE | A polytetrafluoroethylene load: a tribological additive that lowers friction and wear. | PTFE |
+| Unfilled / unspecified |  |  |
 
 <a id="vocab-moisture-states"></a>
 ### moisture-states

@@ -31,7 +31,7 @@ import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
 import { profileCellsFromParsed, loadCellFromParsed } from '../../build/src/typed-values.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
-import { classifyProduct } from './classify.mjs';
+import { classifyProduct, collidesWith } from './classify.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `${name}.csv`)).records.map((r) => r.values);
@@ -39,6 +39,24 @@ const table = (name) => readCsv(join(projectRoot, 'data/tables', `${name}.csv`))
 
 const LABELS = lexicon('property-labels').map((r) => ({ ...r, re: new RegExp(r.Label, 'i') }));
 const SETTINGS = lexicon('setting-labels').map((r) => ({ ...r, re: new RegExp(r.Label, 'i') }));
+const MODIFIERS = readCsv(join(projectRoot, 'schema/vocab/modifiers.csv')).records.map((r) => r.values);
+const WINDOWS = readCsv(join(projectRoot, 'data/tables/plausibility_windows.csv')).records.map((r) => r.values);
+
+/**
+ * Whether a value could be this property of this material at all: inside the hard ends of the window the build
+ * itself would judge it by (lint-rules.js), which is the most specific one matching how the polymer solidifies,
+ * whether it is reinforced and, for an impact result, its notch.
+ */
+export function couldBe(property, unit, value, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
+  if (!Number.isFinite(value)) return true;
+  const fits = (w, field, want) => w[field] === want || w[field] === 'any';
+  const matching = WINDOWS.filter((w) => w.Property === property && w['Normalized unit'] === unit
+    && fits(w, 'Matrix class', matrix) && fits(w, 'Fill class', fill) && fits(w, 'Condition', condition));
+  if (!matching.length) return true;
+  const score = (w) => ['Matrix class', 'Fill class', 'Condition'].reduce((a, f) => a + (w[f] === 'any' ? 0 : 1), 0);
+  const window = matching.sort((a, b) => score(b) - score(a))[0];
+  return value >= Number(window['Hard low']) && value <= Number(window['Hard high']);
+}
 const UNITS = lexicon('unit-aliases');
 const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).sort((a, b) => b.length - a.length).join('|');
 // A fresh pattern per call: a global regular expression keeps its place between calls, and sharing one made
@@ -86,8 +104,10 @@ function repair(text) {
   return out.join('');
 }
 
-// A rate ("10 °C/min", "2 mm/min") and a humidity ("50% RH") are conditions of a test, not its result.
-const RATE_OR_CONDITION = /^\s*(\/\s*(min|h|hr|s)\b|\s*RH\b)/i;
+// A rate ("10 °C/min", "2 mm/min") and a humidity ("50% RH", "50% r.h.") are conditions of a test, not its
+// result. Spectrum's PA6 Low Warp prints "Moisture absorption, 23°C/ 50% r.h. 3,00%", where 50 is the humidity
+// the test was run at and 3.00 is the answer.
+const RATE_OR_CONDITION = /^\s*(\/\s*(min|h|hr|s)\b|\s*(RH|r\.?\s?h\.?|relative humidity)\b)/i;
 
 /**
  * The unit the database keeps this property in, and the factor from the printed one. The conversion table is the
@@ -338,6 +358,13 @@ export function readSheet(text, registry) {
       const notch = /\bun-?notched\b/i.test(fullLabel) ? 'Unnotched'
         : /\bnotched\b/i.test(fullLabel) ? 'Notched'
         : notchOf(standardText) ?? read.match.Notch;
+      // A foaming filament's sheet prints two densities: the filament's, and the one the print reaches when the
+      // foaming is active. The second is what the process achieves at a temperature, not a property of the
+      // material, and feeding it to the density model taught it that every foaming material weighs 0.37 g/cm³.
+      if (read.match.Property === 'Density' && /foam/i.test(fullLabel)) {
+        skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'the density the print reaches with foaming active, which is what the process does and not what the material is' });
+        continue;
+      }
       values.push({
         page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
@@ -476,7 +503,7 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
 }
 
 /** One measurement row, filled the way the schema requires: raw text as printed, typed columns beside it. */
-function measurementRow(v, { sourceId, materialId, gradeId }) {
+function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // The sheet's own words for the method: the condition the row states and the standards it names, and not the
   // other column of the page, which the line may run into.
   // The property's own name is not the method: "Specific Gravity" belongs in the Property column and in the
@@ -505,7 +532,7 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
   // a condition of the test or a piece of the property's own name that the label pattern did not reach
   // ("Temperature" from Glass Transition Temperature, ". force" from Tensile Strength at Max. force). A condition
   // states a number or names one of the things that can be done to a specimen; anything else is the name.
-  const CONDITION_WORD = /\d|\b(anneal\w*|as printed|dry|dried|conditioned|wet|method|saturation|equilibrium|specimen|injection|mou?ld\w*|printed|film|strand|parallel|perpendicular|flat|edge|upright)\b/i;
+  const CONDITION_WORD = /\d|\b(anneal\w*|as printed|dry|dried|conditioned|wet|method|saturation|equilibrium|specimen|injection|mou?ld\w*|printed|film|strand|parallel|perpendicular|flat|edge|upright|foam\w*)\b/i;
   // A remnant that is made of the property's own vocabulary is the name, whatever else it contains: "strength -
   // charpy method" is what the sheet calls the test, and the Property column already says it.
   const LABEL_WORD = /\b(charpy|izod|impact|strength|stress|modulus|elongation|strain|temperature|softening|deflection|distortion|transition|density|gravity|hardness|absorption|content|shrinkage|resistance|conductivity|flexural|tensile|bending|melt|flow|index|rate|point|force|vicat|hdt|mfr|mvr)\b/i;
@@ -534,10 +561,35 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
   // "@ 23°C" are two different tests of one property, and a row that does not say which is indistinguishable from
   // its twin (MEAS-CONDITIONS-INDISTINCT).
   const at = /(-?\d+(?:[.,]\d+)?)\s*°\s*C/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
-  const normalized = round(NUMBER(v.read.rawNumber) * v.target.factor);
+  let rawNumeric = v.read.rawNumber;
+  let raw = v.read.raw;
+  let normalized = round(NUMBER(rawNumeric) * v.target.factor);
+  // "24.000 kg/cm2" is twenty-four thousand on a European sheet and twenty-four on an American one. Where one
+  // reading is a value this property could have and the other is not, the sheet has answered: a flexural modulus
+  // of 24 kg/cm² is 2.4 MPa, which no solid polymer reaches, and 24,000 kg/cm² is 2,353 MPa, which is a
+  // polycarbonate's. Where both readings are possible, it stays a question for a person.
+  let ambiguity = v.read.ambiguous;
+  if (ambiguity) {
+    const other = round(NUMBER(rawNumeric) * 1000 * v.target.factor);
+    const of = { ...window, condition: ['Notched', 'Unnotched'].includes(v.notch) ? v.notch : 'any' };
+    const mineOk = couldBe(v.property, v.target.unit, normalized, of);
+    const otherOk = couldBe(v.property, v.target.unit, other, of);
+    if (!mineOk && otherOk) {
+      const was = round(NUMBER(v.read.rawNumber) * v.target.factor);
+      rawNumeric = String(NUMBER(rawNumeric) * 1000);
+      normalized = other;
+      // The raw cell records the number and what the sheet printed, which is the register's own convention for
+      // this reading (V000731, the same product's flexural modulus).
+      const printed = /^[-\d.,\s]+/.exec(v.read.raw)?.[0]?.trim() ?? v.read.rawNumber;
+      raw = `${Number(rawNumeric).toLocaleString('en-CA').replace(/,/g, ' ')} ${v.read.printedUnit} (TDS prints "${printed}" with European decimal separator)`;
+      ambiguity = `${ambiguity}; read as ${rawNumeric} because ${was} ${v.target.unit} is outside anything this property reaches`;
+    } else if (mineOk && !otherOk) {
+      ambiguity = `${ambiguity}; read as ${rawNumeric} because the other reading is outside anything this property reaches`;
+    }
+  }
   return {
     MaterialID: materialId, GradeID: gradeId, Property: v.property,
-    'Raw value': v.read.raw, 'Raw unit': v.read.printedUnit, 'Raw numeric': v.read.rawNumber,
+    'Raw value': raw, 'Raw unit': v.read.printedUnit, 'Raw numeric': rawNumeric,
     'Raw uncertainty ±': v.read.uncertainty ?? NA, 'Raw upper bound': v.read.upper ?? NA, Operator: v.read.operator, 'Conversion factor': String(v.target.factor),
     'Normalized value': String(normalized),
     'Normalized uncertainty ±': v.read.uncertainty == null ? NA : String(round(NUMBER(v.read.uncertainty) * v.target.factor)),
@@ -553,7 +605,7 @@ function measurementRow(v, { sourceId, materialId, gradeId }) {
     'Standard / load': standardText || NP, Standards: standards.length ? standards.join('; ') : NP,
     'Test load MPa': v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(standardText)) : NA,
     Notch: v.notch || NA, 'Specimen / print parameters': NP,
-    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote].filter(Boolean).join('; ') || NA, 'Parse review': NA,
+    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote, ambiguity].filter(Boolean).join('; ') || NA, 'Parse review': NA,
   };
 }
 
@@ -581,6 +633,43 @@ export function printedTitle(text) {
   return { title: [head[at], product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
 }
 
+/**
+ * A material the database does not hold yet: a polymer, a filler and a variant class it has no row for. The
+ * identity is computed; the prose a reader is shown is not invented here. What the sheet says about the product
+ * goes into Identity notes with the page it was read from, and Best uses and Limitations stay unpublished until
+ * somebody writes them from a source (D70). A new material never enters without a ruling (apply.mjs).
+ */
+export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
+  if (!identity.polymer || !identity.modifier || identity.needsRuling) return null;
+  const materials = world.materials ?? [];
+  const abbreviation = MODIFIERS.find((m) => m.Value === identity.modifier)?.Abbreviation ?? '';
+  const name = abbreviation ? `${identity.polymer}-${abbreviation}` : identity.polymer;
+  // The family, the scope and the polymer's own full name are the ones its siblings already carry: a new filler
+  // does not make a new family, and reading them from a sibling keeps one polymer's rows saying one thing.
+  const siblings = materials.filter((m) => m['Estimate identity'] === identity.polymer && m.Scope !== 'Family entry');
+  const plain = siblings.find((m) => m['Modifier / filler'] === 'Unfilled / unspecified') ?? siblings[0];
+  if (!plain) return null;
+  return {
+    'Original name': name,
+    Family: plain.Family,
+    'H2C status': 'Theoretical',
+    'Representative grade': '${grade:main}',
+    'Best uses': NP,
+    Limitations: NP,
+    'Full name': `${plain['Full name']} (${identity.modifier})`,
+    Scope: plain.Scope,
+    Abbreviation: name,
+    'Base polymer': identity.polymer,
+    'Estimate identity': identity.polymer,
+    'Modifier / filler': identity.modifier,
+    'Variant class': identity.variantClass || NA,
+    Role: plain.Role,
+    // What the sheet says about the product is the grade's Composition / filler, read from the page. This column
+    // says how the identity was settled, which is the reader's own account and not the sheet's words.
+    'Identity notes': `Identity read from ${sourceId} (p. ${page}): ${identity.signals.join('; ')}.`,
+  };
+}
+
 /** A document as a proposal: the source, its grade, its values, and everything left out with the reason. */
 export function propose(row, text, world) {
   // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
@@ -589,13 +678,22 @@ export function propose(row, text, world) {
   const head = printedTitle(text);
   const identity = classifyProduct(row.product_raw, { manufacturer: row.manufacturer, title: head.title, body }, world);
   const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
+  // How this polymer solidifies and whether it is reinforced: the two things the build's own physics windows are
+  // keyed on, so a reading judged here is judged the way the build will judge it.
+  const morphology = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer)?.Morphology;
+  const window = {
+    matrix: morphology ?? 'high-temp',
+    fill: ['Carbon fibre', 'Glass fibre', 'Aramid fibre'].includes(identity.modifier) ? 'fibre'
+      : identity.modifier === 'Unfilled / unspecified' ? 'unfilled' : 'any',
+  };
   const sheet = readSheet(text, registry);
   const sourceId = row.registered_source_id || sourceIdFor(row, world.sources ?? []);
   const { title, product } = head;
   const measurements = sheet.values.map((v, i) => ({
     id: `m${String(i + 1).padStart(2, '0')}`, gradeKey: 'main',
-    row: measurementRow(v, { sourceId, materialId: identity.materialId ?? '', gradeId: '' }),
+    row: measurementRow(v, { sourceId, materialId: identity.materialId ?? '', gradeId: '', window }),
     evidence: { page: v.page, text: v.line.slice(0, 200) },
+    ...(v.read.ambiguous ? { ambiguous: v.read.ambiguous } : {}),
     confidence: identity.confidence,
     review: { status: 'proposed' },
   }));
@@ -620,6 +718,21 @@ export function propose(row, text, world) {
   // What the sheet's own density says about what is in the product. A grade whose density sits outside the neat
   // polymer's range is carrying something its name does not declare, which is how Spectrum's PA6 Neat was found to
   // hold an undisclosed dense filler (m26). The classifier reads words; this reads the number beside them.
+  // A sentence the sheet uses to say what the product is, kept for a material the database has to create.
+  let newMaterial = identity.materialId ? null : newMaterialFor(identity, world, { sourceId, page: 1 });
+  // A new material that duplicates one is the failure D44 was written about. Two ways it can: by the identity it
+  // stands for, and by the name it would carry. A particle-filled PLA finds neither a material it may file under
+  // (the six finish materials are Bambu's own products) nor a name of its own, so it is a question, not a row.
+  if (newMaterial) {
+    const twin = collidesWith(identity, world.materials ?? []);
+    const sameName = (world.materials ?? []).find((m) => m['Original name'] === newMaterial['Original name']);
+    if (twin || sameName) {
+      const other = twin ?? sameName;
+      identity.reasons.push(`a new material for this identity would be a second ${other['Original name']} (${other.MaterialID}): ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
+      identity.needsRuling = true;
+      newMaterial = null;
+    }
+  }
   const profiles = profilesFor(sheet.settings, { sourceId, materialId: identity.materialId ?? '', modifier: identity.modifier });
 
   const polymer = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer);
@@ -637,6 +750,7 @@ export function propose(row, text, world) {
     generated: { tool: 'propose.mjs', date: new Date().toISOString().slice(0, 10) },
     document: { sha256: row.sha256, url: row.url, pages: text.pages.length, provider: row.provider, manufacturer: row.manufacturer, docKey: row.doc_key },
     identity,
+    ...(newMaterial ? { newMaterial } : {}),
     source: {
       row: {
         SourceID: sourceId, Publisher: row.manufacturer || row.provider, Title: title || row.product_raw,
@@ -676,7 +790,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources') };
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
-  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated']);
+  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet']);
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))

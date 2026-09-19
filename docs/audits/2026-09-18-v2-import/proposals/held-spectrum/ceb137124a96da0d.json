@@ -2,57 +2,56 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
-    "sha256": "78e8b4223cdfb09ff43898070150ec2d40a2427cbef0b692d0f0a259f8422592",
-    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_Metal_Brass.pdf",
+    "sha256": "ceb137124a96da0d648671f105f7ba5cb9398f523d19f98fbf37a30815c8b81c",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_aquaprint.pdf",
     "pages": 1,
-    "provider": "3DJake / 3DJAKE",
+    "provider": "Spectrum",
     "manufacturer": "Spectrum",
-    "docKey": "78e8b4223cdfb09f"
+    "docKey": "ceb137124a96da0d"
   },
   "identity": {
-    "polymer": "PLA",
+    "polymer": "PETG",
     "modifier": "Unfilled / unspecified",
-    "variantClass": "particle-filled",
-    "family": "PLA",
+    "variantClass": "",
+    "family": "PETG",
     "hardness": null,
-    "support": false,
+    "support": true,
     "signals": [
-      "name: pla",
-      "variant: metal"
+      "sheet: petg"
     ],
-    "materialId": null,
-    "materialName": null,
-    "estimateIdentity": "PLA",
-    "confidence": 1,
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 0.8,
     "needsRuling": true,
     "reasons": [
-      "its density of 2330 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare"
+      "\"spectrum aquaprint\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
     ]
   },
   "source": {
     "row": {
-      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-aquaprint",
       "Publisher": "Spectrum",
-      "Title": "TECHNICAL DATA SHEET PLA Metal Brass",
+      "Title": "TECHNICAL DATA SHEET AquaPrint",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-18",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_Metal_Brass.pdf",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_aquaprint.pdf",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "78e8b4223cdfb09ff43898070150ec2d40a2427cbef0b692d0f0a259f8422592"
+      "SHA256": "ceb137124a96da0d648671f105f7ba5cb9398f523d19f98fbf37a30815c8b81c"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET PLA Metal Brass"
+      "text": "TECHNICAL DATA SHEET AquaPrint"
     },
     "review": {
       "status": "proposed"
@@ -65,25 +64,25 @@
         "status": "proposed"
       },
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M020",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
-        "Product name": "PLA Metal Brass",
-        "Shared formulation key": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
+        "Product name": "AquaPrint",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-aquaprint",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-aquaprint",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET PLA Metal Brass"
+        "text": "TECHNICAL DATA SHEET AquaPrint"
       }
     }
   ],
@@ -92,22 +91,22 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M020",
         "GradeID": "",
-        "Property": "Density",
-        "Raw value": "2.33 g/cm3",
-        "Raw unit": "g/cm3",
-        "Raw numeric": "2.33",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "60-90 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "60",
         "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
+        "Raw upper bound": "90",
         "Operator": "=",
-        "Conversion factor": "1000",
-        "Normalized value": "2330",
+        "Conversion factor": "1",
+        "Normalized value": "60",
         "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "kg/m³",
+        "Normalized upper bound": "90",
+        "Normalized unit": "g/10 min",
         "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Specimen type": "Not published (do not assume printed)",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -121,16 +120,16 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
-        "Locator": "p. 1: Specific Gravity",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-aquaprint",
+        "Locator": "p. 1: Melt flow index",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Specific Gravity 2.33 g/cm3"
+        "text": "Melt flow index 60-90 g/10min (200°C, 21.6kg)"
       },
-      "confidence": 1,
+      "confidence": 0.8,
       "review": {
         "status": "proposed"
       }
@@ -139,23 +138,23 @@
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M020",
         "GradeID": "",
-        "Property": "Tensile break strength",
-        "Raw value": "22 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "22",
+        "Property": "Melting temperature",
+        "Raw value": "180-190 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
         "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
+        "Raw upper bound": "190",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "22",
+        "Normalized value": "180",
         "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "MPa",
+        "Normalized upper bound": "190",
+        "Normalized unit": "°C",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -168,16 +167,16 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
-        "Locator": "p. 1: Tensile Strength at Break",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-aquaprint",
+        "Locator": "p. 1: Melting temperature",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile Strength at Break 22 MPa"
+        "text": "Melting temperature 180-190°C"
       },
-      "confidence": 1,
+      "confidence": 0.8,
       "review": {
         "status": "proposed"
       }
@@ -186,23 +185,23 @@
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M020",
         "GradeID": "",
-        "Property": "Tensile yield strength",
-        "Raw value": "30 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "30",
+        "Property": "Glass transition temperature",
+        "Raw value": "60-65 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
         "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
+        "Raw upper bound": "65",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "30",
+        "Normalized value": "60",
         "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "MPa",
+        "Normalized upper bound": "65",
+        "Normalized unit": "°C",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -215,16 +214,16 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
-        "Locator": "p. 1: Tensile Strength at Yield",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-aquaprint",
+        "Locator": "p. 1: Glass transition temperature",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile Strength at Yield 30 MPa"
+        "text": "Glass transition temperature 60-65°C"
       },
-      "confidence": 1,
+      "confidence": 0.8,
       "review": {
         "status": "proposed"
       }
@@ -234,18 +233,18 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M020",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "195-230°C",
+        "Nozzle °C": "190 - 215°C",
         "Nozzle state": "range",
-        "Nozzle min °C": "195",
-        "Nozzle max °C": "230",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "215",
         "Nozzle requirement": "required",
-        "Bed °C": "40-50°C",
+        "Bed °C": "25 - 70°C",
         "Bed state": "range",
-        "Bed min °C": "40",
-        "Bed max °C": "50",
+        "Bed min °C": "25",
+        "Bed max °C": "70",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -259,10 +258,10 @@
         "Drying state": "unknown",
         "Drying °C": "Not applicable",
         "Drying hours": "Not applicable",
-        "Nozzle material": "Yes",
+        "Nozzle material": "No",
         "Nozzle diameter": "Not published",
-        "Abrasion / clogging": "Ruby or hardened nozzle Yes",
-        "Hardened nozzle": "TRUE",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
         "H2C left": "Verify exact grade/nozzle; no blanket approval",
         "H2C right": "Verify exact grade/nozzle; no blanket approval",
         "AMS 2 Pro": "Not verified for every grade",
@@ -270,7 +269,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Brass",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-aquaprint",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -278,25 +277,25 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "YES (up to 100%)"
+          "Text": "0 - 50%"
         },
         {
           "Topic": "Layer height",
-          "Text": "0.05 - 0.30 mm"
+          "Text": "0.05 - 0.3 mm"
         },
         {
           "Topic": "Shell / walls",
-          "Text": "≥ 0.20 mm"
+          "Text": "0.4 - 2.7 mm"
         },
         {
-          "Topic": "Adhesion / release",
-          "Text": "not necessary"
+          "Topic": "Speed",
+          "Text": "20 - 50 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Nozzle temperature 195-230°C"
+        "text": "Nozzle temperature 190 - 215°C"
       },
       "review": {
         "status": "proposed"
@@ -312,40 +311,48 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle temperature",
-      "raw": "195-230°C",
-      "line": "Nozzle temperature 195-230°C"
+      "raw": "190 - 215°C",
+      "line": "Nozzle temperature 190 - 215°C"
     },
     {
       "page": 1,
       "field": "bed",
       "topic": "",
       "label": "Bed temperature",
-      "raw": "40-50°C",
-      "line": "Bed temperature 40-50°C"
+      "raw": "25 - 70°C",
+      "line": "Bed temperature 25 - 70°C"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "YES (up to 100%)",
-      "line": "Active cooling fan YES (up to 100%)"
+      "raw": "0 - 50%",
+      "line": "Active cooling fan 0 - 50%"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Layer height",
       "label": "Layer height",
-      "raw": "0.05 - 0.30 mm",
-      "line": "Layer height** 0.05 - 0.30 mm"
+      "raw": "0.05 - 0.3 mm",
+      "line": "Layer height** 0.05 - 0.3 mm"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Shell / walls",
       "label": "Shell thickness",
-      "raw": "≥ 0.20 mm",
-      "line": "Shell thickness** ≥ 0.20 mm"
+      "raw": "0.4 - 2.7 mm",
+      "line": "Shell thickness** 0.4 - 2.7 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "20 - 50 mm/s",
+      "line": "Print speed** 20 - 50 mm/s"
     },
     {
       "page": 1,
@@ -360,33 +367,35 @@
       "field": "nozzle-material",
       "topic": "",
       "label": "Ruby or hardened nozzle",
-      "raw": "Yes",
-      "line": "Ruby or hardened nozzle Yes"
-    },
-    {
-      "page": 1,
-      "field": "note",
-      "topic": "Adhesion / release",
-      "label": "Adhesive",
-      "raw": "not necessary",
-      "line": "Adhesive not necessary"
+      "raw": "No",
+      "line": "Ruby or hardened nozzle No"
     }
   ],
   "skipped": [
     {
       "page": 1,
-      "text": "MFI (210°C, 2.16kg) 40.6 g/10min",
+      "text": "Bulk density 0.6-0.9 g/cm3 AquaPrint is a water-soluble support material",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Impact Strength - Charpy method 23°C 3.1 kJ/mz FEAUTURES",
+      "text": "designed for complex multi-extrusion 3D print-",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Recommended nozzle ≥ 0.4 mm",
-      "reason": "in the column beside the storage note, naming no property and value together"
+      "text": "Volatiles content <1% wt.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Methanol content <1% wt.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Flow rate nearly 4x higher than PVA-based support",
+      "reason": "no property and value this line states together"
     },
     {
       "page": 1,
@@ -395,28 +404,18 @@
     },
     {
       "page": 1,
-      "text": "stick, Dimafix, 3DLac, Magigoo)",
-      "reason": "in the column beside the storage note, naming no property and value together"
-    },
-    {
-      "page": 1,
       "text": "product has a shelf life of 24 months.",
-      "reason": "a storage or shelf-life note, not a test result"
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
-      "text": "* settings are based on a 0,4 mm nozzle.",
-      "reason": "in the column beside the storage note, naming no property and value together"
+      "text": "* settings are based on a 0.4mm nozzle",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
-      "text": "than the standard 0.4mm. The high metal content may cause accelerated wear of standard brass nozzles; therefore, it is",
-      "reason": "in the column beside the storage note, naming no property and value together"
-    },
-    {
-      "page": 1,
-      "text": "www.spectrumfilaments.com Preparation date: 26-11-2024",
-      "reason": "in the column beside the storage note, naming no property and value together"
+      "text": "www.spectrumfilaments.com Preparation date: 01-10-2023",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     }
   ],
   "review": {

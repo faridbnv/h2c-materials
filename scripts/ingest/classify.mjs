@@ -111,7 +111,20 @@ const SUPPORT = /\b(support|breakaway|dissolv|soluble|polysupport|sr-?30|rapidri
 export function classifyProduct(product, context = {}, world = {}) {
   const signals = [];
   const tokens = tokenise(product);
-  const bodyTokens = tokenise([context.title, context.body].filter(Boolean).join(' '));
+  // A sentence that contrasts the product with another material names that other material, not this one. Spectrum
+  // ecoPET 9021 says "Unlike the more widely used PETG in 3D printing, it is based on a non-glycol-modified
+  // variant of PET", and reading the body word by word filed a PET under PETG.
+  const CONTRAST = /\b(unlike|compared (to|with)|in comparison|rather than|instead of|as opposed to|not to be confused|advantages? over|over (classic|conventional|standard|ordinary)|versus|vs\.?|than)\b/i;
+  const bodyText = [context.title, context.body].filter(Boolean).join(' ');
+  const bodyTokens = tokenise(bodyText);
+  // Sentences cannot be split out of a page whose table and marketing column are interleaved, so the contrast is
+  // looked for in the words just before the name: every mention of it contrastive means the sheet is talking
+  // about something else.
+  const saidPlainly = (token) => {
+    const re = new RegExp(`\\b${token.replace(/[^a-z0-9]/gi, '').split('').join('[^a-z0-9]?')}\\b`, 'gi');
+    const hits = [...bodyText.matchAll(re)];
+    return !hits.length || hits.some((m) => !CONTRAST.test(bodyText.slice(Math.max(0, m.index - 100), m.index)));
+  };
 
   // A product's own name, the title the document prints, and the prose under it are three different witnesses.
   // The catalogue name a link carries is often only "spectrum high speed", while the sheet's own first line says
@@ -120,19 +133,32 @@ export function classifyProduct(product, context = {}, world = {}) {
   let polymer = findToken(tokens, POLYMER_ORDER, 'Polymer');
   let where = 'name';
   if (!polymer) { polymer = findToken(titleTokens, POLYMER_ORDER, 'Polymer'); if (polymer) where = 'title'; }
-  if (!polymer) { polymer = findToken(bodyTokens, POLYMER_ORDER, 'Polymer'); if (polymer) where = 'sheet'; }
+  if (!polymer) {
+    const plain = bodyTokens.filter((t) => saidPlainly(t));
+    polymer = findToken(plain, POLYMER_ORDER, 'Polymer');
+    if (polymer) where = 'sheet';
+  }
   const fromBody = where === 'sheet';
   if (polymer) signals.push(`${where}: ${polymer.token}`);
 
   // A filler read from the sheet's own words must be next to a word that makes it a filler. "Glass" on its own
   // appears in "Glass Transition Temperature" on nearly every sheet, and reading it as glass fibre filed a
   // toughened PLA under glass-filled PLA.
-  const FILLER_CONTEXT = /(fib(?:re|er)s?|filled|filler|reinforc|content|loaded|\d\s?%)/i;
+  // A filler word, not merely a number beside one: the table and the marketing column are interleaved, so
+  // "Tensile Strain at Break 10% lower carbon footprint" put a percentage twelve characters before the word
+  // carbon and read a flame-retardant PLA as carbon-filled.
+  const FILLER_CONTEXT = /(fib(?:re|er)s?|filled|filler|reinforc|loaded|sphere|bead|content of)/i;
+  // The same word in a phrase that is not about what is in the filament.
+  const NOT_FILLER = /\b(footprint|neutral|emission|dioxide|monoxide|black-?box|fibre optic)\b/i;
   // The token matched is a tokeniser spelling ("glassfibre", "glass-fibre") and the sheet prints "glass fibre",
   // so the word is looked for with its separators optional rather than as the spelling that matched.
-  const loose = (token) => token.split('').map((c) => c.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')).join('[^a-z0-9]?');
-  const nearFiller = (token) => new RegExp(`(\\b${loose(token)}\\b[^.]{0,24}${FILLER_CONTEXT.source})|(${FILLER_CONTEXT.source}[^.]{0,24}\\b${loose(token)}\\b)`, 'i')
-    .test([context.title, context.body].filter(Boolean).join(' '));
+  const loose = (token) => token.replace(/[^a-z0-9]/gi, '').split('').join('[^a-z0-9]?');
+  const nearFiller = (token) => {
+    const text = [context.title, context.body].filter(Boolean).join(' ');
+    const near = new RegExp(`(\\b${loose(token)}\\b[^.]{0,24}${FILLER_CONTEXT.source})|(${FILLER_CONTEXT.source}[^.]{0,24}\\b${loose(token)}\\b)`, 'gi');
+    for (const m of text.matchAll(near)) if (!NOT_FILLER.test(text.slice(m.index, m.index + m[0].length + 14))) return true;
+    return false;
+  };
   // A fibre load is written as a code with its fraction in it, and every maker spells it differently: CF, CF15,
   // cf15s, rCF08, GF30, gf40. Enumerating them loses the next one, so the shape is read rather than the spelling.
   const FIBRE_CODE = /^r?(cf|gf)\d{0,3}[a-z]?\+?$/i;
@@ -146,7 +172,10 @@ export function classifyProduct(product, context = {}, world = {}) {
   if (variant?.value) signals.push(`variant: ${variant.token}`);
 
   // A support or soluble product is not the material it supports: "PolySupport for PA12" is a support, not a PA12.
-  const support = SUPPORT.test(product) || SUPPORT.test(context.title ?? '');
+  // A support product says so in its own words as often as in its name: "AquaPrint is a water-soluble support
+  // material designed for complex multi-extrusion 3D printing" names no support token at all in its title.
+  const SAYS_SUPPORT = /\b(is an?|as an?)\b[^.]{0,60}\b(support|breakaway|soluble)\b[^.]{0,20}\b(material|filament)\b|\bwater-soluble\b/i;
+  const support = SUPPORT.test(product) || SUPPORT.test(context.title ?? '') || SAYS_SUPPORT.test(context.body ?? '');
   const hardness = shoreFromName(product);
   if (hardness) signals.push(`hardness: ${hardness}`);
 

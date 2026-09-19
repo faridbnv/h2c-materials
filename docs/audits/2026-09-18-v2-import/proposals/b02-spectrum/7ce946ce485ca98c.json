@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "7ce946ce485ca98cab59b43a80681f59fb9f0c54cb67fd97dbb0b2eba2f96499",
@@ -60,7 +60,9 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
         "MaterialID": "M008",
@@ -130,7 +132,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -177,7 +181,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -224,7 +230,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -271,7 +279,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -318,7 +328,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -365,7 +377,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -412,7 +426,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -459,7 +475,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -506,7 +524,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -553,7 +573,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -600,7 +622,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -673,7 +697,9 @@
         "text": "Nozzle temperature 210-240°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -769,6 +795,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m08",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "the sheet prints \"Notched Izod Impact Strength 6 J/m D 256\" for PLA Magic SILK. A silk PLA is brittle and 6 J/m is what its sheet publishes.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

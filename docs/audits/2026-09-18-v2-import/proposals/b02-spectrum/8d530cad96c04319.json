@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "8d530cad96c04319443e6027549b848f2f453913a9b87c996beca25c19debcc4",
@@ -59,7 +59,9 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
         "MaterialID": "M001",
@@ -129,7 +131,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -176,7 +180,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -223,7 +229,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -270,7 +278,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -317,7 +327,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -364,7 +376,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -411,7 +425,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -476,7 +492,9 @@
         "text": "Nozzle temperature 190-220°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -539,7 +557,9 @@
         "text": "Nozzle temperature (High Speed) 225-250°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -642,6 +662,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

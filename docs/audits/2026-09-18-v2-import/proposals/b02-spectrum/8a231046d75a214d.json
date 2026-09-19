@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "8a231046d75a214dca54e2fc986c5a5c19582e7809f749968a20c1f69af17410",
@@ -29,6 +29,23 @@
     "confidence": 1,
     "needsRuling": false,
     "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PCTG-GF",
+    "Family": "Copolyesters",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Glycol-Modified Polycyclohexylenedimethylene Terephthalate (Glass fibre)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PCTG-GF",
+    "Base polymer": "PCTG",
+    "Estimate identity": "PCTG",
+    "Modifier / filler": "Glass fibre",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from S-SPECTRUM-en-tds-spectrum-pctg-gf10 (p. 1): name: pctg; filler: gf10."
   },
   "source": {
     "row": {
@@ -60,7 +77,9 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
         "MaterialID": "",
@@ -130,7 +149,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -177,7 +198,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -224,7 +247,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -271,7 +296,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -318,7 +345,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the sheet heads the row Izod and cites ISO 179, which is Charpy; neither test is written, and the row keeps the generic impact property with the contradiction in its Notes"
       }
     },
     {
@@ -365,7 +395,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -412,7 +444,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -459,7 +493,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -532,7 +568,9 @@
         "text": "Nozzle temperature 250-270°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -638,6 +676,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

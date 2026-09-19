@@ -2,56 +2,72 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
-    "sha256": "3ca0f7060c58486704dcc95a688e981bdf58c2cadfad40ee9be6719d45e485d6",
-    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_greenyht.pdf",
+    "sha256": "fb659024de011cf6a2db084eecdef03330a2f75db79f30315237c83403d1d90e",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_sflex_carbon.pdf",
     "pages": 1,
     "provider": "Spectrum",
     "manufacturer": "Spectrum",
-    "docKey": "3ca0f7060c584867"
+    "docKey": "fb659024de011cf6"
   },
   "identity": {
-    "polymer": "PLA",
-    "modifier": "Unfilled / unspecified",
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
     "variantClass": "",
-    "family": "PLA",
+    "family": "Flexible Elastomers",
     "hardness": null,
     "support": false,
     "signals": [
-      "sheet: pla"
+      "name: sflex",
+      "filler: carbon"
     ],
-    "materialId": "M001",
-    "materialName": "PLA",
-    "estimateIdentity": "PLA",
-    "confidence": 0.8,
-    "needsRuling": true,
-    "reasons": [
-      "its density of 1540 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare"
-    ]
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "TPU-CF",
+    "Family": "Flexible Elastomers",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Thermoplastic Polyurethane (Carbon fibre)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "TPU-CF",
+    "Base polymer": "TPU",
+    "Estimate identity": "TPU",
+    "Modifier / filler": "Carbon fibre",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from S-SPECTRUM-en-tds-spectrum-sflex-carbon (p. 1): name: sflex; filler: carbon."
   },
   "source": {
     "row": {
-      "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
       "Publisher": "Spectrum",
-      "Title": "TECHNICAL DATA SHEET GreenyHT",
+      "Title": "TECHNICAL DATA SHEET S-Flex Carbon",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-18",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_greenyht.pdf",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_sflex_carbon.pdf",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "3ca0f7060c58486704dcc95a688e981bdf58c2cadfad40ee9be6719d45e485d6"
+      "SHA256": "fb659024de011cf6a2db084eecdef03330a2f75db79f30315237c83403d1d90e"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET GreenyHT"
+      "text": "TECHNICAL DATA SHEET S-Flex Carbon"
     },
     "review": {
       "status": "proposed"
@@ -64,25 +80,25 @@
         "status": "proposed"
       },
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
-        "Product name": "GreenyHT",
-        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Composition / filler": "Not published",
+        "Product name": "S-Flex Carbon",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Composition / filler": "durability provided by a 20% carbon fiber reinforce- (p. 1, as the sheet states it)",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET GreenyHT"
+        "text": "TECHNICAL DATA SHEET S-Flex Carbon"
       }
     }
   ],
@@ -91,17 +107,17 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
-        "Raw value": "1,54 g/cm3",
+        "Raw value": "1.23 g/cm3",
         "Raw unit": "g/cm3",
-        "Raw numeric": "1.54",
+        "Raw numeric": "1.23",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1000",
-        "Normalized value": "1540",
+        "Normalized value": "1230",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
@@ -115,21 +131,21 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 1183-1/A",
+        "Standard / load": "ISO 1183",
         "Standards": "ISO 1183",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
         "Locator": "p. 1: Density",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Density 1,54 g/cm3 EN ISO 1183-1/A"
+        "text": "Density 1.23 g/cm3 ISO 1183 Filament S-Flex Carbon is an innovative 3D printing"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
         "status": "proposed"
       }
@@ -138,20 +154,20 @@
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "GradeID": "",
-        "Property": "Melt mass-flow rate",
-        "Raw value": "20 g/10min",
-        "Raw unit": "g/10min",
-        "Raw numeric": "20",
+        "Property": "Charpy strength",
+        "Raw value": "40 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "40",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "20",
+        "Normalized value": "40",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "g/10 min",
+        "Normalized unit": "kJ/m²",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Not applicable",
@@ -161,22 +177,22 @@
         "Post-processing state": "not-stated",
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
-        "Test temperature": "190°C",
-        "Standard / load": "190°C 2 16kg ISO 1133",
-        "Standards": "ISO 1133",
+        "Test temperature": "23°C",
+        "Standard / load": "at 23°C ISO 179-1eA",
+        "Standards": "ISO 179",
         "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
+        "Notch": "Notched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Locator": "p. 1: MFR (190°C, 2,16kg)",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: Charpy impact strength notched (at 23°C)*",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "MFR (190°C, 2,16kg) 20g/10min EN ISO 1133"
+        "text": "notched (at 23°C)* 40 kJ/m2 ISO 179-1eA"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
         "status": "proposed"
       }
@@ -185,17 +201,64 @@
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "GradeID": "",
-        "Property": "Tensile strength (endpoint unspecified)",
-        "Raw value": "52 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "52",
+        "Property": "Elongation at break",
+        "Raw value": "15,00 %",
+        "Raw unit": "%",
+        "Raw numeric": "15",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "52",
+        "Normalized value": "15",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: Tensile Elongation* At break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation* At break 15,00% ISO 527 (1)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "61 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "61",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "61",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
@@ -209,68 +272,21 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 527-1",
+        "Standard / load": "ISO 527",
         "Standards": "ISO 527",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Locator": "p. 1: Tensile strength",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: Tensile Strength* At break",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile strength 52 MPa EN ISO 527-1"
+        "text": "Tensile Strength* At break 61 MPa ISO 527 (1)"
       },
-      "confidence": 0.8,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m04",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M001",
-        "GradeID": "",
-        "Property": "Tensile modulus",
-        "Raw value": "900 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "900",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "0.001",
-        "Normalized value": "0.9",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "GPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 527-1",
-        "Standards": "ISO 527",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Locator": "p. 1: Tensile modulus",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Tensile modulus 900 MPa EN ISO 527-1"
-      },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
         "status": "proposed"
       }
@@ -279,17 +295,17 @@
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "GradeID": "",
-        "Property": "Flexural modulus",
-        "Raw value": "3000 MPa",
+        "Property": "Tensile modulus",
+        "Raw value": "2200 MPa",
         "Raw unit": "MPa",
-        "Raw numeric": "3000",
+        "Raw numeric": "2200",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "0.001",
-        "Normalized value": "3",
+        "Normalized value": "2.2",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
@@ -303,21 +319,21 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 178",
-        "Standards": "ISO 178",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Locator": "p. 1: Flexural Modulus",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: Elastic modulus tensile*",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Flexural Modulus 3000 MPa EN ISO 178"
+        "text": "Elastic modulus tensile* 2200 MPa ISO 527 (1)"
       },
-      "confidence": 0.8,
+      "confidence": 1,
       "review": {
         "status": "proposed"
       }
@@ -326,64 +342,17 @@
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
-        "GradeID": "",
-        "Property": "HDT",
-        "Raw value": "87 °C",
-        "Raw unit": "°C",
-        "Raw numeric": "87",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "87",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "°C",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Not applicable",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "0,45 MPa ISO 75-1",
-        "Standards": "ISO 75",
-        "Test load MPa": "0.45",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Locator": "p. 1: Heat Deflection Temperature 0,45 MPa",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "0,45 MPa 87°C EN ISO 75-1"
-      },
-      "confidence": 0.8,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m07",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Vicat softening temperature",
-        "Raw value": "98 °C",
+        "Raw value": "91 °C",
         "Raw unit": "°C",
-        "Raw numeric": "98",
+        "Raw numeric": "91",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "98",
+        "Normalized value": "91",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
@@ -402,16 +371,110 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
-        "Locator": "p. 1: VICAT Softening Temperature",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: VICAT Softening point*",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "VICAT Softening Temperature 98°C EN ISO 306"
+        "text": "VICAT Softening point* 91°C ISO 306"
       },
-      "confidence": 0.8,
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "134 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "134",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "134",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45mn/m2 ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: Heat Deflection Temperature* 0.45mn/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "0.45mn/m2 134°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "70 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.81mn/m2 ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+        "Locator": "p. 1: Heat Deflection Temperature* 1.81mn/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "1.81mn/m2 70°C ISO 75"
+      },
+      "confidence": 1,
       "review": {
         "status": "proposed"
       }
@@ -421,18 +484,18 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "190-220°C",
+        "Nozzle °C": "210 - 245°C",
         "Nozzle state": "range",
-        "Nozzle min °C": "190",
-        "Nozzle max °C": "220",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "245",
         "Nozzle requirement": "required",
-        "Bed °C": "0-45°C",
+        "Bed °C": "45 - 70°C",
         "Bed state": "range",
-        "Bed min °C": "0",
-        "Bed max °C": "45",
+        "Bed min °C": "45",
+        "Bed max °C": "70",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -457,7 +520,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -465,25 +528,25 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "50-85%"
+          "Text": "do 100%"
         },
         {
           "Topic": "Layer height",
-          "Text": "0.05 - 0.30 mm"
+          "Text": "0.05 - 0.3 mm"
         },
         {
           "Topic": "Shell / walls",
-          "Text": "0.40 - 2.70 mm"
+          "Text": "0.4 - 2.7 mm"
         },
         {
           "Topic": "Speed",
-          "Text": "30-100 mm/s"
+          "Text": "20 - 50 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Nozzle temperature 190-220°C"
+        "text": "Nozzle temperature 210 - 245°C"
       },
       "review": {
         "status": "proposed"
@@ -499,48 +562,48 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle temperature",
-      "raw": "190-220°C",
-      "line": "Nozzle temperature 190-220°C"
+      "raw": "210 - 245°C",
+      "line": "Nozzle temperature 210 - 245°C"
     },
     {
       "page": 1,
       "field": "bed",
       "topic": "",
       "label": "Bed temperature",
-      "raw": "0-45°C",
-      "line": "Bed temperature 0-45°C"
+      "raw": "45 - 70°C",
+      "line": "Bed temperature 45 - 70°C"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "50-85%",
-      "line": "Active cooling fan 50-85%"
+      "raw": "do 100%",
+      "line": "Active cooling fan do 100%"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Layer height",
       "label": "Layer height",
-      "raw": "0.05 - 0.30 mm",
-      "line": "Layer height** 0.05 - 0.30 mm"
+      "raw": "0.05 - 0.3 mm",
+      "line": "Layer height** 0.05 - 0.3 mm"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Shell / walls",
       "label": "Shell thickness",
-      "raw": "0.40 - 2.70 mm",
-      "line": "Shell thickness** 0.40 - 2.70 mm"
+      "raw": "0.4 - 2.7 mm",
+      "line": "Shell thickness** 0.4 - 2.7 mm"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Speed",
       "label": "Print speed",
-      "raw": "30-100 mm/s",
-      "line": "Print speed** 30-100 mm/s"
+      "raw": "20 - 50 mm/s",
+      "line": "Print speed** 20 - 50 mm/s"
     },
     {
       "page": 1,
@@ -562,27 +625,47 @@
   "skipped": [
     {
       "page": 1,
-      "text": "Tensile Break at Strain 4,70% EN ISO 527-1",
+      "text": "Shore hardness A 90 ISO 7619-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "durability provided by a 20% carbon fiber reinforce-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "unnotched (at 23°C)* NB ISO 179-1eU",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
       "text": "is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture,",
-      "reason": "a storage or shelf-life note, not a test result"
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Electrical resistivity surface 3E4 ohm D 257",
+      "reason": "no property and value this line states together"
     },
     {
       "page": 1,
       "text": "product has a shelf life of 24 months.",
-      "reason": "a storage or shelf-life note, not a test result"
+      "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "* settings are based on a 0,4 mm nozzle.",
+      "text": "* settings are based on a 0.5mm nozzle",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "www.spectrumfilaments.com Preparation date: 06-04-2022",
+      "text": "*** at least 4h at 85°C using a hot dry air oven",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Preparation date: 06-10-2023",
       "reason": "in the column beside the storage note, naming no property and value together"
     }
   ],

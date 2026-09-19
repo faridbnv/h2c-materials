@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "1fb3b3d12ebf0c08b15978b0c53056909731dfc75aa90cc479ba38f8499d1338",
@@ -13,23 +13,22 @@
     "docKey": "1fb3b3d12ebf0c08"
   },
   "identity": {
-    "polymer": "",
-    "modifier": "",
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
     "variantClass": "",
-    "family": "",
+    "family": "Flexible Elastomers",
     "hardness": "90A",
     "support": false,
     "signals": [
+      "name: sflex",
       "hardness: 90A"
     ],
-    "materialId": null,
-    "materialName": null,
-    "estimateIdentity": "",
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
     "confidence": 1,
-    "needsRuling": true,
-    "reasons": [
-      "no base polymer in \"spectrum sflex 90a\""
-    ]
+    "needsRuling": false,
+    "reasons": []
   },
   "source": {
     "row": {
@@ -61,10 +60,12 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M039",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
@@ -91,7 +92,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M039",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1,22 g/cm3",
@@ -131,14 +132,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M039",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "35 MPa",
@@ -178,7 +181,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -186,7 +191,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M039",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "200-230°C",
@@ -251,7 +256,9 @@
         "text": "Nozzle temperature 200-230°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -392,6 +399,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

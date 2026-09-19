@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "c21d545a064587166c9b5f3488ba3fcde30034a64d5d63dbf076ba975227d5dd",
@@ -14,7 +14,7 @@
   },
   "identity": {
     "polymer": "PC",
-    "modifier": "Unfilled / unspecified",
+    "modifier": "PTFE",
     "variantClass": "",
     "family": "Polycarbonate",
     "hardness": null,
@@ -23,15 +23,29 @@
       "name: pc",
       "filler: ptfe"
     ],
-    "materialId": "M035",
-    "materialName": "PC",
+    "materialId": null,
+    "materialName": null,
     "estimateIdentity": "PC",
     "confidence": 1,
-    "needsRuling": true,
-    "reasons": [
-      "\"ptfe\" has no value in schema/vocab/modifiers.csv: a tribological load: a ruling",
-      "its density of 1320 kg/m³ is above what neat PC reaches (1230), so the product carries a filler its name does not declare"
-    ]
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PC-PTFE",
+    "Family": "Polycarbonate",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Polycarbonate (PTFE)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PC-PTFE",
+    "Base polymer": "PC",
+    "Estimate identity": "PC",
+    "Modifier / filler": "PTFE",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from S-SPECTRUM-en-tds-spectrum-pc-ptfe (p. 1): name: pc; filler: ptfe."
   },
   "source": {
     "row": {
@@ -63,10 +77,12 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
@@ -93,7 +109,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.32 g/cm3",
@@ -133,14 +149,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Charpy strength",
         "Raw value": "50 kJ/m2",
@@ -180,14 +198,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Charpy strength",
         "Raw value": "12 kJ/m2",
@@ -227,14 +247,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Elongation at yield",
         "Raw value": "3.0 %",
@@ -274,14 +296,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "8.0 %",
@@ -321,14 +345,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile break strength",
         "Raw value": "55 MPa",
@@ -368,14 +394,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "2200 MPa",
@@ -415,14 +443,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Vicat softening temperature",
         "Raw value": "145 °C",
@@ -462,14 +492,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m09",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "140 °C",
@@ -509,14 +541,16 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m10",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "130 °C",
@@ -556,7 +590,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -564,7 +600,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M035",
+        "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "265-295°C",
@@ -633,7 +669,9 @@
         "text": "Nozzle temperature 265-295°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -792,6 +830,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

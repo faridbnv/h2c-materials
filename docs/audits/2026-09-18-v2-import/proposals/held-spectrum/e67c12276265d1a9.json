@@ -2,56 +2,58 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
-    "sha256": "27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc",
-    "url": "https://spectrumfilaments.com/wp-content/uploads/2024/11/en_tds_spectrum_thermatech_pa.pdf",
+    "sha256": "e67c12276265d1a99a255516c5c1c4616fe5087e1f2520125ed5dce800d7b9e4",
+    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_Metal_Bronze.pdf",
     "pages": 1,
-    "provider": "Spectrum",
+    "provider": "3DJake / 3DJAKE",
     "manufacturer": "Spectrum",
-    "docKey": "27fb63eeafcc72e6"
+    "docKey": "e67c12276265d1a9"
   },
   "identity": {
-    "polymer": "",
-    "modifier": "",
-    "variantClass": "",
-    "family": "Nylon / Polyamide",
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "name: pa"
+      "name: pla",
+      "variant: metal"
     ],
     "materialId": null,
     "materialName": null,
-    "estimateIdentity": "",
+    "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": true,
     "reasons": [
-      "\"pa\" names a family, not a polymer: as above"
+      "a new material for this identity would be a second PLA (M001): PLA / Unfilled / unspecified / particle-filled",
+      "its density of 2280 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare"
     ]
   },
   "source": {
     "row": {
-      "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
       "Publisher": "Spectrum",
-      "Title": "TECHNICAL DATA SHEET ThermaTech PA",
+      "Title": "TECHNICAL DATA SHEET PLA Metal Bronze",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-18",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/11/en_tds_spectrum_thermatech_pa.pdf",
+      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_Metal_Bronze.pdf",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc"
+      "SHA256": "e67c12276265d1a99a255516c5c1c4616fe5087e1f2520125ed5dce800d7b9e4"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET ThermaTech PA"
+      "text": "TECHNICAL DATA SHEET PLA Metal Bronze"
     },
     "review": {
       "status": "proposed"
@@ -68,21 +70,21 @@
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
-        "Product name": "ThermaTech PA",
-        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+        "Product name": "PLA Metal Bronze",
+        "Shared formulation key": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET ThermaTech PA"
+        "text": "TECHNICAL DATA SHEET PLA Metal Bronze"
       }
     }
   ],
@@ -94,14 +96,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
-        "Raw value": "1.30 g/cm3",
+        "Raw value": "2.28 g/cm3",
         "Raw unit": "g/cm3",
-        "Raw numeric": "1.3",
+        "Raw numeric": "2.28",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1000",
-        "Normalized value": "1300",
+        "Normalized value": "2280",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
@@ -115,19 +117,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 1183",
-        "Standards": "ISO 1183",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
-        "Locator": "p. 1: Density",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
+        "Locator": "p. 1: Specific Gravity",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Density 1.30 g/cm3 ISO 1183 ThermaTech PA is a high-performance 3D printing"
+        "text": "Specific Gravity 2.28 g/cm3"
       },
       "confidence": 1,
       "review": {
@@ -140,21 +142,21 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Charpy strength",
-        "Raw value": "30 kJ/m2",
-        "Raw unit": "kJ/m2",
-        "Raw numeric": "30",
+        "Property": "Tensile break strength",
+        "Raw value": "23 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "23",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "30",
+        "Normalized value": "23",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "kJ/m²",
+        "Normalized unit": "MPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Not applicable",
+        "Direction": "Unstated",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -162,19 +164,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "injection moulding ISO 179-1eU",
-        "Standards": "ISO 179",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
         "Test load MPa": "Not applicable",
-        "Notch": "Unnotched",
+        "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
-        "Locator": "p. 1: Charpy impact strength Unnotched, injection moulding",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
+        "Locator": "p. 1: Tensile Strength at Break",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Unnotched, injection moulding 30 kJ/m2 ISO 179-1eU"
+        "text": "Tensile Strength at Break 23 MPa"
       },
       "confidence": 1,
       "review": {
@@ -187,65 +189,18 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Charpy strength",
-        "Raw value": "3.8 kJ/m2",
-        "Raw unit": "kJ/m2",
-        "Raw numeric": "3.8",
+        "Property": "Tensile yield strength",
+        "Raw value": "31 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "31",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "3.8",
+        "Normalized value": "31",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "kJ/m²",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Not applicable",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "injection moulding ISO 179-1eA",
-        "Standards": "ISO 179",
-        "Test load MPa": "Not applicable",
-        "Notch": "Notched",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
-        "Locator": "p. 1: Charpy impact strength Notched, injection moulding",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Notched, injection moulding 3.8 kJ/m2 ISO 179-1eA"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m04",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "",
-        "GradeID": "",
-        "Property": "Tensile modulus",
-        "Raw value": "6300 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "6300",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "0.001",
-        "Normalized value": "6.3",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "GPa",
+        "Normalized unit": "MPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Unstated",
@@ -256,19 +211,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "speed 1 mm/min injection moulding ISO 527",
-        "Standards": "ISO 527",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
-        "Locator": "p. 1: Elastic modulus Tensile (speed 1 mm/min), injection moulding",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
+        "Locator": "p. 1: Tensile Strength at Yield",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile (speed 1 mm/min), injection moulding 6300 MPa ISO 527 (1)"
+        "text": "Tensile Strength at Yield 31 MPa"
       },
       "confidence": 1,
       "review": {
@@ -283,32 +238,32 @@
         "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "250-280°C",
+        "Nozzle °C": "195-230°C",
         "Nozzle state": "range",
-        "Nozzle min °C": "250",
-        "Nozzle max °C": "280",
+        "Nozzle min °C": "195",
+        "Nozzle max °C": "230",
         "Nozzle requirement": "required",
-        "Bed °C": "60-80°C",
+        "Bed °C": "40-50°C",
         "Bed state": "range",
-        "Bed min °C": "60",
-        "Bed max °C": "80",
+        "Bed min °C": "40",
+        "Bed max °C": "50",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
         "Chamber max °C": "Not applicable",
         "Chamber requirement": "unknown",
-        "Enclosure": "recommended for larger prints",
-        "Enclosure state": "recommended",
+        "Enclosure": "not necessary",
+        "Enclosure state": "not-needed",
         "Plate": "Not published",
         "Drying": "Not published",
         "Drying state": "unknown",
         "Drying °C": "Not applicable",
         "Drying hours": "Not applicable",
-        "Nozzle material": "not necessary",
+        "Nozzle material": "Yes",
         "Nozzle diameter": "Not published",
-        "Abrasion / clogging": "Not published",
-        "Hardened nozzle": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle Yes",
+        "Hardened nozzle": "TRUE",
         "H2C left": "Verify exact grade/nozzle; no blanket approval",
         "H2C right": "Verify exact grade/nozzle; no blanket approval",
         "AMS 2 Pro": "Not verified for every grade",
@@ -316,7 +271,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Bronze",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -324,25 +279,25 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "Up to 100%"
+          "Text": "YES (up to 100%)"
         },
         {
           "Topic": "Layer height",
-          "Text": "0.40 - 2.70mm"
+          "Text": "0.05 - 0.30 mm"
         },
         {
           "Topic": "Shell / walls",
-          "Text": "0.05 - 0.30mm"
+          "Text": "≥ 0.20 mm"
         },
         {
           "Topic": "Adhesion / release",
-          "Text": "recommended (Magigoo PA)"
+          "Text": "not necessary"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Nozzle temperature - standard speed 250-280°C"
+        "text": "Nozzle temperature 195-230°C"
       },
       "review": {
         "status": "proposed"
@@ -357,97 +312,82 @@
       "page": 1,
       "field": "nozzle",
       "topic": "",
-      "label": "Nozzle temperature - standard speed",
-      "raw": "250-280°C",
-      "line": "Nozzle temperature - standard speed 250-280°C"
+      "label": "Nozzle temperature",
+      "raw": "195-230°C",
+      "line": "Nozzle temperature 195-230°C"
     },
     {
       "page": 1,
       "field": "bed",
       "topic": "",
       "label": "Bed temperature",
-      "raw": "60-80°C",
-      "line": "Bed temperature 60-80°C"
+      "raw": "40-50°C",
+      "line": "Bed temperature 40-50°C"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "Up to 100%",
-      "line": "Active cooling fan Up to 100%"
+      "raw": "YES (up to 100%)",
+      "line": "Active cooling fan YES (up to 100%)"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Layer height",
       "label": "Layer height",
-      "raw": "0.40 - 2.70mm",
-      "line": "Layer height** 0.40 - 2.70mm"
+      "raw": "0.05 - 0.30 mm",
+      "line": "Layer height** 0.05 - 0.30 mm"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Shell / walls",
       "label": "Shell thickness",
-      "raw": "0.05 - 0.30mm",
-      "line": "Shell thickness** 0.05 - 0.30mm"
+      "raw": "≥ 0.20 mm",
+      "line": "Shell thickness** ≥ 0.20 mm"
     },
     {
       "page": 1,
       "field": "enclosure",
       "topic": "",
       "label": "Closed chamber",
-      "raw": "recommended for larger prints",
-      "line": "Closed chamber recommended for larger prints"
+      "raw": "not necessary",
+      "line": "Closed chamber not necessary"
     },
     {
       "page": 1,
       "field": "nozzle-material",
       "topic": "",
       "label": "Ruby or hardened nozzle",
-      "raw": "not necessary",
-      "line": "Ruby or hardened nozzle not necessary"
+      "raw": "Yes",
+      "line": "Ruby or hardened nozzle Yes"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Adhesion / release",
       "label": "Adhesive",
-      "raw": "recommended (Magigoo PA)",
-      "line": "Adhesive recommended (Magigoo PA)"
+      "raw": "not necessary",
+      "line": "Adhesive not necessary"
     }
   ],
   "skipped": [
     {
       "page": 1,
-      "text": "Tensile elongation (speed 5mm/min)",
+      "text": "MFI (210°C, 2.16kg) 40.8 g/10min",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "At yield, injection moulding 2.7% ISO 527 (1)",
+      "text": "Impact Strength - Charpy method 23°C 3.5 kJ/mz FEAUTURES",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "At break, injection moulding 3.4% ISO 527 (1)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Tensile strength (speed 5mm/min)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "At yield, injection moulding 55 MPa ISO 527 (1)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "At break, injection moulding 50 MPa ISO 527 (1)",
-      "reason": "no property and value this line states together"
+      "text": "Recommended nozzle ≥ 0.4 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
@@ -456,22 +396,27 @@
     },
     {
       "page": 1,
+      "text": "stick, Dimafix, 3DLac, Magigoo)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
       "text": "product has a shelf life of 24 months.",
       "reason": "a storage or shelf-life note, not a test result"
     },
     {
       "page": 1,
-      "text": "* settings are based on a 0.4mm nozzle",
+      "text": "* settings are based on a 0,4 mm nozzle.",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "*** at least 6h at 85°C using a hot dry air oven",
+      "text": "than the standard 0.4mm. The high metal content may cause accelerated wear of standard brass nozzles; therefore, it is",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "www.spectrumfilaments.com Preparation date: 30-09-2024",
+      "text": "www.spectrumfilaments.com Preparation date: 26-11-2024",
       "reason": "in the column beside the storage note, naming no property and value together"
     }
   ],

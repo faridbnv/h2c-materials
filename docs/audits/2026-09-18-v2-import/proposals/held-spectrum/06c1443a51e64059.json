@@ -2,54 +2,57 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
-    "sha256": "9a2c77aa94eba1ad4a0c906c92f164aec9fb6e78c8c24c15f48acfac21f34530",
-    "url": "https://spectrumfilaments.com/wp-content/uploads/2023/10/en_tds_spectrum_greeny_pro.pdf",
+    "sha256": "06c1443a51e640596945034be7790cd67c59745227065394f68309736d2820e7",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_glitter.pdf",
     "pages": 1,
     "provider": "Spectrum",
     "manufacturer": "Spectrum",
-    "docKey": "9a2c77aa94eba1ad"
+    "docKey": "06c1443a51e64059"
   },
   "identity": {
-    "polymer": "",
-    "modifier": "",
-    "variantClass": "",
-    "family": "",
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "family": "PLA",
     "hardness": null,
     "support": false,
-    "signals": [],
+    "signals": [
+      "name: pla",
+      "variant: glitter"
+    ],
     "materialId": null,
     "materialName": null,
-    "estimateIdentity": "",
+    "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": true,
     "reasons": [
-      "no base polymer in \"spectrum greeny pro\""
+      "a new material for this identity would be a second PLA (M001): PLA / Unfilled / unspecified / particle-filled"
     ]
   },
   "source": {
     "row": {
-      "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
       "Publisher": "Spectrum",
-      "Title": "TECHNICAL DATA SHEET Greeny Pro",
+      "Title": "TECHNICAL DATA SHEET PLA Glitter",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-18",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://spectrumfilaments.com/wp-content/uploads/2023/10/en_tds_spectrum_greeny_pro.pdf",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_glitter.pdf",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "9a2c77aa94eba1ad4a0c906c92f164aec9fb6e78c8c24c15f48acfac21f34530"
+      "SHA256": "06c1443a51e640596945034be7790cd67c59745227065394f68309736d2820e7"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET Greeny Pro"
+      "text": "TECHNICAL DATA SHEET PLA Glitter"
     },
     "review": {
       "status": "proposed"
@@ -66,21 +69,21 @@
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
-        "Product name": "Greeny Pro",
-        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+        "Product name": "PLA Glitter",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET Greeny Pro"
+        "text": "TECHNICAL DATA SHEET PLA Glitter"
       }
     }
   ],
@@ -92,14 +95,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
-        "Raw value": "1.34 g/cm3",
+        "Raw value": "1.24 g/cm3",
         "Raw unit": "g/cm3",
-        "Raw numeric": "1.34",
+        "Raw numeric": "1.24",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1000",
-        "Normalized value": "1340",
+        "Normalized value": "1240",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
@@ -118,14 +121,14 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
         "Locator": "p. 1: Specific Gravity",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Specific Gravity 1.34 g/cm3 D 792 GreenyPro is a new filament from the bio-perfor-"
+        "text": "Specific Gravity 1.24 g/cm3 D 792 Spectrum PLA Glitter is a highly aesthetical PLA-"
       },
       "confidence": 1,
       "review": {
@@ -138,41 +141,41 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Tensile modulus",
-        "Raw value": "5100 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "5100",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
-        "Conversion factor": "0.001",
-        "Normalized value": "5.1",
+        "Conversion factor": "1",
+        "Normalized value": "6",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "GPa",
+        "Normalized unit": "g/10 min",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
         "Post-processing state": "not-stated",
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 527",
-        "Standards": "ISO 527",
+        "Test temperature": "210°C",
+        "Standard / load": "210°C 2.16kg D 1238",
+        "Standards": "ASTM D1238",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Tensile modulus",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: MFR (210°C, 2.16kg)",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile modulus 5100 MPa ISO 527"
+        "text": "MFR (210°C, 2.16kg) 6 g/10min D 1238"
       },
       "confidence": 1,
       "review": {
@@ -185,7 +188,7 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Tensile strength (endpoint unspecified)",
+        "Property": "Tensile break strength",
         "Raw value": "53 MPa",
         "Raw unit": "MPa",
         "Raw numeric": "53",
@@ -207,19 +210,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 527",
-        "Standards": "ISO 527",
+        "Standard / load": "D 882",
+        "Standards": "ASTM D882",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Tensile strength",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Tensile Strength at Break",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile strength 53 MPa ISO 527"
+        "text": "Tensile Strength at Break 53 MPa D 882"
       },
       "confidence": 1,
       "review": {
@@ -233,14 +236,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile yield strength",
-        "Raw value": "52.5 MPa",
+        "Raw value": "60 MPa",
         "Raw unit": "MPa",
-        "Raw numeric": "52.5",
+        "Raw numeric": "60",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "52.5",
+        "Normalized value": "60",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
@@ -254,19 +257,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 527",
-        "Standards": "ISO 527",
+        "Standard / load": "D 882",
+        "Standards": "ASTM D882",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Tensile stress at yield",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Tensile Yield Strength",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile stress at yield 52.5 MPa ISO 527"
+        "text": "Tensile Yield Strength 60 MPa D 882"
       },
       "confidence": 1,
       "review": {
@@ -279,18 +282,18 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Elongation at yield",
-        "Raw value": "1.95 %",
-        "Raw unit": "%",
-        "Raw numeric": "1.95",
+        "Property": "Tensile modulus",
+        "Raw value": "3.5 Gpa",
+        "Raw unit": "Gpa",
+        "Raw numeric": "3.5",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "1.95",
+        "Normalized value": "3.5",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
+        "Normalized unit": "GPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Unstated",
@@ -301,19 +304,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 527",
-        "Standards": "ISO 527",
+        "Standard / load": "D 882",
+        "Standards": "ASTM D882",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Tensile strain at yield",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Tensile Modulus",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile strain at yield 1.95% ISO 527 FEAUTURES"
+        "text": "Tensile Modulus 3.5 Gpa D 882"
       },
       "confidence": 1,
       "review": {
@@ -326,15 +329,62 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Tensile break strength",
-        "Raw value": "51 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "51",
+        "Property": "Izod impact strength",
+        "Raw value": "16 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "16",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "51",
+        "Normalized value": "16",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Notched Izod Impact",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched Izod Impact 16 J/m D 256"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "83 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "83",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "83",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
@@ -348,66 +398,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 527",
-        "Standards": "ISO 527",
+        "Standard / load": "D790",
+        "Standards": "ASTM D790",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Tensile stress at break",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Flexural Strength",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile stress at break 51 MPa ISO 527 • High impact resistance"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m07",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "",
-        "GradeID": "",
-        "Property": "Elongation at break",
-        "Raw value": "2.2 %",
-        "Raw unit": "%",
-        "Raw numeric": "2.2",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "2.2",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 527",
-        "Standards": "ISO 527",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Tensile strain at break",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Tensile strain at break 2.2% ISO 527"
+        "text": "Flexural Strength 83 MPa D790"
       },
       "confidence": 1,
       "review": {
@@ -420,41 +423,41 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Charpy strength",
-        "Raw value": "45 kJ/m2",
-        "Raw unit": "kJ/m2",
-        "Raw numeric": "45",
+        "Property": "Flexural modulus",
+        "Raw value": "3.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3.8",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "45",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.0038",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "kJ/m²",
+        "Normalized unit": "GPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Not applicable",
+        "Direction": "Unstated",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
         "Post-processing state": "not-stated",
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
-        "Test temperature": "23°C",
-        "Standard / load": "23°C ISO 179/1eU",
-        "Standards": "ISO 179",
+        "Test temperature": "Not published",
+        "Standard / load": "D790",
+        "Standards": "ASTM D790",
         "Test load MPa": "Not applicable",
-        "Notch": "Unnotched",
+        "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Charpy Impact Strength (23°C)",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Flexural Modulus",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Charpy Impact Strength (23°C) 45 kJ/m2 ISO 179/1eU"
+        "text": "Flexural Modulus 3.8 MPa D790"
       },
       "confidence": 1,
       "review": {
@@ -468,14 +471,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "HDT",
-        "Raw value": "84 °C",
+        "Raw value": "55 °C",
         "Raw unit": "°C",
-        "Raw numeric": "84",
+        "Raw numeric": "55",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "84",
+        "Normalized value": "55",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
@@ -489,19 +492,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "0.45mn/m2 ISO 75",
-        "Standards": "ISO 75",
-        "Test load MPa": "0.45",
+        "Standard / load": "E 2092",
+        "Standards": "ASTM E2092",
+        "Test load MPa": "Not published",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Heat Deflection Temperature 0.45mn/m2",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Heat Distortion Temperature",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "0.45mn/m2 84°C ISO 75"
+        "text": "Heat Distortion Temperature 55°C E 2092"
       },
       "confidence": 1,
       "review": {
@@ -514,17 +517,17 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Vicat softening temperature",
-        "Raw value": "160 °C",
+        "Property": "Glass transition temperature",
+        "Raw value": "55-60 °C",
         "Raw unit": "°C",
-        "Raw numeric": "160",
+        "Raw numeric": "55",
         "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
+        "Raw upper bound": "60",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "160",
+        "Normalized value": "55",
         "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
+        "Normalized upper bound": "60",
         "Normalized unit": "°C",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
@@ -536,19 +539,19 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 306",
-        "Standards": "ISO 306",
+        "Standard / load": "D3418",
+        "Standards": "ASTM D3418",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
-        "Locator": "p. 1: Vicat Softening Temperature",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
+        "Locator": "p. 1: Glass Transition Temperature",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Vicat Softening Temperature 160°C ISO 306"
+        "text": "Glass Transition Temperature 55-60°C D3418"
       },
       "confidence": 1,
       "review": {
@@ -563,12 +566,12 @@
         "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "190 - 220°C",
+        "Nozzle °C": "185-215°C",
         "Nozzle state": "range",
-        "Nozzle min °C": "190",
-        "Nozzle max °C": "220",
+        "Nozzle min °C": "185",
+        "Nozzle max °C": "215",
         "Nozzle requirement": "required",
-        "Bed °C": "0 - 45°C",
+        "Bed °C": "0-45°C",
         "Bed state": "range",
         "Bed min °C": "0",
         "Bed max °C": "45",
@@ -596,7 +599,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-glitter",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -612,17 +615,17 @@
         },
         {
           "Topic": "Shell / walls",
-          "Text": "0.40 - 2.70 mm"
+          "Text": "0.40 – 2.70 mm"
         },
         {
           "Topic": "Speed",
-          "Text": "40 - 200 mm/s"
+          "Text": "40-90 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Nozzle temperature 190 - 220°C"
+        "text": "Nozzle temperature 185-215°C"
       },
       "review": {
         "status": "proposed"
@@ -638,16 +641,16 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle temperature",
-      "raw": "190 - 220°C",
-      "line": "Nozzle temperature 190 - 220°C"
+      "raw": "185-215°C",
+      "line": "Nozzle temperature 185-215°C"
     },
     {
       "page": 1,
       "field": "bed",
       "topic": "",
       "label": "Bed temperature",
-      "raw": "0 - 45°C",
-      "line": "Bed temperature 0 - 45°C"
+      "raw": "0-45°C",
+      "line": "Bed temperature 0-45°C product has a shelf life of 24 months."
     },
     {
       "page": 1,
@@ -670,16 +673,16 @@
       "field": "note",
       "topic": "Shell / walls",
       "label": "Shell thickness",
-      "raw": "0.40 - 2.70 mm",
-      "line": "Shell thickness** 0.40 - 2.70 mm"
+      "raw": "0.40 – 2.70 mm",
+      "line": "Shell thickness** 0.40 – 2.70 mm"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Speed",
       "label": "Print speed",
-      "raw": "40 - 200 mm/s",
-      "line": "Print speed** 40 - 200 mm/s"
+      "raw": "40-90 mm/s",
+      "line": "Print speed** 40-90 mm/s"
     },
     {
       "page": 1,
@@ -701,33 +704,28 @@
   "skipped": [
     {
       "page": 1,
-      "text": "Strain at tensile strength 1.9% ISO 527",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "• Biodegradable according to DIN EN ISO 14855",
+      "text": "Tensile Elongation 6,00% D 882",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
       "text": "is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture,",
-      "reason": "a storage or shelf-life note, not a test result"
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
-      "text": "GUIDELINE FOR PRINT SETTINGS* product has a shelf life of 24 months.",
-      "reason": "a storage or shelf-life note, not a test result"
+      "text": "Recommended nozzle ≥ 0.4 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
       "text": "* settings are based on a 0,4 mm nozzle.",
-      "reason": "in the column beside the storage note, naming no property and value together"
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
-      "text": "www.spectrumfilaments.com Preparation date: 01-10-2023",
-      "reason": "in the column beside the storage note, naming no property and value together"
+      "text": "www.spectrumfilaments.com Preparation date: 06-04-2022",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
     }
   ],
   "review": {

@@ -59,8 +59,10 @@ test('a name that does not say what the polymer is becomes a question, never a g
   const amidex = classify('AmideX PA6 Copolymer', '3DXTECH');
   assert.equal(amidex.needsRuling, true);
   assert.ok(amidex.confidence < 1);
-  // A filler the vocabulary has no value for is a ruling, not a near-enough match.
-  assert.match(classify('Spectrum ABS Kevlar', 'Spectrum').reasons.join(' '), /aramid/);
+  // A filler the vocabulary has no value for is a ruling, not a near-enough match. Aramid, PTFE, ceramic and a
+  // conductive load gained values with the Spectrum batch that needed them; tungsten has none.
+  assert.match(classify('Spectrum PETG Tungsten', 'Spectrum').reasons.join(' '), /tungsten/);
+  assert.equal(classify('Spectrum ABS Kevlar', 'Spectrum').modifier, 'Aramid fibre');
   // A polymer with no row in polymers.csv cannot be estimated, and says so.
   assert.match(classify('PEEK', '3DXTECH').reasons.join(' '), /polymers\.csv/);
 });
@@ -146,9 +148,16 @@ test('a filler is read from the sheet only where the sheet makes it a filler', (
   // Where the sheet does make it a filler, it is one.
   const filled = 'a PLA reinforced with 20% glass fibre for stiffness';
   assert.equal(classifyProduct('PLA Pro', { manufacturer: 'Spectrum', body: filled }, world).modifier, 'Glass fibre');
-  // A load with no vocabulary value is a question, not silence: this sheet says "The applied ceramic fillers".
+  // A load the sheet names in its own words, and only in them: this sheet says "The applied ceramic fillers".
   const ceramic = 'a flame-resistant material based on polyamide 6. The applied ceramic fillers enhance thermal stability';
-  assert.match(classifyProduct('PA6 CS20 FR V0', { manufacturer: 'Spectrum', body: ceramic }, world).reasons.join(' '), /ceramic/);
+  assert.equal(classifyProduct('PA6 CS20 FR V0', { manufacturer: 'Spectrum', body: ceramic }, world).modifier, 'Ceramic');
+  // A percentage near the word is not a filler word. The table and the marketing column are interleaved, so
+  // "Tensile Strain at Break 10% lower carbon footprint" put a percentage twelve characters before "carbon".
+  const footprint = 'FlameGuard PLA is a flame-retardant material. Tensile Strain at Break 10% lower carbon footprint than ABS FR';
+  assert.equal(classifyProduct('FlameGuard PLA', { manufacturer: 'Spectrum', body: footprint }, world).modifier, 'Unfilled / unspecified');
+  // A hollow glass sphere is a load, and it is not a reinforcing fibre.
+  const spheres = 'PA6 GK10 is a polyamide 6. Filled with hollow glass spheres, it is stiffer and lighter';
+  assert.equal(classifyProduct('PA6 GK10', { manufacturer: 'Spectrum', body: spheres }, world).modifier, 'Glass spheres');
 });
 
 test('a fibre load is read by the shape of its code, not by a list of spellings', () => {
@@ -163,4 +172,19 @@ test('a fibre load is read by the shape of its code, not by a list of spellings'
     assert.equal(c.modifier, modifier, name);
     assert.equal(c.materialId, materialId, name);
   }
+});
+
+test('a polymer named only to be contrasted with is not the product', () => {
+  // Spectrum ecoPET 9021: "Unlike the more widely used PETG in 3D printing, it is based on a non-glycol-modified
+  // variant of PET", and "its advantages over classic PETG". Every mention of PETG contrasts; the product is PET.
+  const body = 'Spectrum ecoPET 9021 is another polyester technical material. Unlike the Water absorption 0.3% ISO 62'
+    + ' more widely used PETG in 3D printing, it is based on a non-glycol-modified variant of PET retaining 90%'
+    + ' recycled content. Its advantages over classic PETG are not only ecological.';
+  const read = classifyProduct('ecoPET 9021', { manufacturer: 'Spectrum', body }, world);
+  assert.equal(read.polymer, 'PET');
+  // A support product says so in its own words as often as in its name.
+  const aqua = 'AquaPrint is a water-soluble support material designed for complex multi-extrusion 3D printing.';
+  const support = classifyProduct('AquaPrint', { manufacturer: 'Spectrum', body: aqua }, world);
+  assert.equal(support.support, true);
+  assert.equal(support.needsRuling, true);
 });

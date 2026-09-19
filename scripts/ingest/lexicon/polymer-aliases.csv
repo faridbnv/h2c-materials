@@ -56,6 +56,7 @@ plalw,PLA,PLA,
 plla,PLA,PLA,poly-L-lactide is PLA
 pmma,PMMA,PVB / Specialty Polymers,no polymers.csv row yet
 polycarbonate,PC,Polycarbonate,
+polyurethane,TPU,,"a sheet that names the chemistry rather than the class: thermoplastic polyether or polyester polyurethane is TPU"
 pom,POM,Acetals,
 pp,PP,Polyolefins,
 ppa,PPA,High-Performance Engineering,
@@ -73,6 +74,7 @@ rpetg,PETG,PETG,
 rpla,PLA,PLA,recycled PLA
 san,SAN,Styrenics,no polymers.csv row yet
 sebs,SEBS,Flexible Elastomers,no polymers.csv row yet
+sflex,TPU,Flexible Elastomers,"Spectrum's flexible line: S-Flex 85A and 98A state a thermoplastic polyether polyurethane, and 90A and Carbon carry the same name (ruling R014)"
 tarfuse,POM,Acetals,Grupa Azoty's acetal line
 tpc,TPC,Flexible Elastomers,
 tpe,,Flexible Elastomers,"TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"

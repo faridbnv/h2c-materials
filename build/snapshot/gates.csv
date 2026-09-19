@@ -37,7 +37,7 @@ M035,PC,within,within,within,within,unknown,required
 M036,PC FR,within,within,within,within,unknown,required
 M037,PC-CF,within,within,within,unknown,requires-hardened,required
 M038,PC-GF,within,within,within,within,requires-hardened,required
-M039,TPU,within,within,within,within,unknown,unknown
+M039,TPU,within,within,within,within,requires-hardened,unknown
 M040,TPU for AMS,within,within,within,within,unknown,required
 M041,TPU 95A HF,within,within,within,within,unknown,required
 M042,TPU 90A,within,within,within,within,unknown,required
@@ -64,7 +64,7 @@ M062,PA-CF,family,unknown,unknown,unknown,unknown,unknown
 M063,PA-GF,family,unknown,unknown,unknown,unknown,unknown
 M064,PA-ESD,within,within,within,unknown,unknown,unknown
 M065,PA612-ESD,within,within,within,within,unknown,unknown
-M066,PET,within,within,within,unknown,unknown,required
+M066,PET,within,within,within,within,unknown,required
 M067,PET-CF,within,within,within,within,requires-hardened,required
 M068,PET-GF,within,within,within,within,requires-hardened,required
 M069,PPA,within,within,within,unknown,unknown,required
@@ -102,3 +102,13 @@ M100,PSU,excluded,exceeds,exceeds,unknown,unknown,required
 M101,PESU / PES,excluded,exceeds,exceeds,unknown,unknown,required
 M102,PPSU,excluded,exceeds,exceeds,exceeds,unknown,required
 M103,PP Lightweight,within,within,within,unknown,unknown,unknown
+M104,PA6-CE,within,within,within,within,requires-hardened,unknown
+M105,ASA-EC,within,within,within,unknown,requires-hardened,unknown
+M106,ABS-AF,within,within,within,within,requires-hardened,unknown
+M107,PLA-ESD,within,within,within,within,unknown,unknown
+M108,PA6-GS,within,within,within,unknown,requires-hardened,unknown
+M109,PETG-PTFE,within,within,within,within,unknown,unknown
+M110,PCTG-GF,within,within,within,within,requires-hardened,unknown
+M111,PLA-EC,within,within,within,within,requires-hardened,unknown
+M112,PC-PTFE,within,within,within,unknown,unknown,unknown
+M113,ASA-AF,within,within,within,within,requires-hardened,unknown

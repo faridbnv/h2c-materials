@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "bd748fc3e51a9e35fcd745e95fa663d959482c558a07ccfca1684eb9e22c784e",
@@ -60,7 +60,9 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
         "MaterialID": "M032",
@@ -130,58 +132,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m02",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M032",
-        "GradeID": "",
-        "Property": "Density",
-        "Raw value": "0,36 g/cm³",
-        "Raw unit": "g/cm³",
-        "Raw numeric": "0.36",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1000",
-        "Normalized value": "360",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "kg/m³",
-        "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
-        "Direction": "Not applicable",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-en-tds-spectrum-lw-asa-ultrafoam",
-        "Locator": "p. 1: Density (foamed)",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Density (foamed) 0,36 g/cm³"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -224,11 +181,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m04",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -271,11 +230,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m05",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -318,11 +279,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m06",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -365,11 +328,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m07",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -412,11 +377,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m08",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -459,11 +426,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m09",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -506,11 +475,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m10",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -553,11 +524,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m11",
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M032",
@@ -600,7 +573,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -673,7 +648,9 @@
         "text": "Nozzle temperature - standard speed 220-285°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -749,6 +726,11 @@
   "skipped": [
     {
       "page": 1,
+      "text": "Density (foamed) 0,36 g/cm³",
+      "reason": "the density the print reaches with foaming active, which is what the process does and not what the material is"
+    },
+    {
+      "page": 1,
       "text": "up to 3x weight reduction of printed parts without",
       "reason": "no property and value this line states together"
     },
@@ -799,6 +781,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

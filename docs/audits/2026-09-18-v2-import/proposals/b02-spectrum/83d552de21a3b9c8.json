@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "83d552de21a3b9c8646dae2464722a41476b76d6c74ee40baa7b799035097e33",
@@ -13,18 +13,18 @@
     "docKey": "83d552de21a3b9c8"
   },
   "identity": {
-    "polymer": "PETG",
+    "polymer": "PET",
     "modifier": "Unfilled / unspecified",
     "variantClass": "",
-    "family": "PETG",
+    "family": "PET Engineering",
     "hardness": null,
     "support": false,
     "signals": [
-      "sheet: petg"
+      "sheet: pet"
     ],
-    "materialId": "M020",
-    "materialName": "PETG",
-    "estimateIdentity": "PETG",
+    "materialId": "M066",
+    "materialName": "PET",
+    "estimateIdentity": "PET",
     "confidence": 0.8,
     "needsRuling": false,
     "reasons": []
@@ -59,10 +59,12 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
@@ -89,7 +91,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.36 g/cm3",
@@ -129,14 +131,17 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: ecoPET 9021 says it is based on a non-glycol-modified variant of PET, and every mention of PETG on the sheet contrasts it with this product"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Property": "Water absorption",
         "Raw value": "0,3 %",
@@ -176,14 +181,17 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: ecoPET 9021 says it is based on a non-glycol-modified variant of PET, and every mention of PETG on the sheet contrasts it with this product"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "55 Mpa",
@@ -223,14 +231,17 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: ecoPET 9021 says it is based on a non-glycol-modified variant of PET, and every mention of PETG on the sheet contrasts it with this product"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Property": "Flexural strength",
         "Raw value": "75 MPa",
@@ -270,14 +281,17 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: ecoPET 9021 says it is based on a non-glycol-modified variant of PET, and every mention of PETG on the sheet contrasts it with this product"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "3 Gpa",
@@ -317,14 +331,17 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: ecoPET 9021 says it is based on a non-glycol-modified variant of PET, and every mention of PETG on the sheet contrasts it with this product"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Property": "Charpy strength",
         "Raw value": "28 kJ/m2",
@@ -364,7 +381,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the polymer is the sheet's own word: ecoPET 9021 says it is based on a non-glycol-modified variant of PET, and every mention of PETG on the sheet contrasts it with this product"
       }
     }
   ],
@@ -372,7 +392,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M020",
+        "MaterialID": "M066",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "240-270°C",
@@ -437,7 +457,9 @@
         "text": "Nozzle temperature 240-270°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -598,6 +620,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

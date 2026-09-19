@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 103,
-      "sha256": "f4fe0b67bd9c6d17cc2957888f6696499c65d6801fbc81df1ef5e2dd58e97525"
+      "rows": 113,
+      "sha256": "89680c51caeb320e7b4df69dcce019e1ceed0770f70d0647166fd98256801a2e"
     },
     "grades": {
-      "rows": 189,
-      "sha256": "1e34e2c24bbd39b62602b2a157d5bd963769be73cde404a04876ddf25877d206"
+      "rows": 240,
+      "sha256": "1cb373af80322523c53f4d27b59dc6f6e1ddf479ef91870791c8cb282d30087a"
     },
     "profiles": {
-      "rows": 183,
-      "sha256": "8c5b366508a25e9e1b4b3abb215e64e4040494cbb9f9e7c3629a3477bd8febfa"
+      "rows": 237,
+      "sha256": "25feb5ae714d88e68ad5ac12047c55ee49c14abacbb64f94da72e6dd9cedacdd"
     },
     "profile_notes": {
-      "rows": 404,
-      "sha256": "4d28ca75a0b646388b88da88a1b4c5ced6ba7c445a2a3dab4f2b315f9c1876a2"
+      "rows": 593,
+      "sha256": "17d0a7e48e5af31e41dfa401ba53e640c7d23db9a9b03d90027fd16551c5db2f"
     },
     "measurements": {
-      "rows": 2732,
-      "sha256": "4fda70056b95957f894c2c6ce0e232a49de1bd4933b7f852171d37f6b53dfeae"
+      "rows": 3133,
+      "sha256": "60ba0654a19b38a5f67a4e3e576830d45759bacb372350bcd32f2c1115cc9e8a"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -38,12 +38,12 @@
       "sha256": "490c13bcfc668287ed10685f2b8b5b871d32df2e959931c59fd5e63cb4e3330f"
     },
     "sources": {
-      "rows": 310,
-      "sha256": "c8d9818f83806e5a35b01963c837671d115ad84a0d5819b1acdb48694c763052"
+      "rows": 362,
+      "sha256": "e13da66baabe87d9d0650c4f8d26dbc38f48c7b77abba1049fbaad9db28e4b77"
     },
     "coverage": {
-      "rows": 674,
-      "sha256": "a58cb1fed70c0679e9790e7fe8279a7f1e7b215ae185d27ec3ec386e88473636"
+      "rows": 676,
+      "sha256": "62ed27ebac0d5f7e17faffc809db26a80d530d6d1f48cc8552418abd5743cff1"
     },
     "method": {
       "rows": 50,

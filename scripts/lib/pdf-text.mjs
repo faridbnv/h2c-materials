@@ -205,8 +205,17 @@ export function numberOnPage(text, page, value) {
   const v = String(value).trim();
   if (!v) return true;
   const plain = v.replace(/\s/g, '');
-  const comma = plain.replace('.', ',');
-  return p.squeezed.includes(plain) || p.squeezed.includes(comma);
+  // A number is printed the way its sheet writes numbers: a decimal comma, and thousands grouped with a point or
+  // a comma. Spectrum's PC 275 prints its flexural modulus as "24.000 kg/cm2", which is twenty-four thousand.
+  const [whole, fraction] = plain.split('.');
+  const grouped = whole.length > 3 ? whole.replace(/\B(?=(\d{3})+(?!\d))/g, '$1') : null;
+  const spellings = new Set([plain, plain.replace('.', ',')]);
+  if (grouped) for (const separator of ['.', ',']) {
+    const head = whole.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+    spellings.add(fraction === undefined ? head : `${head}.${fraction}`);
+    spellings.add(fraction === undefined ? head : `${head},${fraction}`);
+  }
+  return [...spellings].some((spelling) => p.squeezed.includes(spelling));
 }
 
 export const readBytes = (path) => readFileSync(path);

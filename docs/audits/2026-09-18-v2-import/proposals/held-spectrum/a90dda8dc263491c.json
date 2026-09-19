@@ -2,15 +2,15 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
-    "sha256": "e37b8acb6055a6cced40930a37971dd36e3c36b9216d9321822d4b35e5eb9474",
-    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_Metal_Copper.pdf",
+    "sha256": "a90dda8dc263491c0ca594e340aee4a1bc1367c11f1d024c3b4068d3f36d9f89",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2024/11/en_tds_spectrum_pla_metal_bronze.pdf",
     "pages": 1,
-    "provider": "3DJake / 3DJAKE",
+    "provider": "Spectrum",
     "manufacturer": "Spectrum",
-    "docKey": "e37b8acb6055a6cc"
+    "docKey": "a90dda8dc263491c"
   },
   "identity": {
     "polymer": "PLA",
@@ -29,30 +29,31 @@
     "confidence": 1,
     "needsRuling": true,
     "reasons": [
-      "its density of 2360 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare"
+      "a new material for this identity would be a second PLA (M001): PLA / Unfilled / unspecified / particle-filled",
+      "its density of 2280 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare"
     ]
   },
   "source": {
     "row": {
-      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
       "Publisher": "Spectrum",
-      "Title": "TECHNICAL DATA SHEET PLA Metal Copper",
+      "Title": "TECHNICAL DATA SHEET PLA Metal Bronze",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-18",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_Metal_Copper.pdf",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/11/en_tds_spectrum_pla_metal_bronze.pdf",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "e37b8acb6055a6cced40930a37971dd36e3c36b9216d9321822d4b35e5eb9474"
+      "SHA256": "a90dda8dc263491c0ca594e340aee4a1bc1367c11f1d024c3b4068d3f36d9f89"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET PLA Metal Copper"
+      "text": "TECHNICAL DATA SHEET PLA Metal Bronze"
     },
     "review": {
       "status": "proposed"
@@ -69,21 +70,21 @@
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
-        "Product name": "PLA Metal Copper",
-        "Shared formulation key": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+        "Product name": "PLA Metal Bronze",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET PLA Metal Copper"
+        "text": "TECHNICAL DATA SHEET PLA Metal Bronze"
       }
     }
   ],
@@ -95,14 +96,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
-        "Raw value": "2.36 g/cm3",
+        "Raw value": "2.28 g/cm3",
         "Raw unit": "g/cm3",
-        "Raw numeric": "2.36",
+        "Raw numeric": "2.28",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1000",
-        "Normalized value": "2360",
+        "Normalized value": "2280",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
@@ -121,14 +122,14 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
         "Locator": "p. 1: Specific Gravity",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Specific Gravity 2.36 g/cm3"
+        "text": "Specific Gravity 2.28 g/cm3"
       },
       "confidence": 1,
       "review": {
@@ -142,14 +143,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile break strength",
-        "Raw value": "27 MPa",
+        "Raw value": "23 MPa",
         "Raw unit": "MPa",
-        "Raw numeric": "27",
+        "Raw numeric": "23",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "27",
+        "Normalized value": "23",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
@@ -168,14 +169,14 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
         "Locator": "p. 1: Tensile Strength at Break",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile Strength at Break 27 MPa"
+        "text": "Tensile Strength at Break 23 MPa"
       },
       "confidence": 1,
       "review": {
@@ -189,14 +190,14 @@
         "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile yield strength",
-        "Raw value": "35 MPa",
+        "Raw value": "31 MPa",
         "Raw unit": "MPa",
-        "Raw numeric": "35",
+        "Raw numeric": "31",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "35",
+        "Normalized value": "31",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
@@ -215,61 +216,14 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
         "Locator": "p. 1: Tensile Strength at Yield",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Tensile Strength at Yield 35 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m04",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "",
-        "GradeID": "",
-        "Property": "Impact strength",
-        "Raw value": "3.8 kJ/m2",
-        "Raw unit": "kJ/m2",
-        "Raw numeric": "3.8",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "3.8",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "kJ/m²",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Not applicable",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "23°C",
-        "Standard / load": "23°C",
-        "Standards": "Not published",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not published",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
-        "Locator": "p. 1: Impact Strength - Charpy method 23°C",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Impact Strength - Charpy method 23°C 3.8 kJ/m2 FEAUTURES"
+        "text": "Tensile Strength at Yield 31 MPa"
       },
       "confidence": 1,
       "review": {
@@ -317,7 +271,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-Metal-Copper",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-metal-bronze",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -422,7 +376,12 @@
   "skipped": [
     {
       "page": 1,
-      "text": "MFI (210°C, 2.16kg) 41.3 g/10min",
+      "text": "MFI (210°C, 2.16kg) 40.8 g/10min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength - Charpy method 23°C 3.5 kJ/mz FEAUTURES",
       "reason": "no property and value this line states together"
     },
     {

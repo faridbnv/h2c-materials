@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "1a6aad212c4ed8358515bb4ac1491292d22f9b245648e67663e2a76f0545c0a7",
@@ -14,7 +14,7 @@
   },
   "identity": {
     "polymer": "PA6",
-    "modifier": "Unfilled / unspecified",
+    "modifier": "Ceramic",
     "variantClass": "",
     "family": "Nylon / Polyamide",
     "hardness": null,
@@ -23,15 +23,29 @@
       "name: pa6",
       "filler: ceramic (from the sheet, not the name)"
     ],
-    "materialId": "M049",
-    "materialName": "PA6",
+    "materialId": null,
+    "materialName": null,
     "estimateIdentity": "PA6",
     "confidence": 0.85,
-    "needsRuling": true,
-    "reasons": [
-      "\"ceramic\" has no value in schema/vocab/modifiers.csv: a ceramic load raises density and stiffness and has no vocabulary value: a ruling",
-      "its density of 1490 kg/m³ is above what neat PA6 reaches (1180), so the product carries a filler its name does not declare"
-    ]
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PA6-CE",
+    "Family": "Nylon / Polyamide",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Polyamide 6 (Nylon 6) (Ceramic)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PA6-CE",
+    "Base polymer": "PA6",
+    "Estimate identity": "PA6",
+    "Modifier / filler": "Ceramic",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0 (p. 1): name: pa6; filler: ceramic (from the sheet, not the name)."
   },
   "source": {
     "row": {
@@ -63,10 +77,12 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
@@ -93,7 +109,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.49 g/cm3",
@@ -133,14 +149,17 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Water absorption",
         "Raw value": "0.3 %",
@@ -180,14 +199,17 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "55 MPa",
@@ -227,14 +249,17 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile strain at strength",
         "Raw value": "1.2 %",
@@ -274,14 +299,17 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "6 GPa",
@@ -321,14 +349,17 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "90 °C",
@@ -368,14 +399,17 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Property": "Continuous service temperature",
         "Raw value": "120 °C",
@@ -415,7 +449,10 @@
       },
       "confidence": 0.85,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the filler is the sheet's own word: PA6 CS20 FR V0 says its ceramic fillers enhance thermal stability, and the name says CS20 but not what it is"
       }
     }
   ],
@@ -423,7 +460,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M049",
+        "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "265-290°C",
@@ -488,7 +525,9 @@
         "text": "Nozzle temperature 265-290°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -649,6 +688,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

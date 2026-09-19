@@ -3,7 +3,7 @@ Token,Modifier,Note
 aero,Foaming,
 aluminium,,a metal load: a ruling
 antistatic,ESD formulation,
-aramid,,as above
+aramid,Aramid fibre,
 basalt,,a mineral fibre: a ruling
 calcium,,a chalk load: a ruling
 carbon,Carbon fibre,
@@ -11,7 +11,7 @@ carbonfiber,Carbon fibre,one word
 carbonfibre,Carbon fibre,one word
 carbonfil,Carbon fibre,
 carbonx,,"a 3DXTECH brand line, not a filler declaration"
-ceramic,,a ceramic load raises density and stiffness and has no vocabulary value: a ruling
+ceramic,Ceramic,
 cf,Carbon fibre,
 cf10,Carbon fibre,
 cf15,Carbon fibre,
@@ -19,7 +19,7 @@ cf17,Carbon fibre,
 cf20,Carbon fibre,
 cf25,Carbon fibre,
 cf30,Carbon fibre,
-conductive,,electrically conductive has no modifier value yet: a ruling
+conductive,Electrically conductive,"a conductive load carries current; an ESD formulation only dissipates static"
 esd,ESD formulation,
 fiberglass,Glass fibre,
 flax,,a natural fibre: a ruling
@@ -31,16 +31,22 @@ gf20,Glass fibre,
 gf25,Glass fibre,
 gf30,Glass fibre,
 glass,Glass fibre,
+glass-beads,Glass spheres,
+glass-spheres,Glass spheres,
+glassbeads,Glass spheres,
 glassfiber,Glass fibre,one word
 glassfibre,Glass fibre,one word
+glassspheres,Glass spheres,
 graphene,,a graphene load is neither carbon fibre nor unfilled: a ruling
 hemp,,a natural fibre: a ruling
-kevlar,,aramid has no modifier value yet: a ruling
+kevlar,Aramid fibre,DuPont's brand of aramid
 lightweight,Foaming,
 lw,Foaming,
 magnetite,,an iron-oxide load: a ruling
+microspheres,Glass spheres,
 mineral,,a mineral load changes modulus and is not declared as a fraction: a ruling
-ptfe,,a tribological load: a ruling
+ptfe,PTFE,
 rcf08,Carbon fibre,recycled carbon fibre
+spheres,Glass spheres,a hollow glass sphere load is not a reinforcing fibre
 talc,,a mineral load: a ruling
 tungsten,,"a dense metal load, up to 75 wt%: a ruling"

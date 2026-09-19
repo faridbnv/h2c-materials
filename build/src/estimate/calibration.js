@@ -27,13 +27,19 @@ export function makeHoldOut({ key, raw, model, conv, obs, S, hp: fullSpreads }) 
   const k = model.calibration.folds;
   const foldOf = new Map([...S.pool].sort((a, b) => a.id.localeCompare(b.id)).map((m, i) => [m.id, i % k]));
   const fits = new Map();
+  const byHp = new Map();
   const fitFor = (fold) => {
     if (!fits.has(fold)) {
       const hidden = (o) => foldOf.get(o.m.id) === fold && o.kind === HEAD[key];
       const between = betweenProductSpread(key, raw.filter((o) => !hidden(o)), S);
       const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, model.properties[key].floors.w) : null;
       const hp = hyperparameters(key, spreadObservations(key, obs.filter((o) => !hidden(o)), model.fitting.spreadSampleMax), S, model, fixedW, { start: { ...fullSpreads, ...(fixedW != null ? { w: fixedW } : {}) }, sweeps: 1 });
-      fits.set(fold, { hp, P: posterior(fitModel(key, obs, S, model, hp)) });
+      // The fit itself is over every observation: a fold hides its materials in `predict`, not in the fit, so two
+      // folds whose hyperparameters land on the same grid point are the same fit. Sharing it is exact, and it is
+      // most of the cost: a full fit is a dense n x n Cholesky, and there is one per fold per headline.
+      const signature = JSON.stringify(Object.entries(hp).sort());
+      if (!byHp.has(signature)) byHp.set(signature, posterior(fitModel(key, obs, S, model, hp)));
+      fits.set(fold, { hp, P: byHp.get(signature) });
     }
     return fits.get(fold);
   };

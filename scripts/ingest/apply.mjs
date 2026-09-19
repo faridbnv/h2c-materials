@@ -37,7 +37,10 @@ import { documentPath } from './extract.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const SEP = String.fromCharCode(0);
-const NUMERIC_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Test load MPa', 'Anneal °C', 'Anneal h'];
+// The numbers that must be printed on the page the row cites. Test load MPa is not among them: it is typed from
+// the sheet's own words by the build's own reader, which maps a stated load to the class it belongs to, so a sheet
+// printing "66 psi" or "1.81 MN/m2" yields 0.45 and 1.8. PARSE-MISMATCH is what holds that column to its words.
+const NUMERIC_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Anneal °C', 'Anneal h'];
 const PAGE = /^p\.\s*(\d+)\s*:/;
 const acceptanceKey = (r) => [r.Code, r.Table, r.Record, r.Field ?? ''].join(SEP);
 
@@ -74,10 +77,11 @@ export function guard(proposals, world) {
   // A product is its maker and its name, compared as names: case, spaces and punctuation are spelling.
   const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const productKey = (maker, product) => `${plain(maker)}${SEP}${plain(product)}`;
-  const seenProduct = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [productKey(g.Manufacturer, g['Product name']), { gradeId: g.GradeID, source: g.SourceID }]));
+  const seenProduct = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [productKey(g.Manufacturer, g['Product name']), { gradeId: g.GradeID, source: g.SourceID, material: g.MaterialID }]));
   const keyOwner = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [g['Shared formulation key'], g.MaterialID]));
   const properties = new Map(world.properties.map((p) => [p.Property, p]));
   const materials = new Map(world.materials.map((m) => [m.MaterialID, m]));
+  const materialByName = new Map(world.materials.map((m) => [m['Original name'], m]));
   const vocabularies = world.vocabularies ?? {};
   const rulings = new Set((world.rulings ?? []).map((r) => r.Subject));
 
@@ -101,8 +105,11 @@ export function guard(proposals, world) {
     if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID) fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}`);
 
     // Identity: a material that exists, or a ruling that creates one. Never a family entry.
+    // A grade of a material this batch creates carries no MaterialID until the material is written. On a second
+    // run the material is there, and the grade is its own: found by the name the proposal gave it.
+    const created = proposal.newMaterial && materialByName.get(proposal.newMaterial['Original name']);
     for (const grade of proposal.grades ?? []) {
-      const id = grade.row?.MaterialID;
+      const id = grade.row?.MaterialID || created?.MaterialID;
       const material = materials.get(id);
       if (!material && !(proposal.newMaterial && rulings.has(proposal.newMaterial['Original name']))) {
         fail('APPLY-IDENTITY', `${where} ${grade.key}`, `${id ?? 'no material'} is not a material, and no ruling creates one`);
@@ -112,7 +119,7 @@ export function guard(proposals, world) {
       // again. The same product under another source is a second registration of one product, and is refused.
       const product = productKey(grade.row?.Manufacturer, grade.row?.['Product name']);
       const mine = seenProduct.get(product);
-      if (mine && mine.source !== grade.row?.SourceID) fail('APPLY-PRODUCT-DUPLICATE', `${where} ${grade.key}`, `${grade.row?.Manufacturer} ${grade.row?.['Product name']} is already ${mine.gradeId}`);
+      if (mine && mine.material !== id) fail('APPLY-PRODUCT-DUPLICATE', `${where} ${grade.key}`, `${grade.row?.Manufacturer} ${grade.row?.['Product name']} is already ${mine.gradeId}, under ${mine.material}`);
       const key = grade.row?.['Shared formulation key'];
       if (key && keyOwner.has(key) && keyOwner.get(key) !== id) fail('APPLY-KEY', `${where} ${grade.key}`, `formulation key ${key} belongs to ${keyOwner.get(key)}`);
     }
@@ -192,7 +199,12 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     const sourceId = proposal.source?.row?.SourceID;
     const gradeIds = {};
     for (const grade of accepted(proposal.grades)) {
-      const existing = t.rows('grades').find((g) => g.SourceID === grade.row.SourceID && g['Product name'] === grade.row['Product name']);
+      // A grade is a maker's product, not a document. A second sheet for one product is a revision or a copy, and
+      // its rows belong on the grade that is already there: Spectrum publishes LW-PLA UltraFoam twice, one sheet
+      // with five values and one with ten, and two grades for one product is what GRADE-PRODUCT-DUPLICATE is.
+      const same = (a, b) => String(a ?? '').toLowerCase().replace(/[^a-z0-9]/g, '') === String(b ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const existing = t.rows('grades').find((g) => g.Status === 'active' && same(g.Manufacturer, grade.row.Manufacturer) && same(g['Product name'], grade.row['Product name']))
+        ?? t.rows('grades').find((g) => g.SourceID === grade.row.SourceID && g['Product name'] === grade.row['Product name']);
       if (existing) { gradeIds[grade.key] = existing.GradeID; continue; }
       const id = nextId('grades', t.rows('grades').map((g) => g.GradeID), { materialId: grade.row.MaterialID });
       gradeIds[grade.key] = id;
@@ -201,6 +213,15 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       note(`grade ${id} ${grade.row.Manufacturer} ${grade.row['Product name']}`);
     }
     const resolve = (value) => String(value ?? '').replace(/\$\{grade:([^}]+)\}/g, (_, key) => gradeIds[key] ?? `\${grade:${key}}`);
+
+    // A new material stands for its first grade, and that grade's identifier is only known once it is written.
+    if (proposal.newMaterial?.MaterialID) {
+      const representative = resolve(proposal.newMaterial['Representative grade']);
+      if (!representative.includes('${')) {
+        t.set('materials', proposal.newMaterial.MaterialID, 'Representative grade', representative, { expect: proposal.newMaterial['Representative grade'] });
+        note(`material ${proposal.newMaterial.MaterialID} stands for ${representative}`);
+      }
+    }
 
     if (sourceId && !t.find('sources', sourceId)) {
       t.append('sources', { ...proposal.source.row, 'Applicable grades': resolve(proposal.source.row['Applicable grades']) });

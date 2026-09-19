@@ -36,15 +36,14 @@ ingest:apply      the only way anything reaches data/tables, and it exists to re
 
 What it has established so far, on real documents:
 
-- **1,936 documents** in the ledger; 144 already in the register.
-- **1,215 of 1,936 products** find the material they belong to from the name alone; 149 name a combination that does
-  not exist yet (25 distinct); 572 ask a question, most of them names that do not say what the polymer is, which
-  the sheet itself answers.
-- **223 documents fetched** (3D-Fuel, Spectrum). Of Spectrum's 214, **112 are a sheet already read**: 3DJake's
-  copies, and Spectrum's own library serving one PDF under several links. 38 of those print the same numbers under
-  a different product name and are queued as `twin-check` rather than consolidated.
-- **88% parity** on the twelve Spectrum sheets the database already holds: 100 of 113 recorded values, five sheets
-  exact. The residue is named in [census/spectrum-parity.txt](census/spectrum-parity.txt).
+- **1,936 documents** in the ledger; 144 were already in the register when it was built.
+- **226 Spectrum documents fetched and read.** 84 are a sheet already read, by the numbers they print; 10 are a
+  non-English edition of one; 40 print the same numbers under a different product name and are queued as
+  `twin-check` rather than consolidated, because that is a reading of the sheet and not a rule.
+- **100% parity** on the twelve Spectrum sheets the database already held: 113 of 113 recorded values, on
+  property, value, unit, direction, load and notch. It was 22% when the reader was written.
+- **Two batches applied**, 63 documents: 490 measurements, 61 grades, 62 sources, 65 print profiles, 230 print
+  notes and ten new materials. Each row names the page and line it was read from and who accepted it.
 
 ## Accuracy: what a scientific review of the whole corpus found
 
@@ -74,10 +73,21 @@ a question.
 
 ## What is still to do
 
-The batches themselves. No document has been applied yet: the proposer is at 88% on one maker, and the rule is
-parity first, then that maker's unread sheets. The order, the counts and what "done" means per batch are in the
-plan.
+**Spectrum is done except for fourteen documents**, which are questions rather than work:
+[rulings/pending.csv](rulings/pending.csv) Q003 (S-Flex Carbon, whose numbers rule out its own product line's
+chemistry), Q004 (nine particle-filled PLA variants, which need the owner to say whether they join the materials
+named after Bambu's products or get class materials beside them) and Q005 (four sheets that name no polymer).
 
-Open questions for the owner are in [rulings/pending.csv](rulings/pending.csv). The three that block work are the
-manufacturer merges (they move the estimate model's test-house covariate), whether an Izod result recorded as
-"Impact strength" should be re-filed, and the variant classes the census will surface.
+**The other makers.** The plan's waves B to D: about 455 documents of large PDF libraries, then the scanned, web
+and viewer sheets, then the retailers. The pipeline and the gate are the same; what each maker adds is a layout,
+and the parity run says when the reader is ready for it.
+
+**The estimate stage at scale.** `test/scale.test.js` builds twice today's data and holds the compile and validate
+inside 90 seconds. With the two batches in, that run takes about four minutes: the spread search is hundreds of
+fits and a fit is a dense Cholesky, cubic in what it sees. The production build is 9 seconds and nothing a reader
+sees is affected. The fix is the plan's Phase 5 option 2, an exact block-and-low-rank solve, and it is recorded in
+[../../OPEN-PROBLEMS.md](../../OPEN-PROBLEMS.md).
+
+Open questions for the owner are in [rulings/pending.csv](rulings/pending.csv). The rulings the agent made rather
+than the owner, and which the owner can overturn, are R005 to R016 in [rulings/rulings.csv](rulings/rulings.csv):
+ten new materials for filler combinations the database had no row for, and that Spectrum's S-Flex line is a TPU.

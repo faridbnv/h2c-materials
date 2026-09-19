@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "b8ba3dad7deb7b8e7ba691738339ebf4aaf18b93d8bbdcfa72ba6a8134625f32",
@@ -14,19 +14,18 @@
   },
   "identity": {
     "polymer": "PLA",
-    "modifier": "Carbon fibre",
+    "modifier": "Unfilled / unspecified",
     "variantClass": "",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "name: pla",
-      "filler: carbon (from the sheet, not the name)"
+      "name: pla"
     ],
-    "materialId": "M018",
-    "materialName": "PLA-CF",
+    "materialId": "M001",
+    "materialName": "PLA",
     "estimateIdentity": "PLA",
-    "confidence": 0.85,
+    "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
@@ -60,10 +59,12 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
@@ -90,7 +91,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.26 g/cm3",
@@ -128,16 +129,18 @@
         "page": 1,
         "text": "Specific Gravity 1.26 g/cm3 D 792 Spectrum FlameGuard PLA is a halogen-free,"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "10 g/10min",
@@ -175,16 +178,18 @@
         "page": 1,
         "text": "MFR (210°C, 2.16kg) 10 g/10min -"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "10 %",
@@ -222,16 +227,18 @@
         "page": 1,
         "text": "Tensile Strain at Break 10%"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Tensile yield strength",
         "Raw value": "36.8 MPa",
@@ -269,16 +276,18 @@
         "page": 1,
         "text": "Tensile Strength at Yield 36.8 MPa ISO 527"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "2.6 GPa",
@@ -316,16 +325,18 @@
         "page": 1,
         "text": "Young's Modulus 2.6 GPa"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "8.3 J/m",
@@ -363,16 +374,18 @@
         "page": 1,
         "text": "Notched Izod Impact Strength 8.3 J/m ISO 180"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "55 °C",
@@ -410,16 +423,18 @@
         "page": 1,
         "text": "HDT (amorphous) 55°C DSC"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "90 °C",
@@ -457,9 +472,11 @@
         "page": 1,
         "text": "HDT (crystalline) 90°C DSC"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -467,7 +484,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "210-240°C",
@@ -494,8 +511,8 @@
         "Drying hours": "Not applicable",
         "Nozzle material": "not necessary",
         "Nozzle diameter": "Not published",
-        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
-        "Hardened nozzle": "TRUE",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
         "H2C left": "Verify exact grade/nozzle; no blanket approval",
         "H2C right": "Verify exact grade/nozzle; no blanket approval",
         "AMS 2 Pro": "Not verified for every grade",
@@ -522,15 +539,15 @@
           "Text": "0.40 - 2.70 mm"
         }
       ],
-      "editorial": [
-        "Abrasion / clogging"
-      ],
+      "editorial": [],
       "evidence": {
         "page": 1,
         "text": "Nozzle temperature - standard speed 210-240°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -643,6 +660,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "the sheet prints \"Notched Izod Impact Strength 8.3 J/m ISO 180\" for FlameGuard PLA. A flame-retardant load embrittles a PLA further, and 8.3 J/m is the sheet's own number.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

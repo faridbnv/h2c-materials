@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "74a9b3212b9b141668f3096937f7f4ec32cb2ee36e526391baa85be9bbfe45ee",
@@ -59,7 +59,9 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
         "MaterialID": "M035",
@@ -129,7 +131,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -176,7 +180,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -223,7 +229,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -270,7 +278,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
@@ -280,14 +290,14 @@
         "MaterialID": "M035",
         "GradeID": "",
         "Property": "Flexural modulus",
-        "Raw value": "24.000 kg/cm2",
+        "Raw value": "24 000 kg/cm2 (TDS prints \"24.000\" with European decimal separator)",
         "Raw unit": "kg/cm2",
-        "Raw numeric": "24",
+        "Raw numeric": "24000",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "0.0000980665",
-        "Normalized value": "0.002353596",
+        "Normalized value": "2.353596",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
@@ -308,20 +318,73 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "S-SPECTRUM-en-tds-spectrum-pc-275",
         "Locator": "p. 1: Flexural Modulus**",
-        "Notes": "Not applicable",
+        "Notes": "\"24.000\" may be a thousands separator or a decimal one; read as 24000 because 0.002353596 GPa is outside anything this property reaches",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
         "text": "Flexural Modulus** 24.000 kg/cm2 D 790"
       },
+      "ambiguous": "\"24.000\" may be a thousands separator or a decimal one",
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "the sheet prints 24.000 kg/cm2; read as twenty-four thousand, because 24 kg/cm2 is 2.4 MPa and no solid polymer has a flexural modulus that low, and 24,000 kg/cm2 is 2,353 MPa, which is a polycarbonate's"
       }
     },
     {
       "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "70 kg∙cm/cm",
+        "Raw unit": "kg∙cm/cm",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "9.80665",
+        "Normalized value": "686.4655",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C D 256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pc-275",
+        "Locator": "p. 1: Izod Impact Strength, Notched @ 23°C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "@ 23°C 70 kg∙cm/cm D 256"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
+      }
+    },
+    {
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M035",
@@ -364,11 +427,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m07",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M035",
@@ -411,11 +476,13 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
-      "id": "m08",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M035",
@@ -458,7 +525,9 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -535,7 +604,9 @@
         "text": "Nozzle temperature 250 - 290°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -629,11 +700,6 @@
     },
     {
       "page": 1,
-      "text": "@ 23°C 70 kg∙cm/cm D 256",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
       "text": "*50mm/min",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
@@ -669,6 +735,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "the sheet prints 70 kg-cm/cm, which is 686 J/m. Notched Izod of 600 to 900 J/m is ordinary for polycarbonate: it is the toughest of the amorphous engineering polymers, and the window's 600 is drawn from a database that held no PC value.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-18"
+    "date": "2026-09-19"
   },
   "document": {
     "sha256": "faa65d6bcebe36f70cd67bdce72a521f9f86cd93bb7e995d4bb8cfeb56b7d095",
@@ -14,19 +14,18 @@
   },
   "identity": {
     "polymer": "PLA",
-    "modifier": "Carbon fibre",
+    "modifier": "Unfilled / unspecified",
     "variantClass": "",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "name: pla",
-      "filler: carbon (from the sheet, not the name)"
+      "name: pla"
     ],
-    "materialId": "M018",
-    "materialName": "PLA-CF",
+    "materialId": "M001",
+    "materialName": "PLA",
     "estimateIdentity": "PLA",
-    "confidence": 0.85,
+    "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
@@ -60,10 +59,12 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       },
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Spectrum",
@@ -90,7 +91,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.30 g/cm3",
@@ -128,16 +129,18 @@
         "page": 1,
         "text": "Density 1.30 g/cm3 D792 The Pastello PLA series are unique filaments that"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Tensile yield strength",
         "Raw value": "38 MPa",
@@ -175,16 +178,18 @@
         "page": 1,
         "text": "Tensile strength at Yield 38 MPa D638"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "10 %",
@@ -222,16 +227,18 @@
         "page": 1,
         "text": "Elongation at break >10 % D638"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "2350 MPa",
@@ -269,16 +276,18 @@
         "page": 1,
         "text": "Flexural Modulus 2350 MPa D790"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Izod impact strength",
         "Raw value": "50 J/m",
@@ -316,16 +325,18 @@
         "page": 1,
         "text": "Izod notched 50 J/m D256"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "53 °C",
@@ -363,16 +374,18 @@
         "page": 1,
         "text": "1.8 Mpa 53°C D648"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "HDT",
         "Raw value": "59 °C",
@@ -410,9 +423,11 @@
         "page": 1,
         "text": "0.45 Mpa 59°C D648"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -420,7 +435,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M018",
+        "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "185 - 215°C",
@@ -447,8 +462,8 @@
         "Drying hours": "Not applicable",
         "Nozzle material": "not necessary",
         "Nozzle diameter": "Not published",
-        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
-        "Hardened nozzle": "TRUE",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
         "H2C left": "Verify exact grade/nozzle; no blanket approval",
         "H2C right": "Verify exact grade/nozzle; no blanket approval",
         "AMS 2 Pro": "Not verified for every grade",
@@ -479,15 +494,15 @@
           "Text": "40 - 150 mm/s"
         }
       ],
-      "editorial": [
-        "Abrasion / clogging"
-      ],
+      "editorial": [],
       "evidence": {
         "page": 1,
         "text": "Nozzle temperature 185 - 215°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19"
       }
     }
   ],
@@ -583,6 +598,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
   }
 }

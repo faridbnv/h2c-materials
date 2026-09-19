@@ -1,33 +1,37 @@
 Printed,Normalized
-g/cm3,kg/m³
-g/cm³,kg/m³
-g/cc,kg/m³
-kg/m3,kg/m³
-kg/m³,kg/m³
+%,%
+GPa,GPa
+J/m,J/m
 MPa,MPa
 N/mm2,MPa
 N/mm²,MPa
-mn/m2,MPa
-psi,MPa
-kg/cm2,MPa
-kg/cm²,MPa
-kgf/cm2,MPa
-GPa,GPa
-ksi,GPa
-%,%
-°C,°C
-℃,°C
-kJ/m2,kJ/m²
-kJ/m²,kJ/m²
-J/m,J/m
-g/10min,g/10 min
-g/10 min,g/10 min
-cm3/10min,cm³/10 min
-cm³/10 min,cm³/10 min
-W/(m·K),W/(m·K)
-µm/m/K,µm/m/K
-ppm/K,µm/m/K
+Rockwell M,Rockwell M
+Rockwell R,Rockwell R
 Shore A,Shore A
 Shore D,Shore D
-Rockwell R,Rockwell R
-Rockwell M,Rockwell M
+W/(m·K),W/(m·K)
+cm3/10min,cm³/10 min
+cm³/10 min,cm³/10 min
+ft·lbf/in,J/m
+g/10 min,g/10 min
+g/10min,g/10 min
+g/cc,kg/m³
+g/cm3,kg/m³
+g/cm³,kg/m³
+kJ/m2,kJ/m²
+kJ/m²,kJ/m²
+kg/cm2,MPa
+kg/cm²,MPa
+kg/m3,kg/m³
+kg/m³,kg/m³
+kgf/cm2,MPa
+kgf·cm/cm,J/m
+kg·cm/cm,J/m
+kg∙cm/cm,J/m
+ksi,GPa
+mn/m2,MPa
+ppm/K,µm/m/K
+psi,MPa
+°C,°C
+µm/m/K,µm/m/K
+℃,°C
