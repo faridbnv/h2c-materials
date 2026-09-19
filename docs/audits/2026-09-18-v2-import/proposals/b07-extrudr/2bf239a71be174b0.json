@@ -107,7 +107,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "Shore D",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -123,7 +123,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-en",
         "Locator": "p. 1: Shore hardness D DIN ISO 7619-1 -",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -135,7 +135,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -157,8 +157,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -173,7 +173,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-en",
         "Locator": "p. 1: Tensile strength at break DIN 53504, S1 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -185,7 +185,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -206,9 +206,9 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Data status": "Published value (physically implausible)",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -223,7 +223,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-en",
         "Locator": "p. 1: Tensile strength DIN 53504, S2 N/mm²",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards; 470 N/mm² is not a strength a Shore A95 elastomer reaches, and the row beside it prints an elongation at break of 6.9 % on a filament the same sheet describes as extremely extensible: the two read as transposed. Both are recorded as printed.",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -235,7 +235,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards; 470 N/mm² is not a strength a Shore A95 elastomer reaches, and the row beside it prints an elongation at break of 6.9 % on a filament the same sheet describes as extremely extensible: the two read as transposed. Both are recorded as printed."
       }
     },
     {
@@ -257,8 +257,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -273,7 +273,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-en",
         "Locator": "p. 1: Elongation at break DIN 53504, S2 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -285,7 +285,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -307,7 +307,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
         "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -323,7 +323,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-en",
         "Locator": "p. 1: Density ISO 1183-1 g/cm³",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -335,7 +335,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     }
   ],
@@ -609,5 +609,15 @@
     "status": "reviewed",
     "by": "claude-opus-5",
     "date": "2026-09-19"
-  }
+  },
+  "acceptances": [
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "6.9 % is not an elongation at break a Shore A95 elastomer reaches, and the tensile strength beside it, 470 N/mm², is not a strength one reaches either: the two read as transposed. Both are recorded as printed and the strength carries the physically implausible status.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

@@ -185,8 +185,11 @@ export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
 export function parseEnclosure(raw) {
   const text = raw == null ? '' : String(raw).trim();
   if (!text || /^not published$/i.test(text)) return { text, state: 'unknown' };
-  if (/\bnot\s+(necessary|needed|required)\b|^no\s+enclosure\b/i.test(text)) return { text, state: 'not-needed' };
-  if (/\b(recommended|yes|active\s+heated|required)\b/i.test(text)) return { text, state: 'recommended' };
+  // A table with a column headed "Enclosed Space" answers it in one word, and "no" is the whole answer.
+  if (/\bnot\s+(necessary|needed|required)\b|^no\s+enclosure\b|^(no|none)$/i.test(text)) return { text, state: 'not-needed' };
+  // "for larger components" is the same statement as "recommended for larger prints", which this already reads:
+  // a condition on when an enclosure helps, not a refusal. The raw column keeps the condition.
+  if (/\b(recommended|yes|active\s+heated|required)\b/i.test(text) || /^for\s+(larger|large|big)\b/i.test(text)) return { text, state: 'recommended' };
   return { text, state: 'unknown', unparsed: true };
 }
 

@@ -107,8 +107,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -123,7 +123,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Flexural modulus (E-Modulus) ISO 178 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -135,7 +135,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -157,8 +157,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -173,7 +173,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Flexural strength ISO 178 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -185,7 +185,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -207,8 +207,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -223,7 +223,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Tensile modulus (E-Modulus) ISO 527 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -235,7 +235,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -257,8 +257,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -273,7 +273,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Yield stress ISO 527 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -285,7 +285,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -307,8 +307,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -323,7 +323,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Elongation at yield ISO 527-2 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -335,7 +335,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -357,8 +357,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -373,7 +373,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Strength ISO 527 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -385,7 +385,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -407,8 +407,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -423,7 +423,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Elongation at strength ISO 527 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -435,7 +435,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -457,8 +457,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -473,7 +473,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Nominal elongation at break ISO 527-2 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -485,7 +485,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -507,7 +507,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kJ/m²",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -523,7 +523,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Notched impact strength ISO 180 kj/m²",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -535,7 +535,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -557,7 +557,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -573,7 +573,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: VICAT A (VST) ISO 306 °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -585,7 +585,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -607,7 +607,7 @@
         "Normalized upper bound": "200",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -623,7 +623,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Melting temperature ISO 3146-C °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -635,7 +635,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -657,7 +657,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "g/10 min",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -673,7 +673,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: MFR ISO 1133 g/10min",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -685,7 +685,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -707,7 +707,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
         "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -723,7 +723,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
         "Locator": "p. 1: Density ASTM D792 g/cm³",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -735,7 +735,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     }
   ],

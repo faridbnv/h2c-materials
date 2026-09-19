@@ -72,10 +72,11 @@ test('"no setpoint" and "recommended" are statements, not temperatures', () => {
 });
 
 test('enclosure wording separates "not needed" from "recommended"', () => {
-  for (const t of ['not necessary', 'for printing not necessary', 'Not needed', 'No enclosure needed']) {
+  // A table with a column headed "Enclosed Space" answers in one word, and "no" is the whole answer.
+  for (const t of ['not necessary', 'for printing not necessary', 'Not needed', 'No enclosure needed', 'no', 'No', 'none']) {
     assert.equal(parseEnclosure(t).state, 'not-needed', t);
   }
-  for (const t of ['recommended for larger prints', 'recommended', 'Yes', 'active heated (60-80°C)']) {
+  for (const t of ['recommended for larger prints', 'recommended', 'Yes', 'active heated (60-80°C)', 'for larger components']) {
     assert.equal(parseEnclosure(t).state, 'recommended', t);
   }
   assert.equal(parseEnclosure('Not published').state, 'unknown');

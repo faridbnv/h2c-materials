@@ -1,5 +1,4 @@
 Value,Meaning
-GB/T 31,"As Polymaker's sheets print it beside ISO 7619 for a shore hardness. GB/T 531 is that standard; the sheets print 31, and a source's own words are recorded as printed (D76)."
 ASTM D1238,Melt flow rates by extrusion plastometer.
 ASTM D1505,Density by density-gradient technique.
 ASTM D1525,Vicat softening temperature.
@@ -26,6 +25,7 @@ GB/T 1043,Charpy impact properties.
 GB/T 1633,Vicat softening temperature.
 GB/T 1634,Temperature of deflection under load.
 GB/T 1843,Izod impact strength.
+GB/T 31,"As Polymaker's sheets print it beside ISO 7619 for a shore hardness. GB/T 531 is that standard; the sheets print 31, and a source's own words are recorded as printed (D76)."
 GB/T 3682,Melt mass-flow and melt volume-flow rate.
 GB/T 528,Tensile properties of vulcanised rubber.
 GB/T 531.1,Indentation hardness of rubber.
@@ -50,4 +50,5 @@ ISO 62,Water absorption of plastics.
 ISO 6711,Cited by a source; kept as the source prints it.
 ISO 75,Temperature of deflection under load.
 ISO 7619,Indentation hardness by durometer.
+ISO 8302,Thermal conductivity by the guarded hot plate.
 ISO 868,Indentation hardness by durometer (Shore).

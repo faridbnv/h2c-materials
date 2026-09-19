@@ -58,6 +58,7 @@ Outdoor structural part,Explore,M113,ASA-AF,UNKNOWN,yes,
 Outdoor structural part,Explore,M126,TPU-ESD,UNKNOWN,yes,
 Outdoor structural part,Explore,M128,PC-ABS-CF,PASS,yes,
 Outdoor structural part,Explore,M129,TPU-CF,UNKNOWN,yes,
+Outdoor structural part,Explore,M131,PC-PBT-CF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M004,PLA Lite,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M033,ASA-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M037,PC-CF,PASS,yes,
@@ -98,9 +99,10 @@ Outdoor structural part,Explore with estimates,M110,PCTG-GF,UNKNOWN,screened,hdt
 Outdoor structural part,Explore with estimates,M111,PLA-EC,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M112,PC-PTFE,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M113,ASA-AF,UNKNOWN,yes,
-Outdoor structural part,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,hdt045 >= 100
+Outdoor structural part,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,hdt045 >= 100; tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,hdt045 >= 100
+Outdoor structural part,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Indoor prototype,Strict,M002,PLA Basic,PASS,yes,
 Indoor prototype,Strict,M003,PLA Matte,PASS,yes,
 Indoor prototype,Strict,M006,PLA Tough+,PASS,yes,
@@ -211,6 +213,7 @@ Indoor prototype,Explore,M126,TPU-ESD,UNKNOWN,yes,
 Indoor prototype,Explore,M128,PC-ABS-CF,UNKNOWN,yes,
 Indoor prototype,Explore,M129,TPU-CF,UNKNOWN,yes,
 Indoor prototype,Explore,M130,PPE-PS,UNKNOWN,yes,
+Indoor prototype,Explore,M131,PC-PBT-CF,UNKNOWN,yes,
 Indoor prototype,Explore with estimates,M001,PLA,UNKNOWN,yes,
 Indoor prototype,Explore with estimates,M002,PLA Basic,PASS,yes,
 Indoor prototype,Explore with estimates,M003,PLA Matte,PASS,yes,
@@ -301,6 +304,7 @@ Indoor prototype,Explore with estimates,M126,TPU-ESD,UNKNOWN,yes,
 Indoor prototype,Explore with estimates,M128,PC-ABS-CF,UNKNOWN,yes,
 Indoor prototype,Explore with estimates,M129,TPU-CF,UNKNOWN,yes,
 Indoor prototype,Explore with estimates,M130,PPE-PS,UNKNOWN,yes,
+Indoor prototype,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Lightweight structure,Strict,M001,PLA,PASS,yes,
 Lightweight structure,Strict,M002,PLA Basic,PASS,yes,
 Lightweight structure,Strict,M005,PLA Basic Gradient,PASS,yes,
@@ -374,6 +378,7 @@ Lightweight structure,Explore,M113,ASA-AF,UNKNOWN,yes,
 Lightweight structure,Explore,M126,TPU-ESD,UNKNOWN,yes,
 Lightweight structure,Explore,M128,PC-ABS-CF,PASS,yes,
 Lightweight structure,Explore,M129,TPU-CF,UNKNOWN,yes,
+Lightweight structure,Explore,M131,PC-PBT-CF,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M001,PLA,PASS,yes,
 Lightweight structure,Explore with estimates,M002,PLA Basic,PASS,yes,
 Lightweight structure,Explore with estimates,M004,PLA Lite,UNKNOWN,yes,
@@ -421,9 +426,10 @@ Lightweight structure,Explore with estimates,M110,PCTG-GF,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M111,PLA-EC,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M112,PC-PTFE,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M113,ASA-AF,UNKNOWN,yes,
-Lightweight structure,Explore with estimates,M126,TPU-ESD,UNKNOWN,yes,
+Lightweight structure,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,tensileModulusXY >= 2.5
 Lightweight structure,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
 Lightweight structure,Explore with estimates,M129,TPU-CF,UNKNOWN,yes,
+Lightweight structure,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Warm environment,Strict,M027,ABS,PASS,yes,
 Warm environment,Strict,M028,ABS-GF,PASS,yes,
 Warm environment,Strict,M031,ASA,PASS,yes,
@@ -521,6 +527,7 @@ Warm environment,Explore,M126,TPU-ESD,UNKNOWN,yes,
 Warm environment,Explore,M128,PC-ABS-CF,UNKNOWN,yes,
 Warm environment,Explore,M129,TPU-CF,UNKNOWN,yes,
 Warm environment,Explore,M130,PPE-PS,UNKNOWN,yes,
+Warm environment,Explore,M131,PC-PBT-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M001,PLA,UNKNOWN,yes,
 Warm environment,Explore with estimates,M004,PLA Lite,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M008,PLA Silk,UNKNOWN,screened,hdt045 >= 80
@@ -585,7 +592,7 @@ Warm environment,Explore with estimates,M107,PLA-ESD,UNKNOWN,screened,hdt045 >= 
 Warm environment,Explore with estimates,M108,PA6-GS,UNKNOWN,yes,
 Warm environment,Explore with estimates,M109,PETG-PTFE,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M110,PCTG-GF,UNKNOWN,screened,hdt045 >= 80
-Warm environment,Explore with estimates,M111,PLA-EC,UNKNOWN,screened,hdt045 >= 80
+Warm environment,Explore with estimates,M111,PLA-EC,UNKNOWN,yes,
 Warm environment,Explore with estimates,M112,PC-PTFE,UNKNOWN,yes,
 Warm environment,Explore with estimates,M113,ASA-AF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M116,PC-ESD,UNKNOWN,yes,
@@ -596,6 +603,7 @@ Warm environment,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,hdt045 >= 
 Warm environment,Explore with estimates,M128,PC-ABS-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M130,PPE-PS,UNKNOWN,yes,
+Warm environment,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 High-stiffness fixture,Strict,M029,ABS-CF,PASS,yes,
 High-stiffness fixture,Strict,M037,PC-CF,PASS,yes,
 High-stiffness fixture,Strict,M053,PA12-CF,PASS,yes,
@@ -649,6 +657,7 @@ High-stiffness fixture,Explore,M113,ASA-AF,UNKNOWN,yes,
 High-stiffness fixture,Explore,M126,TPU-ESD,UNKNOWN,yes,
 High-stiffness fixture,Explore,M128,PC-ABS-CF,PASS,yes,
 High-stiffness fixture,Explore,M129,TPU-CF,UNKNOWN,yes,
+High-stiffness fixture,Explore,M131,PC-PBT-CF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M004,PLA Lite,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M029,ABS-CF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M037,PC-CF,PASS,yes,
@@ -687,9 +696,10 @@ High-stiffness fixture,Explore with estimates,M110,PCTG-GF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M111,PLA-EC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M112,PC-PTFE,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M113,ASA-AF,UNKNOWN,screened,tensileModulusXY >= 5
-High-stiffness fixture,Explore with estimates,M126,TPU-ESD,UNKNOWN,yes,
+High-stiffness fixture,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Flexible component,Strict,M039,TPU,PASS,yes,
 Flexible component,Strict,M040,TPU for AMS,PASS,yes,
 Flexible component,Strict,M041,TPU 95A HF,PASS,yes,
@@ -733,6 +743,7 @@ Flexible component,Explore,M113,ASA-AF,UNKNOWN,yes,
 Flexible component,Explore,M114,TPC-ESD,UNKNOWN,yes,
 Flexible component,Explore,M126,TPU-ESD,UNKNOWN,yes,
 Flexible component,Explore,M129,TPU-CF,UNKNOWN,yes,
+Flexible component,Explore,M131,PC-PBT-CF,UNKNOWN,yes,
 Flexible component,Explore with estimates,M008,PLA Silk,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M039,TPU,PASS,yes,
 Flexible component,Explore with estimates,M040,TPU for AMS,PASS,yes,
@@ -754,7 +765,7 @@ Flexible component,Explore with estimates,M085,PE,PASS,yes,
 Flexible component,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,yes,
+Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M093,PVB,UNKNOWN,yes,
 Flexible component,Explore with estimates,M104,PA6-CE,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,elongationXY >= 100
@@ -769,3 +780,4 @@ Flexible component,Explore with estimates,M113,ASA-AF,UNKNOWN,screened,elongatio
 Flexible component,Explore with estimates,M114,TPC-ESD,UNKNOWN,yes,
 Flexible component,Explore with estimates,M126,TPU-ESD,UNKNOWN,yes,
 Flexible component,Explore with estimates,M129,TPU-CF,UNKNOWN,yes,
+Flexible component,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,screened,elongationXY >= 100

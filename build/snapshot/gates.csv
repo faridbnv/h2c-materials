@@ -124,8 +124,9 @@ M122,PEKK-CF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
 M123,PEI-ESD,excluded,exceeds,exceeds,unknown,unknown,unknown
 M124,PPS-ESD,within,within,exceeds,unknown,unknown,unknown
 M125,PEEK-CF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
-M126,TPU-ESD,within,within,within,unknown,unknown,unknown
+M126,TPU-ESD,within,within,within,within,unknown,unknown
 M127,PEEK-GF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
 M128,PC-ABS-CF,within,within,within,unknown,requires-hardened,unknown
 M129,TPU-CF,within,within,within,within,requires-hardened,unknown
 M130,PPE-PS,within,within,within,unknown,unknown,unknown
+M131,PC-PBT-CF,within,within,within,unknown,requires-hardened,unknown

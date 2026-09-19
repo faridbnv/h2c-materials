@@ -108,7 +108,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
         "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -124,7 +124,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
         "Locator": "p. 1: Specific Gravity (20 °C) DIN 53.479 g/cm³",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -136,7 +136,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -158,7 +158,7 @@
         "Normalized upper bound": "70",
         "Normalized unit": "g/10 min",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -174,7 +174,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
         "Locator": "p. 1: MFR (220°C/10.0 kg) - g/10min",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -186,7 +186,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -208,7 +208,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "Shore A",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -224,7 +224,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
         "Locator": "p. 1: Shore Hardness DIN 53.505 - A",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -236,7 +236,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -258,8 +258,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -274,7 +274,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
         "Locator": "p. 1: Tensile Strength DIN 53.504 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -286,7 +286,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -308,8 +308,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -324,7 +324,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
         "Locator": "p. 1: Elongation at Break DIN 53.504 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -336,7 +336,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     }
   ],

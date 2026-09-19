@@ -10,7 +10,7 @@
 //   npm run ingest:review -- --doc <key> --accept all --by "farid"
 //   npm run ingest:review -- --doc <key> --accept m01,m02 --by "farid"
 //   npm run ingest:review -- --doc <key> --reject m03 --note "the sheet prints this as a range" --by "farid"
-//   npm run ingest:review -- --doc <key> --set m03 "Direction=XY" --by "farid"
+//   npm run ingest:review -- --doc <key> --set m03,m04 "Direction=XY" --by "farid"
 //   npm run ingest:review -- --doc <key> --done --by "farid" [--note "..."]
 //
 // --accept takes only rows the pipeline is confident about: nothing flagged ambiguous, nothing read from an
@@ -135,16 +135,21 @@ if (process.argv[1]?.endsWith('review.mjs')) {
   } else if (arg('accept')) decide('accepted', arg('accept'), arg('note'));
   else if (arg('reject')) decide('rejected', arg('reject'), arg('note'));
   else if (arg('set')) {
-    const target = arg('set'), pair = process.argv[process.argv.indexOf('--set') + 2];
+    const targets = new Set(String(arg('set')).split(',').map((s) => s.trim()).filter(Boolean));
+    const pair = process.argv[process.argv.indexOf('--set') + 2];
     const [field, ...rest] = String(pair ?? '').split('=');
-    if (!by || !pair || !field) { console.error('usage: --set <row> "Field=value" --by <name>'); process.exit(2); }
+    if (!by || !pair || !field) { console.error('usage: --set <row[,row...]> "Field=value" --by <name>'); process.exit(2); }
     for (const { path, proposal } of found) {
       for (const row of rowsOf(proposal)) {
-        if (String(row.id) !== target || !row.row) continue;
+        if (!targets.has(String(row.id)) || !row.row) continue;
         const before = row.row[field];
-        row.row[field] = rest.join('=');
+        // A note is what a row says about itself, and a reviewer usually has something to add to it rather than
+        // something to put in its place. Every other field is replaced.
+        row.row[field] = field === 'Notes' && before && !/^Not (applicable|published)$/.test(before)
+          ? `${before}; ${rest.join('=')}`
+          : rest.join('=');
         row.of.review = { ...(row.review ?? {}), status: 'accepted', by, date: today(), note: `${field}: ${before} -> ${row.row[field]}` };
-        console.log(`${target} ${field}: ${before} -> ${row.row[field]}`);
+        console.log(`${row.id} ${field}: ${before} -> ${row.row[field]}`);
       }
       save(path, proposal);
     }

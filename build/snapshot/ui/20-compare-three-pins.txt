@@ -1,5 +1,5 @@
-COUNT 29 shown PASS + UNKNOWN
-STATUS ☑ PASS 16 | ☑ UNKNOWN 27 | ☐ FAIL 82 | ☐ SCREENED 14
+COUNT 30 shown PASS + UNKNOWN
+STATUS ☑ PASS 16 | ☑ UNKNOWN 28 | ☐ FAIL 82 | ☐ SCREENED 14
 Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Candidate confidence: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Database snapshot 2026-09-16, build <date>. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -17,7 +17,7 @@ ABS
 ASA
 PC
 Print summary
-Each track spans all 125 candidate materials in the database, their estimated ranges included: the numbers under it are the lowest and highest, so a bar's length is where a material sits among them. Where the candidates span more than a hundredfold (here stiffness and stretch before breaking) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude. An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so. The |—| marks on a bar are the range or uncertainty the source reported. A * value is a measurement that was never made the headline, drawn as a tick, not a bar; select it for why.
+Each track spans all 126 candidate materials in the database, their estimated ranges included: the numbers under it are the lowest and highest, so a bar's length is where a material sits among them. Where the candidates span more than a hundredfold (here stiffness and stretch before breaking) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude. An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so. The |—| marks on a bar are the range or uncertainty the source reported. A * value is a measurement that was never made the headline, drawn as a tick, not a bar; select it for why.
 Density kg/m³
 Density at most 1500 kg/m³
 ASA-AF
@@ -28,43 +28,43 @@ ASA-EC
 ~1,160–1,180†
 810
 1,840
-all 125 candidates
+all 126 candidates
 ASA-CF: specimen not stated
 Stiffness GPa
 Stiffness at least 3 GPa
 ASA-AF
-~1.6–3.1†
+~1.6–3.2†
 ASA-CF
 4.2
 ASA-EC
 ~2.0–3.9†
-0.0042
+0.00194
 log scale
 12.5
-all 125 candidates
+all 126 candidates
 ASA-CF: XY · Printed specimen
 Strength MPa
 ASA-AF
-~26–46†
+~26–47†
 ASA-CF
 34
 ASA-EC
 ~30–53†
 11.2
 172
-all 125 candidates
+all 126 candidates
 ASA-CF: XY · Printed specimen
 Stretch before breaking %
 ASA-AF
-~1.6–5.7†
+~1.5–5.4†
 ASA-CF
 9.6
 ASA-EC
-~1.2–4.5†
-0.505
+~1.2–4.3†
+0.484
 log scale
-1,530
-all 125 candidates
+2,130
+all 126 candidates
 ASA-CF: XY · Printed specimen
 Heat resistance °C
 Heat resistance at least 100 °C
@@ -73,10 +73,10 @@ ASA-AF
 ASA-CF
 110
 ASA-EC
-~89–103†
-41.5
+~88–103†
+41.3
 300
-all 125 candidates
+all 126 candidates
 ASA-CF: Printed specimen
 Price CAD/kg
 Not published for any shortlisted material.
@@ -88,6 +88,6 @@ ASA-EC yes yes not recorded required not recorded
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
 ASA-AF 0 of 6 5† 1 11
-ASA-CF 5 of 6 — 4 42
+ASA-CF 5 of 6 — 5 53
 ASA-EC 0 of 6 5† 1 10
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

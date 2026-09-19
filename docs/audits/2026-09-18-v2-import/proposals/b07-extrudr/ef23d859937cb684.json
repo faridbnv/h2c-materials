@@ -61,7 +61,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
       },
       "row": {
         "MaterialID": "M053",
@@ -106,7 +109,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
         "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -122,7 +125,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Density ISO 1183 g/cm³",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -131,7 +134,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -153,7 +159,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "cm³/10 min",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -169,7 +175,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Melt Volume Rate (MVR) 235°C/5.0 kg ISO 1133 cm³/10min",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -178,7 +184,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -200,7 +209,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -216,7 +225,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Water Absorption (Saturation 23°C) ISO 62 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -225,7 +234,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -247,8 +259,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -263,7 +275,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Tensile Modulus ISO 527-1 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -272,7 +284,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -294,8 +309,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -310,7 +325,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Tensile Strength (Indentation Depth) ISO 527-2 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -319,7 +334,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -341,8 +359,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -357,7 +375,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Nominal Elongation at Break ISO 527-2 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -366,7 +384,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -388,7 +409,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kJ/m²",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -404,7 +425,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Charpy Notched Impact Strength (+23°C) ISO 179/1eA kJ/m²",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -413,7 +434,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -435,7 +459,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kJ/m²",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -451,7 +475,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Charpy Notched Impact Strength (-30°C) ISO 179/1eA kJ/m²",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -460,7 +484,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -482,7 +509,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -498,7 +525,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Heat Deflection Temperature (DTUL) 0.45 MPa, unannealed ISO 75-2/B °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -507,7 +534,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -529,7 +559,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -545,7 +575,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Heat Deflection Temperature (DTUL) 1.8 MPa, unannealed ISO 75-2/A °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -554,7 +584,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -576,7 +609,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -592,7 +625,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-en",
         "Locator": "p. 1: Vicat Softening Temperature ISO 306/B50 °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -601,7 +634,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     }
   ],
@@ -674,7 +710,10 @@
         "text": "• Hardened nozzle min. 0.5 mm is recommended"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-19",
+        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
       }
     }
   ],
@@ -898,6 +937,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-19"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "The sheet prints the elongation as a bound, greater than 35 %: PA12 is ductile and its carbon-fibre grade on this sheet still is, so the limit is the sheet's claim rather than a value.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

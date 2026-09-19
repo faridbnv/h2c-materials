@@ -858,6 +858,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Eryone |  | Shenzhen Eryone Technology;ERYONE |
 | Essentium | Sold under Nexa3D since the 2024 acquisition. | Essentium / Nexa3D;Nexa3D |
 | eSUN |  | ESUN;Shenzhen Esun Industrial;eSun |
+| Extrudr | Austrian maker; the DuraPro, GreenTEC, Flex and XPETG lines are its brands, not separate makers. | EXTRUDR;extrudr;FD3D GmbH;Extrudr FD3D |
 | Fabru | Fabru AG, whose filament brand is purefil. | Fabru / purefil;purefil;Purefil |
 | Fillamentum |  | Fillamentum Manufacturing Czech |
 | Flashforge |  | FlashForge;Zhejiang Flashforge 3D Technology |
@@ -1167,7 +1168,6 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| GB/T 31 | As Polymaker's sheets print it beside ISO 7619 for a shore hardness. GB/T 531 is that standard; the sheets print 31, and a source's own words are recorded as printed (D76). |
 | ASTM D1238 | Melt flow rates by extrusion plastometer. |
 | ASTM D1505 | Density by density-gradient technique. |
 | ASTM D1525 | Vicat softening temperature. |
@@ -1194,6 +1194,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | GB/T 1633 | Vicat softening temperature. |
 | GB/T 1634 | Temperature of deflection under load. |
 | GB/T 1843 | Izod impact strength. |
+| GB/T 31 | As Polymaker's sheets print it beside ISO 7619 for a shore hardness. GB/T 531 is that standard; the sheets print 31, and a source's own words are recorded as printed (D76). |
 | GB/T 3682 | Melt mass-flow and melt volume-flow rate. |
 | GB/T 528 | Tensile properties of vulcanised rubber. |
 | GB/T 531.1 | Indentation hardness of rubber. |
@@ -1218,6 +1219,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 6711 | Cited by a source; kept as the source prints it. |
 | ISO 75 | Temperature of deflection under load. |
 | ISO 7619 | Indentation hardness by durometer. |
+| ISO 8302 | Thermal conductivity by the guarded hot plate. |
 | ISO 868 | Indentation hardness by durometer (Shore). |
 
 <a id="vocab-stock"></a>

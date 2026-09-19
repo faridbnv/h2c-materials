@@ -837,3 +837,78 @@ P0369,Layer height,0.05 - 0.3 mm
 P0369,Shell / walls,0.4 - 2.7 mm
 P0369,Speed,20 - 50 mm/s
 P0370,Layer height,0.25mm
+P0371,Adhesion / release,recommended
+P0371,Speed,20-200mm/s
+P0371,Cooling,0-30%
+P0372,Adhesion / release,not required
+P0372,Speed,20-200mm/s
+P0372,Cooling,20-50%
+P0373,Adhesion / release,recommended
+P0373,Speed,<180mm/s
+P0373,Cooling,0-30%
+P0374,Adhesion / release,not required
+P0374,Speed,20-200mm/s
+P0374,Cooling,30-100%
+P0375,Adhesion / release,not required
+P0375,Speed,max 50 mm/s
+P0375,Cooling,60-100 %
+P0376,Adhesion / release,not required
+P0376,Speed,20-100mm/s
+P0376,Cooling,0-30%
+P0377,Adhesion / release,not required
+P0377,Speed,20-100mm/s
+P0377,Cooling,0-30%
+P0378,Adhesion / release,recommended
+P0378,Speed,20-200mm/s
+P0378,Cooling,0-30%
+P0379,Adhesion / release,recommended
+P0379,Speed,max. 250 mm/s
+P0379,Cooling,0-30 %
+P0380,Adhesion / release,not required
+P0380,Speed,20-200mm/s
+P0380,Cooling,20-50%
+P0381,Adhesion / release,recommended
+P0381,Speed,max. 150 mm/s
+P0381,Cooling,0-50%
+P0382,Adhesion / release,not required
+P0382,Speed,20-100mm/s
+P0382,Cooling,0-30%
+P0383,Adhesion / release,recommended
+P0383,Speed,20-200mm/s
+P0383,Cooling,0-50%
+P0384,Adhesion / release,recommended
+P0384,Speed,max. 280 mm/s
+P0384,Cooling,0-30 %
+P0385,Adhesion / release,Not required
+P0385,Speed,20-200 mm/s
+P0385,Cooling,60-100 %
+P0386,Adhesion / release,not required
+P0386,Speed,20-200mm/s
+P0386,Cooling,30-100%
+P0387,Adhesion / release,not required
+P0387,Speed,20-200mm/s
+P0387,Cooling,30-100%
+P0388,Adhesion / release,recommended
+P0388,Speed,20-200mm/s
+P0388,Cooling,0-50%
+P0389,Adhesion / release,recommended
+P0389,Speed,max. 280 mm/s
+P0389,Cooling,10-40 %
+P0390,Adhesion / release,not required
+P0390,Speed,up to 1000 mm/s
+P0390,Cooling,30-100%
+P0391,Adhesion / release,Yes
+P0391,Speed,20-150 mm/s
+P0391,Cooling,10-40%
+P0392,Adhesion / release,not required
+P0392,Speed,20-100mm/s
+P0392,Cooling,0-30%
+P0393,Adhesion / release,not required
+P0393,Speed,max. 50 mm/s
+P0393,Cooling,60-100 %
+P0394,Adhesion / release,Yes
+P0394,Speed,20-150 mm/s
+P0394,Cooling,10-40%
+P0395,Adhesion / release,recommended
+P0395,Speed,150 mm/s
+P0395,Cooling,0-50%

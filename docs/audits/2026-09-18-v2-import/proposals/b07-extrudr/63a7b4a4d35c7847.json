@@ -108,8 +108,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -124,7 +124,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Flexural modulus (E-Modulus) ASTM D790 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -136,7 +136,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -158,8 +158,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -174,7 +174,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Flexural strength ASTM D790 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -186,7 +186,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -208,8 +208,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -224,7 +224,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Tensile modulus (E-Modulus) ASTM D638 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -236,7 +236,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -258,8 +258,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -274,7 +274,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Tensile strength ASTM D638 MPa",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -286,7 +286,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -308,8 +308,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -324,7 +324,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Elongation at yield ASTM D638 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -336,7 +336,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -358,8 +358,8 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -374,7 +374,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Nominal elongation at break ASTM D638 %",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -386,7 +386,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -407,8 +407,8 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kJ/m²",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Data status": "Published value (physically implausible)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -424,7 +424,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Notched impact strength ASTM D256 kj/m²",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards; The sheet prints 250 in a column headed kj/m², which no notched Izod reaches; ASTM D256 reports in J/m. Recorded as printed.",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -436,7 +436,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards; The sheet prints 250 in a column headed kj/m², which no notched Izod reaches; ASTM D256 reports in J/m. Recorded as printed."
       }
     },
     {
@@ -458,7 +458,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kJ/m²",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -474,7 +474,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Unnotched impact strength ASTM D256 kj/m²",
-        "Notes": "the row says unnotched and the standard it names is the notched designation; the sheet's own word for the row is kept",
+        "Notes": "the row says unnotched and the standard it names is the notched designation; the sheet's own word for the row is kept; Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -486,7 +486,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: the row says unnotched and the standard it names is the notched designation; the sheet's own word for the row is kept -> the row says unnotched and the standard it names is the notched designation; the sheet's own word for the row is kept; Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -508,7 +508,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -524,7 +524,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: VICAT A (VST) ASTM D1525 °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -536,7 +536,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -558,7 +558,7 @@
         "Normalized upper bound": "200",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -574,7 +574,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Melting temperature ISO 3146-C °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -586,7 +586,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -608,7 +608,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -624,7 +624,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: HDT/B ASTM D648 °C",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -636,7 +636,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -658,7 +658,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
         "Data status": "Published value",
-        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -674,7 +674,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Density ASTM D792 g/cm³",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -686,7 +686,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     },
     {
@@ -708,7 +708,7 @@
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "Rockwell R",
         "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
+        "Specimen type": "Raw material value",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -724,7 +724,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
         "Locator": "p. 1: Hardness Rockwell ASTM D785 R-Skala",
-        "Notes": "Not applicable",
+        "Notes": "Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -736,7 +736,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-19",
-        "note": "read against the page: each row's own line states the property, the method, the unit and the value"
+        "note": "Notes: Not applicable -> Specimen form from Extrudr's range-wide additional information sheet (R-EXTRUDR-AIS, 04.09.2024, section 4): the test specimens are manufactured through injection moulding and tested afterwards"
       }
     }
   ],

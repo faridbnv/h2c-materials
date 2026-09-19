@@ -890,5 +890,15 @@
     "status": "reviewed",
     "by": "claude-opus-5",
     "date": "2026-09-19"
-  }
+  },
+  "acceptances": [
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "1100 MPa is what the sheet publishes for its PA6 carbon-fibre grade, on an injection-moulded bar, against 2400 MPa for its glass-fibre one. A conditioned polyamide is soft, and nothing on the sheet says the bar was dry; the number is recorded as printed.",
+      "by": "claude-opus-5",
+      "date": "2026-09-19"
+    }
+  ]
 }

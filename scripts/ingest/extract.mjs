@@ -103,6 +103,13 @@ export function fingerprint(text) {
     if (statements.length === before) {
       for (const m of joined.matchAll(unitFirstStatementRe())) statements.push(`${m[2]}${m[1].replace(/\s/g, '')}`);
     }
+    // A layout may put the value on a line of its own, above the label that names its unit: SUNLU prints "35±5"
+    // and then "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa". Those lines are the sheet's numbers, and without
+    // them the only numbers a fingerprint could see were the conditions every SUNLU sheet repeats.
+    if (statements.length === before) {
+      const bare = /^\s*[≥≤><]?\s*(\d+(?:\.\d+)?)(?:\s*[±]\s*\d+(?:\.\d+)?|\s*[-–]\s*\d+(?:\.\d+)?)?\s*$/.exec(joined);
+      if (bare) statements.push(`${bare[1]}#`);
+    }
   }
   return statements.sort();
 }

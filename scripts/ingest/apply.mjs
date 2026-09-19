@@ -289,6 +289,9 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     // A material's headlines are its representative grade's. Where this proposal's material was created by an
     // earlier document of the same batch, that grade is not this one's and the selections are already made.
     for (const h of createdHere ? proposal.headlines ?? [] : []) {
+      // A selection a reviewer turned down is not made: a maker whose sheets are all injection-moulded bars
+      // publishes nothing a headline may show, and the build says so rather than the batch writing it anyway.
+      if (h.review?.status === 'rejected') continue;
       const measurement = (proposal.measurements ?? []).find((m) => m.id === h.measurement);
       const recorded = t.rows('measurements').find((x) => x.SourceID === measurement?.row?.SourceID && x.Locator === measurement?.row?.Locator);
       if (!recorded) continue;
