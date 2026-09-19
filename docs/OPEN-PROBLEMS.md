@@ -182,10 +182,12 @@ which belong in `profile_notes.csv`, `Drying` and `Support pairing`.
 Five `profile_notes` rows carry the same damage (`P0092`, `P0111`, `P0114` and both notes of `P0120`).
 
 **The fix** is a re-read of each source (D35), which `scripts/ingest/propose.mjs` now does correctly: it reads a
-setting by its own label, takes the value from the label's own cell, and stops where the next column begins. Ten
-of the fifteen are Spectrum sheets and are corrected by that maker's import batch; the other five are Polymaker
-and Fiberon sheets, and wait for theirs, because moving their print speed and drying schedule into the columns
-that own them is the same re-read.
+setting by its own label, takes the value from the label's own cell, and stops where the next column begins. It
+reads those twelve Spectrum sheets at 100% parity, so the corrected cells are a proposal away. What is missing is
+the path that turns a proposal for a document already registered into corrections rather than new rows: the plan's
+`edits[]`, through `scripts/migrate/source-edits.mjs`, so each correction names the value it replaces. Ten of the
+fifteen are Spectrum sheets and five are Polymaker and Fiberon ones, whose print speed and drying schedule move
+into the columns that own them in the same re-read.
 
 ```bash
 npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), substr(bed_c,1,40) from profiles
