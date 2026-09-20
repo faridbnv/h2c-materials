@@ -8,11 +8,11 @@ can go stale without the command that made it saying so.
 | Table | Rows |
 |---|---:|
 | materials | 144 |
-| grades | 707 |
-| measurements | 8,026 |
-| sources | 923 |
-| profiles | 757 |
-| profile notes | 1,589 |
+| grades | 720 |
+| measurements | 8,162 |
+| sources | 936 |
+| profiles | 762 |
+| profile notes | 1,606 |
 | headlines | 476 |
 
 ## The corpus
@@ -21,13 +21,13 @@ can go stale without the command that made it saying so.
 
 | Status | Documents |
 |---|---:|
-| applied | 764 |
-| held | 534 |
+| applied | 777 |
+| held | 522 |
 | inventoried | 251 |
 | duplicate-of | 182 |
 | gated | 64 |
 | safety-data-sheet | 43 |
-| extracted | 29 |
+| extracted | 28 |
 | unreadable | 23 |
 | needs-staging | 23 |
 | unreachable | 12 |
@@ -43,17 +43,18 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 
 | Reason | Documents | Where |
 |---|---:|---|
-| `ruling` | 241 | Filament2Print 28, 3DJake / 3DJAKE 26, MatterHackers / PRO Series 22, Siraya Tech 20, Nanovia 16 |
+| `ruling` | 243 | Filament2Print 28, 3DJake / 3DJAKE 26, MatterHackers / PRO Series 22, Siraya Tech 20, Nanovia 16 |
 | `twin` | 105 | 3DJake / 3DJAKE 37, Extrudr 16, Spectrum 15, SUNLU 11, Eryone 7 |
 | `no-values` | 72 | Spectrum 28, Essentium / Nexa3D 9, Raise3D 9, 3D-Fuel 3, Recreus / Filaflex 3 |
-| `ocr-visual` | 60 | Fiberlogy 28, 3DJake / 3DJAKE 19, 3DXTECH 9, BigRep 1, Extrudr 1 |
-| `reader:bilingual-columns` | 29 | QIDI 29 |
+| `ocr-visual` | 64 | Fiberlogy 27, 3DJake / 3DJAKE 19, 3DXTECH 9, QIDI 5, BigRep 1 |
 | `reader:condition-table` | 24 | Stratasys 24 |
+| `reader:several-values` | 10 | QIDI 8, 3DJake / 3DJAKE 1, Fiberlogy 1 |
 | `registered` | 3 | Extrudr 2, Shop3D Canada 1 |
+| `reader:bilingual-columns` | 1 | QIDI 1 |
 
-### Read, nothing holding them: 29
+### Read, nothing holding them: 28
 
-3DJake / 3DJAKE 15, Fabru / purefil 6, SIDDAMENT 2, colorFabb 1, Eryone 1, NinjaTek 1, Raise3D 1, Shop3D Canada 1, Spectrum 1
+3DJake / 3DJAKE 14, Fabru / purefil 6, SIDDAMENT 2, colorFabb 1, Eryone 1, NinjaTek 1, Raise3D 1, Shop3D Canada 1, Spectrum 1
 
 ## The reader
 
@@ -119,12 +120,13 @@ npm run ingest:propose -- --compare --all
 | [b11](batches/b11/README.md) | b11: what was left of the makers already proved | m77-batch-b11, 2026-09-20 |
 | [b12](batches/b12/README.md) | b12: the new PDF libraries of Wave B | m81-batch-b12, 2026-09-20 |
 | [b14](batches/b14/README.md) | b14: the documents nothing was holding | m83-batch-b14, 2026-09-20 |
+| [b15](batches/b15/README.md) | b15: the sheets whose own title the reader was throwing away | m85-batch-b15, 2026-09-20 |
 
 ## By provider
 
 | Provider | Documents | applied | duplicate-of | extracted | gated | held | inventoried | needs-ocr | needs-staging | not-a-data-sheet | registered | safety-data-sheet | skipped | unreachable | unreadable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 3DJake / 3DJAKE | 462 | 101 | 42 | 15 |  | 83 | 218 |  |  | 1 | 1 | 1 |  |  |  |
+| 3DJake / 3DJAKE | 462 | 101 | 42 | 14 |  | 84 | 218 |  |  | 1 | 1 | 1 |  |  |  |
 | Spectrum | 150 | 86 | 14 | 1 |  | 49 |  |  |  |  |  |  |  |  |  |
 | Extrudr | 140 | 40 | 69 |  |  | 29 |  |  |  |  |  |  | 2 |  |  |
 | Nanovia | 73 | 22 | 33 |  |  | 18 |  |  |  |  |  |  |  |  |  |
@@ -140,7 +142,7 @@ npm run ingest:propose -- --compare --all
 | Eryone | 39 | 28 |  | 1 |  | 8 |  |  |  |  |  |  |  | 2 |  |
 | Filament2Print | 39 | 5 | 1 |  |  | 30 |  | 3 |  |  |  |  |  |  |  |
 | iSANMATE | 37 | 14 |  |  |  |  |  |  | 23 |  |  |  |  |  |  |
-| QIDI | 36 |  |  |  |  | 36 |  |  |  |  |  |  |  |  |  |
+| QIDI | 36 | 13 |  |  |  | 23 |  |  |  |  |  |  |  |  |  |
 | INTAMSYS | 33 |  |  |  |  |  | 33 |  |  |  |  |  |  |  |  |
 | SIDDAMENT | 32 | 21 |  | 2 |  | 9 |  |  |  |  |  |  |  |  |  |
 | BASF Forward AM / Ultrafuse | 31 | 4 |  |  |  | 7 |  |  |  |  |  |  |  | 3 | 17 |

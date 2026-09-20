@@ -1,0 +1,830 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "e9f31f364d2365cdcc7a02c86386c977f87fdce83f54fef4b6a603a931f0001c",
+    "url": "https://drive.google.com/file/d/1CTL1aygDhydbHMgTHiBGwZgC340mUf7b/view?usp=drive_link",
+    "pages": 5,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1CTL1aygDhydbHMgTHiBGwZgC340mUf7b/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PEBA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "95A",
+    "support": false,
+    "signals": [
+      "name: peba",
+      "hardness: 95A"
+    ],
+    "materialId": "M045",
+    "materialName": "PEBA",
+    "estimateIdentity": "PEBA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PEBA-95A",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1CTL1aygDhydbHMgTHiBGwZgC340mUf7b/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e9f31f364d2365cdcc7a02c86386c977f87fdce83f54fef4b6a603a931f0001c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M045",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PEBA 95A",
+        "Shared formulation key": "R-QIDI-PEBA-95A",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.01 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.01",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1010",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: Density ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ISO 1183 1.01 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "30 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "235°C",
+        "Standard / load": "235°C,2.16kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: Melt index 235°C,2.16kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt index 235°C，2.16kg 30 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "1.56 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.56",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.56",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: Water absorption ISO 62: Method 1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Water absorption ISO 62: Method 1 1.56 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "102.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "102.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "102.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: Vicat softening temperature ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Vicat softening temperature ISO 306 102.8 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "32.58 ± 0.64 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "32.58",
+        "Raw uncertainty ±": "0.64",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "32.58",
+        "Normalized uncertainty ±": "0.64",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: Tensile breaking strength (X-Y) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile breaking strength (X-Y) ISO 527 32.58 ± 0.64 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1106.8 ± 65.66 %",
+        "Raw unit": "%",
+        "Raw numeric": "1106.8",
+        "Raw uncertainty ±": "65.66",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1106.8",
+        "Normalized uncertainty ±": "65.66",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: elongation at break (X-Y) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "elongation at break (X-Y) ISO 527 1106.8 ± 65.66 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "9.17 ± 0.14 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9.17",
+        "Raw uncertainty ±": "0.14",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9.17",
+        "Normalized uncertainty ±": "0.14",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% X-Y ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: tensile stress at 100% (X-Y) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "tensile stress at 100% (X-Y) ISO 527 9.17 ± 0.14 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "8.98 ± 0.05 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "8.98",
+        "Raw uncertainty ±": "0.05",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.98",
+        "Normalized uncertainty ±": "0.05",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "200% X-Y ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: tensile stress at 200% (X-Y) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "tensile stress at 200% (X-Y) ISO 527 8.98 ± 0.05 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "9.69 ± 0.08 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9.69",
+        "Raw uncertainty ±": "0.08",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9.69",
+        "Normalized uncertainty ±": "0.08",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "300% X-Y ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: tensile stress at 300% (X-Y) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "tensile stress at 300% (X-Y) ISO 527 9.69 ± 0.08 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Tear strength",
+        "Raw value": "86.22 ± 5.36 KN/m",
+        "Raw unit": "KN/m",
+        "Raw numeric": "86.22",
+        "Raw uncertainty ±": "5.36",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "86.22",
+        "Normalized uncertainty ±": "5.36",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kN/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 34-1",
+        "Standards": "ISO 34",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "Locator": "p. 2: Tear Strength (Z) ISO 34-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tear Strength (Z) ISO 34-1 86.22 ± 5.36 KN/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230-260 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "60-100 °C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-PEBA-95A",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "speed 50-100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-120 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "0.4-1 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1800-3600 mm/min"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle size 0.4mm, Nozzle temp 240°C, Bed temp 100°C, Print speed 60mm/s, Infill 100%,"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle size",
+      "raw": "0.4mm",
+      "fromBelow": false,
+      "line": "Nozzle size 0.4mm, Nozzle temp 240°C, Bed temp 100°C, Print speed 60mm/s, Infill 100%,"
+    },
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "230-260 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 230-260 °C"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "60-100 °C",
+      "fromBelow": false,
+      "line": "Build plate temperature 60-100 °C"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "speed 50-100%",
+      "fromBelow": false,
+      "line": "Cooling fan speed 50-100%"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "30-120 mm/s",
+      "fromBelow": false,
+      "line": "Print speed 30-120 mm/s"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "0.4-1 mm",
+      "fromBelow": false,
+      "line": "Retraction distance 0.4-1 mm"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "1800-3600 mm/min",
+      "fromBelow": false,
+      "line": "Retraction speed 1800-3600 mm/min"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "QIDI PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI PEBA 95A is an easily printable nylon-based",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Hardness ISO 7619 95 A",
+      "reason": "the line names Hardness and states no value in a unit the database keeps it in (Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source))"
+    },
+    {
+      "page": 2,
+      "text": "Bayshore rebound ASTM D2632 70 %",
+      "reason": "properties.csv carries no property for \"Bayshore rebound\""
+    },
+    {
+      "page": 2,
+      "text": "Charpy impact strength at +23°C ISO 179 Non-break",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Charpy impact strength at -30°C ISO 179 Non-break",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Infill angle ± 45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Recommended nozzle diameter ≥0.2 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. PEBA material is very easy to absorb moisture when exposed to air, and printing after",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "dry box (humidity below 15%) immediately after opening the QIDI PEBA 95A vacuum",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. After the material is damp, there will be more printing oozing, bubbles extruded and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "rough printing surface. Please dry the filament in an oven at 70-75°C for 4-6h to restore",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "the printing quality of QIDI PEBA 95A.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "a 95A polyether block amide drawing eleven times its length is what the sheet publishes, and the window’s top is drawn from polyurethanes.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
+}

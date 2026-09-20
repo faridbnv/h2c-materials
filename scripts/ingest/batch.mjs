@@ -54,6 +54,22 @@ const READER_GAPS = [
  * Why this document is waiting, from the proposal and from what the applier says about it. Returns null where
  * nothing holds it: that document is ready for a batch, and saying so is as much use as naming a hold.
  */
+/**
+ * A row whose own line states more than one result in the row's own unit. QIDI heads its tables
+ * "Method | Molded | X-Y Axis | Z Axis" and prints three heat deflections on one line; read as one value the
+ * reader takes the first, which is the injection moulded bar, and records it as the product's.
+ *
+ * This is asked of the proposal and not of the reader. Refusing such a row inside the reader was tried and cost
+ * 297 values the database already holds across twenty makers, because a sheet prints two results on one line
+ * for good reasons as often as bad ones. What the reader cannot tell apart, a batch can hold.
+ */
+const severalValues = (proposal) => (proposal.measurements ?? []).filter((m) => {
+  const unit = String(m.row?.['Raw unit'] ?? '').trim();
+  if (!unit) return false;
+  const pattern = new RegExp(String.raw`(?<![-\u2013~\u00b1]\s{0,2})\d+(?:[.,]\d+)?\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi');
+  return [...String(m.evidence?.text ?? '').matchAll(pattern)].length > 1;
+}).length;
+
 export function holdReason(proposal, problems = []) {
   const codes = new Set(problems.map((p) => p.code));
   const first = (code) => problems.find((p) => p.code === code)?.message ?? '';
@@ -69,6 +85,10 @@ export function holdReason(proposal, problems = []) {
   }
   for (const code of ['APPLY-PRODUCT-DUPLICATE', 'APPLY-SHA-DUPLICATE', 'APPLY-URL-DUPLICATE', 'APPLY-SOURCE-COLLISION', 'APPLY-KEY']) {
     if (codes.has(code)) return { reason: 'registered', detail: first(code) };
+  }
+  const several = severalValues(proposal);
+  if (several) {
+    return { reason: 'reader:several-values', detail: `${several} row(s) state more than one result in their own unit and the table names no column for them; the reader takes the first, which on these sheets is the injection moulded bar` };
   }
   return null;
 }
@@ -237,7 +257,7 @@ function split(batch) {
     for (const p of proposals) {
       const mine = problems.filter((x) => String(x.where ?? '').startsWith(p.file));
       const hold = holdReason(p, mine);
-      if (hold && ['ocr-visual', 'ruling', 'no-name', 'registered', 'no-values'].includes(hold.reason)) {
+      if (hold && ['ocr-visual', 'ruling', 'no-name', 'registered', 'no-values', 'reader:several-values'].includes(hold.reason)) {
         moved.set(p.file, hold.reason === 'ocr-visual' ? 'ocr' : 'held');
       }
     }

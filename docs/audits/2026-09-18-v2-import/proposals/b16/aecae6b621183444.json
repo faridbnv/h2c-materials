@@ -1,0 +1,740 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196",
+    "url": "https://drive.google.com/file/d/1rPb6qsu-dDGB-LYU-xTC1zqfevB6678c/view?usp=drive_link",
+    "pages": 4,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1rPb6qsu-dDGB-LYU-xTC1zqfevB6678c/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-TPU95A-HF",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI TPU95A-HF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1rPb6qsu-dDGB-LYU-xTC1zqfevB6678c/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI TPU95A-HF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "TPU95A-HF",
+        "Shared formulation key": "R-QIDI-TPU95A-HF",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI TPU95A-HF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.15 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: 密度 ISO 1183 Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 1183 1.15 g/cm³"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "30 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: Melt index",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "30 g/10min"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "99 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "99",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "99",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: Melt index 维卡软温度 ISO 306 Vicat softening temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "维卡软温度 ISO 306 99°C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "31.81 ± 3.26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "31.81",
+        "Raw uncertainty ±": "3.26",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "31.81",
+        "Normalized uncertainty ±": "3.26",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: 拉伸断裂强度 (X-Y) Tensile breaking strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "31.81±3.26 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: 断裂伸长率",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "断裂伸长率 100% (X-Y)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the sheet lists an elongation at break and then a stress at 100 %, a stress at 200 % and a stress at 300 %, all with their own Chinese labels; the 100 in the label of the second is not the value of the first. The sheet’s own elongation is on a line this reader does not pair with its label."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "471 ± 81 %",
+        "Raw unit": "%",
+        "Raw numeric": "471",
+        "Raw uncertainty ±": "81",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "471",
+        "Normalized uncertainty ±": "81",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "471±81 %"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "100%定伸应力 (X-Y)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the sheet lists an elongation at break and then a stress at 100 %, a stress at 200 % and a stress at 300 %, all with their own Chinese labels; the 100 in the label of the second is not the value of the first. The sheet’s own elongation is on a line this reader does not pair with its label."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "200 %",
+        "Raw unit": "%",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "200%定伸应力 (X-Y)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "300 %",
+        "Raw unit": "%",
+        "Raw numeric": "300",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU95A-HF",
+        "Locator": "p. 2: elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "300%定伸应力 (X-Y)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data / Revised: 07.2023 Version No: 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI TPU95A-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "一款高流动性的 TPU95A-HF 柔性 3D 打印材料",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A high flowability TPU95A-HF flexible 3D printing material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI TPU95A-HF 是一款易打印的 TPU 材料。在同等硬度下，QIDI TPU95A-HF 相比其他常规 TPU 耗",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "材会更容易被挤出，当选用合适的挤出机时，QIDI TPU95A-HF 可支持 100mm/s 以上的打印速度。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI TPU95A-HF is TPU material that is easy to print. QIDI TPU95A-HF is easier to be extruded than",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU95A-HF can support a printing speed of more than 100mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "以轻松实现高速打印（≥100mm/s），并可在远程挤出机上实现常规速度打印（30-60mm/s）。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "with only a small thrust. High speed printing (≥100mm/s) can be easily realized by direct extruders,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "and conventional speed printing (30-60mm / s) can be realized by bowden extruders.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "线径 Diameter：1.75mm/2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "净重 Net Wet：1KG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 7619 95A",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "熔融指数 200℃，2.16kg",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 9.75±0.16 MPa",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "12.2±0.27 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "17.0±0.49 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "试样打印参数：喷嘴大小 0.4mm，喷嘴温度 210°C，底板加热 50°C，打印速度 60mm/s，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Specimens printed under the following conditions: Nozzle size 0.4mm，Nozzle temp 210°C, Bed temp 50°C, Print speed 60mm/s, Infill 100%, Infill",
+      "reason": "a sentence stating how the specimens were printed, not a result"
+    },
+    {
+      "page": 2,
+      "text": "angle ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "210-230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "≥0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "20-50°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.18-0.22mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1-5 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. 如果想实现高速打印，推荐使用近程挤出机，例如：BMG 挤出机、Titan 挤出机、Hemera 挤出机，并适当",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. TPU 材料暴露在空气中容易吸收水分，吸湿后打印会出现拉丝，挤出有气泡，打印表面粗糙等现象，降低打",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "印质量。建议您打开 QIDI TPU95A-HF 真空铝箔袋包装后立即将线材放入干燥盒内（湿度控制在 15%以下）",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "recommended that put the filament into a dry box (humidity below 15%) immediately after opening the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "QIDI TPU95A-HF vacuum foil bag for printing. Please put the unused filament back into the original",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3. 材料受潮后会出现打印拉丝增多，挤出有气泡，打印表面质量粗糙等现象。请将线材放入 70-80℃烘箱内干",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "燥 4-6h，即可恢复 QIDI TPU95A-HF 的打印质量。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "surface. Please dry the filament in an oven at 70-80℃ for 4-6h to restore the printing quality of QIDI",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "TPU95A-HF.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

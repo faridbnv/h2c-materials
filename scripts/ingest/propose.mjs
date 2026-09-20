@@ -1528,6 +1528,17 @@ export function readSheet(text, registry) {
         continue;
       }
 
+      // A sentence that says how the specimens were printed is not a result. QIDI closes each table with
+      // "Specimens printed under the following conditions: Nozzle size 0.4mm, Nozzle temperature 210°C, ...
+      // infill 100%", and the reader took the infill for an elongation at break of 100 %. The same sentence is
+      // already what tells this reader the sheet's bars were printed; it is a statement about specimens either
+      // way, and never about a property.
+      const SPECIMEN_SENTENCE = /printed specimen conditions|specimens? (?:were )?printed under|specimen (?:preparation|conditions)[:\s]|test specimens?(?: were)? (?:3d )?printed|\u8bd5\u6837\u6253\u5370\u53c2\u6570/i;
+      if (SPECIMEN_SENTENCE.test(String(line.text ?? ''))) {
+        skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'a sentence stating how the specimens were printed, not a result' });
+        continue;
+      }
+
       values.push({
         page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
         label: fullLabel, condition: carried ? fullLabel : read.conditions,

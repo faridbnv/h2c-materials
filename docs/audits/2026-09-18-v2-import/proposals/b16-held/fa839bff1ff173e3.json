@@ -1,0 +1,639 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "fa839bff1ff173e311a7c2799aad8bc44e75b2697f33f494edf9c24d596ea858",
+    "url": "https://drive.google.com/file/d/1sj_ffiHJFT5iXPimBso-ESgJU3J3Y7yB/view?usp=drive_link",
+    "pages": 4,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1sj_ffiHJFT5iXPimBso-ESgJU3J3Y7yB/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa",
+      "filler: cf25"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"pa\" names a family, not a polymer: as above"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-ULTRA-PA-CF25",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI Ultra PA-CF25",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1sj_ffiHJFT5iXPimBso-ESgJU3J3Y7yB/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "fa839bff1ff173e311a7c2799aad8bc44e75b2697f33f494edf9c24d596ea858"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI Ultra PA-CF25"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "Ultra PA-CF25",
+        "Shared formulation key": "R-QIDI-ULTRA-PA-CF25",
+        "Composition / filler": "structure and 25% chopped carbon fiber to improve its thermal and mechanical properties. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "(v1.2) (p. 3, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-ULTRA-PA-CF25",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI Ultra PA-CF25"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "9 ± 4.2 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "9",
+        "Raw uncertainty ±": "4.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9",
+        "Normalized uncertainty ±": "4.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ULTRA-PA-CF25",
+        "Locator": "p. 3: Melt index",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Melt index 9 4.2 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.18 ± 0.14 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.18",
+        "Raw uncertainty ±": "0.14",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.18",
+        "Normalized uncertainty ±": "0.14",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ULTRA-PA-CF25",
+        "Locator": "p. 3: (X-Y) Elongation at break (X-Y) * * *",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "2.18 + 0.14 % 1.62 + 0.12 % 2.43 + 0.15 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "72497.08 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "72497.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "72497.08",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z 3 / / ALE Z 4213. annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ULTRA-PA-CF25",
+        "Locator": "p. 3: Tensile strength (Z) * 3 / / ALE (Z) ISO 527 4213.",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "ALE (Z) ISO 527 4213.72497.08 MPa / /"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data/Revised: 05.2023 Version No: 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI Ultra PA-CF25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FETT EAN 25% 5G VAT EIS RS mE 3D FT ENA.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI Ultra PA-CF25 is one type 3D printing nylon filament with Co-extrusion skin-core",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "structure and 25% chopped carbon fiber to improve its thermal and mechanical properties.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "fj m5olxy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@ tasn2teB BIKA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI @AS RHA, FAWRAMs BBA —KLWR 3D TTEDERA, ZR AT SN RIte",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI invented a new generation of industrial 3D printing filament with a skin-core structurer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI H—1K LW 3D FT AMAAa PRA OEP RAR BMT, 247",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FAWN Him, Tine REN i Bats. FTEDASAY Z SHR [el Made 77 a) Dee eR RHA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ne RES SH05K 8 ZANT, eS RATT SABA Z HR lesR LARS SA te",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI 3D printing filaments have taken advantage of the general laminar flow of polymeric",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "loss is always a common issue during printing. However, for FusCoatingTM 3D printing filaments, the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI Fr—fR LW 3D FTAA ME, ARAMAA eA RETA, Sl",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SKA BEARER AZRIEL, Ale l> 7 taoR 248 Be SUR AAS SARA TS, A SLBRIIK SL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bin, SINGBAWAM HER SAMA NMRA SHIRES A See eee, ICS 3D FTE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ESF Oo 2 BN 58 Fa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "throats, which prolongs the service life of the entire extrusion parts of the 3D printer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ant4h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI UltraPA-CF25 @—-KAAWR BEA 257THRS mE 3D FTE. AMIN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ABHRREHALLAK, BUARA GRAMS REL. QIDI TECH 3D HABAMAAT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FJ ENE AY Z Ha)771s) o] eae Ry AN etd, AR Rte Sf APAES RSs FDM stay Z He",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Felase, fl 2% SSN emeticSITS AHN BAN MM RESIN AE, ARG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI UltraPA-CF25 is an outstanding candidate for printing parts that need to have thin walls",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and high mechanical property requirements. It is one type of 3D printing filament with 25% carbon fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI TECH 3D printing filaments take advantage of the general laminar flow of polymeric fluids during",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Meanwhile, 25% chopped cabron fiber content can improve the mechanical properties and heat resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "zgmf2 Color: Sf Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "254% Diameter:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "# Net Wet: 500g, Ikg, 2.5kg, 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(v1.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 1183 1.23 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "‘TEL OAR fie 2S ISO 62: 1n9 %",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 3,
+      "text": "Density g/cm",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": ". Fs ISO 11357 237°C",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 3,
+      "text": "Water absorption Method 1 “—",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "300°C, 2.16k ; i",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "FIR K 1B AIG Saturation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 75: Method A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "MEae 96.1°C 196.9°C 190.2°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(0.45",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 75: Method B",
+      "reason": "properties.csv carries no property for \"ISO\""
+    },
+    {
+      "page": 3,
+      "text": "temperature 83°C 124.2°C 100.7°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(1.80 MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ALARA BE XY) 109.68 + 1.84 MPa 118.19 + 3.82 MPa | 108.86 + 2.61 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "AL (X-Y) ISO 527 8996.26 + 232.21 9989.47 * 227.73 | 8812.70 + 162.42",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "25 Hh oe X-Y",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "=i BRE (X-Y) 176.24 + 3.51 MPa 184.19 + 5.73 MPa | 168.22 + 3.40 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "a ee ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "Hts (X-Y) 8487.47 + 246.46 9214.34 + 249.80 7466.02 + 233.33",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Charpy impact strength ISO 179 12.04 + 0.94 KJ/ri_ | 7.29 £ 0.76 KI/ni_| 11.56 0.91 KI/ni",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 3,
+      "text": "58.01 + 2.05 MP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "BIA (Z) 1.64 + 0.10 % / /",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 3,
+      "text": "HE +45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "45mm/s, tAFS 100%, JAF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "pet pndt 80°C, FEE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(RUBE 340°C,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "IK: 100'CiRK8 /|\\ BY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "100%, Infill angle +45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "340°C, Bed temp 80°C, Print speed 45mm/s, Infill",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Post-processing: 100°C Annealing 8 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Bi Aa 300-340°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "aeieeae 0.4-1.0mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "a 0.08-0.12 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "FTE Bee 30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "; ; 1-3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "mies 1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "FFQIDI TECH UltraPA-CF2583 a6 2B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "quality. It is recommended that put the filament into a dry box (humidity below 15%) immediately after",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "opening the QIDI TECH UltraPA-CF25 vacuum foil bag for printing. Please put the unused filament back",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "RB SWR. AMMA 80-100 CHA TR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4-6h,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Bo] *kKQIDI TECH UltraPA-CF25HWFTEI",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Please dry the filament in an oven at 80-100°C for 4-6h to restore the printing quality of QIDI TECH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "UltraPA-CF25.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "he, SMMAREEA)\\F 12mm,",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

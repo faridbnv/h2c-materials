@@ -1588,3 +1588,20 @@ P0756,Cooling,100%
 P0756,Speed,40mm/s
 P0757,Cooling,100%
 P0757,Speed,40mm/s
+P0758,Layer height,0.2 mm
+P0758,Cooling,0-50%
+P0758,Speed,40-150 mm/s
+P0758,Shell / walls,≥ 0.8 mm
+P0759,Layer height,0.2 mm
+P0759,Cooling,0-50%
+P0759,Speed,≤ 150 mm/s
+P0759,Shell / walls,≥ 0.8 mm
+P0760,Cooling,speed 0%-20%
+P0760,Retraction,1800-3600 mm/min
+P0761,Cooling,"properties allow it to stably support high-speed printing of 300mm/s,"
+P0761,Layer height,0.2 mm
+P0761,Speed,≤ 300 mm/s
+P0761,Shell / walls,≥ 0.8 mm
+P0762,Cooling,speed 50-100%
+P0762,Speed,30-120 mm/s
+P0762,Retraction,0.4-1 mm

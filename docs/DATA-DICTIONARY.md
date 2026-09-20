@@ -1261,6 +1261,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 7619 | Indentation hardness by durometer. |
 | ISO 815 | Compression set of rubber at ambient, elevated or low temperatures. |
 | ISO 8302 | Thermal conductivity by the guarded hot plate. |
+| ISO 845 | Apparent density of cellular plastics and rubbers; the test a foaming filament's sheet cites for the density its print reaches. |
 | ISO 868 | Indentation hardness by durometer (Shore). |
 
 <a id="vocab-stock"></a>
