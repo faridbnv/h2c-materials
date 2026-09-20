@@ -1345,6 +1345,15 @@ export function readSheet(text, registry) {
       // included 3-7% nucleating agent", and held as a label it gave the storage paragraph's "18-27°C" and the
       // tool temperature of the footnote itself to the heat deflection temperature.
       const headsRowsBelow = naming.length <= HEADING_LENGTH && naming.split(/\s+/).length <= 8;
+      // A row that publishes no number publishes that. Bambu prints "Crystallization Temperature DSC, 10 C/min
+      // N/A", which is the sheet answering for the row and not a label waiting for the row below to answer for
+      // it; held as a label it took the Vicat point printed under it and called 94 C a crystallization
+      // temperature. The dash a sheet leaves in a value column says the same thing.
+      const STATES_NOTHING = /(?:^|[\s:])(n\s*\/\s*a|n\.\s?a\.|not applicable|not measured|not detected|none|[-–—])\s*$/i;
+      // Only where the line states no value of its own: a sheet leaves the method column empty as often as the
+      // value column, and "Heat deflection temperature (HDT) 125-140 C —" and "VICAT softening point 60C N/A"
+      // both publish their result and say nothing about how it was measured.
+      if (bare && STATES_NOTHING.test(plain) && !readRow(rowLine.text, registry)) { dropHeld(); held = null; heldFor = 0; prefix = null; continue; }
       if (bare && headsRowsBelow && (!/\d/.test(plain) || !readRow(rowLine.text, registry))) {
         // A label line that holds a number of its own and never gives it to a row below is a number the sheet
         // prints and the proposal lost. It is written down when the label is dropped, not here, because until
@@ -2344,7 +2353,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
       const pct = recorded ? (found / recorded) * 100 : 0;
       if (all) console.log(`${pct.toFixed(0).padStart(3)}%  ${String(found).padStart(4)} of ${String(recorded).padStart(4)}  ${String(scored.length).padStart(3)} sheet(s)  ${only}`);
       else console.log(`\nparity ${pct.toFixed(0)}%: ${found} of ${recorded} recorded values on ${scored.length} sheet(s)`);
-      table2.push({ Provider: only ?? 'all', Sheets: scored.length, Recorded: recorded, Found: found, Parity: pct.toFixed(0), Missed: missedAll.slice(0, 40).join(' | ') });
+      table2.push({ Provider: only ?? 'all', Sheets: scored.length, Recorded: recorded, Found: found, Parity: pct.toFixed(0), Missed: missedAll.join(' | ') });
     }
     if (all) {
       mkdirSync(join(AUDIT, 'census'), { recursive: true });

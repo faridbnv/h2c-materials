@@ -17,6 +17,7 @@ Label,Property,Direction,Notch,Note
 "^zug-?e-?modul\b",Tensile modulus,,Not applicable,"purefil prints its German sheets with the German names; Zug-E-Modul is the tensile modulus"
 "^e-?modulus\b(?=.*\b(?:ISO\s?178|ASTM\s?D\s?790)\b)",Flexural modulus,,Not applicable,"a sheet may head the row with the modulus alone; which modulus it is is the test it names, and ISO 178 is the bending test"
 "^e-?modulus\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile modulus,,Not applicable,"the same row where the test it names is the tensile one"
+"^breaking elongation( rate)?\b",Elongation at break,,Not applicable,"Bambu heads the row Breaking Elongation Rate, which is the elongation at failure this database keeps"
 "^(tensile )?elongation[^a-z]{0,3}\(?(at )?break|^tensile strain at break|^tensile elongation[^a-z]*(at )?break|^elongation[^a-z]*at break|^tensile strain \(break\)",Elongation at break,,Not applicable,
 "^(tensile )?elongation[^a-z]{0,3}\(?(at )?yield|^tensile strain at yield|^tensile strain \(yield\)|^tensile elongation[^a-z]*(at )?yield",Elongation at yield,,Not applicable,
 ^tensile strain at (tensile )?(strength|max)|^elongation at max,Tensile strain at strength,,Not applicable,
@@ -34,6 +35,7 @@ Label,Property,Direction,Notch,Note
 "^un-?notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Unnotched,the same row unnotched
 "^(temperature of deflection under load|heat (deflection|distortion)( temp(erature)?)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."" or print the abbreviation in place of the word: ""Heat Distortion (HDT)"""
 ^vicat,Vicat softening temperature,Not applicable,Not applicable,
+^vicar,Vicat softening temperature,Not applicable,Not applicable,"Bambu spells it Vicar on every one of its forty-one sheets; a source's own typo is not a reason to lose the row"
 ^glass transition,Glass transition temperature,Not applicable,Not applicable,
 "^melt(ing)? (temperature|point)|^melting temp\b",Melting temperature,Not applicable,Not applicable,"a sheet may abbreviate it: Melting Temp."
 ^crystalli[sz]ation temperature,Crystallization temperature,Not applicable,Not applicable,
