@@ -1724,7 +1724,11 @@ export function looksDamaged(line) {
 // heading under the title is the sheet's own structure. purefil heads every sheet with its product and then the
 // word "General" ("Allgemein", "Generale"), and a reader that took the line under the title called thirty-eight
 // products General.
-const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^version\b|^page\b|data ?sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
+// The heading of a column of the property table is not a name. Fillamentum sets "Physical properties | Typical
+// Value | Test Method | Test Condition" across the head of each of its tables, and its NonOilen and PETG sheets
+// were proposed as products called "Test Condition" — a heading that stands alone once the page beside the table
+// is off, and that sits higher than the product's own name does.
+const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|test\s+(condition|method)|^description\b|^rev(ision)?\b|^version\b|^page\b|data ?sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
 // A version, a date, a trademark sign left on a line of its own or half of the words that announce the sheet
 // is not a name either. Polymaker sets "TECHNICAL" and "DATA SHEET" on two lines with "V6.0" under them.
 const NOT_A_PRODUCT_EITHER = /^(draft|preliminary|provisional|confidential|general|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data)$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
@@ -1761,8 +1765,26 @@ export function printedTitle(text, maker = '') {
   // How long a name is, is measured on the name: 3DXTECH announces "Technical Data Sheet: CarbonX™ Carbon Fiber
   // ezPC Polycarbonate 3D Printing Filament", which is eighty-three characters of which the name is thirty-nine.
   const NAME_LENGTH = 60;
+  // A row of the table is not a name. Three Fillamentum sheets print no product name at the head of the page at
+  // all — the name is in the prose beside the table ("Filament made of NonOilen® material") — and with the
+  // column headings ruled out the reader took the first row under them: products called "Test Condition" and
+  // then "Material density 1.27 g/cm ASTM D792". A sheet that does not print its product's name is a sheet the
+  // name has to be settled for, which is a ruling; it is not a reason to read a measurement as one.
+  // Three tests, and each of them is a thing a name is not. A name states no measurement, in whatever unit; it
+  // names no property the lexicon knows; and it cites no standard, because a designation belongs to a test and
+  // not to a product. The superscript of a unit is joined to it in the page's rows and not in its raw lines, so
+  // "1.20 g/cm³ ISO 1183" arrives here as "1.20 g/cm" and it is the designation beside it that gives it away.
+  const STATES_A_MEASUREMENT = new RegExp(`\\d\\s*(?:${UNIT_PATTERN})(?:\\b|$)`, 'i');
+  // And a name is not a sentence. Fillamentum's Fluorodur sheet prints no name at the head of the page and its
+  // description begins "Fluorodur is made of a very durable", which is the name followed by six more words. A
+  // sentence is judged long here — six ordinary words — because a product may genuinely be called four ("Water
+  // Soluble Support Material") and the page has already been narrowed to its first few lines.
+  const SENTENCE_WORDS = 6;
   const named = (line) => {
     if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || looksDamaged(line)) return false;
+    if (STATES_A_MEASUREMENT.test(line) || labelFor(String(line).trim())) return false;
+    if (new RegExp(STANDARD_RE.source, 'i').test(String(line))) return false;
+    if (!/\d/.test(String(line)) && (String(line).match(/[A-Za-z]{2,}/g) ?? []).length >= SENTENCE_WORDS) return false;
     const name = productName(line, maker);
     return Boolean(name) && name.length < NAME_LENGTH;
   };

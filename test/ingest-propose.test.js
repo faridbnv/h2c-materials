@@ -799,3 +799,27 @@ test('a row that names its endpoint in the condition column is that endpoint\u20
     ['Tensile modulus', '2200'],
   ]);
 });
+
+test('a name is not a heading, a measurement, a designation or a sentence', () => {
+  // Fillamentum's NonOilen sheet prints no product name at the head of the page: its table's column headings
+  // come first, then the table's own rows, and the maker names the product only in the prose beside the table.
+  // Read down that page the product was called "Test Condition", and then "1.20 g/cm ISO 1183". A sheet that
+  // does not print its product's name names none, and the name comes from the ledger the document arrived in.
+  const page = (...texts) => ({ pages: [{ page: 1, lines: texts.map((t, i) => ({ ...at([34, t]), y: 700 - i * 12 })) }] });
+  assert.equal(printedTitle(page(
+    'Physical properties Typical Value Test Method',
+    'Test Condition',
+    'Description:',
+    '1.20 g/cm ISO 1183',
+    'Material density',
+    'Fluorodur is made of a very durable',
+  ), 'Fillamentum').product, '');
+  // Each of the four on its own, so it is clear which test does what, and a name of four words still reads.
+  const only = (line) => printedTitle(page('TECHNICAL DATA SHEET', line), 'Fillamentum').product;
+  assert.equal(only('Test Condition'), '');
+  assert.equal(only('1.20 g/cm ISO 1183'), '');
+  assert.equal(only('Material density'), '');
+  assert.equal(only('Fluorodur is made of a very durable'), '');
+  assert.equal(only('Water Soluble Support Material'), 'Water Soluble Support Material');
+  assert.equal(only('ASA CF10 Carbon'), 'ASA CF10 Carbon');
+});

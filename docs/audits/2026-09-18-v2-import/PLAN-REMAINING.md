@@ -58,7 +58,8 @@ both sides of it, and a piece of a line that reads as a sentence where another p
 is the page beside the table, not the row. A label a table merges across two rows is shared with both, which is
 the mirror of the merged method-and-unit cell (`shareMergedCells`); a label standing above its rows in their own
 column is a block heading and is left alone, which is what Spectrum's deflection block is. Between them those
-took Fillamentum from 11 of 23 to 22, past the gate, and moved no other maker. Its 23 documents can be proposed.
+took Fillamentum from 11 of 23 to 22, past the gate, and moved no other maker. Its 24 proposals exist: 16 of them
+name a material this database already holds, and 8 are identities nobody has settled.
 
 What is left is two named things:
 
@@ -66,6 +67,14 @@ What is left is two named things:
   endpoint's row, which is four of the five Fillamentum was missing. The fifth is the same statement set one
   point lower than its own row — "36 MPa ASTM D638" with "at break" beside it on a baseline of its own — and
   reads as a tensile strength of no stated endpoint, which is a third property and not one the sheet publishes.
+- **The polymer base a sheet states in words.** Fillamentum's newer sheets carry a Chemical properties table
+  whose first row is the answer to the question the identity queue keeps asking: "Polymer base polylactic acid
+  and polyhydroxy butyrate compound", "Polymer base polyamide 12", "Polymer base Polyamide 6 + carbon fibres",
+  "Polymer base polyolefin". The reader keeps the row; the lexicon knows the abbreviations and not the words, so
+  four of the eight b10 documents are queued for a ruling that their own sheet answers. `polymer-aliases.csv`
+  matches a token at a time, so "polyamide 12" needs the adjacent-token join the classifier already has for the
+  fillers. It is worth more than the four: every maker that prints a composition row is in the same position,
+  and an identity read from the sheet is one the owner does not have to settle.
 - **A table with a value column per build orientation.** BASF prints "Tensile strength ISO 527 36.1 MPa / 5.3 ksi
   - 11.2 MPa / 1.6 ksi" under a header row naming X-Y, X-Z and Z-X, each value twice, metric and imperial. The
   reader takes the first and the sheet's other two orientations go unread. This is the last of
