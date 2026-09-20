@@ -73,8 +73,8 @@ ASA-AF
 ASA-CF
 110
 ASA-EC
-~84–105†
-41.4
+~85–105†
+41.6
 342
 all 138 candidates
 ASA-CF: Printed specimen

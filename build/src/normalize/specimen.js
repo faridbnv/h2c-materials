@@ -56,6 +56,14 @@ export function readPostProcessingState(text) {
  */
 export function parseAnnealSchedule(text, state) {
   if (postProcessingState(state) !== 'annealed') return null;
+  // A sheet may state the schedule the short way round, the time first and the temperature after an at sign:
+  // Spectrum prints "annealed (4h @ 90°C)" beside its heat deflection rows. It is the same schedule, and reading
+  // it left to right made the temperature 4.
+  const brief = /anneal\w*\s*\(?\s*(\d+(?:[.,]\d+)?)\s*(hours?|h|min)\s*@\s*(\d+(?:[.,]\d+)?)\s*[°º˚]?\s*C/i.exec(text ?? '');
+  if (brief) {
+    const amount = Number(String(brief[1]).replace(',', '.'));
+    return { tempC: Number(String(brief[3]).replace(',', '.')), hours: /^min/i.test(brief[2]) ? Number((amount / 60).toFixed(4)) : amount };
+  }
   const m = /anneal\w*(?:\s+and\s+dried)?\s+at\s+(\d+(?:\.\d+)?)\s*[°˚]\s*C(?:\s+for\s+(\d+(?:\.\d+)?)\s*(hours?|h\s+ours|h|min)\b)?/i.exec(text ?? '');
   if (!m) return { tempC: null, hours: null };
   const amount = m[2] == null ? null : Number(m[2]);

@@ -25,11 +25,11 @@ elongationXY,family,top,77,0,4,0.975,yes
 elongationXY,family,bottom,77,1,4,0.025,yes
 hdt045,this-grade,top,53,1,3,0.975,yes
 hdt045,this-grade,bottom,53,0,3,0.025,yes
-hdt045,this-material,top,39,2,2,0.978837,yes
+hdt045,this-material,top,39,2,2,0.977869,yes
 hdt045,this-material,bottom,39,0,2,0.025,yes
-hdt045,family,top,66,4,4,0.986141,yes
+hdt045,family,top,66,4,4,0.978114,yes
 hdt045,family,bottom,66,1,4,0.025,yes
-hdt045 unstated-load bracket,amorphous,top,66,,4,gap 13,yes
+hdt045 unstated-load bracket,amorphous,top,66,,4,gap 14,yes
 hdt045 unstated-load bracket,semi-unfilled,top,3,,,,no
 hdt045 unstated-load bracket,semi-filled,top,18,,,,no
 hdt045 unstated-load bracket,elastomer,top,0,,,,no

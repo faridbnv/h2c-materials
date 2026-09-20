@@ -38,13 +38,13 @@ n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ASA-AF UNKNOWN ~1,060–1,080† ~1.4–2.9† ~24–45† ~1.2–5.3† ~68–105† — ☆
 ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
-ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.1† ~28–52† ~0.9–4.1† ~84–105† — ☆
+ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.1† ~28–52† ~0.9–4.1† ~85–105† — ☆
 COC
 PVB / Specialty Polymers
  UNKNOWN 1,020 ~1.0–3.2† ~29–74† ~6–37† ~134–160† — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~1.3–3.3† ~36–69† ~5–22† ~48–86† no price↗ ☆
+ UNKNOWN 1,160 ~1.3–3.3† ~36–69† ~5–22† ~48–85† no price↗ ☆
 LCP
 High-Performance Engineering
  UNKNOWN 1,400 ~5–18† ~90–230† ~3.4–12.9† 193? — ☆
@@ -65,13 +65,13 @@ Nylon / Polyamide
  UNKNOWN 1,250 ~2.0–5.2† ~51–107† ~8–40† ~68–127† 163↗ ☆
 PA6-CE
 Nylon / Polyamide
- UNKNOWN ~1,480–1,500† ~2.9–7.4† ~43–92† ~2.9–12.9† ~67–131† — ☆
+ UNKNOWN ~1,480–1,500† ~2.9–7.4† ~43–92† ~2.9–12.9† ~67–130† — ☆
 PA6-CF
 Nylon / Polyamide
  PASS 1,090 4.43 102 5.8 186 110↗ ☆
 PA6-GS
 Nylon / Polyamide
- UNKNOWN ~1,000–1,020† ~2.3–6.0† ~55–115† ~4–18† ~67–131† — ☆
+ UNKNOWN ~1,000–1,020† ~2.3–6.0† ~55–115† ~4–18† ~67–130† — ☆
 PA612
 Nylon / Polyamide
  UNKNOWN ~998–1,070† ~1.2–3.0† ~37–76† ~9–24† ~72–161† — ☆
@@ -89,13 +89,13 @@ Nylon / Polyamide
  UNKNOWN ~1,070–1,160† ~1.3–3.4† ~38–80† ~10–26† ~80–200† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,070–1,250† ~3.1–9.3† ~53–126† ~2.9–7.8† ~160–252† — ☆
+ UNKNOWN ~1,070–1,250† ~3.1–9.3† ~53–126† ~2.9–7.8† ~161–252† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
 PBT
 Polymer Blends
- UNKNOWN 1,310 ~1.6–4.1† ~42–94† ~13–43† ~58–154† — ☆
+ UNKNOWN 1,310 ~1.6–4.1† ~42–94† ~13–43† ~57–153† — ☆
 PBT-GF
 Polymer Blends
  PASS 1,320 3.7 65 2 175 — ☆

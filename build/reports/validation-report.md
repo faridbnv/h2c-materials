@@ -122,7 +122,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | tensileModulusXY | 733 | 77 | 81% | 96% | ×1.49 | 0.343 (503 pairs) |
 | tensileStrengthXY | 695 | 56 | 79% | 96% | ×1.59 | 0.193 (856 pairs) |
 | elongationXY | 547 | 77 | 81% | 96% | ×2.74 | 0.745 (811 pairs) |
-| hdt045 | 588 | 66 | 80% | 96% | 23.3 °C | 5.24 (787 pairs) |
+| hdt045 | 588 | 66 | 80% | 96% | 23.1 °C | 5.24 (787 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -149,10 +149,10 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | elongationXY | this-material | 46 | 1 | 97.5% point | 1 | 2.5% point |
 | elongationXY | family | 77 | 0 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 53 | 1 | 97.5% point | 0 | 2.5% point |
-| hdt045 | this-material | 39 | 2 | 97.88% point | 0 | 2.5% point |
-| hdt045 | family | 66 | 4 | 98.61% point | 1 | 2.5% point |
+| hdt045 | this-material | 39 | 2 | 97.79% point | 0 | 2.5% point |
+| hdt045 | family | 66 | 4 | 97.81% point | 1 | 2.5% point |
 
-- Unstated-load bracket, amorphous: top at the published value + 13 °C (66 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 13 °C, the 4th largest gap observed).
+- Unstated-load bracket, amorphous: top at the published value + 14 °C (66 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 14 °C, the 4th largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 3 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 - Unstated-load bracket, semi-filled: its top cannot screen (only 18 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 - Unstated-load bracket, elastomer: its top cannot screen (only 0 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
@@ -219,6 +219,8 @@ Evidence that contradicts everything else and was down-weighted:
 - TPU for AMS, elongationXY: break Z 31 (V000780)
 - BVOH, elongationXY: break XY 14.8 (V002264)
 - BVOH, elongationXY: break Z 0.6 (V002265)
+- PLA, hdt045: HDT 0.45 116 (V002780)
+- PLA, hdt045: HDT 1.8 amorphous 66 (V002781)
 - PLA, hdt045: Vicat amorphous 140 (V002877)
 - PLA, hdt045: Tg amorphous 55 (V003211)
 - PLA, hdt045: HDT 0.45 80 (V003212)

@@ -508,6 +508,14 @@ export function readRow(text, registry, held = null) {
   // A power of ten is one number, and neither of its pieces is a value: "6.75×10^14" is not 6.75 and not 10.
   const powers = [...line.matchAll(POWER_RE)].map((m) => [m.index, m.index + m[0].length]);
   const inPower = (at) => powers.some(([from, to]) => at >= from && at < to);
+  // What a sheet prints inside brackets is what it measured the row under, not what it measured: eSUN heads its
+  // rows "Vicat Softening Point（120℃，10N） GB/T 1633 110 ℃" and "Melt Flow Index（190℃，2.16kg） ... 10~16
+  // g/10min", and read left to right the softening point was 120 °C. The brackets are the maker's own and a
+  // Chinese sheet sets them at full width, which is the same bracket. A bracketed candidate is only set aside
+  // where the line offers one outside the brackets, because a row that prints its only value that way — a
+  // hardness written "(95A)", a sheet that brackets the figure itself — still states it.
+  const brackets = [...line.matchAll(/[(（[［][^)）\]］]*[)）\]］]/g)].map((m) => [m.index, m.index + m[0].length]);
+  const inBracket = (at) => brackets.some(([from, to]) => at >= from && at < to);
   // A standard's digits are blanked before the values are matched, so they cannot be read as a value and cannot
   // reach into what follows them: "Glass Transition Temp. DSC, ISO 11357 -55 °C" had the minus taken for a
   // range dash, because the rule that reads "55-60" as a window saw 11357 in front of it.
@@ -573,7 +581,8 @@ export function readRow(text, registry, held = null) {
     }
     return null;
   };
-  for (const candidate of candidates) {
+  const outside = candidates.filter((c) => !inBracket(c.index));
+  for (const candidate of (outside.length ? outside : candidates)) {
     // The factor is from the unit the sheet printed, not from what that unit is called here: reading it from the
     // normalized name converted kg/m³ to kg/m³ and recorded every density as 1.33.
     const target = targetUnit(match.Property, candidate[2], registry);
@@ -1362,7 +1371,11 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // A treatment the sheet names for one row is that row's own words, whatever the build's reader makes of them:
   // Extrudr prints a Vicat point of 65 °C and a second, "(*sintered)", above 150 °C, and a row that recorded
   // neither word was the same measurement twice with two answers.
-  const annealWords = /\b(not annealed|unannealed|annealed|as printed|sintered|heat[- ]treated|tempered)\b/i.exec(says);
+  // Where the sheet names the schedule beside the word, the schedule is part of what that row says was done to
+  // the specimen, and the raw column keeps the row's own words: Spectrum prints "annealed (4h @ 90°C)", and a
+  // row that kept only "annealed" left Anneal °C and Anneal h with nothing to be read from.
+  const SCHEDULE = String.raw`\s*\(?\s*\d+(?:[.,]\d+)?\s*h(?:ours?)?\s*@\s*\d+(?:[.,]\d+)?\s*[°º˚]?\s*C\s*\)?`;
+  const annealWords = new RegExp(String.raw`\b(not annealed|unannealed|annealed(?:${SCHEDULE})?|as printed|sintered|heat[- ]treated|tempered)`, 'i').exec(says);
   const post = annealWords ? annealWords[1].replace(/^as printed$/i, 'As printed') : NP;
   const postState = readPostProcessingState(post);
   const schedule = parseAnnealSchedule(`${printed} ${v.line ?? ''}`, postState ?? 'not-stated');
