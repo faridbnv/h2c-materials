@@ -37,10 +37,38 @@ export function makeKernel(key, S, model) {
   const sdOf = (c, hp) => (c === '1' ? 10 * scale : c[0] === 'g' ? hp.tg : c[0] === 'p' ? hp.tp : c.startsWith('fx:') ? hp.tfx
     : c[0] === 'f' ? hp.tf : c.startsWith('v:grade:') ? model.gradeVariants.spreadInScaleUnits * scale : c[0] === 'v' ? hp.tv : c.startsWith('tm:') ? hp.ttm : c[0] === 's' ? hp.tm : 0);
   const productSd = (m, hp) => (S.info(m).morphology === 'elastomer' ? hp.we : hp.w);
-  const point = (m, f, manufacturer) => ({ m, f, x: columns(m, f, manufacturer) });
+
+  // A column name is interned to an integer and a point keeps its six or so columns in two small typed arrays, in
+  // the order `columns` adds them; each set of spreads is turned into an array of standard deviations by column
+  // once, when it is first seen. cov is called n^2/2 times per fit and the grid search makes hundreds of fits per
+  // headline, so what it costs to look a string up in a Map, and to decide from its prefix which spread it takes,
+  // is most of the kernel's time. The arithmetic below is the same terms in the same order as the Map version it
+  // replaces, so every fit is bit-identical and `npm run build:diff` shows no difference.
+  const ids = new Map();
+  const idOf = (c) => { let i = ids.get(c); if (i === undefined) { i = ids.size; ids.set(c, i); } return i; };
+  let sds = new Float64Array(64), sdsFor = null, sdsCount = -1;
+  const spreadsOf = (hp) => {
+    if (sdsFor === hp && sdsCount === ids.size) return sds;
+    if (sds.length < ids.size) sds = new Float64Array(Math.max(ids.size, sds.length * 2));
+    for (const [c, i] of ids) sds[i] = sdOf(c, hp);
+    sdsFor = hp; sdsCount = ids.size;
+    return sds;
+  };
+  const point = (m, f, manufacturer) => {
+    const x = columns(m, f, manufacturer);
+    const idx = new Int32Array(x.size), val = new Float64Array(x.size);
+    let i = 0;
+    for (const [c, v] of x) { idx[i] = idOf(c); val[i] = v; i++; }
+    return { m, f, idx, val };
+  };
   const cov = (a, b, hp) => {
+    const sd = spreadsOf(hp);
+    const ai = a.idx, av = a.val, bi = b.idx, bv = b.val, bn = bi.length;
     let s = 0;
-    for (const [c, v] of a.x) { const w = b.x.get(c); if (w !== undefined) { const t = sdOf(c, hp); s += v * w * t * t; } }
+    for (let p = 0; p < ai.length; p++) {
+      const c = ai[p];
+      for (let q = 0; q < bn; q++) if (bi[q] === c) { const t = sd[c]; s += av[p] * bv[q] * t * t; break; }
+    }
     if (a.m.id === b.m.id) s += hp.sm * hp.sm;
     if (a.f && a.f === b.f) s += productSd(a.m, hp) ** 2;
     return s;

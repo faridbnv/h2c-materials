@@ -94,8 +94,9 @@ Beyond them are the 64 behind FormFutura's login and INTAMSYS's request form, wh
 and Wave D's retailers, which come last so every twin has a manufacturer's sheet to point at.
 
 **The estimate stage at scale is now the nearest thing to a deadline.** The core compile and validate is 74 ms; the
-estimate stage is 40 seconds and cubic in observations. `npm run scale`, which builds twice the data, read about
-10 seconds on 2026-09-18 and reads 111 on 2026-09-19, because the corpus grew 2.3× in a day. Its budget was raised
+estimate stage is 33 seconds and cubic in observations. `npm run scale`, which builds twice the data, read about
+10 seconds on 2026-09-18 and reads 100 on 2026-09-19, because the corpus grew 2.3× in a day. (It was 40 and 111
+until the kernel's covariance stopped looking its columns up by name — the same fit, bit for bit.) Its budget was raised
 from 90 to 150 seconds with both measurements recorded beside it, and a second assertion added that holds the core
 build to 5 seconds so a real regression still fails. Nothing a reader sees is affected. The fix is the plan's
 Phase 5 option 2, an exact block-and-low-rank solve, and on this trend it is due within two or three batches

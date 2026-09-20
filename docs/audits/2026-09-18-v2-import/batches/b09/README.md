@@ -82,6 +82,13 @@ The core — everything the data's own correctness rests on — is 74 ms. The es
 observations. `npm run scale`, which builds twice this data, now reads 111 s where it read about 10 s
 yesterday: the corpus grew 2.3× in a day and the cost grew with the cube of it.
 
+One cost in that stage was not the mathematics. The kernel's covariance, which is evaluated n²/2 times per fit
+and hundreds of fits per headline, looked each of a point's columns up in a Map of strings and decided from the
+name's prefix which spread it took. Column names are interned to integers now and each set of spreads becomes an
+array once, which is the same terms in the same order — `npm run build:diff` shows no difference — and takes the
+stage from 40.5 s to 33.4 s and `npm run scale` from 111 s to 100 s. It does not change the trend; a profile of
+the rest is 52% Cholesky, which only the block solve reaches.
+
 Its budget is raised from 90 s to 150 s with both measurements written beside it in `test/scale.check.js`, and
 the check gains a second assertion that holds the core build at 2× to 5 s, so a real compile regression can
 still fail it. That is a recalibrated alarm, not a relaxed one: the same file now says, in numbers, that the

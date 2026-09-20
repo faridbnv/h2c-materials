@@ -68,9 +68,13 @@ only through a retailer. Last, so every twin has a manufacturer's sheet to point
 
 This is now the nearest thing to a deadline in the programme. The estimate stage is 40 s on today's data where
 the core compile and validate together are 74 ms, and it is cubic in observations: `npm run scale`, which builds
-twice the data, read about 10 s yesterday and reads 111 s today, because the corpus grew 2.3× in a day. Its budget
-was raised from 90 s to 150 s with both measurements recorded beside it in `test/scale.check.js`, and the check
+twice the data, read about 10 s yesterday and reads 100 s today, because the corpus grew 2.3× in a day. Its budget
+was raised from 90 s to 150 s with every measurement recorded beside it in `test/scale.check.js`, and the check
 gained a second assertion holding the core build at 2× to 5 s so a real compile regression still fails it.
+
+One cost there was not the mathematics and is gone: the kernel's covariance looked its columns up by name, which
+is n²/2 string hashes per fit and hundreds of fits per headline. That is 40.5 s down to 33.4 s at 1× and 111 s to
+100 s at 2×, bit for bit the same fit. What is left profiles at 52% Cholesky, which only the block solve reaches.
 
 The cap that keeps the spread search affordable is `fitting.spreadSampleMax` (D77), and it is already doing its
 work. The plan's trigger for the exact block solve is a headline above 4,000 observations or the estimate stage

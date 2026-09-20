@@ -41,6 +41,8 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     //   2026-09-18   2,645 measurements   compile+validate ~10 s at 2x   (budget 90 s)
     //   2026-09-19   6,009 measurements   compile+validate 111 s at 2x   (compile alone 0.04 s; the estimate
     //                                     stage is 40 s at 1x and all of the rest)
+    //   2026-09-19   the same data        compile+validate 100 s at 2x   (the kernel's covariance stopped
+    //                                     looking a column up by name; 33 s at 1x, bit for bit the same fit)
     //
     // The corpus has grown 2.3x in a day, so this 2x check now covers 4.5x what it did, and the estimate
     // model's Gaussian process is cubic in observations. The budget is raised to 150 s with that measurement
