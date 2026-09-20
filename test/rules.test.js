@@ -51,7 +51,13 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // EST-WIDE is absent because no material in this snapshot has an imprecise estimate beside a usable published
   // value it could have shown; the thirteen that used to raise it publish nothing for the headline, so they are
   // EST-THIN (m47). A build that raises EST-WIDE again means the model is ignoring evidence it has.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  //
+  // EST-REJECTED appeared with b20: a bronze-filled and a steel-filled PLA publish 3.9 and 3.13 g/cm³, which is
+  // true of the products and outside anything the model can learn a PLA's density from. Each grade declares the
+  // load with the Variant D57 asks for, and the model keeps the value out rather than learning a PLA that weighs
+  // like bronze. What the assertion above guards is that every code is catalogued at its catalogued level; this
+  // list is the record of which ones a real build raises, and a code entering it is a thing to explain, as here.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

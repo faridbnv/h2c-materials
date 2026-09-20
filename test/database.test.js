@@ -395,7 +395,20 @@ test('values the registered sources publish are recorded as published', () => {
     const h = byName(n).headline.hdt045;
     assert.ok(h.loadStated && h.loadMPa === 0.45, `${n}: 3DXTECH prints "at 0.45 MPa (66psi)"`);
   }
-  assert.ok(db.meta.estimateModel.rejected.length === 0, 'no physically impossible value remains');
+  // A value the estimate model keeps out is not necessarily a wrong one. A bronze-filled PLA weighs 3.9 g/cm³
+  // and that is a true fact about the product, which belongs in the database and on the page; what the model has
+  // no covariate for is the load, so it excludes the value from the family's density rather than learning a PLA
+  // that weighs like bronze. The grade says so itself, with the Variant D57 asks for.
+  //
+  // Asserting that nothing is ever rejected held only while no such product was in the corpus, and pinned the
+  // model's guard to the corpus's contents. What it guards is that a rejection is explained: a value kept out
+  // with nothing on its grade to say why is a value nobody has looked at.
+  const variantOf = new Map(db.grades?.map((g) => [g.id, g.variant]) ?? []);
+  for (const r of db.meta.estimateModel.rejected) {
+    const m = db.measurements.find((x) => x.id === r.measurementId);
+    const declared = m?.implausible || (m?.gradeId && variantOf.get(m.gradeId) && variantOf.get(m.gradeId) !== 'Not applicable');
+    assert.ok(declared, `${r.measurementId} (${r.material} ${r.property} ${r.value} ${r.unit}) is kept out of the model and nothing on its grade says why`);
+  }
 });
 
 test('PETG-GF, ASA-GF and POM carry printed headlines from their new representative grades', () => {
