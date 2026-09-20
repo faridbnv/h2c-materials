@@ -247,3 +247,10 @@ SOURCE-LOCAL-PATH,sources,LOCAL-CANON,URL,A local reference kept as provenance (
 SOURCE-LOCAL-PATH,sources,LOCAL-CREEP,URL,A local reference kept as provenance (Citation role); it has no public URL and nothing selectable depends on reaching it.,2026-09-14
 SOURCE-LOCAL-PATH,sources,LOCAL-FATIGUE,URL,A local reference kept as provenance (Citation role); it has no public URL and nothing selectable depends on reaching it.,2026-09-14
 SOURCE-LOCAL-PATH,sources,LOCAL-XLSM,URL,A local reference kept as provenance (Citation role); it has no public URL and nothing selectable depends on reaching it.,2026-09-14
+MEAS-PHYSICS-WINDOW,measurements,V007867,Normalized value,"a notched Izod of 95 kJ/m² is what a tough polyamide gives unnotched, and the row says notched. The sheet publishes it beside a tensile strength this database records as implausible, so the whole sheet is optimistic rather than this row being misread; it is the sheet’s own number.",2026-09-20
+MEAS-PHYSICS-WINDOW,measurements,V007888,Normalized value,"a carbon-filled PETG drawing 30 % is what the neat resin gives, not the compound; the sheet prints it and the window is what says so.",2026-09-20
+MEAS-PHYSICS-WINDOW,measurements,V007896,Normalized value,1063 % is above the window drawn from softer elastomers and is what a 95A polyurethane can reach; the sheet’s own number.,2026-09-20
+MEAS-PHYSICS-WINDOW,measurements,V007899,Normalized value,"ISO 75 needs a modulus near 225 MPa, which a 95A polyurethane is at the edge of; the sheet publishes 60 °C and the rule is drawn for softer elastomers.",2026-09-20
+MEAS-PHYSICS-WINDOW,measurements,V007915,Normalized value,a carbon-filled PETG notched at 1.5 kJ/m² is brittle and credible; the window’s floor is drawn from unfilled amorphous grades.,2026-09-20
+MEAS-PHYSICS-WINDOW,measurements,V007970,Normalized value,the same maker’s sheets publish notched impact strengths that read as unnotched ones; the number is the sheet’s own and the window is drawn from makers who state the notch.,2026-09-20
+MEAS-PHYSICS-WINDOW,measurements,V007985,Normalized value,"as above, on the same maker’s carbon-filled sheet.",2026-09-20

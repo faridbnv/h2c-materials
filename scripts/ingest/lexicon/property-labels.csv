@@ -35,6 +35,21 @@ Label,Property,Direction,Notch,Note
 "^un-?notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Unnotched,the same row unnotched
 "^(temperature of deflection under load|heat (deflection|distortion)( temp(erature)?)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."" or print the abbreviation in place of the word: ""Heat Distortion (HDT)"""
 ^vicat,Vicat softening temperature,Not applicable,Not applicable,
+"^determination of temperature",HDT,Not applicable,Not applicable,"ISO 75's own title is ""Determination of temperature of deflection under load"", and QIDI heads the row with the first three words of it; held by the label above instead, a heat deflection at 0.45 MPa was recorded as a Vicat point"
+"^密度",Density,Not applicable,Not applicable,"the Chinese label a bilingual sheet prints above its row; QIDI and SUNLU publish in two languages and the reader has only ever read one of them"
+"^玻璃化转变温度",Glass transition temperature,Not applicable,Not applicable,"as above"
+"^熔融指数|^熔体质量流动速率",Melt mass-flow rate,Not applicable,Not applicable,"as above"
+"^维卡软化温度|^维卡软温度",Vicat softening temperature,Not applicable,Not applicable,"as above; one QIDI sheet drops a character and prints ç»´å¡è½¯æ¸©åº¦"
+"^热变形温度",HDT,Not applicable,Not applicable,"as above"
+"^熔点|^熔融温度",Melting temperature,Not applicable,Not applicable,"as above"
+"^拉伸屈服强度",Tensile yield strength,,Not applicable,"as above"
+"^拉伸断裂强度",Tensile break strength,,Not applicable,"as above"
+"^断裂伸长率",Elongation at break,,Not applicable,"as above"
+"^屈服伸长率",Elongation at yield,,Not applicable,"as above"
+"^杨氏模量|^拉伸模量",Tensile modulus,,Not applicable,"as above"
+"^弯曲强度",Flexural strength,,Not applicable,"as above"
+"^弯曲模量",Flexural modulus,,Not applicable,"as above"
+"^吸水率",Water absorption,Not applicable,Not applicable,"as above"
 ^vicar,Vicat softening temperature,Not applicable,Not applicable,"Bambu spells it Vicar on every one of its forty-one sheets; a source's own typo is not a reason to lose the row"
 ^glass transition,Glass transition temperature,Not applicable,Not applicable,
 "^melt(ing)? (temperature|point)|^melting temp\b",Melting temperature,Not applicable,Not applicable,"a sheet may abbreviate it: Melting Temp."

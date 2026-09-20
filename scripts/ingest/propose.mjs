@@ -1406,14 +1406,32 @@ export function readSheet(text, registry) {
       // property's own unit. The section only decides how a line that is not a result is explained.
       // A bilingual sheet prints its label twice, around the row rather than above it: QIDI sets the Chinese
       // name on one baseline, the standard and the value on the next, and the English name on the one after.
-      // Read without the line below, "ISO 1183 1.07g/cm3" names no property and every such row was lost, while
-      // the rows that did read took whatever label had been held and called a Vicat condition a Vicat point.
-      // A label the lexicon knows, standing alone under a line that states a value, is that line's label.
+      // Read without the line below, "ISO 1183 1.07g/cm3" names no property and every such row was lost.
+      //
+      // A label standing under the line beats one carried down to it, because it is the nearer of the two and a
+      // carried label is a guess about how far a heading reaches. QIDI's "ISO 527 2317±246.0 MPa" begins with a
+      // standard, which is what a wrapped row looks like, so the label held three rows above claimed it and a
+      // Young's modulus of 2317 MPa was recorded as a tensile yield strength.
       const nextLine = lines[li + 1];
       const belowText = nextLine ? repair(String(nextLine.text ?? '')).trim() : '';
-      const belowLabel = !carry && belowText && !/\d/.test(belowText) && belowText.length <= HEADING_LENGTH
+      const belowLabel = belowText && !/\d/.test(belowText) && belowText.length <= HEADING_LENGTH
         && Math.abs((nextLine.x0 ?? 0) - (line.x0 ?? 0)) > 24 ? labelFor(belowText) : null;
-      const read = readRow(rowLine.text, registry, carry ? carried0 : belowLabel);
+      // A label may also stand on both sides of its row, and then neither half names the property alone: Yousu
+      // prints "Notched IZOD" above the line and "Impact" below it, and the lower half alone is an impact
+      // strength of no stated test. Taken together they are the notched Izod the sheet means.
+      const prevText = li > 0 ? repair(String(lines[li - 1].text ?? '')).trim() : '';
+      const aboveText = prevText && !/\d/.test(prevText) && prevText.length <= HEADING_LENGTH ? prevText : '';
+      // Both halves have to be halves of a label: a line that states a number is the next row, not the rest of
+      // this one's name, and read as one "IMPACT" above and "Charpy Notched Impact Strength 20 kJ/m2" below
+      // made an impact strength of no stated test out of a row that names Izod itself.
+      const aroundLabel = aboveText && belowText && !/\d/.test(belowText) && belowText.length <= HEADING_LENGTH
+        ? labelFor(`${aboveText} ${belowText}`.replace(/\s+/g, ' ').trim()) : null;
+      // The nearer label beats one carried down to the row, because a carried label is a guess about how far a
+      // heading reaches. QIDI's "ISO 527 2317±246.0 MPa" begins with a standard, which is what a wrapped row
+      // looks like, so a label held three rows above claimed it and a Young's modulus was recorded as a yield
+      // strength.
+      const nearLabel = aroundLabel ?? belowLabel;
+      const read = readRow(rowLine.text, registry, nearLabel ?? (carry ? carried0 : null));
       if (!read && inSection !== 'properties') {
         const storage = /\bstor|shelf|humid|moisture|dry room|keep out|desiccan|seal|vacuum|packag/i.test(plain);
         // A row of the property table standing inside another section is still a row, and what it is missing is
@@ -1449,7 +1467,8 @@ export function readSheet(text, registry) {
       // A full-width bracket is a bracket. A sheet typeset in Chinese prints "（X-Y)", and the axis a row states
       // that way went unread, leaving a stray ")" in the locator and the direction unrecorded (D49's typed column
       // and MEAS-LOCATOR-DIRECTION both saw it). The ideographs stay as the sheet prints them.
-      const fullLabel = asciiPunctuation(carried ? `${heading0} ${read.conditions} ${rest}`.replace(/\s+/g, ' ').trim() : read.label);
+      const fullLabel = asciiPunctuation(nearLabel ? `${aboveText} ${read.label} ${belowText}`.replace(/\s+/g, ' ').trim()
+        : carried ? `${heading0} ${read.conditions} ${rest}`.replace(/\s+/g, ' ').trim() : read.label);
       // Neither line names the whole property on its own: "Tensile Strength*" heads the block and "At break 55
       // MPa" is the row, and only the two together say which tensile strength it is. So the label is matched
       // again against both, and the more specific answer wins.
@@ -1687,7 +1706,11 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // A condition may follow its value as well as precede it: "156.2°C (as printed)" and "155.2°C (annealed)" are
   // two rows of one sheet, and without the words after the number they say the same thing.
   const after = /\(([^)]{2,40})\)\s*$/.exec(String(v.line ?? '').trim())?.[1] ?? '';
-  const printed = [String(v.condition ?? ''), /anneal|as printed|dry|conditioned|moist|wet|flat|edge|upright/i.test(after) ? after : '', v.block ?? ''].filter(Boolean).join(' ');
+  // A load in brackets behind the value is a condition of the test as much as a word is: QIDI prints
+  // "热变形温度 ISO 75:Method A 83°C (1.8MPa)" and "Determination of temperature 93°C (0.45MPa)", and without
+  // the bracket both heat deflections stated no load at all and could screen no heat requirement (D65).
+  const A_LOAD = /\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m|N\s?\/\s?mm|psi|kgf?\s?\/\s?cm)/i;
+  const printed = [String(v.condition ?? ''), /anneal|as printed|dry|conditioned|moist|wet|flat|edge|upright/i.test(after) || A_LOAD.test(after) ? after : '', v.block ?? ''].filter(Boolean).join(' ');
   // A designation's own digits do not begin the condition. A table that prints its method before its unit runs
   // them together — "Flexural modulus (E-Modulus) ASTM D790 MPa" — and a cut at the first digit made the
   // condition "790 MPa", which the load pattern then read as a test load of 790 MPa the sheet never printed.
@@ -1932,8 +1955,16 @@ function nearWord(word) {
 /** The words that name the maker rather than the product, from whatever the ledger calls them. */
 const makerWords = (maker) => String(maker ?? '').split(/[^A-Za-z0-9]+/).filter((w) => w.length >= 3);
 
+// A sheet that puts its product and the words that announce the sheet on one line has still named its product:
+// SIDDAMENT heads twenty-one of its sheets "ABS Carbon Fiber - Technical Datasheet", and a rule that rejected
+// any line ending in "datasheet" rejected all twenty-one, leaving the reader to take a sentence out of the
+// Precautions paragraph below. The announcement comes off; what is left is the name, or nothing.
+export const withoutAnnouncement = (line) => String(line ?? '')
+  .replace(new RegExp(`[\\s\u2013\u2014\\-\u2010:|/]*\\(?(?:${ANNOUNCES.source}|tds|pds)\\)?\\s*$`, 'i'), '')
+  .trim();
+
 export function productName(printed, maker = '') {
-  let name = String(printed ?? '')
+  let name = withoutAnnouncement(printed)
     .replace(/[™®©]/g, '')
     // A trademark sign the extractor rendered as letters, hard against the word it marks: "FABRIALTM-R" is
     // Fabrial R. Only after a word of four letters or more, and only where the name goes on without them.
@@ -2074,7 +2105,11 @@ export function printedTitle(text, maker = '') {
   const A_REVISION_LINE = /\brevised\s*[:.]|\bversion\s*(no|nr|number)\b/i;
   // A page that sets its head letter by letter leaves fragments of it behind: the Fiberon sheets print "T M"
   // under their letter-spaced title, which is the trademark sign. What a word is, is what its letters spell.
-  const named = (line) => {
+  const named = (raw) => {
+    // The words that announce the sheet are not part of what they announce, and every test below is about what
+    // the line names rather than about what it calls itself.
+    const line = withoutAnnouncement(raw);
+    if (!line) return false;
     const letters = String(line).replace(/\s+/g, '');
     if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || NOT_A_PRODUCT_EITHER.test(letters) || looksDamaged(line)) return false;
     if (STATES_A_MEASUREMENT.test(line) || labelFor(String(line).trim())) return false;
@@ -2111,10 +2146,18 @@ export function printedTitle(text, maker = '') {
   // The name may be on the same line as the words that announce it ("Technical Data Sheet: AmideX PA6-GF30"),
   // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.
   const sameLine = head[at].replace(new RegExp(`^.*?(?:${ANNOUNCES.source})\\s*[:\\-–—]?\\s*`, 'i'), '').trim();
+  // Or in front of them. SIDDAMENT heads twenty-one sheets "ABS Carbon Fiber - Technical Datasheet", and a
+  // reader that looked only after the announcement and then below it took a sentence out of the Precautions
+  // paragraph: "unused filament properly after use". What stands before the words is tried before what stands
+  // under them, because a maker who names its product on the announcing line has named it there.
+  const beforeLine = withoutAnnouncement(head[at]);
   const below = head.slice(at + 1).find(named) ?? '';
-  // "Nov. 2018 Technical Data Sheet Version 4.0" carries a version where another maker carries the name.
-  const product = labelled || (sameLine && named(sameLine) ? sameLine : '') || below;
-  return { title: [head[at], product === sameLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
+  // "Nov. 2018 Technical Data Sheet Version 4.0" carries a version where another maker carries the name; the
+  // announcement is in the middle of that line, so nothing is left in front of it and the line below is used.
+  const product = labelled || (sameLine && named(sameLine) ? sameLine : '')
+    || (beforeLine && named(beforeLine) ? beforeLine : '') || below;
+  const onTheLine = product === sameLine || product === beforeLine;
+  return { title: [head[at], onTheLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
 }
 
 /**

@@ -1578,3 +1578,13 @@ P0749,Speed,20 – 60 mm/s
 P0751,Cooling,0 - 60%
 P0751,Speed,<300 mm/s
 P0751,Retraction,Length 0.8 - 1.4 mm
+P0752,Cooling,100%
+P0752,Speed,40mm/s
+P0753,Cooling,10%
+P0754,Cooling,100%
+P0754,Speed,40mm/s
+P0755,Cooling,40%
+P0756,Cooling,100%
+P0756,Speed,40mm/s
+P0757,Cooling,100%
+P0757,Speed,40mm/s
