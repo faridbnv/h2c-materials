@@ -50,7 +50,7 @@ Wave B's next makers have been measured against the same gate, and three of them
 | 3DXTECH | 472 of 473 | an Izod row whose label the sheet misspells |
 | Polymaker / Fiberon | 770 of 810 | one shared table covering several products |
 | eSUN | 21 of 23 | a bound with no unit on its line, and a value whose unit is bracketed behind it |
-| Fillamentum | 18 of 23 | the endpoint its Test Condition column states on a baseline of its own |
+| Fillamentum | 22 of 23 | one endpoint its Test Condition column sets on a baseline of its own |
 | BASF Forward AM | 26 of 57 | three build orientations in three value columns, under a header row that names them |
 
 The page beside the table is off: a gutter is a band few of the page's lines cross while enough have text on
@@ -58,13 +58,14 @@ both sides of it, and a piece of a line that reads as a sentence where another p
 is the page beside the table, not the row. A label a table merges across two rows is shared with both, which is
 the mirror of the merged method-and-unit cell (`shareMergedCells`); a label standing above its rows in their own
 column is a block heading and is left alone, which is what Spectrum's deflection block is. Between them those
-took Fillamentum from 11 of 23 to 18, and moved no other maker.
+took Fillamentum from 11 of 23 to 22, past the gate, and moved no other maker. Its 23 documents can be proposed.
 
 What is left is two named things:
 
-- **The condition column on its own baseline.** Fillamentum prints "36 MPa ASTM D638" and sets "at break" beside
-  it in the Test Condition column, one point lower. The row reads as a tensile strength with no endpoint where
-  the sheet says which endpoint it is, and that is all five of its remaining misses.
+- **The condition column on its own baseline.** A row that names its endpoint in its condition column is that
+  endpoint's row, which is four of the five Fillamentum was missing. The fifth is the same statement set one
+  point lower than its own row — "36 MPa ASTM D638" with "at break" beside it on a baseline of its own — and
+  reads as a tensile strength of no stated endpoint, which is a third property and not one the sheet publishes.
 - **A table with a value column per build orientation.** BASF prints "Tensile strength ISO 527 36.1 MPa / 5.3 ksi
   - 11.2 MPa / 1.6 ksi" under a header row naming X-Y, X-Z and Z-X, each value twice, metric and imperial. The
   reader takes the first and the sheet's other two orientations go unread. This is the last of

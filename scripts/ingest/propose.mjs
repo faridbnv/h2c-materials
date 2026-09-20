@@ -499,7 +499,12 @@ export function shareMergedLabels(lines, registry = null) {
   const statesAValue = (line) => (registry ? Boolean(readRow(line.text, registry)) : statesANumber(line));
   // A row of a table, not a sentence that happens to carry a number: Spectrum prints "• 10% lighter than PA6
   // CF15" beside its deflection block, and a label that took the nearest line either side took two of those.
-  const waiting = lines.map((l, i) => [l, i]).filter(([l]) => !names(l) && statesANumber(l) && isRowPiece(l));
+  // What a row states is a method, a unit, a condition and a number, and a phrase is what none of those is —
+  // so the conditions come out first, as the designations and the units already do. "52,4 MPa ISO 527 at
+  // yield, 50 mm/min" is the cell that tells a tensile strength at yield from one at break, and "at yield"
+  // read as two ordinary words beside each other left both of Fillamentum's tensile rows unlabelled.
+  const readsAsACell = (line) => isRowPiece({ ...line, text: String(line.text ?? '').replace(CONDITION_WORDS, ' ') });
+  const waiting = lines.map((l, i) => [l, i]).filter(([l]) => !names(l) && statesANumber(l) && readsAsACell(l));
   const shared = new Map();
   for (let i = 0; i < lines.length; i++) {
     const label = lines[i];
@@ -560,6 +565,10 @@ const PHRASE = /\b[A-Za-z]{2,}\s+[A-Za-z]{2,}\b/;
 const withoutMethodsAndUnits = (text) => String(text)
   .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ')
   .replace(new RegExp(`(?:${UNIT_PATTERN})`, 'gi'), ' ');
+// The words a row states about how it was measured rather than about what it measured. They are ordinary words
+// standing beside ordinary words, which is what a sentence is made of, so a rule that reads a line as prose has
+// to take them out first — as it already takes out the designations and the units.
+const CONDITION_WORDS = /\b(at\s+(yield|break|max(imum)?)|un-?notched|notched|dry|dried|conditioned|flatwise|edgewise|upright|on\s+its\s+edge|as\s+printed|annealed|parallel|perpendicular)\b/gi;
 const isRowPiece = (line) => {
   const text = repair(String(line.text ?? '')).trim();
   if (!text || PHRASE.test(withoutMethodsAndUnits(text))) return false;
@@ -1253,7 +1262,14 @@ export function readSheet(text, registry) {
       // Neither line names the whole property on its own: "Tensile Strength*" heads the block and "At break 55
       // MPa" is the row, and only the two together say which tensile strength it is. So the label is matched
       // again against both, and the more specific answer wins.
-      const refined = carried ? labelFor(fullLabel) : null;
+      //
+      // A row may say which one it is in its condition column instead of in its label, on the far side of the
+      // value: Fillamentum prints "Tensile strength | 52,4 MPa | ISO 527 | at yield, 50 mm/min" above
+      // "Tensile strength | 37,7 MPa | ISO 527 | at break, 50 mm/min", and the endpoint is the only thing
+      // between the two. Read from the label alone both are the tensile strength of no stated endpoint, which
+      // is a third property and neither of the two the sheet publishes.
+      const endpoint = carried ? '' : (/\bat\s+(?:yield|break)\b/i.exec(repair(String(line.text ?? ''))) ?? [''])[0];
+      const refined = labelFor(carried ? fullLabel : `${read.label} ${endpoint}`.replace(/\s+/g, ' ').trim());
       if (refined) read.match = refined;
       const standardText = [read.conditions, ...read.standards].join(' ');
       const method = impactMethod(read.match.Property, fullLabel, standardText);

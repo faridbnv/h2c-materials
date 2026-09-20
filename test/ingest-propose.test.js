@@ -783,3 +783,19 @@ test('a label a table merges across two rows belongs to both of them, and a head
   ], registry);
   assert.equal(heading.length, 5, 'a heading keeps its own line and the bullets keep theirs');
 });
+
+test('a row that names its endpoint in the condition column is that endpoint\u2019s row', () => {
+  // Fillamentum prints the same property twice and puts the only thing between them — the endpoint — on the far
+  // side of the value, in the Test Condition column. Read from the label alone both are a tensile strength of no
+  // stated endpoint, which is a third property and neither of the two the sheet publishes.
+  const sheet = readSheet({ pages: [{ page: 1, lines: [
+    at([219, 'Tensile strength'], [332, '52,4 MPa'], [406, 'ISO 527'], [480, 'at yield, 50 mm/min']),
+    at([219, 'Tensile strength'], [332, '37,7 MPa'], [406, 'ISO 527'], [480, 'at break, 50 mm/min']),
+    at([219, 'Tensile modulus'], [332, '2200 MPa'], [406, 'ISO 527'], [480, '0,15 mm/min']),
+  ] }] }, registry);
+  assert.deepEqual(sheet.values.map((v) => [v.property, v.read.rawNumber]), [
+    ['Tensile yield strength', '52.4'],
+    ['Tensile break strength', '37.7'],
+    ['Tensile modulus', '2200'],
+  ]);
+});
