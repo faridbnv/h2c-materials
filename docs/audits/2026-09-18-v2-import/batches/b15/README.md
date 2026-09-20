@@ -1,34 +1,39 @@
-git add -A && git commit -q -F - <<'ENDOFMSG' && git log --oneline -1
-Batch b15, and a label that stands on either side of its own row
+# Batch b15: the sheets whose own title the reader was throwing away
 
-SIDDAMENT's twenty-one sheets and 3DJake's six had been held since b12 because the reader could find no name on
-their pages. It could: the name was on the first line, in front of the words that announce the sheet. Two rules
-between them lost it — a line ending in "datasheet" was rejected whole, and the line that announces a sheet was
-read only after the announcement and then below it — so the reader walked down into the Precautions paragraph and
-came back with "unused filament properly after use", and twenty-one products were called that. 239 records enter.
+Applied 2026-09-20 by `m85-batch-b15`: 239 records from 24 documents, SIDDAMENT's twenty-one and 3DJake's six.
 
-The same commit teaches the reader to read a table by the labels around its rows, which is what QIDI's library
-needs and what this session held its twenty-nine documents for:
+They had been held since b12 because the reader could find no name on their pages. It could: the name was on
+the first line, in front of the words that announce the sheet. SIDDAMENT heads twenty-one sheets **"ABS Carbon
+Fiber - Technical Datasheet"**, and two rules between them lost it — a line ending in "datasheet" was rejected
+whole, and the line that announces a sheet was read only *after* the announcement and then below it. So the
+reader walked down into the Precautions paragraph and came back with "unused filament properly after use", and
+twenty-one products were called that.
 
-**The nearer label beats one carried down to the row.** QIDI prints the property in Chinese on one baseline, the
-standard and the value on the next, and English on the one after. "ISO 527 2317±246.0 MPa" begins with a standard,
-which is what a wrapped row looks like, so a label held three rows above claimed it and a Young's modulus of 2317
-MPa was recorded as a tensile yield strength.
+Now the announcement comes off and what is left is the name, on either side of the words: ABS Carbon Fiber, PLA
+Silk, PETG Matte, ASA Carbon Fiber, TPU 95A, PC Carbon Fiber, PLA Glow in the Dark.
 
-**A label may stand on both sides of its row**, and then neither half names the property alone. Yousu prints
-"Notched IZOD" above the line and "Impact" below it; the lower half alone is an impact strength of no stated test.
-Both halves have to be halves of a label, too: read without that guard, an "IMPACT" heading above and a Charpy row
-below made an impact strength of no stated test out of a row that names Izod itself.
+**A name rule cannot move parity**, which compares a property, a value and a unit and never a name. The run over
+all thirty-six makers after this change lost nothing.
 
-**Fifteen Chinese property labels**, because a bilingual sheet says it twice and this reader had only ever read
-one of the two; and ISO 75's own title, "Determination of temperature of deflection under load", which QIDI heads
-its heat-deflection row with and which was being recorded as a Vicat point.
+## What was held
 
-**A load in brackets behind the value** is a condition of the test as much as a word is. Without it both of
-QIDI's heat deflections stated no load at all and could screen no heat requirement (D65).
+Three: ABS Wood, ABS Marble and PETG Marble are filler combinations no material holds, and a new material is the
+owner's to create.
 
-Parity over all thirty-six makers, measured with and without: **+3 and -0** (Polymaker +2, Bambu +1). Two losses
-found on the way — a Yousu Izod and a Nanovia one — are what the two guards above are for, and both are back.
+## What was decided rather than accepted
 
-Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
-ENDOFMSG
+Two values are recorded as printed and marked physically implausible (D55), so they back no headline, estimate or
+bound: SIDDAMENT's PA sheet publishes a tensile strength of 170 MPa and a bending strength of 245 MPa with no
+filler declared, and no unfilled polyamide reaches either — PA6 pulls at about 80.
+
+Seven findings are accepted with a reason apiece. Most are notched impact strengths on this maker's sheets that
+read as unnotched ones (95, 82 and 65 kJ/m²); the others are a carbon-filled PETG drawing 30 %, a 95A
+polyurethane at 1063 % and deflecting at 60 °C, and a carbon-filled PETG notched at 1.5 kJ/m², which is brittle
+and credible.
+
+## What the same commit taught the reader, for the batch after this one
+
+The nearer label beats one carried down to the row; a label may stand on both sides of its row, and then neither
+half names the property alone; fifteen Chinese property labels, because a bilingual sheet says it twice; ISO 75's
+own title, which QIDI heads its heat-deflection row with; and a load in brackets behind the value. Parity over
+all thirty-six makers, measured with and without: **+3 and −0**.
