@@ -38,9 +38,18 @@ test('the drawer uses the shared labels and the shared property domains (D46 cor
   const gained = (now, before) => now.filter((p) => !before.includes(p));
   assert.deepEqual(legacy.DETAIL_MECHANICAL.filter((p) => !propertiesInDomain('mechanical').includes(p)), []);
   assert.deepEqual(legacy.DETAIL_THERMAL.filter((p) => !propertiesInDomain('thermal').includes(p)), []);
-  assert.deepEqual(gained(propertiesInDomain('mechanical'), legacy.DETAIL_MECHANICAL).sort(),
-    ['Flexural elongation at break', 'Flexural stress at conventional deflection', 'Izod impact strength', 'Tensile strain at strength']);
-  assert.deepEqual(gained(propertiesInDomain('thermal'), legacy.DETAIL_THERMAL), ['Continuous service temperature']);
+  // What the tabs show is what properties.csv says, property for property: a row added there appears in its tab
+  // and nowhere else, which is the whole of "add a property: no code changes". The four the drawer gained at D46
+  // (flexural elongation at break, flexural stress at conventional deflection, Izod impact strength, tensile
+  // strain at strength) and the one thermal gain (continuous service temperature) were the first of those; the
+  // import adds more with every maker whose sheets publish something the database had no row for, and a list
+  // here would only record how far the import had got.
+  for (const domain of ['mechanical', 'thermal', 'physical']) {
+    assert.deepEqual(propertiesInDomain(domain).sort(),
+      db.registry.properties.filter((p) => p.domain === domain).map((p) => p.name).sort(), domain);
+  }
+  assert.ok(gained(propertiesInDomain('mechanical'), legacy.DETAIL_MECHANICAL).includes('Izod impact strength'));
+  assert.ok(gained(propertiesInDomain('thermal'), legacy.DETAIL_THERMAL).includes('Continuous service temperature'));
 });
 
 test('a scoped property is listed only for the materials it applies to, and counted against them', () => {

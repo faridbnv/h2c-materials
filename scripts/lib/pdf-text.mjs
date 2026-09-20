@@ -22,6 +22,10 @@ export const cacheDir = (...parts) => join(projectRoot, '.cache', ...parts);
 // rules that built it: a change here must re-read every document rather than leave two readings in one cache.
 const READER = 'lines/gap v2';
 const EXTRACTOR = `pdfjs-dist ${createRequire(import.meta.url)('pdfjs-dist/package.json').version}; ${READER}`;
+// A maker who publishes a sheet as a web page publishes the same table, and it is read into the same shape by
+// its own reader, with its own version. Both readings are cached in one place, under the document's digest.
+const HTML_READER = 'html/tables v1';
+const CURRENT = new Set([EXTRACTOR, HTML_READER]);
 
 export const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
@@ -184,7 +188,16 @@ export async function documentText(bytes, { sha = sha256(bytes), refresh = false
   const path = textPath(sha);
   if (!refresh && existsSync(path)) {
     const cached = JSON.parse(readFileSync(path, 'utf8'));
-    if (cached.extractor === EXTRACTOR) return cached;
+    if (CURRENT.has(cached.extractor)) return cached;
+  }
+  // What the bytes are, not what the link said they would be: a maker who serves a page under a .pdf link, or a
+  // PDF under none, is read as what it is.
+  if (!String(bytes.subarray?.(0, 5) ?? '').startsWith('%PDF') && !Buffer.from(bytes).subarray(0, 5).toString().startsWith('%PDF')) {
+    const { htmlText } = await import('./html-text.mjs');
+    const read = htmlText(bytes, { sha, extractor: HTML_READER });
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(path, JSON.stringify(read));
+    return read;
   }
   const pages = (await pdfPages(bytes)).map(({ page, spans }) => ({ page, lines: pageLines(spans), squeezed: squeezed(spans) }));
   const text = { sha, extractor: EXTRACTOR, pages };
@@ -198,7 +211,7 @@ export function cachedText(sha) {
   const path = textPath(sha);
   if (!existsSync(path)) return null;
   const cached = JSON.parse(readFileSync(path, 'utf8'));
-  return cached.extractor === EXTRACTOR ? cached : null;
+  return CURRENT.has(cached.extractor) ? cached : null;
 }
 
 /** Every line of a document, as the audit reads them: [{ page, text }]. */

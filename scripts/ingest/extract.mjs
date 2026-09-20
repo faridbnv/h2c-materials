@@ -149,6 +149,11 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
     if (reset) console.log(`${reset} earlier twin or translation finding(s) reopened`);
   }
 
+  // A document that has entered the database is never reclassified by a later pass: its values are recorded
+  // against it, and a pass that decided it was a copy of something would leave the ledger saying the database
+  // holds values from a document it never registered.
+  const entered = (r) => ['applied', 'registered'].includes(r.status);
+
   const prints = new Map();
   let read = 0, failed = 0;
   for (const row of wanted) {
@@ -161,7 +166,9 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
       // registered one would hold a source with no values and no reason for being there.
       const head = allLines(text).slice(0, 12).map((l) => l.text).join(' ');
       const file = (row.url ?? '').split('/').pop() ?? '';
-      if (SAFETY_SHEET.test(head) || /msds|sds/i.test(file)) {
+      if (entered(row)) {
+        // Already in the database: what it is was settled when it entered.
+      } else if (SAFETY_SHEET.test(head) || /msds|sds/i.test(file)) {
         row.status = 'safety-data-sheet';
         row.status_note = 'a safety data sheet: hazards and handling, not properties';
       } else if (NOT_A_DATA_SHEET.test(head) || NOT_A_DATA_SHEET.test(file.replace(/[-_]/g, ' '))) {
@@ -169,9 +176,14 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
         row.status_note = 'a user guide: how to print the material, not what it is';
       }
       prints.set(row.doc_key, { row, print, pages: text.pages.length });
-      if (['fetched', 'fetched-page', 'registered'].includes(row.status)) {
-        row.status = print.length ? 'extracted' : 'needs-ocr';
-        row.status_note = print.length ? '' : `${text.pages.length} page(s) with no readable text: a scan`;
+      // A document that could not be read before and reads now says so: the HTML reader arriving is exactly that.
+      if (['fetched', 'fetched-page', 'unreadable'].includes(row.status)) {
+        // A PDF with no numbers is a scan and optical character recognition is the next step. A web page with
+        // none is not: its table is drawn by script, or the page is not a data sheet, and no OCR will help.
+        row.status = print.length ? 'extracted' : text.html ? 'unreadable' : 'needs-ocr';
+        row.status_note = print.length ? ''
+          : text.html ? 'a page with no table of values: its numbers are drawn by script, or it is not a data sheet'
+          : `${text.pages.length} page(s) with no readable text: a scan`;
       }
       read++;
     } catch (e) {
@@ -183,8 +195,10 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
   }
   process.stdout.write('\n');
 
-  // Twins, against everything already read rather than only this run.
-  const all = [...prints.values()].filter((p) => p.print.length >= MIN_STATEMENTS);
+  // Twins, against everything already read rather than only this run. A document that has entered the database
+  // is not one of them: its values are recorded against it, and a later pass that decided it was a copy of
+  // something would leave the ledger saying the database holds values from a document it never registered.
+  const all = [...prints.values()].filter((p) => p.print.length >= MIN_STATEMENTS && !entered(p.row));
   const byKey = new Map(rows.map((r) => [r.doc_key, r]));
   const named = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
@@ -196,6 +210,8 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
   const union = (a, b) => { const x = find(a), y = find(b); if (x !== y) head.set(x, y); };
   for (const p of all) head.set(p.row.doc_key, p.row.doc_key);
   for (const r of rows) if (r.duplicate_kind === 'text-twin' && head.has(r.doc_key) && head.has(r.duplicate_of)) union(r.doc_key, r.duplicate_of);
+  // Nor is an applied document a translation of anything, for the same reason.
+  for (const p of prints.values()) if (entered(p.row)) p.entered = true;
   for (let i = 0; i < all.length; i++) {
     for (let j = i + 1; j < all.length; j++) {
       if (agreement(all[i].print, all[j].print) >= 0.9) union(all[i].row.doc_key, all[j].row.doc_key);
@@ -216,7 +232,7 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
   const readable = [...prints.values()];
   for (const a of readable) {
     for (const b of readable) {
-      if (a === b || a.row.duplicate_of || b.row.duplicate_of) continue;
+      if (a === b || a.row.duplicate_of || b.row.duplicate_of || a.entered) continue;
       if ((a.row.manufacturer || a.row.provider) !== (b.row.manufacturer || b.row.provider)) continue;
       const [la, lb] = [languageFromUrl(a.row.url) || a.row.language, languageFromUrl(b.row.url) || b.row.language];
       if (!la || !lb || la === lb || lb !== 'en') continue;

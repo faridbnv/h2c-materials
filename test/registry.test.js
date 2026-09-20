@@ -32,9 +32,18 @@ test('the registry reproduces the headline constants it replaced', () => {
   assert.deepEqual(Object.fromEntries(registry.headlines.filter((h) => h.referenceProperty).map((h) => [h.referenceProperty, h.key])), legacy.AXIS_EQUIVALENCE);
 });
 
-test('property domains reproduce the mechanical and thermal evidence sets', () => {
-  assert.deepEqual([...propertiesInDomain(registry, 'mechanical')].sort(), [...legacy.MECHANICAL_PROPERTIES].sort());
-  assert.deepEqual([...propertiesInDomain(registry, 'thermal')].sort(), [...legacy.THERMAL_PROPERTIES].sort());
+test('property domains still carry every property the constants they replaced named', () => {
+  // The registry replaced two hardcoded lists, and it must still hold every name that was in them: a property
+  // that fell out of its domain would empty a drawer tab and a coverage domain in silence. It may hold more.
+  // properties.csv is the registry's source, and the import adds a row to it whenever a maker's sheets publish
+  // something the database had no property for, so the set grows and a fixed list here would only say when it
+  // last grew.
+  for (const domain of ['mechanical', 'thermal']) {
+    const now = propertiesInDomain(registry, domain);
+    const named = domain === 'mechanical' ? legacy.MECHANICAL_PROPERTIES : legacy.THERMAL_PROPERTIES;
+    assert.deepEqual([...named].filter((p) => !now.has(p)), [], domain);
+    assert.deepEqual([...now].filter((p) => !base['Property registry'].rows.some((r) => r.Property === p && r.Domain === domain)), [], domain);
+  }
 });
 
 test('an applicability rule is checked against real fields and values', () => {

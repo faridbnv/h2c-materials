@@ -1244,11 +1244,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 | °C |  |
 | cm³/10 min |  |
 | cycles |  |
+| Dimensionless | A ratio with no unit: a Poisson's ratio, a relative permittivity. |
 | g/10 min |  |
 | GPa |  |
 | J/m |  |
 | kg/m³ |  |
 | kJ/m² |  |
+| kN/m | Tear strength. |
+| kV/mm | Dielectric strength. |
+| mm³ | Abrasion loss: the volume a standard abrasive removes. |
 | MPa |  |
 | Not published |  |
 | Qualitative (no fracture) |  |
@@ -1257,8 +1261,11 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Shore (scale not specified by source) |  |
 | Shore A |  |
 | Shore D |  |
-| µm/m/K |  |
+| V | Comparative tracking index: the voltage at which a surface tracks. |
 | W/(m·K) | Thermal conductivity. |
+| µm/m/K |  |
+| Ω | Surface resistivity. |
+| Ω·cm | Volume resistivity. |
 
 <a id="vocab-variant-classes"></a>
 ### variant-classes

@@ -75,10 +75,17 @@ if (process.argv[1]?.endsWith('ocr.mjs')) {
   if (limit > 0) wanted = wanted.slice(0, limit);
   if (!wanted.length) { console.log('no scanned document to read'); process.exit(0); }
 
-  let read = 0, empty = 0, failed = 0;
+  let read = 0, empty = 0, failed = 0, skipped = 0;
   for (const row of wanted) {
     const source = documentPath(row.sha256, row.registered_source_id);
     if (!source || !existsSync(source)) { row.status_note = 'the document is not in the cache; fetch it again'; failed++; continue; }
+    // Only a scan is a scan. A web page has no pixels to read, and ocrmypdf's failure on one says nothing useful.
+    if (!readFileSync(source).subarray(0, 5).toString().startsWith('%PDF')) {
+      row.status = 'unreadable';
+      row.status_note = 'a page, not a scan: there is nothing here for optical character recognition to read';
+      skipped++;
+      continue;
+    }
     try {
       const copy = ocrCopy(source, row.sha256, { refresh: flag('refresh') });
       // The digest of the copy is not the document's digest, and never becomes it: the text is cached under the
@@ -102,11 +109,12 @@ if (process.argv[1]?.endsWith('ocr.mjs')) {
       row.status_note = `optical reading failed: ${String(e.message).slice(0, 100)}`;
       failed++;
     }
-    process.stdout.write(`\r${read + empty + failed} of ${wanted.length}`);
+    process.stdout.write(`\r${read + empty + failed + skipped} of ${wanted.length}`);
   }
   process.stdout.write('\n');
   writeFileSync(LEDGER, csvText(HEADER, rows));
   console.log(`  ${read} read optically`);
   if (empty) console.log(`  ${empty} found too little text to read; they stay needs-ocr`);
+  if (skipped) console.log(`  ${skipped} are pages rather than scans, and say so`);
   if (failed) console.log(`  ${failed} failed; the ledger says why`);
 }

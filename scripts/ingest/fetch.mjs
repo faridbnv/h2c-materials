@@ -48,7 +48,14 @@ export function adapter(url) {
   const host = parsed.hostname.replace(/^www\./, '');
   const drive = /drive\.google\.com$/.test(host) && /\/file\/d\/([^/]+)/.exec(parsed.pathname);
   if (drive) return { kind: 'pdf', host, url: `https://drive.google.com/uc?export=download&id=${drive[1]}` };
-  if (/sharepoint\.com$/.test(host)) return { kind: 'pdf', host, url: url.includes('download=1') ? url : `${url}${url.includes('?') ? '&' : '?'}download=1` };
+  // A SharePoint share link serves its viewer, whatever is asked of it. The file itself is behind the download
+  // form, which takes the share token out of the link: "/:b:/g/<token>?e=..." becomes
+  // "/_layouts/15/download.aspx?share=<token>", and that returns the bytes.
+  if (/sharepoint\.com$/.test(host)) {
+    const share = /\/:[a-z]:\/[a-z]\/([^/?]+)/i.exec(parsed.pathname);
+    if (share) return { kind: 'pdf', host, url: `${parsed.origin}/_layouts/15/download.aspx?share=${share[1]}` };
+    return { kind: 'pdf', host, url: url.includes('download=1') ? url : `${url}${url.includes('?') ? '&' : '?'}download=1` };
+  }
   if (/^isanmate\.com$/.test(host)) return { kind: 'manual', host, reason: 'the library disallows fetching tools; save each sheet from a browser and stage it' };
   if (/\.pdf(\?|$)/i.test(parsed.pathname + parsed.search)) return { kind: 'pdf', host, url };
   return { kind: 'page', host, url };
@@ -67,7 +74,11 @@ async function get(url, { tries = 3 } = {}) {
 
 /** One document: fetch, hash, store, and say what happened in the ledger's words. */
 export async function fetchDocument(row, { digests, refetch = false }) {
+  // A document already in the database is fetched again only to check it is still what it was: whatever comes
+  // back, the ledger goes on saying it was applied, because it was.
+  const entered = ['applied', 'registered'].includes(row.status);
   if (row.sha256 && !refetch) return { status: row.status === 'inventoried' ? 'fetched' : row.status, note: row.status_note };
+  if (entered && !process.argv.includes('--recheck')) return { status: row.status, note: row.status_note };
   const how = adapter(row.url);
   if (how.kind === 'invalid' || how.kind === 'manual') return { status: how.kind === 'manual' ? 'needs-staging' : 'unreachable', note: how.reason };
 
