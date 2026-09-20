@@ -18,7 +18,7 @@ grouped by question, with how many documents each answer frees and what the pipe
 | Reason | What frees it | Whose |
 |---|---|---|
 | `ruling` | an answer to one of the nine questions in DECISIONS-PENDING.md | the owner's |
-| `twin` | R053 applied by the pipeline: a grade each, citing its own sheet, the values recorded once | the pipeline's |
+| `twin` | R053 applied by the pipeline: a grade each, citing its own sheet, the values recorded once. **The largest mechanical unblock left and the one nothing in `apply.mjs` can do yet**: the splitter finds the pairs and writes which source each repeats, and what is missing is the write | the pipeline's |
 | `no-values` | the reader learning the layout, or the document being what it looks like — a brochure | the pipeline's |
 | `ocr-visual` | `ingest:review --visual`, a person against the page image; nothing else may pass it (D35) | a reader's |
 | `reader:condition-table` | a table per condition, under headings that repeat (Stratasys) | the pipeline's |
@@ -107,6 +107,23 @@ minutes before this and every test that builds the database pays the estimate st
 
 No estimate moved and no screen changed. Two hold-out counts in the back-test differ by one, where a true value
 sits exactly on its range boundary and a twelfth-digit difference decides which side; D79 names both.
+
+## 5b. Two durable fixes this programme has named and not made
+
+Both were tried, measured and put down with the measurement, so neither is a thing to rediscover.
+
+**A fill class per grade Variant.** A grade that declares an undisclosed dense filler (D57, R078) is judged by
+the physics windows as an unfilled polymer, because `fillOf` in `lint-rules.js` reads the material's Modifier
+and not the grade's Variant. Every metal-filled grade therefore produces a permanent accepted finding — thirteen
+of b20's twenty-four. The obvious fix is wrong: mapping a Variant to the fill class `any` was tried and made two
+existing rows worse, because the `any` windows assume a possible fibre load and so have a **higher floor**, not
+a wider range. What it needs is its own fill classes (`dense`, `light`) with windows of their own, a DECISIONS
+entry saying why the data cannot carry it otherwise, and a back-test row that shows it helps.
+
+**Two high-temperature fibre windows drawn before a 30 wt% grade existed.** W0024 tops tensile strength at
+160 MPa and W0080 modulus at 16 GPa, both from observation. Ensinger's TECAFIL PEEK EV CF30 reaches 170 to 200
+MPa and 17 to 20 GPa, which is what a thirty per cent short-carbon PEEK does. Four findings accepted; the window
+is the thing to widen once a second such grade arrives, which is the evidence it is waiting for.
 
 ## 6. What the pipeline still does not do
 

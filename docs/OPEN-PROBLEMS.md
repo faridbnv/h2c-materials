@@ -1,8 +1,8 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of the 2026-09-19 snapshot, after batches b01 to b09
-brought 143 materials, 494 grades, 6,009 measurement rows and 665 sources in. It is here so that nobody
-has to rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
+What is known to be wrong or missing in this database, as of 2026-09-20, after batches b01 to b20 brought
+144 materials, 830 grades, 9,311 measurement rows and 1,092 sources in. It is here so that nobody has to
+rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
 so a stale number here is findable rather than believable. Run `npm run db:sqlite` first for the SQL ones.
@@ -12,12 +12,11 @@ generated. It is not the audit history: what each review found and what happened
 
 ---
 
-## 1. Transcription damage: 96 measurements carry the wrong text in `Standard / load`
+## 1. Transcription damage: 74 measurements carry the wrong text in `Standard / load`
 
-**The most serious item here.** 96 rows, across 30 sources and 32 materials, hold a fragment of the neighbouring
-column instead of the test standard. 80 of them leave the standard unnamed; the other 16 name a family only
-because the fragment happens to contain one ("ISO 179,"). It was 133 rows over 56 sources when this page was
-written, and the difference is sheets re-read since, not rows removed:
+**The most serious item here.** 74 rows, across 22 sources, hold a fragment of the neighbouring column instead
+of the test standard, and leave the standard unnamed. It was 133 rows over 56 sources when this page was written
+and 96 over 30 on 2026-09-19; the difference is sheets re-read since, not rows removed:
 
 ```
 Modulus · Strength · Elongation · Deflection · Temperature · Transition Temperature · (X-Y)
@@ -50,9 +49,11 @@ npm run sql --silent -- "select sourceid, count(*) n, group_concat(distinct stan
 A further **6 rows** say only `Method A` or `Method B`, which are ISO 75's methods (A is 1.80 MPa, B is 0.45 MPa).
 The load is typed correctly in `Test load MPa`; only the standard is unnamed. Same fix, smaller.
 
-Nine batches of imported sheets have added none of this damage: `scripts/ingest/propose.mjs` reads a standard by
-its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed `Standards` and raw
-text disagree. Every one of the 96 predates the pipeline.
+Twenty batches of imported sheets have added none of this damage: `scripts/ingest/propose.mjs` reads a standard
+by its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed `Standards` and
+raw text disagree. Every one of the 74 predates the pipeline. b20 added the last guard the reader was missing
+there: a digit a closing bracket follows is a footnote marker and not part of a designation, which is what made
+"DIN EN ISO 62 1)" into ISO 621.
 
 ---
 
