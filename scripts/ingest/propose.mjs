@@ -1053,6 +1053,93 @@ export function unreadRowReason(line, registry, held = null) {
 }
 
 /** Every value a sheet publishes, with the page and the line it was read from. */
+// ---------------------------------------------------------------------------------------------------------
+// A table with a value column per build orientation.
+//
+// BASF heads its mechanical table "Print direction | Standard | XY | XZ | ZX" and prints three values on every
+// row; Fillamentum's OBC 905 heads its "XY-axis | Z-axis | Test Method | Test Condition" and prints two. Read as
+// one line, the first value is taken, the rest of the row is dropped, and the one value that is kept is recorded
+// with no direction at all — which is worse than losing it, because a strength with no direction cannot be told
+// from a strength measured flat.
+//
+// The header row is the page saying where its columns are, so it is read rather than guessed at: its cells are
+// the column boundaries, and the cells that name an orientation are the value columns. Everything outside them —
+// the label on the left, the method and the conditions on the right — is the row's context, and belongs to every
+// value on the row. One synthetic line per orientation is then read by the ordinary row reader, so the units,
+// the designations, the conditions and the bounds are all read exactly as they are anywhere else.
+// ---------------------------------------------------------------------------------------------------------
+
+const AXIS_CELL = /^\(?\s*(X\s?[-‑–]?\s?Y|Y\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|Z\s?[-‑–]?\s?X|XY|XZ|ZX|Z)\s*\)?(?:[\s-]*(?:axis|axes|direction|richtung))?\s*$/i;
+const axisOf = (text) => {
+  const m = AXIS_CELL.exec(String(text ?? '').trim());
+  return m ? m[1].replace(/[\s‑–-]/g, '').toUpperCase() : null;
+};
+
+/**
+ * The orientation columns a page's header row declares: one per cell that names an axis, with the x it starts at
+ * and the x the next cell starts at. A header needs two of them — one column is an ordinary table, and a single
+ * cell that happens to read "Z" is a letter.
+ */
+export function axisColumns(line) {
+  const cells = lineCells(line);
+  if (cells.length < 3) return null;
+  // Where one column ends and the next begins is halfway between the two headings, because a maker centres a
+  // value under its heading as often as it aligns it: BASF's XY heading stands at 381 and its values start at
+  // 354, while Fillamentum sets both at 162. The first heading needs a floor of its own, mirrored from the gap
+  // on its other side, or the label column — which OBC 905 gives no heading at all — falls inside it.
+  const edge = cells.map((c, i) => (i ? (cells[i - 1].x + c.x) / 2 : null));
+  const bounds = cells.map((c, i) => ({
+    ...c,
+    axis: axisOf(c.text),
+    from: edge[i] ?? c.x - ((edge[i + 1] ?? c.x + 1) - c.x),
+    to: edge[i + 1] ?? Infinity,
+  }));
+  const axes = bounds.filter((c) => c.axis);
+  return axes.length >= 2 ? { from: Math.min(...axes.map((a) => a.from)), axes } : null;
+}
+
+// A table's own heading row, which ends whatever table came before it. A heading states no number — every row of
+// a property table does — and names the table rather than a value, which is what keeps BASF's second heading row
+// ("Flat | On its edge | Upright", how each orientation lies) from being read as the start of a new table.
+const TABLE_HEADING = /typical value|test method|test condition|propert|unit|standard|method/i;
+const endsTheTable = (line) => {
+  const cells = lineCells(line);
+  return cells.length >= 3 && !cells.some((c) => /\d/.test(c.text)) && TABLE_HEADING.test(line.text);
+};
+
+/**
+ * A page's rows with every row of an orientation table split into one row per orientation, each carrying the
+ * direction its column is headed with. A page with no such table comes back exactly as it went in.
+ */
+export function splitAtAxisColumns(lines) {
+  let axes = null;
+  const out = [];
+  for (const line of lines) {
+    const header = axisColumns(line);
+    if (header) { axes = header; out.push(line); continue; }
+    if (endsTheTable(line)) { axes = null; out.push(line); continue; }
+    const parts = axes ? axisRows(line, axes) : [];
+    if (parts.length > 1) { for (const part of parts) out.push({ ...part.line, column: part.axis }); continue; }
+    out.push(line);
+  }
+  return out;
+}
+
+/** A row read at those columns: the context spans, and one synthetic line per orientation that states a value. */
+export function axisRows(line, columns) {
+  const spans = inked(line);
+  const inAxis = (s) => columns.axes.find((a) => s.x >= a.from && s.x < a.to);
+  const context = spans.filter((s) => !inAxis(s));
+  const out = [];
+  for (const a of columns.axes) {
+    const own = spans.filter((s) => inAxis(s) === a);
+    if (!own.length) continue;
+    const together = [...context, ...own].sort((x, y) => x.x - y.x);
+    out.push({ axis: a.axis, line: { ...line, spans: together, text: spanText(together), x0: together[0].x, x1: spanRight(together.at(-1)) } });
+  }
+  return out;
+}
+
 export function readSheet(text, registry) {
   const values = [], settings = [], skipped = [];
   // A sheet that prints the conditions its specimens were made under is describing printed bars, and says so once
@@ -1086,7 +1173,7 @@ export function readSheet(text, registry) {
     let block = '';
     // The page's rows, not the extractor's baselines: a value set a point above its label is part of that label's
     // row, and reading the two apart left a number with no property and a property with no number.
-    const lines = pageRows(page.lines, registry);
+    const lines = splitAtAxisColumns(pageRows(page.lines, registry));
     for (let li = 0; li < lines.length; li++) {
       const line = lines[li];
       const blockHeading = /^\s*\(?(as[- ]printed|annealed|after annealing|not annealed|un-?annealed)\)?\s*$/i.exec(line.text.trim());
@@ -1305,7 +1392,7 @@ export function readSheet(text, registry) {
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
         direction: read.match.Direction, notch, read, target: read.target, line: line.text,
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
-        printedSpecimens, orientation, block,
+        printedSpecimens, orientation, block, column: line.column ?? null,
       });
     }
     dropHeld();
@@ -1607,7 +1694,11 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
       : v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
     // A row may name its own direction, and then it is the row's whatever the property usually is: Polymaker
     // prints "Tensile strength (X-Y)" and "Tensile strength (Z)" as two rows of one table.
-    Direction: stated ?? v.direction ?? (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
+    // A table that heads a value column with an orientation has stated the direction of every value in it, as
+    // plainly as a row that prints the axis in its own label; what it cannot state is a direction for a property
+    // that has none, so a density or a heat deflection under such a header keeps its Not applicable.
+    Direction: stated ?? (v.column && v.direction !== 'Not applicable' ? v.column : null)
+      ?? v.direction ?? (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
     'Moisture condition': moisture, 'Moisture state': moistureState ?? 'not-stated',
     'Post-processing': post, 'Post-processing state': postState ?? 'not-stated',
     'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,

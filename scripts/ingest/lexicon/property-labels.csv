@@ -22,6 +22,7 @@ Label,Property,Direction,Notch,Note
 ^tensile strain at (tensile )?(strength|max)|^elongation at max,Tensile strain at strength,,Not applicable,
 "^elongation at stren\w*",Tensile strain at strength,,Not applicable,"a sheet spells it strenght; a source’s own typo is not a reason to lose the row"
 ^flexural modulus|^bending modulus,Flexural modulus,,Not applicable,
+"^flexural (strain|elongation)[^a-z]{0,3}\(?(at )?break",Flexural elongation at break,,Not applicable,"BASF heads the row ""Flexural Strain at Break"" and ""Flexural elongation at break"", and properties.csv keeps one row for it; a bending strain is not the tensile elongation the row above matches"
 ^flexular modulus,Flexural modulus,,Not applicable,a sheet spells it Flexular; a source's own typo is not a reason to lose the row
 ^flexural (stress|strength)|^bending strength,Flexural strength,,Not applicable,
 ^flexular strength,Flexural strength,,Not applicable,the same typo on the strength row

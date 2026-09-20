@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -334,9 +334,13 @@ test('a stress the sheet states at an elongation is not the strength at break it
 test('a row the reader cannot read says what the database is missing, and proposes nothing', () => {
   // "no property and value this line states together" does not tell the owner whether the fix is a lexicon
   // entry, a unit or a property; the audit closes the loop on these reasons.
+  // A property the database does carry, named in a way the lexicon did not know, is a lexicon entry and not a
+  // missing property; "Flexural strain at break" is properties.csv's Flexural elongation at break, and BASF
+  // heads the row both ways. What the reason is for is a label that names something the database has no row for.
   assert.equal(
-    unreadRowReason(at([67, 'Flexural strain at break ISO 178 % 3.2']), registry),
-    'properties.csv carries no property for "Flexural strain at break" (%)');
+    unreadRowReason(at([67, 'Notch sensitivity ISO 179 % 3.2']), registry),
+    'properties.csv carries no property for "Notch sensitivity" (%)');
+  assert.equal(read('Flexural strain at break ISO 178 % 3.2').match.Property, 'Flexural elongation at break');
   assert.equal(
     unreadRowReason(at([67, 'MFR ASTM D1238 g/cm³ 9']), registry),
     'the sheet states Melt mass-flow rate in g/cm³, and the database keeps it in g/10 min');
@@ -822,4 +826,37 @@ test('a name is not a heading, a measurement, a designation or a sentence', () =
   assert.equal(only('Fluorodur is made of a very durable'), '');
   assert.equal(only('Water Soluble Support Material'), 'Water Soluble Support Material');
   assert.equal(only('ASA CF10 Carbon'), 'ASA CF10 Carbon');
+});
+
+test('a table with a value column per build orientation states a direction for every value in it', () => {
+  // BASF heads its mechanical table "Print direction | Standard | XY | XZ | ZX" and centres each value under its
+  // heading; Fillamentum's OBC 905 heads its "XY-axis | Z-axis | Test Method | Test Condition" and aligns them.
+  // Read as one line, the first value is taken, the rest of the row is dropped, and the one that is kept is
+  // recorded with no direction at all — which is worse than losing it.
+  const basf = { pages: [{ page: 1, lines: [
+    at([83, 'Print direction'], [267, 'Standard'], [381, 'XY'], [530, 'XZ'], [679, 'ZX']),
+    at([83, 'Flat'], [501, 'On its edge'], [652, 'Upright']),
+    at([83, 'Tensile strength'], [269, 'ISO 527'], [354, '36.1 MPa'], [534, '-'], [652, '11.2 MPa']),
+    at([83, 'Flexural Modulus'], [269, 'ISO 178'], [356, '2690 MPa'], [501, '3450 MPa'], [655, '934 MPa']),
+  ] }] };
+  const read = readSheet(basf, registry);
+  assert.deepEqual(read.values.map((v) => [v.property, v.read.rawNumber, v.column]), [
+    ['Tensile strength (endpoint unspecified)', '36.1', 'XY'],
+    ['Tensile strength (endpoint unspecified)', '11.2', 'ZX'],
+    ['Flexural modulus', '2690', 'XY'],
+    ['Flexural modulus', '3450', 'XZ'],
+    ['Flexural modulus', '934', 'ZX'],
+  ]);
+  // The column that prints "-" states no value, and no value is taken from the row's context instead.
+  assert.equal(read.values.filter((v) => v.column === 'XZ' && v.property.startsWith('Tensile')).length, 0);
+  // The heading of the next table ends this one: a heading states no number and names the table.
+  const ended = splitAtAxisColumns([
+    at([162, 'XY-axis'], [233, 'Z-axis'], [302, 'Test Method']),
+    at([41, 'Tensile strength at yield'], [162, '14 MPa'], [233, '11 MPa'], [302, 'ASTM D1708']),
+    at([41, 'Mechanical properties'], [162, 'Typical Value'], [302, 'Test Method']),
+    at([41, 'Hardness'], [162, '53 Shore D'], [302, 'ISO 7619']),
+  ]);
+  assert.deepEqual(ended.map((l) => l.column ?? null), [null, 'XY', 'Z', null, null]);
+  // Two orientation cells are needed: one column is an ordinary table and a lone "Z" is a letter.
+  assert.equal(axisColumns(at([83, 'Property'], [267, 'Standard'], [381, 'Z'])), null);
 });
