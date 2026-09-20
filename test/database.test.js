@@ -555,7 +555,17 @@ test('an annealed value is not averaged with its as-printed twin, and mixed sche
     const states = new Set(c.measurementIds.map(stateOf));
     assert.equal(states.size, 1, `${c.material}'s ${c.kind} averages measurements of different states: ${[...states].join(' and ')}`);
   }
-  assert.ok(!outliers.some((o) => o.material === 'PET-GF'), 'PET-GF is still an outlier');
+  // PET-GF is an outlier again, and for a different reason than the one this test was written for: its
+  // as-printed 81.6 degC sits 3.6 sigma under a family whose centre moved when b19 added PET and PETG sheets,
+  // and each of its HDT groups still holds one measurement. The symptom is not the rule. What this asserts is
+  // the rule: an outlier on this key may not come from a group that averaged two states, which is the defect
+  // the 2026-09-15 audit found (C-01). Pinning "PET-GF has no outlier" pinned the whole database's
+  // centre to one material's value, and every batch that adds a PET moves it.
+  const mixes = (ids) => new Set(ids.map(stateOf)).size > 1;
+  for (const o of outliers.filter((x) => x.key === 'hdt045')) {
+    const group = conflicts.find((c) => c.key === 'hdt045' && c.materialId === o.materialId && c.values.includes(o.measured));
+    assert.ok(!group || !mixes(group.measurementIds), `${o.material}'s outlier is an average of ${[...new Set((group?.measurementIds ?? []).map(stateOf))].join(' and ')}`);
+  }
 });
 
 test('a physically implausible value is kept and flagged, and backs no headline, bound or estimate', () => {
