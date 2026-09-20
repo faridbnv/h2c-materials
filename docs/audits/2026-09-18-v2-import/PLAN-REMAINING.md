@@ -1,8 +1,8 @@
 # What is left of the plan
 
 The plan the owner approved is in the session record; this is the part of it that has not been done, with what each
-step now knows that the plan could not. Rewritten 2026-09-20, after batch b14, the block solve, and the repair that gave the
-queue a reason per document.
+step now knows that the plan could not. Rewritten 2026-09-20, after batches b14 to b18, the block solve, and the repair that gave the queue a reason
+per document.
 
 **Every figure about the corpus is in [STATUS.md](STATUS.md), which is generated.** Nothing here repeats a count,
 because a count written twice is a count that goes stale in one of the two places. What is here is what has to be
@@ -11,18 +11,29 @@ decided or built.
 ## 1. What holds each document, and what frees it
 
 `npm run ingest:batch -- --holds` asks every proposal why it is waiting and writes the answer into the ledger, so
-the queue is a query rather than a memory. There are seven reasons, and no eighth: a hold nobody can act on is
-worse than no hold at all.
+the queue is a query rather than a memory. Every document now has a reason, and **what waits on the owner is a
+document of its own**: `npm run ingest:batch -- --decisions` writes [DECISIONS-PENDING.md](DECISIONS-PENDING.md),
+grouped by question, with how many documents each answer frees and what the pipeline would do by default.
 
-| Reason | What frees it |
-|---|---|
-| `ruling` | the owner answers; `rulings/pending.csv` and the ledger's own rows are the questions |
-| `twin` | R053 applied by the pipeline: a grade each, citing its own sheet, the values recorded once |
-| `no-values` | the reader learning the layout, or the document being what it looks like — a brochure |
-| `ocr-visual` | `ingest:review --visual`, a person against the page image; nothing else may pass it (D35) |
-| `reader:name-not-a-name` | the reader learning that a section heading is not a product name |
-| `reader:condition-table` | a value column per condition, as there is now one per build orientation |
-| `registered` | nothing: the product is already in the database under another document |
+| Reason | What frees it | Whose |
+|---|---|---|
+| `ruling` | an answer to one of the nine questions in DECISIONS-PENDING.md | the owner's |
+| `twin` | R053 applied by the pipeline: a grade each, citing its own sheet, the values recorded once | the pipeline's |
+| `no-values` | the reader learning the layout, or the document being what it looks like — a brochure | the pipeline's |
+| `ocr-visual` | `ingest:review --visual`, a person against the page image; nothing else may pass it (D35) | a reader's |
+| `reader:condition-table` | a table per condition, under headings that repeat (Stratasys) | the pipeline's |
+| `reader:several-values` | reading a table's columns by position | the pipeline's |
+| `registered` | nothing: the product is already in the database under another document | — |
+
+**The largest single question is Wave D's**: 114 documents are sheets a shop hosts that name no maker of their
+own, and whether the shop is the brand or only the shop decides all of them at once.
+
+**`reader:several-values` is a measured decision, not a guess.** Ten QIDI documents and thirteen others head
+their tables "Method | Molded | X-Y Axis | Z Axis" and print three results on one line; the reader takes the
+first, which is the injection moulded bar, and records it as the product's. Refusing such a row inside the reader
+was tried and measured against every maker with hand-transcribed sheets: **it cost 297 values the database
+already holds**, because a sheet prints two results on one line for good reasons as often as bad ones. So the
+batch holds the document and the reader is unchanged. Reading those columns by position is what frees them.
 
 ## 2. The reader, measured
 
