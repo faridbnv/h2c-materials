@@ -1,0 +1,580 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "5ac8417379a15f0fb0586793a8103460a1a81f48b08e375a766f9b75d20bde7b",
+    "url": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2025/05/80316f6d-tds-prusament_tpu_95a_en-1.pdf",
+    "pages": 3,
+    "provider": "Prusa Research / Prusament",
+    "manufacturer": "Prusa Research",
+    "docKey": "5ac8417379a15f0f"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "95A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 95A"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PVB-80316f6d-tds-prusament-tpu-95a-en-1",
+      "Publisher": "Prusa Research",
+      "Title": "Technical datasheet Prusament TPU 95A by Prusa Polymers",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Prusa Research / Prusament; the sheet is Prusa Research's.",
+      "Citation role": "cited",
+      "URL": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2025/05/80316f6d-tds-prusament_tpu_95a_en-1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5ac8417379a15f0fb0586793a8103460a1a81f48b08e375a766f9b75d20bde7b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet Prusament TPU 95A by Prusa Polymers"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "Prusament TPU 95A by Prusa Polymers",
+        "Shared formulation key": "S-PVB-80316f6d-tds-prusament-tpu-95a-en-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-80316f6d-tds-prusament-tpu-95a-en-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet Prusament TPU 95A by Prusa Polymers"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "92 ± 0.4 Shore A",
+        "Raw unit": "Shore A",
+        "Raw numeric": "92",
+        "Raw uncertainty ±": "0.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "92",
+        "Normalized uncertainty ±": "0.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-80316f6d-tds-prusament-tpu-95a-en-1",
+        "Locator": "p. 2: Hardness – Shore A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Hardness – Shore A 92 ± 0.4 Prusa Polymers"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "39 ± 0.7 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "39",
+        "Raw uncertainty ±": "0.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "39",
+        "Normalized uncertainty ±": "0.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-80316f6d-tds-prusament-tpu-95a-en-1",
+        "Locator": "p. 2: Hardness - Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Hardness - Shore D 39 ± 0.7 Prusa Polymers"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 230 ± 10",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 65 ± 10",
+        "Bed state": "range",
+        "Bed min °C": "55",
+        "Bed max °C": "75",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PVB-80316f6d-tds-prusament-tpu-95a-en-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] up to 30"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Speed [%] 30 – 50"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 230 ± 10"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 230 ± 10",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 230 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed Temperature",
+      "raw": "[°C] 65 ± 10",
+      "fromBelow": false,
+      "line": "Heatbed Temperature [°C] 65 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] up to 30",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] up to 30"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "Speed [%] 30 – 50",
+      "fromBelow": false,
+      "line": "Cooling Fan Speed [%] 30 – 50"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Last update: 29-05-2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prusament TPU 95A by Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Trade Name Prusament TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Usage FDM/FFF 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75 ± 0.06 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MFR [g/10 min](1) N/A –",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 2,
+      "text": "MVR [cm3/10 min](1) N/A –",
+      "reason": "the sheet publishes no value for Melt volume-flow rate in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 2,
+      "text": "Density [g/cm3] 1.25 ISO 1183",
+      "reason": "the sheet states Density in [g/cm3], and the database keeps it in kg/m³"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 24 hours [%](2) 0.02 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 7 days [%](2) 0.04 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Vicat A [°C] 101.6 ISO 306",
+      "reason": "the sheet states Vicat softening temperature in [°C], and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature (1.80 MPa) [°C] 78.6 ISO 75",
+      "reason": "the sheet states HDT in [°C], and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength for Filament [MPa] 64 ± 3 ISO 527",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "7264 ± 76 ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.3 ± 1 ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Interlayer Adhesion [MPa] 9.5 ± 0.2 ISO 527",
+      "reason": "properties.csv carries no property for \"Interlayer Adhesion [MPa]\""
+    },
+    {
+      "page": 2,
+      "text": "(1) –",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(2) 25 °C; humidity 20 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Modulus at 100 % Elongation [MPa] 8.9 ± 0.2 ISO 37",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Modulus at 200 % Elongation [MPa] 14.7 ± 0.2 ISO 37",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Modulus at 300 % Elongation [MPa] 21.3 ± 0.4 ISO 37",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Maximum Elongation [%] 563.3 ± 13.1 ISO 37",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength [MPa] 41.4 ± 1.3 ISO 37",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Compression Set under Constant Deflection at 23 °C [%] 33.5 ± 0.1 ISO 815-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Compression Set under Constant Deflection at 40 °C [%] 42.2 ± 1.9 ISO 815-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Compression Set under Constant Deflection at 55 °C [%] 59.7 ± 2.3 ISO 815-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Compression Set under Constant Deflection at 70 °C [%] 70.4 ± 0.7 ISO 815-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Compression Set under Constant Deflection at 85 °C [%] 82.7 ± 2.7 ISO 815-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Abrasion Resistance [%] 0.21 ± 0.04 ISO 4649",
+      "reason": "the line names Abrasion loss and states no value in a unit the database keeps it in (mm³)"
+    },
+    {
+      "page": 3,
+      "text": "(3) Original Prusa i3 MK4S printer was used to make testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "specimens. Prusa Slicer 2.8.1 was used to create G-codes with the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Prusament TPU 95A Filament;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Print Settings 0.20 SPEED (Layers 0.20 mm);",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Brass Nozzle 0.4 mm;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Solid Layers: Top: 0, Bottom: 0;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Perimeters: 2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill: 100% rectilinear;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill Print Speed: 36 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Nozzle Temperature: 220 °C all layers;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Bed Temperature: 75 °C all layers;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Extrusion multiplier: 1.08;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Cooling: 50 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Retraction Length 3,5 mm;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Retraction Speed 70 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Deretraction Speed 40 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Minimum Travel after Retraction 2 mm;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Seam Gap Distance 15 %;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Speed for 0% Overlap (Bridge) 100 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Speed for 25% Overlap 30 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Speed for 75% Overlap 100 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

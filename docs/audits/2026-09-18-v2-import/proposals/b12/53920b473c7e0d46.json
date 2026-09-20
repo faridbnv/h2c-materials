@@ -1,0 +1,390 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "53920b473c7e0d4660bbab8c793e574c97e39f7af0ee818c4ca536687d816274",
+    "url": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_R-PEEK_Filament_3D4Makers.pdf?v=1691617116",
+    "pages": 1,
+    "provider": "3D4Makers",
+    "manufacturer": null,
+    "docKey": "53920b473c7e0d46"
+  },
+  "identity": {
+    "polymer": "PEEK",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: peek"
+    ],
+    "materialId": "M097",
+    "materialName": "PEEK",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers",
+      "Publisher": "3D4Makers",
+      "Title": "TechnicalDataSheet 3DPrintingFilament R-PEEKFilament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_R-PEEK_Filament_3D4Makers.pdf?v=1691617116",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "53920b473c7e0d4660bbab8c793e574c97e39f7af0ee818c4ca536687d816274"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament R-PEEKFilament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M097",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "R-PEEK",
+        "Shared formulation key": "R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "V-0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TechnicalDataSheet 3DPrintingFilament R-PEEKFilament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M097",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.3 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "at23°C ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers",
+        "Locator": "p. 1: Density(at23°C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density(at23°C) 1.3g/cm³ ASTM D792 warrantieswhatsoever,either"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M097",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "30 %",
+        "Raw unit": "%",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers",
+        "Locator": "p. 1: Elongation",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation 30% ASTM D638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M097",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "400-450°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "400",
+        "Nozzle max °C": "450",
+        "Nozzle requirement": "required",
+        "Bed °C": "120-160°C",
+        "Bed state": "range",
+        "Bed min °C": "120",
+        "Bed max °C": "160",
+        "Bed requirement": "required",
+        "Chamber °C": "+90°C",
+        "Chamber state": "range",
+        "Chamber min °C": "90",
+        "Chamber max °C": "90",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "6-8",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "NozzleTemperature 400-450°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "NozzleTemperature",
+      "raw": "400-450°C",
+      "fromBelow": false,
+      "line": "NozzleTemperature 400-450°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "BedTemperature",
+      "raw": "120-160°C",
+      "fromBelow": false,
+      "line": "BedTemperature 120-160°C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "ChamberTemperature",
+      "raw": "+90°C",
+      "fromBelow": false,
+      "line": "ChamberTemperature +90°C"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Dryingrecommendations",
+      "raw": "6-8",
+      "fromBelow": false,
+      "line": "Dryingrecommendations 6-8hours,120°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "andhightemperature3Dprintingapplications.Madefrom VICTREX™PEEK450G™regranulatedscrapsfrom the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TYPICALVALUE TESTMETHOD Disclaimer:3D4Makersmakesno",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BreakingStrength 90MPa ASTM D638",
+      "reason": "properties.csv carries no property for \"BreakingStrength\""
+    },
+    {
+      "page": 1,
+      "text": "TensileModulus 3400MPa ASTM D638",
+      "reason": "properties.csv carries no property for \"TensileModulus\""
+    },
+    {
+      "page": 1,
+      "text": "ServiceTemp.(constantly) 260°C ASTM D648",
+      "reason": "properties.csv carries no property for \"ServiceTemp.(constantly) 260°C\""
+    },
+    {
+      "page": 1,
+      "text": "ShortTerm (0,46MPa) 331155°°CC AASSTTM DM D664488",
+      "reason": "properties.csv carries no property for \"ShortTerm (0,46MPa) 331155°°CC\""
+    },
+    {
+      "page": 1,
+      "text": "V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability UL94/IEC60695",
+      "reason": "properties.csv carries no property for \"Flammability\""
+    },
+    {
+      "page": 1,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SurfaceResistivity 10 IEC60093",
+      "reason": "properties.csv carries no property for \"SurfaceResistivity\""
+    },
+    {
+      "page": 1,
+      "text": "3Dprinter,slicingandothervariables",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CharpyImpactStrength 7CkJ/m2 ASTM 256",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "customertodeterminehowitis3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Additionalinfo:Togetthebestresultswhileprintingweadviseyoutokeepthe3Dprinterinaroom wherethereis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "hardlyanydraftand/ortemperaturefluctuations.Keepthe3Dprinteroutofdirectsunlight.Whenthe3Dprinteris",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "notbeinguseditisimportanttokeepthe3D4Makersfilamentinabagandstoredinacool,dryanddarkplaceuntil",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Info@3D4Makers.com |3D4Makers.com |Waarderweg56,2031BPHaarlem |TheNetherlands",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

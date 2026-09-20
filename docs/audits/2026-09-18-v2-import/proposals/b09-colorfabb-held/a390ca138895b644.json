@@ -137,7 +137,7 @@
         "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the low end of a foaming filament’s density range is what the filament reaches when its foaming is active, which is what the process does and not what the material weighs; b09 rejected the two LW density rows for the same reason."
+        "note": "the low end of a foaming filament’s range is what the filament reaches when its foaming is active, which is what the process does and not what the material weighs"
       }
     }
   ],

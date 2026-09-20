@@ -1322,3 +1322,219 @@ P0575,Speed,Up to 300mm/s
 P0575,Shell / walls,2
 P0576,Speed,Up to 300mm/s
 P0576,Shell / walls,2
+P0577,Warping / shrinkage,", no cracking and it can print large-size models; compared to other materials, t"
+P0577,Cooling,100%
+P0577,Speed,<200mm/s
+P0578,Warping / shrinkage,", no cracking and it can print large-size models; compared to other materials, t"
+P0578,Cooling,100%
+P0578,Speed,<200mm/s
+P0580,Speed,[mm/s] up to 200
+P0580,Cooling,Speed [%] 50
+P0580,Shell / walls,2
+P0581,Cooling,10%
+P0582,Speed,30 - 50 (mm/s)
+P0582,Adhesion / release,separation distance 0.15 - 0.20 (mm)
+P0582,Retraction,1 - 3 (mm)
+P0583,Speed,30 - 50 (mm/s)
+P0583,Adhesion / release,separation distance 0.15 - 0.20 (mm)
+P0583,Retraction,1 - 3 (mm)
+P0584,Speed,15 - 30 mm/s
+P0585,Cooling,100%
+P0585,Speed,40mm/s
+P0586,Cooling,100%
+P0586,Speed,50mm/s
+P0587,Cooling,100%
+P0587,Speed,40mm/s
+P0588,Cooling,10-50%
+P0588,Speed,0-250mm/s
+P0589,Cooling,100%
+P0589,Speed,40mm/s
+P0590,Speed,15 - 30 mm/s
+P0592,Speed,[mm/s] up to 200
+P0592,Cooling,Speed [%] 100
+P0593,Speed,20-50 mm/s
+P0594,Cooling,0%
+P0594,Speed,40mm/s
+P0595,Cooling,100%
+P0595,Speed,<300mm/s
+P0596,Cooling,100%
+P0596,Speed,<300mm/s
+P0598,Cooling,100%
+P0598,Speed,40mm/s
+P0599,Cooling,0%
+P0599,Speed,40mm/s
+P0600,Speed,[mm/s] up to 200
+P0600,Cooling,Speed [%] 20 (0–30*)
+P0600,Shell / walls,2
+P0601,Cooling,100%
+P0602,Cooling,100%
+P0603,Cooling,0 - 100 %
+P0604,Cooling,100%
+P0604,Speed,50mm/s
+P0605,Cooling,0 - 25 %
+P0606,Cooling,100%
+P0606,Speed,40mm/s
+P0607,Cooling,100%
+P0607,Speed,130mm/s
+P0612,Layer height,0.2 mm
+P0612,Speed,(mm³/s) 2.5 mm³/s
+P0612,Adhesion / release,30% - 10.71 mm/s
+P0612,Retraction,1.8–2.8 mm
+P0613,Cooling,0%
+P0613,Speed,40 - 100mm/s
+P0614,Speed,(mm/s) 30 - 70
+P0614,Retraction,(mm) 1 - 3
+P0615,Speed,(mm/s) 30 - 70
+P0615,Retraction,(mm) 1 - 3
+P0616,Cooling,100%
+P0616,Speed,<300mm/s
+P0617,Cooling,100%
+P0617,Speed,<300mm/s
+P0619,Cooling,0 - 50
+P0620,Cooling,100%
+P0620,Speed,40 - 100mm/s
+P0621,Cooling,100%
+P0621,Speed,40mm/s
+P0622,Speed,30 - 50 (mm/s)
+P0622,Adhesion / release,separation distance 0.2 (mm)
+P0622,Retraction,1 (mm)
+P0623,Speed,30 - 50 (mm/s)
+P0623,Adhesion / release,separation distance 0.2 (mm)
+P0623,Retraction,1 (mm)
+P0624,Cooling,10-20%
+P0624,Speed,50-300mm/s
+P0625,Speed,20-35 mm/s
+P0627,Cooling,100%
+P0627,Speed,50mm/s
+P0628,Cooling,5
+P0629,Cooling,100%
+P0629,Speed,≤250mm/s
+P0630,Cooling,100%
+P0630,Speed,≤250mm/s
+P0631,Speed,[mm/s] up to 30
+P0631,Cooling,Speed [%] 30 – 50
+P0632,Speed,40 - 60 mm/s
+P0634,Speed,[mm/s] up to 300
+P0634,Cooling,Speed [%] 100
+P0636,Speed,15-30 mm/s
+P0637,Speed,50mm/s
+P0637,Retraction,4~6mm
+P0639,Cooling,100%
+P0639,Speed,<350mm/s
+P0640,Cooling,100%
+P0640,Speed,<350mm/s
+P0641,Cooling,10%
+P0644,Speed,[mm/s] up to 40
+P0644,Cooling,Speed [%] 0 (only when printing bridges it is at 100%)
+P0645,Shell / walls,linecount:2
+P0646,Shell / walls,linecount:2
+P0648,Speed,40 - 100 (mm/s)
+P0648,Adhesion / release,separation distance 0.20 (mm)
+P0648,Retraction,3 (mm)
+P0649,Speed,40 - 100 (mm/s)
+P0649,Adhesion / release,separation distance 0.20 (mm)
+P0649,Retraction,3 (mm)
+P0650,Cooling,100%
+P0650,Speed,40mm/s
+P0651,Cooling,100%
+P0651,Speed,130mm/s
+P0652,Cooling,100%
+P0652,Speed,<150mm/s
+P0653,Cooling,100%
+P0653,Speed,<150mm/s
+P0654,Cooling,", % 0 – 20"
+P0654,Speed,", mm/s 20 – 40"
+P0654,Layer height,", mm 0.35"
+P0655,Speed,[mm/s] up to 100
+P0655,Cooling,"Speed [%] 0 (only when printing bridges, it is at 100%)"
+P0658,Cooling,100%
+P0658,Speed,40 - 300mm/s
+P0660,Cooling,10-50%
+P0660,Speed,50-300mm/s
+P0661,Speed,[mm/s] up to 200
+P0661,Cooling,Speed [%] 100
+P0661,Adhesion / release,not necessary in general
+P0662,Adhesion / release,", 100 – 110 °C for non-"
+P0662,Layer height,0.1 – 0.4 mm
+P0662,Speed,15 – 40 mm/s
+P0663,Cooling,100%
+P0663,Speed,130mm/s
+P0664,Cooling,0 - 50 %
+P0665,Cooling,100%
+P0665,Speed,40mm/s
+P0667,Speed,35 - 70 mm/s
+P0668,Cooling,0%
+P0668,Speed,40mm/s
+P0669,Speed,40 - 60 mm/s
+P0670,Speed,[mm/s] up to 200
+P0670,Cooling,Speed [%] 30 (0–50*)
+P0670,Shell / walls,2
+P0671,Speed,30 - 50 (mm/s)
+P0671,Adhesion / release,separation distance 0.2 (mm)
+P0671,Retraction,1 (mm)
+P0672,Speed,30 - 50 (mm/s)
+P0672,Adhesion / release,separation distance 0.2 (mm)
+P0672,Retraction,1 (mm)
+P0676,Cooling,0%
+P0676,Speed,40mm/s
+P0677,Cooling,0 - 50 %
+P0678,Cooling,10-40%
+P0678,Speed,<300mm/s
+P0679,Cooling,10-40%
+P0679,Speed,<300mm/s
+P0680,Cooling,40-90%
+P0680,Speed,<300mm/s
+P0681,Cooling,40-90%
+P0681,Speed,<300mm/s
+P0682,Speed,20-35 mm/s
+P0683,Cooling,100%
+P0683,Speed,40mm/s
+P0684,Layer height,0.2 mm
+P0684,Speed,(mm³/s) 4.5 mm³/s
+P0684,Adhesion / release,30% - 17.76 mm/s
+P0684,Retraction,1.8–2.5 mm
+P0686,Layer height,0.2 mm
+P0686,Speed,(mm³/s) 2.0 mm³/s
+P0686,Adhesion / release,30% - 9.09 mm/s
+P0686,Retraction,1.5–2.0 mm
+P0687,Cooling,100%
+P0687,Speed,≤250mm/s
+P0688,Cooling,100%
+P0688,Speed,≤250mm/s
+P0689,Speed,20-60 mm/s
+P0689,Retraction,s from 2-3 mm/s to 40 mm/s
+P0690,Cooling,100%
+P0690,Speed,0-300mm/s
+P0691,Cooling,100%
+P0691,Speed,0-300mm/s
+P0692,Layer height,0.2 mm
+P0692,Speed,(mm³/s) 3.2 mm³/s
+P0692,Adhesion / release,30% - 13.71 mm/s
+P0692,Retraction,1.5–3.0 mm
+P0693,Cooling,100%
+P0693,Speed,< 300mm/s
+P0694,Cooling,100%
+P0694,Speed,< 300mm/s
+P0695,Speed,30 - 70 mm/s
+P0696,Speed,[mm/s] up to 40
+P0696,Cooling,Speed [%] 50
+P0697,Speed,30 - 80 mm/s
+P0698,Speed,[mm/s] up to 50
+P0698,Cooling,"Speed [%] 0 (only when printing bridges, it is at 100%)"
+P0699,Cooling,100%
+P0699,Speed,0-200mm/s
+P0700,Cooling,100%
+P0700,Speed,0-200mm/s
+P0701,Cooling,50-100%
+P0701,Speed,40-250mm/s
+P0702,Cooling,50-100%
+P0702,Speed,40-250mm/s
+P0704,Cooling,100%
+P0704,Speed,40-100mm/s
+P0705,Cooling,100%
+P0705,Speed,40mm/s
+P0706,Speed,15-30 mm/s
+P0707,Speed,40 - 60 mm/s
+P0708,Cooling,100%
+P0708,Speed,3
+P0709,Cooling,10%

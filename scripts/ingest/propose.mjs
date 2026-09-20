@@ -78,9 +78,11 @@ const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '
 const BOUNDS = '<>≤≥＜＞≦≧';
 /** The operator a bound's sign states, in the two the database keeps. */
 export const boundOperator = (sign) => (/[<≤＜≦]/.test(String(sign).trim().slice(-1)) ? '<' : '>');
+// A number may be written without its leading zero: a maker prints ".13 %" for a water absorption, and read as
+// 13 it is that figure a hundred times over.
 // A power of ten is one number, and the reader writes the raised part with a caret when it joins it to its ten.
 // It comes first, so "10^12" is read whole rather than as the 10 in front of it.
-const NUMBER_PATTERN = '(?:(?:\\d+(?:[.,]\\d+)?\\s*[×x*·]\\s*)?10\\s*\\^\\s*[-+]?\\d+)|(?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?';
+const NUMBER_PATTERN = '(?:(?:\\d+(?:[.,]\\d+)?\\s*[×x*·]\\s*)?10\\s*\\^\\s*[-+]?\\d+)|(?:(?<!\\d\\s{0,3})-)?(?:\\d+(?:[.,]\\d+)?|[.,]\\d+)';
 const valueRe = () => new RegExp(`(${NUMBER_PATTERN})\\s*\\(?\\s*(${UNIT_PATTERN})`, 'gi');
 // A table may print its unit in a column of its own, before the value: 3DXTECH's sheets are
 // "Tensile Strength, Break | ISO 527 | MPa | 62.8", and every one of their 214 recorded values was invisible to
@@ -117,6 +119,12 @@ const SECTIONS = [
 // How far from the rows it heads a block heading may stand: a heading is in the table's column, and a fragment
 // of another column is not a heading however it reads.
 const BLOCK_COLUMN = 24;
+// How many ordinary words a setting's value may be before it is a sentence: "Closed chamber not necessary" is
+// four, and a maker's advice about its nozzle is longer than that.
+const SETTING_WORDS = 6;
+const SETTING_LENGTH = 40;
+// A verb saying what the sheet advises: what a name never has, and what a setting's value never has either.
+const SAYS_SOMETHING = /\b(is|are|was|were|has|have|can|will|may|should|offers?|provides?|combines?|delivers?|makes?|gives?|ist|sind|est|sont)\b/i;
 // How long a heading that names a specimen may be: "TYPICAL MATERIAL PROPERTIES - Injection molded" is 46.
 const SPECIMEN_HEADING = 60;
 const HEADING_LENGTH = 60;
@@ -695,14 +703,19 @@ export function readRow(text, registry, held = null) {
   // A standard's digits are blanked before the values are matched, so they cannot be read as a value and cannot
   // reach into what follows them: "Glass Transition Temp. DSC, ISO 11357 -55 °C" had the minus taken for a
   // range dash, because the rule that reads "55-60" as a window saw 11357 in front of it.
-  const masked = line.replace(new RegExp(STANDARD_RE.source, 'gi'), (m) => ' '.repeat(m.length));
+  // A digit written hard against the end of a word is a footnote mark, not a value: SIDDAMENT heads its rows
+  // "Heat distortion temperature3 (°C) ISO 75 @0.45 MPa 251" and the 3 is what the sheet points at the note
+  // with. Read as the value it gave five sheets a heat deflection of 3 °C. A value is written apart from the
+  // word before it, always.
+  const footnoted = line.replace(/([A-Za-z]{3,})(\d)(?![\d.,])/g, (m, word) => `${word} `);
+  const masked = footnoted.replace(new RegExp(STANDARD_RE.source, 'gi'), (m) => ' '.repeat(m.length));
   const candidates = [...masked.matchAll(valueRe())].filter((m) => !inDesignation(m.index) && !afterSlash(m.index) && !inPower(m.index));
   // The table may have put the unit in a column before the value, and a row that does may still carry a "number
   // unit" pair that is not its result: "Notched impact strength ASTM D256 kj/m² 100 @ 23°C" states the test
   // temperature that way. Offering only the temperature lost every impact row of that layout, so both readings
   // are candidates and the one that counts is still the first in a unit the property is kept in.
   {
-    for (const m of line.matchAll(unitFirstRe())) {
+    for (const m of footnoted.matchAll(unitFirstRe())) {
       const { unit, lead, value, spread, upper } = m.groups;
       const reordered = [m[0], value, unit];
       // The value stands past the unit and past whatever condition the row states between them, which is what
@@ -757,6 +770,12 @@ export function readRow(text, registry, held = null) {
     }
     return null;
   };
+  // A power of ten whose exponent did not survive the extraction. Stratasys prints "3.9 ×10¹³ Ω·cm" and the
+  // text layer keeps "3.9", "10" and "Ω": read as digits that is 3.910 Ω, which is not a resistivity any
+  // material has. A resistivity is always a power of ten, so a mantissa standing against a bare ten is a number
+  // this sheet did not give up, and the row is left for a person rather than recorded as its pieces.
+  if (/resistivity|resistance/i.test(match.Property) && /\d(?:[.,]\d+)?\s*(?:[x×*·]\s*)?10\s*(?![\d.,^])/.test(line)
+    && !/10\s*\^/.test(line)) return null;
   const outside = candidates.filter((c) => !inBracket(c.index));
   for (const candidate of (outside.length ? outside : candidates)) {
     // The factor is from the unit the sheet printed, not from what that unit is called here: reading it from the
@@ -932,6 +951,17 @@ export function readSetting(line, page = 1, below = '') {
     const rejoined = own && column && !/[a-z°º˚℃%]/i.test(own) ? `${own} ${column}` : own;
     const raw = rejoined || under;
     if (!raw || !/[a-z0-9]/i.test(raw)) return null;
+    // A setting is a value, not a sentence. Raise3D wraps "A wear-resistant nozzle, such as hardened steel and
+    // ruby nozzle, is highly recommended." so that the word nozzle begins a line, and the rest of the sentence
+    // was recorded as a nozzle temperature; 3D4Makers runs a paragraph together with no spaces at all and its
+    // tail became an enclosure. What a value never has is a verb saying what the sheet advises, and what it
+    // never is, is a run of words with no number in it.
+    if (SAYS_SOMETHING.test(raw)) return null;
+    if (!/\d/.test(raw) && (raw.match(/[A-Za-z]{2,}/g) ?? []).length >= SETTING_WORDS) return null;
+    // A paragraph the page ran together has no spaces to count, so it is measured instead: a setting that
+    // states no number and none of the words a state is written in says nothing in eighty characters that it
+    // could not say in twenty.
+    if (!/\d/.test(raw) && raw.length > SETTING_LENGTH && !STATE.test(raw)) return null;
     // A note has to state something. "exceptional print quality at a speed of up to 600" wraps so that a line
     // begins with the word speed, and read as guidance it put a marketing sentence in the print setup.
     if (match.Field === 'note' && !/\d|\b(not|no|yes|necessary|required|recommended|needed)\b/i.test(raw)) return null;
@@ -1007,6 +1037,13 @@ function printedUnitOf(plain) {
  * adding one is a change to data/ and schema/ in its own commit.
  */
 export function unreadRowReason(line, registry, held = null) {
+  {
+    const text = repair(String(line.text ?? line ?? '')).trim();
+    const named = labelFor(text);
+    if (named && /resistivity|resistance/i.test(named.Property) && /\d(?:[.,]\d+)?\s*(?:[x×*·]\s*)?10\s*(?![\d.,^])/.test(text) && !/10\s*\^/.test(text)) {
+      return `the sheet states ${named.Property} as a power of ten whose exponent did not survive the extraction ("${text.slice(0, 60)}")`;
+    }
+  }
   const plain = repair(String(line.text ?? '')).trim();
   if (!/\d/.test(plain)) return null;
   // A bullet is not a label, and the sentence beside it is not a row. The value column is read before that rule,
@@ -1080,7 +1117,9 @@ export function unreadRowReason(line, registry, held = null) {
 // the designations, the conditions and the bounds are all read exactly as they are anywhere else.
 // ---------------------------------------------------------------------------------------------------------
 
-const AXIS_CELL = /^\(?\s*(X\s?[-‑–]?\s?Y|Y\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|Z\s?[-‑–]?\s?X|XY|XZ|ZX|Z)\s*\)?(?:[\s-]*(?:axis|axes|direction|richtung))?\s*$/i;
+// A heading names the orientation and then says so: "XY", "Z-axis", "XZ Orientation", "ZX Orientation1" — the
+// trailing digit is a footnote mark, which Stratasys puts on every one of its column headings.
+const AXIS_CELL = /^\(?\s*(X\s?[-‑–]?\s?Y|Y\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|Z\s?[-‑–]?\s?X|XY|XZ|ZX|Z)\s*\)?(?:[\s-]*(?:axis|axes|direction|orientation|richtung)\s*\d?)?\s*$/i;
 const axisOf = (text) => {
   const m = AXIS_CELL.exec(String(text ?? '').trim());
   return m ? m[1].replace(/[\s‑–-]/g, '').toUpperCase() : null;
@@ -1094,11 +1133,21 @@ const axisOf = (text) => {
 export function axisColumns(line) {
   const cells = lineCells(line);
   if (cells.length < 3) return null;
-  // Where one column ends and the next begins is halfway between the two headings, because a maker centres a
-  // value under its heading as often as it aligns it: BASF's XY heading stands at 381 and its values start at
-  // 354, while Fillamentum sets both at 162. The first heading needs a floor of its own, mirrored from the gap
-  // on its other side, or the label column — which OBC 905 gives no heading at all — falls inside it.
-  const edge = cells.map((c, i) => (i ? (cells[i - 1].x + c.x) / 2 : null));
+  // Where one column ends and the next begins is halfway between where the heading before it ends and where it
+  // starts, because a maker centres a value under its heading as often as it aligns it: BASF's XY heading
+  // stands at 381 and its values start at 354, while Fillamentum sets both at 162. Measuring from the previous
+  // heading's start instead puts the boundary a column too far left: Stratasys heads its label column
+  // "0.25 mm (0.010 in.) Layer Height" and its unit column not at all, and halfway from that heading's start
+  // swallowed the unit into the first orientation, leaving the second with a number and no unit at all. The
+  // first heading needs a floor of its own, mirrored from the gap on its other side, or the label column —
+  // which OBC 905 gives no heading at all — falls inside it.
+  const spans = inked(line);
+  const ends = cells.map((c, i) => {
+    const next = cells[i + 1]?.x ?? Infinity;
+    const own = spans.filter((sp) => sp.x >= c.x - 1 && sp.x < next);
+    return own.length ? Math.max(...own.map(spanRight)) : c.x;
+  });
+  const edge = cells.map((c, i) => (i ? (Math.min(ends[i - 1], c.x) + c.x) / 2 : null));
   const bounds = cells.map((c, i) => ({
     ...c,
     axis: axisOf(c.text),
@@ -1106,7 +1155,13 @@ export function axisColumns(line) {
     to: edge[i + 1] ?? Infinity,
   }));
   const axes = bounds.filter((c) => c.axis);
-  return axes.length >= 2 ? { from: Math.min(...axes.map((a) => a.from)), axes } : null;
+  if (axes.length < 2) return null;
+  // What the heading says before it names its columns is the condition the whole table was measured under:
+  // Stratasys prints a table per layer height and heads each "0.25 mm (0.010 in.) Layer Height | XZ
+  // Orientation1 | ZX Orientation1". Without it the three tables are one grade's elongation four times over,
+  // which is what MEAS-CONDITIONS-INDISTINCT is for.
+  const heading = bounds.filter((c) => !c.axis && c.x < axes[0].x).map((c) => c.text.trim()).join(' ').trim();
+  return { from: Math.min(...axes.map((a) => a.from)), axes, heading: heading || null };
 }
 
 // A table's own heading row, which ends whatever table came before it. A heading states no number — every row of
@@ -1130,7 +1185,7 @@ export function splitAtAxisColumns(lines) {
     if (header) { axes = header; out.push(line); continue; }
     if (endsTheTable(line)) { axes = null; out.push(line); continue; }
     const parts = axes ? axisRows(line, axes) : [];
-    if (parts.length > 1) { for (const part of parts) out.push({ ...part.line, column: part.axis }); continue; }
+    if (parts.length > 1) { for (const part of parts) out.push({ ...part.line, column: part.axis, parameters: axes.heading }); continue; }
     out.push(line);
   }
   return out;
@@ -1414,12 +1469,31 @@ export function readSheet(text, registry) {
         skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'the density the print reaches with foaming active, which is what the process does and not what the material is' });
         continue;
       }
+      // A row that repeats the row above it, label for label, and states its value in another unit is that row
+      // said twice: Stratasys prints "Tensile Modulus ... ASTM D638 2,400 MPa" and then the same label again
+      // with "(350,000 psi)" under it, and read as two rows a grade has two moduli. The metric one is kept
+      // because it is the one the sheet leads with, and the imperial one is written down as the repeat it is —
+      // with both figures, because where they disagree it is the sheet that does.
+      const previous = values.at(-1);
+      if (previous && previous.property === (method?.property ?? read.match.Property)
+        && previous.label === fullLabel && previous.read.printedUnit !== read.printedUnit) {
+        const first = Number(previous.read.rawNumber) * previous.target.factor;
+        const again = Number(read.rawNumber) * read.target.factor;
+        const apart = first && Number.isFinite(again) ? Math.abs(again - first) / Math.abs(first) : null;
+        skipped.push({ page: page.page, text: line.text.slice(0, 160),
+          reason: apart != null && apart > 0.02
+            ? `the same row again in ${read.printedUnit}, and the two do not agree: ${previous.read.raw} is ${first.toPrecision(4)} ${previous.target.unit} and ${read.raw} is ${again.toPrecision(4)}`
+            : `the same row again in ${read.printedUnit} (${read.raw}), which is one measurement stated twice` });
+        continue;
+      }
+
       values.push({
         page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
         direction: read.match.Direction, notch, read, target: read.target, line: line.text,
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
         printedSpecimens, orientation, block, column: line.column ?? null, specimen: specimenBlock,
+        parameters: line.parameters ?? null,
       });
     }
     dropHeld();
@@ -1563,7 +1637,9 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
   };
   return {
     gradeKey: 'main', row,
-    notes: notes.map((n) => ({ Topic: n.topic, Text: n.raw })),
+    // A note keeps the sheet's own words, and a full-width glyph is a spelling of an ASCII one rather than a
+    // word: "＜300mm/s" is "<300mm/s", and TEXT-FULLWIDTH refuses the first.
+    notes: notes.map((n) => ({ Topic: n.topic, Text: asciiPunctuation(n.raw) })),
     editorial: abrasive && !affirms ? ['Abrasion / clogging'] : [],
     evidence: { page: (named[0] ?? notes[0]).page, text: (named[0] ?? notes[0]).line.slice(0, 200) },
     review: { status: 'proposed' },
@@ -1688,14 +1764,21 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // polycarbonate's. Where both readings are possible, it stays a question for a person.
   let ambiguity = v.read.ambiguous;
   if (ambiguity) {
-    const other = round(NUMBER(rawNumeric) * 1000 * v.target.factor);
+    // "24.000" is twenty-four thousand on a European sheet and twenty-four on an American one, and "1,320" is
+    // one and a third on the first and one thousand three hundred and twenty on the second. Which way the
+    // reading is out depends on which way the build's own reader took the separator, so both are tried: the
+    // thousand above and the thousand below. Extrudr prints "Material density 1,320 g/cm3", which is 1320
+    // kg/m³ and not 1 320 000.
     const of = { ...window, condition: ['Notched', 'Unnotched'].includes(v.notch) ? v.notch : 'any' };
     const mineOk = couldBe(v.property, v.target.unit, normalized, of);
-    const otherOk = couldBe(v.property, v.target.unit, other, of);
+    const scaled = [1000, 0.001].map((by) => ({ by, value: round(NUMBER(rawNumeric) * by * v.target.factor) }))
+      .find(({ value }) => couldBe(v.property, v.target.unit, value, of));
+    const other = scaled?.value ?? round(NUMBER(rawNumeric) * 1000 * v.target.factor);
+    const otherOk = Boolean(scaled);
     v.ambiguityResolved = (mineOk && !otherOk) || (!mineOk && otherOk);
     if (!mineOk && otherOk) {
       const was = round(NUMBER(v.read.rawNumber) * v.target.factor);
-      rawNumeric = String(NUMBER(rawNumeric) * 1000);
+      rawNumeric = String(NUMBER(rawNumeric) * scaled.by);
       normalized = other;
       // The raw cell records the number and what the sheet printed, which is the register's own convention for
       // this reading (V000731, the same product's flexural modulus).
@@ -1737,7 +1820,9 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
     'Standard / load': asciiPunctuation(standardText) || NP, Standards: standards.length ? standards.join('; ') : NP,
     'Test load MPa': v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(standardText)) : NA,
-    Notch: v.notch || NA, 'Specimen / print parameters': NP,
+    Notch: v.notch || NA,
+    // The conditions the table this row stands in was measured under, where its heading names them.
+    'Specimen / print parameters': v.parameters ? asciiPunctuation(v.parameters) : NP,
     SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote, ambiguity].filter(Boolean).join('; ') || NA, 'Parse review': NA,
   };
 }
@@ -1798,8 +1883,8 @@ export function sourceIdFor(row, sources) {
  * the same sheet look like a second product.
  */
 /** Full-width punctuation written as the ASCII character it stands for; CJK ideographs are left alone. */
-const FULLWIDTH = { '（': '(', '）': ')', '［': '[', '］': ']', '：': ':', '；': ';', '，': ',', '％': '%', '－': '-', '＋': '+', '／': '/' };
-export const asciiPunctuation = (text) => String(text ?? '').replace(/[（）［］：；，％－＋／]/g, (c) => FULLWIDTH[c] ?? c);
+const FULLWIDTH = { '（': '(', '）': ')', '［': '[', '］': ']', '：': ':', '；': ';', '，': ',', '％': '%', '－': '-', '＋': '+', '／': '/', '＜': '<', '＞': '>', '≦': '\u2264', '≧': '\u2265', '　': ' ' };
+export const asciiPunctuation = (text) => String(text ?? '').replace(/[（）［］：；，％－＋／＜＞≦≧　]/g, (c) => FULLWIDTH[c] ?? c);
 
 // A maker's own name, as a scan may have rendered it. A word of six letters or more is still that word with one
 // letter wrong: Fiberlogy's OCR'd sheets print "Fioerlogy" at the head of every page, and a reader that matched
@@ -1879,7 +1964,7 @@ export function looksDamaged(line) {
 const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|test\s+(condition|method)|^description\b|^rev(ision)?\b|^version\b|^page\b|data ?sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
 // A version, a date, a trademark sign left on a line of its own or half of the words that announce the sheet
 // is not a name either. Polymaker sets "TECHNICAL" and "DATA SHEET" on two lines with "V6.0" under them.
-const NOT_A_PRODUCT_EITHER = /^date\b|^[\d\s.,]+$|^(draft|preliminary|provisional|confidential|general|g(é|e)n(é|e)ral|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(g(é|e)n(é|e)ralit(é|e)s|generalit(à|a)|generalidades)$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data)$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
+const NOT_A_PRODUCT_EITHER = /^date\b|^[\d\s.,]+$|^(draft|preliminary|provisional|confidential|general|g(é|e)n(é|e)ral|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(g(é|e)n(é|e)ralit(é|e)s|generalit(à|a)|generalidades)$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data|material|materials|fdm|fff|sla|3d|p)$|^\d{2,3}\s?[ad]$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
 // A sheet that labels its product says so plainly, and that beats any guess from where a line sits. The label
 // may stand after the same label in the maker's own language ("产品名称 Product Name:PLA+丝绸 2.0"), and a
 // maker may call it the trade name: Fiberlogy prints "TRADE NAME: Fiberlogy FiberSilk" on all forty of its
@@ -1930,7 +2015,6 @@ export function printedTitle(text, maker = '') {
   // "CarbonX Carbon Fiber High Temp Nylon (HTN)", which is a name of seven. The word count stays as a backstop
   // for a sentence with no verb in it, and it is set where no product name reaches.
   const SENTENCE_WORDS = 10;
-  const SAYS_SOMETHING = /\b(is|are|was|were|has|have|offers?|provides?|combines?|delivers?|ist|sind|est|sont)\b/i;
   // A page that sets its head letter by letter leaves fragments of it behind: the Fiberon sheets print "T M"
   // under their letter-spaced title, which is the trademark sign. What a word is, is what its letters spell.
   const named = (line) => {

@@ -71,14 +71,36 @@ export function boundedCdf(mu, sd, bounds, x) {
 export { median } from '../normalize/values.js';
 export const quantile = (xs, q) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.max(0, Math.ceil(q * s.length) - 1))] : null; };
 
+/**
+ * The Cholesky factor, and most of what the estimate stage costs: one per fit, and hundreds of fits per
+ * headline. Two columns of the row are taken together so that L[i][k], which both of their sums read, is loaded
+ * once instead of twice; each sum still runs over k in the same order it did, so the factor is bit for bit the
+ * one the single-column loop gives and `npm run build:diff` shows no difference.
+ */
 export function cholesky(K, n) {
   const L = new Float64Array(n * n);
   for (let i = 0; i < n; i++) {
-    for (let j = 0; j <= i; j++) {
-      let s = K[i * n + j];
-      for (let k = 0; k < j; k++) s -= L[i * n + k] * L[j * n + k];
-      if (i === j) { if (!(s > 0)) return null; L[i * n + i] = Math.sqrt(s); } else L[i * n + j] = s / L[j * n + j];
+    const ri = i * n;
+    let j = 0;
+    for (; j + 1 < i; j += 2) {
+      const rj = j * n, rj1 = rj + n;
+      let s0 = K[ri + j], s1 = K[ri + j + 1];
+      for (let k = 0; k < j; k++) { const a = L[ri + k]; s0 -= a * L[rj + k]; s1 -= a * L[rj1 + k]; }
+      const d0 = s0 / L[rj + j];
+      L[ri + j] = d0;
+      s1 -= d0 * L[rj1 + j];
+      L[ri + j + 1] = s1 / L[rj1 + j + 1];
     }
+    for (; j < i; j++) {
+      const rj = j * n;
+      let s = K[ri + j];
+      for (let k = 0; k < j; k++) s -= L[ri + k] * L[rj + k];
+      L[ri + j] = s / L[rj + j];
+    }
+    let d = K[ri + i];
+    for (let k = 0; k < i; k++) d -= L[ri + k] * L[ri + k];
+    if (!(d > 0)) return null;
+    L[ri + i] = Math.sqrt(d);
   }
   return L;
 }

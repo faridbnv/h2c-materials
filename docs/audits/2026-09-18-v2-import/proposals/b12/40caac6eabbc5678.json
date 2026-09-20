@@ -1,0 +1,441 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "40caac6eabbc567820d151a347c7428d06b37672b38c655b3842bc0c95bef6e1",
+    "url": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_ABS_ESD_3D4Makers.pdf?v=1592821918",
+    "pages": 1,
+    "provider": "3D4Makers",
+    "manufacturer": null,
+    "docKey": "40caac6eabbc5678"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "ESD formulation",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs",
+      "filler: esd"
+    ],
+    "materialId": "M030",
+    "materialName": "ABS-ESD",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-TDS-ABS-ESD-3D4Makers",
+      "Publisher": "3D4Makers",
+      "Title": "TechnicalDataSheet 3DPrintingFilament ABSESDFilament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_ABS_ESD_3D4Makers.pdf?v=1592821918",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "40caac6eabbc567820d151a347c7428d06b37672b38c655b3842bc0c95bef6e1"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament ABSESDFilament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M030",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "ABSESD",
+        "Shared formulation key": "R-3D4MAKERS-TDS-ABS-ESD-3D4Makers",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-ABS-ESD-3D4Makers",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TechnicalDataSheet 3DPrintingFilament ABSESDFilament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.03 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.03",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1030",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-ABS-ESD-3D4Makers",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.03g/cm³ ISO1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250-270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "100°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "s/casingsforconnectors,sensorsandmeasuringdevices.Availableinblackanditsnaturalc",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "2-4",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-ABS-ESD-3D4Makers",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: NozzleTemperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "housings/casingsforconnectors,sensorsandmeasuringdevices.Availableinblackanditsnaturalcolor."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "100°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "s/casingsforconnectors,sensorsandmeasuringdevices.Availableinblackanditsnaturalc",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "2-4",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-ABS-ESD-3D4Makers",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzletemp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "housings/casingsforconnectors,sensorsandmeasuringdevices.Availableinblackanditsnaturalcolor."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "housing",
+      "raw": "s/casingsforconnectors,sensorsandmeasuringdevices.Availableinblackanditsnaturalc",
+      "fromBelow": false,
+      "line": "housings/casingsforconnectors,sensorsandmeasuringdevices.Availableinblackanditsnaturalcolor."
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "NozzleTemperature",
+      "raw": "250-270°C",
+      "fromBelow": false,
+      "line": "NozzleTemperature 250-270°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "BedTemperature",
+      "raw": "100°C",
+      "fromBelow": false,
+      "line": "BedTemperature 100°C"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Dryingrecommendations",
+      "raw": "2-4",
+      "fromBelow": false,
+      "line": "Dryingrecommendations 2-4hours,80°C"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzletemp",
+      "raw": "260°C",
+      "fromBelow": false,
+      "line": "Nozzletemp:260°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bedtemp",
+      "raw": "100°C",
+      "fromBelow": false,
+      "line": "Bedtemp:100°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "properties.Itssurfaceresistivityrangingfrom 10^7to10^9Ohm.Thefilamentisidealforindustrialapplicationslike",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MATERIALPROPERTIES TYPICALVALUE TESTMETHOD Disclaimer:3D4Makersmakesno",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TensileStrength 24.3MPa ISO527",
+      "reason": "properties.csv carries no property for \"TensileStrength\""
+    },
+    {
+      "page": 1,
+      "text": "ElongationatTensileStrength 3.1% ISO527",
+      "reason": "properties.csv carries no property for \"ElongationatTensileStrength 3.1%\""
+    },
+    {
+      "page": 1,
+      "text": "TensileModulus 1,121MPa ISO527",
+      "reason": "properties.csv carries no property for \"TensileModulus\""
+    },
+    {
+      "page": 1,
+      "text": "TensileStressatBreak 19.8MPa ISO527",
+      "reason": "properties.csv carries no property for \"TensileStressatBreak\""
+    },
+    {
+      "page": 1,
+      "text": "TensileElongationatBreak 6.4% ISO178",
+      "reason": "properties.csv carries no property for \"TensileElongationatBreak 6.4%\""
+    },
+    {
+      "page": 1,
+      "text": "CChhaarrppyyiimpmpaaccttrreessiissttaannccee 1100..99kkJJ//m²m² IISSO1O17799",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ShoreHardness 66,7D ISO868",
+      "reason": "properties.csv carries no property for \"ShoreHardness\""
+    },
+    {
+      "page": 1,
+      "text": "settings,thetypeof3Dprinter,slicingand",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Glasstransitiontemp.(Tg) 106°C ISO11357",
+      "reason": "properties.csv carries no property for \"Glasstransitiontemp.(Tg) 106°C\""
+    },
+    {
+      "page": 1,
+      "text": "Surfaceresistivity 107-109 ASTM D257",
+      "reason": "properties.csv carries no property for \"Surfaceresistivity\""
+    },
+    {
+      "page": 1,
+      "text": "Ohms/m2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "tthheeccuusstomertodeterminehowitis3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PrintSpeed 40mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infill:100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infillangle:45°/-45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printspeed:40mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Additionalinfo:Togetthebestresultswhileprintingweadviseyoutokeepthe3Dprinterinaroom wherethereis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "hardlyanydraftand/ortemperaturefluctuations.Keepthe3Dprinteroutofdirectsunlight.Whenthe3Dprinterisnot",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "beinguseditisimportanttokeepthe3D4MakersABSESDfilamentinabagandstoredinacool,dryanddarkplace",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Info@3D4Makers.com |3D4Makers.com |Waarderweg56,2031BPHaarlem |TheNetherlands",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -1,0 +1,1774 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "76400ee4dc72a045cf798d0237d82765d99234af6676edc5a9f640ba2bed69b2",
+    "url": "https://s1.raise3d.com/2024/09/Raise3D-Industrial-PA12-CF_TDS_V3.0.pdf",
+    "pages": 5,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "76400ee4dc72a045"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12",
+      "filler: cf+"
+    ],
+    "materialId": "M053",
+    "materialName": "PA12-CF",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Industrial PA12 CF+ Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2024/09/Raise3D-Industrial-PA12-CF_TDS_V3.0.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "76400ee4dc72a045cf798d0237d82765d99234af6676edc5a9f640ba2bed69b2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF+ Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PA12 CF+",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Composition / filler": "absorption. By adding 15 wt.% short carbon fibers with optimized length distribution, mechanical, thermal (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Industrial PA12 CF+ Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3500 ± 50 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3500",
+        "Raw uncertainty ±": "50",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "0.05",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Young’s modulus (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X-Y) ISO 527, GB/T 1040 3500 ± 50 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1600 ± 50 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1600",
+        "Raw uncertainty ±": "50",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "0.05",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Young’s modulus (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (Z) ISO 527, GB/T 1040 1600 ± 50 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "68 ± 1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "68",
+        "Raw uncertainty ±": "1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "68",
+        "Normalized uncertainty ±": "1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y 7 ISO 52 GB/T 1040",
+        "Standards": "ISO 52; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Tensile strength (X-Y) ISO 52 7, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) ISO 52 7, GB/T 1040 68 ± 1 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "34.7 ± 2.1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "34.7",
+        "Raw uncertainty ±": "2.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "34.7",
+        "Normalized uncertainty ±": "2.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Tensile strength (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (Z) ISO 527, GB/T 1040 34.7 ± 2.1 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.5 ± 0.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Elongation at break (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (X-Y) ISO 527, GB/T 1040 3.5 ± 0.1 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.7 ± 0.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.7",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.7",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Elongation at break (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (Z) ISO 527, GB/T 1040 1.7 ± 0.2 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3600 ± 70 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3600",
+        "Raw uncertainty ±": "70",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.6",
+        "Normalized uncertainty ±": "0.07",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 1: Bending modulus (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus (X-Y) ISO 178, GB/T 9341 3600 ± 70 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "98 ± 5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "98",
+        "Raw uncertainty ±": "5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "98",
+        "Normalized uncertainty ±": "5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Bending strength (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending strength (X-Y) ISO 178, GB/T 9341 98 ± 5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "8.6 ± 0.4 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "8.6",
+        "Raw uncertainty ±": "0.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.6",
+        "Normalized uncertainty ±": "0.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Charpy impact strength (X-Y) ISO 179, GB/T 1043 8.6 ± 0.4 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4736 ± 88 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4736",
+        "Raw uncertainty ±": "88",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.736",
+        "Normalized uncertainty ±": "0.088",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Young’s modulus (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Young’s modulus (X-Y) ISO 527, GB/T 1040 4736 ± 88 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2086 ± 92 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2086",
+        "Raw uncertainty ±": "92",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.086",
+        "Normalized uncertainty ±": "0.092",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Young’s modulus (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Young’s modulus (Z) ISO 527, GB/T 1040 2086 ± 92 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "86 ± 1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "86",
+        "Raw uncertainty ±": "1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "86",
+        "Normalized uncertainty ±": "1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y 7 ISO 52 GB/T1040",
+        "Standards": "ISO 52; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Tensile strength (X-Y) ISO 52 7, GB/T1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength (X-Y) ISO 52 7, GB/T1040 86 ± 1 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "44.7 ± 2.1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "44.7",
+        "Raw uncertainty ±": "2.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "44.7",
+        "Normalized uncertainty ±": "2.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Tensile strength (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength (Z) ISO 527, GB/T 1040 44.7 ± 2.1 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.8 ± 0.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.8",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.8",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Elongation at break (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break (X-Y) ISO 527, GB/T 1040 2.8 ± 0.1 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.9 ± 0.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Elongation at break (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break (Z) ISO 527, GB/T 1040 1.9 ± 0.2 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "4331 ± 90 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4331",
+        "Raw uncertainty ±": "90",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.331",
+        "Normalized uncertainty ±": "0.09",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Bending modulus (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending modulus (X-Y) ISO 178, GB/T 9341 4331 ± 90 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "125 ± 3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "125",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "125",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Bending strength (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending strength (X-Y) ISO 178, GB/T 9341 125 ± 3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "6.9 ± 0.3 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "6.9",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.9",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Charpy impact strength (X-Y) ISO 179, GB/T 1043 6.9 ± 0.3 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4626 ± 163 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4626",
+        "Raw uncertainty ±": "163",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.626",
+        "Normalized uncertainty ±": "0.163",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Young’s modulus (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Young’s modulus (X-Y) ISO 527, GB/T 1040 4626 ± 163 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2074 ± 91 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2074",
+        "Raw uncertainty ±": "91",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.074",
+        "Normalized uncertainty ±": "0.091",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Young’s modulus (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Young’s modulus (Z) ISO 527, GB/T 1040 2074 ± 91 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "81 ± 2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "81",
+        "Raw uncertainty ±": "2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "81",
+        "Normalized uncertainty ±": "2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Tensile strength (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength (X-Y) ISO 527, GB/T 1040 81 ± 2 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "44.9 ± 1.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "44.9",
+        "Raw uncertainty ±": "1.8",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "44.9",
+        "Normalized uncertainty ±": "1.8",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 2: Tensile strength (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength (Z) ISO 527, GB/T 1040 44.9 ± 1.8 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m23",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.8 ± 0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.8",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.8",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 3: Elongation at break (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Elongation at break (X-Y) ISO 527, GB/T 1040 3.8 ± 0.3 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m24",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.2 ± 0.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.2",
+        "Raw uncertainty ±": "0.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.2",
+        "Normalized uncertainty ±": "0.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 3: Elongation at break (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Elongation at break (Z) ISO 527, GB/T 1040 2.2 ± 0.4 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m25",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "4305 ± 90 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4305",
+        "Raw uncertainty ±": "90",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.305",
+        "Normalized uncertainty ±": "0.09",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 3: Bending modulus (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Bending modulus (X-Y) ISO 178, GB/T 9341 4305 ± 90 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m26",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "117 ± 2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "117",
+        "Raw uncertainty ±": "2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "117",
+        "Normalized uncertainty ±": "2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 3: Bending strength (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Bending strength (X-Y) ISO 178, GB/T 9341 117 ± 2 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m27",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "7.2 ± 0.3 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "7.2",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.2",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Locator": "p. 3: Charpy impact strength (X-Y) ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Charpy impact strength (X-Y) ISO 179, GB/T 1043 7.2 ± 0.3 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": ", such as hardened steel and ruby nozzle, is highly recommended.",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 3,
+        "text": "nozzle, such as hardened steel and ruby nozzle, is highly recommended."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "nozzle",
+      "raw": ", such as hardened steel and ruby nozzle, is highly recommended.",
+      "fromBelow": false,
+      "line": "nozzle, such as hardened steel and ruby nozzle, is highly recommended."
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "·Raise3D Industrial PA12 CF+_TDS Sep.2024 Version 3.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF+ Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF+ is a carbon fiber-reinforced composite filament based on Polyamide 612 (PA612,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nylon 612). PA612 inherits the best characteristics of both PA6 and PA12, such as toughness and less water",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "absorption. By adding 15 wt.% short carbon fibers with optimized length distribution, mechanical, thermal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Compared with Raise3D Industrial PA12 CF, it exhibits higher strength-to-weight ratio, better interlayer bonding",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "are improved further. PA12CF+ is an optimal choice for lightweight and strong end-use applications, such as jigs.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3 at 23 °C) ISO 1183, GB/T 1033 1.03",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "ISO75 0.45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(value before annealing) 142 (110)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temperature (°C) ISO75 1.8MPa 103 (90)",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Melt index (g/10 min) 260 °C, 2.16 kg 9.91",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "·Raise3D Industrial PA12 CF+_TDS Sep.2024 Version 3.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "All specimens were immerged in ambient temperature for 3 days prior totesting.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80˚C for 12h and dried for 48h prior to testing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "·Raise3D Industrial PA12 CF+_TDS Sep.2024 Version 3.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "All specimens were annealed at 80 °C for 12h, and immerged in ambient temperature for 3 days prior to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. Dry PA12 CF+ at 80°C for 12 hours before printing, moisture content is crucial for final printed partquality.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. After drying, we recommend to store PA12 CF+ filaments into Raise3D Filaments Dry Box during theprinting.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3. Abrasion of the brass nozzle happens frequently when printing PA12 CF+. Using abrasion resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4. After the printing, it is recommended to anneal the model in the oven at 80-100°C for 8-12 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5. For a small size model (side length <50 mm), annealing at 80°C for 8 hours is recommended; For a medium-size",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "model (50mm<side length <150 mm), annealing at 80°C for 12 hours is recommended; For a large size model,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "100°C for at least 12 hours is recommended.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6. After annealing, max. 0.4%-dimensional shrinkage could be observed in Z-axis depending on infill and layer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "7. If PA12 CF+ is used as the support material for itself, please remove the support structure after annealing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "·Raise3D Industrial PA12 CF+_TDS Sep.2024 Version 3.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "150.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "114.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4*R25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fig 1. Tensile testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "60.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fig 2. Flexural testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fig 3. Impact testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "·Raise3D Industrial PA12 CF+_TDS Sep.2024 Version 3.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "practices of Raise3D materials for the intended application. Raise3D makes no warranty of any kind, unless",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "announced separately, to the fitness for any particular use or application. Raise3D shall not be made liable for any",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "damage, injury or loss induced from the use of Raise3D materials in any particular application.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "the sheet publishes a strain at break below what its own stress and modulus imply, which is systematic across makers and reads as a difference in how the modulus was measured rather than a transcription error.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m15",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "the sheet publishes a strain at break below what its own stress and modulus imply, which is systematic across makers and reads as a difference in how the modulus was measured rather than a transcription error.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
+}

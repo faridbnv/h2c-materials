@@ -7,11 +7,11 @@
 | | Before the import | Now |
 |---|---:|---:|
 | materials | 103 | 143 |
-| grades | 179 | 528 |
-| measurements | 2,645 | 6,556 |
-| sources | 300 | 730 |
-| profiles | 172 | 576 |
-| print notes | 363 | 1,323 |
+| grades | 179 | 643 |
+| measurements | 2,645 | 7,461 |
+| sources | 300 | 848 |
+| profiles | 172 | 709 |
+| print notes | 363 | 1,539 |
 | headline selections | 377 | 474 |
 
 ```bash
@@ -25,8 +25,8 @@ npm run sql --silent -- "select (select count(*) from materials) materials, (sel
 | | Documents |
 |---|---:|
 | in the ledger | 1,936 |
-| applied: their values are in the database | 569 |
-| read and waiting for a batch | 638 |
+| applied: their values are in the database | 689 |
+| read and waiting for a batch | 520 |
 | the same sheet again, another language's edition, or a revision superseded | 208 |
 | the same numbers under another product name, queued as a question | 139 |
 | not yet fetched | 404 |
@@ -87,6 +87,7 @@ npm run ingest:propose -- --provider "Polymaker / Fiberon" --compare
 | [b09](batches/b09/README.md) | Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy | 134 | m72, 2026-09-19 |
 | [b10](batches/b10/README.md) | Fillamentum | 16 | m76, 2026-09-19 |
 | [b11](batches/b11/README.md) | Extrudr, 3DJake, Polymaker / Fiberon, Spectrum, Fabru / purefil, 3DXTECH, Flashforge, Braskem | 49 | m77, 2026-09-20 |
+| [b12](batches/b12/README.md) | SIDDAMENT, Raise3D, 3D4Makers, Prusament, eSUN, Recreus, Essentium, BigRep, NinjaTek, Yousu, 3D-Fuel, UltiMaker, Markforged | 154 | m81, 2026-09-20 |
 
 ## Next
 

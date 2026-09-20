@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "4583f90159502acd0816dabe3cf212f20c51650af9b7b649dd9a88f5ce146749",
+    "url": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-Standard-PLA.pdf",
+    "pages": 1,
+    "provider": "3D-Fuel",
+    "manufacturer": null,
+    "docKey": "4583f90159502acd"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D-FUEL-TDS-3DFuel-Standard-PLA",
+      "Publisher": "3D-Fuel",
+      "Title": "Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-Standard-PLA.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4583f90159502acd0816dabe3cf212f20c51650af9b7b649dd9a88f5ce146749"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D-Fuel",
+        "Product name": "3DFuel Standard PLA",
+        "Shared formulation key": "R-3D-FUEL-TDS-3DFuel-Standard-PLA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D-FUEL-TDS-3DFuel-Standard-PLA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "www.3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(> s2-FUSL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(844) 333-3616",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D-FuelTM Standard PLA is a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Maximum Tensile Strength, MPa ASTM D638 41",
+      "reason": "properties.csv carries no property for \"Maximum Tensile Strength, MPa\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "; ; Tensile Modulus, GPa ASTM D638 3.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "for initial prototypes. Tensile Elongation, % ASTM D638 1.8",
+      "reason": "properties.csv carries no property for \"for initial prototypes.\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Impact, J/m ASTM D256 26",
+      "reason": "properties.csv carries no property for \"Notched Impact, J/m\" (J/m)"
+    },
+    {
+      "page": 1,
+      "text": "*All test specimen were 3D printed to more accurately represent expected usage",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "thanks to its low processing temperature. A print temperature of 185 to 205 degrees Celsius is our recommended starting point.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "around 45 degrees Celsius may help with first layer adhesion when remain between",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50 and 100 mm/s and should be varied based on",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength at Yield, MPa ASTM D638 37",
+      "reason": "the sheet states Tensile yield strength in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "www.3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(844) 333-3616",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

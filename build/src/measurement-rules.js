@@ -18,9 +18,11 @@ export function rawNumber(text) {
     return Number.isFinite(mantissa) ? mantissa * 10 ** Number(power[2]) : null;
   }
   // A source may print a bound ("> 500 %") or an approximation ("~1.5 %"); both lead with the number they qualify.
-  const match = plain.match(/^\s*[<>＜＞≥≤~≈約]?\s*(-?\d+(?:[ ,.\u00a0]\d+)*)/);
+  // A number may be written without its leading zero: a maker prints ".13 %" for a water absorption of 0.13.
+  const match = plain.match(/^\s*[<>＜＞≥≤~≈約]?\s*(-?(?:\d+(?:[ ,.\u00a0]\d+)*|[.,]\d+))/);
   if (!match) return null;
   let token = match[1].trim().replace(/[ \u00a0]/g, '');
+  if (/^-?[.,]\d+$/.test(token)) token = `0${token.replace(',', '.')}`;
   if (/^-?\d+,\d{1,2}$/.test(token)) token = token.replace(',', '.');
   else if (/^-?\d{1,3}(,\d{3})+$/.test(token)) token = token.replaceAll(',', '');
   if (!/^-?\d+(\.\d+)?$/.test(token)) return null;

@@ -1,0 +1,451 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "d6cf41ea90f7ed59371b4fb6ffdc68fd2c430c113c26ecd34d8dceaf41a5e7d7",
+    "url": "https://prusament.com/wp-content/uploads/2023/03/TDS_Prusament-PETG-Tungsten-75_EN-1.pdf",
+    "pages": 3,
+    "provider": "Prusa Research / Prusament",
+    "manufacturer": "Prusa Research",
+    "docKey": "d6cf41ea90f7ed59"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: tungsten"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"tungsten\" has no value in schema/vocab/modifiers.csv: a dense metal load, up to 75 wt%: a ruling"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PVB-TDS-Prusament-PETG-Tungsten-75-EN-1",
+      "Publisher": "Prusa Research",
+      "Title": "Technical datasheet Prusament PETG Tungsten 75% by Prusa Polymers",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Prusa Research / Prusament; the sheet is Prusa Research's.",
+      "Citation role": "cited",
+      "URL": "https://prusament.com/wp-content/uploads/2023/03/TDS_Prusament-PETG-Tungsten-75_EN-1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d6cf41ea90f7ed59371b4fb6ffdc68fd2c430c113c26ecd34d8dceaf41a5e7d7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet Prusament PETG Tungsten 75% by Prusa Polymers"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "Prusament PETG Tungsten 75% by Prusa Polymers",
+        "Shared formulation key": "S-PVB-TDS-Prusament-PETG-Tungsten-75-EN-1",
+        "Composition / filler": "Prusament PETG Tungsten 75% by Prusa Polymers (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-TDS-Prusament-PETG-Tungsten-75-EN-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet Prusament PETG Tungsten 75% by Prusa Polymers"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "79 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "79",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "79",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-TDS-Prusament-PETG-Tungsten-75-EN-1",
+        "Locator": "p. 2: Hardness – Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Hardness – Shore D 79 Prusa Polymers"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 260 ± 10",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 80 ± 10",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PVB-TDS-Prusament-PETG-Tungsten-75-EN-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] up to 200"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Speed [%] 50"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 260 ± 10"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 260 ± 10",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 260 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed Temperature",
+      "raw": "[°C] 80 ± 10",
+      "fromBelow": false,
+      "line": "Heatbed Temperature [°C] 80 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] up to 200",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] up to 200"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "Speed [%] 50",
+      "fromBelow": false,
+      "line": "Cooling Fan Speed [%] 50"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Last update: 15-03-2023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prusament PETG Tungsten 75% by Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Trade Name Prusament PETG Tungsten 75%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "powder (75 % in mass)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Usage FDM/FFF 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75 ± 0.03 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MFR [g/10 min] not applicable ISO 1133",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "MVR [cm3/10 min] not applicable ISO 1133",
+      "reason": "the line names Melt volume-flow rate and states no value in a unit the database keeps it in (cm³/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "Density [g/cm3] 4 Prusa Polymers",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 24 hours [%](1) 0.07 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 7 days [%](1) 0.1 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature (0.45 MPa) [°C] 94 ISO 75",
+      "reason": "the sheet states HDT in [°C], and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature (1.80 MPa) [°C] 86 ISO 75",
+      "reason": "the sheet states HDT in [°C], and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Yield Strength for Filament [MPa] 49 ± 1 ISO 527",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Interlayer Adhesion [MPa] 9 ± 2 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(1) 24 °C; humidity 22 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.402 when applied 99mTc, 140 keV",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Yield Strength [MPa] 35 ± 4 39 ± 6 ISO 527-1",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Modulus [GPa] 1.9 ± 0.2 2.1 ± 0.2 ISO 527-1",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at Yield Point [%] 3.5 ± 0.4 3.1 ± 0.5 ISO 527-1",
+      "reason": "the line names Elongation at yield and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Strength [MPa] 59 ± 1 70 ± 2 ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Modulus [GPa] 2.8 ± 0.1 2.8 ± 0.2 ISO 178",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "6.7 ± 0.2 6.1 ± 0.2 ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength Charpy [kJ/m2](3) 22 ± 2 19 ± 3 ISO 179-1",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(2) Original Prusa i3 MK3 3D printer was used to print the testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "samples. To create the G-Code, we used PrusaSlicer 2.5.0 with the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Prusament PETG Tungsten 75% filament;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Print Settings 0.20 mm FAST (layers 0.20 mm);",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Solid Layers Top: 0, Bottom: 0;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Perimeters: 2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill 100% rectilinear;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill Print Speed 130 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Nozzle Temperature 260 °C all layers;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Bed Temperature 90 °C all layers;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(3) Charpy Unnotched – Edgewise direction of blow according to ISO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "179-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

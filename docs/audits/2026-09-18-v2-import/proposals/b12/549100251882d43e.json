@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "549100251882d43ec0b1c6474e23c85e62b5d76d2eef782c2ab1ec6a3dad3980",
+    "url": "https://bigrepgmbh.sharepoint.com/:b:/g/EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw?e=zevDrI",
+    "pages": 1,
+    "provider": "BigRep",
+    "manufacturer": "BigRep",
+    "docKey": "https://bigrepgmbh.sharepoint.com/:b:/g/EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw?e=zevDrI"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "98A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 98A"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw",
+      "Publisher": "BigRep",
+      "Title": "FILAMENT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://bigrepgmbh.sharepoint.com/:b:/g/EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw?e=zevDrI",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "549100251882d43ec0b1c6474e23c85e62b5d76d2eef782c2ab1ec6a3dad3980"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FILAMENT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BigRep",
+        "Product name": "TPU 98A",
+        "Shared formulation key": "R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FILAMENT"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.18 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.18",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw",
+        "Locator": "p. 1: Density (ISO 1183)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ISO 1183) 1.18 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "98",
+        "Raw unit": "Shore A",
+        "Raw numeric": "98",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "98",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3s ISO 7619-1",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw",
+        "Locator": "p. 1: Shore Hardness, 3s (ISO 7619-1)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore Hardness, 3s (ISO 7619-1) 98A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "5"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Fan Speed 5« - Å5 š"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": "5",
+      "fromBelow": false,
+      "line": "Fan Speed 5« - Å5 š"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TPU 98A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With high impact strength, tear strength, durability, and chemical resistance, parts printed with BigRep TPU 98A can withstand",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shore Hardness, 15s (ISO 7619-1) 52—",
+      "reason": "the line names Hardness and states no value in a unit the database keeps it in (Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source))"
+    },
+    {
+      "page": 1,
+      "text": "Compression Set at 23°C, 72h (ISO 815) •5 š",
+      "reason": "the line names Compression set and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Compression Set at 70°C, 24h (ISO 815) ¡2 š",
+      "reason": "the line names Compression set and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "A rasion \u0002esistance (ISO 4649) 25 mm³",
+      "reason": "properties.csv carries no property for \"A rasion \u0002esistance (\""
+    },
+    {
+      "page": 1,
+      "text": "Stress at 100\u001e (lon\u0018ation (ISO 527) 15 ¦Pa",
+      "reason": "properties.csv carries no property for \"Stress at 100\u001e (lon\u0018ation (\""
+    },
+    {
+      "page": 1,
+      "text": "Stress at 300\u001e (lon\u0018ation (ISO 527) •« ¦Pa",
+      "reason": "properties.csv carries no property for \"Stress at 300\u001e (lon\u0018ation (\""
+    },
+    {
+      "page": 1,
+      "text": "Stress at OreaL, TP( (ISO 527) ¡« ¦Pa",
+      "reason": "properties.csv carries no property for \"Stress at OreaL, TP( (\""
+    },
+    {
+      "page": 1,
+      "text": "(lon\u0018ation at OreaL, TP( (ISO 527) ¡5« š",
+      "reason": "properties.csv carries no property for \"(lon\u0018ation at OreaL, TP( (\""
+    },
+    {
+      "page": 1,
+      "text": "Tear Stren\u0018th (ISO 34) 1Å5 ¹¼/m",
+      "reason": "properties.csv carries no property for \"Tear Stren\u0018th (\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy †otched Impact Stren\u0018th (ISO 179) ¼o brea¹",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "àicat SoÑenin\u0018 TemperatØre (ISO 306) 1«5 °C",
+      "reason": "properties.csv carries no property for \"àicat SoÑenin\u0018 TemperatØre (\""
+    },
+    {
+      "page": 1,
+      "text": "19« °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "†ozzle TemperatØre 21« - 2¡« °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5« - 6« °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dryin\u0018 \u0002ecommendations 8« °C for ¡ - 6 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "•«.«Å.2«25",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

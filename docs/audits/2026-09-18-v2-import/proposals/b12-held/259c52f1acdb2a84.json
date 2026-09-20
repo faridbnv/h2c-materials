@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "259c52f1acdb2a845847f55a71fb8f913d2d036ee2beb156112cc9c8f02cde1f",
+    "url": "https://drive.google.com/file/d/1G0abxl1KXNfNebRZfMXdErdo-OlmVdEe/view",
+    "pages": 1,
+    "provider": "Recreus / Filaflex",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/1G0abxl1KXNfNebRZfMXdErdo-OlmVdEe/view"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: plalw",
+      "filler: lw"
+    ],
+    "materialId": "M017",
+    "materialName": "PLA Aero",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-FILAFLEX-PLA-LW",
+      "Publisher": "Recreus / Filaflex",
+      "Title": "TECHNICAL DATA SHEET PLA-LW",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1G0abxl1KXNfNebRZfMXdErdo-OlmVdEe/view",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "259c52f1acdb2a845847f55a71fb8f913d2d036ee2beb156112cc9c8f02cde1f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET PLA-LW"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M017",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "PLA-LW",
+        "Shared formulation key": "R-RECREUS-FILAFLEX-PLA-LW",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-FILAFLEX-PLA-LW",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET PLA-LW"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "density with which you will be able to reduce the weight of your printed parts by up to 50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date / Revised: 04.05.2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

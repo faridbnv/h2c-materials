@@ -1,0 +1,563 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "0f075bab1faa4c880cc1e6fa1d4f069dbdc107fa97f33027cb2b56bf14e016b7",
+    "url": "https://nexa3d.com/wp-content/uploads/2024/08/TDS-Essentium-9085.pdf",
+    "pages": 2,
+    "provider": "Essentium / Nexa3D",
+    "manufacturer": "Essentium / Nexa3D",
+    "docKey": "0f075bab1faa4c88"
+  },
+  "identity": {
+    "polymer": "PEI",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: ultem"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PEI",
+    "Family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "H2C status": "Excluded",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "PEI",
+    "Scope": "Excluded",
+    "Abbreviation": "PEI",
+    "Base polymer": "PEI",
+    "Estimate identity": "Not applicable",
+    "Modifier / filler": "Unfilled / unspecified",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-ESSENTIUM-TDS-Essentium-9085 (p. 1): sheet: ultem. No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESSENTIUM-TDS-Essentium-9085",
+      "Publisher": "Essentium / Nexa3D",
+      "Title": "technical data sheet ESSENTIUM 9085",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nexa3d.com/wp-content/uploads/2024/08/TDS-Essentium-9085.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "0f075bab1faa4c880cc1e6fa1d4f069dbdc107fa97f33027cb2b56bf14e016b7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "technical data sheet ESSENTIUM 9085"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Essentium",
+        "Product name": "9085",
+        "Shared formulation key": "R-ESSENTIUM-TDS-Essentium-9085",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ESSENTIUM-TDS-Essentium-9085",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "technical data sheet ESSENTIUM 9085"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": ", °C 360 – 390",
+        "Nozzle state": "range",
+        "Nozzle min °C": "360",
+        "Nozzle max °C": "390",
+        "Nozzle requirement": "required",
+        "Bed °C": ", °C 150 – 185",
+        "Bed state": "range",
+        "Bed min °C": "150",
+        "Bed max °C": "185",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-ESSENTIUM-TDS-Essentium-9085",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": ", mm 0.2 – 0.25"
+        },
+        {
+          "Topic": "Speed",
+          "Text": ", mm/s 50 – 250"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": ", % 0 – 20"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": ", mm 0.3 – 0.35"
+        },
+        {
+          "Topic": "Speed",
+          "Text": ", mm/s 20 – 220"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": ", % 0 – 20"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": ", % 0 – 15"
+        },
+        {
+          "Topic": "Speed",
+          "Text": ", mm/s 20 – 40"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Bed Temperature, ˚C 150 – 185"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 150 – 185",
+      "fromBelow": false,
+      "line": "Bed Temperature, ˚C 150 – 185"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": ", mm 0.2 – 0.25",
+      "fromBelow": false,
+      "line": "Layer Height, mm 0.2 – 0.25"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": ", mm/s 50 – 250",
+      "fromBelow": false,
+      "line": "Print Speed, mm/s 50 – 250 IR Temperature, ˚C 140 – 200"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": ", % 0 – 20",
+      "fromBelow": false,
+      "line": "Fan Speed, % 0 – 20"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 150 – 185",
+      "fromBelow": false,
+      "line": "Bed Temperature, ˚C 150 – 185"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": ", mm 0.3 – 0.35",
+      "fromBelow": false,
+      "line": "Layer Height, mm 0.3 – 0.35"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": ", mm/s 20 – 220",
+      "fromBelow": false,
+      "line": "Print Speed, mm/s 20 – 220 IR Temperature, ˚C 140 – 200"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": ", % 0 – 20",
+      "fromBelow": false,
+      "line": "Fan Speed, % 0 – 20"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": ", % 0 – 15",
+      "fromBelow": false,
+      "line": "Fan Speed, % 0 – 15"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": ", °C 360 – 390",
+      "fromBelow": false,
+      "line": "Nozzle Temperature, ºC 360 – 390"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 120 – 140",
+      "fromBelow": false,
+      "line": "Bed Temperature, ºC 120 – 140 Bed Material G-11 or MIC-6 Aluminum"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": ", mm/s 20 – 40",
+      "fromBelow": false,
+      "line": "Print Speed, mm/s 20 – 40"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Essentium 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ESSENTIUM 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Essentium 9085 is a high performance polyetherimide blend made with SABIC ULTEM 9085 resin. Essentium 9085 has excellent long term",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature performance and toughness. The base resin meets FAR 25.853 and OSU 65/65 for flammability, heat release, smoke density and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "toxicity. Parts printed from Essentium 9085 are ideal for aerospace, automotive, and industrial components that must meet strict requirements",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XY 45/45 YX ZX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 527-2 79.5 (2.8) 70.0 (2.4)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 527-2 70.0 (2.4) 45.8 (2.2)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 527-2 70.0 (2.4) 62.9 (4.9)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 527-2 2.44 (0.05) 2.32 (0.06)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 527-2 2.32 (0.06) 2.17 (0.04)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 527-2 2.32 (0.06) 2.51 (0.06)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 527-2 6.9 (1.8) 5.8 (0.3)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 527-2 5.8 (0.3) 3.2 (0.4)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 527-2 5.8 (0.3) 3.5 (0.5)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 178 125 (1) 88.5 (1.9)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 178 88.5 (1.9) 75.1 (5.5)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 178 88.5 (1.9) 112 (5)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 178 2.53 (0.04) 2.07 (0.04)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 178 2.07 (0.04) 2.01 (0.01)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 178 2.07 (0.04) 2.49 (0.05)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 8.4 (3.2) 9.9 (3.6)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 9.9 (3.6) 4.6 (1.4)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 9.9 (3.6) 3.7 (0.7)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Density, g/cm3 ISO 1183 1.34",
+      "reason": "the sheet states Density in g/cm3, and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "Moist. Absorption (23°C / 50% RH), % ISO 62 0.17",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FAA Flammability, FAR 25.853 A/B FAR 25.853 <5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "OSU Total Heat Release (2 min.), kW-min/m2 FAR 25.853 16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "OSU Peak Heat Release (5 min.), kW/m2 FAR 25.853 36",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vertical Burn (60 sec.), sec FAR 25.853 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT @ 1.8 MPa, ˚C ISO 75 152",
+      "reason": "the sheet states HDT in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "1 Values taken from raw material TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Revision Date: 07/21/20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "19025 N. Heatherwilde Blvd, Suite 100, Pflugerville, TX 78660",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Oxygen Index (LOI), % ASTM D 2863 49",
+      "reason": "the sheet states Oxygen index in %, and the database keeps it in %"
+    },
+    {
+      "page": 2,
+      "text": "Essentium 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Essentium 9085 is a hygroscopic thermoplastic and will absorb moisture from humid air. Keep the material in the vacuum sealed packaging",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "until you are ready to print with it. 9085 filament should always be fed to the printer in a dry container and stored in a dry cabinet. If the material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "does absorb more than 200 ppm moisture, it should be dried in a low dew point (< -40˚C) oven or vacuum oven at 120 – 130˚C for 4 – 6 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.4mm Hozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Extrusion Width, mm 0.4 – 0.5 Hozzle Temperature, ˚C 310 – 480",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill, % 15 – 75 Fan Speed, % 0 – 20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.8mm Hozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Extrusion Width, mm 0.7 – 0.9 Hozzle Temperature, ˚C 310 – 480",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill, % 15 – 75 Fan Speed, % 0 – 20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20 – 25 Infill Density, % <80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Revision Date: 07/21/20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "19025 N. Heatherwilde Blvd, Suite 100, Pflugerville, TX 78660",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

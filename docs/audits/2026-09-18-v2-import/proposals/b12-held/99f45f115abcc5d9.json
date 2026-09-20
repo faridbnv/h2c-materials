@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "99f45f115abcc5d97d92561318f04d43b410f478f4c1f1e6721e4f39f3e7b340",
+    "url": "https://ultimaker.com/wp-content/uploads/2023/12/MakerBot-Nylon-12-Carbon-Fiber-1.pdf",
+    "pages": 2,
+    "provider": "UltiMaker / MakerBot",
+    "manufacturer": null,
+    "docKey": "99f45f115abcc5d9"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa12",
+      "filler: carbonfiber"
+    ],
+    "materialId": "M053",
+    "materialName": "PA12-CF",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ULTIMAKER-MAKERBOT-MakerBot-Nylon-12-Carbon-Fiber-1",
+      "Publisher": "UltiMaker / MakerBot",
+      "Title": "MAKERBOT NYLON 12 CARBON FIBER | Data Sheet Fast and Effortless Carbon Fiber Parts",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ultimaker.com/wp-content/uploads/2023/12/MakerBot-Nylon-12-Carbon-Fiber-1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "99f45f115abcc5d97d92561318f04d43b410f478f4c1f1e6721e4f39f3e7b340"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MAKERBOT NYLON 12 CARBON FIBER | Data Sheet Fast and Effortless Carbon Fiber Parts"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "UltiMaker",
+        "Product name": "Fast and Effortless Carbon Fiber Parts",
+        "Shared formulation key": "R-ULTIMAKER-MAKERBOT-MakerBot-Nylon-12-Carbon-Fiber-1",
+        "Composition / filler": "MAKERBOT NYLON 12 CARBON FIBER | Data Sheet (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ULTIMAKER-MAKERBOT-MakerBot-Nylon-12-Carbon-Fiber-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MAKERBOT NYLON 12 CARBON FIBER | Data Sheet Fast and Effortless Carbon Fiber Parts"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "MAKERBOT NYLON 12 CARBON FIBER | Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Carbon fiber reinforced nylon 12 provides the easiest carbon fiber composite 3D printing experience thanks to superior",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUPERIOR 66 MPA 6000 MPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nylon 12’s superior moisture resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "applications. Nylon 12 Carbon Fiber +",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "impressive 6000 Mpa tensile modulus.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "METHOD Composite Extruder [1C]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "INDUSTRIAL 3D PRINTING FOR EVERY ENGINEERINDUSTRIAL 3D PRINTING FOR EVERY ENGINEER",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The Next Generation Desktop 3D Printing PlatformThe Next Generation Desktop 3D Printing Platform",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

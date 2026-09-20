@@ -846,6 +846,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning | Aliases |
 |---|---|---|
+| 3D-Fuel | US maker; its Pro and Standard lines are grades, not separate makers. | 3DFuel;3D Fuel;3d-fuel |
+| 3D4Makers | Dutch maker; its sheets are titled for the polymer alone ("ABS Filament"). | 3D4makers;3d4makers;3D4Makers.com |
 | 3DXTECH | US maker; the CarbonX, FibreX, 3DXMAX and 3DXSTAT lines are its brands, not separate makers. | 3DXTech;3DXTECH LLC;3DXTECH Additive Manufacturing;3dxtech |
 | Bambu Lab | The printer's own filament line. | Bambu;BambuLab;Bambu Lab Canada |
 | BASF Forward AM | BASF's additive-manufacturing arm; the Ultrafuse line is its brand. | Forward AM;BASF;Ultrafuse;BASF Forward AM / Ultrafuse |
@@ -870,14 +872,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | IPCON |  | IPCON Polymer Material (Suzhou);IPCON Polymer |
 | iSANMATE |  | ISANMATE;Isanmate;iSanmate |
 | Kimya | Airtech Europe's filament line; Armor Group until 2022. | Kimya / Airtech Europe;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group);Airtech |
+| NinjaTek | US maker of the NinjaFlex, Cheetah, Armadillo and Chinchilla elastomer lines; a Fenner Drives brand. | Ninjatek;ninjatek;NinjaTek (Fenner Drives);Fenner Drives |
 | Polymaker |  | PolyMaker;Polymaker Technology;Polymaker (Fiberon) |
 | Prusa Research | The Prusament line is its brand. | Prusa;Prusament;Prusa Research a.s. |
 | Raise3D |  | Raise 3D;Raise3D Technologies |
+| Recreus | Spanish maker of the Filaflex elastomer line, which is a brand and not a separate maker. | Recreus / Filaflex;Recreus Industries;recreus |
 | SIDDAMENT |  | Siddament |
 | Siraya Tech | The Fibreheart line is its filled-fibre brand. | Siraya;SirayaTech |
 | Spectrum | Spectrum Filaments. | Spectrum Filaments;SPECTRUM |
 | Stratasys |  |  |
 | SUNLU | Chinese maker (Shenzhen Sunlu Industrial); sells worldwide under its own name. | Sunlu;sunlu;SUNLU 3D;Shenzhen Sunlu Industrial;三绿 |
+| UltiMaker | Dutch maker; MakerBot merged into it in 2022 and the research workbook lists the two together. | Ultimaker;ultimaker;MakerBot;Makerbot;UltiMaker / MakerBot;Ultimaker B.V. |
 | Yousu | Guangzhou Yousu 3D Technology. | Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU |
 
 <a id="vocab-material-links"></a>
@@ -1177,15 +1182,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D1505 | Density by density-gradient technique. |
 | ASTM D1525 | Vicat softening temperature. |
 | ASTM D1708 | Tensile properties by microtensile specimens. |
+| ASTM D1822 | Tensile-impact energy to break by a swinging pendulum. |
 | ASTM D2240 | Durometer hardness. |
 | ASTM D256 | Izod pendulum impact resistance. |
 | ASTM D257 | DC resistance or conductance. |
+| ASTM D2863 | Minimum oxygen concentration that supports flaming combustion (limiting oxygen index). |
 | ASTM D3418 | Transition temperatures by DSC. |
 | ASTM D3638 | Comparative tracking index of electrical insulating materials. |
 | ASTM D412 | Tensile properties of vulcanised rubber and thermoplastic elastomers. |
 | ASTM D570 | Water absorption of plastics. |
 | ASTM D638 | Tensile properties of plastics. |
 | ASTM D648 | Deflection temperature under flexural load. |
+| ASTM D738 | Test methods for natural rubber; cited by a maker beside its elastomer values. |
 | ASTM D7426 | Glass transition temperature by DSC. |
 | ASTM D782 | Cited by a source; kept as the source prints it. |
 | ASTM D785 | Rockwell hardness. |
@@ -1197,25 +1205,32 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM E2092 | Distortion temperature in three-point bending by thermomechanical analysis. |
 | DSC | Differential scanning calorimetry, where the source names the method but no standard. |
 | GB/T 1033 | Density of plastics. |
+| GB/T 1033.1 | Density and relative density of plastics by immersion; the Chinese counterpart of ISO 1183-1. |
 | GB/T 1040 | Tensile properties of plastics. |
 | GB/T 1040.2 | Tensile properties of moulding and extrusion plastics; the Chinese standard for what ISO 527-2 tests, and Eryone's sheets print both. |
 | GB/T 1043 | Charpy impact properties. |
 | GB/T 1043.1 | Charpy impact strength; the Chinese standard for what ISO 179-1 tests. |
 | GB/T 1633 | Vicat softening temperature. |
 | GB/T 1634 | Temperature of deflection under load. |
+| GB/T 1634.2 | Temperature of deflection under load; the Chinese counterpart of ISO 75-2. |
+| GB/T 17037.4 | Injection moulding of test specimens; the Chinese counterpart of ISO 294-4, which covers moulding shrinkage. |
 | GB/T 1843 | Izod impact strength. |
+| GB/T 19466.2 | Differential scanning calorimetry: glass transition; the Chinese counterpart of ISO 11357-2. |
 | GB/T 31 | As Polymaker's sheets print it beside ISO 7619 for a shore hardness. GB/T 531 is that standard; the sheets print 31, and a source's own words are recorded as printed (D76). |
 | GB/T 3682 | Melt mass-flow and melt volume-flow rate. |
 | GB/T 528 | Tensile properties of vulcanised rubber. |
+| GB/T 531 | Indentation hardness of rubber by durometer; the Chinese counterpart of ISO 7619. |
 | GB/T 531.1 | Indentation hardness of rubber. |
 | GB/T 9341 | Flexural properties of plastics. |
 | GB/T 9343 | Cited by a source; kept as the source prints it. |
 | IEC 243 | Electric strength of insulating materials; superseded by IEC 60243, which some sheets still cite by its old number. |
 | IEC 60093 | Volume and surface resistivity of insulating materials. |
 | IEC 60216 | Thermal endurance of electrical insulating materials. |
+| IEC 60695 | Fire hazard testing of electrotechnical products, including the glow-wire tests. |
 | ISO 1133 | Melt mass-flow and melt volume-flow rate. |
 | ISO 11357 | Differential scanning calorimetry. |
 | ISO 11359 | Thermomechanical analysis; thermal expansion. |
+| ISO 1182 | Reaction to fire: the non-combustibility test. |
 | ISO 1183 | Density of non-cellular plastics. |
 | ISO 178 | Flexural properties of plastics. |
 | ISO 179 | Charpy impact strength. |
@@ -1225,11 +1240,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 294 | Injection moulding of test specimens, including moulding shrinkage. |
 | ISO 306 | Vicat softening temperature. |
 | ISO 3146 | Melting behaviour of semi-crystalline polymers. |
+| ISO 3167 | Multipurpose test specimens; what a sheet names when it says how its bars were shaped. |
 | ISO 34 | Tear strength of rubber and thermoplastic elastomers. |
 | ISO 36 | Adhesion of rubber to textile fabrics. |
 | ISO 37 | Tensile properties of vulcanised or thermoplastic rubber. |
+| ISO 4589 | Determination of burning behaviour by oxygen index. |
 | ISO 4649 | Abrasion resistance of rubber by a rotating cylindrical drum. |
+| ISO 52 | Not a plastics test method as cited; a maker names it beside a value and the words are kept as printed. |
 | ISO 527 | Tensile properties of plastics. |
+| ISO 572 | As above: a designation a sheet prints that no plastics standard of that number covers. |
 | ISO 604 | Compressive properties of plastics. |
 | ISO 62 | Water absorption of plastics. |
 | ISO 6711 | Cited by a source; kept as the source prints it. |

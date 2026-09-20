@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "ff8565df20bd827a92ca277fa3f6e6f5e2bd407bea7da16f9d59ad426cf5b2dc",
+    "url": "https://shop3d.ca/cdn/shop/files/eSUN_3D_Printing_Filament_Datasheet_972f1785-9e18-4be9-95a4-3ed8739a09e1.pdf?v=17676302785026413227",
+    "pages": 2,
+    "provider": "Shop3D Canada",
+    "manufacturer": "eSUN",
+    "docKey": "ff8565df20bd827a"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: epla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PEBA-eSUN-3D-Printing-Filament-Datasheet-972f1785-9e18-4be9-95a4-3ed8739a09e1",
+      "Publisher": "eSUN",
+      "Title": "eSUN 3D Printing Material Datasheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Shop3D Canada; the sheet is eSUN's.",
+      "Citation role": "cited",
+      "URL": "https://shop3d.ca/cdn/shop/files/eSUN_3D_Printing_Filament_Datasheet_972f1785-9e18-4be9-95a4-3ed8739a09e1.pdf?v=17676302785026413227",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ff8565df20bd827a92ca277fa3f6e6f5e2bd407bea7da16f9d59ad426cf5b2dc"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "eSUN 3D Printing Material Datasheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "ePLA Matte",
+        "Shared formulation key": "S-PEBA-eSUN-3D-Printing-Filament-Datasheet-972f1785-9e18-4be9-95a4-3ed8739a09e1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PEBA-eSUN-3D-Printing-Filament-Datasheet-972f1785-9e18-4be9-95a4-3ed8739a09e1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "eSUN 3D Printing Material Datasheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "(℃） Bed Temp(℃） Density",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PEBA-eSUN-3D-Printing-Filament-Datasheet-972f1785-9e18-4be9-95a4-3ed8739a09e1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Filament Type Print Temp(℃） Bed Temp(℃） Density Heat Distortion Melt Flow Index Tensile Elongation Flexural Flexural IZOD Impact"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print Temp",
+      "raw": "(℃） Bed Temp(℃） Density",
+      "fromBelow": false,
+      "line": "Filament Type Print Temp(℃） Bed Temp(℃） Density Heat Distortion Melt Flow Index Tensile Elongation Flexural Flexural IZOD Impact"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "eSUN 3D Printing Material Datasheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D 打印线条材料 打印温度 底板温度 密 度 热变形温度 熔融指数 拉伸强度 断裂伸长率 弯曲强度 弯曲模量 悬臂梁冲击强度",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(g/cm³) Temp(℃,0.45MP (g/10min) Strength at Break(%) Strength Modulus Strength（KJ/㎡)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA 190-220 60-80 1.25 56 5（190℃/2.16KG） 65 8 97 3600 4",
+      "reason": "properties.csv carries no property for \"PLA\""
+    },
+    {
+      "page": 1,
+      "text": "PLA+ 190-220 60-80 1.25 52 4（190℃/2.16KG） 65 12 75 2102 8.5",
+      "reason": "properties.csv carries no property for \"PLA+\""
+    },
+    {
+      "page": 1,
+      "text": "ABS 220-260 90-110 1.04 78 12（220℃/10KG） 43 22 66 2348 19",
+      "reason": "properties.csv carries no property for \"ABS\""
+    },
+    {
+      "page": 1,
+      "text": "ABS+ 220-260 90-110 1.06 73 15（220℃/10KG） 40 30 68 2443 42",
+      "reason": "properties.csv carries no property for \"ABS+\""
+    },
+    {
+      "page": 1,
+      "text": "eABS MAX 220-260 90-110 1.05 85 60（220℃/10KG） 45 30 58 2400 48",
+      "reason": "properties.csv carries no property for \"eABS MAX\""
+    },
+    {
+      "page": 1,
+      "text": "eASA 220-260 90-110 1.00 54 10-15（220℃/10KG） 50 30 35 4300 19",
+      "reason": "properties.csv carries no property for \"eASA\""
+    },
+    {
+      "page": 1,
+      "text": "HIPS 220-260 90-110 1.05 80 3（200℃/5KG） 27 55 39 2280 11",
+      "reason": "properties.csv carries no property for \"HIPS\""
+    },
+    {
+      "page": 1,
+      "text": "PETG 190-220 60-80 1.23 64 6.6（230℃/2.16KG） 49 280 60 1170 7.6",
+      "reason": "properties.csv carries no property for \"PETG\""
+    },
+    {
+      "page": 1,
+      "text": "PVA（水溶） 190-210 60-80 1.25 / / 22 360 / / /",
+      "reason": "the sheet publishes no value for \"PVA（水溶）\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "ePVA+ (快速水溶） 190-210 60-80 1.14 / / 26 190 / / /",
+      "reason": "the sheet publishes no value for \"ePVA+ (快速水溶）\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "eSmooth（乙醇抛光） 4-6（190℃/2.16KG）",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190-220 60-80 / 63.5 46 273 71 2799 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wood（木塑） 190-220 60-80 0.7 45 7（190℃/2.16KG） 45 17 57 2017 9.3",
+      "reason": "properties.csv carries no property for \"Wood（木塑）\""
+    },
+    {
+      "page": 1,
+      "text": "eBamboo（竹线条） 190-220 60-80 1.20 48 6-14（190℃/2.16KG） 28 10 35 2000 4",
+      "reason": "properties.csv carries no property for \"eBamboo（竹线条）\""
+    },
+    {
+      "page": 1,
+      "text": "Color Change（变色） 190-220 60-80 1.24 58 10（190℃/2.16KG） 65 5 97 3600 4",
+      "reason": "properties.csv carries no property for \"Color Change（变色）\""
+    },
+    {
+      "page": 1,
+      "text": "eClean（清洁） 160-300 / 0.95 45 / 23 580 / / 29",
+      "reason": "the sheet publishes no value for \"eClean（清洁）\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Bronze（青铜） 62（190℃/2.16KG）",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190-220 60-80 1.27 50 66 16 106 4442 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "eCopper（红铜） 190-220 60-80 2.46 52 20（190℃/2.16KG） 40 4 64 4954 4",
+      "reason": "properties.csv carries no property for \"eCopper（红铜）\""
+    },
+    {
+      "page": 1,
+      "text": "eAl-fill（铝） 190-220 60-80 1.48 52 8（190℃/2.16KG） 45 5 74 4885 4",
+      "reason": "properties.csv carries no property for \"eAl-fill（铝）\""
+    },
+    {
+      "page": 1,
+      "text": "eSteel（不锈钢） 190-220 60-80 2.46 52 14（190℃/2.16KG） 45 5 63 4452 5",
+      "reason": "properties.csv carries no property for \"eSteel（不锈钢）\""
+    },
+    {
+      "page": 1,
+      "text": "ePA（尼龙） 230-260 80-90 1.12 50 5（230℃/2.16KG） 57 196 57 1495 15",
+      "reason": "properties.csv carries no property for \"ePA（尼龙）\""
+    },
+    {
+      "page": 2,
+      "text": "ePA-CF（碳纤增强尼龙） 230-260 80-90 1.24 120 6（250℃/5KG） 85 16 98 2300 15.5",
+      "reason": "properties.csv carries no property for \"ePA-CF（碳纤增强尼龙）\""
+    },
+    {
+      "page": 2,
+      "text": "ePA-GF（玻纤增强尼龙） 230-260 80-90 1.35 120 7（250℃/5KG） 101 17 160 4300 8",
+      "reason": "properties.csv carries no property for \"ePA-GF（玻纤增强尼龙）\""
+    },
+    {
+      "page": 2,
+      "text": "ePC（聚碳酸酯） 230-260 80-90 1.12 80 5（230℃/2.16KG） 57 196 57 1495 15",
+      "reason": "properties.csv carries no property for \"ePC（聚碳酸酯）\""
+    },
+    {
+      "page": 2,
+      "text": "eFlex（柔性 TPU） 210-240 No Heat 1.12 / / 52 500 / / /",
+      "reason": "the sheet publishes no value for \"eFlex（柔性 TPU）\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "eLastic（柔性 TPE） 210-240 No Heat 1.14 / / 32 420 / / /",
+      "reason": "the sheet publishes no value for \"eLastic（柔性 TPE）\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "eTPU-98A 210-240 No Heat 1.15 / / 49 520 / / /",
+      "reason": "the sheet publishes no value for \"eTPU-98A\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "eMate（低温 PCL） 70-100 ≤40 1.16 45 0.5（70℃/2.16KG） 18 >800 13 345 不断 Don’t break",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ePeek 380-450 90-150 1.30 152 10（380℃/5KG） 100 40 170 3500 7",
+      "reason": "properties.csv carries no property for \"ePeek\""
+    },
+    {
+      "page": 2,
+      "text": "eSilk-PLA 190-220 60-80 1.43 67 2.5 58 300% 75 4000 4",
+      "reason": "properties.csv carries no property for \"eSilk-PLA\" (2.558300%)"
+    },
+    {
+      "page": 2,
+      "text": "eTwinkling 190-220 60-80 1.41 67 2.5 58 / 70 2100 4",
+      "reason": "properties.csv carries no property for \"eTwinkling\""
+    },
+    {
+      "page": 2,
+      "text": "eMarble 190-220 60-80 1.24 67",
+      "reason": "properties.csv carries no property for \"eMarble\""
+    },
+    {
+      "page": 2,
+      "text": "eTPU-95A 210-240 No Heat 1.43",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

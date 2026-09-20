@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "ad23d31b0f97e398ca90f870284bcb424e50f2c2ee4ca494d16908feca431268",
+    "url": "https://drive.google.com/file/d/1s58PnbbC-oSVU6fmpObtarI3NjjlSdlC/view",
+    "pages": 2,
+    "provider": "Recreus / Filaflex",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/1s58PnbbC-oSVU6fmpObtarI3NjjlSdlC/view"
+  },
+  "identity": {
+    "polymer": "SEBS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: sebs"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"SEBS\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-FILAFLEX-Filaflex-SEBS",
+      "Publisher": "Recreus / Filaflex",
+      "Title": "\u0000\u0002\u0003\u0004\u0005\u0006\u0007\u0004\b \u0000 \b\u0002\b\u0000\u0005\u0003\u0003\u0002\u0000",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1s58PnbbC-oSVU6fmpObtarI3NjjlSdlC/view",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ad23d31b0f97e398ca90f870284bcb424e50f2c2ee4ca494d16908feca431268"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "\u0000\u0002\u0003\u0004\u0005\u0006\u0007\u0004\b \u0000 \b\u0002\b\u0000\u0005\u0003\u0003\u0002\u0000"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "SEBS",
+        "Shared formulation key": "R-RECREUS-FILAFLEX-Filaflex-SEBS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-FILAFLEX-Filaflex-SEBS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "\u0000\u0002\u0003\u0004\u0005\u0006\u0007\u0004\b \u0000 \b\u0002\b\u0000\u0005\u0003\u0003\u0002\u0000"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "\u0000\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u0000\u0000\u001f !\u001f\u0000\u0000\"#\u0000\u0000$\u001d%&\u001d'(\u0000\u0000\u0019(\u0000\u0000\u001b\u0000\u0000&'\"\"\u001d&)\"\u001b(\u001d*\u0000\u0000+,\u0000\u0000-&\u0019./\u0019.0\u0000\u00001\u001a\u001b2\u001d./\u0000\u0000%3\u001b&\u001b%/\u001d&\u00194\u001d*\u0000\u0000\"#\u0000\u0000%52\"\u0019.\u0019.0\u0000\u0000/3\u001d\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u001c\u001d\u001e\u0019\"\u0019\u001a\u0019/#\u0000\u0000\u001b.*\u0000\u0000*'&\u001b\"\u0019\u001a\u0019/#\u0000\u000056\u0000\u0000/3\u001d\u0000\u0000\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u0000\u0000&\u001b.0\u001d\u0000\u00007\u0019/3\u0000\u00005/3\u001d&\u0000\u0000-&5-\u001d&/\u0019\u001d(\u0000\u0000('%3\u0000\u0000\u001b(\u0000\u0000\u0019.('\u001a\u001b/\u00195.8\u0000\u0000\u00192-\u001d&2\u001d\u001b\"\u0019\u001a\u0019/#\u0000\u00005&\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000%3\u001d2\u0019%\u001b\u001a\u0000\u0000&\u001d(\u0019(/\u001b.%\u001d8\u0000\u0000\u001b%3\u0019\u001d9\u0019.0\u0000\u0000\u001b\u0000\u00002\u001b0.\u00191%\u001d./\u0000\u00001.\u001b\u001a\u0000\u00001.\u0019(3\u0000\u000056\u0000\u0000/3\u001d\u0000\u0000-\u001b&/\u0000\u0000\u001b.*\u0000\u0000\u001b\u0000\u00001\u001a\u001b2\u001d./\u0000\u000056\u0000\u00000&\u001d\u001b/\u0000\u0000/\u001d%3.\u0019%\u001b\u001a\u0000\u0000\u001b.*\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000<N\u001a\u0000.9\u001d\u001a5-\u001d8\u0000\u0018O+)\u0018OF8\u0000P5\u001a:\u0000>.*:\u0000\u0018\u0019.%\u001b\u0000A\u001b%#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0019.65Q&\u001d%&\u001d'(:%52\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000L+ILL8\u0000\u001a*\u001b\u0000KC\u001a\u0019%\u001b./\u001dM\u0000)\u0000\u001fPC>?\u0000 777:\u0000 &\u001d%&\u001d'(:%52\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000$ <$ =\u001f\u0000>?,=\u001f@$>\u001f\u0000\u001f:A:\u0000\u0000\u001f\u001b6\u001d/#\u0000,\u001b/\u001b\u0000\u001f3\u001d\u001d/\u0000\u001b%%5&*\u0019.0\u0000/5\u0000$\u001d0'\u001a\u001b/\u00195.\u0000K<M\u0000?5:\u0000OJLHNRLLI\u0000\u001b(\u0000\u001b2\u001d.*\u001d*\u00006&52\u0000/\u00192\u001d\u0000/5\u0000/\u00192\u001d:\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000,\u001b/\u001d\u0000N\u0000$\u001d9\u0019(\u001d*D\u0000+L:LJ:RLRF\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000P&5*'%/D\u0000\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u0000\u001f !\u001f\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000\u000e\u0011$%\u0011\u0013\u000e\u0016 \u0011\u0000\u0013\u0012\u0018\u0000\u0013\u00180\u0016\u0010\u000e\u0000\u000e\u001d\u0011\u0000% \u000f\u0012\u000e\u000f\u0012+\u0000\u0010%\u0011\u0011\u0018\u001b\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000\u0012\u001e\u0011\u0013\u0010\u0011\u0000\u0000\u000e\u001d\u0011\u0000\u0000\u0014\u000f\u0012\u0011\u0000\u0000!\u000f\u0018\u000e\u001d\u0000\u0000%\u0011\u001e\u0011\u0012\u000e\u0013+\u0011\u0000\u0000\u0015#\u0000\u0000\u000e\u001d\u0011\u0000\u0000\u000f\u0012\u000f\u000e\u000f\u0013\u0014\u0000\u0000\u0014\u0013,\u00111\u0000\u0000\u000e\u001d\u0011\u0000\u0000\u0012\u001522\u0014\u0011\u0000\u0000\u001d\u0013\u0010\u0000\u0000\u000e\u0015\u0000\u0000\u0011\u001a\u000e\u0016\u0018\u0011\u0000\u0000$\u0015\u0011\u0000\u0000$\u0013\u000e\u0011\u000f\u0013\u0014\u0000\u0000\u0013\u0012\u0018\u0000\u0000\u000e\u001d\u0013\u000e\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000$\u0013\u000e\u0011\u000f\u0013\u0014\u0000\u0000\u001d\u0013\u0010\u0000\u0000\u000e\u0015\u0000\u00003\u0015!\u0000\u0000$\u0015\u0011\u0000\u0000\u0015\u0016\u000e!\u0013\u0018\u0010\u001b\u0000\u0000\u000e\u001d\u000f\u0010\u0000\u0000\u001e\u0013\u0016\u0010\u0011\u0010\u0000\u0000\u000e\u001d\u0011\u0000\u0000\u0012\u001522\u0014\u0011\u0000\u0000\u000e\u0015\u0000\u0000% \u0011\u0010\u0010\u0000\u0000$\u0015\u0011\u0000\u0000$\u0013\u000e\u0011\u000f\u0013\u0014\u0000\u0000\u0015\u0012\u000e\u0015\u0000\u0000\u000e\u001d\u0011\u0000\u0000% \u000f\u0012\u000e\u000f\u0012+\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000%\u0014\u0013\u000e\u00111\u0000!\u001d\u000f\u001e\u001d\u0000\u000f\u0012\u001e\u0011\u0013\u0010\u0011\u0010\u0000\u000e\u001d\u0011\u0000\u0013\u0018\u001d\u0011\u0010\u000f\u0015\u0012\u0000\u0017\u0011\u000e!\u0011\u0011\u0012\u0000\u000e\u001d\u0011\u0000\u0019\u0014\u0013$\u0011\u0012\u000e\u0000\u0013\u0012\u0018\u0000\u000e\u001d\u0011\u0000% \u000f\u0012\u000e\u000f\u0012+\u0000%\u0014\u0013\u000e\u0011\u00004\u0000\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u000055555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000.6*.6-7\u000089-7\u001c.67\u00007\u001b:\u001b\u0000;<\u001c=\u000067>'?@AB?AC\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000D((E?F\u0000@B'\u0000AAA\u0000CBB\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000*G6\u0014\u00006\u0012&\u0011\u0014\u0015%\u00111\u0000HIEJHI?1\u0000K\u0015\u0014\u001b\u0000\u0012\u0018\u001b\u0000H\u000f\u0012\u001e\u0013\u0000:\u0013\u001e,\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000f\u0012#\u0015L \u0011\u001e\u0011\u0016\u0010\u001b\u001e\u0015$\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000(EB((1\u00006\u0014\u0018\u0013\u0000D<\u0014\u000f\u001e\u0013\u0012\u000e\u0011F\u0000J\u00007K<8\u0000 !!!\u001b\u0000 \u0011\u001e\u0011\u0016\u0010\u001b\u001e\u0015$\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000.6*.6-7\u000089-7\u001c.67\u00007\u001b:\u001b\u0000\u00007\u0013#\u0011\u000e,\u00009\u0013\u000e\u0013\u00007\u001d\u0011\u0011\u000e\u0000\u0013\u001e\u001e\u0015\u0018\u000f\u0012+\u0000\u000e\u0015\u0000.\u0011+\u0016\u0014\u0013\u000e\u000f\u0015\u0012\u0000D6*F\u00008\u0015\u001b\u0000IC(AG/((B\u0000\u0013\u0010\u0000\u0013$\u0011\u0012\u0018\u0011\u0018\u0000#\u0015$\u0000\u000e\u000f$\u0011\u0000\u000e\u0015\u0000\u000e\u000f$\u0011\u001b\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u00009\u0013\u000e\u0011\u0000G\u0000.\u0011&\u000f\u0010\u0011\u0018=\u0000E(\u001b(C\u001b/(/?\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000K \u0015\u0018\u0016\u001e\u000e=\u0000H\u000f\u0014\u00133\u0011\u001a\u000076>7\u0000",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

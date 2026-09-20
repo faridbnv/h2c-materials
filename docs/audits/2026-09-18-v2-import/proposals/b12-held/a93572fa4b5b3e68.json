@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "a93572fa4b5b3e680184ee22060b37592b4842f6c70caf7258f2be7d0926690e",
+    "url": "https://web-objects.markforged.com/craft/materials/Precise-PLA-TDS-REV_3.11.22.pdf",
+    "pages": 1,
+    "provider": "Markforged",
+    "manufacturer": null,
+    "docKey": "a93572fa4b5b3e68"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MARKFORGED-Precise-PLA-TDS-REV-3-11-22",
+      "Publisher": "Markforged",
+      "Title": "MATERIAL DATASHEET Precise PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://web-objects.markforged.com/craft/materials/Precise-PLA-TDS-REV_3.11.22.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "a93572fa4b5b3e680184ee22060b37592b4842f6c70caf7258f2be7d0926690e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATASHEET Precise PLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Markforged",
+        "Product name": "Precise PLA",
+        "Shared formulation key": "R-MARKFORGED-Precise-PLA-TDS-REV-3-11-22",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MARKFORGED-Precise-PLA-TDS-REV-3-11-22",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATASHEET Precise PLA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Tensile Modulus (GPa) D638 2.3",
+      "reason": "the sheet states Tensile modulus in (GPa), and the database keeps it in GPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Stress at Yield (MPa) D638 31",
+      "reason": "the sheet states Tensile yield strength in (MPa), and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Stress at Break (MPa) D638 18",
+      "reason": "the sheet states Tensile break strength in (MPa), and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strain at Break (%) D638 27",
+      "reason": "the sheet states Elongation at break in (%), and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength (MPa) D7901 43",
+      "reason": "the sheet states Flexural strength in (MPa), and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus (GPa) D7901 2.3",
+      "reason": "the sheet states Flexural modulus in (GPa), and the database keeps it in GPa"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temperature ( C) D648 B 52",
+      "reason": "the sheet states HDT in B, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact - notched (J/m) D256-10 A 62",
+      "reason": "the sheet states Izod impact strength in A, and the database keeps it in kJ/m²; J/m"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Measured by a method similar to ASTM D790. Parts do not break before end of flexural test.",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "• Tensile: ASTM D638 type I beams",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "• Flexural: 3-pt. Bending, 4.5 in (L) x 0.4 in (W) x 0.12 in (H)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Heat-deflection temperature at 0.45 MPa, 66 psi (ASTM D648-07 Method B)",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "All data were provided by an accredited 3rd party test facility. These represent typical values.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "markforged.com 480 Pleasant St, Watertown, MA 02472",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3) — 1.3",
+      "reason": "the sheet publishes no value for Density in this row: its value column prints \"—\""
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

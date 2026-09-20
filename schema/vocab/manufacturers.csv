@@ -1,4 +1,6 @@
 Value,Meaning,Aliases
+3D-Fuel,"US maker; its Pro and Standard lines are grades, not separate makers.",3DFuel;3D Fuel;3d-fuel
+3D4Makers,"Dutch maker; its sheets are titled for the polymer alone (""ABS Filament"").",3D4makers;3d4makers;3D4Makers.com
 3DXTECH,"US maker; the CarbonX, FibreX, 3DXMAX and 3DXSTAT lines are its brands, not separate makers.",3DXTech;3DXTECH LLC;3DXTECH Additive Manufacturing;3dxtech
 Bambu Lab,The printer's own filament line.,Bambu;BambuLab;Bambu Lab Canada
 BASF Forward AM,BASF's additive-manufacturing arm; the Ultrafuse line is its brand.,Forward AM;BASF;Ultrafuse;BASF Forward AM / Ultrafuse
@@ -23,12 +25,15 @@ Grupa Azoty,Polish chemical group; the Tarfuse line is its filament brand.,Grupa
 IPCON,,IPCON Polymer Material (Suzhou);IPCON Polymer
 iSANMATE,,ISANMATE;Isanmate;iSanmate
 Kimya,Airtech Europe's filament line; Armor Group until 2022.,Kimya / Airtech Europe;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group);Airtech
+NinjaTek,"US maker of the NinjaFlex, Cheetah, Armadillo and Chinchilla elastomer lines; a Fenner Drives brand.",Ninjatek;ninjatek;NinjaTek (Fenner Drives);Fenner Drives
 Polymaker,,PolyMaker;Polymaker Technology;Polymaker (Fiberon)
 Prusa Research,The Prusament line is its brand.,Prusa;Prusament;Prusa Research a.s.
 Raise3D,,Raise 3D;Raise3D Technologies
+Recreus,"Spanish maker of the Filaflex elastomer line, which is a brand and not a separate maker.",Recreus / Filaflex;Recreus Industries;recreus
 SIDDAMENT,,Siddament
 Siraya Tech,The Fibreheart line is its filled-fibre brand.,Siraya;SirayaTech
 Spectrum,Spectrum Filaments.,Spectrum Filaments;SPECTRUM
 Stratasys,,
 SUNLU,Chinese maker (Shenzhen Sunlu Industrial); sells worldwide under its own name.,Sunlu;sunlu;SUNLU 3D;Shenzhen Sunlu Industrial;三绿
+UltiMaker,Dutch maker; MakerBot merged into it in 2022 and the research workbook lists the two together.,Ultimaker;ultimaker;MakerBot;Makerbot;UltiMaker / MakerBot;Ultimaker B.V.
 Yousu,Guangzhou Yousu 3D Technology.,Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU

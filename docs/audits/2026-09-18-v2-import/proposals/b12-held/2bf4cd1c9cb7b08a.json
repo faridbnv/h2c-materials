@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2bf4cd1c9cb7b08ad38056dc01c8608fdc7f27d9193ca00b09f4f9e9b08cd284",
+    "url": "https://s1.raise3d.com/2021/11/Raise3D-Industrial-PA12-CF-Support_TDS_V1.pdf",
+    "pages": 2,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "2bf4cd1c9cb7b08a"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: pa12",
+      "filler: cf"
+    ],
+    "materialId": "M053",
+    "materialName": "PA12-CF",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"Industrial PA12 CF Support\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-Support-TDS-V1",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Industrial PA12 CF Support Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2021/11/Raise3D-Industrial-PA12-CF-Support_TDS_V1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2bf4cd1c9cb7b08ad38056dc01c8608fdc7f27d9193ca00b09f4f9e9b08cd284"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF Support Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PA12 CF Support",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PA12-CF-Support-TDS-V1",
+        "Composition / filler": "process with carbon fiber reinforced filaments. During 3D printing process, it creates a stable support structure, (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-Support-TDS-V1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Industrial PA12 CF Support Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF Support_TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Jul.2021 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF Support Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PA12 CF Support Filament is a break-away support material specially developed for printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "process with carbon fiber reinforced filaments. During 3D printing process, it creates a stable support structure,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "exhibits a broad compatibility with many Raise3D OFP (Open Filament Program) certified high-performance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3 at 21.5 °C) ASTM D792 1.15",
+      "reason": "the sheet states Density in °C), and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "Melt index (g/10 min) 250 °C, 2.16 kg 16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF ++",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. PA12 CF Support is sensitive to moisture and should always be stored and used under dry conditions",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(relative humidity below 20%).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Industrial PA12 CF Support_TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Jul.2021 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3. Dry PA12 CF support in the oven at at 80°C for 6-8 hours before printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "practices of Raise3D materials for the intended application. Raise3D makes no warranty of any kind, unless",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "announced separately, to the fitness for any particular use or application. Raise3D shall not be made liable for any",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "damage, injury or loss induced from the use of Raise3D materials in any particular application.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

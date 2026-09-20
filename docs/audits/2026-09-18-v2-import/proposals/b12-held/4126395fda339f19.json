@@ -1,0 +1,383 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "4126395fda339f19900beb0c9e1e6aaad122b271db3f009afc2f56737222ccd8",
+    "url": "https://s1.raise3d.com/2023/10/Raise3D_Hyper-Speed-ABS-V2-Filament_TDS_V1.0.pdf",
+    "pages": 4,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "4126395fda339f19"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Hyper-Speed-ABS-V2-Filament-TDS-V1-0",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Hyper Speed ABS V2 Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2023/10/Raise3D_Hyper-Speed-ABS-V2-Filament_TDS_V1.0.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4126395fda339f19900beb0c9e1e6aaad122b271db3f009afc2f56737222ccd8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Hyper Speed ABS V2 Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Hyper Speed ABS",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Hyper-Speed-ABS-V2-Filament-TDS-V1-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Raise3D Hyper Speed ABS V2 Technical Data Sheet (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Hyper-Speed-ABS-V2-Filament-TDS-V1-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Hyper Speed ABS V2 Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Hyper-Speed-ABS-V2-Filament-TDS-V1-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "age and improved interlayer bonding, Hyper Speed ABS V2 filament is also perfect"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle diameter = 0.4 mm, nozzle temperature = 250°C, printing speed = 300 mm/s, build plate temperature = 90°C,"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "warp",
+      "raw": "age and improved interlayer bonding, Hyper Speed ABS V2 filament is also perfect",
+      "fromBelow": false,
+      "line": "warpage and improved interlayer bonding, Hyper Speed ABS V2 filament is also perfectly suitable"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle diameter",
+      "raw": "0.4 mm",
+      "fromBelow": false,
+      "line": "Nozzle diameter = 0.4 mm, nozzle temperature = 250°C, printing speed = 300 mm/s, build plate temperature = 90°C,"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Hyper Speed ABS V2_TDS Sep. 2023 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Hyper Speed ABS V2 Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hyper Speed ABS V2 filament is specifically designed to be used with the Hyper FFF™ solution from",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With optimized molecular weight and stiffness, Hyper Speed ABS V2 filament is capable of printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "at the speed of up to 300 mm/s thanks to its faster melting and homogenous cooling, which results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "in a lower temperature gradient and lower inner stress of printed part. Hyper Speed ABS V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm³) ASTM D792 1.04",
+      "reason": "the sheet states Density in (g/cm³), and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "Diameter (mm) / 1.75",
+      "reason": "the sheet publishes no value for Water absorption in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Net weight (kg) / 1.0",
+      "reason": "the sheet publishes no value for Water absorption in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Water absorption (%) ISO 62: Method 1 0.27",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Young’s modulus (MPa) ISO 527, GB/T 1040 2040 ± 58 2051 ± 82",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength (MPa) ISO 527, GB/T 1040 26 ± 2 23 ± 3",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (%) ISO 527, GB/T 1040 7.63 ± 3.3 1.38 ± 0.03",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus (MPa) ISO 178, GB/T 9341 2072 ± 35 /",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Bending strength (MPa) ISO 178, GB/T 9341 44 ± 2 /",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Hyper Speed ABS V2_TDS Sep. 2023 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Izod impact strength (kJ/m²) ISO 180, GB/T 1843 16.1 ± 0.9 /",
+      "reason": "the sheet publishes no value for Izod impact strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "infill = 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "All specimens were conditioned at room temperature for 24 h prior to testing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Melt flow index (g/10 min) 220°C, 5 kg 21",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 75@1.8 MPa 72",
+      "reason": "the sheet states HDT in MPa, and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Black RAL 7021",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Grey RAL 7045",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fig 1. Tensile testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat distortion temperature (°C) ISO 75@0.45 MPa 77",
+      "reason": "the sheet states HDT in MPa, and the database keeps it in °C"
+    },
+    {
+      "page": 3,
+      "text": "Raise3D Hyper Speed ABS V2_TDS Sep. 2023 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 2. Flexural testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 3. Impact testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 4. Print Orientation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Note: All samples are printed with 100% infill; the lines in the Fig 4. indicate typical directionality of infill and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Raise3D Hyper Speed ABS V2_TDS Sep. 2023 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "/recycling practices of Raise3D materials for the intended application. Raise3D makes no warranty",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Raise3D shall not be made liable for any damage, injury or loss induced from the use of Raise3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

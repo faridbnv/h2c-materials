@@ -1,0 +1,802 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "5dd2f854b9449695f169ce5b906dc965191b21073110caebbb1c19540a15eb2c",
+    "url": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_LUVOCOM_3F_PEI_50236_GY_Filament_3D_printing.pdf?v=1652788890",
+    "pages": 2,
+    "provider": "3D4Makers",
+    "manufacturer": null,
+    "docKey": "5dd2f854b9449695"
+  },
+  "identity": {
+    "polymer": "PEI",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pei"
+    ],
+    "materialId": "M099",
+    "materialName": "PEI / ULTEM",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+      "Publisher": "3D4Makers",
+      "Title": "PRELIMINARY DATASHEET LUVOCOM 3F PEI 50236 GY",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_LUVOCOM_3F_PEI_50236_GY_Filament_3D_printing.pdf?v=1652788890",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5dd2f854b9449695f169ce5b906dc965191b21073110caebbb1c19540a15eb2c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PRELIMINARY DATASHEET LUVOCOM 3F PEI 50236 GY"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M099",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "LUVOCOM 3F PEI 50236 GY",
+        "Shared formulation key": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PRELIMINARY DATASHEET LUVOCOM 3F PEI 50236 GY"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,38 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.38",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1380",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183-3",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Specific gravity ISO 1183-3 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity ISO 1183-3 g/cm³ 1,38"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0,3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C / 24h MPTS A ISO 62 ISO 3167",
+        "Standards": "ISO 62; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Water absorption 23°C / 24h ISO 62 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water absorption 23°C / 24h ISO 62 MPTS ISO 3167 A % <0,3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "105 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "105",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "105",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 105"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "4,5 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 4,5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Elongation at break dry, @50 mm/min ISO 527 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3,5 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 3,5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Heat distortion temperature HDT A ISO 75 molded sample °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat distortion temperature HDT A ISO 75 molded sample °C 200"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Continuous service temperature",
+        "Raw value": "170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "170",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "170",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "20.000 h MPTS A IEC 60216 ISO 3167",
+        "Standards": "IEC 60216; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Continuous service temperature 20.000 h IEC 60216 MPTS ISO 3167 A °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Continuous service temperature 20.000 h IEC 60216 MPTS ISO 3167 A °C 170"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "10 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "10",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "10",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "60x4mm IEC 60093",
+        "Standards": "IEC 60093",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 1: Surface resistance ROB DIN IEC 60093 Ronde 60x4mm Ω",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Surface resistance ROB DIN IEC 60093 Ronde 60x4mm Ω >10¹²"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "380 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "380",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "380",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "Locator": "p. 2: Melt temperature °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt temperature °C 380"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "350 - 400 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "350",
+        "Nozzle max °C": "400",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40 - 60 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle °C 350 - 400"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "40 - 60 mm/s",
+      "fromBelow": false,
+      "line": "printing speed 40 - 60 mm/s. The processing notes provided merely represent a recommendation for general use. Due to the"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "350 - 400 °C",
+      "fromBelow": false,
+      "line": "Nozzle °C 350 - 400"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEI 50236 GY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Linear mould shrinkage DIN 16742 MPTS ISO 3167 A % 0,2-0,5",
+      "reason": "properties.csv carries no property for \"Linear mould shrinkage\""
+    },
+    {
+      "page": 1,
+      "text": "Insulation resistance strip electrode R25 DIN IEC 60167 MPTS ISO 3167 A Ω >10¹²",
+      "reason": "properties.csv carries no property for \"Insulation resistance strip electrode\""
+    },
+    {
+      "page": 1,
+      "text": "1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2020062413174",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "LUVOCOM 3F PEI 50236 GY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3D Printing parameters may vary from machine to machine. The following settings may be used as an indication: nozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "temperature: 400 - 450 °C / nozzle material: abrasion resistant / print bed temperature: > 120 °C / layer thickness: > 0,15mm /",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dehumidifying dryer 120 > 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "or 150 > 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 1 °C 330 - 350",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 2 °C 340 - 390",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 3 °C 350 - 400",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mold °C 150 - 180",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "In general LUVOCOM® 3F can be processed on conventional extrusion machines while observing the usual technical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unless indicated otherwise, the material is delivered as 3mm long pellets in sealed bags on pallets. Preferably storage should",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "During processing the moisture level should not exceed 0.03%, otherwise porosity and surface defects (e.g. smearing) may",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50236 13 05 20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Alsterufer 19 185 South Broad Street Unit 4805, 8 Xingyi Road",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20354 Hamburg Pawcatuck, CT 06379 Changning District, Shanghai 200336",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tel +49 40 44 197-530 Tel +1-855-681-3226 Tel +86 21 62785181",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2020062413174",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

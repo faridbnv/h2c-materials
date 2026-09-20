@@ -7,16 +7,17 @@ each step now knows that the plan could not. Rewritten 2026-09-19, after batches
 
 | | Documents |
 |---|---:|
-| Applied: their values are in the database | 569 |
-| Read and waiting for a batch | 638 |
+| Applied: their values are in the database | 689 |
+| Read and waiting for a batch | 520 |
 | One sheet under another name, or another language's edition | 347 |
 | Not yet fetched, or behind a login | 468 |
 | A safety sheet, a dead link, no numbers on the page, out of scope | 67 |
 
-Eleven batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
+Twelve batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
 SUNLU, b09's five libraries read together (Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy) b10's
-Fillamentum and b11's leftovers of every maker already proved. The database holds 143 materials, 528 grades,
-6,556 measurements and 730 sources, against the 103, 179, 2,645 and 300 it held when the plan was written.
+Fillamentum, b11's leftovers of every maker already proved, and b12's thirteen libraries that had never been
+read. The database holds 143 materials, 643 grades, 7,461 measurements and 848 sources, against the 103, 179,
+2,645 and 300 it held when the plan was written.
 
 Nothing in the corpus is now unreadable for want of a text layer: `npm run ingest:ocr` reads a scan on a copy,
 caches it under the document's own digest as an optical reading, and `ingest:apply` refuses a row from one that
@@ -88,6 +89,13 @@ What is left of the sheets already measured is small and named:
   direction. Until that is read the same way, a block heading is all the reader has, and a block heading must
   stand in the table's own column (m80's companion fix) — which leaves seven rows on those sheets carrying an
   annealed state that a re-read would no longer give them. They are left as they are rather than guessed at.
+- **A table per condition, under headings that repeat.** Stratasys prints a table per layer height, each with a
+  value column per orientation, and two tables of one sheet carry the same heading. The orientations are read;
+  what is not is which table a row came from, so its rows would be one grade's elongation four times over with
+  nothing to tell them apart. b12 held all 24 of its documents rather than enter them indistinct.
+- **A sheet whose own page names no product.** 28 SIDDAMENT and Yousu documents read as "Material Status Mass
+  Production" and "Precautions": the name is neither at the head of the page nor in the ledger, and a grade
+  cannot be written without one.
 - **A shared table covering several products.** Polymaker's residue, 40 values: one document, one proposal and
   one product, where the sheet lists several. R053 says what they become — a grade each, citing its own sheet,
   with the values recorded once — and the pipeline has no way to make one document into several proposals.
@@ -118,31 +126,46 @@ drawn by a script the capture did not run; those are a fetch problem to reopen, 
 737 rows, most of them copies. Fetch and dedupe first, then the ~120 documents of brands that reach the market
 only through a retailer. Last, so every twin has a manufacturer's sheet to point at.
 
-## 5. The estimate stage at scale
+## 5. The estimate stage at scale — **this now blocks the programme**
 
-This is now the nearest thing to a deadline in the programme. The estimate stage is 40 s on today's data where
-the core compile and validate together are 74 ms, and it is cubic in observations: `npm run scale`, which builds
-twice the data, read about 10 s yesterday and reads 100 s today, because the corpus grew 2.3× in a day. Its budget
-was raised from 90 s to 150 s with every measurement recorded beside it in `test/scale.check.js`, and the check
-gained a second assertion holding the core build at 2× to 5 s so a real compile regression still fails it.
+`npm run scale` fails. It builds twice today's data and reads **150.5 s against its 150 s budget**; a second run
+of the same thing read 149.2 s. A check the measurement straddles by a third of a per cent is not measuring
+anything, and what it is there to say is that the exact block solve has to be built.
 
-One cost there was not the mathematics and is gone: the kernel's covariance looked its columns up by name, which
-is n²/2 string hashes per fit and hundreds of fits per headline. That is 40.5 s down to 33.4 s at 1× and 111 s to
-100 s at 2×, bit for bit the same fit. What is left profiles at 52% Cholesky, which only the block solve reaches.
+The trend, each figure measured and recorded beside the budget in `test/scale.check.js`:
 
-The cap that keeps the spread search affordable is `fitting.spreadSampleMax` (D77), and it is already doing its
-work. The plan's trigger for the exact block solve is a headline above 4,000 observations or the estimate stage
-above five minutes; the largest headline holds 733 observations and the stage 40 s, and two or three more batches
-of this size reach it. Building it before Wave C is cheaper than building it during.
+| | measurements | compile + validate at 2x |
+|---|---:|---:|
+| 2026-09-18 | 2,645 | about 10 s |
+| 2026-09-19 | 6,009 | 111 s |
+| 2026-09-19 | the same data | 100 s — the kernel's covariance stopped looking a column up by name |
+| 2026-09-20 | 7,461 | 177 s — b11 and b12 |
+| 2026-09-20 | the same data | 149 s — the Cholesky takes two columns of a row at a time |
 
-Beside it, the distributable: `dist/db.json` is 11.3 MB and the one-file page that embeds it gzipped is 5.2 MB,
-against the plan's 15 MB threshold for taking measurements out of the page payload. At this rate that arrives
-around three times today's data, so it is a Wave C decision.
+Both of those speedups are exact: each was checked by building with and without it and comparing a digest over
+every material's headline block, which did not move. The budget was raised once, on 2026-09-19, from 90 s to
+150 s with the measurement written beside it. **It has not been raised again**, because raising a budget the
+second time it is breached is how a check stops being one.
 
-What the batches have already taught the model, each in its own place: a support product with no measurements is
-not characterised and one with them is read like any other material; a conditioned bar beside its own dry one is
-another state, not a repeat; a limit a material's own grades publish is a floor for its shown range (D78); and
-whether a declared variant moves its family is measured against an ordinary sibling.
+There is no third optimisation of that size left in the dense path: after both, the stage is still 50% Cholesky
+and 12% its inverse, and those are the number of dense fits and their size. What removes them is D77's option 2,
+and nothing else:
+
+- Partition each headline's kernel by chemical group. The columns that live inside one group are `g:`, `p:`,
+  the material's own deviation and the product's own deviation — a material belongs to one group, and a
+  formulation to one material — so those form a block-diagonal matrix, one block per group.
+- The columns that span groups are few: the global mean, the fill classes, fill by morphology, the declared
+  variant classes, the test houses and the two melting-point covariates. Fifty or sixty columns against fifteen
+  hundred observations.
+- K is then a block-diagonal matrix plus a low-rank term, and a Woodbury solve costs the sum of the blocks'
+  cubes rather than the whole matrix's, plus a term in the rank. With nineteen families that is two orders of
+  magnitude on the part that dominates.
+
+It is an exact reformulation, not an approximation, but it rewrites `fitModel`, `posterior` and the hide-downdate
+in `predict`, and an error in it would move every estimate quietly. It needs a run of its own and a back-test
+that shows the estimates it gives are the estimates the dense solve gives.
+
+Until it is built, every batch after b12 makes `npm run scale` worse.
 
 ## 6. What the pipeline still does not do
 

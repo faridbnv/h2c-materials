@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "7ef52ccce1c695a3fc82c0d348f9537888c36a56fcd40996e71473d99bea13f5",
+    "url": "https://s1.raise3d.com/2024/10/Raise3D-Premium-TPU95A_TDS_V2.2.pdf",
+    "pages": 2,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "7ef52ccce1c695a3"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Premium TPU-95A Technical Data Sheet such as insoles, tubes, seals, and bushings.",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2024/10/Raise3D-Premium-TPU95A_TDS_V2.2.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "7ef52ccce1c695a3fc82c0d348f9537888c36a56fcd40996e71473d99bea13f5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Premium TPU-95A Technical Data Sheet such as insoles, tubes, seals, and bushings."
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "such as insoles, tubes, seals, and bushings.",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Premium TPU-95A Technical Data Sheet such as insoles, tubes, seals, and bushings."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.20-1.24 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.24",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1240",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183 GB/T 1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Locator": "p. 1: Density ISO 1183, GB/T 1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183, GB/T 1033 1.20 - 1.24 (g/cm³, at 23°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "9.3 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "9.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "185°C",
+        "Standard / load": "185 °C 1.2 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Locator": "p. 1: Melt index 185 °C, 1.2 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt index 185 °C, 1.2 kg 9.3 (g/10min)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "13.2 ± 0.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "13.2",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.0132",
+        "Normalized uncertainty ±": "0.0003",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Locator": "p. 1: Young’s modulus (X - Y) ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X - Y) ISO 37, GB/T 528 13.2 ± 0.3 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "23.1 ± 0.6 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "23.1",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "23.1",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Locator": "p. 1: Tensile strength (X - Y) ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X - Y) ISO 37, GB/T 528 23.1 ± 0.6 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "462 ± 21 %",
+        "Raw unit": "%",
+        "Raw numeric": "462",
+        "Raw uncertainty ±": "21",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "462",
+        "Normalized uncertainty ±": "21",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Locator": "p. 1: Elongation at break ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break ISO 37, GB/T 528 462 ± 21 (%)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "95",
+        "Raw unit": "Shore A",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 7619-1 GB/T 531.1",
+        "Standards": "ISO 7619; GB/T 531.1",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "Locator": "p. 1: Shore Hardness ISO 7619-1, GB/T 531.1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore Hardness ISO 7619-1, GB/T 531.1 95A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "25 - 50 (°C)",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40 - 100 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.20 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "3 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "40 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperature = 210 °C, printing speed = 30 mm/s, number of shells = 2, and 100% infill."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200 - 220 (°C)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
+        "Bed °C": "25 - 50 (°C)",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40 - 100 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0.20 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "3 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "40 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 200 - 220 (°C)"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "210 °C",
+      "fromBelow": false,
+      "line": "Printing temperature = 210 °C, printing speed = 30 mm/s, number of shells = 2, and 100% infill."
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "200 - 220 (°C)",
+      "fromBelow": false,
+      "line": "Nozzle temperature 200 - 220 (°C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "25 - 50 (°C)",
+      "fromBelow": false,
+      "line": "Build plate temperature 25 - 50 (°C)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "40 - 100 (mm/s)",
+      "fromBelow": false,
+      "line": "Printing speed 40 - 100 (mm/s)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Raft",
+      "raw": "separation distance 0.20 (mm)",
+      "fromBelow": false,
+      "line": "Raft separation distance 0.20 (mm)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "3 (mm)",
+      "fromBelow": false,
+      "line": "Retraction distance 3 (mm)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "40 (mm/s)",
+      "fromBelow": false,
+      "line": "Retraction speed 40 (mm/s)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Premium TPU-95A_TDS Oct. 2024 Version 2.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Premium TPU-95A Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Premium TPU-95A (Thermoplastic polyurethane) is a flexible and elastic 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "impact-absorption and a soft-touch surface. TPU-95A printed parts are widely used in applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "the filament at 70°C for over 10h before printing, especially for Hyper FFF L1 high speed printing profiles.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All specimens were conditioned at room temperature for 24h prior to testing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Premium TPU-95A_TDS Oct. 2024 Version 2.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Threshold overhang angle 40 (˚)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Based on 0.4 mm nozzle and ideaMaker. Printing conditions may vary with different nozzle diameters.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "115.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "25.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ISO 37",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "disposal/recycling practices of Raise3D materials for the intended application. Raise3D makes no",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "application. Raise3D shall not be made liable for any damage, injury or loss induced from the use",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "of Raise3D materials in any particular application.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

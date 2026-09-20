@@ -43,6 +43,14 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     //                                     stage is 40 s at 1x and all of the rest)
     //   2026-09-19   the same data        compile+validate 100 s at 2x   (the kernel's covariance stopped
     //                                     looking a column up by name; 33 s at 1x, bit for bit the same fit)
+    //   2026-09-20   7,461 measurements   compile+validate 177 s at 2x   (b11 and b12; the budget was breached)
+    //   2026-09-20   the same data        compile+validate 149 s at 2x   (the Cholesky takes two columns of a
+    //                                     row at a time; 36 s at 1x, and bit for bit the same factor)
+    //
+    // 149 s against a 150 s budget is not passing in any useful sense. This check exists to say when the exact
+    // block solve has to be built, and it is saying it now: the margin is under a second, the next batch takes
+    // it, and there is no third micro-optimisation of this size left in the dense path. What comes next is
+    // DECISIONS D77's option 2 and not a larger number here.
     //
     // The corpus has grown 2.3x in a day, so this 2x check now covers 4.5x what it did, and the estimate
     // model's Gaussian process is cubic in observations. The budget is raised to 150 s with that measurement

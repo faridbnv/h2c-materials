@@ -1,0 +1,550 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "cec0f228b051ecaf901e2e03510432afd064e6f0e55ff680ad8b9d6788cab70d",
+    "url": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-Pro-PLA.pdf?v=1600971750",
+    "pages": 1,
+    "provider": "3D-Fuel",
+    "manufacturer": null,
+    "docKey": "cec0f228b051ecaf"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D-FUEL-TDS-3DFuel-Pro-PLA",
+      "Publisher": "3D-Fuel",
+      "Title": "Technical Data Sheet Pro PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-Pro-PLA.pdf?v=1600971750",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "cec0f228b051ecaf901e2e03510432afd064e6f0e55ff680ad8b9d6788cab70d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet Pro PLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D-Fuel",
+        "Product name": "Pro PLA",
+        "Shared formulation key": "R-3D-FUEL-TDS-3DFuel-Pro-PLA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D-FUEL-TDS-3DFuel-Pro-PLA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet Pro PLA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.22 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1220",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D-FUEL-TDS-3DFuel-Pro-PLA",
+        "Locator": "p. 1: Specific Gravity, g/cc",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Gravity, g/cc 1.22 D792"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "9-15 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "15",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "15",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D-FUEL-TDS-3DFuel-Pro-PLA",
+        "Locator": "p. 1: MFR, g/10 min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR, g/10 min 9-15 D1238"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "55-60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "60",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "60",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D3418",
+        "Standards": "ASTM D3418",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D-FUEL-TDS-3DFuel-Pro-PLA",
+        "Locator": "p. 1: Glass Transition Temperature, °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temperature, °C 55-60 D3418"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "www.3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(844) 333-3616",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D-Fuel Pro PLA (formerly Advanced",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing. Engineered to deliver improved heat-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Peak Melt Temperature, °C 165-180 D3418",
+      "reason": "properties.csv carries no property for \"Peak Melt Temperature, °C\""
+    },
+    {
+      "page": 1,
+      "text": "provide excellent 3D printing characteristics such",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1) Typical properties;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(2) 210°C / 2.16 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "manufactured using virgin Natureworks 3D870.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength, psi (MPa) 5,802 (40) D638",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength, psi (MPa) 4,641 (32) D638",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength, psi (MPa) 3,481 (24) D638",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, kpsi (MPa) 416 (2,865) D638",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, kpsi (MPa) 355 (2,447) D638",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, kpsi (MPa) 359 (2,477) D638",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength, psi (MPa) 10,588 (73) D790",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength, psi (MPa) 7,106 (49) D790",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength, psi (MPa) 6,672 (46) D790",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural modulus, kpsi (MPa) 350 (2,414) D790",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural modulus, kpsi (MPa) 287 (1,979) D790",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural modulus, kpsi (MPa) 341 (2,352) D790",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact [amorphous], ft-lb/in (J/m) 2.99 (160) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact [amorphous], ft-lb/in (J/m) 2.26 (21) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact [amorphous], ft-lb/in (J/m) 2.04 (109) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact [crystalline], ft-lb/in (J/m) 4.37 (233) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact [crystalline], ft-lb/in (J/m) 3.74 (200) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact [crystalline], ft-lb/in (J/m) 1.19 (64) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Heat Distortion Temperature (°C) 66 psi (0.45 MPa) 75-85 E2092",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3) All 3D printed parts printed at 100% infill and annealed at 110 C / 20 min unless otherwise no",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3) All 3D printed parts printed at 100% infill and annealed at 110 ted.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ingeo 3D870 is formulated to crystallize when",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Hot End Temperature C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190-230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "properties of Ingeo 3D870. The recommended",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "110-120°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "anneal temperature is in the range of 110°C-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "120°C. Annealing can be carried out in an oven or",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print Bed Temperature -70°C if applicable)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "None needed (or 50-70°C if applicable)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(4) Starting points .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "depending on your 3D printer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "anneal parts printed with Ingeo 3D870:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Pre-heat oven to an anneal temperature range of (110°C-120°C).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Measure temperature at various locations in the oven to ensure absence of hot/cold spots. Uneven heating can",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Place printed part in oven and start timer. Typical time to anneal parts with wall -thickness of 0.125 in (~3.18 mm) is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "around 20 minutes, but this time is dependent on wall thickness.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. For large dimension parts, it is common to use support fixtures (e.g.-aluminum jigs) during the annealing process",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Once removed from the oven, let the part cool in ambient conditions. Minimize handling, as inside of the part will",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6. If using a water-bath to anneal, the part may have to be at temperature for a slightly longer time to crystallize",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(since the water-bath cannot be at 110°C-120°C).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7. Measure dimensions of the part prior to annealing and again after, to determine shrink.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(844) 333-3616",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

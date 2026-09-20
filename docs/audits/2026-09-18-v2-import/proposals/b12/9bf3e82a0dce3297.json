@@ -1,0 +1,700 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "9bf3e82a0dce3297882fc641e3e97eca62fa7ade73492c935f6a79e2af52efcb",
+    "url": "https://s1.raise3d.com/2021/04/P-filament-721-Technical-Data-Sheet-eng-04-20-2021.pdf",
+    "pages": 3,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "9bf3e82a0dce3297"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: polypropylene"
+    ],
+    "materialId": "M082",
+    "materialName": "PP",
+    "estimateIdentity": "PP",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+      "Publisher": "Raise3D",
+      "Title": "Technical data sheet: P-filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2021/04/P-filament-721-Technical-Data-Sheet-eng-04-20-2021.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9bf3e82a0dce3297882fc641e3e97eca62fa7ade73492c935f6a79e2af52efcb"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical data sheet: P-filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "P",
+        "Shared formulation key": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical data sheet: P-filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "137 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "137",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "137",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D3418",
+        "Standards": "ASTM D3418",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "Locator": "p. 2: Melt temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt temperature 137 °C ASTM D3418"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "19.3 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "19.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "19.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "Locator": "p. 2: Melt Flow Rate1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt Flow Rate1 19.3 g/10 min ISO 1133"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "25.7 cm3/10 min",
+        "Raw unit": "cm3/10 min",
+        "Raw numeric": "25.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "Locator": "p. 2: Melt Volume Rate1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt Volume Rate1 25.7 cm3/10 min ISO 1133"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "0.9 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "0.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "900",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "Locator": "p. 2: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density 0.9 g/cm3 ISO 1183"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200 - 220 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
+        "Bed °C": "20 °C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "20",
+        "Bed requirement": "required",
+        "Chamber °C": "not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": ", 100 – 110 °C for non-"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.1 – 0.4 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "15 – 40 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 200 - 220 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "20 °C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "20",
+        "Bed requirement": "required",
+        "Chamber °C": "not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": ", 100 – 110 °C for non-"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.1 – 0.4 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "15 – 40 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Bed temperature 20 °C (50 - 80 °C recommended for the"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "200 - 220 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 200 - 220 °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "20 °C",
+      "fromBelow": false,
+      "line": "Bed temperature 20 °C (50 - 80 °C recommended for the"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "first layer",
+      "raw": ", 100 – 110 °C for non-",
+      "fromBelow": false,
+      "line": "first layer, 100 – 110 °C for non-"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Chamber temperature",
+      "raw": "not required",
+      "fromBelow": false,
+      "line": "Chamber temperature not required"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.1 – 0.4 mm",
+      "fromBelow": false,
+      "line": "Layer height 0.1 – 0.4 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "15 – 40 mm/s",
+      "fromBelow": false,
+      "line": "Print speed 15 – 40 mm/s"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "210 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature: 210 °C;"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "70 °C",
+      "fromBelow": false,
+      "line": "Bed temperature: 70 °C;"
+    },
+    {
+      "page": 2,
+      "field": "chamber",
+      "topic": "",
+      "label": "Chamber temperature",
+      "raw": "70 °C",
+      "fromBelow": false,
+      "line": "Chamber temperature: 70 °C;"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "30 mm/s",
+      "fromBelow": false,
+      "line": "Printing speed: 30 mm/s."
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Use Extrusion-based 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Suggested 3D print settings (nozzle diameter 0.4mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 1 of 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Gottlieb-Keim-Straße 60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "D-95448 Bayreuth",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Test conditions: T = 210 °C; m = 5.0 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "90° 0°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Pro 3D printer and applying",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "punched dog bone: S 3A punched dog bone: S 3A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "with an orientation of 90 ° with an orientation of 0 ° to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "E-Modul (MPa) 640 ± 20 660 ± 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Yield strength (MPa) 18.1 ± 0.1 19.6 ± 0.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile strength (MPa) 18.7 ± 0.3 35.1 ± 0.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Page 2 of 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Gottlieb-Keim-Straße 60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "D-95448 Bayreuth",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Strain at break (%) > 600 > 600",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "Regulation EU Nr. 10/2011 Union Guidelines on Regulation (EU) No 10/2011 on plastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Diameter 1.75 1.75 ± 0.10 mm PPprint",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Diameter 2.85 2.85 ± 0.10 mm PPprint",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Ovality 0.05 PPprint",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Netto weight on spool 600 g ± 5% PPprint",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "The data and properties presented here are averages of a standard batch. The 3D printed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "square tubes from which the specimens were punched out were produced in Slic3r version",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1.3.0.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Version: 1.001",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Date: 12.02.2019",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Page 3 of 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Gottlieb-Keim-Straße 60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "D-95448 Bayreuth",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

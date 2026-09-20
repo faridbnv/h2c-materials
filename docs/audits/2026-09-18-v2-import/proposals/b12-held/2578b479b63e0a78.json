@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2578b479b63e0a78e29d2d84e175f232a7395ade20e88e013b430c64b3f000d3",
+    "url": "https://s1.raise3d.com/2025/08/Raise3D-Industrial-PPS-CF_TDS_V1.1.pdf",
+    "pages": 5,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "2578b479b63e0a78"
+  },
+  "identity": {
+    "polymer": "PPS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "High-Performance Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pps",
+      "filler: cf"
+    ],
+    "materialId": "M073",
+    "materialName": "PPS-CF",
+    "estimateIdentity": "PPS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Industrial PPS CF Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2025/08/Raise3D-Industrial-PPS-CF_TDS_V1.1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2578b479b63e0a78e29d2d84e175f232a7395ade20e88e013b430c64b3f000d3"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Industrial PPS CF Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M073",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "PPS CF",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1",
+        "Composition / filler": "Raise3D Industrial PPS CF is a carbon fiber-reinforced (10 wt.%) polyphenylene sulfide (PPS) composite filament designed for high- (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "various acids, alkalis, and organic solvents. Additionally, PPS CF possesses good flame-retardant property and is certified to UL94 V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Industrial PPS CF Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M073",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "340 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "340",
+        "Nozzle max °C": "340",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings: Nozzle temp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle temp. = 340 ºC; Bed temp.= 90 ºC; Infill= 100%."
+      },
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M073",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "340 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "340",
+        "Nozzle max °C": "340",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings: Nozzle temp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle temp. = 340 ºC; Bed temp.= 90 ºC; Infill= 100%."
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temp",
+      "raw": "340 °C",
+      "fromBelow": false,
+      "line": "Nozzle temp. = 340 ºC; Bed temp.= 90 ºC; Infill= 100%."
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temp",
+      "raw": "340 °C",
+      "fromBelow": false,
+      "line": "Nozzle temp. = 340 ºC; Bed temp.= 90 ºC; Infill= 100%."
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PPS CF_TDS Aug. 2025 Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PPS CF Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PPS CF is a carbon fiber-reinforced (10 wt.%) polyphenylene sulfide (PPS) composite filament designed for high-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "performance applications. It stands out with its peerless heat resistance (HDT 260 °C) and chemical stability against the corrosion of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "various acids, alkalis, and organic solvents. Additionally, PPS CF possesses good flame-retardant property and is certified to UL94 V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(L1, 150 mm/s, or faster to L2) with lower warpage, good surface finishing and lower nozzle abrasion. Raise3D Industrial PPS CF is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm³) ISO 1183, GB/T 1033 1.29",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "Diameter (mm) / 1.75",
+      "reason": "the sheet publishes no value for Water absorption in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Net weight (kg) / 0.5",
+      "reason": "the sheet publishes no value for Water absorption in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Flame retardancy UL94, 1.5mm V0",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Water absorption (%) 70% RH, 30 days 0.23",
+      "reason": "the sheet states Water absorption in days, and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "Surface resistivity (Ω) ANSI ESD S11.11 OL, >10^12",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Young’s modulus (MPa) ISO 527 5500 ± 150 2800 ± 150",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength (MPa) ISO 527 60 ± 1.3 32.0 ± 5.0",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (%) ISO 527 1.8 ± 0.1 1.9 ± 0.2",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus (MPa) ISO 178 4600 ± 140 2600 ± 150",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2025 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Industrial PPS CF_TDS Aug. 2025 Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bending strength (MPa) ISO 178 95 ± 2 30.0 ± 5",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Charpy impact strength (kJ/m2) ISO 179 11.4 ± 0.7 (Un-notched) 4.1± 1.3 (Un-notched)",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "All specimens were annealed at 125 ºC for 16h.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Young’s modulus (MPa) ISO 527 4700 ± 280 2600 ± 120",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile strength (MPa) ISO 527 50 ± 2 22 ± 4",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at break (%) ISO 527 1.2 ± 0.5 1.1 ± 0.1",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Bending modulus (MPa) ISO 178 5000 ± 200 2500 ± 320",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Bending strength (MPa) ISO 178 100 ± 4.0 52 ± 4.0",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Charpy impact strength (kJ/m²) ISO 179 5 ± 0.4 3 ± 0.8",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Melt flow index (g/10 min) 300 °C, 2.16 kg 28",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat distortion temperature3 (°C) ISO 75 @0.45 MPa 251",
+      "reason": "the sheet states HDT in MPa, and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "ISO 75 @1.8 MPa 132",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The specimens of HDT test were annealed at 125 ºC for 16h.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Black 6c",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "© 2025 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Raise3D Industrial PPS CF_TDS Aug. 2025 Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. Abrasion of the brass nozzle happens frequently when printing Industrial PPS CF. A wear-resistance nozzle,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. Industrial PPS CF should always be stored and used under dry conditions (relative humidity below 20%).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 1. Tensile testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 2. Flexural testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "© 2025 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Raise3D Industrial PPS CF_TDS Aug. 2025 Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fig 3. Impact testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fig 4. Print Orientation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Note: All samples are printed with 100% infill; the lines in the Fig 4. indicate typical directionality of infill and walls in a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "© 2025 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Raise3D Industrial PPS CF_TDS Aug. 2025 Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "practices of Raise3D materials for the intended application. Raise3D makes no warranty of any kind, unless",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Raise3D shall not be made liable for any damage, injury or loss induced from the use of Raise3D materials in any",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "© 2025 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

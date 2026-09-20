@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "217205ccb483c2d89f8dfbe387ec633cc9ec5437b1ce2223c21564152aa56a68",
+    "url": "https://support.makerbot.com/s/article/Method-X-Support-Filament-SR-30",
+    "pages": 1,
+    "provider": "UltiMaker / MakerBot",
+    "manufacturer": null,
+    "docKey": "https://support.makerbot.com/s/article/Method-X-Support-Filament-SR-30"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": true,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"Refresh\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports",
+      "no base polymer in \"Refresh\""
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ULTIMAKER-MAKERBOT-Method-X-Support-Filament-SR-30",
+      "Publisher": "UltiMaker / MakerBot",
+      "Title": "× Sorry to interrupt CSS Error",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://support.makerbot.com/s/article/Method-X-Support-Filament-SR-30",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "217205ccb483c2d89f8dfbe387ec633cc9ec5437b1ce2223c21564152aa56a68"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "× Sorry to interrupt CSS Error"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "UltiMaker",
+        "Product name": "Refresh",
+        "Shared formulation key": "R-ULTIMAKER-MAKERBOT-Method-X-Support-Filament-SR-30",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ULTIMAKER-MAKERBOT-Method-X-Support-Filament-SR-30",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "× Sorry to interrupt CSS Error"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [],
+  "review": {
+    "status": "proposed"
+  }
+}

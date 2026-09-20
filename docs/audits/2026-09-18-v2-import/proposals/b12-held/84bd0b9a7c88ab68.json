@@ -1,0 +1,501 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "84bd0b9a7c88ab683eb4752a519b0a8f69265bd2c469cdae634206732fa4c62b",
+    "url": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-Essentium-PCTG.pdf?v=1723400619",
+    "pages": 2,
+    "provider": "3D-Fuel",
+    "manufacturer": null,
+    "docKey": "84bd0b9a7c88ab68"
+  },
+  "identity": {
+    "polymer": "PCTG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Copolyesters",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pctg"
+    ],
+    "materialId": "M088",
+    "materialName": "PCTG",
+    "estimateIdentity": "PCTG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D-FUEL-TDS-Essentium-PCTG",
+      "Publisher": "3D-Fuel",
+      "Title": "technical data sheet ESSENTIUM PCTG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-Essentium-PCTG.pdf?v=1723400619",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "84bd0b9a7c88ab683eb4752a519b0a8f69265bd2c469cdae634206732fa4c62b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "technical data sheet ESSENTIUM PCTG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M088",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D-Fuel",
+        "Product name": "ESSENTIUM PCTG",
+        "Shared formulation key": "R-3D-FUEL-TDS-Essentium-PCTG",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D-FUEL-TDS-Essentium-PCTG",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "technical data sheet ESSENTIUM PCTG"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M088",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": ", °C 250 – 270",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": ", °C 70 – 80",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D-FUEL-TDS-Essentium-PCTG",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": ", mm 0.15 – 0.25"
+        },
+        {
+          "Topic": "Speed",
+          "Text": ", mm/s 50 – 500"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": ", % 0 – 40"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": ", mm 0.3 – 0.35"
+        },
+        {
+          "Topic": "Speed",
+          "Text": ", mm/s 20 – 220"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": ", % 0 – 40"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": ", % 25 – 50"
+        },
+        {
+          "Topic": "Speed",
+          "Text": ", mm/s 40 – 80"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Bed Temperature, ˚C 70 – 80"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 70 – 80",
+      "fromBelow": false,
+      "line": "Bed Temperature, ˚C 70 – 80"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": ", mm 0.15 – 0.25",
+      "fromBelow": false,
+      "line": "Layer Height, mm 0.15 – 0.25"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": ", mm/s 50 – 500",
+      "fromBelow": false,
+      "line": "Print Speed, mm/s 50 – 500 IR Temperature, ˚C 20 – 40"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": ", % 0 – 40",
+      "fromBelow": false,
+      "line": "Fan Speed, % 0 – 40"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 70 – 80",
+      "fromBelow": false,
+      "line": "Bed Temperature, ˚C 70 – 80"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": ", mm 0.3 – 0.35",
+      "fromBelow": false,
+      "line": "Layer Height, mm 0.3 – 0.35"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": ", mm/s 20 – 220",
+      "fromBelow": false,
+      "line": "Print Speed, mm/s 20 – 220 IR Temperature, ˚C 20 – 40"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": ", % 0 – 40",
+      "fromBelow": false,
+      "line": "Fan Speed, % 0 – 40"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": ", % 25 – 50",
+      "fromBelow": false,
+      "line": "Fan Speed, % 25 – 50"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": ", °C 250 – 270",
+      "fromBelow": false,
+      "line": "Nozzle Temperature, ºC 250 – 270"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 70 – 80",
+      "fromBelow": false,
+      "line": "Bed Temperature, ºC 70 – 80 Bed Material G-10/FR4 or Glass"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": ", mm/s 40 – 80",
+      "fromBelow": false,
+      "line": "Print Speed, mm/s 40 – 80 or Magigoo HT"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "XY 45/45 YX ZX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 527-2 44.0 (0.2) 40.4 (1.1)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 527-2 40.4 (1.1) 43.5 (0.7)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 527-2 40.4 (1.1) 45.0 (1.6)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 527-2 1.81 (0.03) 1.71 (0.04)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 527-2 1.71 (0.04) 1.72 (0.02)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 527-2 1.71 (0.04) 1.86 (0.09)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 527-2 130 (1) 2.6 (1.6)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 527-2 2.6 (1.6) 4.9 (0.5)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 527-2 2.6 (1.6) 3.9 (0.4)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 178 72.7 (0.9) 70.1 (0.7)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 178 70.1 (0.7) 63.1 (2.5)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 178 70.1 (0.7) 71.5 (1.1)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 178 1.78 (0.01) 1.69 (0.02)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 178 1.69 (0.02) 1.57 (0.04)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 178 1.69 (0.02) 1.72 (0.02)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 7.5 (0.5) 5.4 (1.2)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 5.4 (1.2) 6.1 (1.4)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 5.4 (1.2) 4.7 (0.8)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Specific Gravity1, g/cm3 ASTM D792 1.23",
+      "reason": "properties.csv carries no property for \"Specific Gravity1, g/cm3\" (g/cm3)"
+    },
+    {
+      "page": 1,
+      "text": "Glass Transition Temperature, ˚C ASTM D3418 76",
+      "reason": "the sheet states Glass transition temperature in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Melting Point, ˚C ASTM D3418 202",
+      "reason": "the sheet states Melting temperature in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "HDT B @ 0.45 MPa1, ˚C ISO 75 76",
+      "reason": "the sheet states HDT in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "HDT A @ 1.8 MPa1, ˚C ISO 75 64",
+      "reason": "the sheet states HDT in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "1 Values taken from resin manufacturer TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Revision Date: 04/27/20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "19025 N. Heatherwilde Blvd, Suite 100, Pflugerville, TX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "78660 Email: Sales@Essentium.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "does absorb more than 600ppm moisture, it should be dried in a low dew point (< -40˚C) oven or vacuum oven at 65 – 70˚C for 4 – 8 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.4mm Hozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Extrusion Width, mm 0.35 – 0.5 Hozzle Temperature, ˚C 235 – 390",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill, % 15 – 75 Fan Speed, % 0 – 40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.8mm Hozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Extrusion Width, mm 0.7 – 0.9 Hozzle Temperature, ˚C 280 – 360",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill, % 15 – 75 Fan Speed, % 0 – 40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20 – 40 Infill Density, % <75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Revision Date: 04/27/20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "19025 N. Heatherwilde Blvd, Suite 100, Pflugerville, TX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "78660 Email: Sales@Essentium.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

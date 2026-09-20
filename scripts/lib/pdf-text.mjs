@@ -229,6 +229,17 @@ export function numberOnPage(text, page, value) {
   const [whole, fraction] = plain.split('.');
   const grouped = whole.length > 3 ? whole.replace(/\B(?=(\d{3})+(?!\d))/g, '$1') : null;
   const spellings = new Set([plain, plain.replace('.', ',')]);
+  // A power of ten is printed as a power. A resistivity of 10^12 ohm is on its page as "10" and a raised "12",
+  // never as a million million, and the guard exists to prove the number was read off the page rather than to
+  // insist the page spell it out. Both the mantissa and the exponent have to be there, in that order.
+  const exponent = Math.log10(Math.abs(Number(plain)));
+  if (Number.isFinite(exponent) && Number.isInteger(exponent) && Math.abs(Number(plain)) >= 1000) {
+    const mantissa = Number(plain) / 10 ** exponent;
+    for (const written of new Set([`10^${exponent}`, `10${exponent}`, `10 ${exponent}`])) {
+      spellings.add(mantissa === 1 ? written : `${mantissa}${written}`);
+      spellings.add(written);
+    }
+  }
   if (grouped) for (const separator of ['.', ',']) {
     const head = whole.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
     spellings.add(fraction === undefined ? head : `${head}.${fraction}`);

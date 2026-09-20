@@ -1,0 +1,519 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "6c1807843bc297f64d778dc300e099e47b47d1db369a5c86e8df45671ef70ad7",
+    "url": "https://ysfilament.com/u_file/2206/14/file/YOUSUWOODTDS-eb4e.pdf",
+    "pages": 1,
+    "provider": "Yousu",
+    "manufacturer": "Guangzhou Yousu 3D Technology",
+    "docKey": "6c1807843bc297f6"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Wood",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pla",
+      "variant: wood (Wood)"
+    ],
+    "materialId": "M014",
+    "materialName": "PLA Wood",
+    "estimateIdentity": "PLA",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+      "Publisher": "Guangzhou Yousu 3D Technology",
+      "Title": "Page: 1",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Yousu; the sheet is Guangzhou Yousu 3D Technology's.",
+      "Citation role": "cited",
+      "URL": "https://ysfilament.com/u_file/2206/14/file/YOUSUWOODTDS-eb4e.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6c1807843bc297f64d778dc300e099e47b47d1db369a5c86e8df45671ef70ad7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Page: 1"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Yousu",
+        "Product name": "WOOD 3D FILMAENT Revision Date: 18/12/2020",
+        "Shared formulation key": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Page: 1"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.254 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.254",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1254",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "3 23℃ ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Locator": "p. 1: Density ASTM D792 g/cm3 23℃",
+        "Notes": "\"1.254\" may be a thousands separator or a decimal one; read as 1.254 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ASTM D792 g/cm3 23℃ 1.254"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "190 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "190",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "190",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "10min ASTM D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Locator": "p. 1: Melt Flow Rate ASTM D1238 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Flow Rate ASTM D1238 g/10min 190 ℃, 2.16Kg 5.6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.4-0.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.6",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.6",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ ASTM D955",
+        "Standards": "ASTM D955",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Locator": "p. 1: Mold Shrinkage ASTM D955 % 23℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Mold Shrinkage ASTM D955 % 23℃ 0.4-0.6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "36.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "36.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "36.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Locator": "p. 1: Tensile Stress MPa 50mm/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress MPa 50mm/min 36.7"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "Locator": "p. 1: Tensile Elongation % 50mm/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation % 50mm/min 6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "190-240℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-YOUSU-YOUSUWOODTDS-eb4e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temp 190-240℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temp",
+      "raw": "190-240℃",
+      "fromBelow": false,
+      "line": "Printing Temp 190-240℃"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Page: 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "YOUSU WOOD 3D FILMAENT Revision Date: 18/12/2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Guangzhou YOUSU WOOD 3D Technology Co., Ltd Version: 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "YOUSU WOOD PLA 3D FILAMENT, a thermoplastic derived from reproducible resources,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "by Yousu 3D Technology Co., Ltd, limited for 3D FDM printer. As a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "popular product used in 3D printing, our product shows excellent mechanical and physical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D638",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "E Flexural Strengh MPa 2mm/min 68.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D790",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FlexuralModulus MPa 2mm/min 3050",
+      "reason": "properties.csv carries no property for \"FlexuralModulus\" (2mm/min)"
+    },
+    {
+      "page": 1,
+      "text": "S ASTM D256 KJ/m2 4mm,23℃ 2.9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "YOUSU WOOD PLA 3D FILAMENT is specially designed for 3D printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "YOUSU WOOD PLA 3D filament is applied to most of the FDM 3D printer on the mar",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ket.Our product has two kinds of diameters: 1.75mm and 3.0mm and show excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "YS-Wood151",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75/3.0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "None needed(or 60℃ if applicable)",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "a high-speed grade is compounded to flow, and the window is drawn from the ordinary grades the database already held; the sheet prints this figure and the row was read from the line that states it.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
+}

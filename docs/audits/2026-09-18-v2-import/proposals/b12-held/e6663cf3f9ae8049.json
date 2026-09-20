@@ -1,0 +1,340 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "e6663cf3f9ae8049b06218efab86da550287a8cdec41e9a40f5c856fab1e2c6a",
+    "url": "https://nexa3d.com/wp-content/uploads/2024/07/TDS-Essentium-TPU-58D-AS.pdf",
+    "pages": 2,
+    "provider": "Essentium / Nexa3D",
+    "manufacturer": "Essentium / Nexa3D",
+    "docKey": "https://nexa3d.com/wp-content/uploads/2024/07/TDS-Essentium-TPU-58D-AS.pdf"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "58D",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 58D"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESSENTIUM-TDS-Essentium-TPU-58D-AS",
+      "Publisher": "Essentium / Nexa3D",
+      "Title": "Essentium TPU 58D-AS",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nexa3d.com/wp-content/uploads/2024/07/TDS-Essentium-TPU-58D-AS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e6663cf3f9ae8049b06218efab86da550287a8cdec41e9a40f5c856fab1e2c6a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Essentium TPU 58D-AS"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Essentium",
+        "Product name": "TPU 58D-AS",
+        "Shared formulation key": "R-ESSENTIUM-TDS-Essentium-TPU-58D-AS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ESSENTIUM-TDS-Essentium-TPU-58D-AS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Essentium TPU 58D-AS"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Essentium TPU 58D-AS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ESSENTIUM TPU 58D-AS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": ")WWIRXMYQƅW\u0004849\u0004\u0019\u001c(\u0011%7\u0004MW\u0004ER\u0004MRHYWXV]\u0011ƼVWX\u0004)7(\u0004WEJI\u0004ERH\u0004ERXM\u0011WXEXMG\u0004\u0019\u001c(\u00047LSVI\u0004LEVHRIWW\u0004XLIVQSTPEWXMG\u0004TSP]YVIXLERI\u0004",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ƼPEQIRX\u0004XLEX\u0004MW\u0004EZEMPEFPI\u0004MR\u0004E\u0004ZEVMIX]\u0004SJ\u0004GSPSVW\u0012\u00048LMW\u0004GYXXMRK\u0011IHKI\u0004QEXIVMEP\u0004LEW\u0004I\\GIPPIRX\u0004MQTEGX\u0004WXVIRKXL\u0010\u0004XIEV\u0004WXVIRKXL\u0010\u0004E",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XY 45/45 YX ZX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9PXMQEXI\u00048IRWMPI\u00047XVIRKXL\u0010\u000414E -73\u0004\u0017\u001b \u0017\u0017\u0012\u0014\u0004 \u0015\u0012\u001b \u0016\u0015\u0012\u0014\u0004 \u0014\u0012\u001a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9PXMQEXI\u00048IRWMPI\u00047XVIRKXL\u0010\u000414E -73\u0004\u0017\u001b \u0016\u0015\u0012\u0014\u0004 \u0014\u0012\u001a \u0015\u0018\u0012\u0014\u0004 \u0015\u0012\u0017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9PXMQEXI\u00048IRWMPI\u00047XVIRKXL\u0010\u000414E -73\u0004\u0017\u001b \u0016\u0015\u0012\u0014\u0004 \u0014\u0012\u001a \u0015\u0019\u0012\u0019\u0004 \u0014\u0012\u0018",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "8IRWMPI\u00041SHYPYW\u0010\u0004+4E -73\u0004\u0017\u001b \u0014\u0012\u0015\u0018\u0016\u0004 \u0014\u0012\u0014\u0014\u0018 \u0014\u0012\u0015\u0018\u0014\u0004 \u0014\u0012\u0014\u0014\u0018",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "8IRWMPI\u00041SHYPYW\u0010\u0004+4E -73\u0004\u0017\u001b \u0014\u0012\u0015\u0018\u0014\u0004 \u0014\u0012\u0014\u0014\u0018 \u0014\u0012\u0015\u0019\u0016\u0004 \u0014\u0012\u0014\u0015\u0015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "8IRWMPI\u00041SHYPYW\u0010\u0004+4E -73\u0004\u0017\u001b \u0014\u0012\u0015\u0018\u0014\u0004 \u0014\u0012\u0014\u0014\u0018 \u0014\u0012\u0015\u001a\u0018\u0004 \u0014\u0012\u0014\u0014\u0017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7XVEMR\u0004EX\u0004&VIEO\u0010\u0004 -73\u0004\u0017\u001b \u001b\u0018\u0014\u0004 \u0017\u0014 \u0018\u001b\u0014\u0004 \u0015\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7XVEMR\u0004EX\u0004&VIEO\u0010\u0004 -73\u0004\u0017\u001b \u0018\u001b\u0014\u0004 \u0015\u0014 \u001b\u001c\u0004 \u0016\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7XVEMR\u0004EX\u0004&VIEO\u0010\u0004 -73\u0004\u0017\u001b \u0018\u001b\u0014\u0004 \u0015\u0014 \u001c\u0015\u0004 \u0015\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2SXGLIH\u0004-^SH\u0004-QTEGX\u00047XVIRKXL\u000e\u0010\u0004O.\u0013Q2 -73\u0004\u0015\u001c\u0014\u0013% \u0019\u0018\u0004 \u0019 \u0019\u0019\u0004 \u0019",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2SXGLIH\u0004-^SH\u0004-QTEGX\u00047XVIRKXL\u000e\u0010\u0004O.\u0013Q2 -73\u0004\u0015\u001c\u0014\u0013% \u0019\u0019\u0004 \u0019 \u001b\u0012\u0017\u0004 \u0017\u0012\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2SXGLIH\u0004-^SH\u0004-QTEGX\u00047XVIRKXL\u000e\u0010\u0004O.\u0013Q2 -73\u0004\u0015\u001c\u0014\u0013% \u0019\u0019\u0004 \u0019 \u001a\u0012\u001a\u0004 \u0016\u0012\u0015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7XERHEVH\u0004HIZMEXMSRW\u0004PMWXIH\u0004MR\u0004TEVIRXLIWIW\u0012",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7TIGMƼG\u0004+VEZMX]z\u0010\u0004K\u0013GQ -73\u0004\u0015\u0015\u001c\u0017 \u0015\u0012\u0016\u0015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7LSVI\u0004,EVHRIWW -73\u0004\u001c\u001a\u001c 58D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7YVJEGI\u00046IWMWXERGI\u0010\u00043LQW -)'\u0004\u001a\u0015\u0017\u0018\u0014\u0011\u0016\u0011\u0017 \u0015)\u001c\u0004Ɓ\u0004\u0015)\u0015\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0015\u0004\u0004:EPYIW\u0004XEOIR\u0004JVSQ\u0004VIWMR\u0004QERYJEGXYVIV\u00048(7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Revision Date: 06/30/22",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0015\u001d\u0014\u0016\u0019\u00042\u0012\u0004,IEXLIV[MPHI\u0004&PZH\u0010\u00047YMXI\u0004\u0015\u0014\u0014\u0010\u00044ƽYKIVZMPPI\u0010\u00048<\u0004\u001b\u001c\u001a\u001a\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Essentium TPU 58D-AS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": ")WWIRXMYQ\u0004849\u0004\u0019\u001c(\u0011%7\u0004MW\u0004E\u0004ZIV]\u0004L]KVSWGSTMG\u0004XLIVQSTPEWXMG\u0004ERH\u0004[MPP\u0004VETMHP]\u0004EFWSVF\u0004QSMWXYVI\u0004JVSQ\u0004LYQMH\u0004EMV\u0012\u0004/IIT\u0004XLI\u0004QEXIVMEP\u0004MR\u0004XLI\u0004ZEGYYQ\u0004",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WIEPIH\u0004TEGOEKMRK\u0004YRXMP\u0004]SY\u0004EVI\u0004VIEH]\u0004XS\u0004TVMRX\u0004[MXL\u0004MX\u0012\u0004849\u0004\u0019\u001c(\u0011%7\u0004ƼPEQIRX\u0004WLSYPH\u0004EP[E]W\u0004FI\u0004JIH\u0004XS\u0004XLI\u0004TVMRXIV\u0004MR\u0004E\u0004HV]\u0004GSRXEMRIV\u0004ERH\u0004WXSVIH\u0004MR\u0004E\u0004",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.4mm Hozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": ")\\XVYWMSR\u0004;MHXL\u0010\u0004QQ \u0014\u0012\u0018\u0004Ɓ\u0004\u0014\u0012\u0018\u0019 ,S^^PI\u00048IQTIVEXYVI\u0010\u0004£' \u0016\u001b\u0014\u0004Ɓ\u0004\u0017\u0017\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0E]IV\u0004,IMKLX\u0010\u0004QQ \u0014\u0012\u0016\u0004Ɓ\u0004\u0004\u0014\u0012\u0016\u0019 &IH\u00048IQTIVEXYVI\u0010\u0004£' \u001b\u0014\u0004Ɓ\u0004\u001c\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4VMRX\u00047TIIH\u0010\u0004QQ\u0013W \u0016\u0014\u0004Ɓ\u0004\u0016\u0014\u0014 -6\u00048IQTIVEXYVI\u0010\u0004£' \u0016\u0014\u0004Ɓ\u0004\u0018\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "-RƼPP\u0010\u0004 \u0015\u0019\u0004Ɓ\u0004\u001b\u0019 *ER\u00047TIIH\u0010\u0004 \u0015\u0014\u0004Ɓ\u0004\u0018\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.8mm Hozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": ")\\XVYWMSR\u0004;MHXL\u0010\u0004QQ \u0014\u0012\u001b\u0019\u0004Ɓ\u0004\u0014\u0012\u001c\u0019 ,S^^PI\u00048IQTIVEXYVI\u0010\u0004£' \u0016\u001c\u0014\u0004Ɓ\u0004\u0017\u0019\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0E]IV\u0004,IMKLX\u0010\u0004QQ \u0014\u0012\u0017\u0004Ɓ\u0004\u0004\u0014\u0012\u0017\u0019 &IH\u00048IQTIVEXYVI\u0010\u0004£' \u001b\u0014\u0004Ɓ\u0004\u001c\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4VMRX\u00047TIIH\u0010\u0004QQ\u0013W \u0015\u0014\u0004Ɓ\u0004\u0015\u0016\u0014 -6\u00048IQTIVEXYVI\u0010\u0004£' \u0016\u0014\u0004Ɓ\u0004\u0018\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "-RƼPP\u0010\u0004 \u0015\u0019\u0004Ɓ\u0004\u001b\u0019 *ER\u00047TIIH\u0010\u0004 \u0015\u0014\u0004Ɓ\u0004\u001a\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2S^^PI\u00048IQTIVEXYVI\u0010\u0004{' \u0016\u0017\u0014\u0004Ɓ\u0004\u0016\u0019\u0014 *ER\u00047TIIH\u0010\u0004 \u0014\u0004Ɓ\u0004\u0016\u0014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "&IH\u00048IQTIVEXYVI\u0010\u0004{' \u0019\u0014\u0004Ɓ\u0004\u001c\u0014 &IH\u00041EXIVMEP +\u0011\u0015\u0014\u0013*6\u0018\u0004SV\u0004+PEWW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4VMRX\u00047TIIH\u0010\u0004QQ\u0013W \u0016\u0014\u0004Ɓ\u0004\u0019\u0014 &IH\u0004%HLIWMSR\u00041IXLSH 1EKMKSS *PI\\",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "*MVWX\u00040E]IV\u00047TIIH\u0010\u0004QQ\u0013W \u0015\u0019\u0004Ɓ\u0004\u0016\u0014 -RƼPP\u0004(IRWMX]\u0010\u0004 \u001b\u0019",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• )7(\u0004WEJI\u0004MR\u0004GSPSVW • )7(\u0004WEJI\u0004HYWX\u0004GETW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• 2SR\u0011QEVOMRK • )7(\u0004WEJI\u0004NMKW\u0004ERH\u0004Ƽ\\XYVIW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• 2S\u0011ƽ]\u0004TEVXW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Version 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Revision Date: 06/30/22",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0015\u001d\u0014\u0016\u0019\u00042\u0012\u0004,IEXLIV[MPHI\u0004&PZH\u0010\u00047YMXI\u0004\u0015\u0014\u0014\u0010\u00044ƽYKIVZMPPI\u0010\u00048<\u0004\u001b\u001c\u001a\u001a\u0014",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

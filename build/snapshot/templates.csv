@@ -683,7 +683,7 @@ Warm environment,Explore with estimates,M137,COC,UNKNOWN,yes,
 Warm environment,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M139,LCP,UNKNOWN,yes,
 Warm environment,Explore with estimates,M140,PBT,UNKNOWN,yes,
-Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,screened,hdt045 >= 80
+Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,yes,
 Warm environment,Explore with estimates,M142,nGen-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M143,nGen FLEX,UNKNOWN,yes,
 High-stiffness fixture,Strict,M029,ABS-CF,PASS,yes,
@@ -757,7 +757,7 @@ High-stiffness fixture,Explore with estimates,M040,TPU for AMS,UNKNOWN,screened,
 High-stiffness fixture,Explore with estimates,M045,PEBA,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M046,TPC / TPEE,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M049,PA6,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M052,PA12,UNKNOWN,yes,
+High-stiffness fixture,Explore with estimates,M052,PA12,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M053,PA12-CF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M054,PA12-GF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M055,PA66,UNKNOWN,screened,tensileModulusXY >= 5
@@ -798,7 +798,7 @@ High-stiffness fixture,Explore with estimates,M136,SAN,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M137,COC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M139,LCP,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M140,PBT,UNKNOWN,yes,
+High-stiffness fixture,Explore with estimates,M140,PBT,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M141,PET-LW,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M142,nGen-CF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M143,nGen FLEX,UNKNOWN,screened,tensileModulusXY >= 5
@@ -866,7 +866,7 @@ Flexible component,Explore with estimates,M042,TPU 90A,PASS,yes,
 Flexible component,Explore with estimates,M043,TPU 85A,PASS,yes,
 Flexible component,Explore with estimates,M045,PEBA,PASS,yes,
 Flexible component,Explore with estimates,M046,TPC / TPEE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M049,PA6,UNKNOWN,yes,
+Flexible component,Explore with estimates,M049,PA6,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M052,PA12,UNKNOWN,yes,
 Flexible component,Explore with estimates,M055,PA66,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M056,PA66-CF,UNKNOWN,screened,elongationXY >= 100

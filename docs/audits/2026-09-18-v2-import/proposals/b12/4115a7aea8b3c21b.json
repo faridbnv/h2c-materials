@@ -1,0 +1,426 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "4115a7aea8b3c21b86a15f3c4ffcbe042e47ba71d3cd0e56faa2d5b36a0af95b",
+    "url": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_PETG_Carbon_Filament_3D4Makers.pdf?v=1603971784",
+    "pages": 1,
+    "provider": "3D4Makers",
+    "manufacturer": null,
+    "docKey": "4115a7aea8b3c21b"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: carbon"
+    ],
+    "materialId": "M024",
+    "materialName": "PETG-CF",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers",
+      "Publisher": "3D4Makers",
+      "Title": "TechnicalDataSheet 3DPrintingFilament PETGCarbonFilament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_PETG_Carbon_Filament_3D4Makers.pdf?v=1603971784",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4115a7aea8b3c21b86a15f3c4ffcbe042e47ba71d3cd0e56faa2d5b36a0af95b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament PETGCarbonFilament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M024",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "PETGCarbon",
+        "Shared formulation key": "R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TechnicalDataSheet 3DPrintingFilament PETGCarbonFilament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.317 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.317",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1317",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers",
+        "Locator": "p. 1: Density",
+        "Notes": "\"1.317\" may be a thousands separator or a decimal one; read as 1.317 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.317g/cm³ ISO1183-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "60-100°C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "2-4",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: NozzleTemperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "NozzleTemperature 220-260°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "225°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "225",
+        "Nozzle max °C": "225",
+        "Nozzle requirement": "required",
+        "Bed °C": "60-100°C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "2-4",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzletemp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "BedTemperature 60-100°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "NozzleTemperature",
+      "raw": "220-260°C",
+      "fromBelow": false,
+      "line": "NozzleTemperature 220-260°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "BedTemperature",
+      "raw": "60-100°C",
+      "fromBelow": false,
+      "line": "BedTemperature 60-100°C"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Dryingrecommendations",
+      "raw": "2-4",
+      "fromBelow": false,
+      "line": "Dryingrecommendations 2-4hours,65°C"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzletemp",
+      "raw": "225°C",
+      "fromBelow": false,
+      "line": "Nozzletemp:225°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bedtemp",
+      "raw": "60°C",
+      "fromBelow": false,
+      "line": "Bedtemp:60°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "compoundedinthePETGyoucancreate3Dprintedpartswithexceptionalstiffness,greatdimensionalstability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MATERIALPROPERTIES TYPICALVALUE TESTMETHOD Disclaimer:3D4Makersmakesno",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TensileStrength 52.9MPa ISO527-2/5A/50",
+      "reason": "properties.csv carries no property for \"TensileStrength\""
+    },
+    {
+      "page": 1,
+      "text": "Tensilestrainatstrength 2.4% ISO527-2/5A/50",
+      "reason": "properties.csv carries no property for \"Tensilestrainatstrength 2.4%\""
+    },
+    {
+      "page": 1,
+      "text": "TensileModulus 4,015MPa ISO527-2/5A/50",
+      "reason": "properties.csv carries no property for \"TensileModulus\""
+    },
+    {
+      "page": 1,
+      "text": "TensileStressatBreak 41.3MPa ISO527-2/5A/50",
+      "reason": "properties.csv carries no property for \"TensileStressatBreak\""
+    },
+    {
+      "page": 1,
+      "text": "Tensilestrainatbreak 3.4% ISO527-2/5A/50",
+      "reason": "properties.csv carries no property for \"Tensilestrainatbreak\""
+    },
+    {
+      "page": 1,
+      "text": "CChhaarrppyyiimpmpaaccttrreessiissttaannccee 44..0033kkJJ//m²m² IISSO1O17799--11//11eeAA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ShoreHardness 76,4D ISO868",
+      "reason": "properties.csv carries no property for \"ShoreHardness\""
+    },
+    {
+      "page": 1,
+      "text": "Glasstransitiontemp.(Tg) 76°C ISO11357-1DSC",
+      "reason": "properties.csv carries no property for \"Glasstransitiontemp.(Tg) 76°C\""
+    },
+    {
+      "page": 1,
+      "text": "3Dprinter,slicingandothervariables",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "customertodeterminehowitis3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PrintSpeed 40-70mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infill:100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infillangle:45°/-45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printspeed:50mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Additionalinfo:Togetthebestresultswhileprintingweadviseyoutokeepthe3Dprinterinaroom wherethereis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "hardlyanydraftand/ortemperaturefluctuations.Keepthe3Dprinteroutofdirectsunlight.Whenthe3Dprinteris",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "notbeinguseditisimportanttokeepthe3D4MakersPETGCarbonfilamentinabagandstoredinacool,dryand",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Info@3D4Makers.com |3D4Makers.com |Waarderweg56,2031BPHaarlem |TheNetherlands",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

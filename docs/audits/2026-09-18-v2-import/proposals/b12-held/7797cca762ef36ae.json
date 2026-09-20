@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "7797cca762ef36aee5a2f4d6200fbe7a472d54df3ba77965812308c1f6c860cd",
+    "url": "https://drive.google.com/file/d/1ItgSlfsEUygFq3aj4uvBL_cIa5UgrG8E/view",
+    "pages": 3,
+    "provider": "Recreus / Filaflex",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/1ItgSlfsEUygFq3aj4uvBL_cIa5UgrG8E/view"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: polypropylene"
+    ],
+    "materialId": "M082",
+    "materialName": "PP",
+    "estimateIdentity": "PP",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-FILAFLEX-PP3D",
+      "Publisher": "Recreus / Filaflex",
+      "Title": "TECHNICAL DATA SHEET printing FDM Technology for its excellent processability.",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1ItgSlfsEUygFq3aj4uvBL_cIa5UgrG8E/view",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "7797cca762ef36aee5a2f4d6200fbe7a472d54df3ba77965812308c1f6c860cd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET printing FDM Technology for its excellent processability."
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "printing FDM Technology for its excellent processability.",
+        "Shared formulation key": "R-RECREUS-FILAFLEX-PP3D",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-FILAFLEX-PP3D",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET printing FDM Technology for its excellent processability."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PP3D is a medium fluidity polypropylene with an excellent impact resistance, specially designed for 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP3D is specifically indicated for 3D Printing Filament in which the main requirement is high",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended melt temperature range from 190°C to 250°C. Processing conditions should be",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The properties mentioned herein are exclusively related to pure grade PP3D, not in conjunction with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP3D complies with the European Directives regarding materials intended for contact with foodstuffs.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP3D should be stored in a dry atmosphere, on a paved, drained and not flooded area, at temperatures",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "under 60°C and protected from UV radiation. Storage under inappropriate conditions could initiate",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date / Revised: 20.01.2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Product: PP3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date / Revised: 20.01.2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Product: PP3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Instructions to use 3D primer for PP filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Follow the instructions below for using the 3D primer with the PP filament:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1º Open the primer bottle and apply it in the printing area.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2º Wait about 5 min before print to let the primer dry.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3º Set bed temp to 40ºC (not more temperature if not the part will warp).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4º When the part is finished, heat up the bed up to 85ºC to release the printed part.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Date / Revised: 20.01.2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Product: PP3D",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

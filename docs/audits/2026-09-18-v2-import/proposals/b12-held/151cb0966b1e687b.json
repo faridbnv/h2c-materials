@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "151cb0966b1e687bbb324e103be28eb33024e7162a739719d6e404bec98de363",
+    "url": "https://ultimaker.com/wp-content/uploads/2023/12/MakerBot-PC-ABS-FIRE-RETARDANT-for-METHOD.pdf",
+    "pages": 2,
+    "provider": "UltiMaker / MakerBot",
+    "manufacturer": null,
+    "docKey": "151cb0966b1e687b"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ULTIMAKER-MAKERBOT-MakerBot-PC-ABS-FIRE-RETARDANT-for-METHOD",
+      "Publisher": "UltiMaker / MakerBot",
+      "Title": "PC-ABS AND PC-ABS FR | Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ultimaker.com/wp-content/uploads/2023/12/MakerBot-PC-ABS-FIRE-RETARDANT-for-METHOD.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "151cb0966b1e687bbb324e103be28eb33024e7162a739719d6e404bec98de363"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PC-ABS AND PC-ABS FR | Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "UltiMaker",
+        "Product name": "PC-ABS",
+        "Shared formulation key": "R-ULTIMAKER-MAKERBOT-MakerBot-PC-ABS-FIRE-RETARDANT-for-METHOD",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ULTIMAKER-MAKERBOT-MakerBot-PC-ABS-FIRE-RETARDANT-for-METHOD",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PC-ABS AND PC-ABS FR | Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "108° (104°) C 25.5 (42.5) KJ/M2 37.2 (60) MPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FLAME RETARDANT PRINTING COMPLEX GEOMETRIES WITH SR-30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "with Stratasys SR-30 dissolvable support material. SR-30’s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "INDUSTRIAL 3D PRINTING FOR EVERY ENGINEER",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The Next Generation Desktop 3D Printing Platform",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

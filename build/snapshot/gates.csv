@@ -80,7 +80,7 @@ M078,Support for PLA/PETG,within,within,within,within,unknown,required
 M079,Support for ABS,within,within,within,within,unknown,required
 M080,Support for PA/PET,within,within,within,within,unknown,required
 M081,HIPS,within,within,within,within,unknown,required
-M082,PP,within,within,within,unknown,unknown,required
+M082,PP,within,within,within,within,unknown,required
 M083,PP-CF,within,within,within,within,requires-hardened,required
 M084,PP-GF,within,within,within,unknown,requires-hardened,unknown
 M085,PE,within,within,within,unknown,unknown,unknown
@@ -97,7 +97,7 @@ M095,PC-PBT,within,within,within,exceeds,unknown,unknown
 M096,PVDF,within,within,within,unknown,unknown,required
 M097,PEEK,excluded,exceeds,within,exceeds-recommended,unknown,required
 M098,PEKK,excluded,exceeds,exceeds,exceeds-recommended,unknown,required
-M099,PEI / ULTEM,excluded,exceeds,exceeds,exceeds,unknown,required
+M099,PEI / ULTEM,excluded,exceeds,within,exceeds,unknown,required
 M100,PSU,excluded,exceeds,exceeds,unknown,unknown,required
 M101,PESU / PES,excluded,exceeds,exceeds,unknown,unknown,required
 M102,PPSU,excluded,exceeds,exceeds,exceeds,unknown,required
