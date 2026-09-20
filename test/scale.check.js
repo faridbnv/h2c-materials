@@ -46,17 +46,18 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     //   2026-09-20   7,461 measurements   compile+validate 177 s at 2x   (b11 and b12; the budget was breached)
     //   2026-09-20   the same data        compile+validate 149 s at 2x   (the Cholesky takes two columns of a
     //                                     row at a time; 36 s at 1x, and bit for bit the same factor)
+    //   2026-09-20   the same data        compile+validate 150.5 s at 2x on a rerun, and the check failed
+    //   2026-09-20   the same data        compile+validate  16 s at 2x   (the kernel is solved by block,
+    //                                     DECISIONS D79; the estimate stage is 5.7 s at 1x, down from 36)
     //
-    // 149 s against a 150 s budget is not passing in any useful sense. This check exists to say when the exact
-    // block solve has to be built, and it is saying it now: the margin is under a second, the next batch takes
-    // it, and there is no third micro-optimisation of this size left in the dense path. What comes next is
-    // DECISIONS D77's option 2 and not a larger number here.
+    // The budget was raised once, from 90 s to 150 s, with the measurement written beside it. When it was
+    // breached a second time it was not raised again: a budget raised the second time it is breached has stopped
+    // being a budget. What was built instead is what this check had been saying to build since the day before,
+    // and it bought a factor of nine rather than the factor of one and a bit a larger number would have bought.
     //
-    // The corpus has grown 2.3x in a day, so this 2x check now covers 4.5x what it did, and the estimate
-    // model's Gaussian process is cubic in observations. The budget is raised to 150 s with that measurement
-    // beside it rather than removed: what it is for is to say when the exact block solve (DECISIONS D77, the
-    // plan's Phase 5 option 2) has to be built, and the answer is now soon. The core compile and validate,
-    // which is what the schema gate and the database's own correctness rest on, is separately held to 5 s.
+    // What the block solve is cubic in is the largest chemical group, not the corpus. A maker's new PLA grades
+    // grow that group and a new polymer adds a block, so the corpus can grow a long way before this reads 150 s
+    // again — but it is still cubic in something, so this check still has something to say.
     assert.ok(t1 - t0 < 3000, `schema gate took ${Math.round(t1 - t0)} ms`);
     assert.ok(t2 - t1 < 150000, `compile and validate took ${Math.round(t2 - t1)} ms`);
     const t3 = performance.now();

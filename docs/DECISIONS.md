@@ -85,6 +85,7 @@ break if it were reversed, because that is the part that gets lost.
 | D76 | The standards a measurement names are a typed list, and a fragment is not a standard | In force |
 | D77 | The spread search sees a sample; the model still sees everything | In force |
 | D78 | A limit a material's own grades publish is a floor for its shown range | In force |
+| D79 | The kernel is solved by block, and the estimates are the dense solve's | In force |
 
 <!-- end index -->
 
@@ -1731,6 +1732,8 @@ chemical group with the shared columns solved as a low-rank correction, which ch
 is in the plan: any headline above 4,000 observations, or the estimate stage above five minutes. `npm run build`
 prints each stage's time so the trend is visible rather than remembered.
 
+*It got slow again on 2026-09-20, two batches after this was written, and the block solve was built: D79.*
+
 Reversing it makes the build's cost cubic in a number the import is about to multiply by ten, for spreads that do
 not change.
 
@@ -1761,3 +1764,52 @@ A reader is then shown a range that says the material might be weaker than it ha
 The alternative was to make the limits hard in the fit, which would have thrown away their spread and with it the
 model's ability to learn that a maker's bound is sometimes conservative. This changes what is shown, not what is
 learned.
+
+## D79. The kernel is solved by block, and the estimates are the dense solve's
+
+D77 said the exact half of the scaling problem, if the stage got slow again, was to block the kernel by chemical
+group and solve the shared columns as a low-rank correction. It got slow again. `npm run scale` builds twice the
+data and read 111 s in September's first week, 177 s after two batches, and 150.5 s after a Cholesky that loaded
+each shared entry once instead of twice. Its budget was raised once, from 90 s to 150 s, with the measurement
+written beside it, and not a second time: a budget raised the second time it is breached has stopped being one.
+
+**The model's covariance is a sum of column terms, and almost every column belongs to one chemical group.** A
+polymer identity sits in one group, a material has one identity, a product has one material — so the identity
+columns, the material's own deviation and the product's own deviation are all inside a group. What reaches across
+is few: the global mean, the fill classes, fill by morphology, the declared variant classes, the test houses and
+the two melting-point covariates. On this snapshot that is 38 to 43 columns against 549 to 927 observations, in
+18 to 20 blocks.
+
+So K = D + UU', D block-diagonal and U narrow, and Woodbury solves it for the sum of the blocks' cubes plus a term
+in the rank, instead of the whole matrix's cube. Measured on today's data, the sum of the blocks' cubes is 3.3% to
+4.7% of n³. The estimate stage went from 36 s to 5.7 s, and `npm run scale` from 150.5 s to 16 s.
+
+**Which columns are local is read off the data, not off the column's name.** It has to be: `v:grade:undisclosed
+dense filler` is a product-level column by its name and spans two chemical groups in fact, because the same
+undisclosed filler is declared on products of two polymers; and a manufacturer who sells into one group only is a
+shared column by its name and local in fact. A column whose observations all fall in one block is local, every
+other column is in U, and the solver knows nothing about polymers.
+
+**It is not bit-identical, and this is the first of the three speedups that is not.** The other two — interning
+the kernel's column names, and the two-column Cholesky — were the same operations in the same order, and each was
+checked by building with and without it and finding the digest over every material's headline block unmoved. This
+one adds the same products in a different order, and floating-point addition is not associative. Measured against
+a dense solve of the same matrix: the likelihood agrees to 1e-13 relative, the posterior weights to 1e-8, a
+prediction's mean to 1e-13, and a posterior variance to about 1e-12 absolute against a prior variance of 0.66.
+`test/estimate-solver.test.js` holds all of that, on a fixture and on this database's own observations.
+
+What that cost, in the build, is three numbers and the sentences quoting them:
+
+- `tensileModulusXY`'s this-grade back-test counts 2 of 72 true values above the plausible range where it counted
+  3, and `elongationXY`'s this-material back-test counts 3 of 49 below where it counted 2. One hold-out value per
+  case sits exactly on its range boundary, and a twelfth-digit difference decides which side.
+- `tensileStrengthXY`'s likely coverage reads 0.786 where it read 0.804, which is one held headline of 57.
+
+**No estimate moved and no screen changed.** `build/snapshot/headlines.csv`, `gates.csv`, `templates.csv` and
+`warnings.csv` are identical; `screening.csv` differs in those two counts and says `yes` on all 34 ends as
+before. A range shown to a reader is three significant figures, and nothing came near moving one.
+
+The alternative was to raise the budget again, which buys a factor of one and a bit and has to be done again next
+batch. This buys a factor of nine and buys it in the shape of the problem: what it is cubic in is the largest
+chemical group rather than the corpus, and a maker's new PLA grades grow that group while a new polymer adds a
+block. `npm run scale` still has something to say, which is the point of keeping it.

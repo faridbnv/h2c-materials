@@ -2,7 +2,8 @@
 // variants, test house, melting point, the material's and the product's own deviations), the fit, the posterior,
 // prediction with observations hidden, and the empirical-Bayes spreads.
 
-import { cholesky, inverseFromCholesky, invertSmall } from './numerics.js';
+import { invertSmall } from './numerics.js';
+import { blockSolver } from './solver.js';
 import { identityOf, HEAD } from './model.js';
 
 /**
@@ -73,77 +74,103 @@ export function makeKernel(key, S, model) {
     if (a.f && a.f === b.f) s += productSd(a.m, hp) ** 2;
     return s;
   };
-  return { point, cov };
+
+  // The same covariance written as a matrix of columns, which is what the block solver takes: every column's
+  // value already multiplied by its own spread, so an entry of K is the dot product of two rows plus the noise.
+  // The material's deviation and the product's are columns here too — an indicator apiece — because they are
+  // what makes the matrix block-diagonal rather than diagonal, and the solver has to see them to use them.
+  //
+  // The block a point belongs to is its material's chemical group: a material has one identity and an identity
+  // one group, so every column but the few the model shares across chemistry stays inside one block.
+  const structure = (pts, hp, noise) => {
+    const sd = spreadsOf(hp);
+    // The material's and the product's own columns are numbered after the kernel's, in one space: a material
+    // identifier and a formulation key cannot collide because each carries which it is.
+    const extra = new Map();
+    const at = (key) => { let i = extra.get(key); if (i === undefined) { i = ids.size + extra.size; extra.set(key, i); } return i; };
+    const rows = pts.map((pt) => {
+      const width = pt.idx.length + (pt.f ? 2 : 1);
+      const idx = new Int32Array(width), val = new Float64Array(width);
+      let k = 0;
+      for (let t = 0; t < pt.idx.length; t++) { const c = pt.idx[t]; idx[k] = c; val[k] = pt.val[t] * sd[c]; k++; }
+      idx[k] = at(`m:${pt.m.id}`); val[k] = hp.sm; k++;
+      if (pt.f) { idx[k] = at(`f:${pt.f}`); val[k] = productSd(pt.m, hp); }
+      return { idx, val };
+    });
+    return [rows, pts.map((pt) => S.info(pt.m).group), noise];
+  };
+  return { point, cov, structure };
 }
 
 export function fitModel(key, obs, S, model, hp) {
-  const { point, cov } = makeKernel(key, S, model);
+  const { point, cov, structure } = makeKernel(key, S, model);
   const n = obs.length;
   const pts = obs.map((o) => point(o.m, o.f, S.grades.get(o.gradeId)?.manufacturer));
   const mean = obs.reduce((a, o) => a + o.y, 0) / n;
-  const r = obs.map((o) => o.y - mean);
-  const K = new Float64Array(n * n);
-  for (let i = 0; i < n; i++) for (let j = 0; j <= i; j++) { const v = cov(pts[i], pts[j], hp) + (i === j ? obs[i].noise2 + 1e-9 : 0); K[i * n + j] = v; K[j * n + i] = v; }
-  const L = cholesky(K, n);
-  if (!L) return null;
-  let logLik = 0; { const z = new Float64Array(n); for (let i = 0; i < n; i++) { let s = r[i]; for (let k = 0; k < i; k++) s -= L[i * n + k] * z[k]; z[i] = s / L[i * n + i]; logLik += -0.5 * z[i] * z[i] - Math.log(L[i * n + i]); } }
-  return { logLik, n, pts, mean, r, L, cov, point };
+  const r = Float64Array.from(obs, (o) => o.y - mean);
+  const solver = blockSolver(...structure(pts, hp, obs.map((o) => o.noise2 + 1e-9)));
+  if (!solver) return null;
+  // K^-1 r is the posterior weight vector and half of the likelihood at once, so it is computed here and the
+  // posterior keeps it rather than forming the inverse to multiply by.
+  const alpha = solver.apply(r);
+  let quadratic = 0;
+  for (let i = 0; i < n; i++) quadratic += r[i] * alpha[i];
+  return { logLik: -0.5 * quadratic - 0.5 * solver.logDet, n, pts, mean, r, alpha, solver, cov, point };
 }
 
+/**
+ * The fit with what a prediction needs beside it. The diagonal of K^-1 is what a conflict is judged against and
+ * costs the blocks' inverses, so it is computed the first time something asks and not before: the hyperparameter
+ * search makes hundreds of fits per headline and reads none of it.
+ */
 export function posterior(fit) {
-  const { n, L, r } = fit;
-  const Ki = inverseFromCholesky(L, n);
-  const alpha = new Float64Array(n);
-  for (let i = 0; i < n; i++) { let s = 0; for (let j = 0; j < n; j++) s += Ki[i * n + j] * r[j]; alpha[i] = s; }
-  return { ...fit, Ki, alpha };
+  if (!fit) return fit;
+  const P = { ...fit };
+  let d = null;
+  Object.defineProperty(P, 'diagKi', { get: () => (d ??= fit.solver.diag()) });
+  return P;
 }
 
 /** Latent headline of a product (material m, formulation f, test house), optionally hiding observations S. */
 export function predict(P, hp, m, f, manufacturer, hide = []) {
-  const { n, pts, Ki, alpha, r, mean, cov, point } = P;
+  const { n, pts, alpha, r, mean, cov, point, solver } = P;
   const t = point(m, f, manufacturer);
   const k = new Float64Array(n);
   for (let i = 0; i < n; i++) k[i] = cov(t, pts[i], hp);
   if (!hide.length) {
+    const v = solver.apply(k);
     let mu = mean, q = 0;
     const w = new Float64Array(n);
     for (let i = 0; i < n; i++) {
       if (!k[i]) continue;
       mu += k[i] * alpha[i];
-      let v = 0; for (let j = 0; j < n; j++) v += Ki[i * n + j] * k[j];
-      w[i] = v; q += k[i] * v;
+      w[i] = v[i]; q += k[i] * v[i];
     }
     return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q)), weights: w };
   }
 
-  // Hiding observations H downdates the inverse: A = Ki - Ki[:,H] B^-1 Ki[H,:] with B = Ki[H,H], zero
-  // on H's rows and columns. Only A r and A k are needed, so they are computed as vectors and the n x n
-  // matrix is never formed: forming it for every calibration hold-out made calibration cubic in the
-  // number of observations (13 s of a 13.6 s compile at twice today's data).
+  // Hiding observations H downdates the inverse: A = Ki - Ki[:,H] B^-1 Ki[H,:] with B = Ki[H,H], zero on H's
+  // rows and columns. Only A r and A k are needed, and each is two solves against K rather than a row of an
+  // inverse that is never formed: forming it for every calibration hold-out made calibration cubic in the
+  // number of observations (13 s of a 13.6 s compile at twice the data of 2026-09-19).
   const h = hide.length;
-  const hidden = new Set(hide);
-  const Binv = invertSmall(hide.map((a) => hide.map((b) => Ki[a * n + b])));
+  const Binv = invertSmall(solver.sub(hide));
   for (const i of hide) k[i] = 0;
-  // Ki[H_q, visible columns] against r and against k, then B^-1 applied to each.
-  const tr = new Float64Array(h), tk = new Float64Array(h);
-  for (let q = 0; q < h; q++) {
-    const row = hide[q] * n;
-    let sr = 0, sk = 0;
-    for (let j = 0; j < n; j++) { if (hidden.has(j)) continue; sr += Ki[row + j] * r[j]; sk += Ki[row + j] * k[j]; }
-    tr[q] = sr; tk[q] = sk;
-  }
+  const visible = Float64Array.from(r);
+  for (const i of hide) visible[i] = 0;
+  const a = solver.apply(visible), b = solver.apply(k);
   const cr = new Float64Array(h), ck = new Float64Array(h);
-  for (let p = 0; p < h; p++) for (let q = 0; q < h; q++) { cr[p] += Binv[p][q] * tr[q]; ck[p] += Binv[p][q] * tk[q]; }
+  for (let x = 0; x < h; x++) for (let y = 0; y < h; y++) { cr[x] += Binv[x][y] * a[hide[y]]; ck[x] += Binv[x][y] * b[hide[y]]; }
+  const spreadR = new Float64Array(n), spreadK = new Float64Array(n);
+  for (let x = 0; x < h; x++) { spreadR[hide[x]] = cr[x]; spreadK[hide[x]] = ck[x]; }
+  const downR = solver.apply(spreadR), downK = solver.apply(spreadK);
 
   let mu = mean, q2 = 0;
   const w = new Float64Array(n);
   for (let i = 0; i < n; i++) {
     if (!k[i]) continue;
-    const row = i * n;
-    let ar = 0, ak = 0;
-    for (let j = 0; j < n; j++) { if (hidden.has(j)) continue; ar += Ki[row + j] * r[j]; ak += Ki[row + j] * k[j]; }
-    for (let p = 0; p < h; p++) { ar -= Ki[row + hide[p]] * cr[p]; ak -= Ki[row + hide[p]] * ck[p]; }
-    mu += k[i] * ar;
+    const ak = b[i] - downK[i];
+    mu += k[i] * (a[i] - downR[i]);
     w[i] = ak; q2 += k[i] * ak;
   }
   return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q2)), weights: w };

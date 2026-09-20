@@ -82,7 +82,7 @@ export function fitWithConflicts(key, observations, S, model, hp) {
     // other materials, not a material's own data yielding to a family made of other compounds (PP's own 0.39 GPa and
     // 460 %, a soft copolymer, once gave way to PP-CF, PP-GF and two variants: 1.5-4.5 GPa; audit 2026-09-15).
     const sole = (i) => !obs.some((o, j) => j !== i && o.m.id === obs[i].m.id);
-    for (let i = 0; i < P.n; i++) if (!obs[i].conflict && !sole(i) && Math.abs(P.alpha[i] / Math.sqrt(P.Ki[i * P.n + i])) > conflictZ) flagged.push(i);
+    for (let i = 0; i < P.n; i++) if (!obs[i].conflict && !sole(i) && Math.abs(P.alpha[i] / Math.sqrt(P.diagKi[i])) > conflictZ) flagged.push(i);
     if (!flagged.length) break;
     obs = obs.map((o, i) => (flagged.includes(i) ? { ...o, conflict: true, noise2: o.noise2 * conflictNoiseFactor } : o));
     P = posterior(fitModel(key, obs, S, model, hp));

@@ -120,7 +120,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 |---|---:|---:|---:|---:|---:|---:|
 | density | 549 | 104 | 81% | 95% | ×1.13 | 0.0198 (5338 pairs) |
 | tensileModulusXY | 902 | 77 | 81% | 96% | ×1.53 | 0.325 (597 pairs) |
-| tensileStrengthXY | 927 | 56 | 80% | 96% | ×1.65 | 0.232 (1302 pairs) |
+| tensileStrengthXY | 927 | 56 | 79% | 96% | ×1.65 | 0.232 (1302 pairs) |
 | elongationXY | 703 | 77 | 81% | 96% | ×2.76 | 0.74 (1256 pairs) |
 | hdt045 | 719 | 66 | 80% | 96% | 19.2 °C | 5.24 (917 pairs) |
 
@@ -139,14 +139,14 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | density | this-grade | 0 | 0 | cannot screen | 0 | cannot screen |
 | density | this-material | 62 | 4 | 98.42% point | 2 | 2.5% point |
 | density | family | 104 | 1 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | this-grade | 72 | 3 | 97.5% point | 0 | 2.5% point |
+| tensileModulusXY | this-grade | 72 | 2 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-material | 50 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | family | 77 | 1 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-grade | 54 | 2 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-material | 36 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 56 | 0 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-grade | 51 | 1 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 49 | 2 | 98.91% point | 2 | 2.17% point |
+| elongationXY | this-material | 49 | 2 | 98.91% point | 3 | 2.17% point |
 | elongationXY | family | 77 | 1 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 53 | 1 | 97.5% point | 0 | 2.5% point |
 | hdt045 | this-material | 42 | 2 | 98.37% point | 1 | 2.5% point |

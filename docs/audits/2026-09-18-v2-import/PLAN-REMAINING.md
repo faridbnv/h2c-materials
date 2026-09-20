@@ -74,13 +74,11 @@ The counts are in [STATUS.md](STATUS.md). What matters about them:
 Most of it is copies. Fetch and dedupe first, then the documents of brands that reach the market only through a
 retailer. Last, so every twin has a manufacturer's sheet to point at.
 
-## 5. The estimate stage at scale — **this now blocks the programme**
+## 5. The estimate stage at scale — built, 2026-09-20
 
-`npm run scale` fails. It builds twice today's data and reads **150.5 s against its 150 s budget**; a second run of
-the same thing read 149.2 s. A check the measurement straddles by a third of a per cent is not measuring anything,
-and what it is there to say is that the exact block solve has to be built.
-
-The trend, each figure measured and recorded beside the budget in `test/scale.check.js`:
+`npm run scale` is green. The exact block solve is in (DECISIONS D79): the kernel is block-diagonal in the chemical
+groups plus forty-odd columns that reach across them, and Woodbury solves it for the sum of the blocks' cubes
+instead of the whole matrix's.
 
 | | measurements | compile + validate at 2x |
 |---|---:|---:|
@@ -89,31 +87,18 @@ The trend, each figure measured and recorded beside the budget in `test/scale.ch
 | 2026-09-19 | the same data | 100 s — the kernel's covariance stopped looking a column up by name |
 | 2026-09-20 | 7,461 | 177 s — b11 and b12 |
 | 2026-09-20 | the same data | 149 s — the Cholesky takes two columns of a row at a time |
+| 2026-09-20 | the same data | 150.5 s on a rerun, and the check failed |
+| 2026-09-20 | the same data | **16 s** — the kernel is solved by block |
 
-Both of those speedups are exact: each was checked by building with and without it and comparing a digest over
-every material's headline block, which did not move. The budget was raised once, on 2026-09-19, from 90 s to 150 s
-with the measurement written beside it. **It has not been raised again**, because raising a budget the second time
-it is breached is how a check stops being one.
+The budget stayed 150 s throughout. It was raised once, on 2026-09-19, from 90 s with the measurement beside it;
+when it was breached a second time it was not raised again, and what was built instead bought a factor of nine
+rather than the factor of one and a bit a larger number would have bought.
 
-There is no third optimisation of that size left in the dense path: after both, the stage is still 50% Cholesky and
-12% its inverse, and those are the number of dense fits and their size. What removes them is D77's option 2, and
-nothing else:
+The estimate stage is 5.7 s where it was 36 s, which is most of what `npm test` spends too: the suite was 6.2
+minutes before this and every test that builds the database pays the estimate stage.
 
-- Partition each headline's kernel by chemical group. The columns that live inside one group are `g:`, `p:`, the
-  material's own deviation and the product's own deviation — a material belongs to one group, and a formulation to
-  one material — so those form a block-diagonal matrix, one block per group.
-- The columns that span groups are few: the global mean, the fill classes, fill by morphology, the declared variant
-  classes, the test houses and the two melting-point covariates. Fifty or sixty columns against fifteen hundred
-  observations.
-- K is then a block-diagonal matrix plus a low-rank term, and a Woodbury solve costs the sum of the blocks' cubes
-  rather than the whole matrix's, plus a term in the rank. With nineteen families that is two orders of magnitude
-  on the part that dominates.
-
-It is an exact reformulation, not an approximation, but it rewrites `fitModel`, `posterior` and the hide-downdate in
-`predict`, and an error in it would move every estimate quietly. It needs a run of its own and a back-test that
-shows the estimates it gives are the estimates the dense solve gives.
-
-Until it is built, every batch after b12 makes `npm run scale` worse.
+No estimate moved and no screen changed. Two hold-out counts in the back-test differ by one, where a true value
+sits exactly on its range boundary and a twelfth-digit difference decides which side; D79 names both.
 
 ## 6. What the pipeline still does not do
 
