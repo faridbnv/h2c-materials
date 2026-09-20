@@ -1,0 +1,607 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "eab16ea7e85001dad15170864dde242e7425dd481c50d92f97da3b7a50110e05",
+    "url": "https://siraya.tech/pages/flex-tpu-64d-filament-tds",
+    "pages": 1,
+    "provider": "Siraya Tech",
+    "manufacturer": "Siraya Tech",
+    "docKey": "https://siraya.tech/pages/flex-tpu-64d-filament-tds"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "64D",
+    "support": true,
+    "signals": [
+      "name: tpu",
+      "filler: cf (from the sheet, not the name)",
+      "hardness: 64D"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": true,
+    "reasons": [
+      "\"Flex TPU 64D\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-SIRAYA-flex-tpu-64d-filament-tds",
+      "Publisher": "Siraya Tech",
+      "Title": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://siraya.tech/pages/flex-tpu-64d-filament-tds",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "eab16ea7e85001dad15170864dde242e7425dd481c50d92f97da3b7a50110e05"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Flex TPU 64D",
+        "Shared formulation key": "D-SIRAYA-flex-tpu-64d-filament-tds",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-flex-tpu-64d-filament-tds",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.23 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.23",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1230",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-flex-tpu-64d-filament-tds",
+        "Locator": "p. 1: Filament Density g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filament Density g/cm³  1.23  ISO 1183"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "45°C",
+        "Bed state": "range",
+        "Bed min °C": "45",
+        "Bed max °C": "45",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Surfaces",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-flex-tpu-64d-filament-tds",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-80mm/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Start slower (e.g., 15-20mm/s) and slightly hotter (e.g., +5°C on nozzle) for be"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1-2mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Printer type  Enclosure not required"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "not required",
+      "fromBelow": false,
+      "line": "Printer type  Enclosure not required"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Build Plate",
+      "raw": "Surfaces",
+      "fromBelow": false,
+      "line": "Build Plate Surfaces  PEI (smooth or textured) Glass with glue stick or Magigoo Specialized flexible filament build surfaces"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Build Plate",
+      "raw": "Clean",
+      "fromBelow": false,
+      "line": "Build Plate Clean  Isopropyl alcohol wipe"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "240-270°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature  240-270°C  Start in the middle (e.g., 255°C) and perform a temperature tower test for optimal layer adhesion and surface finish."
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "45°C",
+      "fromBelow": false,
+      "line": "Bed Temperature  45°C  A heated bed is recommended for first layer adhesion."
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30-80mm/s",
+      "fromBelow": false,
+      "line": "Print Speed  30-80mm/s  Start conservatively (e.g., 30-40mm/s) and increase speed gradually while monitoring print quality."
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "Start slower (e.g., 15-20mm/s) and slightly hotter (e.g., +5°C on nozzle) for be",
+      "fromBelow": false,
+      "line": "First Layer  Start slower (e.g., 15-20mm/s) and slightly hotter (e.g., +5°C on nozzle) for best adhesion.  Ensure proper nozzle height (z-offset)."
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "1-2mm",
+      "fromBelow": false,
+      "line": "Retraction  1-2mm distance, 20-30mm/s speed for direct drive  TPU generally requires minimal retraction to prevent clogging and stringing. Start with low values, potentially slightly more for Bowden b"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Need help? Call us +13234128788",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Roamr TPU Air HR 80A TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silicone Defiant 25A Defiant 15A Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About Resin/Filament User Guide Print Setting Profile V5 Test model Safety Data Sheet (SDS) Technical Data Sheet (TDS) FAQ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BLOG FDM printing Tips 3D Resin and Silicone Tips Certification Announcement About Siraya Tech A letter from our founder",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Roamr TPU Air HR 80A TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NFEP A4 NFEP Film A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About Resin/Filament User Guide Print Setting Profile V5 Test model Safety Data Sheet (SDS) Technical Data Sheet (TDS) FAQ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sales Resin Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament Roamr TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silicone Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NFEP A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex TPU 64D Filament TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex TPU 64D TDS. pdf  Download PDF Version",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex TPU 64D User Guide  View Now",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex TPU 64D Introduction  View Product Page Now",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex TPU 64D MSDS  View Now",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Product Introduction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shore 64D semi-rigid hardness for added structural stability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 10993-5/-10/-23 tested for biocompatibility support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Property Data",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Stress at Break (MPa)  39  ASTM D638",
+      "reason": "the sheet states Tensile break strength in (MPa), and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Young’s Modulus (MPa)  392  ASTM D638",
+      "reason": "the sheet states Tensile modulus in (MPa), and the database keeps it in GPa"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (N·m·m^-3)  120  ASTM D638",
+      "reason": "the sheet states Elongation at break in (N·m·m^-3), and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at Break(%)  395  ASTM D638",
+      "reason": "the sheet states Elongation at break in Break(%), and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "Tensile stress at 100%  25  ASTM D412",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in 100%, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile stress at 200%  30  ASTM D412",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in 200%, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile stress at 300%  36  ASTM D412",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in 300%, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature (℃)  133  ISO 306",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Shore Hardness (D)  64  ISO 7619",
+      "reason": "the sheet states Hardness in (D), and the database keeps it in Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source)"
+    },
+    {
+      "page": 1,
+      "text": "Biocompatibility  √  ISO 10993-5/-10/-23",
+      "reason": "properties.csv carries no property for \"Biocompatibility\""
+    },
+    {
+      "page": 1,
+      "text": "Melting Point (℃)  220  ASTM D3418",
+      "reason": "the line names Melting temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "3. Preparing for Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Drying  Use a dedicated filament d ryer or convection oven at 5 0-60°C for at least 4-6 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle  S tandard brass or higher grad e will work Size request: 0.4mm and above",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS Compatibility  Compatible with Original Bambu Lab AMS. Not compatible with AMS 2. Not tested for AMS Lite yet.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Printing with Fibreheart TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling Fan  Use moderate part cooling (e.g., 70-100%)  Too much cooling can weaken layer adhesion; too little can worsen overhangs and stringing. Start low and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flow Rate (Extrusion Multiplier)  TPU often requires a slightly lower flow rate (e.g., 93-96%) than rigid filaments.  Calibrate for optimal results. Print a cal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Post-Processing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Supports printed in TPU 64D can be challenging due to strong layer bonding.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Use needle-nose pliers and flush cutters for removal. The rigidity of 64D might make supports snap off more cleanly than softer TPUs in some cases.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6. Troubleshooting Common Issues",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About the shop Siraya Tech: Maker of Performance UV Resins for 3D printing and Platinum Silicone Crafting superior products for your projects. Email: support@si",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

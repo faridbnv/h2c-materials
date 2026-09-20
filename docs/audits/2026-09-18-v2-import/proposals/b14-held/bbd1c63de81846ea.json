@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "bbd1c63de81846ea7d8b9e38145a4f37d29689e1162ba2bd78665700728d6147",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3349",
+    "pages": 1,
+    "provider": "Filament2Print",
+    "manufacturer": null,
+    "docKey": "bbd1c63de81846ea"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by Filament2Print and names no maker of its own; whether Filament2Print is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-KCL-PLA10",
+      "Publisher": "Filament2Print",
+      "Title": "Technical Specification",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3349",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bbd1c63de81846ea7d8b9e38145a4f37d29689e1162ba2bd78665700728d6147"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Specification"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "KCL Formi 3D Nordic Birch",
+        "Shared formulation key": "R-FILAMENT2PRINT-KCL-PLA10",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-KCL-PLA10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Specification"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "KCL Formi™ 3D Nordic Birch",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "fibers and native polylactide acid. A 10% fiber content keeps the PLA-based material stable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "during 3D printing, while also improving its mechanical and other properties of PLA. Due to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grade PLA 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "mechanical Density, g/cm3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EN ISO 1183 1,21 1,21",
+      "reason": "properties.csv carries no property for \"EN\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile strength, Mpa* ISO 527 46* 22*",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile strength, Mpa*\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile modulus, Mpa* ISO 527 6650* 3250*",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile modulus, Mpa*\""
+    },
+    {
+      "page": 1,
+      "text": "Peak melt temperature, °C ISO 11357 135-180 135-180",
+      "reason": "properties.csv carries no property for \"Peak melt temperature, °C\""
+    },
+    {
+      "page": 1,
+      "text": "Glass transition temperature,°C ISO 11357 60 60",
+      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "10 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* Printing speed 50 mm/s, Wall 7.2-7.5 mm, measured 10mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "shades stay bright. For 3D extrusion, it is advisable to use a PLA-based color masterbatch for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Post processing 3D printed parts can be finished using traditional wood processing techniques such as",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "overnight at 50-55°C, preferably using a dehumidifying dryer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Safety The maximum recommended processing temperature is 200°C. Overheating can lead to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt flow index (190 ºC/10kg) ISO 1133 33 33",
+      "reason": "the sheet states Melt mass-flow rate in °C/10kg), and the database keeps it in g/10 min"
+    },
+    {
+      "page": 1,
+      "text": "conditions at temperatures below 50°C. Exposure to air humidity can raise the moisture",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

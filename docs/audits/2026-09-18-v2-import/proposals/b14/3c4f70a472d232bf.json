@@ -1,0 +1,721 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+    "url": "https://nanovia.tech/en/ref/nanovia-insublend/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": null,
+    "docKey": "https://nanovia.tech/en/ref/nanovia-insublend/"
+  },
+  "identity": {
+    "polymer": "HIPS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: hips"
+    ],
+    "materialId": "M081",
+    "materialName": "HIPS",
+    "estimateIdentity": "HIPS",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-Insublend",
+      "Publisher": "Nanovia",
+      "Title": "Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/ref/nanovia-insublend/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Insublend",
+        "Shared formulation key": "R-NANOVIA-Insublend",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-Insublend",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.08 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1080",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Insublend",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  1.08  g/cm 3  ISO 1183"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "67 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.067",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Insublend",
+        "Locator": "p. 1: Tensile modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus  67  MPa  ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2430 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2430",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Insublend",
+        "Locator": "p. 1: Flexural modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural modulus  2430  MPa  ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260 – 280 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "130 – 150 °C",
+        "Bed state": "range",
+        "Bed min °C": "130",
+        "Bed max °C": "150",
+        "Bed requirement": "required",
+        "Chamber °C": "110 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "110",
+        "Chamber max °C": "110",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-Insublend",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Extrusion temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50 – 70 mm/s"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "0.5 %"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion temperature  260 – 280  °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "between 260 and 280 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "130 – 150 °C",
+        "Bed state": "range",
+        "Bed min °C": "130",
+        "Bed max °C": "150",
+        "Bed requirement": "required",
+        "Chamber °C": "110 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "110",
+        "Chamber max °C": "110",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-Insublend",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Extrusion temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50 – 70 mm/s"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "0.5 %"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Plate temperature  130 – 150  °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "260 – 280 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature  260 – 280  °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate temperature",
+      "raw": "130 – 150 °C",
+      "fromBelow": false,
+      "line": "Plate temperature  130 – 150  °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "110 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature  110  °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "50 – 70 mm/s",
+      "fromBelow": false,
+      "line": "Printing speed  50 – 70  mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Warping",
+      "raw": "0.5 %",
+      "fromBelow": false,
+      "line": "Warping  0.5 / 0.7  %"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "between 260 and 280 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature : between 260 and 280 °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated bed temperature",
+      "raw": "between 130 and 150 °C",
+      "fromBelow": false,
+      "line": "Heated bed temperature : between 130 and 150 °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "110 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature : 110 °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Insublend : High voltage & UL94 V0 fire resistance Starting at : 157,48 &euro; ex. VAT / kg Engineered for outdoor electrical equipment, Nanovia Insuble",
+      "reason": "properties.csv carries no property for \"Nanovia Insublend : High voltage &\""
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g 2000 g sample Clear",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Insublend : High voltage & UL94 V0 fire resistance quantity",
+      "reason": "properties.csv carries no property for \"Nanovia Insublend : High voltage &\""
+    },
+    {
+      "page": 1,
+      "text": "3 - 5  5%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 +  10%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: N/A Categories: 3D printing filament , Material , Specific Tags: Electrical usage , Non-flammable UL94 VO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1,75 & 2,85  mm  +/- 50 µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elong. at break  20  %  ISO 178",
+      "reason": "properties.csv carries no property for \"Elong. at break\""
+    },
+    {
+      "page": 1,
+      "text": "Moisure absorption  0.10  %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tg  140  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DTUL  114  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability  V0  UL 94  at 1.6mm",
+      "reason": "properties.csv carries no property for \"Flammability\""
+    },
+    {
+      "page": 1,
+      "text": "5VA  UL 94  at 2.5 mm",
+      "reason": "properties.csv carries no property for \"5VA\""
+    },
+    {
+      "page": 1,
+      "text": "1  MHz : 2.9  IEC60250",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "Dissipation Factor  100  Hz : 0.0003  IEC60250",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "1  MHz : 0.0004  IEC60250",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Constant  100  Hz : 2.9  IEC60250",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "Dielectric strength  29  KV / mm  IEC60243",
+      "reason": "the line names Dielectric strength and states no value in a unit the database keeps it in (kV/mm)"
+    },
+    {
+      "page": 1,
+      "text": "Volume Resistivity  10.10^15  Ohms  IEC60093",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 1,
+      "text": "Tracking resistance  190  V  IEC60112",
+      "reason": "properties.csv carries no property for \"Tracking resistance\""
+    },
+    {
+      "page": 1,
+      "text": "last updated : 25/04/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineered for outdoor electrical equipment, Nanovia Insublend filament allows for the creation of insulating and weatherproof 3D prints.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190 Volt tracking resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Certified non flammable V-0 UL94",
+      "reason": "properties.csv carries no property for \"Certified non flammable V-0\""
+    },
+    {
+      "page": 1,
+      "text": "Surface Resistivity  10.10^15  Ohms  IEC60093",
+      "reason": "the line names Surface resistivity and states no value in a unit the database keeps it in (Ω)"
+    },
+    {
+      "page": 1,
+      "text": "Dehydrate for 4h at 80°C prior to printing after prolonged exposure to humidity.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Certified UL94",
+      "reason": "properties.csv carries no property for \"Certified\""
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Insublend filament , halogen free, is certified non flammable V-0 (@ 1,6 mm with a 5VA @ 2.5mm index) and flame retardant according to the UL 94 certifi",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "UL 94 is a security certification for plastic materials. V-0 classification = no combustion after 10 seconds of vertical exposure to a flame.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Chemical resistance at 20 °C :",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Hydrochloric acid (solution at 50%)  Excellent",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Sulphuric Acid (solution at 50%)  Excellent",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nitric acid (solution at 50%)  Excellent",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Phosphoric acid (solution at 60%)  Excellent",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Ammonia (solution at 10% NH3)  Excellent",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Caustic soda (solution with 10% NaOH)  Excellent",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Spool  L1  L2  D1  D2  D3  Weight",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Max temperature  100 °C, 80 °C, 55 °C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm, 2.85 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g, 2000 g, sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA Flax : Flax fiber reinforced Starting at : 52,25 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA XRS : X-ray shielding Starting at : 83,85 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PC-ABS V0 : Demanding technical applications Starting at : 60,80 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia HIPS : Soluble support Starting at : 27,55 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Contact info NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "the sheet prints 67 MPa and Insublend is a blend whose sheet names no polymer fraction; its identity is read from the word HIPS in its body, and the window is drawn for a HIPS. The number is the sheet’s own.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
+}

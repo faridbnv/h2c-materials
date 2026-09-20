@@ -1,7 +1,7 @@
 COUNT 23 shown PASS
-STATUS ☑ PASS 23 | ☐ UNKNOWN 64 | ☐ FAIL 51
-23 of the 138 materials in this database meet these requirements
-64 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+STATUS ☑ PASS 23 | ☐ UNKNOWN 61 | ☐ FAIL 55
+23 of the 139 materials in this database meet these requirements
+61 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.

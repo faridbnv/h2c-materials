@@ -17,6 +17,17 @@ export function rawNumber(text) {
     const mantissa = power[1] == null ? 1 : Number(String(power[1]).replace(',', '.'));
     return Number.isFinite(mantissa) ? mantissa * 10 ** Number(power[2]) : null;
   }
+  // The same number written with an E. A maker publishes a surface resistivity as "> 1.0E+15 ohms" and a thermal
+  // expansion as "5.0E-5 cm/cm/C", and read as the digits in front of the E they become 1 and 5, which is an
+  // insulator read as a conductor and an expansion a thousand times what any polymer has. The exponent's sign
+  // may be left out where it is positive: Nanovia prints "10E13" for a surface resistivity and 3DJake "1E1" and
+  // "4E1" for the resistivity of its conductive grades. The letter has to stand between two digits, so a
+  // designation that ends in one ("ASTM E 2092") is not a number.
+  const exponent = /^\s*[<>＜＞≥≤~≈約]?\s*(-?\d+(?:[.,]\d+)?)\s*[Ee]\s*([-+]?\d{1,3})(?![\d.,])/.exec(plain);
+  if (exponent) {
+    const mantissa = Number(String(exponent[1]).replace(',', '.'));
+    return Number.isFinite(mantissa) ? mantissa * 10 ** Number(exponent[2]) : null;
+  }
   // A source may print a bound ("> 500 %") or an approximation ("~1.5 %"); both lead with the number they qualify.
   // A number may be written without its leading zero: a maker prints ".13 %" for a water absorption of 0.13.
   const match = plain.match(/^\s*[<>＜＞≥≤~≈約]?\s*(-?(?:\d+(?:[ ,.\u00a0]\d+)*|[.,]\d+))/);

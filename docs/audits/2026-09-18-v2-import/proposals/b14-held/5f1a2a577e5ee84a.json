@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "5f1a2a577e5ee84a06d94748023e4caa759386e1bbe3f897e1d6eef25da82086",
+    "url": "https://drive.google.com/file/d/1DTDb7ew0Uv_E0KyMK8YkJJ4p9OL6M9Gt/view?usp=drive_link",
+    "pages": 4,
+    "provider": "QIDI",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/1DTDb7ew0Uv_E0KyMK8YkJJ4p9OL6M9Gt/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PPS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "High-Performance Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pps",
+      "filler: cf10"
+    ],
+    "materialId": "M073",
+    "materialName": "PPS-CF",
+    "estimateIdentity": "PPS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PPS-CF",
+      "Publisher": "QIDI",
+      "Title": "TECHNICAL DATA SHEET QIDI PPS CF10",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1DTDb7ew0Uv_E0KyMK8YkJJ4p9OL6M9Gt/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5f1a2a577e5ee84a06d94748023e4caa759386e1bbe3f897e1d6eef25da82086"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET QIDI PPS CF10"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M073",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PPS CF10",
+        "Shared formulation key": "R-QIDI-PPS-CF",
+        "Composition / filler": "Carbon fiber reinforced|High rigidity|High temperature resistance. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PPS-CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET QIDI PPS CF10"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M073",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "310-350℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "310",
+        "Nozzle max °C": "350",
+        "Nozzle requirement": "required",
+        "Bed °C": "100℃",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-PPS-CF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0~50%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "≥0.8mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-60mm/s"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 310-350℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "310-350℃",
+      "fromBelow": false,
+      "line": "Nozzle temperature 310-350℃"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "100℃",
+      "fromBelow": false,
+      "line": "Bed temperature 100℃"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "0~50%",
+      "fromBelow": false,
+      "line": "Active cooling fan 0~50%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.2mm",
+      "fromBelow": false,
+      "line": "Layer height 0.2mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "≥0.8mm",
+      "fromBelow": false,
+      "line": "Shell thickness ≥0.8mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "30-60mm/s",
+      "fromBelow": false,
+      "line": "Print speed 30-60mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "QIDI PPS CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI PPS CF10 01 19/3/2024 KT079",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Trade name QIDI PPS CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Use 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Settings are based on a 0.4mm nozzle.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "- 1 -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "QIDI PLUS4",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

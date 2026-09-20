@@ -1,0 +1,661 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "1e4fad9bdd0f3048b184d5f595532410986de1bdcea54d20f447f9bf081b984c",
+    "url": "https://nanovia.tech/en/ref/nanovia-abs-esd/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": null,
+    "docKey": "https://nanovia.tech/en/ref/nanovia-abs-esd/"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "ESD formulation",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs",
+      "filler: esd"
+    ],
+    "materialId": "M030",
+    "materialName": "ABS-ESD",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-ABS-ESD",
+      "Publisher": "Nanovia",
+      "Title": "Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/ref/nanovia-abs-esd/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1e4fad9bdd0f3048b184d5f595532410986de1bdcea54d20f447f9bf081b984c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M030",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "ABS ESD",
+        "Shared formulation key": "R-NANOVIA-ABS-ESD",
+        "Composition / filler": "Nanovia ABS ESD : Anti static discharge Starting at : 94,05 &euro; ex. VAT / kg Nanovia ABS ESD, with its conductive carbon enriched matrix, discharges static e (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,10 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  1,10  g/cm 3  ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "77 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "77",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "77",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Locator": "p. 1: Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Hardness  77  Shore D"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1660 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1660",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.66",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Locator": "p. 1: Young’s modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus  1660  MPa  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Locator": "p. 1: Elongation ultimate strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation ultimate strength  2.4  %  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1515 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1515",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.515",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Locator": "p. 1: Young’s modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus  1515  MPa  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "Locator": "p. 1: Elongation ultimate strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation ultimate strength  1.6  %  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250 – 280 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "100 – 110 °C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "90 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "90",
+        "Chamber max °C": "90",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-ABS-ESD",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20 – 60 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion temperature  250 – 280  °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "250 – 280 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature  250 – 280  °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate temperature",
+      "raw": "100 – 110 °C",
+      "fromBelow": false,
+      "line": "Plate temperature  100 – 110  °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "90 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature  90  °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "20 – 60 mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed  20 – 60  mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home / 3D printing filament / Material / ABS / Nanovia ABS ESD : Anti static discharge 3D printing filament Sintering Metallic Ceramic Material ABS ASA HIPS PA ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ABS ESD : Anti static discharge Starting at : 94,05 &euro; ex. VAT / kg Nanovia ABS ESD, with its conductive carbon enriched matrix, discharges static e",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g 2000 g sample Clear",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 - 5  5%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 +  10%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: N/A Categories: 3D printing filament , ABS , Aéronautique , Défense , Material Tag: Electrical usage",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle (minimal)  0.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 & 2.85  mm  +/- 50 µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultimate strength  22  MPa  ISO 527-2/1A",
+      "reason": "properties.csv carries no property for \"Ultimate strength\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate strength  17  MPa  ISO 527-2/1A",
+      "reason": "properties.csv carries no property for \"Ultimate strength\""
+    },
+    {
+      "page": 1,
+      "text": "Tg  100  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DTUL  88  °C  at 1.8 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Electrical resistivity    Ω cm  PRE021",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "last updated : 02/02/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ESD resistant from -30 up to +100 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Spool  L1  L2  D1  D2  D3  Weight",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Max temperature  100 °C, 80 °C, 55 °C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm, 2.85 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g, 2000 g, sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PC-ABS Rail : EN 45545-2 Starting at : 71,25 &euro; ex. VAT / kg Select options",
+      "reason": "properties.csv carries no property for \"Nanovia PC-ABS Rail :\""
+    },
+    {
+      "page": 1,
+      "text": "Nanovia TPE 22D : Flexible shock absorption Starting at : 61,75 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PETG CF : Carbon fiber reinforced Starting at : 64,40 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PA-6 : High resistance Starting at : 70,15 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Articles Omni3D printing profiles available",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Mechanical data on 3D printed test specimens at 3 different angles",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Contact info NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

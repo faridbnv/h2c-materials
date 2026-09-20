@@ -872,9 +872,11 @@ lists the missing states a column accepts instead of a value; a blank required c
 | IPCON |  | IPCON Polymer Material (Suzhou);IPCON Polymer |
 | iSANMATE |  | ISANMATE;Isanmate;iSanmate |
 | Kimya | Airtech Europe's filament line; Armor Group until 2022. | Kimya / Airtech Europe;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group);Airtech |
+| Nanovia | French maker; it publishes each grade as a web page rather than a PDF, and the product is named in the page's breadcrumb. | Nanovia SAS;nanovia |
 | NinjaTek | US maker of the NinjaFlex, Cheetah, Armadillo and Chinchilla elastomer lines; a Fenner Drives brand. | Ninjatek;ninjatek;NinjaTek (Fenner Drives);Fenner Drives |
 | Polymaker |  | PolyMaker;Polymaker Technology;Polymaker (Fiberon) |
 | Prusa Research | The Prusament line is its brand. | Prusa;Prusament;Prusa Research a.s. |
+| QIDI | Chinese printer maker with its own filament line; its sheets are served from Google Drive. | QIDI Tech;QIDI Technology;Qidi;qidi3d |
 | Raise3D |  | Raise 3D;Raise3D Technologies |
 | Recreus | Spanish maker of the Filaflex elastomer line, which is a brand and not a separate maker. | Recreus / Filaflex;Recreus Industries;recreus |
 | SIDDAMENT |  | Siddament |
@@ -1179,6 +1181,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|
 | ASTM D1004 | Tear resistance of plastic film and sheeting. |
 | ASTM D1238 | Melt flow rates by extrusion plastometer. |
+| ASTM D149 | Dielectric breakdown voltage and dielectric strength of solid insulating materials at commercial power frequencies. |
 | ASTM D1505 | Density by density-gradient technique. |
 | ASTM D1525 | Vicat softening temperature. |
 | ASTM D1708 | Tensile properties by microtensile specimens. |
@@ -1226,6 +1229,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | IEC 243 | Electric strength of insulating materials; superseded by IEC 60243, which some sheets still cite by its old number. |
 | IEC 60093 | Volume and surface resistivity of insulating materials. |
 | IEC 60216 | Thermal endurance of electrical insulating materials. |
+| IEC 60243 | Electric strength of insulating materials; the current number of the test IEC 243 named, and the one QIDI's sheets cite. |
 | IEC 60695 | Fire hazard testing of electrotechnical products, including the glow-wire tests. |
 | ISO 1133 | Melt mass-flow and melt volume-flow rate. |
 | ISO 11357 | Differential scanning calorimetry. |

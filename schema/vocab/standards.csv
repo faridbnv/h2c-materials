@@ -1,6 +1,7 @@
 Value,Meaning
 ASTM D1004,Tear resistance of plastic film and sheeting.
 ASTM D1238,Melt flow rates by extrusion plastometer.
+ASTM D149,Dielectric breakdown voltage and dielectric strength of solid insulating materials at commercial power frequencies.
 ASTM D1505,Density by density-gradient technique.
 ASTM D1525,Vicat softening temperature.
 ASTM D1708,Tensile properties by microtensile specimens.
@@ -48,6 +49,7 @@ GB/T 9343,Cited by a source; kept as the source prints it.
 IEC 243,"Electric strength of insulating materials; superseded by IEC 60243, which some sheets still cite by its old number."
 IEC 60093,Volume and surface resistivity of insulating materials.
 IEC 60216,Thermal endurance of electrical insulating materials.
+IEC 60243,"Electric strength of insulating materials; the current number of the test IEC 243 named, and the one QIDI's sheets cite."
 IEC 60695,"Fire hazard testing of electrotechnical products, including the glow-wire tests."
 ISO 1133,Melt mass-flow and melt volume-flow rate.
 ISO 11357,Differential scanning calorimetry.

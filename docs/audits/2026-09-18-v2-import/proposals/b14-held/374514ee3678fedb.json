@@ -1,0 +1,588 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "374514ee3678fedb1fc1d8b34681bfeba9f3af63e8979442aa6c3292663894ae",
+    "url": "https://drive.google.com/file/d/15as4JDaP5cBZ8cBQclywFyC7MvS6UEAW/view?usp=drive_link",
+    "pages": 5,
+    "provider": "QIDI",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/15as4JDaP5cBZ8cBQclywFyC7MvS6UEAW/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: gf"
+    ],
+    "materialId": "M025",
+    "materialName": "PETG-GF",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PETG-GF",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/15as4JDaP5cBZ8cBQclywFyC7MvS6UEAW/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "374514ee3678fedb1fc1d8b34681bfeba9f3af63e8979442aa6c3292663894ae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M025",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PETG GF",
+        "Shared formulation key": "R-QIDI-PETG-GF",
+        "Composition / filler": "QIDI PETG-GF, compounded with 5% short-cut glass fibers, combines the (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "V2.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PETG-GF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "76 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "76",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "76",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-GF",
+        "Locator": "p. 3: Heat Deflection Temperature ISO 75 (HDT)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "ISO 75 76℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "85 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "85",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-GF",
+        "Locator": "p. 3: Vicat Softening Temperature ISO 306 (VST)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "ISO 306 85℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.25-1.28 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.28",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1250",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1280",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-GF",
+        "Locator": "p. 3: Density ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Density ISO 1183 1.25-1.28 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250-275℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "275",
+        "Nozzle requirement": "required",
+        "Bed °C": "60-80℃",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-PETG-GF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 5: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.2 mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "≤ 150 mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "≥ 0.8 mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 5,
+        "text": "Nozzle Temperature 250-275℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 5,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "250-275℃",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 250-275℃"
+    },
+    {
+      "page": 5,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "60-80℃",
+      "fromBelow": false,
+      "line": "Bed Temperature 60-80℃"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.2 mm",
+      "fromBelow": false,
+      "line": "Layer height 0.2 mm"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "0-50%",
+      "fromBelow": false,
+      "line": "Cooling Fan 0-50%"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "≤ 150 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed ≤ 150 mm/s"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "≥ 0.8 mm",
+      "fromBelow": false,
+      "line": "Shell thickness ≥ 0.8 mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V2.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI PETG-GF, compounded with 5% short-cut glass fibers, combines the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill ISO 527 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 2,
+      "text": "Infill ISO 527 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 2,
+      "text": "Infill ISO 527 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 45-51",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 48-51",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 25-31",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 4-8",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 7-10",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 2-7",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 2200-2400",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 2300-2400",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527 1100-1400",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Infill ISO 179 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 2,
+      "text": "Infill ISO 179 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 2,
+      "text": "Infill ISO 179 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength (kJ/m²) ISO 179 23-35",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength (kJ/m²) ISO 179 23-37",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 179 4-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 179 4-5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 179 1-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength (kJ/m²) ISO 179 5-15",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 3,
+      "text": "Infill ISO 178 100% 100% 100%",
+      "reason": "properties.csv carries no property for \"Infill\""
+    },
+    {
+      "page": 3,
+      "text": "Flexural Strength(MPa) ISO 178 71-84 77-81 27-52",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "1.75 ± 0.03 mm 0.03 mm 1 kg EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Flexural Modulus (MPa) ISO 178 2200-2700 2400-2500 1400-1700",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 3,
+      "text": "GlassTransition Temperature ISO 11357 ~66℃",
+      "reason": "properties.csv carries no property for \"GlassTransition Temperature\""
+    },
+    {
+      "page": 3,
+      "text": "Melt Flow Rate (MFR) ISO 1133 5-10 g/10 min",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "IS0 527 GB/T1040",
+      "reason": "properties.csv carries no property for \"IS0 527\""
+    },
+    {
+      "page": 4,
+      "text": "170mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "115mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "80mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4×R15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "*Based on the 0.4 mm nozzle. Different nozzle diameters also make printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

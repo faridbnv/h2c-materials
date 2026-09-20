@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "641bf987cbf0e254afab6e2058cdf82cbb8c26380e533486c79fbbbfb730a65d",
+    "url": "https://nanovia.tech/en/ref/nanovia-pla-wood/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": null,
+    "docKey": "https://nanovia.tech/en/ref/nanovia-pla-wood/"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Wood",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "variant: wood (Wood)"
+    ],
+    "materialId": "M014",
+    "materialName": "PLA Wood",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-PLA-Wood",
+      "Publisher": "Nanovia",
+      "Title": "Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/ref/nanovia-pla-wood/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "641bf987cbf0e254afab6e2058cdf82cbb8c26380e533486c79fbbbfb730a65d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PLA Wood",
+        "Shared formulation key": "R-NANOVIA-PLA-Wood",
+        "Composition / filler": "Nanovia PLA Wood : 40 % vol. pine compound quantity (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PLA-Wood",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.13 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Wood",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  1.13  g/cm 3  ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 – 230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "60 – 70 °C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "70",
+        "Bed requirement": "required",
+        "Chamber °C": "20 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "20",
+        "Chamber max °C": "20",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Wood",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion temperature  210 – 230  °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "210 – 230 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature  210 – 230  °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate temperature",
+      "raw": "60 – 70 °C",
+      "fromBelow": false,
+      "line": "Plate temperature  60 – 70  °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "20 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature  20  °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home / 3D printing filament / Material / PLA (Polylactic acid) / Nanovia PLA Wood : 40 % vol. pine compound 3D printing filament Sintering Metallic Ceramic Mate",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g 2000 g sample",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm 2.85 mm Clear",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA Wood : 40 % vol. pine compound quantity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 - 5  5%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 +  10%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: N/A Categories: 3D printing filament , Material , PLA (Polylactic acid)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle (minimal)  0.5  mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 & 2.85  mm  +/- 50 µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wood concentration  40 %  by volume",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tg  52  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "last updated : 08/02/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This biodegradable and biosourced PLA based 3D printer filament is 40 % by volumes composed of pine wood powder provided by Saint-Honoré Paris .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Its dotted light brown aspect and textured surface make Nanovia PLA Wood an ideal filament for the 3D printing of toys, statues, and interior decorations.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Wood prints like a regular PLA without a heated enclusure, does not require a réinforced nozzle, we do recomment however using a nozzle of more than 0.5 mm ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA Wood is also availble in pellet form for plastic extrusion and 3D FGF pellet printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dehydrate for 4h at 50°C prior to printing after prolonged exposure to humidity.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Spool  L1  L2  D1  D2  D3  Weight",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g, 2000 g, sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm, 2.85 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PA Rail : EN 45545-2 Starting at : 109,73 &euro; ex. VAT / kg Select options",
+      "reason": "properties.csv carries no property for \"Nanovia PA Rail :\""
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PEI CF Ultem 1010 : Carbon fiber reinforced Starting at : 270,73 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA EF 3D850 : Endocrine disruptor free Starting at : 22,40 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PP CF : Carbon fiber reinforced Starting at : 79,38 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Primante3D : Saint-Honoré Paris uses wood 3D printing for a more eco responsible fashion industry. (french language)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Omni3D printing profiles available",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2023 in review and the first 2024 new 3D printer filament",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Contact info NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

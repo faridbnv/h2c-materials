@@ -1,0 +1,871 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "0d062c210b61516f652a7b014ac22214575b6a7332c8eaf0cd840a5705803dcb",
+    "url": "https://siraya.tech/pages/siraya-tech-fibreheart-flex-tpu-95a-tds",
+    "pages": 1,
+    "provider": "Siraya Tech",
+    "manufacturer": "Siraya Tech",
+    "docKey": "https://siraya.tech/pages/siraya-tech-fibreheart-flex-tpu-95a-tds"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "95A",
+    "support": true,
+    "signals": [
+      "name: tpu",
+      "filler: cf (from the sheet, not the name)",
+      "hardness: 95A"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": true,
+    "reasons": [
+      "\"Flex TPU 95A\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+      "Publisher": "Siraya Tech",
+      "Title": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://siraya.tech/pages/siraya-tech-fibreheart-flex-tpu-95a-tds",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "0d062c210b61516f652a7b014ac22214575b6a7332c8eaf0cd840a5705803dcb"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Flex TPU 95A",
+        "Shared formulation key": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "32 ± 3.0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "32",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "32",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Tensile Stress at Break (MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress at Break (MPa)  32± 3.0 MPa  ISO 527  Tested on X/Y axis"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "9.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100%",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Tensile stress at 100%",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at 100%  9.8 MPa  -  Tested on X/Y axis"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "12.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "12.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "200%",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Tensile stress at 200%",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at 200%  12.5 MPa  -  Tested on X/Y axis"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "17 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "17",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "17",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "300%",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Tensile stress at 300%",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at 300%  17 MPa    Tested on X/Y axis"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "99 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "99",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "99",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Vicat softening temperature ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature ℃  99  ISO 306  -"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "19.5 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "19.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "19.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "72F D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: IZOD Impact (Notched 72F) kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "IZOD Impact (Notched 72F) kJ/m  19.5  D256  -"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "95",
+        "Raw unit": "Shore A",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 7619",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Shore Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore Hardness  95A  ISO 7619  -"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.16 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.16",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1160",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "Locator": "p. 1: Filament Density g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filament Density g/cm³  1.16 g/cm³  ISO 1183"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200-230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-120 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "s 1800-3600 mm/min"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1-5 mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature  200-230°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "200-230°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature  200-230°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30-120 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed  30-120 mm/s (Start at the lower end and gradually increase)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "s 1800-3600 mm/min",
+      "fromBelow": false,
+      "line": "Retraction speeds  1800-3600 mm/min"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Distance",
+      "raw": "1-5 mm",
+      "fromBelow": false,
+      "line": "Retraction Distance  1-5 mm (Start with short and slow retraction)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Need help? Call us +13234128788",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Roamr TPU Air HR 80A TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silicone Defiant 25A Defiant 15A Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About Resin/Filament User Guide Print Setting Profile V5 Test model Safety Data Sheet (SDS) Technical Data Sheet (TDS) FAQ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BLOG FDM printing Tips 3D Resin and Silicone Tips Certification Announcement About Siraya Tech A letter from our founder",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Roamr TPU Air HR 80A TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NFEP A4 NFEP Film A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About Resin/Filament User Guide Print Setting Profile V5 Test model Safety Data Sheet (SDS) Technical Data Sheet (TDS) FAQ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sales Resin Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament Roamr TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silicone Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NFEP A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. APPLICATIONS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View more detailed descriptions on the TPU-95A product page.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Property Data",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at Break(%)  500  ASTM D638  Tested on X/Y axis",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (N·m·m^-3)  120  -  -",
+      "reason": "the sheet publishes no value for \"Toughness (N·m·m^-3)\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Abrasion Resistance  0.06  D4060  10K cycle",
+      "reason": "the line names Abrasion loss and states no value in a unit the database keeps it in (mm³)"
+    },
+    {
+      "page": 1,
+      "text": "Biocompatibility  ✔  ISO 10993-5/10/23",
+      "reason": "the line names Melting temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Melting Point (℃)  200",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Our Flex TPU 85A and 95A filaments have achieved ISO biocompatibility certifications, specifically ISO 10093-5, ISO 10093-10, and ISO 10093-23",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View more details on the TPU-95A Biocompatible Certification page",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Preparing for Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print Bed Preparation : Ensure the print bed is clean and level. Set the heated bed temperature between 20°C and 50°C, adjusting based on your printer’s specifi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dry : To achieve better printing results, please dry the Flex TPU 95A filament at 50°C - 65°C for 4-6 hours in a filament dryer or an oven before printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Print setting for Fibreheart Flex TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended Nozzle Diameter  0.2mm (The best results: 0.4mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6. Moisture Management",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Storage : Keep the filament in the moisture-resistant aluminum bags provided. For extended storage, use a dry box with desiccant to maintain humidity below 15%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Drying Filament : If you suspect moisture absorption, dry the filament at 50°C - 65°C for 4-6 hours in an oven. (Filament dryer is not recommended because heati",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7. Troubleshooting Common Issues",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "8. Contact US",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Download PDF version of TPU Flex 95A TDS.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About the shop Siraya Tech: Maker of Performance UV Resins for 3D printing and Platinum Silicone Crafting superior products for your projects. Email: support@si",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

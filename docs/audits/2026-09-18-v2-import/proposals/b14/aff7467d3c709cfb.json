@@ -1,0 +1,466 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "aff7467d3c709cfb0197b687551f86f90b868d90fc7b692954302c77a634e028",
+    "url": "https://3d.nice-cdn.com/upload/file/formfutura-tds-carbonfilcf03.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "FormFutura",
+    "docKey": "aff7467d3c709cfb"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: petg",
+      "filler: cf03"
+    ],
+    "materialId": "M024",
+    "materialName": "PETG-CF",
+    "estimateIdentity": "PETG",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+      "Publisher": "FormFutura",
+      "Title": "TECHNICAL DATA SHEET CarbonFil CF03",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/formfutura-tds-carbonfilcf03.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "aff7467d3c709cfb0197b687551f86f90b868d90fc7b692954302c77a634e028"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET CarbonFil CF03"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M024",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "CarbonFil CF03",
+        "Shared formulation key": "S-PET-formfutura-tds-carbonfilcf03",
+        "Composition / filler": "CarbonFil CF03 is PETG with circa 3% added carbon fibers. It combines PETG properties with the aesthetics of (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET CarbonFil CF03"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.29 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1290",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.29 g/cm3 -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3515 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3515",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.515",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Locator": "p. 1: Tensile modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus 3515 MPa ISO 527-2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "44 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "44",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "44",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Locator": "p. 1: Tensile strength at break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength at break 44 MPa ISO 527-2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "5.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Locator": "p. 1: Tensile elongation",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile elongation 5.5% -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "4.6 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "4.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 180",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Locator": "p. 1: Izod impact strength (notched)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod impact strength (notched) 4.6 kJ/m2 ISO 180"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "77 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "77",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "77",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-carbonfilcf03",
+        "Locator": "p. 1: HDT",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT 77°C ISO 306"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "CarbonFil CF03",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date of issue: 15-05-2024 / Date of update: 15-05-2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonFil CF03 is PETG with circa 3% added carbon fibers. It combines PETG properties with the aesthetics of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "carbon. This results in 3D prints with a magnificent carbon finish and no visible layers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "It is very easy to 3D print with CarbonFil CF03. It prints with great precision and superb layer adhesion. The focus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• 3D prints without visible layers. • Visualization aids.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%. Recommended",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "storage temperature is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture, sunlight and direct heat. When stored",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "properly, product has a shelf life of 24 months. To obtain the best parameters of the printed object, it is",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "recommended to dry the material prior to usage and to 3D print it directly from a dry box.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "39169090 Monofilament for 3D printing European Union",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "1/1",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

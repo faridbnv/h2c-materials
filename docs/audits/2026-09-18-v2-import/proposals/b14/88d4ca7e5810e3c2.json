@@ -1,0 +1,730 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "88d4ca7e5810e3c2d15f7c621f45ac00bcdbf37f620ed8b04c7bd9570ec9b1fd",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_-_Bulk_PETG.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "FormFutura",
+    "docKey": "88d4ca7e5810e3c2"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-Bulk-PETG",
+      "Publisher": "FormFutura",
+      "Title": "TECHNICAL DATA SHEET Bulk PETG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_-_Bulk_PETG.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "88d4ca7e5810e3c2d15f7c621f45ac00bcdbf37f620ed8b04c7bd9570ec9b1fd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET Bulk PETG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Bulk PETG",
+        "Shared formulation key": "S-PET-TDS-Bulk-PETG",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET Bulk PETG"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,29 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1290",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Specific Gravity (23°C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Specific Gravity (23°C) 1,29 g/cm3 ASTM D792"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "50,2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Tensile strength at yield (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength at yield (23°C, 50mm/min) 50,2 MPa ASTM D638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "29 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Tensile strength at break (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength at break (23°C, 50mm/min) 29 MPa ASTM D638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "66.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "66.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "66.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Flexural strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural strength 66.8 MPa ASTM D790"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "6 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Elongation at yield (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at yield (23°C, 50mm/min) 6% ASTM D638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "160 %",
+        "Raw unit": "%",
+        "Raw numeric": "160",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "160",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Elongation at break (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break (23°C, 50mm/min) 160% ASTM D638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "79 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "79",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "79",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: HDT",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "HDT 79 °C ASTM D648"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "Locator": "p. 2: Melting Point",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melting Point 200 °C -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "± 235 - 255°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "235",
+        "Nozzle max °C": "255",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 80 - 90°C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PET-TDS-Bulk-PETG",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "± 25 - 200 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Heat bed: ± 80 - 90°C Fan speed: ± 0 - 50%"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heat bed",
+      "raw": "± 80 - 90°C",
+      "fromBelow": false,
+      "line": "Heat bed: ± 80 - 90°C Fan speed: ± 0 - 50%"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temp",
+      "raw": "± 235 - 255°C",
+      "fromBelow": false,
+      "line": "Nozzle temp: ± 235 - 255°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "± 25 - 200 mm/s",
+      "fromBelow": false,
+      "line": "Print speed: ± 25 - 200 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Not necessary",
+      "fromBelow": false,
+      "line": "Drying: Recommended Drybox: Not necessary Enclosure: Not necessary"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date of issue: 01-08-2025 / Date of update: 01-08-2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bulk PETG – Premium EU-Made PETG Filament for High-Volume and Cost-Efficient 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bulk PETG filament is a premium-grade 3D printing filament manufactured in the European Union. This PETG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This premium PETG 3D printing filament combines optical clarity, durability, and chemical resistance, making it",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Each 1kg spool is made from certified second-life polypropylene (PP), made with post-consumer recycled",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "To maximize usability, the 1kg spools are fully AMS compatible, offering smooth integration across multiple",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D printing systems.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• EU-Made Premium Quality PETG Filament – Delivers reliable, consistent 3D printing results for industrial,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Cost-Efficient Production – Engineered for affordable and high-volume 3D printing without compromising",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• AMS Compatible – 1Kg spools are compatible with all AMS systems, ensuring maximum usability and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Eco-conscious Packaging – 1Kg filament is spooled on recycled certified second-life PP spools with FSC-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Prototyping & Product Development – 3D print accurate models and functional prototypes with high",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date of issue: 01-08-2025 / Date of update: 01-08-2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MFI (210°C, 2.16kg) 1.8 g/10min ASTM D 1238",
+      "reason": "properties.csv carries no property for \"MFI (210°C, 2.16kg)\""
+    },
+    {
+      "page": 2,
+      "text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "Recommended storage temperature is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture, sunlight and direct",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "heat. When stored properly, product has a shelf life of 24 months. To obtain the best parameters of the printed",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "object, it is recommended to dry the material prior to usage and to 3D print it directly from a dry box.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "39169090 Monofilament for 3D printing European Union",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "Bulk PETG filament 1,000 g (1 kg) 10 400",
+      "reason": "properties.csv carries no property for \"Bulk PETG filament\" (kg))"
+    },
+    {
+      "page": 2,
+      "text": "Bulk PETG filament 2,300 g (2.3 kg) 5 120",
+      "reason": "properties.csv carries no property for \"Bulk PETG filament\" (kg))"
+    },
+    {
+      "page": 2,
+      "text": "Bulk PETG filament 4,500 g (4.5 kg) 1 90",
+      "reason": "properties.csv carries no property for \"Bulk PETG filament\" (kg))"
+    },
+    {
+      "page": 2,
+      "text": "Bulk PETG filament 8,000 g (8 kg) 1 60",
+      "reason": "properties.csv carries no property for \"Bulk PETG filament\" (kg))"
+    },
+    {
+      "page": 2,
+      "text": "2/2",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

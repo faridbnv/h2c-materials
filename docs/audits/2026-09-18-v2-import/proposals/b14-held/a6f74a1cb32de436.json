@@ -1,0 +1,709 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "a6f74a1cb32de4367929098ae8f7b3a59298d5065e7412c5d3294e51f88ab5cf",
+    "url": "https://shop3d.ca/cdn/shop/files/PC-ABS_classification_report_HL3_R26_V2_0950a9d9-3e34-4fae-b17a-1d9748119d79.pdf?v=466267611937839923",
+    "pages": 3,
+    "provider": "Shop3D Canada",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "a6f74a1cb32de436"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-PC-ABS-classification-report-HL3-R26-V2-0950a9d9-3e34-4fae-b17a-1d9748119d79",
+      "Publisher": "BASF Forward AM",
+      "Title": "Formblatt MA4.5_F003, Revision: 3.4, gültig ab: 05.01.2021",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Shop3D Canada; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://shop3d.ca/cdn/shop/files/PC-ABS_classification_report_HL3_R26_V2_0950a9d9-3e34-4fae-b17a-1d9748119d79.pdf?v=466267611937839923",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "a6f74a1cb32de4367929098ae8f7b3a59298d5065e7412c5d3294e51f88ab5cf"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Formblatt MA4.5_F003, Revision: 3.4, gültig ab: 05.01.2021"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Formblatt MA4.5_F003, Revision: 3.4, gültig ab: 05.01.2021",
+        "Shared formulation key": "R-BASF-PC-ABS-classification-report-HL3-R26-V2-0950a9d9-3e34-4fae-b17a-1d9748119d79",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "to UL94:2020) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-PC-ABS-classification-report-HL3-R26-V2-0950a9d9-3e34-4fae-b17a-1d9748119d79",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Formblatt MA4.5_F003, Revision: 3.4, gültig ab: 05.01.2021"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "2",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BASF-PC-ABS-classification-report-HL3-R26-V2-0950a9d9-3e34-4fae-b17a-1d9748119d79",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "chamber 2 1.53 2 No No 2 No No 2"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "enclosure",
+      "topic": "",
+      "label": "chamber",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "chamber 2 1.53 2 No No 2 No No 2"
+    },
+    {
+      "page": 2,
+      "field": "enclosure",
+      "topic": "",
+      "label": "chamber",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "chamber 2"
+    },
+    {
+      "page": 3,
+      "field": "enclosure",
+      "topic": "",
+      "label": "chamber",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "chamber 2 3.05 1 No No 2 No No 2"
+    },
+    {
+      "page": 3,
+      "field": "enclosure",
+      "topic": "",
+      "label": "chamber",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "chamber 2"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Formblatt MA4.5_F003, Revision: 3.4, gültig ab: 05.01.2021",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TEST R EPORT according to ISO/IEC 17025",
+      "reason": "properties.csv carries no property for \"TEST REPORT according to ISO/\""
+    },
+    {
+      "page": 1,
+      "text": "No. AVS: 2006115",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date: 2022-02-15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "File: 2006115_V_EN.DOCX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RBU Performance Materials Europe Phone: +49 621 60 46167",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PMD/EX-H201 Position: Team lead",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "67056 Ludwigshafen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Company: BASF 3D Printing Solutions GmbH Name: Matthias Fischer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Speyerer Strasse 4 Phone: +49 (0) 160 9677 3440",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "69115 Heidelberg E-Mail: matthias.fischer@basf-3dps.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A2020-2248 PC-ABS (FR) black - IEC 60695-11-10:2014 vertical (equivalent",
+      "reason": "properties.csv carries no property for \"A2020-2248 PC-ABS (FR) black\""
+    },
+    {
+      "page": 1,
+      "text": "to UL94:2020)",
+      "reason": "properties.csv carries no property for \"to\""
+    },
+    {
+      "page": 1,
+      "text": "Order received on: 2021-01-04 Pages: 3",
+      "reason": "properties.csv carries no property for \"Order received on:\""
+    },
+    {
+      "page": 1,
+      "text": "Specimen received on: 2021-01-04 Diagrams: 0",
+      "reason": "properties.csv carries no property for \"Specimen received on:\""
+    },
+    {
+      "page": 1,
+      "text": "Tests conducted on: 2021-01-12 Tables: 2",
+      "reason": "properties.csv carries no property for \"Tests conducted on:\""
+    },
+    {
+      "page": 1,
+      "text": "Photos: 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Attachments: 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EN45545-2:2016, R26 (EL 10): HL1-3 (V0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Test specimen of nominal thickness 1.5 and 3 mm were subjected to vertical flammability testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "according to DIN EN 60695-11-10:2014 (equivalent to UL94:2018). The test result is V-0. This result",
+      "reason": "properties.csv carries no property for \"according to DIN\""
+    },
+    {
+      "page": 1,
+      "text": "provides evidence for conformity with EN45545-2:2016, R26 for HL1, HL2 and HL3.",
+      "reason": "properties.csv carries no property for \"provides evidence for conformity with\""
+    },
+    {
+      "page": 1,
+      "text": "This report replaces a previous report dated 2021-11-15 due to editorial corrections.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 17025 for mechanical, thermal, physical-chemical and flammability tests. The accreditation is valid only for the scope of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "accreditation listed in the Annex to the accreditation certificate (Registration No. D-PL-14121-04-00).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 1 of 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "BASF SE, PMD/EX - H202, D-67056 Ludwigshafen Page 1 of 1",
+      "reason": "properties.csv carries no property for \"BASF SE, PMD/EX - H202,\" (of)"
+    },
+    {
+      "page": 2,
+      "text": "Tester: Waldemar Niedballa Phone: 0621-60-41868",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date of order: 2021-01-04",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Order no.: 0 -E079/GK SAP: 40357410 AVS no.: 2006115",
+      "reason": "properties.csv carries no property for \"Order no.:\" (no.:)"
+    },
+    {
+      "page": 2,
+      "text": "Customer: PDF no.: 173",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Product: A2020-2248_PC-ABS-FR_1,5MM BLACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40004342_LFS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Preparation: 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flammability V acc. to UL 94 : 2020",
+      "reason": "properties.csv carries no property for \"Flammability V acc. to\""
+    },
+    {
+      "page": 2,
+      "text": "M 0 0321 Measurements & observations Classification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1st flame application, 10 s 2nd flame application, 10 s Total",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "127 * 12,7 * d mm³ After- Cotton Burning Obser- After- Cotton Burning Obser- Afterflame Afterflame",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "time ignited? holding time ignited? holding time t1 + t2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "t1 [s] clamp? t2 [s] clamp? t2 + t3 [s] [s]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Requirements ≤ 10 no no --- ≤ 10 no no --- ≤ 30 ≤ 50 = V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "≤ 30 no no --- ≤ 30 no no --- ≤ 60 ≤ 250 = V-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "≤ 30 yes no --- ≤ 30 yes no --- ≤ 60 ≤ 250 = V-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Conditioning 1 1.53 1 No No 2 No No 2",
+      "reason": "properties.csv carries no property for \"Conditioning\" (No)"
+    },
+    {
+      "page": 2,
+      "text": "(2d / 23°C / 50%) 3 1.51 1 No No 2 No No 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4 1.51 1 No No 3 No No 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5 1.50 1 No No 1 No No 1 16 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "First test 2021-01-12 13:46:42 - 2021-01-12 13:54:02",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(7d / 70°C) 2 1.55 1 No No 2 No No 2",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "3 1.51 1 No No 5 No No 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4 1.59 1 No No 5 No No 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5 1.55 1 No No 2 No No 2 22 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "First test 2021-01-12 13:57:54 - 2021-01-12 14:06:26",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Conditioning 1",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "(2d / 23°C / 50%) 3",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(7d / 70°C) 2",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Repeated test - V-0 @ 1.5 mm",
+      "reason": "the sheet publishes no value for \"Repeated test\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 2,
+      "text": "Date of report: 2021-01-12 Signature:",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "Page 2 of 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "BASF SE, PMD/EX - H202, D-67056 Ludwigshafen Page 1 of 1",
+      "reason": "properties.csv carries no property for \"BASF SE, PMD/EX - H202,\" (of)"
+    },
+    {
+      "page": 3,
+      "text": "Tester: Ilona Klee Phone: 0621-60-41868",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Date of order: 08.12.2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Order no.: 0 -E079/GK SAP: 40357410 AVS no.: 2006115",
+      "reason": "properties.csv carries no property for \"Order no.:\" (no.:)"
+    },
+    {
+      "page": 3,
+      "text": "Customer: PDF no.: 450",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Product: A2020-2248_PC-ABS-FR_3,0MM BLACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "40004342_LFS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Preparation: 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Flammability V acc. to UL 94 : 2020",
+      "reason": "properties.csv carries no property for \"Flammability V acc. to\""
+    },
+    {
+      "page": 3,
+      "text": "M 0 0324 Measurements & observations Classification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1st flame application, 10 s 2nd flame application, 10 s Total",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "127 * 12,7 * d mm³ After- Cotton Burning Obser- After- Cotton Burning Obser- Afterflame Afterflame",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "time ignited? holding time ignited? holding time t1 + t2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "t1 [s] clamp? t2 [s] clamp? t2 + t3 [s] [s]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Requirements ≤ 10 no no --- ≤ 10 no no --- ≤ 30 ≤ 50 = V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "≤ 30 no no --- ≤ 30 no no --- ≤ 60 ≤ 250 = V-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "≤ 30 yes no --- ≤ 30 yes no --- ≤ 60 ≤ 250 = V-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Conditioning 1 3.10 1 No No 9 No No 9",
+      "reason": "properties.csv carries no property for \"Conditioning\" (No)"
+    },
+    {
+      "page": 3,
+      "text": "(2d / 23°C / 50%) 3 3.12 1 No No 10 No No 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4 3.10 1 No No 4 No No 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5 3.12 1 No No 8 No No 8 38 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "First test 15.12.2020 12:56 - 15.12.2020 13:03",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(7d / 70°C) 2 3.10 1 No No 4 No No 4",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "3 3.12 1 No No 5 No No 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4 3.14 1 No No 3 No No 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5 3.08 1 No No 6 No No 6 26 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "First test 16.12.2020 11:25 - 16.12.2020 11:33",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Conditioning 1",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "(2d / 23°C / 50%) 3",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(7d / 70°C) 2",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Repeated test - V-0 @ 3.0 mm",
+      "reason": "the sheet publishes no value for \"Repeated test\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 3,
+      "text": "Date of report: 2020-12-16 Signature:",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "Page 3 of 3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "8992b2383e8d5a7351ba6f7971ec08242da9433281bd66b6ccd4b96dd768dbd8",
+    "url": "https://forward-am.com/wp-content/uploads/2021/01/Ultrafuse_316L_TDS_EN_v1.1.pdf",
+    "pages": 3,
+    "provider": "Shop3D Canada",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "8992b2383e8d5a73"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Ultrafuse 316L\""
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+      "Publisher": "BASF Forward AM",
+      "Title": "Ultrafuse 316L",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Shop3D Canada; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://forward-am.com/wp-content/uploads/2021/01/Ultrafuse_316L_TDS_EN_v1.1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "8992b2383e8d5a7351ba6f7971ec08242da9433281bd66b6ccd4b96dd768dbd8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Ultrafuse 316L"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Ultrafuse 316L",
+        "Shared formulation key": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Composition / filler": "316L stainless steel composite filament for Fused Filament Fabrication. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Ultrafuse 316L"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "561 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "561",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "561",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 6892-11",
+        "Standards": "ISO 6892",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Locator": "p. 3: Tensile strength ISO 6892-11",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile strength ISO 6892-11 561 MPa / 81.4 ksi 521 MPa / 75.6 ksi"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "53 %",
+        "Raw unit": "%",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 6892-11",
+        "Standards": "ISO 6892",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Locator": "p. 3: Elongation at Break ISO 6892-11",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Elongation at Break ISO 6892-11 53 % 36 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "111 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "111",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 148-12",
+        "Standards": "ISO 148",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Locator": "p. 3: Impact Strength Charpy (notched) ISO 148-12",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Impact Strength Charpy (notched) ISO 148-12 111 kJ/m2 -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230 – 250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 – 120 °C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "to 316L",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.4 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "15 - 50 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle Temperature 230 – 250 °C / 446 – 482 °F"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "230 – 250 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 230 – 250 °C / 446 – 482 °F"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "90 – 120 °C",
+      "fromBelow": false,
+      "line": "Bed Temperature 90 – 120 °C / 194 – 248 °F"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "≥ 0.4 mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter ≥ 0.4 mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "15 - 50 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 15 - 50 mm/s"
+    },
+    {
+      "page": 2,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying recommendations",
+      "raw": "to 316L",
+      "fromBelow": false,
+      "line": "Drying recommendations to 316L"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Ultrafuse 316L",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date / Revised: 02.07.2021 Version No.: 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "316L stainless steel composite filament for Fused Filament Fabrication.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 316L is a Metal-polymer composite filament to produce metal components in a stainless steel type",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "316L using standard FFF printer systems and subsequently an industry standard debinding and sintering",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 316L filament should be stored at 15 - 25°C in its originally sealed package in a clean and dry",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "of 12 months.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Standards: DIN 1.4404, X 2 CrNiMo 17 13 2, AISI 316L; UNS S31603",
+      "reason": "properties.csv carries no property for \"Standards:\""
+    },
+    {
+      "page": 1,
+      "text": "you may contact BASF 3D Printing Solutions GmbH directly at sales@basf-3dps.com.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BASF 3D Printing Solutions BV sales@basf-3dps.com www.forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ultrafuse 316L Version No. 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Recommended 3D-Print processing parameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Sintered Part Density 7850 kg/m3 / 490.1 lb/ft3 ISO 1183-1",
+      "reason": "properties.csv carries no property for \"Sintered Part Density\""
+    },
+    {
+      "page": 2,
+      "text": "Filament Diameter 1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tolerance ±0.050 mm ±0.075 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Roundness ±0.050 mm ±0.075 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bending Radius 5 ± 1 mm 10 ± 3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Length per Spool 250 m 95 m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Weight per Spool 3 kg 3 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "BASF 3D Printing Solutions BV sales@basf-3dps.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Ultrafuse 316L Version No. 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1 251 MPa / 36.4 ksi 234 MPa / 33.9 ksi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Yield Strength, Rp 0.2 ISO 6892-1",
+      "reason": "properties.csv carries no property for \"Yield Strength, Rp 0.2\" (Rp)"
+    },
+    {
+      "page": 3,
+      "text": "128 HV10 128 HV10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Vickers Hardness ISO 6507-1",
+      "reason": "properties.csv carries no property for \"Vickers Hardness\""
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Specimen shape Form E2x6x20 according to DIN 50125",
+      "reason": "properties.csv carries no property for \"Specimen shape Form E2x6x20 according to\""
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "BASF 3D Printing Solutions BV sales@basf-3dps.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

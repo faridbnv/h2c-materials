@@ -1,0 +1,730 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61",
+    "url": "https://drive.google.com/file/d/1pZBYR_rltVcBqjzHaLWGf34gtX2Uq-LC/view?usp=drive_link",
+    "pages": 5,
+    "provider": "QIDI",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/1pZBYR_rltVcBqjzHaLWGf34gtX2Uq-LC/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PETG-TOUGH",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI ToughPETG-HF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1pZBYR_rltVcBqjzHaLWGf34gtX2Uq-LC/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI ToughPETG-HF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "ToughPETG-HF",
+        "Shared formulation key": "R-QIDI-PETG-TOUGH",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI ToughPETG-HF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.27 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1270",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 1183 1.27 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "7 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "7 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "44.23 ± 0.64 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "44.23",
+        "Raw uncertainty ±": "0.64",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "44.23",
+        "Normalized uncertainty ±": "0.64",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "44.23 ± 0.64 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1821.82 ± 49.41 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1821.82",
+        "Raw uncertainty ±": "49.41",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.82182",
+        "Normalized uncertainty ±": "0.04941",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "1821.82 ± 49.41 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "14.04 ± 7.77 %",
+        "Raw unit": "%",
+        "Raw numeric": "14.04",
+        "Raw uncertainty ±": "7.77",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14.04",
+        "Normalized uncertainty ±": "7.77",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "14.04 ± 7.77 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1955.67 ± 179.30 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1955.67",
+        "Raw uncertainty ±": "179.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.95567",
+        "Normalized uncertainty ±": "0.1793",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "1955.67 ± 179.30 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "42.70 ± 0.51 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "42.7",
+        "Raw uncertainty ±": "0.51",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "42.7",
+        "Normalized uncertainty ±": "0.51",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "42.70 ± 0.51 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "71.40 ± 0.74 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "71.4",
+        "Raw uncertainty ±": "0.74",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "71.4",
+        "Normalized uncertainty ±": "0.74",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "71.40 ± 0.74 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1895.07 ± 36.19 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1895.07",
+        "Raw uncertainty ±": "36.19",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.89507",
+        "Normalized uncertainty ±": "0.03619",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PETG-TOUGH",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "1895.07 ± 36.19 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data / Revised: 07.2023 Version No: 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI 通过韧性改良技术，使 QIDI ToughPETG-HF 的缺口冲击强度提高至普通 PETG 的 2 倍以上，同时不",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "极限打印速度接近 400mm/s。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "printing results in most printers. The max printing speed is close to 400mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "颜色 Color：白色 RAL9003/ 黑色 RAL9004/ 蓝色 Pantone 2171C/ 橙色 Pantone 151C/ 绿色 Pantone",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "347C/ 红色 Pantone 3546C/ 黄色 Pantone 102U/紫色 Pantone 2665C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "线径 Diameter：1.75mm/ 2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "净重 Net weight：1KG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 11357 80°C",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "220℃，2.16kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "热变形温度 ISO 75：Method A 65°C（1.8MPa）",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 75：Method B",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "Determination of temperature 70°C (0.45MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.19 ± 0.06 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "21.92 ± 3.98 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile breaking strength（X-Y） ISO 527",
+      "reason": "the line names Tensile break strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "断裂伸长率（Z） 4.51 ± 0.82 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "16.39 ± 2.16 KJ/㎡",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 179",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 3,
+      "text": "试样打印参数：喷嘴大小 0.4mm，喷嘴温度 240°C，底板加热 80°C，打印速度 45mm/s，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Specimens printed under the following conditions: Nozzle size 0.4mm，Nozzle temp 240°C, Bed temp 80°C, Print speed 45mm/s,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Infill 100%, Infill angle ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "230-260°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.2-1.0mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "70-80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.2-0.25 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0-50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "30-300 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1-5 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. ToughPETG-HF 和 PC 材质底板粘接非常牢固，在打印较大底面时，可以适当调大模型首层和底板的间距。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. Since the bonding between ToughPETG-HF and PC material base plate is very strong, it is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "12mm Phaetus 0.4mm 0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Test parameters: 12mm Length brass heat block, BMG extruder, Phaetus brass nozzle, Nozzle size 0.4mm, Layer Height 0.2mm.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

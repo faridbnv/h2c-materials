@@ -1,0 +1,1424 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "12f113ec91d367ae9bd11f15209649a732efb700e2d229c81610899d97d2b92b",
+    "url": "https://shop3d.ca/cdn/shop/files/Bambu_PLA_Silk_Technical_Data_Sheet_5682bcfe-c957-4ea2-81b4-c5702a86d1e1.pdf?v=4371893792490452710",
+    "pages": 5,
+    "provider": "Shop3D Canada",
+    "manufacturer": "Bambu Lab",
+    "docKey": "12f113ec91d367ae"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "silk",
+    "finish": "Silk",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "variant: silk (Silk)"
+    ],
+    "materialId": "M008",
+    "materialName": "PLA Silk",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+      "Publisher": "Bambu Lab",
+      "Title": "Technical Data Sheet V3.0 PLA Silk",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Shop3D Canada; the sheet is Bambu Lab's.",
+      "Citation role": "cited",
+      "URL": "https://shop3d.ca/cdn/shop/files/Bambu_PLA_Silk_Technical_Data_Sheet_5682bcfe-c957-4ea2-81b4-c5702a86d1e1.pdf?v=4371893792490452710",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "12f113ec91d367ae9bd11f15209649a732efb700e2d229c81610899d97d2b92b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet V3.0 PLA Silk"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M008",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Silk",
+        "Shared formulation key": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet V3.0 PLA Silk"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.32 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1320",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Density ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ISO 1183 1.32 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "20.5 ± 1.2 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "20.5",
+        "Raw uncertainty ±": "1.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "20.5",
+        "Normalized uncertainty ±": "1.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "210 °C 2.16 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Melt Index 210 °C, 2.16 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt Index 210 °C, 2.16 kg 20.5 ± 1.2 g/10 min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "152 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "152",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "152",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Melting Temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melting Temperature DSC, 10 °C/min 152 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "57 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "57",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Glass Transition Temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Glass Transition Temperature DSC, 10 °C/min 57 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "56 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "56",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "56",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Vicar Softening Temperature ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Vicar Softening Temperature ISO 306, GB/T 1633 56 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "50 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Heat Deflection Temperature ISO 75 1.8 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection Temperature ISO 75 1.8 MPa 50 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "53 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Heat Deflection Temperature ISO 75 0.45 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection Temperature ISO 75 0.45 MPa 53 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.52 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.52",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.52",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "25°C",
+        "Standard / load": "25 °C 55% RH",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Saturated Water Absorption Rate 25 °C, 55% RH",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Saturated Water Absorption Rate 25 °C, 55% RH 0.52%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1830 ± 210 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1830",
+        "Raw uncertainty ±": "210",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.83",
+        "Normalized uncertainty ±": "0.21",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Young's Modulus (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Young's Modulus (X-Y) ISO 527, GB/T 1040 1830 ± 210 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1250 ± 140 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1250",
+        "Raw uncertainty ±": "140",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.25",
+        "Normalized uncertainty ±": "0.14",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Young's Modulus (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Young's Modulus (Z) ISO 527, GB/T 1040 1250 ± 140 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "27 ± 4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "27",
+        "Raw uncertainty ±": "4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "27",
+        "Normalized uncertainty ±": "4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Tensile Strength (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength (X-Y) ISO 527, GB/T 1040 27 ± 4 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "18 ± 4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "18",
+        "Raw uncertainty ±": "4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "18",
+        "Normalized uncertainty ±": "4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Tensile Strength (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength (Z) ISO 527, GB/T 1040 18 ± 4 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.5 ± 0.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040 3.5 ± 0.6 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.7 ± 0.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.7",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.7",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Breaking Elongation Rate (Z) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Breaking Elongation Rate (Z) ISO 527, GB/T 1040 1.7 ± 0.2 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2370 ± 150 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2370",
+        "Raw uncertainty ±": "150",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.37",
+        "Normalized uncertainty ±": "0.15",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Bending Modulus (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending Modulus (X-Y) ISO 178, GB/T 9341 2370 ± 150 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1840 ± 160 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1840",
+        "Raw uncertainty ±": "160",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.84",
+        "Normalized uncertainty ±": "0.16",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Bending Modulus (Z) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending Modulus (Z) ISO 178, GB/T 9341 1840 ± 160 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "66 ± 4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "66",
+        "Raw uncertainty ±": "4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "66",
+        "Normalized uncertainty ±": "4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Bending Strength (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending Strength (X-Y) ISO 178, GB/T 9341 66 ± 4 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "21 ± 5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "21",
+        "Raw uncertainty ±": "5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "21",
+        "Normalized uncertainty ±": "5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Bending Strength (Z) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending Strength (Z) ISO 178, GB/T 9341 21 ± 5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "4.6 ± 1.1 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "4.6",
+        "Raw uncertainty ±": "1.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.6",
+        "Normalized uncertainty ±": "1.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "Locator": "p. 2: Impact Strength (Z) ISO 179,GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Impact Strength (Z) ISO 179，GB/T 1043 4.6 ± 1.1 kJ/m²"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 - 240 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "35 - 45°C",
+        "Bed state": "range",
+        "Bed min °C": "35",
+        "Bed max °C": "45",
+        "Bed requirement": "required",
+        "Chamber °C": "25 - 45 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "25",
+        "Chamber max °C": "45",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Preparation",
+        "Drying": "before Printing 55 °C，8 h",
+        "Drying state": "stated",
+        "Drying °C": "55",
+        "Drying hours": "8",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.2",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 250 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Length 0.6 - 1.0 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 - 40 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "200 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Drying Settings before Printing 55 °C，8 h"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "35 - 45°C",
+        "Bed state": "range",
+        "Bed min °C": "35",
+        "Bed max °C": "45",
+        "Bed requirement": "required",
+        "Chamber °C": "25 - 45 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "25",
+        "Chamber max °C": "45",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Preparation",
+        "Drying": "before Printing 55 °C，8 h",
+        "Drying state": "stated",
+        "Drying °C": "55",
+        "Drying hours": "8",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.2",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-Bambu-PLA-Silk-Technical-Data-Sheet-5682bcfe-c957-4ea2-81b4-c5702a86d1e1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 250 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Length 0.6 - 1.0 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 - 40 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "200 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Drying Settings before Printing 55 °C，8 h"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying Settings",
+      "raw": "before Printing 55 °C，8 h",
+      "fromBelow": false,
+      "line": "Drying Settings before Printing 55 °C，8 h"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Size",
+      "raw": "0.2",
+      "fromBelow": false,
+      "line": "Nozzle Size 0.2, 0.4, 0.6, 0.8 mm"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "210 - 240 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 210 - 240 °C"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Bed Surface",
+      "raw": "Preparation",
+      "fromBelow": false,
+      "line": "Bed Surface Preparation Glue"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "35 - 45°C",
+      "fromBelow": false,
+      "line": "Bed Temperature 35 - 45°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "< 250 mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed < 250 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Length 0.6 - 1.0 mm",
+      "fromBelow": false,
+      "line": "Retraction Length 0.6 - 1.0 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Speed",
+      "raw": "20 - 40 mm/s",
+      "fromBelow": false,
+      "line": "Retraction Speed 20 - 40 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Chamber Temperature",
+      "raw": "25 - 45 °C",
+      "fromBelow": false,
+      "line": "Chamber Temperature 25 - 45 °C"
+    },
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "230 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 230 °C"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "35 °C",
+      "fromBelow": false,
+      "line": "Bed Temperature 35 °C"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "200 mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed 200 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet V3.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "deal for decorations, artistic projects, and 3D character models or any",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Net Filament Weight 1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool Material ABS (Temperature resistance 70 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool Size Diameter: 200 mm; Height: 67 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Blast Drying Oven: 55 °C，8 h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "X1 Series Printer Heatbed: 65 - 75 °C, 12 h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max Overhang Angle 55 °",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Max Bridging Length ~ 30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "24.5 ± 1.7 kJ/m²；",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8.2 ± 0.5 kJ/m² (notched)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength (X-Y) ISO 179, GB/T 1043",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 3,
+      "text": "Infill Density 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "* All the specimens were annealed and dried at 55 °C for 8 h before testing. And the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "suggested annealing temperature of models printed with Bambu PLA Silk is 50 to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "55 °C, and the time is 6 to 12 hours. The annealing effect depends on the annealing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1.Tensile Testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2.Bending Testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3.Impact Testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "for design reference and comparison only. Actual 3D printing model performance is related",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "In the process of using Bambu Lab 3D printing filaments, users are responsible for the",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

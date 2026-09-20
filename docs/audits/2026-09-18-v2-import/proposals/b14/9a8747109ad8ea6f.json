@@ -1,0 +1,506 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "9a8747109ad8ea6fe3dbb2d91b96d1aa41d15c3eefaa132703e857a3f888a9bf",
+    "url": "https://3d.nice-cdn.com/upload/file/formfutura-tds-apolloxcf10.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "FormFutura",
+    "docKey": "9a8747109ad8ea6f"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: asa",
+      "filler: cf10"
+    ],
+    "materialId": "M033",
+    "materialName": "ASA-CF",
+    "estimateIdentity": "ASA",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet ApolloX CF10",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/formfutura-tds-apolloxcf10.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9a8747109ad8ea6fe3dbb2d91b96d1aa41d15c3eefaa132703e857a3f888a9bf"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet ApolloX CF10"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M033",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "ApolloX CF10",
+        "Shared formulation key": "S-PET-formfutura-tds-apolloxcf10",
+        "Composition / filler": "Our ApolloX CF10 combines all benefits of ApolloX filament plus 10% carbon fibers. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet ApolloX CF10"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.1 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.1 g/cm3 ISO 1183"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "79 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "79",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "79",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Locator": "p. 1: Tensile strength (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (23°C, 50mm/min) 79 MPa ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1,8 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Locator": "p. 1: Elongation at break (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (23°C, 50mm/min) 1,8% ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "101.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "101.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "101.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Locator": "p. 1: VICAT softening point",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT softening point 101.6°C ISO 306"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "100.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "100.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 66 psi ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Locator": "p. 1: Heat deflection temperature (HDT) @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature (HDT) @ 66 psi 100.5°C ISO 75"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "95 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 264psi ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-apolloxcf10",
+        "Locator": "p. 1: Heat deflection temperature (HDT) @ 264psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature (HDT) @ 264psi 95°C ISO 75"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ApolloX CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print date: 14-09-2023 Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our ApolloX CF10 combines all benefits of ApolloX filament plus 10% carbon fibers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ApolloX CF10 is a high-performance carbon fiber reinforced ASA filament. The use of high modulus carbon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "fibers make ApolloX CF10 very lightweight and stiff. This engineering filament is very easy to 3D print on open",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "adhesion make ApolloX CF10 a breeze to print with.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Stiff with high modulus and impact resistance • 3D printing housings and covers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Heat resistant up to 101°C • Rigid parts for outdoor applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Easy to print on open desktop 3D printers • Manufacturing end-use products",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Masking layer lines with a matt surface finish in 3D printed objects",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This makes carbon fiber reinforced filaments perfect for 3D printing applications that require stiffness and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elastic tensile modulus 7580 MPa ISO 527",
+      "reason": "properties.csv carries no property for \"Elastic tensile modulus\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy unnotched impact strength, 23°C 8 ft.lb/in2 ISO 179/1eU",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy notched impact strength, 23°C 2.57 ft.lb/in2 ISO 179/1eU",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "ApolloX CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "Recommended storage temperature is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture, sunlight and direct",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "heat. When stored properly, product has a shelf life of 24 months. To obtain the best parameters of the printed",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "object, it is recommended to dry the material prior to usage and to 3D print it directly from a dry box.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "39169090 Monofilament for 3D printing European Union",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

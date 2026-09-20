@@ -1,0 +1,881 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d",
+    "url": "https://drive.google.com/file/d/126QYMb_oeh6Q1B6NIdZCeE7XZ_djbJic/view?usp=drive_link",
+    "pages": 7,
+    "provider": "QIDI",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/126QYMb_oeh6Q1B6NIdZCeE7XZ_djbJic/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs",
+      "filler: gf25"
+    ],
+    "materialId": "M028",
+    "materialName": "ABS-GF",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-ABS-GF25",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI NexABS-GF25",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/126QYMb_oeh6Q1B6NIdZCeE7XZ_djbJic/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI NexABS-GF25"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M028",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "NexABS-GF25",
+        "Shared formulation key": "R-QIDI-ABS-GF25",
+        "Composition / filler": "25% glass fiber to improve its mechanical properties. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "物性表(v1.1) (p. 3, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI NexABS-GF25"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.15 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 3: ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "ISO 1183 1.15 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "4.2 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "4.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "4.2 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "87 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "87",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "87",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 3: Heat deflection temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Heat deflection temperature 87 °C (0.45MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "48.48 ± 0.61 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "48.48",
+        "Raw uncertainty ±": "0.61",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48.48",
+        "Normalized uncertainty ±": "0.61",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "48.48±0.61 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3752.13 ± 68.39 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3752.13",
+        "Raw uncertainty ±": "68.39",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.75213",
+        "Normalized uncertainty ±": "0.06839",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "3752.13±68.39 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "30.48 ± 0.47 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "30.48",
+        "Raw uncertainty ±": "0.47",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30.48",
+        "Normalized uncertainty ±": "0.47",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "30.48±0.47 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "2843.56 ± 69.90 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2843.56",
+        "Raw uncertainty ±": "69.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2843.56",
+        "Normalized uncertainty ±": "69.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: Tensile breaking strength ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "ISO 527 2843.56±69.90 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.20 ± 0.44 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.2",
+        "Raw uncertainty ±": "0.44",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.2",
+        "Normalized uncertainty ±": "0.44",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "2.20±0.44 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "78.80 ± 1.26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "78.8",
+        "Raw uncertainty ±": "1.26",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "78.8",
+        "Normalized uncertainty ±": "1.26",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "78.80±1.26 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3531.71 ± 75.79 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3531.71",
+        "Raw uncertainty ±": "75.79",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.53171",
+        "Normalized uncertainty ±": "0.07579",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-GF25",
+        "Locator": "p. 4: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "3531.71±75.79 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data/Revised: 05.2023 Version No: 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI NexABS-GF25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "一种共挤包覆结构的 25%短切玻璃纤维增强 ABS 材料",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI NexABS-GF25 is one type 3D printing ABS filament with co-extrusion skin-core structure and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25% glass fiber to improve its mechanical properties.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI 使用多层共挤技术，开发出具有双层包覆结构的新一代工业级 3D 打印线材，线材外层为高",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI is a new generation of industrial 3D printing filament with a skin-core structure by using multi-layer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI 新一代工业级 3D 打印线材利用了高分子流体在挤出过程中一般为层流运动的特性，线",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI 3D printing filaments have taken advantage of the laminar flow of polymeric fluids during the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "common issue during printing. However, for QIDI 3D printing filaments, the interlayer adhesion in Z-axis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI 新一代工业级 3D 打印线材在挤出过程中，线材熔体在喷头内部始终保持层流状态，与",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3D 打印机整个挤出组件的使用寿命。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "service life of the entire extrusion parts of the 3D printer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI NexABS-GF25 基体是一款由连续本体法合成的 ABS 树脂，得益于这种先进的生产工艺，生产过程中使",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The main raw material of QIDI NexABS-GF25 is an ABS resin synthesized by continuous bulk",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI NexABS-GF25 是一款具有双层包覆结构的 25%玻璃纤维增强 ABS 3D 打印线材。线材外层为高粘接",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "强度的纯 ABS 树脂，线材内芯为 25%短切玻璃纤维增强的 ABS 树脂。QIDI NexABS-GF25 3D 打印包覆线材",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI NexABS-GF25 is a glass fiber reinforced ABS material with a skin-core structure. The inner core",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "is ABS reinforced with 25% chopped glass fiber, and the outer shell is unfilled ABS resin with high bond",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "线径 Diameter：1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "净重 Net wet：500g/ 1kg/ 2.5kg/ 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "物性表(v1.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 11357 103 °C",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 3,
+      "text": "250°C，2.16kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "热变形温度 ISO 75：Method A 81 °C (1.8MPa)",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 3,
+      "text": "ISO 75：Method B",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 4,
+      "text": "ISO 527 2.10±0.10 %",
+      "reason": "the line names Tensile break strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 4,
+      "text": "ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 4,
+      "text": "ISO 179 8.91±0.63 KJ/㎡",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 4,
+      "text": "试样打印参数：喷嘴大小 0.4mm，喷嘴温度 250°C，底板加热 100°C，打印速度 50mm/s，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Specimens printed under the following conditions: Nozzle size 0.4mm，Nozzle temp 250°C, Bed temp 100°C, Print speed 50mm/s, Infill 100%, Infill",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "angle±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "250-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0.4-1.0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "100-110°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0.16-0.18 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0-30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1-3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1. QIDI NexABS-GF25 对比普通 ABS-GF 拥有更高的纤维含量，这种技术进一步提高了 ABS 材料的抗翘曲能力",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2. 长期打开包装后的线材，如打印过程中发现气泡、拉丝等打印质量下降问题，请将线材置 70℃条件下干燥",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4-6h。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3. 建议在打印 ABS 材料时将打印机放置在通风环境中。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4. QIDI NexABS-GF25 基于熔体稳定流动时处于层流状态的机理，材料在喷嘴挤出的细丝结构中依然能保持双",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5. 建议使用硬化钢及以上等级耐磨喷头，可以有效提高打印质量，建议加热块厚度不小于 12mm。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1. QIDI NexABS-GF25 has a higher fiber content compared with ordinary ABS-GF. This technology further",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "during the printing process, please dry the filament at 70°C for 4-6 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "3.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "4. QIDI NexABS-GF25 can maintain a core-skin structure when extruded from the nozzle. It is based on the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "5.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "than 12mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "测试参数：12mm 长度铜制加热块，BMG 挤出机，Phaetus 硬化钢喷头，喷嘴大小 0.4mm，层高 0.2mm。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Test parameters: 12mm length brass heat block, BMG extruder, Phaetus Hardened Steel Nozzle, Nozzle size 0.4mm, Layer Height 0.2mm.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

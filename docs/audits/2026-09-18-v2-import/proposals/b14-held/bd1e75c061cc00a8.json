@@ -1,0 +1,584 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "bd1e75c061cc00a88929bf388dfe16acf01d0cc60b8f5e25fcee924667d922ea",
+    "url": "https://nanovia.tech/en/ref/nanovia-flex-v0/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": null,
+    "docKey": "https://nanovia.tech/en/ref/nanovia-flex-v0/"
+  },
+  "identity": {
+    "polymer": "HIPS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: hips"
+    ],
+    "materialId": "M081",
+    "materialName": "HIPS",
+    "estimateIdentity": "HIPS",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "its density of 1210 kg/m³ is above what neat HIPS reaches (1090), so the product carries a filler its name does not declare"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-Flex",
+      "Publisher": "Nanovia",
+      "Title": "Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/ref/nanovia-flex-v0/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bd1e75c061cc00a88929bf388dfe16acf01d0cc60b8f5e25fcee924667d922ea"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Flex",
+        "Shared formulation key": "R-NANOVIA-Flex",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Home / 3D printing filament / Material / Flexibles / Nanovia Flex V0 : Fire resistant Shore 90A/40D 3D printing filament Sintering Metallic Ceramic Material ABS (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-Flex",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.21 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.21",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Flex",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  1.21  g/cm 3  ISO 1183"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "90 Shore A",
+        "Raw unit": "Shore A",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Flex",
+        "Locator": "p. 1: Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Hardness  90    Shore A"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "524 %",
+        "Raw unit": "%",
+        "Raw numeric": "524",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "524",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Flex",
+        "Locator": "p. 1: Ultimate elongation",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Ultimate elongation  524  %  VDE282 part 10"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Oxygen index",
+        "Raw value": "25 %",
+        "Raw unit": "%",
+        "Raw numeric": "25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D-2863",
+        "Standards": "ASTM D2863",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Flex",
+        "Locator": "p. 1: LOI",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "LOI  25  %  ASTM D-2863"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "235 – 245 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "235",
+        "Nozzle max °C": "245",
+        "Nozzle requirement": "required",
+        "Bed °C": "20 – 40 °C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "40",
+        "Bed requirement": "required",
+        "Chamber °C": "20 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "20",
+        "Chamber max °C": "20",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-Flex",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50 – 70 mm3 /s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion temperature  235 – 245  °C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "235 – 245 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature  235 – 245  °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate temperature",
+      "raw": "20 – 40 °C",
+      "fromBelow": false,
+      "line": "Plate temperature  20 – 40  °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "20 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature  20  °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max volumetric speed",
+      "raw": "50 – 70 mm3 /s",
+      "fromBelow": false,
+      "line": "Max volumetric speed  50 – 70  3,6  mm 3 /s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home / 3D printing filament / Material / Flexibles / Nanovia Flex V0 : Fire resistant Shore 90A/40D 3D printing filament Sintering Metallic Ceramic Material ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Flex V0 : Fire resistant Shore 90A/40D Starting at : 69,83 &euro; ex. VAT / kg Nanovia Flex V0, is a flexible Shore 90A/40D fire retardant 3D printer fi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g 2000 g sample Clear",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Flex V0 : Fire resistant Shore 90A/40D quantity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 - 5  5%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 +  10%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: N/A Categories: 3D printing filament , Flexibles , Latest products , Material Tag: Non-flammable UL94 VO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75  mm  +/- 50 µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40    Shore D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile resistance  27  MPa  VDE282 part 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Resistance at 100% elongation  7  MPa  VDE282 part 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Resistance at 300% elongation  10  MPa  VDE282 part 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability  V-0  at 0.8 mm  UL 94",
+      "reason": "properties.csv carries no property for \"Flammability\""
+    },
+    {
+      "page": 1,
+      "text": "last updated : 25/04/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Flex V0 allows for the 3D printing of flexible parts suitable for high-risk environments thanks to its V0 UL94 non-flammability properties at 0.8mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This flexible 3D printing filament prints on the majority of 3D printers equipped with “direct drive” extruders, and does not require a closed enclosure or addi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With its good resistance to wear and repeated bending, Nanovia Flex V0 is ideal for any flexible part in an industrial setting.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Non-flammable V0 at 0.8mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexible – shore 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "3D printing",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Flex V0 is relativly fluid and might require a high retraction setting in the case of stringing.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "RoHS certification Nanovia Flex V0 :",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Spool  L1  L2  D1  D2  D3  Weight",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g, 2000 g, sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ASA : Weather resistant Starting at : 34,53 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PC-ABS Rail : EN 45545-2 Starting at : 71,25 &euro; ex. VAT / kg Select options",
+      "reason": "properties.csv carries no property for \"Nanovia PC-ABS Rail :\""
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PC-PTFE : Low friction Starting at : 101,98 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PA-6 : High resistance Starting at : 70,15 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Articles New – Nanovia Flex V0 : Fire resistant Shore 90A/40D 3D printing filament",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2023 in review and the first 2024 new 3D printer filament",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Contact info NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

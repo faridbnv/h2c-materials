@@ -1,0 +1,698 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "de0713d6f9290f7c22ecd92bd1f6183ef8bc282e8079c2ff853352276fb5a79c",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_E_ColorFabb_nGen_FLEX.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "colorFabb",
+    "docKey": "de0713d6f9290f7c"
+  },
+  "identity": {
+    "polymer": "nGen",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Copolyesters",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: ngen"
+    ],
+    "materialId": "M143",
+    "materialName": "nGen FLEX",
+    "estimateIdentity": "nGen",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+      "Publisher": "colorFabb",
+      "Title": "Technical datasheet nGen_FLEX",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is colorFabb's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_E_ColorFabb_nGen_FLEX.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "de0713d6f9290f7c22ecd92bd1f6183ef8bc282e8079c2ff853352276fb5a79c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet nGen_FLEX"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M143",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen_FLEX",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet nGen_FLEX"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,13 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 D 792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Density g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm3 1,13 D 792"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "14 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Tensile Stress @ Yield MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress @ Yield MPa 14 D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "22 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Tensile Stress @ Break MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress @ Break MPa 22 D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "38 %",
+        "Raw unit": "%",
+        "Raw numeric": "38",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "38",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Yield % 38 D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "400 %",
+        "Raw unit": "%",
+        "Raw numeric": "400",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "400",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Break % 400 D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "150 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.15",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Flexural Modulus MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus MPa 150 D 790"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "40 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "40",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "40",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-40°C",
+        "Standard / load": "-40 °C D 256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Izod Impact strength, notched @ -40 °C J/m",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod Impact strength, notched @ -40 ºC J/m 40 D 256"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "170",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "170",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 kg load D 1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "Locator": "p. 1: Vicat Softening Temperature @ 1 kg load °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature @ 1 kg load ºC 170 D 1525"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240 – 260 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "80 °C (+ buildTak)",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "/ modification",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX-de0713",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0 – 50 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40 – 60 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Advised 3D printing temperature 240 – 260 ºC"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "printing temperature",
+      "raw": "240 – 260 °C",
+      "fromBelow": false,
+      "line": "Advised 3D printing temperature 240 – 260 ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "bed temperature",
+      "raw": "80 °C (+ buildTak)",
+      "fromBelow": false,
+      "line": "Advised bed temperature 80 ºC (+ buildTak)"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Bed surface",
+      "raw": "/ modification",
+      "fromBelow": false,
+      "line": "Bed surface / modification nGen_FLEX gives best results on a buildTak covered buildplate, heated at"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "0 – 50 %",
+      "fromBelow": false,
+      "line": "Active cooling fan 0 – 50 %"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "40 – 60 mm/s",
+      "fromBelow": false,
+      "line": "Advised 3D printing speed 40 – 60 mm/sec"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date of issue: April 6, 2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version: v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen_FLEX is made with Amphora FL6000, a flexible material uniquely engineered for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "that can withstand the rigors of everyday use. With a Shore A hardness level of 95,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Durometer Hardness Shore D Scale - 55 D 2240",
+      "reason": "properties.csv carries no property for \"Durometer Hardness Shore D Scale\""
+    },
+    {
+      "page": 1,
+      "text": "Durometer Hardness Shore A Scale - 95 D 2240",
+      "reason": "properties.csv carries no property for \"Durometer Hardness Shore A Scale\""
+    },
+    {
+      "page": 1,
+      "text": "Tear Strength N 350 D 1004",
+      "reason": "the sheet states Tear strength in N, and the database keeps it in kN/m"
+    },
+    {
+      "page": 1,
+      "text": "Brittleness Temperature ºC < -70 D 746",
+      "reason": "properties.csv carries no property for \"Brittleness Temperature\""
+    },
+    {
+      "page": 1,
+      "text": "1,75 mm ± 0,05 ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2,85 mm ± 0,05 ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Netto filament weight 750 grams / 2200 grams",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "around 80C. Make sure the distance between nozzle and buildplate is not",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 F +31 (0)77 – 3971414 VAT nr: NL850902770B01",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "5951 DK Belfeld E sales@colorfabb.com IBAN: NL54RABO0151849188",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "The Netherlands I colorfabb.com BIC: RABONL2U",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

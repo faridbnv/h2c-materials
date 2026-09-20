@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858",
+    "url": "https://nanovia.tech/en/ref/nanovia-flex-b4c/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": null,
+    "docKey": "https://nanovia.tech/en/ref/nanovia-flex-b4c/"
+  },
+  "identity": {
+    "polymer": "HIPS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: hips"
+    ],
+    "materialId": "M081",
+    "materialName": "HIPS",
+    "estimateIdentity": "HIPS",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "its density of 1450 kg/m³ is above what neat HIPS reaches (1090), so the product carries a filler its name does not declare"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-Flex-B4C",
+      "Publisher": "Nanovia",
+      "Title": "Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/ref/nanovia-flex-b4c/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Flex B4C",
+        "Shared formulation key": "R-NANOVIA-Flex-B4C",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Certification RoHS Nanovia Flex B4C : (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-Flex-B4C",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,45 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.45",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1450",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-Flex-B4C",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  1,45  g/cm 3  ISO 1183"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220 – 240 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "40 – 60 °C",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "20 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "20",
+        "Chamber max °C": "20",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-Flex-B4C",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion temperature  220 – 240  °C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "220 – 240 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature  220 – 240  °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate temperature",
+      "raw": "40 – 60 °C",
+      "fromBelow": false,
+      "line": "Plate temperature  40 – 60  °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "20 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature  20  °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home / 3D printing filament / Material / Flexibles / Nanovia Flex B4C : Neutron capture 3D printing filament Sintering Metallic Ceramic Material ABS ASA HIPS PA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g sample Clear",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Flex B4C : Neutron capture quantity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: N/A Categories: 3D printing filament , Flexibles , Material , Specific Tag: Medical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Extrusion mulitplier 105  %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle (minimal)  0.5  mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 & 2.85  mm  +/- 50µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Massic B4C concentration  25  %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volumic B4C concentration  10  %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Useage temperature  70  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "last updated : 27/03/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Used by the French nuclear industry, Nanovia Flex B4C uses bore-10’s capability to react with neutrons freed by nuclear fission. Combined with an industrial pol",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Its semi-rigid base, allows for structural components, still able to deform when necessary and absorb shocks. This combination makes Nanovia Flex B4C particular",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia B4C is printable without an enclosure and does not require any build plate adhesives.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Easy to 3D print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Le Nanovia Flex B4C is also available in pellet form for plastic extrusion and 3D FGF pellet printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "How B4C captures free radicals generated by nuclear fission",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The boron present in the ceramic B4C, Is a metalloid of which several isotopes exist, Meaning that these atoms have the same number of protons but a different n",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Boron-10 in particular has a very wide core absorption cross section. When a free neutron, generated by nuclear fission encounters boron-10, this wide core abso",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This impact creates an predominantly unstable isotope of Boron-11 that fissures into :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A lithium-7 atom",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 B + nth → 4 He 2+ + 7 Li 3+ + 2.79 MeV (6%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 B + nth → 4 He 2+ + 7 Li 3+ + 2.31 MeV + γ (0.48 MeV) (94%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "These properties make boron-10, in its solid form (Boron carbide) and its liquid form (Boric acid), used as a regulator (neuron poisons) in nuclear reactors. By",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "We recommend printing Nanovia Flex B4C in a room equipped with air extraction or by using appropriate breathing equipment.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Certification RoHS Nanovia Flex B4C :",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Spool  L1  L2  D1  D2  D3  Weight",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm, 2.85 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g, sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PC-PTFE : Low friction Starting at : 101,98 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PA Rail : EN 45545-2 Starting at : 109,73 &euro; ex. VAT / kg Select options",
+      "reason": "properties.csv carries no property for \"Nanovia PA Rail :\""
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ASA : Weather resistant Starting at : 34,53 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PC-ABS V0 : Demanding technical applications Starting at : 60,80 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Articles 2023 in review and the first 2024 new 3D printer filament",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "New : Nanovia Flex B4C : Neutron capture 3D printing filament",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Contact info NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

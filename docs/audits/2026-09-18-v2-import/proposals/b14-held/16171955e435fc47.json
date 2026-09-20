@@ -1,0 +1,805 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "16171955e435fc479810d4ac587df5a60820d3d3b3adf6d9441ac91a94c9082b",
+    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_LW-ASA_UltraFoam.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Spectrum",
+    "docKey": "16171955e435fc47"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: lw"
+    ],
+    "materialId": "M032",
+    "materialName": "ASA Aero",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+      "Publisher": "Spectrum",
+      "Title": "TECHNICAL DATA SHEET LW-ASA UltraFoam",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Spectrum's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_LW-ASA_UltraFoam.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "16171955e435fc479810d4ac587df5a60820d3d3b3adf6d9441ac91a94c9082b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET LW-ASA UltraFoam"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M032",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "LW-ASA UltraFoam",
+        "Shared formulation key": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET LW-ASA UltraFoam"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,08 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1080",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1,08 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "39 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "39",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "39",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "at Yield 23°C 50mm/min 3.2mm",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Tensile Strength, at Yield, 23°C, 50mm/min, 3.2mm",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength, at Yield, 23°C, 50mm/min, 3.2mm 39 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "32 %",
+        "Raw unit": "%",
+        "Raw numeric": "32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "32",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min 3.2mm",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Tensile Elongation at Break, 23°C, 50mm/min, 3.2mm",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation at Break, 23°C, 50mm/min, 3.2mm 32% (Min)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1600 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1600",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min 3.2mm",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Tensile Modulus, 23°C, 50mm/min, 3.2mm",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus, 23°C, 50mm/min, 3.2mm 1600 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "59 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "59",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 15mm/min 3.2mm",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Flexural Strength, 23°C, 15mm/min, 3.2mm",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength, 23°C, 15mm/min, 3.2mm 59 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1750 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1750",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 15mm/min 3.2mm",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Flexural Modulus, 23°C, 15mm/min, 3.2mm",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus, 23°C, 15mm/min, 3.2mm 1750 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "405 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "405",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "405",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "3.2mm 23°C",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Izod Impact Strength, Notched, 3.2mm, 23°C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod Impact Strength, Notched, 3.2mm, 23°C 405 J/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "320 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "320",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "320",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "6.4mm 23°C",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Izod Impact Strength, Notched, 6.4mm, 23°C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod Impact Strength, Notched, 6.4mm, 23°C 320 J/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Melting temperature from",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature from 200 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "80 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "of printed parts up to",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "Locator": "p. 1: Heat deflection temperature of printed parts up to",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature of printed parts up to 80 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "60-90°C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "recommended for larger prints",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "No",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-LW-ASA-UltraFoam",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-20%"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "0.4 - 2.7 mm"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.5 - 3.0 mm"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "recommended"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Bed temperature 60-90°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "60-90°C",
+      "fromBelow": false,
+      "line": "Bed temperature 60-90°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "0-20%",
+      "fromBelow": false,
+      "line": "Active cooling fan 0-20%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "0.4 - 2.7 mm",
+      "fromBelow": false,
+      "line": "Shell thickness** 0.4 - 2.7 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.5 - 3.0 mm",
+      "fromBelow": false,
+      "line": "Layer height** 0.5 - 3.0 mm"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Closed chamber",
+      "raw": "recommended for larger prints",
+      "fromBelow": false,
+      "line": "Closed chamber recommended for larger prints"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "No",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle No"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Adhesive recommended"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Density (foamed) 0,36 g/cm³",
+      "reason": "the density the print reaches with foaming active, which is what the process does and not what the material is"
+    },
+    {
+      "page": 1,
+      "text": "up to 3x weight reduction of printed parts without",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Low final density–as low asapprox. 0.33g/cm³",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Softening temperature 90 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "at 230–285°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "220-285°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture,",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "product has a shelf life of 24 months.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "(glue stick, Dimafix, 3DLac, Magigoo)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* settings are based on a 0.4mm nozzle",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "*** at least 6h at 75°C using a hot dry air oven",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Preparation date: 20-07-2025",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

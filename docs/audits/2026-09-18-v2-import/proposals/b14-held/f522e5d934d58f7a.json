@@ -1,0 +1,861 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a",
+    "url": "https://drive.google.com/file/d/1CNaYMGfX1r2KB4XcxMRhV43BWfWcu8By/view?usp=drive_link",
+    "pages": 5,
+    "provider": "QIDI",
+    "manufacturer": null,
+    "docKey": "https://drive.google.com/file/d/1CNaYMGfX1r2KB4XcxMRhV43BWfWcu8By/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet-g",
+      "filler: gf"
+    ],
+    "materialId": "M068",
+    "materialName": "PET-GF",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PET-GF",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI PET-GF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1CNaYMGfX1r2KB4XcxMRhV43BWfWcu8By/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI PET-GF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M068",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PET-GF",
+        "Shared formulation key": "R-QIDI-PET-GF",
+        "Composition / filler": "15% chopped Glass fiber reinforced Polyethylene Terephthalate FDM material. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "物性表（v1.2） (p. 2, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PET-GF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI PET-GF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.38 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.38",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1380",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 2: ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 1183 1.38 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "5.3 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "5.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 2: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "5.3 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "70.86 ± 2.86 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "70.86",
+        "Raw uncertainty ±": "2.86",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70.86",
+        "Normalized uncertainty ±": "2.86",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "70.86 ± 2.86 Mpa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.56 ± 0.30 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.56",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.56",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "2.56±0.30%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "114.87 ± 3.0 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "114.87",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "114.87",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "114.87±3.0 Mpa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3650.32 ± 65.81 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "3650.32",
+        "Raw uncertainty ±": "65.81",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.65032",
+        "Normalized uncertainty ±": "0.06581",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "3650.32±65.81 Mpa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "33.95 ± 2.38 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "33.95",
+        "Raw uncertainty ±": "2.38",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "33.95",
+        "Normalized uncertainty ±": "2.38",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "33.95±2.38 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.14 ± 0.11 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.14",
+        "Raw uncertainty ±": "0.11",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.14",
+        "Normalized uncertainty ±": "0.11",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PET-GF",
+        "Locator": "p. 3: ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "1.14±0.11 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data / Revised: 06.2023 Version No: 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15%短切玻璃纤维增强涤纶聚酯 3D 打印材料。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15% chopped Glass fiber reinforced Polyethylene Terephthalate FDM material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "线径：1.75mm/ 2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "净重：500g，1kg，2.5kg，3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "专为 FDM 3D 打印工艺开发，基材选用 PET 工程材料，具有低吸湿，高强度，耐蠕",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI PET-GF is specially developed for FDM 3D printing process, and its substrate material is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "物性表（v1.2）",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 62:",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "0.5%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 11357 251°C",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Water absorption Method 1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "270℃, 2.16kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "热变形温度 99.1°C (1.80MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 75: Method A",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "120.3°C (0.45MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 75: Method B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4130.13 ± 107.0 Mpa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 527",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "ISO 179 6.56±0.68 KJ/㎡",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 3,
+      "text": "3322.37±94.04 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 527",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "试样打印参数：喷嘴温度 320℃，底板加热 80℃，打印速度 45mm/s，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "退火条件：100℃退火 8 小时",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Specimens printed under the following conditions: Nozzle temp 320℃, Bed temp 80℃, Print speed 45mm/s, Infill 100%, Infill angle ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Post-processing: 100°C Annealing 8 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "280-320°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.4-1.0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "60-80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.08-0.12 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1-3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. PET 材料虽然吸湿率极低，但对水分却非常敏感。材料吸湿后打印会出现拉丝，挤出有气泡，打印表面",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "内（湿度控制在 15%以下）进行打印。不用的线材请放回原包装铝箔袋内密封保存。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2. 材料受潮后会出现打印拉丝增多，挤出有气泡，打印表面质量粗糙等现象。请将线材放入 100-120℃烘箱",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "内干燥 4-6h，即可恢复 QIDI PET-GF 的打印质量。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3. 建议选用 Phaetus 硬化钢及以上等级喷嘴，可以有效提高打印质量，建议加热块厚度不小于 12mm。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4. 打印完成后可以对打印件进行退火处理，可以进一步提高 QIDI PET-GF 打印件的强度，退火条",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "件：80-100℃温度下放置 4-8 小时后自然冷却到室温。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "15%) immediately after opening the QIDI PET-GF vacuum foil bag for printing. Please put the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "surface. Please dry the filament in an oven at 100-120℃ for 4-6h to restore the printing quality of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "12mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "PET-GF print part. Annealing conditions: place the printed part at 80-100℃ for 4-8 hours and cool to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "15% Glass Fiber Reinforced PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "70",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "59.75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "s 40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "c 30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "( 320℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "21.85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "14.64",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "7.02",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "12mm³/s 16mm³/s 20mm³/s 24mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "测试参数：12mm 长度铜制加热块，BMG 挤出机，Phaetus 硬化钢喷头，喷嘴大小 0.4mm，层高 0.2mm。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Test parameters: 12mm length brass heat block, BMG extruder, Phaetus Hardened Steel Nozzle, Nozzle size 0.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

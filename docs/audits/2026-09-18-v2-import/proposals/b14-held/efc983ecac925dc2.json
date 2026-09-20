@@ -1,0 +1,514 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "efc983ecac925dc20b98b8e9230d12b9f401bf8f142c68d90deff1fbb89e0d85",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3848",
+    "pages": 2,
+    "provider": "Filament2Print",
+    "manufacturer": null,
+    "docKey": "efc983ecac925dc2"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12",
+      "filler: carbonfiber"
+    ],
+    "materialId": "M053",
+    "materialName": "PA12-CF",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by Filament2Print and names no maker of its own; whether Filament2Print is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+      "Publisher": "Filament2Print",
+      "Title": "Technical Data Sheet 15% carbon fiber reinforced PA12, Super Tough",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3848",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "efc983ecac925dc20b98b8e9230d12b9f401bf8f142c68d90deff1fbb89e0d85"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet 15% carbon fiber reinforced PA12, Super Tough"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "15% carbon fiber reinforced PA12, Super Tough",
+        "Shared formulation key": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Composition / filler": "15% carbon fiber reinforced PA12, Super Tough (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet 15% carbon fiber reinforced PA12, Super Tough"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "02",
+        "Raw unit": "Shore D",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "15s ISTR",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Locator": "p. 1: Hardness Shore D, 15s ISTR",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Hardness Shore D, 15s ISTR02L ShD 7878"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "180180 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Locator": "p. 2: Melting point 10 °C/min ISO 11357 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melting point 10 °C/min ISO 11357 °C 180180"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "150150 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "150150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "150150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1,80 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Locator": "p. 2: HDT – heat deflection temperature 1,80 MPa a 120 °C/h ISO 75 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "HDT – heat deflection temperature 1,80 MPa a 120 °C/h ISO 75 °C 150150"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3232 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "3232",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3232",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "235°C",
+        "Standard / load": "235°C / 5kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Locator": "p. 2: Melt Flow Rate 235°C / 5kg ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt Flow Rate 235°C / 5kg ISO 1133 g/10min 3232"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "3434 cm3/10min",
+        "Raw unit": "cm3/10min",
+        "Raw numeric": "3434",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3434",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "235°C",
+        "Standard / load": "235°C / 5kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "Locator": "p. 2: Melt Volume Rate 235°C / 5kg ISO 1133 cm3/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt Volume Rate 235°C / 5kg ISO 1133 cm3/10min 3434"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-280240 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "80-11080 °C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "SuggestedSuggested",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Drying Recommendations",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Hardened SteelHardened Steel",
+        "Nozzle diameter": "≥0,4 mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Xenia-XECARB-PA12-CF-ST",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle temperature °C 240-280240-280"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "240-280240 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature °C 240-280240-280"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "80-11080 °C",
+      "fromBelow": false,
+      "line": "Bed temperature °C 80-11080-110"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Nozzle type",
+      "raw": "Hardened SteelHardened Steel",
+      "fromBelow": false,
+      "line": "Nozzle type Hardened SteelHardened Steel"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle diameter",
+      "raw": "≥0,4 mm",
+      "fromBelow": false,
+      "line": "Nozzle diameter mm ≥0,4≥0,4"
+    },
+    {
+      "page": 2,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Closed chamber",
+      "raw": "SuggestedSuggested",
+      "fromBelow": false,
+      "line": "Closed chamber SuggestedSuggested"
+    },
+    {
+      "page": 2,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying Recommendations",
+      "raw": "Drying Recommendations",
+      "fromBelow": false,
+      "line": "Drying RecommendationsDrying Recommendations Unit Value"
+    },
+    {
+      "page": 2,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying temperature",
+      "raw": "8585 °C",
+      "fromBelow": false,
+      "line": "Drying temperature °C 8585"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "XECARBXECARB PA12-CF-STPA12-CF-ST",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15% carbon fiber reinforced PA12, Super Tough",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XECARB® PA12-CF-ST is the high-performance filamentXECARB® PA12-CF-ST is the high-performance filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "developed on a PA12 polymer base and enhanced withdeveloped on a PA12 polymer base and enhanced with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reinforced with 15% carbon fibre, it combines lightness,Reinforced with 15% carbon fibre, it combines lightness,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter mm 1,751,75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density ISO 1183 g/cm3 1,061,06",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "XECARBXECARB PA12-CF-STPA12-CF-ST",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "15% carbon fiber reinforced PA12, Super Tough",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Glass transition temperature 10 °C/min ISO 11357 °C",
+      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 2,
+      "text": "Edition: October 2025",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

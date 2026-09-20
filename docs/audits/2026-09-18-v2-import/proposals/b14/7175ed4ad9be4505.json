@@ -1,0 +1,2673 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "7175ed4ad9be45056e60acd9e13dad42576aac1818e80de32c0ed96e8d59f915",
+    "url": "https://shop3d.ca/cdn/shop/files/ExtendedTDS_Ultrafuse_PAHT_CF15_V1.5.pdf?v=16940645321858837534",
+    "pages": 11,
+    "provider": "Shop3D Canada",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "7175ed4ad9be4505"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: paht",
+      "filler: cf15"
+    ],
+    "materialId": "M048",
+    "materialName": "PAHT-CF",
+    "estimateIdentity": "PAHT",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+      "Publisher": "BASF Forward AM",
+      "Title": "®",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Shop3D Canada; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://shop3d.ca/cdn/shop/files/ExtendedTDS_Ultrafuse_PAHT_CF15_V1.5.pdf?v=16940645321858837534",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "7175ed4ad9be45056e60acd9e13dad42576aac1818e80de32c0ed96e8d59f915"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "®"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M048",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Ultrafuse PAHT CF15",
+        "Shared formulation key": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "®"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "103.2-18.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "103.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "18.2",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "103.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "18.2",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "dry ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Tensile strength dry ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Tensile strength dry ISO 527 103.2 - 18.2 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "80,5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "80.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "dry ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Tensile strength dry ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Tensile strength dry ISO 527 80,5 MPa - 8,14 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "11 annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Elongation at Break11) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation at Break11) ISO 527 2.9 % - 0.8 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "dry annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Elongation at Break dry ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation at Break dry ISO 527 1.8 % - 0.5 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2,9 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "11 annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Elongation at Break11) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation at Break11) ISO 527 2,9 % - 1.8 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1,7 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "dry annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Elongation at Break dry ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation at Break dry ISO 527 1,7 % 0,8 % existing laws and"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "5052 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5052",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "5.052",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "9 annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Young’s Modulus9) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s Modulus9) ISO 527 5052 MPa - 2455 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "8386 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "8386",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "8.386",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "dry annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Young’s Modulus dry ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s Modulus dry ISO 527 8386 MPa - 3532 MPa standards. The used"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4102 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4102",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.102",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "9 annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Young’s Modulus9) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s Modulus9) ISO 527 4102 MPa 795 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "6588 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "6588",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "6.588",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "dry annealed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 5: Young’s Modulus dry ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s Modulus dry ISO 527 6588 MPa 1320 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "50.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "7 ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Flexural Strength dry7) ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Flexural Strength dry7) ISO 178 50.8 MPa investigations and tests;"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "6063 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "6063",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "6.063",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Flexural Modulus ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Flexural Modulus ISO 178 6063 MPa 6260 MPa 2190 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "8258 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "8258",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "8.258",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "7 ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Flexural Modulus dry7) ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Flexural Modulus dry7) ISO 178 8258 MPa 7669 MPa 2715 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "3.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Flexural Elongation at Break ISO 178 No break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Flexural Elongation at Break ISO 178 No break 3.6 % 4.0 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "2.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Flexural Elongation at Break ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Flexural Elongation at Break ISO 178 2.4 % 2.8 % 1.8 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "5.1 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "5.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179-2",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Impact Strength Charpy ISO 179-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Impact Strength Charpy ISO 179-2 5.1 kJ/m2 5.3 kJ/m2 1.6 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "4.8 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "4.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179-2",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Impact Strength Charpy ISO 179-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Impact Strength Charpy ISO 179-2 4.8 kJ/m2 3.9 kJ/m2 1.3 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "21.9 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "21.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "21.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179-2",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Impact Strength Charpy ISO 179-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Impact Strength Charpy ISO 179-2 21.9 kJ/m2 20.4 kJ/m2 2.8 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "20.6 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "20.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "20.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179-2",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 6: Impact Strength Charpy ISO 179-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Impact Strength Charpy ISO 179-2 20.6 kJ/m 19.3 kJ/m 2.9 kJ/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "91 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "91",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "91",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8 MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: HDT A at 1.8 MPa ISO 75-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "HDT A at 1.8 MPa ISO 75-2 91 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "92 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "92",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "92",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8 MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: HDT A at 1.8 MPa ISO 75-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "HDT A at 1.8 MPa ISO 75-2 92 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "128 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "128",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "128",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: HDT B at 0.45 MPa ISO 75-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "HDT B at 0.45 MPa ISO 75-2 128 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m23",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "145 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "145",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "145",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: HDT B at 0.45 MPa ISO 75-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "HDT B at 0.45 MPa ISO 75-2 145 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m24",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "192 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "192",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "192",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Vicat softening point at 50 N ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Vicat softening point at 50 N ISO 306 192 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m25",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "205 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "205",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "205",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Vicat softening point at 50 N ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Vicat softening point at 50 N ISO 306 205 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m26",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "217 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "217",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "217",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "10 N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Vicat softening point at 10 N ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Vicat softening point at 10 N ISO 306 217 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m27",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "221 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "221",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "221",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "10 N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Vicat softening point at 10 N ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Vicat softening point at 10 N ISO 306 221 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m28",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "70 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357-2",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Glass Transition ISO 11357-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Glass Transition ISO 11357-2 70 °C are average values,"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m29",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Crystallization temperature",
+        "Raw value": "180 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Crystallization Temperature ISO 11357-3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Crystallization Temperature ISO 11357-3 180 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m30",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "234 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "234",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "234",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Melting Temperature ISO 11357-3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Melting Temperature ISO 11357-3 234 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m31",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "42.2 cm3/10 min",
+        "Raw unit": "cm3/10 min",
+        "Raw numeric": "42.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "42.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Melt Volume-Flow Rate ISO 1133",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Melt Volume-Flow Rate ISO 1133 42.2 cm3/10 min (275 °C, 5 kg)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m32",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "72",
+        "Raw unit": "Shore D",
+        "Raw numeric": "72",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "72",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "15s DIN ISO 7619-1",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "Locator": "p. 7: Shore Hardness D (15s) DIN ISO 7619-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Shore Hardness D (15s) DIN ISO 7619-1 72"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": ") 260 – 280 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "100 – 120 °C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "to",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0,6 mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 80 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "15 mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "From 90"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 3,
+        "text": "Nozzle Temperature1) 260 – 280 °C 285 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature1",
+      "raw": ") 260 – 280 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature1) 260 – 280 °C 285 °C"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "100 – 120 °C",
+      "fromBelow": false,
+      "line": "Bed Temperature 100 – 120 °C 110 °C"
+    },
+    {
+      "page": 3,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "≥ 0,6 mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter ≥ 0,6 mm, hardened ≥ 0.6 mm"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30 - 80 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 30 - 80 mm/s 45 mm/s"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max Volumetric Speed",
+      "raw": "15 mm",
+      "fromBelow": false,
+      "line": "Max Volumetric Speed 15 mm /s //"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "From 90",
+      "fromBelow": false,
+      "line": "Cooling From 90"
+    },
+    {
+      "page": 4,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying recommendations",
+      "raw": "to",
+      "fromBelow": false,
+      "line": "Drying recommendations to 80 °C in a hot air dryer or vacuum oven for at least 4 to"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version 1.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Technical Data Sheet ........................................................................................................... 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties Diagrams ......................................................................................... 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Thermal Properties Diagrams ............................................................................................ 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Filament Diameter 1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Diameter Tolerance ±0.050 mm ±0.1 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Average ovality <0.050 mm <0.050 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Available Spool size 750 g, 2.0 kg 750 g, 2.0 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Spool size 750 g 1.0 kg 2.0 kg 4.0 kg 8.0 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Outer diameter 200 mm 200 mm 300 mm 350 mm 355 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Inner diameter 52 mm 52 mm 51.5 mm 51.7 mm 36 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Width 68 mm 68 mm 103 mm 103 mm 167 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Recommended 3D-Print processing parameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2) 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Based on Bambu Lab X1C with a nozzle diameter of 0.6 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Equipment 100°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Annealing Process3) Heating 90°C in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "~60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Holding the 90°C for 120 min (thicker parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "temperature (>10mm) require a longer time).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "~180",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "16 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Warehousing Ultrafuse PAHT CF15 filament should be stored at 15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "- 25°C in its originally sealed package in a clean and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "minimum shelf life of 24 months.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Filament Density5) ISO 1183-1 1203 kg/m3",
+      "reason": "properties.csv carries no property for \"Filament Density5)\""
+    },
+    {
+      "page": 4,
+      "text": "Poisson-Number ISO 527 0.51",
+      "reason": "properties.csv carries no property for \"Poisson-Number\""
+    },
+    {
+      "page": 4,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Poisson-Number dry7) ISO 527 0.44",
+      "reason": "properties.csv carries no property for \"Poisson-Number dry7)\" (dry7))"
+    },
+    {
+      "page": 4,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4",
+      "reason": "properties.csv carries no property for \"section of DIN EN\" (value)"
+    },
+    {
+      "page": 4,
+      "text": "mm) and -1% in width (nominal value 10 mm).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "336h at 70°C / 62% RH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Samples were dried at 80°C vacuum until weight constancy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Tensile strength8) ISO 527 62.9 MPa - 19.1 MPa",
+      "reason": "properties.csv carries no property for \"Tensile strength8)\""
+    },
+    {
+      "page": 5,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "11) 7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Tensile strength8) ISO 527 54 MPa - 7.9 MPa",
+      "reason": "the sheet publishes no value for \"Tensile strength8)\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 5,
+      "text": "conditioned6) annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "11) 7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "11) 7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "conditioned6) annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "11) 7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "12) 7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "conditioned6) annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "12) 7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Testing speed: 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Testing speed: 1 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Flexural Properties10) Standard Average Values",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Flexural Strength ISO 178 125.1 121.9 56.0 MPa",
+      "reason": "the row states 2 values in columns of its own (125.1, 121.9) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 6,
+      "text": "conditioned6) MPa MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "160.7 171.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(notched) conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(notched) dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(unnotched) conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2 2 2 print orientation and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(unnotched) dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(notched) conditioned6) information, like for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(notched) dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Impact Strength Izod ISO 180 16.3 J/m 15.1 J/m 4.1 J/m",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 6,
+      "text": "(unnotched) conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Impact Strength Izod ISO 180 16.4 J/m 18.1 J/m 2.9 J/m",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 6,
+      "text": "7) be obtained upon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Testing speed: 2 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "6) proportions, weights etc.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7) agreed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "conditioned6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "dry7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Volume Resistivity IEC 62631-3-1 3.2E+07 - 1.6E+05",
+      "reason": "the sheet publishes no value for Volume resistivity in this row: its value column prints \"-\""
+    },
+    {
+      "page": 7,
+      "text": "Specific Surface resistivity IEC 62631-3-2 9.7E+05 - 1.8E+06",
+      "reason": "the sheet publishes no value for Surface resistivity in this row: its value column prints \"-\""
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "The orientation of the 3D printed part in the printer is always aligned with the longest axis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "120",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "3,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Tensile strength comparison Ultrafuse® PAHT CF15",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Elongation at Break comparison Ultrafuse® PAHT CF15 conditioned, dry and annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "9000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "8000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "7000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "6000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "5000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "3000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "2000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "1000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Young´s Modulus comparison Ultrafuse® PAHT CF15 conditioned, dry and annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Ultrafuse PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "250",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "200",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Heat resistance of Ultrafuse® PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "HDT A HDT B Vicat 50N Vicat 10N",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

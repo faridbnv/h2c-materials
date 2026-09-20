@@ -1,0 +1,761 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "10ad760c01c48cc5a68ad30ddff6ed174b1d38d679a10b2ac5760606b2e00263",
+    "url": "https://3d.nice-cdn.com/upload/file/formfutura-tds-styxpacf15.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "FormFutura",
+    "docKey": "10ad760c01c48cc5"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6",
+      "filler: cf15"
+    ],
+    "materialId": "M050",
+    "materialName": "PA6-CF",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-formfutura-tds-styxpacf15",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet STYX PA6-CF15",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/formfutura-tds-styxpacf15.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "10ad760c01c48cc5a68ad30ddff6ed174b1d38d679a10b2ac5760606b2e00263"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet STYX PA6-CF15"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M050",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "STYX PA6-CF15",
+        "Shared formulation key": "S-PET-formfutura-tds-styxpacf15",
+        "Composition / filler": "Our STYX PA6-CF15 combines all benefits of STYX PA6 filament plus 15% carbon fibers. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet STYX PA6-CF15"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.18 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.18",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.18 g/cm3 ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "8 %",
+        "Raw unit": "%",
+        "Raw numeric": "8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23 °C / saturation in water ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Water Absorption (23 °C / saturation in water)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water Absorption (23 ºC / saturation in water) 8% ISO 62"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "120 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "120",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "120",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Tensile strength (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (23°C, 50mm/min) 120 MPa ISO 527-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "9000 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23 °C 50 mm/min ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Tensile modulus (23 °C, 50 mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (23 ºC, 50 mm/min) 9000 MPa ISO 527-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4 %",
+        "Raw unit": "%",
+        "Raw numeric": "4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C 50mm/min ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Elongation at break (23°C, 50mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (23°C, 50mm/min) 4% ISO 527-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "8000 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "8000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23 °C 2 mm/min ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Flexural Modulus (23 °C, 2 mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (23 ºC, 2 mm/min) 8000 MPa ISO 178"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "180 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23 °C 2 mm/min ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Flexural Strength (23 °C, 2 mm/min)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength (23 ºC, 2 mm/min) 180 MPa ISO 178"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "60 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C ISO 179/1eU",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Charpy unnotched impact strength, 23°C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy unnotched impact strength, 23°C 60 KJ/m2 ISO 179/1eU"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "4 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C ISO 179/1eU",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 1: Charpy notched impact strength, 23°C",
+        "Notes": "the row says notched and the standard it names is the unnotched designation; the sheet's own word for the row is kept",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy notched impact strength, 23°C 4 KJ/m2 ISO 179/1eU"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the sheet's own word for the row is kept: 4 to 7.5 kJ/m2 is what these compounds give notched and several times less than they give unnotched, so ISO 179/1eU is the sheet's slip and the label is right. The disagreement stays in the row's note."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "65 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "65",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "65",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 2: Heat deflection temperature (HDT) @ 1.8MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat deflection temperature (HDT) @ 1.8MPa 65°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "180 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-formfutura-tds-styxpacf15",
+        "Locator": "p. 2: Heat deflection temperature (HDT) @ 0.45MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat deflection temperature (HDT) @ 0.45MPa 180°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "STYX PA6-CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print date: 18-09-2023 Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our STYX PA6-CF15 combines all benefits of STYX PA6 filament plus 15% carbon fibers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "STYX PA6-CF15 is a high-performance carbon fiber reinforced PA6 filament. The use of high modulus carbon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "fibers result in an unmatched strength and stiffness. This engineering filament is very easy to 3D print on open",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "adhesion make STYX PA6-CF15 a breeze to print with.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• 200% stiffer than standard PA6 • Creating parts for automotive",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Heat resistant up to 180°C • High performance functional components",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• High chemical and corrosion resistance • 3D printing machinery parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Easy to print on open desktop 3D printers • Dynamically stressed parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Masking layer lines with a matt surface finish in 3D printed objects",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This makes carbon fiber reinforced filaments perfect for 3D printing applications that require stiffness and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moisture Absortpion (23 ºC / 50% r.h.) 2,5% ISO 62",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "STYX PA6-CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PA6 is a hygroscopic thermoplastic material and will attract and hold water molecules from the surrounding",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "environment. For optimal printing results it is recommended to dry the filament before usage and even 3D",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "Recommended storage temperature is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture, sunlight and direct",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "heat. When stored properly, product has a shelf life of 24 months. To obtain the best parameters of the printed",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 2,
+      "text": "object, it is recommended to dry the material prior to usage and to 3D print it directly from a dry box.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "39169090 Monofilament for 3D printing European Union",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

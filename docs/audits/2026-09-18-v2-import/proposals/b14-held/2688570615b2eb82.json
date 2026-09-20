@@ -1,0 +1,334 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2688570615b2eb8271bd31e4cd226408741ffcc89ba5ddc8df4ba705cc34d021",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3925",
+    "pages": 3,
+    "provider": "Filament2Print",
+    "manufacturer": null,
+    "docKey": "2688570615b2eb82"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "Electrically conductive",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "filler: conductive"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Electrifi Conductive\"",
+      "the sheet is hosted by Filament2Print and names no maker of its own; whether Filament2Print is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Electrifi",
+      "Publisher": "Filament2Print",
+      "Title": "Electrifi Conductive Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3925",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2688570615b2eb8271bd31e4cd226408741ffcc89ba5ddc8df4ba705cc34d021"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Electrifi Conductive Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "Electrifi Conductive",
+        "Shared formulation key": "R-FILAMENT2PRINT-Electrifi",
+        "Composition / filler": "Product Type: Highly conductive copper-filled thermoplastic filament for additive (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Electrifi",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Electrifi Conductive Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Volume resistivity",
+        "Raw value": "0.001-0.1 Ω·cm",
+        "Raw unit": "Ω·cm",
+        "Raw numeric": "0.001",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.1",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.001",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.1",
+        "Normalized unit": "Ω·cm",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Electrifi",
+        "Locator": "p. 1: Volume resistivity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Volume resistivity 0.001-0.1 Ω·cm"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "2.0-4.0 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "4",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "2000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "4000",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Electrifi",
+        "Locator": "p. 2: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ~2.0–4.0 g/cm³ (formulation dependent)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Continuous service temperature",
+        "Raw value": "45 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "45",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "45",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Electrifi",
+        "Locator": "p. 2: Continuous use temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Continuous use temperature ≤ 45 °C (room temperature applications preferred)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Manufacturer: Multi3D, Inc.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Product Description",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Key Features",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Processable on standard FFF 3D printers with appropriate setup",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Typical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Electrical conductivity 1,000–100,000 S/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Recommended nozzle 140–180 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4. Printing Guidelines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• Hardened steel or standard brass nozzle (≥0.4 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• Nozzle temperature: 140–160 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• Bed temperature: ≤50 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "• Print speed: Slow to moderate (e.g., 10–30 mm/s)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5. Design Considerations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6. Applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "7. Compatibility & Assembly",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "8. Storage & Handling",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "9. Disclaimer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Multi3D, Inc.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

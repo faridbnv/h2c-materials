@@ -1,7 +1,7 @@
 COUNT 12 shown PASS
-STATUS ☑ PASS 12 | ☐ UNKNOWN 40 | ☐ FAIL 86
-12 of the 138 materials in this database meet these requirements
-40 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
+STATUS ☑ PASS 12 | ☐ UNKNOWN 41 | ☐ FAIL 86
+12 of the 139 materials in this database meet these requirements
+41 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).

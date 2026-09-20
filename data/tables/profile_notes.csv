@@ -1538,3 +1538,43 @@ P0707,Speed,40 - 60 mm/s
 P0708,Cooling,100%
 P0708,Speed,3
 P0709,Cooling,10%
+P0714,Speed,< 300 mm/s
+P0714,Retraction,Length 0.6 - 1.0 mm
+P0716,Speed,20 – 60 mm/s
+P0720,Cooling,75-100%
+P0720,Layer height,0.4 - 2.7 mm
+P0720,Shell / walls,0.05-0.3 mm
+P0721,Speed,50 – 70 mm/s
+P0721,Warping / shrinkage,0.5 %
+P0723,Speed,20 – 80 mm/s
+P0724,Speed,< 300 mm/s
+P0724,Retraction,Length 0.6 - 1.0 mm
+P0725,Speed,± 25 - 200 mm/s
+P0726,Speed,± 20 - 60 mm/s
+P0727,Cooling,75-100%
+P0728,Speed,25 - 200 mm/s
+P0729,Speed,20 – 60 mm/s
+P0732,Speed,30 - 80 mm/s
+P0732,Cooling,From 90
+P0734,Cooling,75-100%
+P0735,Speed,20 – 60 mm/s
+P0736,Adhesion / release,recommended
+P0736,Warping / shrinkage,0.5 %
+P0738,Speed,± 25 - 200 mm/s
+P0739,Speed,[mm/s] up to 100
+P0740,Speed,20 – 60 mm/s
+P0741,Speed,30 - 80 mm/s
+P0742,Speed,50 – 70 mm/s
+P0742,Warping / shrinkage,0.5 – 0.7 %
+P0743,Speed,20 – 70 mm/s
+P0744,Speed,< 300 mm/s
+P0744,Retraction,Length 0.6 - 1.0 mm
+P0746,Cooling,0 - 60%
+P0746,Speed,< 220 mm/s
+P0746,Retraction,Length 0.8 - 1.4 mm
+P0747,Speed,30 - 60 mm/s
+P0748,Speed,20 – 60 mm/s
+P0749,Speed,20 – 60 mm/s
+P0751,Cooling,0 - 60%
+P0751,Speed,<300 mm/s
+P0751,Retraction,Length 0.8 - 1.4 mm

@@ -734,6 +734,28 @@ test('raw values reconcile, including decimal commas and grouped cycle counts', 
   assert.ok(measurementIssues(db,wb).some(e=>/cached normalized formula/.test(e.message)));
 });
 
+test('a number written with an E is a power of ten, signed or not', () => {
+  // A maker publishes a surface resistivity as "> 1.0E+15 ohms" and a thermal expansion as "5.0E-5 cm/cm/C";
+  // read as the digits in front of the E they are 1 and 5, which is an insulator read as a conductor and an
+  // expansion a thousand times what any polymer has. The sign is left out where it is positive: Nanovia prints
+  // "10E13" for a surface resistivity and 3DJake "1E1" for the resistivity of a conductive grade.
+  assert.equal(rawNumber('1.0E+15 ohms'), 1e15);
+  assert.equal(rawNumber('> 1.0E+15'), 1e15);
+  assert.equal(rawNumber('2.5 E-3'), 0.0025);
+  assert.equal(rawNumber('5.0E -5 cm/cm/C'), 5e-5);
+  assert.equal(rawNumber('10E13'), 1e14);
+  assert.equal(rawNumber('1E1 ohm'), 10);
+  assert.equal(rawNumber('1.02e4'), 10200);
+  // The letter has to stand between two digits, so a designation that ends in one is not a number.
+  assert.equal(rawNumber('E 2092'), null);
+  assert.equal(rawNumber('ASTM E1131'), null);
+  // And what was already read is read the same way: the raised power, the leading dot, the grouped thousands.
+  assert.equal(rawNumber('6.75x10^14'), 6.75e14);
+  assert.equal(rawNumber('1.25 g/cm3'), 1.25);
+  assert.equal(rawNumber('.13 %'), 0.13);
+  assert.equal(rawNumber('24 000 kg/cm2'), 24000);
+});
+
 test('a unit is its meaning, not its spelling, and a pair with no conversion says so rather than skipping', () => {
   // Spelling: spaces, superscripts, the degree sign and a parenthetical aside are not the unit.
   assert.equal(unitKey('M P a'), unitKey('MPa'));

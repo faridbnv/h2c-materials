@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "6480da12fa66e5353495da2978794691c81448113cc1d080f70ffd47e691673d",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3415",
+    "pages": 3,
+    "provider": "Filament2Print",
+    "manufacturer": null,
+    "docKey": "6480da12fa66e535"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by Filament2Print and names no maker of its own; whether Filament2Print is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Jamg-He-PLA",
+      "Publisher": "Filament2Print",
+      "Title": "Technical Data Sheet PLA+ Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3415",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6480da12fa66e5353495da2978794691c81448113cc1d080f70ffd47e691673d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet PLA+ Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "PLA+",
+        "Shared formulation key": "R-FILAMENT2PRINT-Jamg-He-PLA",
+        "Composition / filler": "Glass/carbon fiber + glue stick or 3M blue (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "2023/11/3 REV：V1.1 Http://www.jamghe.com (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Jamg-He-PLA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet PLA+ Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "21.5 ± 10 %",
+        "Raw unit": "%",
+        "Raw numeric": "21.5",
+        "Raw uncertainty ±": "10",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "21.5",
+        "Normalized uncertainty ±": "10",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Jamg-He-PLA",
+        "Locator": "p. 3: Elongation at break (%)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Elongation at break (%) 21.5±10%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "54 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "54",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.455 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Jamg-He-PLA",
+        "Locator": "p. 3: Heat deflection (HDT) at 0.455 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Heat deflection (HDT) at 0.455 MPa 54ºC（0.45MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200 -230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Jamg-He-PLA",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40-100mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Print temperature 200 -230 ºC"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print temperature",
+      "raw": "200 -230 °C",
+      "fromBelow": false,
+      "line": "Print temperature 200 -230 ºC"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "40-100mm/s",
+      "fromBelow": false,
+      "line": "Printing speed 40-100mm/s"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan 100%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Add: 1001, Huaide international building, No. 73, Fuyong",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tel: +86-0755-27889946",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Zip code: 518103",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2023/11/3 REV：V1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "第 1 页 共 3 页",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2.1 Low odor, high precision, no plugging, no bubbles, no warping, the finished product is smooth and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "delicate, compatible with 3D high temperature printing pens.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2.2 Low shrinkage and good performance even when printing large models.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3.1 Density: 1.23~1.25 g/cm3 (25℃)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3.2 Melt mass-flow rate (MFR): 5.5g/10min (190℃,2.16Kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Principle of 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bottom plate temperature 45-60 ºC",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "Glass/carbon fiber + glue stick or 3M blue",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2023/11/3 REV：V1.1 Http://www.jamghe.com",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "第 2 页 共 3 页",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Tensile strength (MPa) 62±10%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "Maximum bending strength (MPa) 76±10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Flexural modulus(MPa) 1925±10%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "Impact strength (KJ/m) 6±10%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "is 1 year and should be used as soon as possible after opening.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "2023/11/3 REV：V1.1 Http://www.jamghe.com",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "第 3 页 共 3 页",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

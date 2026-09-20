@@ -21,7 +21,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFile
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { guard, proposalsOf, worldOf } from './apply.mjs';
+import { applyBatch, guard, proposalsOf, worldOf } from './apply.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { holdsBack, rowsOf } from './review.mjs';
 import { HEADER, readLedger } from './inventory.mjs';
@@ -46,6 +46,8 @@ const READER_GAPS = [
     why: 'a table per layer height, each with a value column per orientation, and two tables of one sheet under the same heading' },
   { gap: 'name-not-a-name', when: (row, proposal) => /^(precautions?|material status mass production)$/i.test(proposal?.grades?.[0]?.row?.['Product name'] ?? ''),
     why: 'the reader took a section heading for the product name; the page names no product this reader can use' },
+  { gap: 'bilingual-columns', when: (row) => row.provider === 'QIDI',
+    why: "a bilingual table whose label, standard, value and English label sit on four baselines the page orders by height rather than by row; the label under a value line is read now, but a label that lands between two values still takes the wrong one's, and that needs the columns read by position" },
 ];
 
 /**
@@ -141,54 +143,93 @@ function writeHolds() {
   }
 }
 
-/** Propose a batch: every provider named, and every document whose hold reason the caller says is settled. */
+/** Propose a batch: every document the ledger says is ready, or the ones a named hold was waiting on. */
 function propose(batch) {
   const dir = join(PROPOSALS, batch);
   mkdirSync(dir, { recursive: true });
-  for (const provider of args('provider')) {
-    try { console.log(run('scripts/ingest/propose.mjs', ['--provider', provider, '--batch', batch]).trim()); }
-    catch (e) { console.log(`${provider}: ${String(e.stdout ?? e.message).trim().split('\n').pop()}`); }
-  }
-  const held = arg('held');
-  if (held) {
-    const keys = readLedger().filter((r) => (r.status_note ?? '').startsWith(`held: ${held}`)).map((r) => r.doc_key);
-    console.log(`${keys.length} document(s) held for ${held}`);
-    for (const key of keys) {
-      try { run('scripts/ingest/propose.mjs', ['--doc', key, '--batch', batch]); } catch { /* the document says why itself */ }
-    }
-  }
-  console.log(`${readdirSync(dir).length} proposal(s) in ${batch}`);
+  const rest = [...args('provider').flatMap((p) => ['--provider', p]),
+    ...(flag('ready') ? ['--ready'] : []), ...(arg('held') ? ['--held', arg('held')] : [])];
+  try { console.log(run('scripts/ingest/propose.mjs', [...rest, '--batch', batch]).trim()); }
+  catch (e) { console.log(String(e.stdout ?? e.message).trim().split('\n').slice(-3).join('\n')); }
+  console.log(`${readdirSync(dir).filter((f) => f.endsWith('.json')).length} proposal(s) in ${batch}`);
 }
 
-/** Accept every row the reviewer's own rule allows, document by document, and sign off what is fully decided. */
+/**
+ * Accept every row the reviewer's own rule allows, and sign off the documents that are then fully decided.
+ *
+ * This is review.mjs's own decision, taken in process rather than by running it once per document: a batch is two
+ * hundred documents and a hundred and one of those were a node start-up apiece. What it may accept is exactly
+ * what holdsBack allows, so nothing here decides anything a person has to.
+ */
 function accept(batch, by) {
-  const note = arg('note') ?? 'read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names';
-  let accepted = 0, held = 0, signed = 0;
+  const note = arg('note') ?? "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names";
+  const date = new Date().toISOString().slice(0, 10);
+  let accepted = 0, signed = 0;
+  const heldBack = new Map();
   for (const file of readdirSync(join(PROPOSALS, batch)).filter((f) => f.endsWith('.json'))) {
     const path = join(PROPOSALS, batch, file);
     const proposal = JSON.parse(readFileSync(path, 'utf8'));
-    const ids = [];
     for (const row of rowsOf(proposal)) {
       if (['accepted', 'rejected'].includes(row.review?.status)) continue;
-      if (holdsBack(row, proposal).length) { held++; continue; }
-      ids.push(String(row.id));
+      const reasons = holdsBack(row, proposal);
+      if (reasons.length) { const r = reasons[0].slice(0, 70); heldBack.set(r, (heldBack.get(r) ?? 0) + 1); continue; }
+      row.of.review = { status: 'accepted', by, date, note, ...(row.review?.visual ? { visual: true } : {}) };
+      accepted++;
     }
-    if (ids.length) {
-      run('scripts/ingest/review.mjs', ['--doc', proposal.document.docKey, '--accept', ids.join(','), '--by', by, '--note', note]);
-      accepted += ids.length;
+    if (rowsOf(proposal).every((r) => ['accepted', 'rejected'].includes(r.review?.status))) {
+      proposal.review = { status: 'reviewed', by, date };
+      signed++;
     }
-    const after = JSON.parse(readFileSync(path, 'utf8'));
-    if (rowsOf(after).every((r) => ['accepted', 'rejected'].includes(r.review?.status))) {
-      try { run('scripts/ingest/review.mjs', ['--doc', after.document.docKey, '--done', '--by', by]); signed++; } catch { /* another copy of the document is undecided */ }
-    }
+    writeFileSync(path, `${JSON.stringify(proposal, null, 2)}\n`);
   }
-  console.log(`${accepted} row(s) accepted, ${signed} document(s) signed off; ${held} row(s) held back for a reader`);
+  const total = [...heldBack.values()].reduce((a, b) => a + b, 0);
+  console.log(`${accepted} row(s) accepted, ${signed} document(s) signed off; ${total} row(s) held back for a reader`);
+  for (const [why, n] of [...heldBack].sort((a, b) => b[1] - a[1]).slice(0, 12)) console.log(`  ${String(n).padStart(4)}  ${why}`);
 }
 
-/** Move aside what the applier refuses for a reason that is not about the row: optical, twin, already recorded. */
+/**
+ * A reader's decision on every row held back for the same reason, with the reason they give for it.
+ *
+ * Review by exception: --accept takes what needs no reading, and this is how the rest is read. A class of rows
+ * held back by one thing is read once and decided once, because the thing to read is the same in each. The note
+ * is required and goes on every row it touches, so the record says who decided what, and why.
+ */
+function decide(batch, by) {
+  const pattern = new RegExp(arg('decide'), 'i');
+  const note = arg('note');
+  const how = flag('reject') ? 'rejected' : 'accepted';
+  if (!note) { console.error('--note "<why>": a decision records its reason'); process.exit(2); }
+  const date = new Date().toISOString().slice(0, 10);
+  let n = 0;
+  const docs = new Set();
+  for (const file of readdirSync(join(PROPOSALS, batch)).filter((f) => f.endsWith('.json'))) {
+    const path = join(PROPOSALS, batch, file);
+    const proposal = JSON.parse(readFileSync(path, 'utf8'));
+    let touched = false;
+    for (const row of rowsOf(proposal)) {
+      if (['accepted', 'rejected'].includes(row.review?.status)) continue;
+      if (!holdsBack(row, proposal).some((r) => pattern.test(r))) continue;
+      row.of.review = { status: how, by, date, note, ...(row.review?.visual ? { visual: true } : {}) };
+      n++; touched = true; docs.add(proposal.document?.docKey);
+    }
+    if (!touched) continue;
+    if (rowsOf(proposal).every((r) => ['accepted', 'rejected'].includes(r.review?.status))) proposal.review = { status: 'reviewed', by, date };
+    writeFileSync(path, `${JSON.stringify(proposal, null, 2)}\n`);
+  }
+  console.log(`${n} row(s) ${how} across ${docs.size} document(s)`);
+}
+
+/**
+ * Move aside what the applier refuses for a reason that is not about the row: an optical reading nobody has
+ * checked, an identity nobody has settled, a product already recorded, and a sheet that prints another sheet's
+ * numbers. The last is R053: where two sources publish the same values under different names, the second is
+ * queued as a question rather than registered as a second measurement of the same thing, because registering
+ * both would count one measurement twice in the estimate model.
+ */
 function split(batch) {
   const world = worldOf();
   for (const suffix of ['ocr', 'held']) mkdirSync(join(PROPOSALS, `${batch}-${suffix}`), { recursive: true });
+  const move = (file, where) => renameSync(join(PROPOSALS, batch, file), join(PROPOSALS, `${batch}-${where}`, file));
   for (let round = 1; round <= 4; round++) {
     const proposals = proposalsOf(batch);
     const problems = guard(proposals, world);
@@ -201,8 +242,32 @@ function split(batch) {
       }
     }
     if (!moved.size) { console.log(`round ${round}: nothing left to move`); break; }
-    for (const [file, where] of moved) renameSync(join(PROPOSALS, batch, file), join(PROPOSALS, `${batch}-${where}`, file));
+    for (const [file, where] of moved) move(file, where);
     console.log(`round ${round}: ${[...moved.values()].filter((v) => v === 'ocr').length} optical, ${[...moved.values()].filter((v) => v === 'held').length} held`);
+  }
+  // Twins are only visible once the batch is rehearsed against the tables, because what makes one is the values
+  // it shares with a source already recorded. The one this batch brings is the one that is queued.
+  for (let round = 1; round <= 6; round++) {
+    let problems = [];
+    try { applyBatch(batch, { dryRun: true }); } catch (e) { problems = e.problems ?? []; }
+    const pairs = problems.filter((p) => /MEAS-CROSS-SOURCE-TWIN/.test(p.message ?? ''))
+      .map((p) => String(p.where).replace(/^sources\s+/, '').split(' | '));
+    if (!pairs.length) { if (round === 1) console.log('no twin of a source already recorded'); break; }
+    const recorded = new Set(world.sources.map((x) => x.SourceID));
+    const bySource = new Map(proposalsOf(batch).map((p) => [p.source?.row?.SourceID, p.file]));
+    const gone = new Set();
+    let n = 0;
+    for (const [a, b] of pairs) {
+      // The one to queue is the one this batch brings. Where both are new, the second named is queued and the
+      // first stays, so the pair leaves one source behind it rather than none.
+      const mine = [a, b].filter((id) => !recorded.has(id) && bySource.has(id) && !gone.has(id));
+      if (!mine.length) continue;
+      const pick = mine.length === 2 ? mine[1] : mine[0];
+      move(bySource.get(pick), 'held');
+      gone.add(pick); n++;
+    }
+    console.log(`round ${round}: ${pairs.length} twin pair(s), ${n} queued as a question (R053)`);
+    if (!n) break;
   }
 }
 
@@ -227,7 +292,8 @@ if (process.argv[1]?.endsWith('batch.mjs')) {
   else if (!batch) { console.error('--batch <name> names the batch to work on, or --holds to say why documents wait'); process.exit(2); }
   else if (flag('propose')) propose(batch);
   else if (flag('accept')) { const by = arg('by'); if (!by) { console.error('--by <name>: a review records who made it'); process.exit(2); } accept(batch, by); }
+  else if (arg('decide')) { const by = arg('by'); if (!by) { console.error('--by <name>: a review records who made it'); process.exit(2); } decide(batch, by); }
   else if (flag('split')) split(batch);
   else if (flag('finish')) finish(batch);
-  else { console.error('one of --propose, --accept, --split, --finish, --holds'); process.exit(2); }
+  else { console.error('one of --propose, --accept, --decide, --split, --finish, --holds'); process.exit(2); }
 }

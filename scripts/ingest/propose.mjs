@@ -148,7 +148,7 @@ const methodsOf = (line) => [...new Set((String(line).match(new RegExp(STANDARD_
 // "ISO 815-1, method A"); left out, the S2 put a 2 in front of the unit and a tensile strength read as 2 MPa.
 // A method variant may also stand apart from the number it belongs to ("ISO 306 A50", "ISO 306/B50"): Extrudr's
 // PLA Tough prints "Vicat softening temp. ISO 306 A50 °C 65", and the A50 read as a Vicat point of 50 °C.
-const STANDARD_RE = /\b(?:ISO|ASTM\s?D?-?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?-?\s?\d{3,4}))\s?-?\s?\d+[\w./-]*(?:\s?,\s?(?:-\d+[\w.-]*|[A-Za-z]\d{1,2}\b|method\s+[A-Za-z]\b))*(?:\s?\/\s?[\w.-]+)?(?:\s[A-Z]\d{1,3}\b)?(?::\s?\d{4})?/gi;
+const STANDARD_RE = /\b(?:ISO|ASTM\s?D?[-\u2010\u2011]?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?[-\u2010\u2011]?\s?\d{3,4}))\s?[-\u2010\u2011]?\s?\d+[\w./\u2010\u2011-]*(?:\s?,\s?(?:-\d+[\w.-]*|[A-Za-z]\d{1,2}\b|method\s+[A-Za-z]\b))*(?:\s?\/\s?[\w.-]+)?(?:\s[A-Z]\d{1,3}\b)?(?::\s?\d{4})?/gi;
 
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
@@ -164,8 +164,10 @@ const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³]\d*)(?<!\d{3})(\d) (?=\d+(
 // matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
 // is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
 // a number after a standard carries its unit ("ISO 75 80 °C"), and the suffix of ISO 179/1eU is not digits.
+// A fragment a slash follows is not a split digit: "ISO 527 1/2" names parts 1 and 2 of ISO 527, and joined it
+// became ISO 5271, which is not a standard and which the schema gate refused a whole batch over.
 const joinStandardDigits = (line) => line.replace(
-  /\b((?:ISO|ASTM\s?D?|DIN|IEC|UL|EN|GB\s?\/\s?T|[DE])\s?\d{1,4})((?:\s\d(?![\d.,]))+)(?![\s]*[°%\w])/g,
+  /\b((?:ISO|ASTM\s?D?|DIN|IEC|UL|EN|GB\s?\/\s?T|[DE])\s?\d{1,4})((?:\s\d(?![\d.,]))+)(?![\s]*[°%\w/])/g,
   (m, head, frags) => (`${head}${frags}`.match(/\d/g) ?? []).length <= 5 ? head + frags.replace(/\s/g, '') : m);
 
 function repair(text) {
@@ -197,7 +199,9 @@ function repair(text) {
 // A power of ten is one number. "6.75×10" and a raised "14" run together read as 1014, and neither 6.75 nor 10
 // is a value the sheet printed; the same is true of "2.90E+15". Written "6.75×10^14" by the row pass below, such
 // a value is one token here, and none of its pieces is ever offered as a result.
-const POWER_RE = /\d+(?:[.,]\d+)?\s*[×x*·]\s*10\s*\^\s*[-+]?\d+|(?<![\d.,])10\s*\^\s*[-+]?\d+|\d+(?:[.,]\d+)?[Ee][-+]\d+/g;
+// The exponent's sign may be left out where it is positive ("10E13", "1E1"), so it is optional here too; the
+// digit in front of the E is what makes it a number and not the tail of a designation.
+const POWER_RE = /\d+(?:[.,]\d+)?\s*[×x*·]\s*10\s*\^\s*[-+]?\d+|(?<![\d.,])10\s*\^\s*[-+]?\d+|\d+(?:[.,]\d+)?\s*[Ee]\s*[-+]?\d{1,3}(?![\d.,])/g;
 
 // ---------------------------------------------------------------------------------------------------------
 // The rows a page prints.
@@ -1400,7 +1404,16 @@ export function readSheet(text, registry) {
       // density of the PET-G ESD sheet, which is printed under the printing guide; a section is unreliable on a
       // two-column page, and what makes a line a result is that it names a property and a value in that
       // property's own unit. The section only decides how a line that is not a result is explained.
-      const read = readRow(rowLine.text, registry, carry ? carried0 : null);
+      // A bilingual sheet prints its label twice, around the row rather than above it: QIDI sets the Chinese
+      // name on one baseline, the standard and the value on the next, and the English name on the one after.
+      // Read without the line below, "ISO 1183 1.07g/cm3" names no property and every such row was lost, while
+      // the rows that did read took whatever label had been held and called a Vicat condition a Vicat point.
+      // A label the lexicon knows, standing alone under a line that states a value, is that line's label.
+      const nextLine = lines[li + 1];
+      const belowText = nextLine ? repair(String(nextLine.text ?? '')).trim() : '';
+      const belowLabel = !carry && belowText && !/\d/.test(belowText) && belowText.length <= HEADING_LENGTH
+        && Math.abs((nextLine.x0 ?? 0) - (line.x0 ?? 0)) > 24 ? labelFor(belowText) : null;
+      const read = readRow(rowLine.text, registry, carry ? carried0 : belowLabel);
       if (!read && inSection !== 'properties') {
         const storage = /\bstor|shelf|humid|moisture|dry room|keep out|desiccan|seal|vacuum|packag/i.test(plain);
         // A row of the property table standing inside another section is still a row, and what it is missing is
@@ -1537,6 +1550,10 @@ export const notchOf = (standardText) => NOTCHED_BY_METHOD.find(([re]) => re.tes
 // What a sheet says is in the product. The load may come before its fraction ("Aramid fibers reinforced (10%)")
 // or after it ("10% PTFE content"), and a sheet may name the load without any fraction at all ("enriched with
 // carbon nanotubes"). All three are the maker's own statement of the composition, which is what this column keeps.
+// A captured web page's navigation path says where the page sits in a shop, not what the product is made of:
+// "Home / 3D printing filament / Reinforced / Carbon fibre / Nanovia ABS CF : Carbon fiber reinforced" names a
+// carbon load and a reinforcement and is a menu. It is not the product's own statement about itself.
+const A_NAVIGATION_PATH = /^\s*(?:home|accueil|start(?:seite)?|inicio)\s*(?:\/|\u203a|>|\u00bb)/i;
 const FILLER_NAMED = /\b(carbon|glass|aramid|kevlar|basalt|wood|metal|mineral|graphene|nanotubes?|cnt|ptfe|teflon|ceramic|chalk|calcium|talc|bronze|copper|brass|steel|iron|tungsten|cork|bamboo)\b/i;
 const FILLER_FRACTION = /\d{1,2}(?:[.,]\d)?\s?(?:wt\.?\s?%|%|percent)/i;
 const FILLER_VERB = /\b(reinforced|filled|enriched|loaded|addition of|content|composite)\b/i;
@@ -1544,12 +1561,14 @@ const FILLER_VERB = /\b(reinforced|filled|enriched|loaded|addition of|content|co
 const FILLER_PHRASE = /\b(carbon nanotubes?|(carbon|glass|aramid|basalt) fib(?:re|er)s?|glass (spheres|beads|bubbles)|metal powder)\b/i;
 
 export function composition(text) {
-  const said = (line, page) => `${String(line.text).trim().slice(0, 160)} (p. ${page.page}, as the sheet states it)`;
+  // The sheet's own words, with the page's own spacing collapsed: a captured page pads its columns with runs of
+  // spaces, and a run of spaces is layout rather than anything the maker wrote (TEXT-SPACING).
+  const said = (line, page) => `${String(line.text).replace(/\s+/g, ' ').trim().slice(0, 160)} (p. ${page.page}, as the sheet states it)`;
   let named = null;
   for (const page of text.pages) {
     for (const line of page.lines) {
       const words = String(line.text ?? '');
-      if (!FILLER_NAMED.test(words)) continue;
+      if (!FILLER_NAMED.test(words) || A_NAVIGATION_PATH.test(words)) continue;
       // A glass transition temperature is not a glass load, and a carbon footprint is not a carbon load.
       if (/glass transition|carbon footprint|carbon neutral|carbon dioxide/i.test(words)) continue;
       // A line that states how much is better than one that only says there is some.
@@ -1565,7 +1584,7 @@ export function certification(text) {
   for (const page of text.pages) {
     for (const line of page.lines) {
       if (/\bUL\s?-?94\b|\bV-?[012]\b|\bHB\b|food contact|REACH|RoHS/i.test(line.text) && /\d|HB|V-?[012]/i.test(line.text)) {
-        return `${line.text.trim().slice(0, 160)} (p. ${page.page}, as printed; a typical value, not a certificate: verify grade, thickness and certificate)`;
+        return `${line.text.replace(/\s+/g, ' ').trim().slice(0, 160)} (p. ${page.page}, as printed; a typical value, not a certificate: verify grade, thickness and certificate)`;
       }
     }
   }
@@ -1787,11 +1806,16 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     v.ambiguityResolved = (mineOk && !otherOk) || (!mineOk && otherOk);
     if (!mineOk && otherOk) {
       const was = round(NUMBER(v.read.rawNumber) * v.target.factor);
-      rawNumeric = String(NUMBER(rawNumeric) * scaled.by);
-      normalized = other;
       // The raw cell records the number and what the sheet printed, which is the register's own convention for
       // this reading (V000731, the same product's flexural modulus).
       const printed = /^[-\d.,\s]+/.exec(v.read.raw)?.[0]?.trim() ?? v.read.rawNumber;
+      // The other reading is the same digits with the separator read the other way, so it is taken from the
+      // token the sheet printed rather than by multiplying: "52,977" read as a decimal comma is 52.977, and
+      // 52977 x 0.001 is 52.977000000000004, which is not a number printed on any page and the applier says so.
+      const other0 = scaled.by === 0.001 ? printed.replace(/\s/g, '').replace(/[.,](?=\d+$)/, '.')
+        : scaled.by === 1000 ? printed.replace(/[.,\s]/g, '') : null;
+      rawNumeric = other0 != null && Number.isFinite(Number(other0)) ? other0 : String(NUMBER(rawNumeric) * scaled.by);
+      normalized = other;
       raw = `${Number(rawNumeric).toLocaleString('en-CA').replace(/,/g, ' ')} ${v.read.printedUnit} (TDS prints "${printed}" with European decimal separator)`;
       ambiguity = `${ambiguity}; read as ${rawNumeric} because ${was} ${v.target.unit} is outside anything this property reaches`;
     } else if (mineOk && !otherOk) {
@@ -1832,7 +1856,7 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     Notch: v.notch || NA,
     // The conditions the table this row stands in was measured under, where its heading names them.
     'Specimen / print parameters': v.parameters ? asciiPunctuation(v.parameters) : NP,
-    SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote, ambiguity].filter(Boolean).join('; ') || NA, 'Parse review': NA,
+    SourceID: sourceId, Locator: `p. ${v.page}: ${String(v.label).replace(/\s+/g, ' ').trim()}`, Notes: [v.methodNote, notchNote, ambiguity].filter(Boolean).join('; ') || NA, 'Parse review': NA,
   };
 }
 
@@ -2024,6 +2048,30 @@ export function printedTitle(text, maker = '') {
   // "CarbonX Carbon Fiber High Temp Nylon (HTN)", which is a name of seven. The word count stays as a backstop
   // for a sentence with no verb in it, and it is set where no product name reaches.
   const SENTENCE_WORDS = 10;
+  // A full stop between two words is a sentence boundary, and a product name has none. Filament2Print heads its
+  // sheets with the shop's own copy — "Our Hardest Flexible Filament. Rigid and Flexible.", "Flexible. Fast &
+  // Easy Printing. Get started with" — which has no verb this reader knows and fewer words than a sentence is
+  // counted at, and so arrived as three products. A full stop inside a name is inside a number or a version
+  // ("1.75 mm", "V5.1"), never between two words.
+  const SEVERAL_SENTENCES = /[a-z][.!?]\s+[A-Z]/;
+  // A sheet's own sections are not its product: Nanovia heads every one of its twenty-three with "Distribution"
+  // and Filament2Print prints "Print parameters" above its table. And a revision line is not a name however it
+  // begins: QIDI prints "Data / Revised: 01.2024 Version No: 5.1" where its product's name should be.
+  const A_SECTION_OF_A_SHEET = /^(distribution|vertrieb|precautions?|print(ing)? parameters?|material status( mass production)?|mass production|thermoplastic specialties|specialties|properties|applications?|packaging|storage|news|nouveaut(e|\u00e9)s|profile|colou?rs?|panier|project data|technical data|shop all\s.*|all filaments)\b[\s:.]*$/i;
+  // A captured web page begins with the shop's navigation, which is a column of one-word links and not the page's
+  // subject: Nanovia's twenty-three pages open "Store / Distribution / News / Contact / Profile / Cart", and read
+  // from the head of the page all twenty-three were products called Distribution, then News. What such a page
+  // does say plainly is its breadcrumb, and the last step of a breadcrumb is the page itself.
+  const BREADCRUMB = /^\s*(?:home|accueil|start(?:seite)?|inicio)\s*(?:\/|\u203a|>|\u00bb)\s*(.+)$/i;
+  const breadcrumb = (line) => {
+    const trail = BREADCRUMB.exec(String(line))?.[1];
+    if (!trail) return null;
+    // The page's own step is the last, and what follows a colon in it is the maker's description of the product
+    // ("Nanovia ABS AF : Aramid fiber reinforced"), not part of its name.
+    const last = trail.split(/\s*(?:\/|\u203a|>|\u00bb)\s*/).filter(Boolean).at(-1) ?? '';
+    return last.split(/\s*[:\u2013\u2014|]\s*/)[0].trim();
+  };
+  const A_REVISION_LINE = /\brevised\s*[:.]|\bversion\s*(no|nr|number)\b/i;
   // A page that sets its head letter by letter leaves fragments of it behind: the Fiberon sheets print "T M"
   // under their letter-spaced title, which is the trademark sign. What a word is, is what its letters spell.
   const named = (line) => {
@@ -2031,12 +2079,24 @@ export function printedTitle(text, maker = '') {
     if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || NOT_A_PRODUCT_EITHER.test(letters) || looksDamaged(line)) return false;
     if (STATES_A_MEASUREMENT.test(line) || labelFor(String(line).trim())) return false;
     if (new RegExp(STANDARD_RE.source, 'i').test(String(line))) return false;
-    if (SAYS_SOMETHING.test(String(line))) return false;
+    if (SAYS_SOMETHING.test(String(line)) || SEVERAL_SENTENCES.test(String(line))) return false;
+    if (A_SECTION_OF_A_SHEET.test(String(line).trim()) || A_REVISION_LINE.test(String(line))) return false;
+    // A name does not end in a sentence's full stop: SIDDAMENT's page leaves "chopped fibers." where a title
+    // should be, and a maker's abbreviation ("Co.", "Ltd.", "No.") is not a lowercase word of four letters.
+    if (/[a-z]{4,}\.\s*$/.test(String(line))) return false;
+    // A single letter and a space is what is left of a word the page cut: "s (TDS) on product pages".
+    if (/^[a-z]\s/.test(String(line))) return false;
+    // A web address is where the sheet came from, not what it is: eight QIDI sheets print "www.qidi3d.com"
+    // where a title would be, and eight products were called that.
+    if (/^(?:https?:\/\/|www\.)|^[a-z0-9-]+\.(?:com|net|org|tech|de|fr|cn|eu|ca|io)\b/i.test(String(line).trim())) return false;
+    // A title the page printed twice, overlapped: "XECARBXECARB PA12-CF-STPA12-CF-ST" is one title whose every
+    // word arrived doubled, and what the sheet calls the product is not a word repeated to itself.
+    if (/\b(\w{3,})\1\b/i.test(String(line).replace(/\s+/g, ' '))) return false;
     if (!/\d/.test(String(line)) && (String(line).match(/[A-Za-z]{2,}/g) ?? []).length >= SENTENCE_WORDS) return false;
     const name = productName(line, maker);
     return Boolean(name) && name.length < NAME_LENGTH;
   };
-  const labelled = lines.slice(0, 14).map((l) => PRODUCT_LABEL.exec(l)?.[1]).map((v) => (v ? latinName(v) : v)).find((v) => v && named(v));
+  const labelled = lines.slice(0, 14).map((l) => PRODUCT_LABEL.exec(l)?.[1] ?? breadcrumb(l)).map((v) => (v ? latinName(v) : v)).find((v) => v && named(v));
   const head = lines.slice(0, 6);
   const at = head.findIndex((l) => ANNOUNCES.test(l));
   // A sheet that announces nothing prints its product first: purefil heads its sheets "Polyethylenterephthalat
@@ -2195,6 +2255,15 @@ export function propose(row, text, world) {
       : 'no product name could be read: the sheet prints none this reader recognises, and the ledger carries none either');
     identity.needsRuling = true;
   }
+  // A retailer is not a manufacturer. Where a sheet a shop hosts names no maker of its own, the reader has only
+  // the shop's name to give the grade, and "3DJake PLA Basic" or "Filament2Print BEDROCK 3D PPSU" says the shop
+  // made what it sells. Some of those are the shop's own brand and some are another maker's sheet under the
+  // shop's roof, and which is which is the owner's to say (Wave D). The sheets a shop hosts that do name their
+  // maker are unaffected: 3DJake's mirrors of FormFutura, Spectrum, colorFabb and Bambu read as theirs.
+  if (row.provider_kind === 'retailer' && canonicalManufacturer(row.manufacturer || row.provider, world) === canonicalManufacturer(row.provider, world)) {
+    identity.reasons.push(`the sheet is hosted by ${row.provider} and names no maker of its own; whether ${canonicalManufacturer(row.provider, world) || row.provider} is the brand or only the shop is a ruling (Wave D)`);
+    identity.needsRuling = true;
+  }
   const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
   // How this polymer solidifies and whether it is reinforced: the two things the build's own physics windows are
   // keyed on, so a reading judged here is judged the way the build will judge it.
@@ -2321,11 +2390,17 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
   const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'rejected']);
+  // A batch is chosen by what the ledger says about a document, not by the maker who published it: --ready takes
+  // every document nothing is holding, and --held <reason> takes the ones a named hold was waiting on, which is
+  // how a ruling the owner has answered or a reader rule just built gets its documents back (ingest:batch --holds).
+  const held = arg('held');
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
+    .filter((r) => (process.argv.includes('--ready') ? r.status === 'extracted' : true))
+    .filter((r) => (held ? (r.status_note ?? '').startsWith(`held: ${held}`) : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))
     // --compare reads the sheets the database already holds, which is exactly what a batch run leaves out.
-    .filter((r) => doc || (process.argv.includes('--compare') ? r.registered_source_id : !SKIP.has(r.status) && !r.registered_source_id));
+    .filter((r) => doc || held || (process.argv.includes('--compare') ? r.registered_source_id : !SKIP.has(r.status) && !r.registered_source_id));
   if (!rows.length) { console.error('nothing read to propose from'); process.exit(2); }
 
   if (process.argv.includes('--compare')) {

@@ -1,0 +1,553 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "6b9af00dc4ec39b4e6a61fc21906256b2259c9cc154ec57593b2c841ed7bc8c8",
+    "url": "https://siraya.tech/pages/siraya-tech-fibreheart-abs-cf-core-tds",
+    "pages": 1,
+    "provider": "Siraya Tech",
+    "manufacturer": "Siraya Tech",
+    "docKey": "https://siraya.tech/pages/siraya-tech-fibreheart-abs-cf-core-tds"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: abs",
+      "filler: cf"
+    ],
+    "materialId": "M029",
+    "materialName": "ABS-CF",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"Fibreheart ABS CF Core\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds",
+      "Publisher": "Siraya Tech",
+      "Title": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://siraya.tech/pages/siraya-tech-fibreheart-abs-cf-core-tds",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6b9af00dc4ec39b4e6a61fc21906256b2259c9cc154ec57593b2c841ed7bc8c8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Fibreheart ABS CF Core",
+        "Shared formulation key": "D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds",
+        "Composition / filler": "Carbon fiber reinforced ABS filaments are susceptible to moisture absorption, which can affect print quality. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.06 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.06",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1060",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds",
+        "Locator": "p. 1: Filament Density g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filament Density g/cm³  1.06  ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250-280°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "100-110°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4-1.0 mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-200 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1800-3600 mm/min"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1-3 mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Run at 0-20% speed"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature  250-280°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "250-280°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature  250-280°C"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4-1.0 mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter  0.4-1.0 mm"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "100-110°C",
+      "fromBelow": false,
+      "line": "Build plate temperature  100-110°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30-200 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed  30-200 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "1800-3600 mm/min",
+      "fromBelow": false,
+      "line": "Retraction speed  1800-3600 mm/min"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "1-3 mm",
+      "fromBelow": false,
+      "line": "Retraction distance  1-3 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "Run at 0-20% speed",
+      "fromBelow": false,
+      "line": "Cooling Fan  Run at 0-20% speed"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Need help? Call us +13234128788",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Roamr TPU Air HR 80A TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silicone Defiant 25A Defiant 15A Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About Resin/Filament User Guide Print Setting Profile V5 Test model Safety Data Sheet (SDS) Technical Data Sheet (TDS) FAQ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BLOG FDM printing Tips 3D Resin and Silicone Tips Certification Announcement About Siraya Tech A letter from our founder",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Roamr TPU Air HR 80A TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NFEP A4 NFEP Film A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About Resin/Filament User Guide Print Setting Profile V5 Test model Safety Data Sheet (SDS) Technical Data Sheet (TDS) FAQ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sales Resin Engineering Resin Blu - Tough Tenacious - Flexible Sculpt - High Temp Build - Drillable Rebound 55A Elastic Magna Durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament Roamr TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A PEBA 85A PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silicone Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NFEP A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Property Data",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Stress at Break (MPa)  49.9  ASTM D638  Tested on X/Y axis",
+      "reason": "the line names Tensile break strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Young’s Modulus (MPa)  4810  ASTM D638  Tested on X/Y axis",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at Break(%)  1.5  ASTM D638  Tested on X/Y axis",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy impact strength (KJ/m^2)  8.2  ASTM D6110  Tested on X/Y axis",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength (MPa)  81.1  ASTM D790  Tested on X/Y axis",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus (MPa)  4450  ASTM D790  Tested on X/Y axis",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature (℃)  99  ISO 306",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Glass Transition Temperature (℃)  101  DMA",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "HDT (℃)  84  Method A  1.80 MPa",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "HDT (℃)  91  Method B  0.45 MPa",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "4. Preparing for Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "If your device has a heated chamber, maintain temperatures between 60-80°C to help release residual stress during printing and prevent warping and cracking.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Printing with Fibreheart ABS-CF Core",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Minimum heating block thickness  12mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. With optional Glue Stick or PVP glue coating for enhanced adhesion.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Very high speeds may affect the core-shell structure. If surface quality degrades, either increase temperature or reduce speed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6. Moisture Management",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1) Storage",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(2) Drying Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "If print quality degradation is observed (bubbles, stringing), dry the filament at 60-70°C for 4-6 hours before printing. Only dry if the filament is damp.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About the shop Siraya Tech: Maker of Performance UV Resins for 3D printing and Platinum Silicone Crafting superior products for your projects. Email: support@si",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

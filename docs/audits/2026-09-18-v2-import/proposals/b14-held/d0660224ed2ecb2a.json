@@ -1,0 +1,533 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "d0660224ed2ecb2ae279f73b8801e6ff6643de1b916be09c2a5e6343fd3d01dc",
+    "url": "https://www.matterhackers.com/r/XNT7Rt",
+    "pages": 2,
+    "provider": "MatterHackers / PRO Series",
+    "manufacturer": null,
+    "docKey": "d0660224ed2ecb2a"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by MatterHackers / PRO Series and names no maker of its own; whether MatterHackers / PRO Series is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+      "Publisher": "MatterHackers / PRO Series",
+      "Title": "TECHNICAL DATA SHEET - PRO Series TPU",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.matterhackers.com/r/XNT7Rt",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d0660224ed2ecb2ae279f73b8801e6ff6643de1b916be09c2a5e6343fd3d01dc"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET - PRO Series TPU"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "MatterHackers / PRO Series",
+        "Product name": "TPU",
+        "Shared formulation key": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET - PRO Series TPU"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "95 Shore A",
+        "Raw unit": "Shore A",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D2240",
+        "Standards": "ASTM D2240",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Locator": "p. 1: Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Hardness 95 Shore A / 48 Shore D ASTM D2240"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "17.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "17.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "17.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D412",
+        "Standards": "ASTM D412",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Locator": "p. 1: Tensile Strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength 17.2 MPa ASTM D412"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "22.75 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "22.75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.02275",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D412",
+        "Standards": "ASTM D412",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Locator": "p. 1: Tensile Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus 22.75 MPa ASTM D412"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "550 %",
+        "Raw unit": "%",
+        "Raw numeric": "550",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "550",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D412",
+        "Standards": "ASTM D412",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Locator": "p. 1: Tensile Elongation",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation 550% ASTM D412"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "37.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "37.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.0372",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Locator": "p. 1: Flexural Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus 37.2 MPa ASTM D790"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.14 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1140",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "Locator": "p. 2: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density 1.14 g/cm3 ASTM D792"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230°C ±10°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "10",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "70°C ±10°C",
+        "Bed state": "range",
+        "Bed min °C": "10",
+        "Bed max °C": "70",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Print Temperature 230°C ±10°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print Temperature",
+      "raw": "230°C ±10°C",
+      "fromBelow": false,
+      "line": "Print Temperature 230°C ±10°C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "70°C ±10°C",
+      "fromBelow": false,
+      "line": "Bed Temperature 70°C ±10°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "3D Printing Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Designation: 3D printing material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MatterHackers PRO Series TPU 3D printing filament exhibits excellent layer adhesion and strength while being",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "flexible, making it a great solution for parts that require energy return and fatigue resistance. For 3D printed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series TPU filament should be stored between 15 - 25°C, in its original packaging, in a clean and dry",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "environment. When following these recommended storage procedures the minimum shelf life will exceed 12",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Index 20 cm3/10 min ISO 1133 (200°C)",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "www.matterhackers.com sales@matterhackers.com +1 (800) 613-4290",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Last Updated 08/10/2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Vicant Softening Point 115°C ASTM D1525",
+      "reason": "properties.csv carries no property for \"Vicant Softening Point\""
+    },
+    {
+      "page": 2,
+      "text": "Diameter 1.75mm 1.75 ± 0.02mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Diameter 2.85mm 2.85 ± 0.02mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Material Drying Temperature 90°C (Active Drying Recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "www.matterhackers.com sales@matterhackers.com +1 (800) 613-4290",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Last Updated 08/10/2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

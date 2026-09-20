@@ -1,7 +1,7 @@
 COUNT 24 shown PASS + UNKNOWN
-STATUS ☑ PASS 8 | ☑ UNKNOWN 40 | ☐ FAIL 90 | ☐ SCREENED 24
-8 of the 138 materials in this database meet these requirements, and 40 more could not be checked for missing data
-Include uncertain lists those 40 flagged, except the 24 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
+STATUS ☑ PASS 8 | ☑ UNKNOWN 41 | ☐ FAIL 90 | ☐ SCREENED 25
+8 of the 139 materials in this database meet these requirements, and 41 more could not be checked for missing data
+Include uncertain lists those 41 flagged, except the 25 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -31,25 +31,25 @@ n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 COC
 PVB / Specialty Polymers
- UNKNOWN 1,020 ~1.2–3.0† ~28–77† ~6–38† ~136–159† — ☆
+ UNKNOWN 1,020 ~1.2–2.9† ~28–77† ~5–39† ~135–159† — ☆
 CoPE
 Copolyesters
- UNKNOWN 1,300 2.52 51.6 ~7–51† ~51–71† — ☆
+ UNKNOWN 1,300 2.52 51.6 ~10–82† ~50–71† — ☆
 CPE
 Copolyesters
- UNKNOWN 1,250 ~0.77–1.75† ~27–50† ~40–160† 80 — ☆
+ UNKNOWN 1,250 ~0.7–1.9† ~27–50† ~60–210† 80 — ☆
 CPE-LW
 Copolyesters
- UNKNOWN 1,160 ~0.07–0.18† ~14–47† ~80–310† 70 — ☆
+ UNKNOWN 1,160 ~0.07–0.21† ~14–47† ~120–430† 70 — ☆
 nGen FLEX
 Copolyesters
- UNKNOWN 1,160 ~0.13–0.25† ~18–38† ~60–180† 100? — ☆
+ UNKNOWN 1,160 ~0.13–0.26† ~18–38† ~80–270† 100? — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.004–0.31† ~10–31† ~720–1,340† n/a — ☆
+ UNKNOWN 905 ~0.005–0.40† ~15–33† ~740–1,360† n/a — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~980–1,050† ~0.8–3.0† ~51–97† ~32–85† ~90–126† — ☆
+ UNKNOWN ~989–1,050† ~0.8–3.0† ~51–96† ~32–90† ~90–128† — ☆
 PBAT
 PVB / Specialty Polymers
  PASS 1,250 0.006 27 400 90 — ☆
@@ -58,31 +58,31 @@ Polyolefins
  PASS 954 0.752 18.5 208 66 — ☆
 PEBA
 Flexible Elastomers
- PASS 1,010 ~0.033–0.089† ~17–29† 520 n/a — ☆
+ PASS 1,010 ~0.032–0.094† ~17–29† 520 n/a — ☆
 PET
 PET Engineering
- UNKNOWN 1,340 ~1.5–2.8† ~32–61† ~4.1–12.4† ~60–73† — ☆
+ UNKNOWN 1,340 ~1.6–3.0† ~35–64† ~4.0–12.8† ~61–73† — ☆
 PET-LW
 PET Engineering
- UNKNOWN ~1,240–1,400† ~0.5–2.8† ~19–94† ~3–43† ~52–72† — ☆
+ UNKNOWN ~1,240–1,400† ~0.5–3.0† ~20–94† ~2–29† ~52–72† — ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.26–0.60† ~19.4–27.9† ~850–1,160† 92? — ☆
+ UNKNOWN 890 ~0.27–0.64† ~19.4–27.9† ~850–1,160† 92? — ☆
 PVC
 PVB / Specialty Polymers
- UNKNOWN 1,269 ~0.1–11† ~24–61† ~80–310† ~55–79† — ☆
+ UNKNOWN 1,269 ~0.1–12† ~24–61† ~90–330† ~53–78† — ☆
 SAN
 Styrenics
- UNKNOWN 1,080 ~2.1–4.9† ~39–91† ~6–45† ~91–114† — ☆
+ UNKNOWN 1,080 ~2.3–4.9† ~39–91† ~7–59† ~90–113† — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.010–0.061† ~20–140† ~530–1,150† n/a — ☆
+ UNKNOWN 1,150 ~0.010–0.061† ~20–119† ~530–1,160† n/a — ☆
 TPC-ESD
 Flexible Elastomers
- UNKNOWN 1,280 1.4 70 ~60–440† 50 — ☆
+ UNKNOWN 1,280 1.4 70 ~50–440† 50 — ☆
 TPU
 Flexible Elastomers
- PASS 1,200 0.029 ~31.4–38.1† 330 n/a — ☆
+ PASS 1,200 0.029 ~31.3–38.0† 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  PASS 1,180 0.0068 12 700 n/a no price↗ ☆
@@ -94,10 +94,10 @@ Flexible Elastomers
  PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
 TPU for AMS
 Flexible Elastomers
- PASS 1,260 ~0.03–0.19† 22.4 650 n/a 47.5↗ ☆
+ PASS 1,260 ~0.03–0.20† 22.4 650 n/a 47.5↗ ☆
 TPU-CF
 Flexible Elastomers
- UNKNOWN 1,230 ~1.1–2.5† ~27–83† ~13–55† n/a — ☆
+ UNKNOWN 1,230 ~1.1–2.6† ~27–82† ~14–59† n/a — ☆
 TPU-ESD
 Flexible Elastomers
- UNKNOWN 1,180 ~0.006–0.41† 12 ~70–440† n/a — ☆
+ UNKNOWN 1,180 ~0.007–0.45† 12 ~70–440† n/a — ☆
