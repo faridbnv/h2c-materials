@@ -1,0 +1,1738 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "1d1658d8e0a4a9654d41406685fa4652d91b1328bbfa88a3a32f8e01954bdeda",
+    "url": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_FIBERON_PET-GF15_v2.0_2026-02-02.pdf",
+    "pages": 1,
+    "provider": "Polymaker / Fiberon",
+    "manufacturer": "Polymaker (Fiberon)",
+    "docKey": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_FIBERON_PET-GF15_v2.0_2026-02-02.pdf"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet",
+      "filler: gf15"
+    ],
+    "materialId": "M068",
+    "materialName": "PET-GF",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+      "Publisher": "Polymaker (Fiberon)",
+      "Title": "T E C H N I C A L",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Polymaker / Fiberon; the sheet is Polymaker (Fiberon)'s.",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_FIBERON_PET-GF15_v2.0_2026-02-02.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1d1658d8e0a4a9654d41406685fa4652d91b1328bbfa88a3a32f8e01954bdeda"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "T E C H N I C A L"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M068",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PET-GF15 is the bridge of the gap between every",
+        "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "V2.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "T E C H N I C A L"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.43 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.43",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1430",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO1183 GB/T1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Density ISO1183, GB/T1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO1183, GB/T1033 1.43 g/cm3at 23°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "36.9 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "36.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "36.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "270°C",
+        "Standard / load": "270°C 2.16kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Melt index 270°C, 2.16kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt index 270°C, 2.16kg 36.9 g/10min 0.25"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "1012 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "1012",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "1012",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Ω ANSI ESD S11.11 OL",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Surface Resistivity (Ω) ANSI ESD S11.11 OL",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Surface Resistivity (Ω) ANSI ESD S11.11 OL, >1012 Ω 0.15"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "59.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "59.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Glass transition temp. DSC, 10°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temp. DSC, 10°C/min 59.5°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "231.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "231.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "231.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Melting temperature DSC, 10°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature DSC, 10°C/min 231.6°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Decomposition temperature",
+        "Raw value": "422.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "422.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "422.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Decomposition temp. TGA, 20°C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Decomposition temp. TGA, 20°C/min 422.8°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "232.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "232.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "232.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "annealed ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Vicat softening temp. ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. ISO 306, GB/T 1633 232.6°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "87.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "87.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "87.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8MPa annealed annealed ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Heat deflection temp. ISO 75 1.8MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temp. ISO 75 1.8MPa 87.3°C (annealed)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "133.7 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "133.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "133.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa annealed annealed ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Heat deflection temp. ISO 75 0.45MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temp. ISO 75 0.45MPa 133.7°C (annealed)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4144.2 ± 133.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4144.2",
+        "Raw uncertainty ±": "133.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.1442",
+        "Normalized uncertainty ±": "0.1333",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Young’s modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (X-Y) 4144.2 ± 133.3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3428.9 ± 257.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3428.9",
+        "Raw uncertainty ±": "257.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.4289",
+        "Normalized uncertainty ±": "0.2572",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Young’s modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus (Z) 3428.9 ± 257.2 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "59.9 ± 0.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "59.9",
+        "Raw uncertainty ±": "0.8",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.9",
+        "Normalized uncertainty ±": "0.8",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Tensile strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) 59.9 ± 0.8 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "48.2 ± 0.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "48.2",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48.2",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Tensile strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (Z) 48.2 ± 0.3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4.0 ± 0.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "4",
+        "Raw uncertainty ±": "0.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4",
+        "Normalized uncertainty ±": "0.5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (X-Y) 4.0 ± 0.5%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.6 ± 0.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.6",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.6",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Elongation at break (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (Z) 2.6 ± 0.1%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3705.4 ± 84.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3705.4",
+        "Raw uncertainty ±": "84.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.7054",
+        "Normalized uncertainty ±": "0.0845",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Bending modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus (X-Y) 3705.4 ± 84.5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2998.4 ± 92.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2998.4",
+        "Raw uncertainty ±": "92.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.9984",
+        "Normalized uncertainty ±": "0.0923",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Bending modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus (Z) 2998.4 ± 92.3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "104.2 ± 2.4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "104.2",
+        "Raw uncertainty ±": "2.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "104.2",
+        "Normalized uncertainty ±": "2.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Bending strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength (X-Y) 104.2 ± 2.4 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "80.3 ± 2.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "80.3",
+        "Raw uncertainty ±": "2.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80.3",
+        "Normalized uncertainty ±": "2.5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Bending strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength (Z) 80.3 ± 2.5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "8.7 ± 0.6 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "8.7",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.7",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Charpy impact strength (X-Y) notched",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength (X-Y) notched 8.7 ± 0.6 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "27.2 ± 2.0 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "27.2",
+        "Raw uncertainty ±": "2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "27.2",
+        "Normalized uncertainty ±": "2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "X-Y annealed ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Charpy impact strength (X-Y)un-notched ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength (X-Y)un-notched ISO 179, GB/T 1043 27.2 ± 2.0 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "13.9 ± 1.6 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "13.9",
+        "Raw uncertainty ±": "1.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.9",
+        "Normalized uncertainty ±": "1.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "Z annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "Locator": "p. 1: Charpy impact strength (Z) un-notched",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength (Z) un-notched 13.9 ± 1.6 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "280-310°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "310",
+        "Nozzle requirement": "required",
+        "Bed °C": "70-80°C",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "Up to 250mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 280-310°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "300°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "300",
+        "Nozzle max °C": "300",
+        "Nozzle requirement": "required",
+        "Bed °C": "70-80°C",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "Up to 250mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Build plate temperature 70-80°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "Up to 250mm/s",
+      "fromBelow": false,
+      "line": "Printing speed Up to 250mm/s"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "280-310°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 280-310°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "70-80°C",
+      "fromBelow": false,
+      "line": "Build plate temperature 70-80°C"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "300°C",
+      "fromBelow": false,
+      "line": "Printing temperature 300°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "Shell 2"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "80°C",
+      "fromBelow": false,
+      "line": "Bed temperature 80°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "V2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "F I B E R O N PET-GF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FIBERON™ PET-GF15 is the bridge of the gap between every-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "W W W . F I B E R O N 3 D . C O M",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET-GF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "70% RH, 23°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.55",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flame retardancy UL 94, 1.5mm HB 0.20",
+      "reason": "properties.csv carries no property for \"Flame retardancy\" (HB)"
+    },
+    {
+      "page": 1,
+      "text": "0.10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 5 10 15 20 25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 Mpa P R O P E R T Y T E S T I N G M E T H O D T Y P I C A L V A L U E",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET-GF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.8 Mpa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.391",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Equilibrium water absorption (%) = 0.32",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "0.299",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.207",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Crystallization temp. DSC, 10°C/min 201.4°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.116",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "-0.065",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 25 50 75 100 125 150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT 1.8MPa ISO 75 1.8MPa 71.8 (as printed)",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "HDT 0.45MPa ISO 75 0.45MPa 81.6 (as printed)",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178, GB/T 9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 306, GB/T 1633",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "X-Y 40mm 39.85mm 39.67mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Z 40mm 39.82mm 39.50mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 10mm 9.90mm 9.88mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Model infill 30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dr 100°C/10H",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolySupport™ for PA12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "120°C/16H",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Abrasion of the brass nozzle happens frequently when printing Fiberon™ PET-GF15. Normally, the life of a brass nozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "would be approximately 9h. A wear-resistance nozzle, such as hardened steel and ruby nozzle,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "is highly recommended to be used with Fiberon™ PET-GF15.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 is sensitive to moisture and should always be stored and used under dry conditions (relative humidity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "below 20%).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "It is recommended to use Fiberon™ PET-GF15 directly without annealing in cases where temperature resistance of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET-GF15 above 80°C is not required. If annealing is required, please refer to the following tips:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. For prints with a bridge length of more than 3cm, or a thick layer on the upper part of the bridge; prints with large",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. For thin-walled areas with a wall thickness of less than 4mm, you can try to add reinforcing ribs or increase the wall",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infill 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Top & bottom layer 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D638 (ISO 527, GB/T 1040) ASTM D638 (ISO 179, GB/T 1043)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D638 (ISO 527, GB/T 1040)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60.00 150.00 45.00°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "114.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "20.00 10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4*R25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

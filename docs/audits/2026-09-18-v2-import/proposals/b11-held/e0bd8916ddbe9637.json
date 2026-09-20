@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "e0bd8916ddbe96379774c7467de7ee646c60db0f3828aaee393488868fa9af34",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/pl_tds_spectrum_pctg_cf10-1.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "e0bd8916ddbe9637"
+  },
+  "identity": {
+    "polymer": "PCTG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Copolyesters",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pctg",
+      "filler: cf10"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PCTG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PCTG-CF",
+    "Family": "Copolyesters",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Glycol-Modified Polycyclohexylenedimethylene Terephthalate (Carbon fibre)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PCTG-CF",
+    "Base polymer": "PCTG",
+    "Estimate identity": "PCTG",
+    "Modifier / filler": "Carbon fibre",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from S-SPECTRUM-pl-tds-spectrum-pctg-cf10-1 (p. 1): name: pctg; filler: cf10."
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-pctg-cf10-1",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/10/pl_tds_spectrum_pctg_cf10-1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e0bd8916ddbe96379774c7467de7ee646c60db0f3828aaee393488868fa9af34"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PCTG CF10",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-pctg-cf10-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-pctg-cf10-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PCTG CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1.28 g/cm3 ASTM D792",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "włóknem węglowym - PCTG CF10. Włókna węglowe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5,00% ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nia. Filament PCTG CF10 pozwala na drukowanie",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "70 MPa ISO 527",
+      "reason": "properties.csv carries no property for \"70 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "65 MPa ISO 527",
+      "reason": "properties.csv carries no property for \"65 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "bez karba przy 23°C 45kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"bez karba przy 23°C\""
+    },
+    {
+      "page": 1,
+      "text": "z karbem przy 23°C 4kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"z karbem przy 23°C\""
+    },
+    {
+      "page": 1,
+      "text": "• zawartość 10% włókien węglowych",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@ 0.455MPa 78°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@ 1.820 MPa 68°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "89°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 250-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu > 50°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50-85%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-80 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

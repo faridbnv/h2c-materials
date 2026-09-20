@@ -3,9 +3,22 @@ import { issue } from './rules.js';
 
 // Independent raw-to-normalized reconciliation. Never repairs a value during compilation.
 // Decimal commas with one/two decimal digits differ from grouped integer cycle counts.
+const SUPERSCRIPT = { '\u2070': '0', '\u00b9': '1', '\u00b2': '2', '\u00b3': '3', '\u2074': '4', '\u2075': '5', '\u2076': '6', '\u2077': '7', '\u2078': '8', '\u2079': '9', '\u207a': '+', '\u207b': '-' };
+
 export function rawNumber(text) {
+  const plain = String(text ?? '').replace(/[−–]/g, '-')
+    .replace(/[\u2070\u00b9\u00b2\u00b3\u2074-\u2079\u207a\u207b]+/g, (run) => `^${[...run].map((c) => SUPERSCRIPT[c]).join('')}`);
+  // A power of ten is one number: a resistivity is published as "> 10¹² Ω" and a volume resistivity as
+  // "6.75×10¹⁴ Ω·cm", and read as the digits they are made of they become 1012 and 6.75, which is a conductor
+  // where the sheet says an insulator. The superscripts are written with a caret first, because that is how the
+  // reader writes a raised piece it joined to its ten.
+  const power = /^\s*[<>＜＞≥≤~≈約]?\s*(-?\d+(?:[.,]\d+)?)?\s*(?:[×x*·]\s*)?10\s*\^\s*([-+]?\d+)/.exec(plain);
+  if (power) {
+    const mantissa = power[1] == null ? 1 : Number(String(power[1]).replace(',', '.'));
+    return Number.isFinite(mantissa) ? mantissa * 10 ** Number(power[2]) : null;
+  }
   // A source may print a bound ("> 500 %") or an approximation ("~1.5 %"); both lead with the number they qualify.
-  const match = String(text ?? '').replace(/[−–]/g, '-').match(/^\s*[<>＜＞≥≤~≈約]?\s*(-?\d+(?:[ ,.\u00a0]\d+)*)/);
+  const match = plain.match(/^\s*[<>＜＞≥≤~≈約]?\s*(-?\d+(?:[ ,.\u00a0]\d+)*)/);
   if (!match) return null;
   let token = match[1].trim().replace(/[ \u00a0]/g, '');
   if (/^-?\d+,\d{1,2}$/.test(token)) token = token.replace(',', '.');

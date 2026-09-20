@@ -63,7 +63,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       },
       "row": {
         "MaterialID": "M039",
@@ -136,7 +136,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       }
     },
     {
@@ -186,7 +186,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       }
     },
     {
@@ -236,7 +236,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       }
     },
     {
@@ -286,7 +286,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       }
     },
     {
@@ -336,7 +336,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page, row by row: each states its property, its method, its condition and its unit as the sheet prints them. The polymer or the filler is the one the sheet's own words give rather than its product name, which is what held the rows back."
       }
     }
   ],
@@ -404,7 +404,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       }
     }
   ],

@@ -7,16 +7,16 @@ each step now knows that the plan could not. Rewritten 2026-09-19, after batches
 
 | | Documents |
 |---|---:|
-| Applied: their values are in the database | 516 |
-| Read and waiting for a batch | 538 |
+| Applied: their values are in the database | 569 |
+| Read and waiting for a batch | 638 |
 | One sheet under another name, or another language's edition | 347 |
 | Not yet fetched, or behind a login | 468 |
 | A safety sheet, a dead link, no numbers on the page, out of scope | 67 |
 
-Ten batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
-SUNLU, b09's five libraries read together (Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy) and b10's
-Fillamentum. The database holds 143 materials, 509 grades, 6,140 measurements and 681 sources, against the 103,
-179, 2,645 and 300 it held when the plan was written.
+Eleven batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
+SUNLU, b09's five libraries read together (Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy) b10's
+Fillamentum and b11's leftovers of every maker already proved. The database holds 143 materials, 528 grades,
+6,556 measurements and 730 sources, against the 103, 179, 2,645 and 300 it held when the plan was written.
 
 Nothing in the corpus is now unreadable for want of a text layer: `npm run ingest:ocr` reads a scan on a copy,
 caches it under the document's own digest as an optical reading, and `ingest:apply` refuses a row from one that
@@ -39,51 +39,62 @@ finish material that does not exist yet, or a sheet that reprints another produc
 Every library so far has needed the reader taught something, and each thing it learned was a rule rather than a
 special case: a unit printed before its value, a value printed above its label, a designation whose digits are not
 a value, a table printed beside another table, a bracket that lost its opening, a label the lexicon cannot read in
-full. Parity on Spectrum, 3DXTECH and Polymaker is the gate that says none of it broke what was already right:
-113 of 113, 213 of 214 and 223 of 239 through all nine batches.
+full. Parity is the gate that says none of it broke what was already right, and it is run over every maker whose
+sheets somebody transcribed by hand, on every change:
 
-Wave B's next makers have been measured against the same gate, and three of them are not ready:
+| Maker | Sheets | Values reproduced | What it still misses |
+|---|---:|---|---|
+| Spectrum | 85 | 656 of 656 | — |
+| 3DXTECH | 60 | 472 of 473 | an Izod row whose label the sheet misspells |
+| Fillamentum | 19 | 153 of 154 | one endpoint set a point lower than its own row |
+| BASF Forward AM | 3 | 56 of 57 | a Shore hardness its Product Description states in prose |
+| Polymaker / Fiberon | 49 | 770 of 810 | one shared table covering several products |
+| eSUN | 2 | 21 of 23 | a bound with no unit on its line, and a value whose unit is bracketed behind it |
 
-| Maker | Parity | What it still misses |
-|---|---|---|
-| Spectrum | 656 of 656 | — |
-| 3DXTECH | 472 of 473 | an Izod row whose label the sheet misspells |
-| Polymaker / Fiberon | 770 of 810 | one shared table covering several products |
-| eSUN | 21 of 23 | a bound with no unit on its line, and a value whose unit is bracketed behind it |
-| Fillamentum | 22 of 23 | one endpoint its Test Condition column sets on a baseline of its own — past the gate, and applied as b10 |
-| BASF Forward AM | 26 of 57 | three build orientations in three value columns, under a header row that names them |
+Everything the table below once listed as missing has been built, and each piece was a rule rather than a
+special case:
 
-The page beside the table is off: a gutter is a band few of the page's lines cross while enough have text on
-both sides of it, and a piece of a line that reads as a sentence where another piece states what a table states
-is the page beside the table, not the row. A label a table merges across two rows is shared with both, which is
-the mirror of the merged method-and-unit cell (`shareMergedCells`); a label standing above its rows in their own
-column is a block heading and is left alone, which is what Spectrum's deflection block is. Between them those
-took Fillamentum from 11 of 23 to 22, past the gate, and moved no other maker. Its 24 proposals exist: 16 of them
-name a material this database already holds, and 8 are identities nobody has settled.
+- **The page beside the table.** A gutter is a band few of the page's lines cross while enough have text on both
+  sides of it; a piece of a line that reads as a sentence, where another piece states what a table states, is
+  the page beside the table and not the row.
+- **A label a table merges across two rows** is shared with both, the mirror of the merged method-and-unit cell
+  (`shareMergedCells`). A label standing above its rows in their own column is a block heading and is left
+  alone, which is what Spectrum's deflection block is.
+- **The endpoint in the condition column.** A row that names its endpoint on the far side of its value is that
+  endpoint's row; read from the label alone, a sheet's yield and its break strength are one property twice.
+- **A value column per build orientation.** The header row is the page saying where its columns are: its cells
+  are the boundaries, the cells naming an orientation are the value columns, and everything outside them belongs
+  to every value on the row. A column boundary sits halfway between two headings, because a maker centres its
+  values under the heading as often as it aligns them. BASF went from 26 of 57 recorded values to 56.
+- **The specimen a table describes.** A heading naming a specimen form governs the rows under it, so a sheet
+  that publishes one table of printed bars and another of moulded ones no longer gives one grade both as if they
+  were the same specimen.
+- **The polymer base a sheet states in words.** A composition row is the sheet answering for itself, read on its
+  own rather than as part of the prose; two polymers in it is a blend, and a family word beside one of its own
+  polymers is one statement, not two.
+- **Four things a product's name is not**, and then four more: a measurement, a property, a standard, a
+  sentence; a letter-spaced title, a trademark fragment, a revision line, a section heading in any of the four
+  languages this corpus prints.
 
-What is left is two named things:
+What is left of the sheets already measured is small and named:
 
-- **The condition column on its own baseline.** A row that names its endpoint in its condition column is that
-  endpoint's row, which is four of the five Fillamentum was missing. The fifth is the same statement set one
-  point lower than its own row — "36 MPa ASTM D638" with "at break" beside it on a baseline of its own — and
-  reads as a tensile strength of no stated endpoint, which is a third property and not one the sheet publishes.
-- **The polymer base a sheet states in words.** Fillamentum's newer sheets carry a Chemical properties table
-  whose first row is the answer to the question the identity queue keeps asking: "Polymer base polylactic acid
-  and polyhydroxy butyrate compound", "Polymer base polyamide 12", "Polymer base Polyamide 6 + carbon fibres",
-  "Polymer base polyolefin". The reader keeps the row; the lexicon knows the abbreviations and not the words, so
-  four of the eight b10 documents are queued for a ruling that their own sheet answers. `polymer-aliases.csv`
-  matches a token at a time, so "polyamide 12" needs the adjacent-token join the classifier already has for the
-  fillers. It is worth more than the four: every maker that prints a composition row is in the same position,
-  and an identity read from the sheet is one the owner does not have to settle.
-- **A table with a value column per build orientation.** BASF prints "Tensile strength ISO 527 36.1 MPa / 5.3 ksi
-  - 11.2 MPa / 1.6 ksi" under a header row naming X-Y, X-Z and Z-X, each value twice, metric and imperial. The
-  reader takes the first and the sheet's other two orientations go unread. **It is not only BASF**: Fillamentum's
-  OBC 905 prints "XY-axis Z-axis Test Method Test Condition" and seven of its thirteen rows carry two values, so
-  b10 held that document rather than record half of it with no direction at all. On the same sheet a Vicat row
-  whose value column prints "-" passed its label to the line below it, which is the other half of the same work:
-  a cell that states nothing is still a cell. This is the last of
-  `docs/OPEN-PROBLEMS.md` §1 and §9 as well, where a neighbouring column's cell is what 96 measurements and 15
-  print setups carry instead of their own.
+- **A statement set one point lower than its own row.** Fillamentum prints "36 MPa ASTM D638" and sets "at
+  break" beside it on a baseline of its own, which reads as a tensile strength of no stated endpoint — a third
+  property, and not one the sheet publishes. One row of one sheet.
+- **A Shore hardness in prose.** BASF's TPC sheet states it in its Product Description ("shore 45D") and nowhere
+  in a table. One row of one sheet.
+- **A value column per condition, as there is now one per orientation.** Polymaker's HT-PLA sheets head a second
+  value column "Annealed" and print both states on one row, exactly as BASF prints one column per build
+  direction. Until that is read the same way, a block heading is all the reader has, and a block heading must
+  stand in the table's own column (m80's companion fix) — which leaves seven rows on those sheets carrying an
+  annealed state that a re-read would no longer give them. They are left as they are rather than guessed at.
+- **A shared table covering several products.** Polymaker's residue, 40 values: one document, one proposal and
+  one product, where the sheet lists several. R053 says what they become — a grade each, citing its own sheet,
+  with the values recorded once — and the pipeline has no way to make one document into several proposals.
+- **Corrections to a document already registered.** This is what `docs/OPEN-PROBLEMS.md` §1 and §9 now wait on,
+  not the reader: the reader would read those 96 measurements and 15 print setups correctly today, but a
+  proposal for a registered document produces new rows rather than corrections. The plan's `edits[]`, through
+  `scripts/migrate/source-edits.mjs`, is the path.
 
 Two things are still missing from the reader, and both cost values on every maker:
 

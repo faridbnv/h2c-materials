@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "147ae6dccd791aaa612e2038136fcb7d5fd50b473d22633d2ac6e448300140ae",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/flex-medium-TDS-fr.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "147ae6dccd791aaa"
+  },
+  "identity": {
+    "polymer": "SAN",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: san"
+    ],
+    "materialId": "M136",
+    "materialName": "SAN",
+    "estimateIdentity": "SAN",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-flex-medium-TDS-fr",
+      "Publisher": "Extrudr",
+      "Title": "FICHE DE DONNÉES TECHNIQUES",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/flex-medium-TDS-fr.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "147ae6dccd791aaa612e2038136fcb7d5fd50b473d22633d2ac6e448300140ae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FICHE DE DONNÉES TECHNIQUES"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M136",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX MEDIUM",
+        "Shared formulation key": "R-EXTRUDR-flex-medium-TDS-fr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-medium-TDS-fr",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FICHE DE DONNÉES TECHNIQUES"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "110 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "110",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "110",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-medium-TDS-fr",
+        "Locator": "p. 1: VICAT A (VST) ISO 306 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT A (VST) ISO 306 °C 110* Espace fermé non"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page, row by row: each states its property, its method, its condition and its unit as the sheet prints them. The polymer or the filler is the one the sheet's own words give rather than its product name, which is what held the rows back."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "extensibilité allant jusqu‘à 470 %, une qualité de matériau élevée, une résistance chimique élevée et une résistance à la distorsion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "thermique allant jusqu‘à 115 °C, le matériau convient à de nombreuses applications industrielles. La matière première est conforme",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. CARACTÉRISTIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Très résistant aux chocs et aux ruptures • Dureté Shore A98",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPRIÉTÉS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Module d’élasticité en traction ISO 527-2/5A/500 MPa 40 Buse 230-250°C",
+      "reason": "properties.csv carries no property for \"Module d’élasticité en traction\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement à la rupture ISO 527-2/5A/500 % 475 Plateau chauffant 50-90°C",
+      "reason": "properties.csv carries no property for \"Allongement à la rupture\""
+    },
+    {
+      "page": 1,
+      "text": "Stress à la rupture ISO 527-2/5A/500 MPa - (50%)",
+      "reason": "properties.csv carries no property for \"Stress à la rupture\""
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2/5A/500 MPa 17 (100%) Vitesse 20-100mm/s",
+      "reason": "a stress at 100 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2/5A/500 MPa 30 (300%) Refroidissement 0-30%",
+      "reason": "a stress at 300 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "Température de fusion ISO 3146-C °C 190-220",
+      "reason": "properties.csv carries no property for \"Température de fusion\""
+    },
+    {
+      "page": 1,
+      "text": "Densité ISO 2781 g/cm³ 1.19 Vitesse volumétrique 3,2 mm³/s",
+      "reason": "properties.csv carries no property for \"Densité\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance à l‘abrasion ISO 4649-A mm³ 25",
+      "reason": "properties.csv carries no property for \"Résistance à l‘abrasion\" (mm³)"
+    },
+    {
+      "page": 1,
+      "text": "Dureté Shore ISO 868 Shore 98A",
+      "reason": "properties.csv carries no property for \"Dureté Shore\""
+    },
+    {
+      "page": 1,
+      "text": "une buse de 0,4 mm. Max. 50 % de hauteur de couche. Les",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Point de rupture ISO 34-1B kN/m 170",
+      "reason": "properties.csv carries no property for \"Point de rupture\" (kN/m)"
+    },
+    {
+      "page": 1,
+      "text": "Température de transition vitreuse oC -30",
+      "reason": "properties.csv carries no property for \"Températuredetransitionvitreuse\" (oC)"
+    },
+    {
+      "page": 1,
+      "text": "Résisatnce à la compression DIN 53452 MPa 40",
+      "reason": "properties.csv carries no property for \"Résisatnce à la compression\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Perméabilité à l‘AIR DIN 53380 25°/60°C 450/-",
+      "reason": "properties.csv carries no property for \"Perméabilité à l‘AIR\""
+    },
+    {
+      "page": 1,
+      "text": "Perméabilité au N2 DIN 53380 25°/60°C 330/1800",
+      "reason": "properties.csv carries no property for \"Perméabilité au N2\""
+    },
+    {
+      "page": 1,
+      "text": "Perméabilité à l‘O2 DIN 53380 25°/60°C 840/4500",
+      "reason": "properties.csv carries no property for \"Perméabilité à l‘O2\""
+    },
+    {
+      "page": 1,
+      "text": "Perméabilité au CO2 DIN 53380 25°/60°C 6500/19000",
+      "reason": "properties.csv carries no property for \"Perméabilité au CO2\""
+    },
+    {
+      "page": 1,
+      "text": "Perméabilité au N2O DIN 53380 25°/60°C 12400/-",
+      "reason": "properties.csv carries no property for \"Perméabilité au N2O\""
+    },
+    {
+      "page": 1,
+      "text": "Coefficient de Poisson acc. to Hencky 0.47",
+      "reason": "properties.csv carries no property for \"Coefficient de Poisson\""
+    },
+    {
+      "page": 1,
+      "text": "* Résistance à la température testée à une épaisseur de paroi minimale de 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS ET INFO SUPPLÉMENTAIRES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. STOCKAGE ET DURÉE DE CONSERVATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Conservez dans une pièce sèche à température ambiante (18 à 27 °C / 65 à 80 °F). Gardez à l‘abri de la lumière directe du soleil.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lorsqu‘il est stocké correctement, ce matériau a une durée de conservation de 2 ans.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEX MEDIUM 17. 03. 2025",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

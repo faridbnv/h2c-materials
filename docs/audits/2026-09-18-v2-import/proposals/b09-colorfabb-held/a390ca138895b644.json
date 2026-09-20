@@ -64,7 +64,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       },
       "row": {
         "MaterialID": "M032",
@@ -137,7 +137,7 @@
         "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "The sheet prints \"0.40 - 1,24 g/cm3\": the low end is what the filament reaches when its foaming is active, which is what the process does and not what the material weighs. The pair is not a density this database can record as one, and the sheet publishes no single value."
+        "note": "the low end of a foaming filament’s density range is what the filament reaches when its foaming is active, which is what the process does and not what the material weighs; b09 rejected the two LW density rows for the same reason."
       }
     }
   ],
@@ -201,7 +201,7 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
       }
     }
   ],

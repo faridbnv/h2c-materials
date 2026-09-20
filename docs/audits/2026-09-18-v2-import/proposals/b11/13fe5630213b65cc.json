@@ -1,0 +1,601 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "13fe5630213b65cc23e62e005adaf0f914bfc1b6bc74a6f37a3e407888e02171",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-it/durapro-pa12-cf-TDS-it.pdf",
+    "pages": 2,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "13fe5630213b65cc"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12",
+      "filler: cf"
+    ],
+    "materialId": "M053",
+    "materialName": "PA12-CF",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+      "Publisher": "Extrudr",
+      "Title": "SCHEDA TECNICA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-it/durapro-pa12-cf-TDS-it.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "13fe5630213b65cc23e62e005adaf0f914bfc1b6bc74a6f37a3e407888e02171"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "SCHEDA TECNICA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO PA12 CF",
+        "Shared formulation key": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "SCHEDA TECNICA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.03 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.03",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1030",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Locator": "p. 1: Dichte ISO 1183 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Dichte ISO 1183 g/cm³ 1.03"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2820 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2820",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.82",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Locator": "p. 1: Zug-E-Modul ISO 527-1 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Zug-E-Modul ISO 527-1 MPa 2820"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4 %",
+        "Raw unit": "%",
+        "Raw numeric": "4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Locator": "p. 1: Streckdehnung (Einsinkweg) ISO 527-2 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckdehnung (Einsinkweg) ISO 527-2 % 4"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "9 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "+23°C ISO 179/1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Locator": "p. 1: Charpy Kerbschlagzähigkeit (+23°C) ISO 179/1eA kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy Kerbschlagzähigkeit (+23°C) ISO 179/1eA kJ/m² 9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "5 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-30°C",
+        "Standard / load": "-30°C ISO 179/1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Locator": "p. 1: Charpy Kerbschlagzähigkeit (-30°C) ISO 179/1eA kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy Kerbschlagzähigkeit (-30°C) ISO 179/1eA kJ/m² 5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "145 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "145",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "145",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306/B50",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pa12-cf-TDS-it",
+        "Locator": "p. 1: Vicat-Erweiterungstemperatur ISO 306/B50 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat-Erweiterungstemperatur ISO 306/B50 °C 145"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "DURAPRO PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. DESCRIZIONE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DuraPro PA12 CF si basa sulle eccezionali proprietà di DuraPro PA12, portandole a un nuovo livello, tramite il rinforzo con fibre di",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Le fibre di carbonio sono estremamente leggere, rendendo DuraPro PA12 CF un materiale ideale per le applicazioni di peso critico nel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. CARATTERISTICHE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Elevata resistenza termica (VICAT A 142°C) • Ugello temprato min. 0,5 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPRIETÀ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Schmelzevolumenrate (MVR) 235°C/5,0 kg ISO 1133 cm³/10min 7",
+      "reason": "properties.csv carries no property for \"Schmelzevolumenrate (MVR) 235°C/5,0 kg\" (cm³/10min)"
+    },
+    {
+      "page": 1,
+      "text": "Wasseraufnahme (Sättigung 23°C) ISO 62 % 1.6",
+      "reason": "properties.csv carries no property for \"Wasseraufnahme (Sättigung 23°C)\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Zugfestigkeit (Einsinkweg) ISO 527-2 MPa 60,4",
+      "reason": "properties.csv carries no property for \"Zugfestigkeit (Einsinkweg)\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "nominelle Bruchdehnung ISO 527-2 % >35",
+      "reason": "properties.csv carries no property for \"nominelle Bruchdehnung\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Schlagzähigkeit, ungekerbt (+23°C) ISO 179/1eU Nessuna Rottura (NR)",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Schlagzähigkeit, ungekerbt (-30°C) ISO 179/1eU Nessuna Rottura (NR)",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Durchstoß-Maximalkraft (-30°C) ISO 6603-2 J 62",
+      "reason": "properties.csv carries no property for \"Durchstoß-Maximalkraft (-30°C)\" (J)"
+    },
+    {
+      "page": 1,
+      "text": "Mehraxialer Instrumentierter Schlagversuch, Spitzenkraft -30°C ISO 6603-2 N 5400",
+      "reason": "properties.csv carries no property for \"Mehraxialer Instrumentierter Schlagversuch, Spitzenkraft -30°C\" (N)"
+    },
+    {
+      "page": 1,
+      "text": "Formbeständigkeitstemperatur (DTUL) 0.45 MPa, ungeglüht ISO 75-2/B °C 139",
+      "reason": "properties.csv carries no property for \"Formbeständigkeitstemperatur (DTUL) 0.45 MPa, ungeglüht\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Formbeständigkeitstemperatur (DTUL) 1.8 MPa, ungeglüht ISO 75-2/A °C 58",
+      "reason": "properties.csv carries no property for \"Formbeständigkeitstemperatur (DTUL) 1.8 MPa, ungeglüht\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Massetemperatur ISO 11357-3 °C 185",
+      "reason": "properties.csv carries no property for \"Massetemperatur\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "CLTE Fluss ISO 11359-2 cm/cm/°C 1.0E-4",
+      "reason": "properties.csv carries no property for \"CLTE Fluss\"; its value is a power of ten (\"1.0E-4\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "Spez. Oberflächenwiderstand IEC 60093 ohms 1.0E+14",
+      "reason": "properties.csv carries no property for \"Spez. Oberflächenwiderstand\"; its value is a power of ten (\"1.0E+14\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "Spez. Durchgangswiderstand IEC 60093 ohms cm 1.0E+14",
+      "reason": "properties.csv carries no property for \"Spez. Durchgangswiderstand\"; its value is a power of ten (\"1.0E+14\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "Durchschlagfestigkeit IEC 60243-1 kV/mm 25",
+      "reason": "properties.csv carries no property for \"Durchschlagfestigkeit\" (kV/mm)"
+    },
+    {
+      "page": 1,
+      "text": "IEC 60112 V 500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*La resistenza alla temperatura è stata testata con uno spessore minimo di 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SCHEDA TECNICA Pagina 1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DURAPRO PA12 CF 14.11.2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ugello 260-290 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Piano riscaldato 110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Velocità 150 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raffreddamento 0-50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Velocità volumetrica massima 8 mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impostazioni consigliate per stampanti con ugello da 0,5 mm. Altezza massima livello",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50%. Le impostazioni di stampa ottimali possono variare tra diverse stampanti che",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4. CERTIFICAZIONI E INFORMAZIONI AGGIUNTIVE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5. STOCCAGGIO E DURATA A MAGAZZINO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Conservare in un ambiente asciutto a temperatura ambiente (18-27°C / 65-80°F). Tenere al riparo dal calore e dalla luce diretta",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "del sole. Se conservato correttamente, questo materiale ha una durata di 2 anni. Informazioni aggiuntive nelle nostre schede",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SCHEDA TECNICA Pagina 2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "DURAPRO PA12 CF 14.11.2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

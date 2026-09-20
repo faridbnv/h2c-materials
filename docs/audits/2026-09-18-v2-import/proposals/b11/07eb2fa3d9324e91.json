@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/xpetg-cf-TDS-fr.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "07eb2fa3d9324e91"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: xpetg",
+      "filler: cf"
+    ],
+    "materialId": "M024",
+    "materialName": "PETG-CF",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+      "Publisher": "Extrudr",
+      "Title": "FICHE DE DONNÉES TECHNIQUES",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/xpetg-cf-TDS-fr.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FICHE DE DONNÉES TECHNIQUES"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M024",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "XPETG CF",
+        "Shared formulation key": "R-EXTRUDR-xpetg-cf-TDS-fr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "selon la norme UL 94, pour une épaisseur de paroi de 3,2 mm. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FICHE DE DONNÉES TECHNIQUES"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "69 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "69",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "69",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+        "Locator": "p. 1: HDT/B ISO 75 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT/B ISO 75 °C 69 Vitesse volumétrique 10 mm³/s"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "85 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "85",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+        "Locator": "p. 1: VICAT A (VST) ISO 306 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT A (VST) ISO 306 °C 85"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "selon la norme UL 94, pour une épaisseur de paroi de 3,2 mm.",
+      "reason": "properties.csv carries no property for \"selon la norme\""
+    },
+    {
+      "page": 1,
+      "text": "2. CARACTÉRISTIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPRIÉTÉS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Module de traction (Module ’élasticité) ISO 527 MPa 3350 ± 50 Buse 220-250°C",
+      "reason": "properties.csv carries no property for \"Module de traction (Module ’élasticité)\""
+    },
+    {
+      "page": 1,
+      "text": "Limite d‘élasticité ISO 527 MPa 59 ± 0,4 Plateau chauffant 60-90°C",
+      "reason": "properties.csv carries no property for \"Limite d‘élasticité\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement au seuil de fluage ISO 527 % 3,8 ± 0,1",
+      "reason": "properties.csv carries no property for \"Allongement au seuil de fluage\""
+    },
+    {
+      "page": 1,
+      "text": "Force ISO 527 MPa 59 ± 0,4 Vitesse 20-200mm/s",
+      "reason": "properties.csv carries no property for \"Force\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement à la rupture ISO 527-2 % 9,4 ± 1,5 Refroidissement 20-50%",
+      "reason": "properties.csv carries no property for \"Allongement à la rupture\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance au choc entaillé ISO 180 kj/m² 1,7 ± 0,4",
+      "reason": "properties.csv carries no property for \"Résistance au choc entaillé\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance au choc non entaillé ISO 180 kj/m² 67 ± 7",
+      "reason": "properties.csv carries no property for \"Résistance au choc non entaillé\""
+    },
+    {
+      "page": 1,
+      "text": "Densité ISO 1183-1XA g/cm³ 1,29",
+      "reason": "properties.csv carries no property for \"Densité\" (g/cm³)"
+    },
+    {
+      "page": 1,
+      "text": "une buse de 0,4 mm. Max. 50 % de hauteur de couche. Les",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Inflammabilité UL 94 V-2 3,2 mm",
+      "reason": "properties.csv carries no property for \"Inflammabilité\""
+    },
+    {
+      "page": 1,
+      "text": "* Résistance à la température testée à une épaisseur de paroi minimale de 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS ET INFO SUPPLÉMENTAIRES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. STOCKAGE ET DURÉE DE CONSERVATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Conservez dans une pièce sèche à température ambiante (18 à 27 °C / 65 à 80 °F). Gardez à l‘abri de la lumière directe du soleil.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lorsqu‘il est stocké correctement, ce matériau a une durée de conservation de 2 ans.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XPETG CF 20. 06. 2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

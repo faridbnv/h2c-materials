@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-medium-esd-TDS-de.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "5e8817f177e5375a"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "ESD formulation",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu",
+      "filler: esd"
+    ],
+    "materialId": "M126",
+    "materialName": "TPU-ESD",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-de",
+      "Publisher": "Extrudr",
+      "Title": "TECHNISCHES DATENBLATT FLEX MEDIUM ESD",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-medium-esd-TDS-de.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNISCHES DATENBLATT FLEX MEDIUM ESD"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M126",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX MEDIUM ESD",
+        "Shared formulation key": "R-EXTRUDR-flex-medium-esd-TDS-de",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-de",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNISCHES DATENBLATT FLEX MEDIUM ESD"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "50-70 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "70",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "70",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "220°C",
+        "Standard / load": "220°C/10 0 kg -",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-de",
+        "Locator": "p. 1: MFR (220°C/10,0 kg) - g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (220°C/10,0 kg) - g/10min 50-70 Heizbett 50 °C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page, row by row: each states its property, its method, its condition and its unit as the sheet prints them. The polymer or the filler is the one the sheet's own words give rather than its product name, which is what held the rows back."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. BESCHREIBUNG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. BESONDERHEITEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Elektrostatischer Widerstand: 0,7 – 0,9 MΩ •",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Shore-Härte A95 • Abriebfest",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. EIGENSCHAFTEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spezifisches Gewicht (20 °C) DIN 53.479 g/cm³ 1,20 Düse 220-250 °C",
+      "reason": "properties.csv carries no property for \"Spezifisches Gewicht (20 °C)\""
+    },
+    {
+      "page": 1,
+      "text": "Shore Härte DIN 53.505 - A95 Haftmittel nicht benötigt",
+      "reason": "properties.csv carries no property for \"Shore Härte\""
+    },
+    {
+      "page": 1,
+      "text": "Schmelzbereich KOFLER °C 175-185 Geschwindigkeit max. 50 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Erweichungsbereich KOFLER °C 160-165",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Kühlung 60-100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Erweichungspunkt KOFLER °C 150-170",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "max. volumetrische 3,2 mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Zugfestigkeit DIN 53.504 MPa 40",
+      "reason": "properties.csv carries no property for \"Zugfestigkeit\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Bruchdehnung DIN 53.504 % 430",
+      "reason": "properties.csv carries no property for \"Bruchdehnung\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Vorgeschlagene Einstellungen für Drucker mit 0.4 mm Düse.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max. 50% Layerhöhe. Optimale Einstellungen können",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weiterreißfestigkeit DIN 53.515 kN/m 110",
+      "reason": "properties.csv carries no property for \"Weiterreißfestigkeit\" (kN/m)"
+    },
+    {
+      "page": 1,
+      "text": "Abriebverlust DIN 53.516 mm³ 28",
+      "reason": "properties.csv carries no property for \"Abriebverlust\" (mm³)"
+    },
+    {
+      "page": 1,
+      "text": "Elektrische Leitfähigkeit DIN EN 61340-2-3 MΩ 0,7 - 0,9",
+      "reason": "properties.csv carries no property for \"Elektrische Leitfähigkeit\""
+    },
+    {
+      "page": 1,
+      "text": "Foggingwert DIN 75201 VB mg <1,5",
+      "reason": "properties.csv carries no property for \"Foggingwert\" (mg)"
+    },
+    {
+      "page": 1,
+      "text": "*Temperaturresistenz geprüft bei Wanddicke von mindestens 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. ZERTIFIZIERUNGEN & WEITERE INFORMATIONEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A95",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. LAGERUNG UND HALTBARKEIT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lagerung bei Raumtemperatur (18-27°C / 65-80°F) im Trockenen. Nicht direkter Hitze oder Sonnenlicht aussetzen.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bei richtiger Lagerung ist das Material 2 Jahre haltbar.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TECHNISCHES DATENBLATT Seite 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEX MEDIUM ESD 19.06.2026",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

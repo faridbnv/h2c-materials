@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "70ec5de7471d7cc74fd6470a69372f6af72cca362ecc789295b79996b6095020",
+    "url": "https://hub.forward-am.com/product/filaments/engineering-line/pla-tough/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyNDFkNmNlYWViN2Y3N2VmZjcxYzgzNjgxZTQ3NWU1ZmElMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lTSkpKWVVYUk5TQlZIWVUzSlQ3Q0lVSVAzTCUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVk5LU2twWlZWaFNUbE5DVmtoWlZUTktWRGREU1ZWSlVETk1JbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJU0pFUElBWUdJN1VWRExaWFg1V0s1WUVHVjIlMjIlN0Q%3D",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://hub.forward-am.com/product/filaments/engineering-line/pla-tough/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyNDFkNmNlYWViN2Y3N2VmZjcxYzgzNjgxZTQ3NWU1ZmElMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lTSkpKWVVYUk5TQlZIWVUzSlQ3Q0lVSVAzTCUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVk5LU2twWlZWaFNUbE5DVmtoWlZUTktWRGREU1ZWSlVETk1JbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJU0pFUElBWUdJN1VWRExaWFg1V0s1WUVHVjIlMjIlN0Q%3D"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-pla-tough",
+      "Publisher": "BASF Forward AM",
+      "Title": "Filter by Product categories",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/product/filaments/engineering-line/pla-tough/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyNDFkNmNlYWViN2Y3N2VmZjcxYzgzNjgxZTQ3NWU1ZmElMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lTSkpKWVVYUk5TQlZIWVUzSlQ3Q0lVSVAzTCUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVk5LU2twWlZWaFNUbE5DVmtoWlZUTktWRGREU1ZWSlVETk1JbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJU0pFUElBWUdJN1VWRExaWFg1V0s1WUVHVjIlMjIlN0Q%3D",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "70ec5de7471d7cc74fd6470a69372f6af72cca362ecc789295b79996b6095020"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Filter by Product categories"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS",
+        "Shared formulation key": "R-BASF-ultrafuse-pla-tough",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-pla-tough",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filter by Product categories"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Ultrafuse® PLA Tough: The Ultimate Choice for an easy, sustainable, cost- and time-saving production of large components. It’s user friendliness, making it a to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Copyright &copy; 2026 | Powered by FORWARD AM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

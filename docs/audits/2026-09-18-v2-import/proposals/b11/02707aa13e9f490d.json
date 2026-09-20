@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "02707aa13e9f490d90bad172fa26d19b8051da04c3aaba598c5d0b31824e9396",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-hard-cf-TDS-de.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "02707aa13e9f490d"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu",
+      "filler: cf"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-flex-hard-cf-TDS-de",
+      "Publisher": "Extrudr",
+      "Title": "TECHNISCHES DATENBLATT FLEX HARD CF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-hard-cf-TDS-de.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "02707aa13e9f490d90bad172fa26d19b8051da04c3aaba598c5d0b31824e9396"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNISCHES DATENBLATT FLEX HARD CF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX HARD CF",
+        "Shared formulation key": "R-EXTRUDR-flex-hard-cf-TDS-de",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-hard-cf-TDS-de",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNISCHES DATENBLATT FLEX HARD CF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "140 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "140",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "140",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-hard-cf-TDS-de",
+        "Locator": "p. 1: VICAT A (VST) ISO 306 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT A (VST) ISO 306 °C 140* Geschlossener Bauraum nein"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page, row by row: each states its property, its method, its condition and its unit as the sheet prints them. The polymer or the filler is the one the sheet's own words give rather than its product name, which is what held the rows back."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.22 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1220",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 2781",
+        "Standards": "ISO 2781",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-flex-hard-cf-TDS-de",
+        "Locator": "p. 1: Dichte ISO 2781 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Dichte ISO 2781 g/cm³ 1.22"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page, row by row: each states its property, its method, its condition and its unit as the sheet prints them. The polymer or the filler is the one the sheet's own words give rather than its product name, which is what held the rows back."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. BESCHREIBUNG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. BESONDERHEITEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. EIGENSCHAFTEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Zug E-Modul ISO 527-2/5A/500 MPa 35 Düse 230-260°C",
+      "reason": "properties.csv carries no property for \"Zug E-Modul\""
+    },
+    {
+      "page": 1,
+      "text": "Maximale Dehnung ISO 527-2/5A/500 % 380 Heizbett 50-90°C",
+      "reason": "properties.csv carries no property for \"Maximale Dehnung\""
+    },
+    {
+      "page": 1,
+      "text": "Bruchspannung ISO 527-2/5A/500 MPa 14 (50%) Haftmittel nicht benötigt",
+      "reason": "a stress at 50 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2/5A/500 MPa 14 (100%) Geschwindigkeit 20-100mm/s",
+      "reason": "a stress at 100 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2/5A/500 MPa 27 (300%) Kühlung 0-30%",
+      "reason": "a stress at 300 % elongation, which properties.csv carries no property for; the row is not the strength at break the label above it names"
+    },
+    {
+      "page": 1,
+      "text": "Schmelztemperatur ISO 3146-C °C 200-240 Gehärtete Nozzle ja",
+      "reason": "properties.csv carries no property for \"Schmelztemperatur\""
+    },
+    {
+      "page": 1,
+      "text": "Abriebsfestigkeit ISO 4649-A mm³ 26",
+      "reason": "properties.csv carries no property for \"Abriebsfestigkeit\" (mm³)"
+    },
+    {
+      "page": 1,
+      "text": "Shore Härte ISO 868 Shore 70D",
+      "reason": "properties.csv carries no property for \"Shore Härte\""
+    },
+    {
+      "page": 1,
+      "text": "mindestens 0,6 mm verwendet werden.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reißfestigkeit ISO 34-1B kN/m 165",
+      "reason": "properties.csv carries no property for \"Reißfestigkeit\" (kN/m)"
+    },
+    {
+      "page": 1,
+      "text": "Glasübergangstemperatur °C -24",
+      "reason": "properties.csv carries no property for \"Glasübergangstemperatur\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Druckfestigkeit DIN 53453 MPa 50",
+      "reason": "properties.csv carries no property for \"Druckfestigkeit\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Permeabilität LUFT DIN 53380 25°/60°C 420/-",
+      "reason": "properties.csv carries no property for \"Permeabilität LUFT\""
+    },
+    {
+      "page": 1,
+      "text": "Permeabilität N2 DIN 53380 25°/60°C 300/1600",
+      "reason": "properties.csv carries no property for \"Permeabilität N2\""
+    },
+    {
+      "page": 1,
+      "text": "Permeabilität O2 DIN 53380 25°/60°C 790/3900",
+      "reason": "properties.csv carries no property for \"Permeabilität O2\""
+    },
+    {
+      "page": 1,
+      "text": "Permeabilität CO2 DIN 53380 25°/60°C 5800/1700",
+      "reason": "properties.csv carries no property for \"Permeabilität CO2\""
+    },
+    {
+      "page": 1,
+      "text": "Permeabilität N2O DIN 53380 25°/60°C 11600/-",
+      "reason": "properties.csv carries no property for \"Permeabilität N2O\""
+    },
+    {
+      "page": 1,
+      "text": "Poissonzahl nach Hencky 0.45",
+      "reason": "properties.csv carries no property for \"Poissonzahl\""
+    },
+    {
+      "page": 1,
+      "text": "*Temperaturresistenz geprüft bei Wanddicke von mindestens 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. ZERTIFIZIERUNGEN & WEITERE INFORMATIONEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "konform konform resistent von Silikonen D70",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. LAGERUNG UND HALTBARKEIT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lagerung bei Raumtemperatur (18-27°C / 65-80°F) im Trockenen. Nicht direkter Hitze oder Sonnenlicht aussetzen.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bei richtiger Lagerung ist das Material 2 Jahre haltbar.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TECHNISCHES DATENBLATT Seite 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEX HARD CF 27. 03. 2026",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

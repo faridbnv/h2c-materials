@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "0f14a115bd734cc21de35a4cfdd823b344113241d34633b71f90a538c8f0f70c",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_pla_matt.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "0f14a115bd734cc2"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-pla-matt",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_pla_matt.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "0f14a115bd734cc21de35a4cfdd823b344113241d34633b71f90a538c8f0f70c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PLA Matt",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-pla-matt",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-pla-matt",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Gęstość 1.24 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "Udarność wg. Charpy’ego (próbka 80x10x4 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bez karbu, druk 3D 14 kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"Bez karbu, druk 3D\""
+    },
+    {
+      "page": 1,
+      "text": "Z karbem, druk 3D 3.5 kJ/m2 ISO 179-1eA",
+      "reason": "properties.csv carries no property for \"Z karbem, druk 3D\""
+    },
+    {
+      "page": 1,
+      "text": "Wydłużenie przy rozciąganiu na granicy zerwania (druk 3D) * 2.9% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na rozciąganie na granicy zerwania (druk 3D) * 30 MPa ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2750 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"2750 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "85°C ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MN/m2, wyżarzone (4h przy 90°C) 116°C ISO 75",
+      "reason": "properties.csv carries no property for \"0.45 MN/m2, wyżarzone (4h przy 90°C)\""
+    },
+    {
+      "page": 1,
+      "text": "1.81 MN/m2, wyżarzone (4h przy 90°C) 66°C ISO 75",
+      "reason": "properties.csv carries no property for \"1.81 MN/m2, wyżarzone (4h przy 90°C)\""
+    },
+    {
+      "page": 1,
+      "text": "*prędkość 5mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "** 50 N (szybkość nagrzewania 50°C/h). wyżarzone z klasycznego PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 190-230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 0-45°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TAK (do 100%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 - 2.70 mm produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 40-110 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

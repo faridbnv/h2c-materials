@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "9315791a800c9d4b11d942b677d72ddc407c7e8a3a594e1b6d520d11f220e6af",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_abs_kevlar.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "9315791a800c9d4b"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Aramid fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs",
+      "filler: kevlar"
+    ],
+    "materialId": "M106",
+    "materialName": "ABS-AF",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-abs-kevlar",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_abs_kevlar.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9315791a800c9d4b11d942b677d72ddc407c7e8a3a594e1b6d520d11f220e6af"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M106",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ABS Kevlar",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-abs-kevlar",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-abs-kevlar",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M106",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "88 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "88",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "88",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0,45 MN/m2 ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-abs-kevlar",
+        "Locator": "p. 1: HDT 0,45 MN/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT 0,45 MN/m2 88°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M106",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "75 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1,81 MN/m2 ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-abs-kevlar",
+        "Locator": "p. 1: HDT 1,81 MN/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT 1,81 MN/m2 75°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Gęstość 1.05 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "14 kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"14 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "Z karbem, formowanie wtryskowe 6.1 kJ/m2 ISO 179-1eA",
+      "reason": "properties.csv carries no property for \"Z karbem, formowanie wtryskowe\""
+    },
+    {
+      "page": 1,
+      "text": "1.9% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6,00% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "35 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"35 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "30 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"30 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości (prędkość 1 mm/min) 2350 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"Moduł sprężystości (prędkość 1 mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "95°C ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*prędkość 5mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "**50 N (szybkość nagrzewania 50°C/h), formowanie wtryskowe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 250-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 25%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** ≥ 0.15mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

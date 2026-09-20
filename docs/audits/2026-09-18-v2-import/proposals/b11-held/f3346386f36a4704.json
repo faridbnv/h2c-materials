@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "f3346386f36a470440e9fa7a40296377452b3bccc0f371dad3bbec3ca604a211",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_sflex_85a.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "f3346386f36a4704"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "85A",
+    "support": false,
+    "signals": [
+      "name: sflex",
+      "hardness: 85A"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-sflex-85a",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_sflex_85a.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f3346386f36a470440e9fa7a40296377452b3bccc0f371dad3bbec3ca604a211"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "S-Flex 85A",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-sflex-85a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-sflex-85a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "S-Flex 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Gęstość 1,11 g/cm3 ISO 1183-1 Spectrum S-Flex 85A to filament na bazie termo-",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "Kurczliwość 0,80% D 955",
+      "reason": "properties.csv carries no property for \"Kurczliwość\""
+    },
+    {
+      "page": 1,
+      "text": "wyróżniająca w nazwie filamentu 85A odnosi się",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Twardość Shore’a skala A 85 ISO 7619",
+      "reason": "properties.csv carries no property for \"Twardość Shore’a skala A\" (A)"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum S-Flex 85A w kategorii twardych elasto-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40 MPa DIN 53504",
+      "reason": "properties.csv carries no property for \"40 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "650,00% DIN 53504",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% Moduł sprężystości przy rozciąganiu 7,3 MPa DIN 53504",
+      "reason": "properties.csv carries no property for \"100% Moduł sprężystości przy rozciąganiu\""
+    },
+    {
+      "page": 1,
+      "text": "300% Moduł sprężystości przy rozciąganiu 11 MPa DIN 53504",
+      "reason": "properties.csv carries no property for \"300% Moduł sprężystości przy rozciąganiu\""
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na rozerwanie 60 N/mm ISO 34-1",
+      "reason": "properties.csv carries no property for \"Wytrzymałość na rozerwanie\""
+    },
+    {
+      "page": 1,
+      "text": "Odporność na ścieranie 35 mm3 ISO 4649",
+      "reason": "properties.csv carries no property for \"Odporność na ścieranie\""
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na ściskanie / 70 h przy 23°C 24,00% ISO 815",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• do 650% wydłużenia na granicy zerwania",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na ściskanie / 24 h przy 70°C 42,00% ISO 815",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "38,00% D 2632",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 200-230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 50-70°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TAK (do 100%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 - 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 20-70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Komora zamknięta niewymagane produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

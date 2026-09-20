@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "d19a79b86fd5b26d44b32d3e94bf672196422aa8559eba149592bd30de7950cd",
+    "url": "https://hub.forward-am.com/product/filaments/standard-line/pet/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyZjE1NzE4OGNjMmI1MTgwNTY4Y2RhODM3NTZiN2UyNzklMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lTU09ORkc0SlJUSlJCM0M0NkVVWkRYRDVKSSUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVk5UVDA1R1J6UktVbFJLVWtJelF6UTJSVlZhUkZoRU5VcEpJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJV0U0RFdKWE5aREhCQkkzRzVMS1Q1N0dFN0MlMjIlN0Q%3D",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://hub.forward-am.com/product/filaments/standard-line/pet/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyZjE1NzE4OGNjMmI1MTgwNTY4Y2RhODM3NTZiN2UyNzklMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lTU09ORkc0SlJUSlJCM0M0NkVVWkRYRDVKSSUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVk5UVDA1R1J6UktVbFJLVWtJelF6UTJSVlZhUkZoRU5VcEpJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJV0U0RFdKWE5aREhCQkkzRzVMS1Q1N0dFN0MlMjIlN0Q%3D"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pet"
+    ],
+    "materialId": "M066",
+    "materialName": "PET",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-pet",
+      "Publisher": "BASF Forward AM",
+      "Title": "Filter by Product categories",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/product/filaments/standard-line/pet/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyZjE1NzE4OGNjMmI1MTgwNTY4Y2RhODM3NTZiN2UyNzklMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lTU09ORkc0SlJUSlJCM0M0NkVVWkRYRDVKSSUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVk5UVDA1R1J6UktVbFJLVWtJelF6UTJSVlZhUkZoRU5VcEpJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJV0U0RFdKWE5aREhCQkkzRzVMS1Q1N0dFN0MlMjIlN0Q%3D",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d19a79b86fd5b26d44b32d3e94bf672196422aa8559eba149592bd30de7950cd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Filter by Product categories"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M066",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS",
+        "Shared formulation key": "R-BASF-ultrafuse-pet",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-pet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filter by Product categories"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Copyright &copy; 2026 | Powered by FORWARD AM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

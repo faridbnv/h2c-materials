@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "229a53d569e34ea421efd49d33b6969f617ae14345a0df89881485b69e3a6670",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/pl_tds_spectrum_pa6_low_warp_gf30.pdf",
+    "pages": 2,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "229a53d569e34ea4"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6",
+      "filler: gf30"
+    ],
+    "materialId": "M051",
+    "materialName": "PA6-GF",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-pa6-low-warp-gf30",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/10/pl_tds_spectrum_pa6_low_warp_gf30.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "229a53d569e34ea421efd49d33b6969f617ae14345a0df89881485b69e3a6670"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M051",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PA6 Low Warp GF30",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-pa6-low-warp-gf30",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-pa6-low-warp-gf30",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6 Low Warp GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1,34 g/cm3 EN ISO 1183 Spectrum PA6 Low Warp GF30 to kolejny z naszej",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "Absorpcja wilgoci (23 ºC / 50% r.h.) 2,00% ISO 62",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Absorpcja wody (23 ºC) 6,5% ISO 62",
+      "reason": "properties.csv carries no property for \"Absorpcja wody (23 °C)\""
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na rozciąganie (23 ºC, 50 mm/min) 80 MPa EN ISO 527-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ściskanie. Spectrum PA6 Low Warp GF30 to filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości przy rozciąganiu (23 ºC, 50 mm/min) 5500 MPa EN ISO 527-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wydłużenie na granicy zerwania (23 ºC, 50 mm/min) >3 % EN ISO 527-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości przy zginaniu (23 ºC, 2 mm/min) 4500 MPa EN ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na zginanie (23 ºC, 2 mm/min) 125 MPa EN ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bez karbu @ 23°C 25 kJ/m2 ISO 179/1eU • zawartość 30% włókien szklanych",
+      "reason": "properties.csv carries no property for \"Bez karbu @ 23°C\""
+    },
+    {
+      "page": 1,
+      "text": "Z karbem @ 23°C 4 kJ/m2 ISO 179/1eU",
+      "reason": "properties.csv carries no property for \"Z karbem @ 23°C\""
+    },
+    {
+      "page": 1,
+      "text": "1.8 MPa 65°C ISO 75 -1/-2",
+      "reason": "properties.csv carries no property for \"1.8 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa 180°C ISO 75 -1/-2",
+      "reason": "properties.csv carries no property for \"0.45 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "23-80°C wzdłużnie 0,7 10-4/K ISO 11359-1/-2",
+      "reason": "properties.csv carries no property for \"23-80°C wzdłużnie\""
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "23-80°C poprzecznie 1 10-4/K ISO 11359-1/-2",
+      "reason": "properties.csv carries no property for \"23-80°C poprzecznie\""
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 250-280°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu < 80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** ≥ 0.15mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.50 - 3.00 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-60 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rekomendowa dysza ≥ 0.5 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,5 mm *** minimum 12h w temp. 80 stopni",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PA6 Low Warp GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

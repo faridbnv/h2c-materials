@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "0c630c18792347a198b1198142b650b580a5ab6c5bc80e534fa621e4643810ea",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_pla_carbon.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "0c630c18792347a1"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "filler: carbon"
+    ],
+    "materialId": "M018",
+    "materialName": "PLA-CF",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-pla-carbon",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_pla_carbon.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "0c630c18792347a198b1198142b650b580a5ab6c5bc80e534fa621e4643810ea"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M018",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PLA Carbon",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-pla-carbon",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-pla-carbon",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Gęstość 1.30 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "Udarność wg. Charpy’ego (próbka 80x10x4 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bez karbu, +23°C 55 kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"Bez karbu, +23°C\""
+    },
+    {
+      "page": 1,
+      "text": "Z karbem, +23°C 8 kJ/m2 ISO 179-1eA",
+      "reason": "properties.csv carries no property for \"Z karbem, +23°C\""
+    },
+    {
+      "page": 1,
+      "text": "typowych dla czystego PLA. Dodatek 10% włók-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wydłużenie przy rozciąganiu na granicy zerwania (druk 3D) * 0.5% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na rozciąganie na granicy zerwania (druk 3D) * 65 MPa ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "12500 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"12500 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Oporność elektryczna 6E1 ohm D 257",
+      "reason": "properties.csv carries no property for \"Oporność elektryczna\""
+    },
+    {
+      "page": 1,
+      "text": "60°C N/A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*prędkość 5mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 190-220°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 0-45°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TAK (do 100%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 - 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 40-70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -1,0 +1,720 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "1863cd7ffea7be97af893c46f78770c464537642a973242c5c9308f41cd0c33a",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pc-pbt-TDS-de.pdf",
+    "pages": 2,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "1863cd7ffea7be97"
+  },
+  "identity": {
+    "polymer": "PC-PBT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc-pbt"
+    ],
+    "materialId": "M095",
+    "materialName": "PC-PBT",
+    "estimateIdentity": "PC-PBT",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+      "Publisher": "Extrudr",
+      "Title": "TECHNISCHES DATENBLATT DURAPRO PC-PBT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pc-pbt-TDS-de.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1863cd7ffea7be97af893c46f78770c464537642a973242c5c9308f41cd0c33a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNISCHES DATENBLATT DURAPRO PC-PBT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M095",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO PC-PBT",
+        "Shared formulation key": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Brennverhalten UL 94 (1.5 mm) UL 94 Klasse HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNISCHES DATENBLATT DURAPRO PC-PBT"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-1,-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 1: Streckspannung ISO 527-1,-2 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckspannung ISO 527-1,-2 MPa 60"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-1,-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 1: Streckdehnung ISO 527-1,-2 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckdehnung ISO 527-1,-2 % 5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "60 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179/1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 1: Charpy-Kerbschlagzähigkeit ISO 179/1eA kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy-Kerbschlagzähigkeit ISO 179/1eA kJ/m² 60"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "50 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 180/A",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 1: Izod-Kerbschlagzähigkeit ISO 180/A kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod-Kerbschlagzähigkeit ISO 180/A kJ/m² 50"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "126 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "126",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "126",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 1: Vicat-Erweichungstemperatur ISO 306 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat-Erweichungstemperatur ISO 306 °C 126"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Thermal conductivity",
+        "Raw value": "0.2 W/(m·K)",
+        "Raw unit": "W/(m·K)",
+        "Raw numeric": "0.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "W/(m·K)",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 8302",
+        "Standards": "ISO 8302",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 1: Wärmeleitfähigkeit, senkrecht ISO 8302 W/(m·K)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Wärmeleitfähigkeit, senkrecht ISO 8302 W/(m·K) 0.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M095",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1200 kg/m³",
+        "Raw unit": "kg/m³",
+        "Raw numeric": "1200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-TDS-de",
+        "Locator": "p. 2: Dichte ISO 1183-1 kg/m³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Dichte ISO 1183-1 kg/m³ 1200"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. BESCHREIBUNG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D-Druckprojekte.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. BESONDERHEITEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Ausgezeichnete mechanische Eigenschaften • Gute Zähigkeit auch bei niedrigen Temperaturen (bei -20°C bis -30°C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Hohe Wärmebeständigkeit (VICAT A 126°C) •",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. EIGENSCHAFTEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133 cm³/10 min 18",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Zug-Modul ISO 527-1,-2 MPa 2200",
+      "reason": "properties.csv carries no property for \"Zug-Modul\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Nominelle Bruchdehnung ISO 527-1,-2 % > 50",
+      "reason": "properties.csv carries no property for \"Nominelle Bruchdehnung\""
+    },
+    {
+      "page": 1,
+      "text": "Bruchspannung ISO 527-1,-2 MPa 50",
+      "reason": "properties.csv carries no property for \"Bruchspannung\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Biege-Modul ISO 178 MPa 2150",
+      "reason": "properties.csv carries no property for \"Biege-Modul\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Randfaserdehnung bei Höchstkraft ISO 178 % 6",
+      "reason": "properties.csv carries no property for \"Randfaserdehnung bei Höchstkraft\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "3.5 % - Biegespannung ISO 178 MPa 70",
+      "reason": "properties.csv carries no property for \"3.5 % - Biegespannung\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Biegefestigkeit ISO 178 MPa 80",
+      "reason": "properties.csv carries no property for \"Biegefestigkeit\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy-Schlagzähigkeit ISO 179/1eU kJ/m² N",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Durchstoßverhalten - Maximalkraft ISO 6603-2 N 3800",
+      "reason": "properties.csv carries no property for \"Durchstoßverhalten - Maximalkraft\" (N)"
+    },
+    {
+      "page": 1,
+      "text": "Durchstoß-Arbeit ISO 6603-2 J 47",
+      "reason": "properties.csv carries no property for \"Durchstoß-Arbeit\" (J)"
+    },
+    {
+      "page": 1,
+      "text": "Izod-Schlagzähigkeit ISO 180/U kJ/m² N",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Kugeldruckhärte ISO 2039-1 N/mm² 108",
+      "reason": "properties.csv carries no property for \"Kugeldruckhärte\" (N/mm²)"
+    },
+    {
+      "page": 1,
+      "text": "Formbeständigkeitstemperatur 1.8 Mpa ISO 75-1,-2 °C 85",
+      "reason": "properties.csv carries no property for \"Formbeständigkeitstemperatur 1.8 Mpa\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Formbeständigkeitstemperatur 0.45 Mpa ISO 75-1,-2 °C 110",
+      "reason": "properties.csv carries no property for \"Formbeständigkeitstemperatur 0.45 Mpa\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Linearer Wärmeausdehnungskoeffizient, parallel ISO 11359-1,-2 10-⁴/K 0.9",
+      "reason": "properties.csv carries no property for \"Linearer Wärmeausdehnungskoeffizient, parallel\" (10-⁴/K)"
+    },
+    {
+      "page": 1,
+      "text": "Linearer Wärmeausdehnungskoeffizient, senkrecht ISO 11359-1,-2 10-⁴/K 0.9",
+      "reason": "properties.csv carries no property for \"Linearer Wärmeausdehnungskoeffizient, senkrecht\" (10-⁴/K)"
+    },
+    {
+      "page": 1,
+      "text": "Brennverhalten UL 94 (1.5 mm) UL 94 Klasse HB",
+      "reason": "properties.csv carries no property for \"Brennverhalten\""
+    },
+    {
+      "page": 1,
+      "text": "Sauerstoff-Index ISO 4589-2 % 21",
+      "reason": "properties.csv carries no property for \"Sauerstoff-Index\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "IEC 60695-2-12 °C 750",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Relative Dielektrizitätszahl 100Hz IEC 60250 - 3.2",
+      "reason": "the sheet publishes no value for \"Relative Dielektrizitätszahl 100Hz\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "TECHNISCHES DATENBLATT Seite 1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DURAPRO PC-PBT 14.11.2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Relative Dielektrizitätszahl 1MHz IEC 60250 - 3.0",
+      "reason": "the sheet publishes no value for \"Relative Dielektrizitätszahl 1MHz\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 2,
+      "text": "Dielektrischer Verlustfaktor 100Hz IEC 60250 10-⁴ 7",
+      "reason": "properties.csv carries no property for \"Dielektrischer Verlustfaktor 100Hz\""
+    },
+    {
+      "page": 2,
+      "text": "Dielektrischer Verlustfaktor 1MHz IEC 60250 10-⁴ 45",
+      "reason": "properties.csv carries no property for \"Dielektrischer Verlustfaktor 1MHz\""
+    },
+    {
+      "page": 2,
+      "text": "Spezifischer Durchgangswiderstand IEC 62631-3-1 Ohm·m >1E15",
+      "reason": "properties.csv carries no property for \"Spezifischer Durchgangswiderstand\""
+    },
+    {
+      "page": 2,
+      "text": "Spezifischer Durchgangswiderstand IEC 62631-3-2 Ohm >1E17",
+      "reason": "properties.csv carries no property for \"Spezifischer Durchgangswiderstand\""
+    },
+    {
+      "page": 2,
+      "text": "Elektrische Durchschlagfestigkeit IEC 60243-1 kV/mm 30",
+      "reason": "properties.csv carries no property for \"Elektrische Durchschlagfestigkeit\" (kV/mm)"
+    },
+    {
+      "page": 2,
+      "text": "IEC 60112 Stufe 600",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "IEC 60112 Stufe 125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Wasseraufnahme (Sättigungswert) ISO 62 % 0.5",
+      "reason": "properties.csv carries no property for \"Wasseraufnahme (Sättigungswert)\" (%)"
+    },
+    {
+      "page": 2,
+      "text": "Wasseraufnahme (Gleichgewichtswert) ISO 62 % 0.2",
+      "reason": "properties.csv carries no property for \"Wasseraufnahme (Gleichgewichtswert)\" (%)"
+    },
+    {
+      "page": 2,
+      "text": "*Temperaturresistenz geprüft bei Wanddicke von mindestens 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Düse 260-290 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heizbett 110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Geschwindigkeit max. 280 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Kühlung 0-30 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "max. volumetrische Geschwindigkeit 18 mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Vorgeschlagene Einstellungen für Drucker mit 0.4 mm Düse. Max. 50% Layerhöhe.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4. ZERTIFIZIERUNGEN & WEITERE INFORMATIONEN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "konform konform resistent UL 94 HB",
+      "reason": "properties.csv carries no property for \"konform\""
+    },
+    {
+      "page": 2,
+      "text": "5. LAGERUNG UND HALTBARKEIT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Lagerung bei Raumtemperatur (18-27°C / 65-80°F) im Trockenen. Nicht direkter Hitze oder Sonnenlicht aussetzen.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bei richtiger Lagerung ist das Material 2 Jahre haltbar.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TECHNISCHES DATENBLATT Seite 2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "DURAPRO PC-PBT 14.11.2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

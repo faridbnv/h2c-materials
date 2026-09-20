@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "7d75ca52e59a59a1833d15a1fd1cf5f1467d766f2cdf08e2fc7aea6b747bd373",
+    "url": "https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/PET/TDS_LW_PET-FLEX-MAX.pdf",
+    "pages": 2,
+    "provider": "colorFabb",
+    "manufacturer": "colorFabb",
+    "docKey": "7d75ca52e59a59a1"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet",
+      "filler: lightweight"
+    ],
+    "materialId": "M141",
+    "materialName": "PET-LW",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-TDS-LW-PET-FLEX-MAX",
+      "Publisher": "colorFabb",
+      "Title": "Technical datasheet Lightweight PET-FLEX-MAX",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/PET/TDS_LW_PET-FLEX-MAX.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "7d75ca52e59a59a1833d15a1fd1cf5f1467d766f2cdf08e2fc7aea6b747bd373"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet Lightweight PET-FLEX-MAX"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M141",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "Lightweight PET-FLEX-MAX",
+        "Shared formulation key": "R-COLORFABB-TDS-LW-PET-FLEX-MAX",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-LW-PET-FLEX-MAX",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet Lightweight PET-FLEX-MAX"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M141",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "60 °C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LW-PET-FLEX-MAX",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "spray (3D"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "spray (3D"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle Temp. 210 260 ˚C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temp",
+      "raw": "210 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temp. 210 260 ˚C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temp",
+      "raw": "60 °C",
+      "fromBelow": false,
+      "line": "Bed Temp. 60 60 ˚C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesion",
+      "raw": "spray (3D",
+      "fromBelow": false,
+      "line": "Adhesion spray (3D -"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesion",
+      "raw": "spray (3D",
+      "fromBelow": false,
+      "line": "Bed / surface modification Adhesion spray (3D"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "100 %",
+      "fromBelow": false,
+      "line": "Active cooling fan 100 100 %"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "50 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 50 50 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date of issue: 07-09-2026",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version: v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@ 210 °C, @ 260 °C,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "flow: 60%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile modulus Tensile, ISO 527-1A 397 116 MPa",
+      "reason": "the row states 2 values in columns of its own (397, 116) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength Tensile, ISO 527-1A 19,2 5,6 MPa",
+      "reason": "the row states 2 values in columns of its own (19,2, 5,6) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break Tensile, ISO 527-1A 317 79,3 %",
+      "reason": "the row states 2 values in columns of its own (317, 79,3) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus Flexural, ISO 178 447 NA MPa",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength Flexural, ISO 178 NA NA MPa",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength Charpy Notch, ISO 179 15,1 2,7 kJ/m2",
+      "reason": "the row states 2 values in columns of its own (15,1, 2,7) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Glass Transition Temp. DSC, ISO 11357 NA ˚C",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "Melting Temp. DSC, ISO 11357 266* ˚C",
+      "reason": "the line names Melting temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Decomposition Temp. TGA, ISO 11358 NA ˚C",
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temp. HDT-B, ISO 75 NA ˚C",
+      "reason": "the sheet publishes no value for HDT in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133-A",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Index MFI, (210˚C/2.16 kg), NA g/10min",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Index MFI, (190˚C/1,16 kg), NA g/10 min",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133-A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 F +31 (0)77 – 3971414 VAT nr: NL850902770B01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5951 DK Belfeld E sales@colorfabb.com IBAN:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Netherlands I colorfabb.com NL54RABO0151849188",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BIC: RABONL2U",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date of issue: 07-09-2026",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Version: v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Diameter 1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Max. roundness deviation ± 0,03 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Value unfoamed @ 210 Value foamed @ 260 Unit",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "°C, flow: 100% °C, flow: 60%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The reported properties are an average of a batch of 3D specimens.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The specimens have been printed in XY plane, using 0.2 mm layer height, 100% infill, 0.4 mm nozzle,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "210/260 ˚C nozzle temperature and 60 ˚C bed temperature.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bremweg 7 F +31 (0)77 – 3971414 VAT nr: NL850902770B01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5951 DK Belfeld E sales@colorfabb.com IBAN:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "NL54RABO0151849188",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "BIC: RABONL2U",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

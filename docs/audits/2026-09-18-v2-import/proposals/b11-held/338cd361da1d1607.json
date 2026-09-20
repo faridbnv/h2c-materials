@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "338cd361da1d160738854198e06ae8a7e2c2554d92ef366b7105fe4090cb65e7",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_abs_gp450.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "338cd361da1d1607"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-abs-gp450",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_abs_gp450.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "338cd361da1d160738854198e06ae8a7e2c2554d92ef366b7105fe4090cb65e7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ABS GP450",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-abs-gp450",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Klasa palności (1.6mm) HB UL94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-abs-gp450",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ABS GP450",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1.04 g/cm3 ISO 1183-1 Spectrum ABS GP450 jest przemysłowym fila-",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "mentem konstrukcyjnym do druku 3D. Jest to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wskaźnik szybkości płynięcia (220°C, 10 kg) 18 cm3/10’ ISO 1133",
+      "reason": "properties.csv carries no property for \"Wskaźnik szybkości płynięcia (220°C, 10 kg)\""
+    },
+    {
+      "page": 1,
+      "text": "Granica plastyczności (50 mm/min) 39 MPa ISO 527-1,2",
+      "reason": "properties.csv carries no property for \"Granica plastyczności (50 mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "Wydłużenie na granicy zerwania (1 mm/min) 13,00% ISO 527-1,2",
+      "reason": "properties.csv carries no property for \"Wydłużenie na granicy zerwania (1 mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości przy rozciąganiu (1 mm/min) 2100 MPa ISO 527-1,2",
+      "reason": "properties.csv carries no property for \"Moduł sprężystości przy rozciąganiu (1 mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "(do 200 mm/s) bez żadnych strat właściwości me-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości przy zginaniu (2 mm/min) 2000 MPa ISO 178",
+      "reason": "properties.csv carries no property for \"Moduł sprężystości przy zginaniu (2 mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "chanicznych. ABS GP450 wykazuje znacznie wyższą",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Udarność metodą Izoda, z karbem przy 23°C 19 KJ/m2 ISO 180-1A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Udarność metodą Izoda, z karbem przy -30°C 10 KJ/m2 ISO 180-1A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "95 N/mm2 ISO 2039-1",
+      "reason": "properties.csv carries no property for \"95 N/mm2\""
+    },
+    {
+      "page": 1,
+      "text": "95°C ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Klasa palności (1.6mm) HB UL94",
+      "reason": "properties.csv carries no property for \"Klasa palności (1.6mm)\""
+    },
+    {
+      "page": 1,
+      "text": "• duża prędkość druku (200 mm/s) bez utraty jakości",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 235-255°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 25%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "40fd4202b2671c352d54f461191400124927465b91eec722da085ade9a152faf",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_hipsx.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "40fd4202b2671c35"
+  },
+  "identity": {
+    "polymer": "HIPS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: hips"
+    ],
+    "materialId": "M081",
+    "materialName": "HIPS",
+    "estimateIdentity": "HIPS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-hipsx",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_hipsx.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "40fd4202b2671c352d54f461191400124927465b91eec722da085ade9a152faf"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "HIPS-X",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-hipsx",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Stopień palności (0,0630 in (1,60 mm)) HB UL 94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-hipsx",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Gęstość 1.05 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "Wskaźnik szybkości płynięcia, (200°C/ 5,0kg) 12 g/10min ISO 1133",
+      "reason": "properties.csv carries no property for \"Wskaźnik szybkości płynięcia, (200°C/ 5,0kg)\""
+    },
+    {
+      "page": 1,
+      "text": "16 MPa ISO 527-2/5",
+      "reason": "properties.csv carries no property for \"16 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "16 MPa ISO 527-2/5",
+      "reason": "properties.csv carries no property for \"16 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "1.5% ISO 527-2/5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50,00% ISO 527-2/5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2000 MPa ISO 178",
+      "reason": "properties.csv carries no property for \"2000 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na zginanie 50 MPa ISO 178",
+      "reason": "properties.csv carries no property for \"Wytrzymałość na zginanie\""
+    },
+    {
+      "page": 1,
+      "text": "7kJ/m2 ISO 179/2",
+      "reason": "properties.csv carries no property for \"7kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "90J/m D 256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "55 ISO 2039-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "87°C ISO 306/B50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "88°C ISO 75-2/B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stopień palności (0,0630 in (1,60 mm)) HB UL 94",
+      "reason": "properties.csv carries no property for \"Stopień palności (0,0630 in (1,60 mm))\""
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 230-245°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 40-100 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -78,7 +78,9 @@ const UNIT_PATTERN = UNITS.map((u) => u.Printed.replace(/[.*+?^${}()|[\]\\]/g, '
 const BOUNDS = '<>≤≥＜＞≦≧';
 /** The operator a bound's sign states, in the two the database keeps. */
 export const boundOperator = (sign) => (/[<≤＜≦]/.test(String(sign).trim().slice(-1)) ? '<' : '>');
-const NUMBER_PATTERN = '(?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?';
+// A power of ten is one number, and the reader writes the raised part with a caret when it joins it to its ten.
+// It comes first, so "10^12" is read whole rather than as the 10 in front of it.
+const NUMBER_PATTERN = '(?:(?:\\d+(?:[.,]\\d+)?\\s*[×x*·]\\s*)?10\\s*\\^\\s*[-+]?\\d+)|(?:(?<!\\d\\s{0,3})-)?\\d+(?:[.,]\\d+)?';
 const valueRe = () => new RegExp(`(${NUMBER_PATTERN})\\s*\\(?\\s*(${UNIT_PATTERN})`, 'gi');
 // A table may print its unit in a column of its own, before the value: 3DXTECH's sheets are
 // "Tensile Strength, Break | ISO 527 | MPa | 62.8", and every one of their 214 recorded values was invisible to
@@ -112,6 +114,11 @@ const SECTIONS = [
   [/^(storage|packaging|drying|shelf life)\b/i, 'storage'],
   [/^(material|mechanical|thermal|physical|general|electrical|optical)\s+propert/i, 'properties'],
 ];
+// How far from the rows it heads a block heading may stand: a heading is in the table's column, and a fragment
+// of another column is not a heading however it reads.
+const BLOCK_COLUMN = 24;
+// How long a heading that names a specimen may be: "TYPICAL MATERIAL PROPERTIES - Injection molded" is 46.
+const SPECIMEN_HEADING = 60;
 const HEADING_LENGTH = 60;
 // What a wrapped table row looks like when it continues on the next line: a standard, a method or a unit first.
 const CONTINUES_ROW = new RegExp(`^\\s*(?:ISO|ASTM|DIN|IEC|UL|EN|GB\\s?/\\s?T|DSC|TGA|TMA|[DE]\\s?\\d{3,4}|${UNIT_PATTERN})\\b`, 'i');
@@ -268,7 +275,10 @@ export function isFragment(line) {
 // start 0.4 units before their ten ends, and its unit superscripts exactly where the unit ends.
 const AGAINST = 1.5;
 // What a raised number is the power of: a ten standing on its own, or one a mantissa is multiplied by.
-const POWER_HOST = /(?:^|[\s(])(?:\d+(?:[.,]\d+)?\s*[×x*·]\s*)?10\s*$/;
+// A bound stands in front of a power of ten as readily as a space does: Polymaker's Fiberon ESD sheets print
+// "Surface Resistivity (Ω) ANSI ESD S11.11 OL, >10¹² Ω", and a ten the reader would not take as a host left its
+// raised 12 to be read as digits, making a surface resistivity of 1012 Ω out of one above a million million.
+const POWER_HOST = new RegExp(`(?:^|[\\s(${BOUNDS}])(?:\\d+(?:[.,]\\d+)?\\s*[×x*·]\\s*)?10\\s*$`);
 
 /**
  * A row's pieces as one line, with anything it set above its own baseline joined to what it raises.
@@ -670,9 +680,10 @@ export function readRow(text, registry, held = null) {
   // extraction dropped the I of "ISO 527-2/5A/500" on one sheet, and the 500 that survived next to "MPa" was read
   // as a modulus of 500 where the sheet prints 42.
   const afterSlash = (at) => /\/$/.test(line.slice(0, at));
-  // A power of ten is one number, and neither of its pieces is a value: "6.75×10^14" is not 6.75 and not 10.
+  // A power of ten is one number, and no piece of it is a value of its own: "6.75×10^14" is not 6.75 and not 10.
+  // Where it starts is where the number starts, though, so a candidate may begin there and take the whole of it.
   const powers = [...line.matchAll(POWER_RE)].map((m) => [m.index, m.index + m[0].length]);
-  const inPower = (at) => powers.some(([from, to]) => at >= from && at < to);
+  const inPower = (at) => powers.some(([from, to]) => at > from && at < to);
   // What a sheet prints inside brackets is what it measured the row under, not what it measured: eSUN heads its
   // rows "Vicat Softening Point（120℃，10N） GB/T 1633 110 ℃" and "Melt Flow Index（190℃，2.16kg） ... 10~16
   // g/10min", and read left to right the softening point was 120 °C. The brackets are the maker's own and a
@@ -1171,13 +1182,29 @@ export function readSheet(text, registry) {
     // A sheet may print its table twice, once as printed and once annealed, and say which above each block. A row
     // that does not carry the words itself takes them from the block it is in (MEAS-CONDITIONS-INDISTINCT).
     let block = '';
+    // Which specimen the rows under a heading were cut from, until another heading says otherwise.
+    let specimenBlock = null;
     // The page's rows, not the extractor's baselines: a value set a point above its label is part of that label's
     // row, and reading the two apart left a number with no property and a property with no number.
     const lines = splitAtAxisColumns(pageRows(page.lines, registry));
     for (let li = 0; li < lines.length; li++) {
       const line = lines[li];
-      const blockHeading = /^\s*\(?(as[- ]printed|annealed|after annealing|not annealed|un-?annealed)\)?\s*$/i.exec(line.text.trim());
+      // A block heading stands in the table's own column. Polymaker's Fiberon PET-GF15 sheet sets "(annealed)"
+      // beside two of its heat deflection rows, a hundred points left of where its table begins, and those two
+      // rows say the word themselves; read as a heading it governed every row after it, so a glass transition
+      // and a melting point measured on an ordinary bar were recorded as annealed.
+      const headingWord = /^\s*\(?(as[- ]printed|annealed|after annealing|not annealed|un-?annealed)\)?\s*$/i.exec(line.text.trim());
+      const nextRow = lines.slice(li + 1).find((l) => readRow(l.text, registry));
+      const blockHeading = headingWord && (!nextRow || Math.abs((line.x0 ?? 0) - (nextRow.x0 ?? 0)) <= BLOCK_COLUMN) ? headingWord : null;
       if (blockHeading) { block = blockHeading[1].toLowerCase().replace('after annealing', 'annealed'); continue; }
+      // A sheet may publish one table of printed bars and another of moulded ones, and say which above each:
+      // colorFabb heads them "TYPICAL MATERIAL PROPERTIES - 3D Printed" and "- Injection molded". Read without
+      // the heading, a moulded modulus of 3400 MPa and a printed one of 3286 are one grade contradicting itself,
+      // and the moulded values are recorded as the printed bars the headline rules may cite.
+      const specimenHeading = line.text.trim().length <= SPECIMEN_HEADING
+        && /\b(3d[- ]?printed|injection[- ]mou?lded|compression[- ]mou?lded)\b/i.test(line.text) && !readRow(line.text, registry)
+        ? (/injection|compression/i.test(line.text) ? 'moulded' : 'printed') : null;
+      if (specimenHeading) { specimenBlock = specimenHeading; continue; }
       // A heading names a section; a row states a value. SUNLU's printing table prints "Drying Temp. 80℃", which
       // begins with the word a storage section begins with, and read as a heading it took the drying temperature
       // off the page and explained everything under it as a storage note.
@@ -1392,7 +1419,7 @@ export function readSheet(text, registry) {
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
         direction: read.match.Direction, notch, read, target: read.target, line: line.text,
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
-        printedSpecimens, orientation, block, column: line.column ?? null,
+        printedSpecimens, orientation, block, column: line.column ?? null, specimen: specimenBlock,
       });
     }
     dropHeld();
@@ -1690,7 +1717,11 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     // A sheet that says its bars were injection moulded is not describing a printed part (D55), and one that says
     // they were printed is. Where it says neither, nothing is assumed.
     'Specimen type': /injection mou?ld/i.test(says) ? 'Raw material value'
-      : /\b3d print|printed (specimen|bar|part)/i.test(says) || v.printedSpecimens ? 'Printed specimen'
+      : /\b3d print|printed (specimen|bar|part)/i.test(says) ? 'Printed specimen'
+      // The block the row stands in, before anything the sheet says about its specimens as a whole: a sheet that
+      // heads one table "3D Printed" and the next "Injection molded" has said which bars each table describes.
+      : v.specimen === 'moulded' ? 'Raw material value'
+      : v.specimen === 'printed' || v.printedSpecimens ? 'Printed specimen'
       : v.property === 'Density' ? 'Not published (density specimen form not explicitly established)' : 'Not published (do not assume printed)',
     // A row may name its own direction, and then it is the row's whatever the property usually is: Polymaker
     // prints "Tensile strength (X-Y)" and "Tensile strength (Z)" as two rows of one table.
@@ -1716,6 +1747,21 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
  * rather than gaining a second one (sources.schema.json says so), and the rest of the identifier is the
  * document's own file name, which is what the existing Spectrum and Polymaker identifiers are.
  */
+/**
+ * A maker's name as schema/vocab/manufacturers.csv spells it. The ledger keeps the name the research workbook
+ * gave, which is a brand line as often as a maker ("Polymaker (Fiberon)"), and the vocabulary's Aliases column is
+ * where the two are reconciled (m50). A grade whose Manufacturer is an alias is refused at the gate.
+ */
+export function canonicalManufacturer(name, world = {}) {
+  const wanted = String(name ?? '').trim().toLowerCase();
+  if (!wanted) return name;
+  for (const row of world.manufacturers ?? []) {
+    if (String(row.Value).toLowerCase() === wanted) return row.Value;
+    if (String(row.Aliases ?? '').split(';').some((a) => a.trim().toLowerCase() === wanted)) return row.Value;
+  }
+  return name;
+}
+
 export function sourceIdFor(row, sources) {
   const mine = sources.filter((s) => s.Publisher === row.manufacturer || s.Publisher === row.provider);
   const maker = (row.manufacturer || row.provider || '').toUpperCase().replace(/[^A-Z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -1810,6 +1856,11 @@ export function looksDamaged(line) {
   const text = String(line ?? '').trim();
   if (!text) return true;
   if (!NAME_ALPHABET.test(text)) return true;
+  // A title set letter by letter is not a name. Polymaker's Fiberon library prints "T E C H N I C A L  D A T A
+  // S H E E T" across the head of every sheet, and the words that announce a data sheet are not read through the
+  // spacing, so eight of its products were called "D A T A S H E E T". What a maker calls the product is in the
+  // ledger the document arrived in, which is where the name comes from when the page gives none.
+  if (/(?:\b[A-Za-z]\s+){4,}[A-Za-z]\b/.test(text)) return true;
   const NAME_LENGTH = 24;
   return text.length > NAME_LENGTH && (text.match(/\(/g) ?? []).length !== (text.match(/\)/g) ?? []).length;
 }
@@ -1828,7 +1879,7 @@ export function looksDamaged(line) {
 const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|test\s+(condition|method)|^description\b|^rev(ision)?\b|^version\b|^page\b|data ?sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
 // A version, a date, a trademark sign left on a line of its own or half of the words that announce the sheet
 // is not a name either. Polymaker sets "TECHNICAL" and "DATA SHEET" on two lines with "V6.0" under them.
-const NOT_A_PRODUCT_EITHER = /^(draft|preliminary|provisional|confidential|general|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data)$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
+const NOT_A_PRODUCT_EITHER = /^date\b|^[\d\s.,]+$|^(draft|preliminary|provisional|confidential|general|g(é|e)n(é|e)ral|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(g(é|e)n(é|e)ralit(é|e)s|generalit(à|a)|generalidades)$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data)$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
 // A sheet that labels its product says so plainly, and that beats any guess from where a line sits. The label
 // may stand after the same label in the maker's own language ("产品名称 Product Name:PLA+丝绸 2.0"), and a
 // maker may call it the trade name: Fiberlogy prints "TRADE NAME: Fiberlogy FiberSilk" on all forty of its
@@ -1873,14 +1924,21 @@ export function printedTitle(text, maker = '') {
   // "1.20 g/cm³ ISO 1183" arrives here as "1.20 g/cm" and it is the designation beside it that gives it away.
   const STATES_A_MEASUREMENT = new RegExp(`\\d\\s*(?:${UNIT_PATTERN})(?:\\b|$)`, 'i');
   // And a name is not a sentence. Fillamentum's Fluorodur sheet prints no name at the head of the page and its
-  // description begins "Fluorodur is made of a very durable", which is the name followed by six more words. A
-  // sentence is judged long here — six ordinary words — because a product may genuinely be called four ("Water
-  // Soluble Support Material") and the page has already been narrowed to its first few lines.
-  const SENTENCE_WORDS = 6;
+  // description begins "Fluorodur is made of a very durable"; Polymaker's Fiberon sheets set their title letter
+  // by letter and follow it with "PPS-CF10 is a carbon fiber reinforced PPS". What a name never has is a verb
+  // saying what the product does, and that is the test, because counting words cannot tell either of those from
+  // "CarbonX Carbon Fiber High Temp Nylon (HTN)", which is a name of seven. The word count stays as a backstop
+  // for a sentence with no verb in it, and it is set where no product name reaches.
+  const SENTENCE_WORDS = 10;
+  const SAYS_SOMETHING = /\b(is|are|was|were|has|have|offers?|provides?|combines?|delivers?|ist|sind|est|sont)\b/i;
+  // A page that sets its head letter by letter leaves fragments of it behind: the Fiberon sheets print "T M"
+  // under their letter-spaced title, which is the trademark sign. What a word is, is what its letters spell.
   const named = (line) => {
-    if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || looksDamaged(line)) return false;
+    const letters = String(line).replace(/\s+/g, '');
+    if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || NOT_A_PRODUCT_EITHER.test(letters) || looksDamaged(line)) return false;
     if (STATES_A_MEASUREMENT.test(line) || labelFor(String(line).trim())) return false;
     if (new RegExp(STANDARD_RE.source, 'i').test(String(line))) return false;
+    if (SAYS_SOMETHING.test(String(line))) return false;
     if (!/\d/.test(String(line)) && (String(line).match(/[A-Za-z]{2,}/g) ?? []).length >= SENTENCE_WORDS) return false;
     const name = productName(line, maker);
     return Boolean(name) && name.length < NAME_LENGTH;
@@ -2071,7 +2129,7 @@ export function propose(row, text, world) {
     key: 'main', review: { status: 'proposed' },
     row: {
       MaterialID: identity.materialId ?? '', Role: 'procurement', Status: 'active',
-      Manufacturer: row.manufacturer || row.provider,
+      Manufacturer: canonicalManufacturer(row.manufacturer || row.provider, world),
       // The name the sheet prints, unless what it prints there is not a name at all.
       'Product name': named || productName(product, maker),
       'Shared formulation key': sourceId, 'Composition / filler': composition(text) ?? NP,
@@ -2166,7 +2224,7 @@ export function compare(proposal, recorded) {
 if (process.argv[1]?.endsWith('propose.mjs')) {
   const arg = (n) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 ? process.argv[i + 1] : null; };
   const provider = arg('provider'), batch = arg('batch'), doc = arg('doc');
-  const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources'), headlineDefinitions: table('headline_definitions'), rulings: readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values) };
+  const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources'), headlineDefinitions: table('headline_definitions'), manufacturers: readCsv(join(projectRoot, 'schema/vocab/manufacturers.csv')).records.map((r) => r.values), rulings: readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values) };
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
   const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'rejected']);

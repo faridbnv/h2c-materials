@@ -277,8 +277,10 @@ test('mis-filed products moved to the material they are, with everything recorde
   // PA-ESD keeps its own product, and the print window it gets is that product's.
   assert.deepEqual(byName('PA-ESD').gradeIds, ['G064-01']);
   assert.deepEqual([byName('PA-ESD').print.nozzleC.min, byName('PA-ESD').print.nozzleC.max], [265, 285]);
-  // 155 since audit 2026-09-15 (m25): HyperLite PP's eight measurements were re-filed under PP Lightweight.
-  assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 155, evidence: 16 });
+  // 155 since audit 2026-09-15 (m25), when HyperLite PP's eight measurements were re-filed under PP
+  // Lightweight; 175 since m80, which retired the twenty values Fiberon's PET-GF15 v2.0 sheet republishes
+  // unchanged from the v1.0 the database already holds.
+  assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 175, evidence: 16 });
 });
 
 test('an unstated-load heat headline carries a bracket from its matrix\'s load gap', () => {
@@ -487,11 +489,18 @@ test('chamber windows recovered from the cited Bambu data sheets are compiled', 
 // Regression: a 60-90 °C chamber window was read by its upper end alone, so a material whose own
 // window starts below the H2C's 65 °C failed outright. ABS-CF (50-70 °C) did, before this research.
 test('a chamber window the H2C only partly reaches is partial, never within and never a failure', () => {
-  for (const name of ['PPS-CF', 'PPA-CF', 'ABS-CF']) {
+  for (const name of ['PPA-CF', 'ABS-CF']) {
     const g = db.materials.find((m) => m.name === name).gates.chamber;
     assert.equal(g.verdict, 'partial', name);
     assert.match(g.reason, /reaches only/, name);
   }
+  // The verdict is the profile's, and a material's is the best of its profiles (GATE_PRECEDENCE): PPS-CF was
+  // this test's third example until a grade arrived that prints at room temperature, which makes the material
+  // printable and says nothing about the 60-90 °C window the third grade still publishes. So the window is
+  // checked where it is decided, on every profile that states one.
+  const partial = db.profiles.filter((p) => p.gates?.chamber?.verdict === 'partial');
+  assert.ok(partial.length, 'some profile publishes a window the H2C only partly reaches');
+  for (const p of partial) assert.match(p.gates.chamber.reason, /reaches only/);
 });
 
 test('a "-" in a data sheet is no setpoint, not zero and not "not required"', () => {

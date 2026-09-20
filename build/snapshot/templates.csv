@@ -89,7 +89,7 @@ Outdoor structural part,Explore with estimates,M059,PA612-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M060,PA612-GF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M064,PA-ESD,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M065,PA612-ESD,PASS,yes,
-Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,screened,hdt045 >= 100; tensileModulusXY >= 3
+Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M067,PET-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M070,PPA-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M071,PPA-GF,PASS,yes,
@@ -112,7 +112,7 @@ Outdoor structural part,Explore with estimates,M112,PC-PTFE,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M113,ASA-AF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,hdt045 >= 100; tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
-Outdoor structural part,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,hdt045 >= 100; tensileModulusXY >= 3
+Outdoor structural part,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M132,PBT-GF,PASS,yes,
 Outdoor structural part,Explore with estimates,M135,PVC,UNKNOWN,screened,hdt045 >= 100
@@ -122,7 +122,7 @@ Outdoor structural part,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M139,LCP,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M140,PBT,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M141,PET-LW,UNKNOWN,screened,hdt045 >= 100
-Outdoor structural part,Explore with estimates,M142,nGen-CF,UNKNOWN,screened,hdt045 >= 100; tensileModulusXY >= 3
+Outdoor structural part,Explore with estimates,M142,nGen-CF,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M143,nGen FLEX,UNKNOWN,screened,tensileModulusXY >= 3
 Indoor prototype,Strict,M002,PLA Basic,PASS,yes,
 Indoor prototype,Strict,M003,PLA Matte,PASS,yes,
@@ -475,7 +475,7 @@ Lightweight structure,Explore with estimates,M107,PLA-ESD,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M108,PA6-GS,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M109,PETG-PTFE,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M110,PCTG-GF,UNKNOWN,yes,
-Lightweight structure,Explore with estimates,M111,PLA-EC,UNKNOWN,screened,tensileModulusXY >= 2.5
+Lightweight structure,Explore with estimates,M111,PLA-EC,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M112,PC-PTFE,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M113,ASA-AF,UNKNOWN,yes,
 Lightweight structure,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,tensileModulusXY >= 2.5
@@ -506,6 +506,7 @@ Warm environment,Strict,M059,PA612-CF,PASS,yes,
 Warm environment,Strict,M065,PA612-ESD,PASS,yes,
 Warm environment,Strict,M067,PET-CF,PASS,yes,
 Warm environment,Strict,M068,PET-GF,PASS,yes,
+Warm environment,Strict,M073,PPS-CF,PASS,yes,
 Warm environment,Strict,M074,PPS-GF,PASS,yes,
 Warm environment,Strict,M081,HIPS,PASS,yes,
 Warm environment,Strict,M083,PP-CF,PASS,yes,
@@ -554,7 +555,7 @@ Warm environment,Explore,M069,PPA,UNKNOWN,yes,
 Warm environment,Explore,M070,PPA-CF,UNKNOWN,yes,
 Warm environment,Explore,M071,PPA-GF,UNKNOWN,yes,
 Warm environment,Explore,M072,PPS,UNKNOWN,yes,
-Warm environment,Explore,M073,PPS-CF,UNKNOWN,yes,
+Warm environment,Explore,M073,PPS-CF,PASS,yes,
 Warm environment,Explore,M074,PPS-GF,PASS,yes,
 Warm environment,Explore,M081,HIPS,PASS,yes,
 Warm environment,Explore,M082,PP,UNKNOWN,yes,
@@ -641,7 +642,7 @@ Warm environment,Explore with estimates,M069,PPA,UNKNOWN,yes,
 Warm environment,Explore with estimates,M070,PPA-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M071,PPA-GF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M072,PPS,UNKNOWN,yes,
-Warm environment,Explore with estimates,M073,PPS-CF,UNKNOWN,yes,
+Warm environment,Explore with estimates,M073,PPS-CF,PASS,yes,
 Warm environment,Explore with estimates,M074,PPS-GF,PASS,yes,
 Warm environment,Explore with estimates,M081,HIPS,PASS,yes,
 Warm environment,Explore with estimates,M082,PP,UNKNOWN,yes,
@@ -682,7 +683,7 @@ Warm environment,Explore with estimates,M137,COC,UNKNOWN,yes,
 Warm environment,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M139,LCP,UNKNOWN,yes,
 Warm environment,Explore with estimates,M140,PBT,UNKNOWN,yes,
-Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,yes,
+Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M142,nGen-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M143,nGen FLEX,UNKNOWN,yes,
 High-stiffness fixture,Strict,M029,ABS-CF,PASS,yes,
@@ -756,7 +757,7 @@ High-stiffness fixture,Explore with estimates,M040,TPU for AMS,UNKNOWN,screened,
 High-stiffness fixture,Explore with estimates,M045,PEBA,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M046,TPC / TPEE,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M049,PA6,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M052,PA12,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M052,PA12,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M053,PA12-CF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M054,PA12-GF,PASS,yes,
 High-stiffness fixture,Explore with estimates,M055,PA66,UNKNOWN,screened,tensileModulusXY >= 5
@@ -778,7 +779,7 @@ High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,screened,tensileM
 High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M093,PVB,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M104,PA6-CE,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M106,ABS-AF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M107,PLA-ESD,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M108,PA6-GS,UNKNOWN,yes,
@@ -797,7 +798,7 @@ High-stiffness fixture,Explore with estimates,M136,SAN,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M137,COC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M139,LCP,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M140,PBT,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M140,PBT,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M141,PET-LW,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M142,nGen-CF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M143,nGen FLEX,UNKNOWN,screened,tensileModulusXY >= 5
@@ -879,7 +880,7 @@ Flexible component,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M093,PVB,UNKNOWN,yes,
+Flexible component,Explore with estimates,M093,PVB,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M104,PA6-CE,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M106,ABS-AF,UNKNOWN,screened,elongationXY >= 100
@@ -901,7 +902,7 @@ Flexible component,Explore with estimates,M136,SAN,UNKNOWN,yes,
 Flexible component,Explore with estimates,M137,COC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M138,PE-GF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M139,LCP,UNKNOWN,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M140,PBT,UNKNOWN,yes,
+Flexible component,Explore with estimates,M140,PBT,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M141,PET-LW,UNKNOWN,yes,
 Flexible component,Explore with estimates,M142,nGen-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M143,nGen FLEX,UNKNOWN,yes,

@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "972d167a5889521a0baed5dfa8619952e35d88f68a71882f5eac53ac9cc0e3f2",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_pa6_gk10.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "972d167a5889521a"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6"
+    ],
+    "materialId": "M049",
+    "materialName": "PA6",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-pa6-gk10",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_pa6_gk10.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "972d167a5889521a0baed5dfa8619952e35d88f68a71882f5eac53ac9cc0e3f2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PA6 GK10",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-pa6-gk10",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-pa6-gk10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6 GK10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1.01 g/cm3 ISO 1183-3 Filament Spectrum PA6 GK10 to nowy, wysokotem-",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "peraturowy materiał konstrukcyjny na bazie PA6 w",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Absorpcja wody, 23°C/24h <0.3% ISO 62",
+      "reason": "properties.csv carries no property for \"Absorpcja wody, 23°C/24h\""
+    },
+    {
+      "page": 1,
+      "text": "Wskaźnik szybkości płynięcia (MFR), 250°C / 2,16 kg 2.2 g/10 min ISO 1133",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Skurcz liniowy 0.3-0.5% DIN 16742",
+      "reason": "properties.csv carries no property for \"Skurcz liniowy\""
+    },
+    {
+      "page": 1,
+      "text": "Właściwości mechaniczne w 23°C / 50% rh",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wytrzymałość na rozciąganie (suchy, przy 50 mm/min) 87 MPa ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 lub PA66.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wydłużenie przy maksymalnej sile (suchy, przy 50 mm/min) 2.7% ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości (na sucho, przy prędkości 1 mm/min) 4.2 GPa ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Udarność mierzona młotem Charpy’ego (na sucho, 80x10x4 mm) 26 kJ/m2 ISO 179 1eU",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "90°C ISO 75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura pracy ciągłej (20.000 godzin) 120°C IEC 60216",
+      "reason": "properties.csv carries no property for \"Temperatura pracy ciągłej (20.000 godzin)\""
+    },
+    {
+      "page": 1,
+      "text": "Temperatura pracy krótkotrwałej (maks. 200h) 160°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rezystancja izolacji (elektroda paskowa R25) > 10^12 Ω DIN IEC 60167",
+      "reason": "properties.csv carries no property for \"Rezystancja izolacji (elektroda paskowa R25)\"; its value is a power of ten (\"10^12\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "Rezystancja powierzchni (ROB) > 10^12 Ω DIN IEC 60093",
+      "reason": "properties.csv carries no property for \"Rezystancja powierzchni (ROB)\"; its value is a power of ten (\"10^12\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 260-290°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu < 80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** ≥ 0.15mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 - 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-80 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm *** minimum 12h w temp. 80 stopni",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

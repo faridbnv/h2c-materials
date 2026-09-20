@@ -38,9 +38,9 @@ ASA-CF
 4.2
 ASA-EC
 ~2.0–4.1†
-0.0027
+0.00184
 log scale
-20.9
+23.9
 all 138 candidates
 ASA-CF: XY · Printed specimen
 Strength MPa
@@ -50,31 +50,31 @@ ASA-CF
 34
 ASA-EC
 ~28–52†
-5.11
-332
+4.96
+294
 all 138 candidates
 ASA-CF: XY · Printed specimen
 Stretch before breaking %
 ASA-AF
-~1.2–5.6†
+~1.3–5.1†
 ASA-CF
 9.6
 ASA-EC
-~0.9–4.3†
-0.345
+~1.0–4.0†
+0.403
 log scale
-2,470
+2,360
 all 138 candidates
 ASA-CF: XY · Printed specimen
 Heat resistance °C
 Heat resistance at least 100 °C
 ASA-AF
-~68–105†
+~70–104†
 ASA-CF
 110
 ASA-EC
-~84–105†
-41.6
+~85–105†
+41.8
 300
 all 138 candidates
 ASA-CF: Printed specimen
@@ -88,6 +88,6 @@ ASA-EC yes yes not recorded required not recorded
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
 ASA-AF 0 of 6 5† 1 11
-ASA-CF 5 of 6 — 9 86
+ASA-CF 5 of 6 — 11 108
 ASA-EC 0 of 6 5† 1 10
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

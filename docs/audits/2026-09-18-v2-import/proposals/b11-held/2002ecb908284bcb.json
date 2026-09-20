@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2002ecb908284bcb2486e1f2c6fc1c1cfe485908544cf63f9a5b283a8a78b725",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_petg_matt.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "2002ecb908284bcb"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet-g"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-petg-matt",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_petg_matt.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2002ecb908284bcb2486e1f2c6fc1c1cfe485908544cf63f9a5b283a8a78b725"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PET-G MATT",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-petg-matt",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-petg-matt",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Gęstość 1.35 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "85 kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"85 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "3.5 kJ/m2 ISO 179-1eA",
+      "reason": "properties.csv carries no property for \"3.5 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "3.1% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40,00% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "45 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"45 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "30 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"30 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "3150 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"3150 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "85°C ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0,45 MN/m2, wyżarzone 80°C ISO 75",
+      "reason": "properties.csv carries no property for \"0,45 MN/m2, wyżarzone\""
+    },
+    {
+      "page": 1,
+      "text": "1,81 MN/m2, wyżarzone 70°C ISO 75",
+      "reason": "properties.csv carries no property for \"1,81 MN/m2, wyżarzone\""
+    },
+    {
+      "page": 1,
+      "text": "* (prędkość 5mm/min), formowanie wtryskowe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "** (prędkość 1 mm/min), formowanie wtryskowe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*** 50 N (szybkość nagrzewania 50°C/h), wyżarzone",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 230-255°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 60-80°C produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TAK (do 100%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

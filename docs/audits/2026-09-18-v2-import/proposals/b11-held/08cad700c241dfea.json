@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "08cad700c241dfeadd0ac21f136142771cf67f03825bdc7692a813af93534c93",
+    "url": "https://hub.forward-am.com/product/filaments/engineering-line/pc-abs-fr/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyNmNlNWUxM2JhMDZjMmNlMDY5ZDVhY2QwZWJjODdmMTYlMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lUWkxIWFdGNVBUUkZESUVQNFcySDRUWFVZMiUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVlJhVEVoWVYwWTFVRlJTUmtSSlJWQTBWekpJTkZSWVZWa3lJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVlAzTkZWTFVDM0JaRTJURDUzVVNUNEFHVVAlMjIlN0Q%3D",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://hub.forward-am.com/product/filaments/engineering-line/pc-abs-fr/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyNmNlNWUxM2JhMDZjMmNlMDY5ZDVhY2QwZWJjODdmMTYlMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lUWkxIWFdGNVBUUkZESUVQNFcySDRUWFVZMiUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVlJhVEVoWVYwWTFVRlJTUmtSSlJWQTBWekpJTkZSWVZWa3lJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVlAzTkZWTFVDM0JaRTJURDUzVVNUNEFHVVAlMjIlN0Q%3D"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-pc-abs-fr",
+      "Publisher": "BASF Forward AM",
+      "Title": "Filter by Product categories",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/product/filaments/engineering-line/pc-abs-fr/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyNmNlNWUxM2JhMDZjMmNlMDY5ZDVhY2QwZWJjODdmMTYlMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lUWkxIWFdGNVBUUkZESUVQNFcySDRUWFVZMiUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVlJhVEVoWVYwWTFVRlJTUmtSSlJWQTBWekpJTkZSWVZWa3lJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVlAzTkZWTFVDM0JaRTJURDUzVVNUNEFHVVAlMjIlN0Q%3D",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "08cad700c241dfeadd0ac21f136142771cf67f03825bdc7692a813af93534c93"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Filter by Product categories"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS",
+        "Shared formulation key": "R-BASF-ultrafuse-pc-abs-fr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "A V-0 flame retardant blend of Polycarbonate and ABS, two of the most used thermoplastics for engineering & electrical applications. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-pc-abs-fr",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filter by Product categories"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "A V-0 flame retardant blend of Polycarbonate and ABS, two of the most used thermoplastics for engineering & electrical applications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Copyright &copy; 2026 | Powered by FORWARD AM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

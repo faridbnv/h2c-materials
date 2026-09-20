@@ -860,3 +860,31 @@ test('a table with a value column per build orientation states a direction for e
   // Two orientation cells are needed: one column is an ordinary table and a lone "Z" is a letter.
   assert.equal(axisColumns(at([83, 'Property'], [267, 'Standard'], [381, 'Z'])), null);
 });
+
+test('a power of ten is one number, whichever side its bound stands on', () => {
+  // Every resistivity this database held read as the digits its exponent is made of: "≤10³ Ω" as 103 Ω and
+  // ">10¹² Ω" as 1012 Ω, which is a conductor where the sheet says an insulator (m79).
+  assert.deepEqual([read('Surface Resistivity (Ω) ANSI ESD S11.11 OL, >10^12 Ω 0.15')].map((r) => [r.rawNumber, r.operator, r.printedUnit]),
+    [['1000000000000', '>', 'Ω']]);
+  assert.equal(read('Surface Resistance IEC 60093 Ω \u226410^3').rawNumber, '1000');
+  assert.equal(read('Volume resistivity IEC 60093 6.75\u00d710^14 \u03a9\u00b7cm').rawNumber, '675000000000000');
+  // The raised part is joined to the ten it belongs to even where a bound stands in front of it, which is the
+  // only thing that told "OL, >10" from a number a power could not follow.
+  const [row] = pageRows([
+    piece(300, [65, 'Surface Resistivity (\u03a9)'], [209, 'ANSI ESD S11.11'], [388, 'OL, >10', 32], [438, '\u03a9']),
+    piece(304, [420, '12', 4]),
+  ], registry);
+  assert.match(row.text, /10\^12/);
+});
+
+test('a block heading stands in the table\u2019s own column', () => {
+  // Polymaker's Fiberon PET-GF15 sheet sets "(annealed)" beside two of its heat deflection rows, a hundred
+  // points left of where its table begins, and those two rows say the word themselves. Read as a heading it
+  // governed every row after it, so a glass transition measured on an ordinary bar was recorded as annealed.
+  const sheet = (x) => readSheet({ pages: [{ page: 1, lines: [
+    { ...at([x, '(annealed)']), y: 300 },
+    { ...at([349, 'Glass transition temp. DSC, 10\u00b0C/min 59.5\u00b0C']), y: 288 },
+  ] }] }, registry);
+  assert.equal(sheet(243).values[0].block, '');
+  assert.equal(sheet(349).values[0].block, 'annealed');
+});

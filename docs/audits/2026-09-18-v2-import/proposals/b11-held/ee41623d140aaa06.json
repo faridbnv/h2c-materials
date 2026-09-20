@@ -1,0 +1,521 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10857%2FMaterial-datasheet-COC-flex-purefil-EN.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "ee41623d140aaa06"
+  },
+  "identity": {
+    "polymer": "COC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: coc"
+    ],
+    "materialId": "M137",
+    "materialName": "COC",
+    "estimateIdentity": "COC",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "its density of 940 kg/m³ is below what neat COC reaches (1010), so the product is foamed or carries a lightweight additive"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "Publisher": "Fabru / purefil",
+      "Title": "Cyclo-Olefin-Copolymer flexibel (COC flex)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10857%2FMaterial-datasheet-COC-flex-purefil-EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Cyclo-Olefin-Copolymer flexibel (COC flex)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M137",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "clarity and reliable func8onality.",
+        "Shared formulation key": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Cyclo-Olefin-Copolymer flexibel (COC flex)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.5-0.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.7",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.7",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: Shrinkage",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shrinkage 0.5-0.7 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "12 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: MFR (ISO 1183)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ISO 1183) 12 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "40 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "40",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "40",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: Yield stress (ISO 527-2/1A)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield stress (ISO 527-2/1A) 40 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "150 %",
+        "Raw unit": "%",
+        "Raw numeric": "150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: Yield strain (ISO 527-2/1A)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield strain (ISO 527-2/1A) 150 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "50 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.05",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: Tensile modulus (ISO 527-2/1A)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (ISO 527-2/1A) 50 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "64 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "64",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "64",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: Vicat SoXening temperature B50",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat SoXening temperature B50 64 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "0.94 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "0.94",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "940",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Locator": "p. 1: Density (ISO 1183)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ISO 1183) 0.94 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "COC flex is an innova8ve, transparent thermoplas8c elastomer based on cyclic olefin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "performance of COC polymers and is ideal for applica8ons that require high flexibility, op8cal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "clarity and reliable func8onality.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Due to the excep8onally low glass transi8on temperature below –90 °C, COC flex offers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "par8cularly suitable for applica8ons where elas8city and formal stability are required under",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "changing clima8c condi8ons. At the same 8me, the transparency of the material is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "maintained – a crucial advantage for medical, diagnos8c or op8cal products. With a shore",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prin6ng temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "hardness of 89A, it is universally useable.",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "240-280°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50-70°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elonga6on at break (ISO 527-2/1A) 500 %",
+      "reason": "properties.csv carries no property for \"Elonga6on at break (\""
+    },
+    {
+      "page": 1,
+      "text": "60-80 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflec6on temperature 60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa (ISO 75-1, -2)",
+      "reason": "properties.csv carries no property for \"0.45 MPa (\""
+    },
+    {
+      "page": 1,
+      "text": "(ISO 306)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Thermal conduc6vity 23°C 0.15 W/(K*m)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability (UL 94) HB",
+      "reason": "properties.csv carries no property for \"Flammability (\""
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

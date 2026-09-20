@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "3ca025c62f8f566d2d5b59b86ddfbb377ff8834a763da6182475ea65bccd112f",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_wood.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "3ca025c62f8f566d"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Wood",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pla",
+      "variant: wood (Wood)"
+    ],
+    "materialId": "M014",
+    "materialName": "PLA Wood",
+    "estimateIdentity": "PLA",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-wood",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/06/pl_tds_spectrum_wood.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3ca025c62f8f566d2d5b59b86ddfbb377ff8834a763da6182475ea65bccd112f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "WOOD",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-wood",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-wood",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Gęstość 1.15 gcm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Gęstość\""
+    },
+    {
+      "page": 1,
+      "text": "3D oparty na czystym PLA zmieszanym z cząstecz-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wskaźnik szybkości płynięcia (190°C/ 2,16kg) 2.5-5.0 g/10 min ISO 1133",
+      "reason": "properties.csv carries no property for \"Wskaźnik szybkości płynięcia (190°C/ 2,16kg)\""
+    },
+    {
+      "page": 1,
+      "text": "Temperatura topnienia > 155°C ISO 3146-C",
+      "reason": "properties.csv carries no property for \"Temperatura topnienia\""
+    },
+    {
+      "page": 1,
+      "text": "jest produktem w 100% ekologicznym i biode-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2900 MPa ISO 527",
+      "reason": "properties.csv carries no property for \"2900 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "47 MPa ISO 527",
+      "reason": "properties.csv carries no property for \"47 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "5,00% ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "38MPa ISO 527",
+      "reason": "properties.csv carries no property for \"38MPa\""
+    },
+    {
+      "page": 1,
+      "text": "6,50% ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.4 kJ/m2 ISO 179-1/1 eA CECHY",
+      "reason": "properties.csv carries no property for \"4.4 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "21 kJ/m2 ISO 179-1/1 eU • z surowców biodegradowalnych",
+      "reason": "properties.csv carries no property for \"21 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 190-220°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 0-45°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TAK (do 100%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 20-50 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rekomendowana dysza ≥ 0.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

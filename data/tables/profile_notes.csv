@@ -1239,3 +1239,86 @@ P0538,Speed,of printing 20–40 mm/s
 P0538,Cooling,0–15 %
 P0539,Speed,of printing 40–60 mm/s
 P0540,Speed,of printing 30–55 mm/s
+P0543,Speed,Up to 500mm/s
+P0543,Shell / walls,2
+P0544,Speed,Up to 500mm/s
+P0544,Shell / walls,2
+P0545,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0545,Cooling,Up to 100%
+P0546,Cooling,YES (up to 100%)
+P0546,Layer height,0.05 - 0.30 mm
+P0546,Shell / walls,0.40 - 2.70 mm
+P0546,Speed,20-70 mm/s
+P0547,Speed,Up to 250mm/s
+P0547,Shell / walls,2
+P0548,Speed,Up to 250mm/s
+P0548,Shell / walls,2
+P0549,Cooling,up to 100%
+P0549,Adhesion / release,not necessary*
+P0550,Cooling,75-100%
+P0550,Adhesion / release,not necessary*
+P0551,Cooling,0-20%
+P0551,Layer height,≥ 0.2 mm
+P0551,Shell / walls,0.5 - 3.0 mm
+P0551,Adhesion / release,not necessary (if increased adhesion needed
+P0552,Speed,60mm/s
+P0552,Shell / walls,1.2mm
+P0552,Cooling,50~100%
+P0552,Layer height,0.12~0.3mm
+P0552,Retraction,Length 1~2mm
+P0553,Cooling,75 – 100%
+P0553,Speed,30 – 50 mm/s
+P0554,Cooling,up to 100%
+P0554,Adhesion / release,not necessary*
+P0555,Cooling,0 - 20%
+P0555,Layer height,0.05 - 0.30 mm
+P0555,Shell / walls,0.40 – 2.70 mm
+P0555,Speed,40-200 mm/s
+P0556,Adhesion / release,"not necessary (if you need increased adhesion or prevent warping: glue stick, Di"
+P0556,Cooling,Up to 100%
+P0557,Cooling,YES (up to 100%)
+P0557,Layer height,0.05 - 0.30 mm
+P0557,Shell / walls,0.40 - 2.70 mm
+P0557,Speed,40-150 mm/s
+P0558,Speed,Up to 300mm/s
+P0558,Shell / walls,2
+P0559,Speed,Up to 300mm/s
+P0559,Shell / walls,2
+P0560,Cooling,50 - 100 %
+P0561,Speed,Up to 300mm/s
+P0561,Shell / walls,2
+P0562,Speed,Up to 300mm/s
+P0562,Shell / walls,2
+P0563,Adhesion / release,not required
+P0563,Speed,20-200mm/s
+P0563,Cooling,30-100%
+P0564,Adhesion / release,not required
+P0564,Speed,up to 1000 mm/s
+P0564,Cooling,30-100%
+P0565,Adhesion / release,not required
+P0565,Speed,20-200mm/s
+P0565,Cooling,20-50%
+P0566,Layer height,0.25mm
+P0567,Speed,Up to 300mm/s
+P0567,Shell / walls,2
+P0568,Speed,Up to 300mm/s
+P0568,Shell / walls,2
+P0569,Speed,Up to 350mm/s
+P0569,Shell / walls,2
+P0570,Speed,Up to 350mm/s
+P0570,Shell / walls,2
+P0571,Speed,20 - 30 mm/s
+P0572,Cooling,YES (up to 100%)
+P0572,Layer height,0.05 - 0.30 mm
+P0572,Shell / walls,0.40 - 2.70 mm
+P0572,Speed,15-50 mm/s
+P0573,Cooling,0-10%
+P0573,Layer height,0.5 - 3.0 mm
+P0573,Shell / walls,≥ 0.2 mm
+P0573,Adhesion / release,not necessary (if increased adhesion needed or to
+P0574,Cooling,100 %
+P0574,Speed,40 – 80 mm/s
+P0575,Speed,Up to 300mm/s
+P0575,Shell / walls,2
+P0576,Speed,Up to 300mm/s
+P0576,Shell / walls,2

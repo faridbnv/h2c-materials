@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "393d9ca8b1a2ff939071312812d05e2b434d2970efed3eacda8e6efeae0be767",
+    "url": "https://hub.forward-am.com/product/filaments/standard-line/pp/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyOTRiN2RkMDU3NjZjN2FiMTA3NmE5YWZiOGIyMGVlYTglMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lUNlhCREtERzM2NFZDTEFVNkFNUVpQMjNFVSUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVlEyV0VKRVMwUkhNelkwVmtOTVFWVTJRVTFSV2xBeU0wVlZJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVkhHR0w2QUJJM01aRzJJSFU2QTU1WFpGNUQlMjIlN0Q%3D",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://hub.forward-am.com/product/filaments/standard-line/pp/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyOTRiN2RkMDU3NjZjN2FiMTA3NmE5YWZiOGIyMGVlYTglMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lUNlhCREtERzM2NFZDTEFVNkFNUVpQMjNFVSUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVlEyV0VKRVMwUkhNelkwVmtOTVFWVTJRVTFSV2xBeU0wVlZJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVkhHR0w2QUJJM01aRzJJSFU2QTU1WFpGNUQlMjIlN0Q%3D"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pp"
+    ],
+    "materialId": "M082",
+    "materialName": "PP",
+    "estimateIdentity": "PP",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-pp",
+      "Publisher": "BASF Forward AM",
+      "Title": "Filter by Product categories",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/product/filaments/standard-line/pp/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyOTRiN2RkMDU3NjZjN2FiMTA3NmE5YWZiOGIyMGVlYTglMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lUNlhCREtERzM2NFZDTEFVNkFNUVpQMjNFVSUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVlEyV0VKRVMwUkhNelkwVmtOTVFWVTJRVTFSV2xBeU0wVlZJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVkhHR0w2QUJJM01aRzJJSFU2QTU1WFpGNUQlMjIlN0Q%3D",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "393d9ca8b1a2ff939071312812d05e2b434d2970efed3eacda8e6efeae0be767"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Filter by Product categories"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS",
+        "Shared formulation key": "R-BASF-ultrafuse-pp",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-pp",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filter by Product categories"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "The mechanical properties make it an ideal material for 3D-printing applications which have to endure high stress or strain. The filament has high chemical resi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Copyright &copy; 2026 | Powered by FORWARD AM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

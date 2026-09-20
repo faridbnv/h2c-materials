@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2860d59c9d2db71b674c8de4fd0bb1bef1c2832d50d01461dbb3d9e6e85dc97c",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-it/durapro-pa12-TDS-it.pdf",
+    "pages": 2,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "2860d59c9d2db71b"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12"
+    ],
+    "materialId": "M052",
+    "materialName": "PA12",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-durapro-pa12-TDS-it",
+      "Publisher": "Extrudr",
+      "Title": "SCHEDA TECNICA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-it/durapro-pa12-TDS-it.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2860d59c9d2db71b674c8de4fd0bb1bef1c2832d50d01461dbb3d9e6e85dc97c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "SCHEDA TECNICA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M052",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO PA12",
+        "Shared formulation key": "R-EXTRUDR-durapro-pa12-TDS-it",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-pa12-TDS-it",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "SCHEDA TECNICA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "DURAPRO PA12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. DESCRIZIONE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DuraPro PA12 è un poliammide (nylon) altamente funzionale ideale per applicazioni industriali. È caratterizzato da un impatto",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "resistenza chimica, al basso assorbimento di umidità e alla facilità di manipolazione, è la scelta ideale per i progetti di stampa 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. CARATTERISTICHE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Elevata resistenza termica (VICAT A 142°C) • Buona resistenza chimica",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPRIETÀ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densità ISO 1183 g/cm³ 1.01",
+      "reason": "properties.csv carries no property for \"Densità\" (g/cm³)"
+    },
+    {
+      "page": 1,
+      "text": "Tasso di Volume di Fusione (MVR) 235°C/5,0 kg ISO 1133 cm³/10min 8.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Assorbimento d'Acqua (Saturazione 23°C) ISO 62 % 1.6",
+      "reason": "properties.csv carries no property for \"Assorbimento d'Acqua (Saturazione 23°C)\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Modulo di Trazione ISO 527-1 MPa 1440",
+      "reason": "properties.csv carries no property for \"Modulo di Trazione\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2 MPa 43.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527-2 % 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Allungamento Nominale a Rottura ISO 527-2 % >50",
+      "reason": "properties.csv carries no property for \"Allungamento Nominale a Rottura\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Resistenza all'Impatto Intagliato Charpy (+23°C) ISO 179/1eA kJ/m² 11",
+      "reason": "properties.csv carries no property for \"Resistenza all'Impatto Intagliato Charpy (+23°C)\" (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Resistenza all'Impatto Intagliato Charpy (-30°C) ISO 179/1eA kJ/m² 6.0",
+      "reason": "properties.csv carries no property for \"Resistenza all'Impatto Intagliato Charpy (-30°C)\" (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Resistenza all'Impatto Non Intagliato Charpy (+23°C) ISO 179/1eU Nessuna Rottura (NR)",
+      "reason": "properties.csv carries no property for \"Resistenza all'Impatto Non Intagliato Charpy (+23°C)\""
+    },
+    {
+      "page": 1,
+      "text": "Resistenza all'Impatto Non Intagliato Charpy (-30°C) ISO 179/1eU Nessuna Rottura (NR)",
+      "reason": "properties.csv carries no property for \"Resistenza all'Impatto Non Intagliato Charpy (-30°C)\""
+    },
+    {
+      "page": 1,
+      "text": "Forza Massima di Perforazione (-30°C) ISO 6603-2 J 60.0",
+      "reason": "properties.csv carries no property for \"Forza Massima di Perforazione (-30°C)\" (J)"
+    },
+    {
+      "page": 1,
+      "text": "Test di Impatto Multiasse Strumentato, Forza di Picco -30°C ISO 6603-2 N 4800",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura di Deflessione Termica (DTUL) 0,45 MPa, non ricotto ISO 75-2/B °C 135",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura di Deflessione Termica (DTUL) 1,8 MPa, non ricotto ISO 75-2/A °C 55.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 306/B50 °C 142",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura di Massa ISO 11357-3 °C 180",
+      "reason": "properties.csv carries no property for \"Temperatura di Massa\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "ISO 11359-2 cm/cm/°C 1.0E-4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IEC 60093 ohms 1.0E+14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IEC 60093 ohms cm 1.0E+14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Resistenza Dielettrica IEC 60243-1 kV/mm 30",
+      "reason": "properties.csv carries no property for \"Resistenza Dielettrica\" (kV/mm)"
+    },
+    {
+      "page": 1,
+      "text": "IEC 60112 V 600",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*La resistenza alla temperatura è stata testata con uno spessore minimo di 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SCHEDA TECNICA Pagina 1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DURAPRO PA12 22.07.2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ugello 260-290 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Piano riscaldato 110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Velocità max. 150 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raffreddamento 0-50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Velocità volumetrica massima 8 mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impostazioni consigliate per stampanti con ugello da 0,4 mm. Altezza massima livello",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50%. Le impostazioni di stampa ottimali possono variare tra diverse stampanti che",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4. CERTIFICAZIONI E INFORMAZIONI AGGIUNTIVE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5. STOCCAGGIO E DURATA A MAGAZZINO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Conservare in un ambiente asciutto a temperatura ambiente (18-27°C / 65-80°F). Tenere al riparo dal calore e dalla luce diretta",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "del sole. Se conservato correttamente, questo materiale ha una durata di 2 anni. Informazioni aggiuntive nelle nostre schede",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SCHEDA TECNICA Pagina 2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "DURAPRO PA12 22.07.2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

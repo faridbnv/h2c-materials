@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "1236cee9f54caa900dacf1a657eecd6762a45d44a05c912b4ca04f1a9508c366",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/pl_tds_spectrum_asa_kevlar.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "1236cee9f54caa90"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Aramid fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: kevlar"
+    ],
+    "materialId": "M113",
+    "materialName": "ASA-AF",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-asa-kevlar",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/10/pl_tds_spectrum_asa_kevlar.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1236cee9f54caa900dacf1a657eecd6762a45d44a05c912b4ca04f1a9508c366"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M113",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ASA Kevlar",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-asa-kevlar",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-asa-kevlar",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1.07 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "25 kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"25 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "7,5 kJ/m2 ISO 179-1eA",
+      "reason": "properties.csv carries no property for \"7,5 kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "2,80% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6,00% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"40 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "35 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"35 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości** (1mm/min) 2200 Mpa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"Moduł sprężystości** (1mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "94°C ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• zawartość 10% włókien aramidowych",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MN/m2 89°C ISO 75",
+      "reason": "properties.csv carries no property for \"0.45 MN/m2\""
+    },
+    {
+      "page": 1,
+      "text": "1.81 MN/m2 79°C ISO 75",
+      "reason": "properties.csv carries no property for \"1.81 MN/m2\""
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 240-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 25% (64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** ≥ 0.15 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 30-70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

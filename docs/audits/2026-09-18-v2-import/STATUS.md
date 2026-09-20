@@ -7,11 +7,11 @@
 | | Before the import | Now |
 |---|---:|---:|
 | materials | 103 | 143 |
-| grades | 179 | 509 |
-| measurements | 2,645 | 6,140 |
-| sources | 300 | 681 |
-| profiles | 172 | 542 |
-| print notes | 363 | 1,240 |
+| grades | 179 | 528 |
+| measurements | 2,645 | 6,556 |
+| sources | 300 | 730 |
+| profiles | 172 | 576 |
+| print notes | 363 | 1,323 |
 | headline selections | 377 | 474 |
 
 ```bash
@@ -25,8 +25,8 @@ npm run sql --silent -- "select (select count(*) from materials) materials, (sel
 | | Documents |
 |---|---:|
 | in the ledger | 1,936 |
-| applied: their values are in the database | 516 |
-| read and waiting for a batch | 538 |
+| applied: their values are in the database | 569 |
+| read and waiting for a batch | 638 |
 | the same sheet again, another language's edition, or a revision superseded | 208 |
 | the same numbers under another product name, queued as a question | 139 |
 | not yet fetched | 404 |
@@ -55,7 +55,7 @@ Parity on every value somebody transcribed by hand before this programme, unchan
 | Polymaker | 49 | 770 of 810 |
 | Fillamentum | 3 | 22 of 23 |
 | eSUN | 2 | 21 of 23 |
-| BASF Forward AM | 3 | 26 of 57 |
+| BASF Forward AM | 3 | 56 of 57 |
 
 The 3DXTECH miss is an Izod row whose label the sheet misspells. Polymaker's residue is one sheet: a shared data
 table covering several products at once, which the pipeline still reads as one document and one product. What
@@ -86,6 +86,7 @@ npm run ingest:propose -- --provider "Polymaker / Fiberon" --compare
 | [b08-sunlu](batches/b08-sunlu/README.md) | SUNLU | 38 | m65, 2026-09-19 |
 | [b09](batches/b09/README.md) | Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy | 134 | m72, 2026-09-19 |
 | [b10](batches/b10/README.md) | Fillamentum | 16 | m76, 2026-09-19 |
+| [b11](batches/b11/README.md) | Extrudr, 3DJake, Polymaker / Fiberon, Spectrum, Fabru / purefil, 3DXTECH, Flashforge, Braskem | 49 | m77, 2026-09-20 |
 
 ## Next
 

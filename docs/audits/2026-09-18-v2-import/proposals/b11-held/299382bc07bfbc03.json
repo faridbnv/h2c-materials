@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "299382bc07bfbc03b6cb9d070f85ec002d5497a9a9dc4caf2dbed57efff8a206",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/flex-medium-matt-TDS-fr.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "299382bc07bfbc03"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-fr",
+      "Publisher": "Extrudr",
+      "Title": "FICHE DE DONNÉES TECHNIQUES",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/flex-medium-matt-TDS-fr.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "299382bc07bfbc03b6cb9d070f85ec002d5497a9a9dc4caf2dbed57efff8a206"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FICHE DE DONNÉES TECHNIQUES"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX MEDIUM MATT",
+        "Shared formulation key": "R-EXTRUDR-flex-medium-matt-TDS-fr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-medium-matt-TDS-fr",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FICHE DE DONNÉES TECHNIQUES"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. CARACTÉRISTIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Dureté Shore A98 • Adhérence extrême de la couche",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPRIÉTÉS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dureté Shore A DIN ISO 7619-1 - - Buse 220-250°C",
+      "reason": "properties.csv carries no property for \"Dureté Shore A\""
+    },
+    {
+      "page": 1,
+      "text": "Dureté Shore D DIN ISO 7619-1 - 50 Plateau chauffant 50°C",
+      "reason": "properties.csv carries no property for \"Dureté Shore D\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance à la traction à rupture DIN 53504, S1 MPa 52 Adhésif non requis",
+      "reason": "properties.csv carries no property for \"Résistance à la traction à rupture\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance à la traction DIN 53504, S2 N/mm² 470 Vitesse max 50 mm/s",
+      "reason": "properties.csv carries no property for \"Résistance à la traction\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement à rupture DIN 53504, S2 % 6.9 Refroidissement 60-100 %",
+      "reason": "properties.csv carries no property for \"Allongement à rupture\""
+    },
+    {
+      "page": 1,
+      "text": "Stress à 10% d'allongement DIN 53504, S1 MPa 15.1 Espace fermé non",
+      "reason": "properties.csv carries no property for \"Stress à 10% d'allongement\""
+    },
+    {
+      "page": 1,
+      "text": "Stress à 300% d'allongement DIN 53504, S1 MPa 29 non",
+      "reason": "properties.csv carries no property for \"Stress à 300% d'allongement\""
+    },
+    {
+      "page": 1,
+      "text": "Déformation compression (24h; 70°C) DIN ISO 815-1, method A % 47 Vitesse volumétrique 12 mm³/s",
+      "reason": "properties.csv carries no property for \"Déformation compression (24h; 70°C)\""
+    },
+    {
+      "page": 1,
+      "text": "Déformation compression (24h; 70°C) DIN ISO 815-1, method C % 30",
+      "reason": "properties.csv carries no property for \"Déformation compression (24h; 70°C)\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Déformation compression (72h; 23°C) DIN ISO 815-1 % 24",
+      "reason": "properties.csv carries no property for \"Déformation compression (72h; 23°C)\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "une buse de 0,4 mm. Max. 50 % de hauteur de couche. Les",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Perte par abrasion ISO 4649, A mm³ 30",
+      "reason": "properties.csv carries no property for \"Perte par abrasion\" (mm³)"
+    },
+    {
+      "page": 1,
+      "text": "Résilience au rebond ISO 4662 % 33",
+      "reason": "properties.csv carries no property for \"Résilience au rebond\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Résistance à la propagation de la déchirure ISO 34-1 kN/m 110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Module de flexion ISO 178 MPa -",
+      "reason": "the sheet publishes no value for \"Module de flexion\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Module de stockage en traction à 20°C ISO 6721-1,-4 MPa 160",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densité ISO 1183-1 g/cm³ 1150",
+      "reason": "properties.csv carries no property for \"Densité\" (g/cm³)"
+    },
+    {
+      "page": 1,
+      "text": "* Résistance à la température testée à une épaisseur de paroi minimale de 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS ET INFO SUPPLÉMENTAIRES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A98",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. STOCKAGE ET DURÉE DE CONSERVATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Conservez dans une pièce sèche à température ambiante (18 à 27 °C / 65 à 80 °F). Gardez à l‘abri de la lumière directe du soleil.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lorsqu‘il est stocké correctement, ce matériau a une durée de conservation de 2 ans.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEX MEDIUM MATT 17.03.2025",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

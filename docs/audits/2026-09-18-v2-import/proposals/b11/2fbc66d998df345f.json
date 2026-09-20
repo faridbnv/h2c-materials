@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2fbc66d998df345f06b07775cd854d756049b0759e365cd081edaa7fa7225095",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/7738%2FFiche-technique-du-mat%C3%A9riau-ASA-CF10-purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "2fbc66d998df345f"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: cf10"
+    ],
+    "materialId": "M033",
+    "materialName": "ASA-CF",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-7738-Fiche-technique-du-mat-riau-ASA-CF10-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Acrylonitrile Styrène Ester Acrylique Fibre de Carbone 10% (ASA CF10)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/7738%2FFiche-technique-du-mat%C3%A9riau-ASA-CF10-purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2fbc66d998df345f06b07775cd854d756049b0759e365cd081edaa7fa7225095"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Acrylonitrile Styrène Ester Acrylique Fibre de Carbone 10% (ASA CF10)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M033",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "ASA CF10",
+        "Shared formulation key": "R-FABRU-7738-Fiche-technique-du-mat-riau-ASA-CF10-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Inflammabilité (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-7738-Fiche-technique-du-mat-riau-ASA-CF10-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Acrylonitrile Styrène Ester Acrylique Fibre de Carbone 10% (ASA CF10)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "5.2 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "5.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-7738-Fiche-technique-du-mat-riau-ASA-CF10-purefil",
+        "Locator": "p. 1: MFR (ASTM D1238)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ASTM D1238) 5.2 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Acrylonitrile Styrène Ester Acrylique Fibre de Carbone 10% (ASA CF10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Le filament ASA CF10 est un matériau d'impression 3D innovant composé d'acrylonitrile, de",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "styrène, d'ester acrylique et de 10% de fibre de carbone. Ce filament offre une excellente",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA CF10 est extrêmement résistant aux rayons UV et aux intempéries, ce qui le rend idéal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "L'ajout de 10 % de fibre de carbone augmente la résistance mécanique et la rigidité, ce qui",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Malgré sa grande résistance, l'ASA CF10 reste léger, ce qui le rend intéressant pour les",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "L'ASA CF10 est moins sujet à la déformation que les autres filaments, ce qui permet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Retrait (ASTM D955) - %",
+      "reason": "the sheet publishes no value for \"Retrait (\" in this row: its value column prints \"- %\""
+    },
+    {
+      "page": 1,
+      "text": "210-260 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Limite d'élasticité (ASTM D638) 84 Mpa",
+      "reason": "properties.csv carries no property for \"Limite d'élasticité (\""
+    },
+    {
+      "page": 1,
+      "text": "90-110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9.19 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D638)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Allongement à la rupture 9.19 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D638)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2-4 h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Module de traction (ASTM D790) 6430 Mpa",
+      "reason": "properties.csv carries no property for \"Module de traction (\""
+    },
+    {
+      "page": 1,
+      "text": "Température de déflexion 0,45 MPa 130 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D648)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Inflammabilité (UL 94) HB",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Masse volumique (ASTM D792) 1.11 g/cm3",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Conductivité thermique 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

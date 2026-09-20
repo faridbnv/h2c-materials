@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "95d37585449a3f1666a560459e0e2f6b46d82a4d27711908b19b8b1ba99e0aab",
+    "url": "https://hub.forward-am.com/product/filaments/reinforced-line/paht-cf15/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyYmI0NzgzMGQ4NmI1MTdiYjczNzM4YjU5NmU0OTBmMzYlMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lXWE5VVkdDWFA1TE5CSUhTT0c3NVlZWE5WVyUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVmRZVGxWV1IwTllVRFZNVGtKSlNGTlBSemMxV1ZsWVRsWlhJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVTNKTVFBSzZKTFJSSDJSS0VQU0xCMlJUQlAlMjIlN0Q%3D",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://hub.forward-am.com/product/filaments/reinforced-line/paht-cf15/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyYmI0NzgzMGQ4NmI1MTdiYjczNzM4YjU5NmU0OTBmMzYlMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lXWE5VVkdDWFA1TE5CSUhTT0c3NVlZWE5WVyUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVmRZVGxWV1IwTllVRFZNVGtKSlNGTlBSemMxV1ZsWVRsWlhJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVTNKTVFBSzZKTFJSSDJSS0VQU0xCMlJUQlAlMjIlN0Q%3D"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "title: paht"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PAHT",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"POWDERS\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-paht-cf15",
+      "Publisher": "BASF Forward AM",
+      "Title": "Filter by Product categories",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/product/filaments/reinforced-line/paht-cf15/?wpcp_link=JTdCJTIyc291cmNlJTIyJTNBJTIyYmI0NzgzMGQ4NmI1MTdiYjczNzM4YjU5NmU0OTBmMzYlMjIlMkMlMjJhY2NvdW50X2lkJTIyJTNBJTIyZTFkMzI1NjgtYWYyNy00MmVhLTk4OTEtZWMwYTMzNzdmNzBkJTIyJTJDJTIyZHJpdmVfaWQlMjIlM0ElMjJiIWR1SS1VTWpPcWstNXY3Zk1ZQnQyd2dJNDl0djZneGRBc0tmYVhGSHJjSmE2LXFnbzdET0dTYmlad09kTWZJb0klMjIlMkMlMjJsYXN0Rm9sZGVyJTIyJTNBJTIyMDFMMzNWS0lXWE5VVkdDWFA1TE5CSUhTT0c3NVlZWE5WVyUyMiUyQyUyMmZvbGRlclBhdGglMjIlM0ElMjJXeUl3TVV3ek0xWkxTVmRZVGxWV1IwTllVRFZNVGtKSlNGTlBSemMxV1ZsWVRsWlhJbDAlM0QlMjIlMkMlMjJmb2N1c19pZCUyMiUzQSUyMjAxTDMzVktJVTNKTVFBSzZKTFJSSDJSS0VQU0xCMlJUQlAlMjIlN0Q%3D",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "95d37585449a3f1666a560459e0e2f6b46d82a4d27711908b19b8b1ba99e0aab"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Filter by Product categories"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS",
+        "Shared formulation key": "R-BASF-ultrafuse-paht-cf15",
+        "Composition / filler": "High Temperature PA with 15 % Carbon Fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-paht-cf15",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filter by Product categories"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Description Ultrafuse® PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Temperature PA with 15 % Carbon Fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® PAHT CF15 is a high-performance 3D printing filament that opens up new application areas in FFF printing. It works in any FFF printer with a hardened",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Copyright &copy; 2026 | Powered by FORWARD AM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

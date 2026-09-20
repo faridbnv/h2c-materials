@@ -1,0 +1,335 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "272aefa82484186124f3935d5412f90a75b93c3eb7ac746a44701d644c992afa",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/durapro-abs-TDS-fr.pdf",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": null,
+    "docKey": "272aefa824841861"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-durapro-abs-TDS-fr",
+      "Publisher": "Extrudr",
+      "Title": "FICHE DE DONNÉES TECHNIQUES",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/durapro-abs-TDS-fr.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "272aefa82484186124f3935d5412f90a75b93c3eb7ac746a44701d644c992afa"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FICHE DE DONNÉES TECHNIQUES"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO ABS",
+        "Shared formulation key": "R-EXTRUDR-durapro-abs-TDS-fr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "• Ignifuge selon UL 94 HB • Faible rétrécissement et déformation (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-abs-TDS-fr",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FICHE DE DONNÉES TECHNIQUES"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "92 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "92",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "92",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-abs-TDS-fr",
+        "Locator": "p. 1: VICAT A (VST) ASTM D1525 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT A (VST) ASTM D1525 °C 92*"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "85 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "85",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-abs-TDS-fr",
+        "Locator": "p. 1: HDT / B ASTM D648 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT / B ASTM D648 °C 85"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. CARACTÉRISTIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Ignifuge selon UL 94 HB • Faible rétrécissement et déformation",
+      "reason": "properties.csv carries no property for \"Ignifuge selon\""
+    },
+    {
+      "page": 1,
+      "text": "3. PROPRIÉTÉS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Module de flexion (Module d’élasticité) ASTM D790 MPa 2550 Buse 220-250°C",
+      "reason": "properties.csv carries no property for \"Module de flexion (Module d’élasticité)\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance à la flexion ASTM D790 MPa 78 Plateau chauffant 100-110°C",
+      "reason": "properties.csv carries no property for \"Résistance à la flexion\""
+    },
+    {
+      "page": 1,
+      "text": "Module de traction (Module d’élasticité) ASTM D638 MPa 2350 Adhésif recommended",
+      "reason": "properties.csv carries no property for \"Module de traction (Module d’élasticité)\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance à la traction ASTM D638 MPa 49 Vitesse 20-200mm/s",
+      "reason": "properties.csv carries no property for \"Résistance à la traction\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement au seuil de fluage ASTM D638 % 5 Refroidissement 0-50%",
+      "reason": "properties.csv carries no property for \"Allongement au seuil de fluage\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement nominal à la rupture ASTM D638 % 10 Espace fermé oui",
+      "reason": "properties.csv carries no property for \"Allongement nominal à la rupture\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance au choc entaillé ASTM D256 kj/m² 220 / 23°C Buse en acier trempé non",
+      "reason": "properties.csv carries no property for \"Résistance au choc entaillé\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance au choc non entaillé ASTM D256 kj/m² 90 / -30°C Vitesse volumétrique 16 mm³/s",
+      "reason": "properties.csv carries no property for \"Résistance au choc non entaillé\""
+    },
+    {
+      "page": 1,
+      "text": "Température de fusion ISO 3146-C °C 180-200",
+      "reason": "properties.csv carries no property for \"Température de fusion\""
+    },
+    {
+      "page": 1,
+      "text": "une buse de 0,4 mm. Max. 50 % de hauteur de couche. Les",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MFR ASTM D1238 g/cm³ 21",
+      "reason": "the sheet states Melt mass-flow rate in g/cm³, and the database keeps it in g/10 min"
+    },
+    {
+      "page": 1,
+      "text": "Rétrécissement ASTM D955 % 0,4",
+      "reason": "properties.csv carries no property for \"Rétrécissement\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Densité ASTM D792 g/cm³ 1.06",
+      "reason": "properties.csv carries no property for \"Densité\" (g/cm³)"
+    },
+    {
+      "page": 1,
+      "text": "Dureté Rockwell ASTM D785 Échelle R 110",
+      "reason": "properties.csv carries no property for \"Dureté Rockwell\" (R)"
+    },
+    {
+      "page": 1,
+      "text": "Inflammabilité UL94 HB 1,5 mm",
+      "reason": "properties.csv carries no property for \"Inflammabilité\""
+    },
+    {
+      "page": 1,
+      "text": "* Résistance à la température testée à une épaisseur de paroi minimale de 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS ET INFO SUPPLÉMENTAIRES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. STOCKAGE ET DURÉE DE CONSERVATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Conservez dans une pièce sèche à température ambiante (18 à 27 °C / 65 à 80 °F). Gardez à l‘abri de la lumière directe du soleil.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lorsqu‘il est stocké correctement, ce matériau a une durée de conservation de 2 ans.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FICHE DE DONNÉES TECHNIQUES Page 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DURAPRO ABS 20.06.2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

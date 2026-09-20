@@ -1,0 +1,384 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "89a1ed38185cf86b67d4995076046815fdad39a1b8df105a3099ab37d2e1f7f9",
+    "url": "https://forward-am.com/wp-content/uploads/2021/01/Debinding-and-Simulation-Guidelines.pdf",
+    "pages": 3,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "89a1ed38185cf86b"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Debinding Simulation Guidelines for\""
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-Debinding-and-Simulation-Guidelines",
+      "Publisher": "BASF Forward AM",
+      "Title": "Debinding Simulation Guidelines for 3D",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://forward-am.com/wp-content/uploads/2021/01/Debinding-and-Simulation-Guidelines.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "89a1ed38185cf86b67d4995076046815fdad39a1b8df105a3099ab37d2e1f7f9"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Debinding Simulation Guidelines for 3D"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Debinding Simulation Guidelines for",
+        "Shared formulation key": "R-BASF-Debinding-and-Simulation-Guidelines",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "5. Once the maximum tensile of compressional stresses are reached breakage is assumed. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-Debinding-and-Simulation-Guidelines",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Debinding Simulation Guidelines for 3D"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Debinding Simulation Guidelines for 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printed Parts using Ultrafuse 316L",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "316L full metal parts.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. The simulation assumes ideal print results free of delamination, warpage, porosity or other errors resul-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. These instructions hold for solid parts of 100% infill.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Supports must be present in the solid model or set as a fixed constrain of the part in order to be evaluated.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Debinding and sintering orientation must match the printing orientation.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Once the maximum tensile of compressional stresses are reached breakage is assumed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Any Computer Aided Design (CAD) software with a Finite-Element solver can be used to check brown parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Debinding analysis employs a linear-static analysis method to approximate gravitational forces during debinding.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Step 1: Meshing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Load the part file into the chosen CAD software.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Rotate the part according to the print orientation (global",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Mesh the part using 3D solid elements, as seen in Fig 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Ensure that a minimum of 3 mesh elements are present",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "calculation time and stability. Fig 1: Meshed example part",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.forward-am.com sales@basf-3dps.com Phone: +49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Step 2: Boundary Conditions and Forces",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2. Apply a distributed gravitational force (g=9.81 m/s²) oppo-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "site the print direction ( -Z direction in Fig 2).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fig 2: Meshed example part",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Step 3: Material properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "a. Young’s Modulus E = 210 GPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "b. Poisson‘s ratio v = 0.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "c. Density p = 4700 kg/m³",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3. Run the simulation.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fig 3: Material model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Step 4: Results and interpretation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "a. Xmax & Ymax = +6 kPa Tensile, -7kPa Compression",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "b. Zmax = +0.5 kPa Tensile, -7 kPa Compression",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "areas seen in Fig 4. below.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "www.forward-am.com sales@basf-3dps.com Phone: +49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "19,0 19,0 8,0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6,0 6,0 0,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "–7,0 –7,0 –7,0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "–20,0 –20,0 –14,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 4: Brown Part Stability in each coordination direction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "* Deformation is upscaled by a factor of 10 for illustrative purposes.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Step 5: Redesign the part",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. Try different part orientations for both printing and debinding and sintering, as seen Fig 5.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. Redesign red and blue areas by thickening thin features or smoothing sharp edges to avoid stress concentrations.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3. In general, smaller and lighter part designs reduce gravitational forces and increased rates of success.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "a. Part sizes of 60 X 60 X 60 mm have proven to provide an optimal balance between stability.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "b. Parts greater than 100 X 100 X 100 often will not be accepted by the debinding and sintering providers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4. Increase the amount of supports and / add them directly to the part’s solid model.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5. Iteratively use this tool to ensure that all stresses have been identified and resolved any red or blue areas that",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6. Please feel free to contact if you have questions or more simulation needs.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 5: New part orientation for printing, debinding and sintering",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "tobias.haefele@basf-3dps.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "www.forward-am.com sales@basf-3dps.com Phone: +49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

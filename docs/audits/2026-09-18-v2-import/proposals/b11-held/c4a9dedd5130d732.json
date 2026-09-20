@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "c4a9dedd5130d7323f7d85f919c0769a5014a8bb78df68f4bc3ba47c389a1b8c",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2021/09/pl_tds_spectrum_smart_abs.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "c4a9dedd5130d732"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-smart-abs",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2021/09/pl_tds_spectrum_smart_abs.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "c4a9dedd5130d7323f7d85f919c0769a5014a8bb78df68f4bc3ba47c389a1b8c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "Smart ABS",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-smart-abs",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Palność (1,5mm i 3,0mm) HB UL94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-smart-abs",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1.05 g/cm3 D 792",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "Skurcz liniowy, 3,2 mm 0,4-0,7% D955",
+      "reason": "properties.csv carries no property for \"Skurcz liniowy, 3,2 mm\""
+    },
+    {
+      "page": 1,
+      "text": "Wskaźnik szybkości płynięcia (220°C/ 10 kg) 21 g/10min D1238",
+      "reason": "properties.csv carries no property for \"Wskaźnik szybkości płynięcia (220°C/ 10 kg)\""
+    },
+    {
+      "page": 1,
+      "text": "460 kg/cm2 D 638",
+      "reason": "properties.csv carries no property for \"460 kg/cm2\""
+    },
+    {
+      "page": 1,
+      "text": ">10 % D 638",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "740 kg/cm2 D 790 CECHY",
+      "reason": "properties.csv carries no property for \"740 kg/cm2\""
+    },
+    {
+      "page": 1,
+      "text": "25 000 kg/cm2 D 790",
+      "reason": "properties.csv carries no property for \"25000 kg/cm2\""
+    },
+    {
+      "page": 1,
+      "text": "108 D 785",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• zmniejszony współczynnik wypaczenia (0,5-0,7%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Udarność metodą Izoda, z karbem, 3,2mm przy 23°C 33 kg cm/cm D 256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "przy zastosowaniu drukarki 3D z podgrzewaną",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Udarność metodą Izoda, z karbem, 3,2mm przy -30°C 16 kg cm/cm D 256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura ugięcia pod wpływem ciepła, 6,4mm 85°C D 648",
+      "reason": "properties.csv carries no property for \"Temperatura ugięcia pod wpływem ciepła, 6,4mm\""
+    },
+    {
+      "page": 1,
+      "text": "93°C D 1525",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Palność (1,5mm i 3,0mm) HB UL94",
+      "reason": "properties.csv carries no property for \"Palność (1,5mm i 3,0mm)\""
+    },
+    {
+      "page": 1,
+      "text": "95°C UL 746B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* 3,2 mm (50 mm/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "** 3,2 mm (15 mm/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 230-255°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 25%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 40-100 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

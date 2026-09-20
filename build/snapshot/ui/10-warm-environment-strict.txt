@@ -1,7 +1,7 @@
-COUNT 22 shown PASS
-STATUS ☑ PASS 22 | ☐ UNKNOWN 65 | ☐ FAIL 51
-22 of the 138 materials in this database meet these requirements
-65 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+COUNT 23 shown PASS
+STATUS ☑ PASS 23 | ☐ UNKNOWN 64 | ☐ FAIL 51
+23 of the 138 materials in this database meet these requirements
+64 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -83,6 +83,9 @@ PET Engineering
 PP-CF
 Polyolefins
  PASS 1,100 6.15 78* 1.5 124 — ☆
+PPS-CF
+High-Performance Engineering
+ PASS 1,260 8.23 87 1.2 264 221↗ ☆
 PPS-GF
 High-Performance Engineering
  PASS 1,360 5.76 72 1.6 241 — ☆

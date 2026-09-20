@@ -71,7 +71,7 @@ M069,PPA,within,within,within,unknown,unknown,required
 M070,PPA-CF,within,within,within,partial,requires-hardened,required
 M071,PPA-GF,within,within,within,unknown,requires-hardened,required
 M072,PPS,within,within,within,partial,unknown,required
-M073,PPS-CF,within,within,within,partial,requires-hardened,required
+M073,PPS-CF,within,within,within,within,requires-hardened,required
 M074,PPS-GF,within,within,within,within,requires-hardened,required
 M075,PVA,within,within,within,within,unknown,required
 M076,BVOH,within,within,within,unknown,unknown,unknown

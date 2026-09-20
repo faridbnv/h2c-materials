@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "199a966cfa485550dd2f6079ff235fd3ade18ad017965dab4dbc1e394f8611d4",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/1636%2FFiche+technique+du+mat%C3%A9riau+PLA+Silk+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "199a966cfa485550"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "silk",
+    "finish": "Silk",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "variant: silk (Silk)"
+    ],
+    "materialId": "M008",
+    "materialName": "PLA Silk",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-1636-Fiche-technique-du-mat-riau-PLA-Silk-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Polylactide Silk (PLA Silk)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/1636%2FFiche+technique+du+mat%C3%A9riau+PLA+Silk+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "199a966cfa485550dd2f6079ff235fd3ade18ad017965dab4dbc1e394f8611d4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polylactide Silk (PLA Silk)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      },
+      "row": {
+        "MaterialID": "M008",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Polylactide Silk (PLA Silk)",
+        "Shared formulation key": "R-FABRU-1636-Fiche-technique-du-mat-riau-PLA-Silk-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Inflammabilité HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-1636-Fiche-technique-du-mat-riau-PLA-Silk-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Polylactide Silk (PLA Silk)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6.6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-1636-Fiche-technique-du-mat-riau-PLA-Silk-purefil",
+        "Locator": "p. 1: MFR (ASTM D1238)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ASTM D1238) 6.6 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity is the one its own sheet names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "En raison des additifs inclus, PLA Silk n'est plus 100% biodégradable et ne peut pas être",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ce filament répond aux exigences de composition du règlement européen n ° 10/2011 sur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Peut redevenir souple à partir de 60 degrés",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Retrait (ISO 294-4, 2577) - %",
+      "reason": "the sheet publishes no value for \"Retrait (\" in this row: its value column prints \"- %\""
+    },
+    {
+      "page": 1,
+      "text": "190-210 ° C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Contrainte de rendement ( ASTM D882) 58.9 MPa",
+      "reason": "properties.csv carries no property for \"Contrainte de rendement (\""
+    },
+    {
+      "page": 1,
+      "text": "Non requis, 50 ° C recommandé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Allongement à l'étirement (ASTM D882) 5.8 %",
+      "reason": "properties.csv carries no property for \"Allongement à l'étirement (\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement à la rupture (ASTM D882) 9.4 %",
+      "reason": "properties.csv carries no property for \"Allongement à la rupture (\""
+    },
+    {
+      "page": 1,
+      "text": "80 ° C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Module de Young (ASTM D882) 3440 MPa",
+      "reason": "properties.csv carries no property for \"Module de Young (\""
+    },
+    {
+      "page": 1,
+      "text": "62 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "dimensionnelle 0.45 MPa (ASTM E2092)",
+      "reason": "properties.csv carries no property for \"dimensionnelle 0.45 MPa (ASTM\""
+    },
+    {
+      "page": 1,
+      "text": "(ISO 306)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densité 1.24 g/cm3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Conductivité thermique 23°C -",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}
