@@ -31,7 +31,7 @@ import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
 import { profileCellsFromParsed, loadCellFromParsed } from '../../build/src/typed-values.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
-import { classifyProduct, collidesWith } from './classify.mjs';
+import { classifyProduct, collidesWith, plainMaterialFor } from './classify.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `${name}.csv`)).records.map((r) => r.values);
@@ -56,6 +56,10 @@ export function mayBeNegative(property, unit) {
   const windows = WINDOWS.filter((w) => w.Property === property && w['Normalized unit'] === unit);
   return !windows.length || windows.some((w) => Number(w['Hard low']) < 0);
 }
+
+// A density no filament reaches, above which a number says the page was misread rather than that the filament is
+// heavy. Tungsten-filled PLA, the densest thing in this corpus, is about 4000 kg/m³.
+export const IMPLAUSIBLE_DENSITY = 8000;
 
 /** The window the build itself would judge this reading by: the most specific one that matches it. */
 export function windowFor(property, unit, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
@@ -1682,7 +1686,12 @@ export function profilesFor(settings, opts) {
 }
 
 export function profileFor(settings, { sourceId, materialId, modifier, locator = 'Recommended printing settings', page = 1 }) {
-  const named = settings.filter((s) => s.field !== 'note');
+  // A cell that is only its own unit states no setting. Siraya Tech's Flex TPU Air prints "(°C)" where the
+  // nozzle temperature belongs, and recorded as the raw text it reached the build as a temperature the parser
+  // could not read (PARSE-UNREAD). Only the unit is dropped: "Room temperature", "Recommended" and "not
+  // required" are settings a sheet states in words, and thirty-one profiles already carry them.
+  const ONLY_ITS_UNIT = /^[\s()\[\]{}:°º˚CF/-]*$/i;
+  const named = settings.filter((s) => s.field !== 'note' && !ONLY_ITS_UNIT.test(String(s.raw ?? '')));
   const notes = settings.filter((s) => s.field === 'note' && s.topic);
   if (!named.length && !notes.length) return null;
   const of = (field) => named.find((s) => s.field === field)?.raw ?? NP;
@@ -2432,7 +2441,17 @@ export function headlinesFor(measurements, definitions) {
 export function propose(row, text, world) {
   // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
   // enough, and they are the maker's own description rather than a catalogue title.
-  const body = (text.pages[0]?.lines ?? []).map((l) => l.text).join(' ').slice(0, 2000);
+  // A captured shop page opens with the shop's own furniture — a breadcrumb, a menu of every material it sells,
+  // a price, a SKU, a category list — and none of it is about the product on the page. Read as the sheet's own
+  // words it named the polymer: thirteen Nanovia products took "hips" from a category menu, among them a
+  // silicon-carbide filament and a stainless-steel one, and a HIPS at 7190 kg/m³ is what that produced.
+  //
+  // The test is the line's own shape, not the maker's, because the next shop that does this will be somebody
+  // else's. A line that is a breadcrumb, a price, a stock code or a list of categories is the site talking about
+  // itself; every line about the filament survives.
+  const A_SHOPS_OWN_FURNITURE = /(?:^|\s)(?:home|accueil|start(?:seite)?|inicio)\s*[/\u203a>\u00bb]|\bcategor(?:y|ies|ías|ie[ns]?)\s*:|\bSKU\b|\bstarting at\b|\b(?:add to|view)\s+(?:cart|basket)\b|\bmy account\b|\b(?:quantity|menge|quantité)\s*$|[\u20ac\u00a3\u00a5]\s*\d|\b\d+[.,]\d{2}\s*(?:\u20ac|EUR|USD|GBP)\b/i;
+  const body = (text.pages[0]?.lines ?? []).map((l) => String(l.text ?? ''))
+    .filter((line) => !A_SHOPS_OWN_FURNITURE.test(line)).join(' ').slice(0, 2000);
   // What the sheet says its product is made of, in its own row. Fillamentum's Chemical properties table heads
   // its first row "Polymer base" and prints the polymer in words; a statement there is the sheet answering for
   // itself, which is worth more than the same word found somewhere in its prose.
@@ -2548,10 +2567,38 @@ export function propose(row, text, world) {
   if (newMaterial) {
     const twin = collidesWith(identity, world.materials ?? []);
     const sameName = (world.materials ?? []).find((m) => m['Original name'] === newMaterial['Original name']);
-    if (twin || sameName) {
-      const other = twin ?? sameName;
-      identity.reasons.push(`a new material for this identity would be a second ${other['Original name']} (${other.MaterialID}): ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
-      identity.needsRuling = true;
+    if (twin) {
+      // R079: a product whose identity the database already holds is a grade under that material, not a second
+      // one of it. R039 settled the first such case by hand and the ruling generalised it. `collidesWith` keys
+      // on the three things a material is — its estimate identity, its filler and its commercial variant class
+      // — so a collision here is the same material and not merely a similar one.
+      identity.materialId = twin.MaterialID;
+      identity.materialName = twin['Original name'];
+      identity.signals.push(`filed under ${twin['Original name']} (${twin.MaterialID}) by R079: ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''} is the identity it already holds`);
+      newMaterial = null;
+    } else if (sameName) {
+      const plain = plainMaterialFor(identity, world.materials ?? []);
+      if (plain) {
+        // R079 again, one step further out: the database holds no material for this finish and does hold the
+        // plain polymer. A glow or a glitter PETG is a PETG mechanically and the finish is a grade-level fact,
+        // which is the owner's own wording. The same product in PLA never reaches here — PLA Glow and PLA
+        // Sparkle exist, and `collidesWith` finds them.
+        identity.materialId = plain.MaterialID;
+        identity.materialName = plain['Original name'];
+        identity.signals.push(`filed under ${plain['Original name']} (${plain.MaterialID}) by R079: the database holds no ${identity.polymer} ${identity.finish || identity.variantClass} material, and the finish is a fact about this grade`);
+        grade.row['Composition / filler'] = grade.row['Composition / filler'] === NP
+          ? `A ${identity.finish || identity.variantClass} finish of ${plain['Original name']}; the sheet declares no filler (R079).`
+          : grade.row['Composition / filler'];
+      } else if (sameName.Scope === 'Family entry') {
+        // A family owns no product (D44), and a name that collides with a family entry is saying so.
+        identity.reasons.push(`"${identity.polymer}" names a family, not a polymer: ${sameName.MaterialID} is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet`);
+        identity.needsRuling = true;
+      } else {
+        // A name two materials share is not an identity two materials share. Filing a product under a material
+        // because their names match is how a PVB became a polycarbonate.
+        identity.reasons.push(`a new material would carry the name ${sameName['Original name']} (${sameName.MaterialID}) already has, for a different identity: ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
+        identity.needsRuling = true;
+      }
       newMaterial = null;
     }
   }
@@ -2562,9 +2609,36 @@ export function propose(row, text, world) {
   const neat = [Number(polymer?.['Neat density min kg/m³']), Number(polymer?.['Neat density max kg/m³'])];
   if (density && identity.modifier === 'Unfilled / unspecified' && !identity.variantClass && Number.isFinite(neat[0]) && Number.isFinite(neat[1])) {
     const value = Number(density.row['Normalized value']);
-    if (value > neat[1] * 1.05) identity.reasons.push(`its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare`);
-    if (value < neat[0] * 0.95) identity.reasons.push(`its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}), so the product is foamed or carries a lightweight additive`);
-    identity.needsRuling = identity.needsRuling || identity.reasons.length > 0;
+    // R078 and D57: a filament denser than its own polymer can be carries a load its maker does not declare, and
+    // a lighter one is foamed. Neither is a new material — the polymer is the one the name states — and neither
+    // may be filed as an ordinary grade of it, because its values are not the family's. It is a Variant, which
+    // says so on the grade and keeps the estimate model from letting a bronze-filled PLA pull ordinary PLA.
+    //
+    // A density no filament reaches is none of that. Tungsten-filled PLA, the densest thing in this corpus, is
+    // about 4000 kg/m³; six sheets in this queue read 11115, 23000 or 923000, which is the page misread and not
+    // a heavy filler. Declaring a Variant for one would record a load that is not there, so it stays a question.
+    const declare = (variant, why) => {
+      grade.row.Variant = variant;
+      grade.row['Composition / filler'] = `${why} Not declared on the sheet; recorded as a Variant under D57 (R078).`;
+      identity.signals.push(`${variant} by R078: ${why}`);
+      // A grade that declares a filler is not an unfilled material, and the windows a reviewer weighs its rows
+      // against must stop saying it is. Without this, the very density that declared the Variant is then held
+      // back for being outside what an unfilled polymer reaches — which is what it was read to mean.
+      window.fill = 'any';
+    };
+    if (value >= IMPLAUSIBLE_DENSITY) {
+      identity.reasons.push(`its density reads ${value} kg/m³, which no filament reaches: the page is misread, and a load that is not there may not be declared`);
+      identity.needsRuling = true;
+    } else if (value > neat[1] * 1.05) {
+      declare('undisclosed dense filler', `Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare.`);
+    } else if (value < neat[0] * 0.95) {
+      // R078 answers the heavy case and only that one: "a filament denser than its named polymer reaches". A
+      // lighter one has two explanations and the sheet has to say which. Fabru's "Cyclo-Olefin-Copolymer
+      // flexibel" is 940 against COC's 1010 because it is the soft grade, not because anything was foamed, and
+      // calling it a lightweight additive would record a component that is not in it.
+      identity.reasons.push(`its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}): a foaming agent and a softer grade of the same polymer both read like this, and the sheet says which`);
+      identity.needsRuling = true;
+    }
   }
 
   return {

@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "23bf73df25dcd63cd37303158c0ec35a3fe7202165774067ba5b9bfb7985bcc0",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical_Data_Sheet_Flexfill_TPE_90A.pdf",
+    "pages": 1,
+    "provider": "Fillamentum",
+    "manufacturer": "Fillamentum",
+    "docKey": "23bf73df25dcd63c"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "90A",
+    "support": false,
+    "signals": [
+      "name: tpe",
+      "hardness: 90A"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"tpe\" names a family, not a polymer: TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+      "Publisher": "Fillamentum",
+      "Title": "Flexfill TPE 90A",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical_Data_Sheet_Flexfill_TPE_90A.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "23bf73df25dcd63cd37303158c0ec35a3fe7202165774067ba5b9bfb7985bcc0"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Flexfill TPE 90A"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Flexfill TPE 90A",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexfill TPE 90A"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,15 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Locator": "p. 1: Material density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Material density 1,15 g/cm3 ISO 1183 20 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "25 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Locator": "p. 1: Melt flow index",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow index > 25 g/10 min laboratory method 230 °C, 5 kg"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength > 5 MPa laboratory method at break"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "250 %",
+        "Raw unit": "%",
+        "Raw numeric": "250",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "250",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Locator": "p. 1: Elongation at break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break > 250 % laboratory method at break"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "90 Shore A",
+        "Raw unit": "Shore A",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "Locator": "p. 1: most of substances even at higher Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "90 Shore A laboratory method"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "225–245 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "225",
+        "Nozzle max °C": "245",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-90A",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "of printing 15–25 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Print temperature 225–245 °C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print temperature",
+      "raw": "225–245 °C",
+      "fromBelow": false,
+      "line": "Print temperature 225–245 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "of printing 15–25 mm/s",
+      "fromBelow": false,
+      "line": "Speed of printing 15–25 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Flexfill TPE 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter tolerance ± 0,10 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "500 g of filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(+ 250 g spool)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30 Shore D laboratory method",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "good 25 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "bad 25 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hot pad 50–60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bed adhesive Magigoo PP, 3DLac U bed adhesion.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+/- 0,10 mm. During the production,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Workability of 3D printing filament is at least 12 months from delivery.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fillamentum Manufacturing Czech s.r.o. (+420) 720 060 947",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nam. Miru 1217, 768 24 Hulin helpdesk@fillamentum.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

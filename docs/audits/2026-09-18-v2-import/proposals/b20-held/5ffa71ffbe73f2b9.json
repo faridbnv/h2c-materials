@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "5ffa71ffbe73f2b9d712603f979c1f63f26956f190702eecd8e9b44595509d3f",
+    "url": "https://ultimaker.com/wp-content/uploads/2023/12/ABS-RapidRinse-1-sheet.pdf",
+    "pages": 2,
+    "provider": "UltiMaker / MakerBot",
+    "manufacturer": "UltiMaker",
+    "docKey": "5ffa71ffbe73f2b9"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"ABS-R + RAPIDRINSE\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ULTIMAKER-ABS-RapidRinse-1-sheet",
+      "Publisher": "UltiMaker",
+      "Title": "MAKERBOT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by UltiMaker / MakerBot; the sheet is UltiMaker's.",
+      "Citation role": "cited",
+      "URL": "https://ultimaker.com/wp-content/uploads/2023/12/ABS-RapidRinse-1-sheet.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5ffa71ffbe73f2b9d712603f979c1f63f26956f190702eecd8e9b44595509d3f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MAKERBOT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "UltiMaker",
+        "Product name": "ABS-R + RAPIDRINSE",
+        "Shared formulation key": "R-ULTIMAKER-ABS-RapidRinse-1-sheet",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ULTIMAKER-ABS-RapidRinse-1-sheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MAKERBOT"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 2,
+      "text": "difficult materials to 3D print. METHOD X chemicals - RapidRinse™ dissolves in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "patented VECT™ 110 technology combined pure tap water so it’s easy to use in just",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ABS-R is a new ABS formulation that provides superior printing reliability and performance with a 98% jam reduction for consistent,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength (MPa) ASTM D648 41",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in (MPa), and the database keeps it in MPa"
+    },
+    {
+      "page": 2,
+      "text": "Strain at Yield (%) ASTM D648 2.3",
+      "reason": "the sheet states Tensile modulus in (%), and the database keeps it in GPa"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Modulus (MPa) ASTM D648 2400",
+      "reason": "the sheet states Tensile modulus in (MPa), and the database keeps it in GPa"
+    },
+    {
+      "page": 2,
+      "text": "Strain at Break (%) ASTM D648 33.4",
+      "reason": "the sheet states Elongation at break in (%), and the database keeps it in %"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Strength (MPa) ASTM D790 79",
+      "reason": "the sheet states Flexural strength in (MPa), and the database keeps it in MPa"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Modulus (MPa) ASTM D790 2600",
+      "reason": "the sheet states Flexural modulus in (MPa), and the database keeps it in GPa"
+    },
+    {
+      "page": 2,
+      "text": "Izod Notched Impact Strength (J/m) ASTM D256 129 – C/H",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 2,
+      "text": "Izod Unotched Impact Strength (J/m) ASTM D256 970 - C",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature – 64 psi (C) ASTM 648 105",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature – 264 psi (C) ASTM 648 102",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "INDUSTRIAL 3D PRINTING MADE ACCESSIBLE",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

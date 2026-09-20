@@ -62,7 +62,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       },
       "row": {
         "MaterialID": "M001",
@@ -132,7 +135,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -179,7 +185,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -226,7 +235,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -273,7 +285,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -320,7 +335,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -367,7 +385,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -414,7 +435,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -461,7 +485,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -508,7 +535,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -555,7 +585,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -602,7 +635,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -649,7 +685,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     },
     {
@@ -696,7 +735,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     }
   ],
@@ -757,7 +799,10 @@
         "text": "Nozzle Temp. ˚C 195-220"
       },
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the second copy of the same colorFabb copperFill sheet, with the same two value columns read as one list. Held whole rather than half-recorded."
       }
     }
   ],

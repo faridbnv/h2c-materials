@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "4907baa0ec2f3bcbfb020abfcbbf7dee2483a2d71af5340062890c1a6ea2b1a5",
+    "url": "https://bigrepgmbh.sharepoint.com/:b:/g/Efg_UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg?e=fSC4By",
+    "pages": 1,
+    "provider": "BigRep",
+    "manufacturer": "BigRep",
+    "docKey": "https://bigrepgmbh.sharepoint.com/:b:/g/Efg_UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg?e=fSC4By"
+  },
+  "identity": {
+    "polymer": "BVOH",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Support / Soluble",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "title: bvoh"
+    ],
+    "materialId": "M076",
+    "materialName": "BVOH",
+    "estimateIdentity": "BVOH",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"FILAMENT.\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+      "Publisher": "BigRep",
+      "Title": "FILAMENT.",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://bigrepgmbh.sharepoint.com/:b:/g/Efg_UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg?e=fSC4By",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4907baa0ec2f3bcbfb020abfcbbf7dee2483a2d71af5340062890c1a6ea2b1a5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FILAMENT."
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M076",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BigRep",
+        "Product name": "FILAMENT.",
+        "Shared formulation key": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FILAMENT."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.14 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1140",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Density (ISO 1183)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ISO 1183) 1.14 g/cm?"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "34 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "34",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "34",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Tensile Strength (ISO 527)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (ISO 527) 34 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2300 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2300",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Tensile Modulus (ISO 527)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus (ISO 527) 2300 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "50 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Flexural Strength (ISO 178)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength (ISO 178) 50 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2200 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Flexural Modulus (ISO 178)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (ISO 178) 2200 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Vicat Softening Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature 90°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "68 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "68",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "68",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Tg DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Glass Transition Temperature (Tg) (DSC)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temperature (Tg) (DSC) 68 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "175 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "175",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "175",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Tm DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "Locator": "p. 1: Melting Temperature (Tm) (DSC)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting Temperature (Tm) (DSC) 175°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M076",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "190 - 210°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "60 °C",
+        "Drying state": "stated",
+        "Drying °C": "60",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BIGREP-Efg-UY4buTpJp13hcZXl1LgBAUW2SK-x0V4jMvvalk02Sg",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-100%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature 190 - 210°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "190 - 210°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 190 - 210°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": "0-100%",
+      "fromBelow": false,
+      "line": "Fan Speed 0-100%"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying Recommendations",
+      "raw": "60 °C",
+      "fromBelow": false,
+      "line": "Drying Recommendations 60 °C for 8 - 12 hours"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "drastically reduces post-processing for 3D-printed parts, particularly for complex",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print Bed Temperature 50 - 70°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "bigrep.com/filaments/bvoh 30.07.2025",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

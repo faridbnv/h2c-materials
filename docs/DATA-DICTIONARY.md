@@ -977,6 +977,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Foaming |  | LW |
 | Glass fibre |  | GF |
 | Glass spheres | A hollow glass sphere (bead) load: it stiffens a little and lowers density, and it does not carry load along a fibre the way a reinforcement does. | GS |
+| Graphene | A graphene or graphene-nanoplatelet load, declared by the maker. It is neither carbon fibre nor unfilled: the platelets raise stiffness and, above a percolation threshold, conductivity, without the fibre length that makes a fibre-filled grade abrasive in the same way (R080). | GR |
+| Natural fibre | A declared plant fibre milled into the polymer: flax and hemp are the two this database has seen declared as a fibre. It raises stiffness and lowers density, and its published values are its own. A wood, cork or coffee fill is not here: those are a particle fill and the database records them as the variant class particle-filled, which is what M014 already holds (R080). | NF |
 | PTFE | A polytetrafluoroethylene load: a tribological additive that lowers friction and wear. | PTFE |
 | Unfilled / unspecified |  |  |
 
@@ -1256,6 +1258,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 11359 | Thermomechanical analysis; thermal expansion. |
 | ISO 1182 | Reaction to fire: the non-combustibility test. |
 | ISO 1183 | Density of non-cellular plastics. |
+| ISO 15075 | Road-vehicle navigation systems, which is not a plastics test. Extrudr prints it on the heat-deflection row of its XPETG sheets, where ISO 75 is meant. It is recorded because the sheet names it (D35) and it backs no comparison. |
 | ISO 178 | Flexural properties of plastics. |
 | ISO 179 | Charpy impact strength. |
 | ISO 180 | Izod impact strength. |

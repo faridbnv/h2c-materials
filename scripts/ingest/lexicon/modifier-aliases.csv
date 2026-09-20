@@ -19,10 +19,10 @@ cf17,Carbon fibre,
 cf20,Carbon fibre,
 cf25,Carbon fibre,
 cf30,Carbon fibre,
-conductive,Electrically conductive,"a conductive load carries current; an ESD formulation only dissipates static"
+conductive,Electrically conductive,a conductive load carries current; an ESD formulation only dissipates static
 esd,ESD formulation,
 fiberglass,Glass fibre,
-flax,,a natural fibre: a ruling
+flax,Natural fibre,R080: a plant fibre milled into the polymer.
 foamy,Foaming,
 gf,Glass fibre,
 gf10,Glass fibre,
@@ -37,8 +37,8 @@ glassbeads,Glass spheres,
 glassfiber,Glass fibre,one word
 glassfibre,Glass fibre,one word
 glassspheres,Glass spheres,
-graphene,,a graphene load is neither carbon fibre nor unfilled: a ruling
-hemp,,a natural fibre: a ruling
+graphene,Graphene,"R080: a graphene load is its own value, neither carbon fibre nor unfilled."
+hemp,Natural fibre,R080: a plant fibre milled into the polymer.
 kevlar,Aramid fibre,DuPont's brand of aramid
 lightweight,Foaming,
 lw,Foaming,

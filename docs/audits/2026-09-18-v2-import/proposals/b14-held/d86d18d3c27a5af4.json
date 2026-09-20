@@ -62,7 +62,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       },
       "row": {
         "MaterialID": "M081",
@@ -132,10 +135,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "accepted",
+        "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     },
     {
@@ -182,10 +185,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "accepted",
+        "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     },
     {
@@ -232,10 +235,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "accepted",
+        "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     },
     {
@@ -282,10 +285,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "accepted",
+        "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     },
     {
@@ -332,10 +335,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "accepted",
+        "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     },
     {
@@ -382,10 +385,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "accepted",
+        "status": "rejected",
         "by": "claude-opus-5",
         "date": "2026-09-20",
-        "note": "the product's name says nothing about what it is made of and the sheet does: its own body or title names the polymer, and the filler where it declares one. That is the evidence this pipeline prefers to a name, and the confidence is lower because the name did not corroborate the sheet, not because the sheet is unclear."
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     }
   ],
@@ -441,7 +444,10 @@
         "text": "Extrusion temperature  210 – 230  °C"
       },
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "ISTROFLEX publishes Shore D 44, a tensile modulus of 60 MPa and a stress at break of 11.5 MPa: that is an elastomer, and the reader files it under PLA because its density of 1550 kg/m3 then reads as a dense filler. Which polymer it is comes from the sheet or from Nanovia, and neither has said. Held as a question rather than filed under a polymer it is not."
       }
     }
   ],

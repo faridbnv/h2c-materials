@@ -1,0 +1,827 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "9da7e4e45d9f0515a4a825a4b097e11f0a5605d80dcb13d76fb9f7038ea388be",
+    "url": "https://nanovia.tech/en/ref/nanovia-pla-flax/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/en/ref/nanovia-pla-flax/"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Natural fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "filler: flax"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "any"
+  },
+  "newMaterial": {
+    "Original name": "PLA-NF",
+    "Family": "PLA",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Polylactic Acid (Natural fibre)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PLA-NF",
+    "Base polymer": "PLA",
+    "Estimate identity": "PLA",
+    "Modifier / filler": "Natural fibre",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-NANOVIA-PLA-Flax (p. 1): name: pla; filler: flax."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-PLA-Flax",
+      "Publisher": "Nanovia",
+      "Title": "Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/ref/nanovia-pla-flax/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9da7e4e45d9f0515a4a825a4b097e11f0a5605d80dcb13d76fb9f7038ea388be"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PLA Flax",
+        "Shared formulation key": "R-NANOVIA-PLA-Flax",
+        "Composition / filler": "Nanovia PETG CF : Carbon fiber reinforced Starting at : 64,40 &euro; ex. VAT / kg Select options (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,25 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1250",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  1,25  g/cm 3  ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "77 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "77",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "77",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Hardness  77  Shore D"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Elongation ultimate strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation ultimate strength  2.5  %  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2830 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2830",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.83",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Young’s modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus  2830  MPa  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Elongation ultimate strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation ultimate strength  2.4  %  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2270 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2270",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.27",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Young’s modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young’s modulus  2270  MPa  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/1A",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: Elongation ultimate strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation ultimate strength  2.1  %  ISO 527-2/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "80-90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "90",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "90",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa E2092",
+        "Standards": "ASTM E2092",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "Locator": "p. 1: HDT B (0.45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT B (0.45 MPa)  80 – 90  °C  E2092"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200 – 230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "50 – 70 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "70",
+        "Bed requirement": "required",
+        "Chamber °C": "20 °C",
+        "Chamber state": "range",
+        "Chamber min °C": "20",
+        "Chamber max °C": "20",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-PLA-Flax",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion temperature  200 – 230  °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [
+    {
+      "HeadlineKey": "density",
+      "measurement": "m01",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "hdt045",
+      "measurement": "m08",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion temperature",
+      "raw": "200 – 230 °C",
+      "fromBelow": false,
+      "line": "Extrusion temperature  200 – 230  °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate temperature",
+      "raw": "50 – 70 °C",
+      "fromBelow": false,
+      "line": "Plate temperature  50 – 70  °C"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure temperature",
+      "raw": "20 °C",
+      "fromBelow": false,
+      "line": "Enclosure temperature  20  °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home / 3D printing filament / Reinforced / Flax fibre / Nanovia PLA Flax : Flax fiber reinforced 3D printing filament Sintering Metallic Ceramic Material ABS AS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g 2000 g sample",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 - 5  5%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 +  10%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: N/A Categories: 3D printing filament , Flax fibre , Material , PLA (Polylactic acid) Tags: Biodegradable , Biosourced , Endocrine disruptor free",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle (minimal)  0.5  mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 & 2.85  mm  +/- 50 µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Young modulus’s  3100  MPa  ISO 527-2/1A",
+      "reason": "properties.csv carries no property for \"Young modulus’s\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate strength  41  MPa  ISO 527-2/1A",
+      "reason": "properties.csv carries no property for \"Ultimate strength\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate strength  37  MPa  ISO 527-2/1A",
+      "reason": "properties.csv carries no property for \"Ultimate strength\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate strength  26  MPa  ISO 527-2/1A",
+      "reason": "properties.csv carries no property for \"Ultimate strength\""
+    },
+    {
+      "page": 1,
+      "text": "Tg  55 – 60  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DTUL  50  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow rate (MFR)  7 – 9  g / 10 min  ISO 1133",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "last updated : 08/03/2023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Combining PLA’s ease of printing with flax fibers’ mechanical properties, Nanovia PLA Flax will allow you to create mechanical 3D prints with ease.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This biosourced composite 3D filament, certified endocrine disruptor free, can be browned by varying the printing temperature up to 260 °C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA Flax is also available in pellet form for plastic extrusion and FGF 3D printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dehydrate for 4h at 50°C prior to printing after prolonged exposure to humidity.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "1 Method OEDT – SERPBIO Laboratory. Sample : NANOVIA 3D filament PLA Flax.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Study: Measuring the activity of the human estrogenic receptors expressed in S. cerevisiae (SW303.1B)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Every measurement is reproduced 3 times independently with the different contents of the tested sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Note on the ratio of circulating plasmic œstradiol: With menopaused women / with men: * [4×10-11M – 2×10-10M] with pre menopaused women (excluding ovulation): [",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Spool  L1  L2  D1  D2  D3  Weight",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Max temperature  55 °C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1.75 mm, 2.85 mm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  500 g, 2000 g, sample",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA XRS : X-ray shielding Starting at : 83,85 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PETG CF : Carbon fiber reinforced Starting at : 64,40 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ASA : Weather resistant Starting at : 34,53 &euro; ex. VAT / kg Select options",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PA Rail : EN 45545-2 Starting at : 109,73 &euro; ex. VAT / kg Select options",
+      "reason": "properties.csv carries no property for \"Nanovia PA Rail :\""
+    },
+    {
+      "page": 1,
+      "text": "Omni3D printing profiles available",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Mechanical data on 3D printed test specimens at 3 different angles",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia back at the JEC 2022 : the world composite show",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Contact info NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

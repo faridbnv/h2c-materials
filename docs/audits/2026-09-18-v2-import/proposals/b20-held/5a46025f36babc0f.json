@@ -1,0 +1,1100 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "5a46025f36babc0fa42baeff141b3dc6ae08e231c2c0469138989772528bfef8",
+    "url": "https://drive.google.com/file/d/16rNiT2vS7CkgKLl32d-JLuMsoTxQUtrN/view",
+    "pages": 5,
+    "provider": "Recreus / Filaflex",
+    "manufacturer": "Recreus",
+    "docKey": "https://drive.google.com/file/d/16rNiT2vS7CkgKLl32d-JLuMsoTxQUtrN/view"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu",
+      "filler: foamy"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "any"
+  },
+  "newMaterial": {
+    "Original name": "TPU-LW",
+    "Family": "Flexible Elastomers",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Thermoplastic Polyurethane (Foaming)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "TPU-LW",
+    "Base polymer": "TPU",
+    "Estimate identity": "TPU",
+    "Modifier / filler": "Foaming",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-RECREUS-Filaflex-95-Foamy (p. 1): sheet: tpu; filler: foamy."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-Filaflex-95-Foamy",
+      "Publisher": "Recreus",
+      "Title": "TECHNICAL DATA SHEET FILAFLEX 95 FOAMY",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Recreus / Filaflex; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/16rNiT2vS7CkgKLl32d-JLuMsoTxQUtrN/view",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5a46025f36babc0fa42baeff141b3dc6ae08e231c2c0469138989772528bfef8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET FILAFLEX 95 FOAMY"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "FILAFLEX 95 FOAMY",
+        "Shared formulation key": "R-RECREUS-Filaflex-95-Foamy",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-Filaflex-95-Foamy",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET FILAFLEX 95 FOAMY"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1120 kg/m³",
+        "Raw unit": "kg/m³",
+        "Raw numeric": "1120",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1120",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-Filaflex-95-Foamy",
+        "Locator": "p. 3: Material density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Material density 1120 kg/m³ ISO 1183"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "45 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "45",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "45",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DIN 53504-S2",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-Filaflex-95-Foamy",
+        "Locator": "p. 3: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile strength 45 MPa DIN 53504-S2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "650 %",
+        "Raw unit": "%",
+        "Raw numeric": "650",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "650",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DIN 53504-S2",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-Filaflex-95-Foamy",
+        "Locator": "p. 3: Elongation at break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Elongation at break 650 % DIN 53504-S2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "55 °C",
+        "Drying state": "stated",
+        "Drying °C": "55",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-Filaflex-95-Foamy",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.2 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "(mm³/s) 5.0 mm³/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30% - 13.64 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "2.5–6.0 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "75 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Z-Hop 0.2 mm"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.3 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "(mm³/s) 11.3 mm³/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30% - 13.71 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "2.5–6.0 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "75 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Z-Hop 0.2 mm"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.4 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "(mm³/s) 20.0 mm³/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30% - 13.64 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "2.5–6.0 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "75 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Z-Hop 0.2 mm"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.5 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "(mm³/s) 31.3 mm³/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30% - 13.66 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "2.5–6.0 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "75 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Z-Hop 0.2 mm"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "0% (always)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 3,
+        "text": "Drying Temperature 55 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [
+    {
+      "HeadlineKey": "density",
+      "measurement": "m01",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying Temperature",
+      "raw": "55 °C",
+      "fromBelow": false,
+      "line": "Drying Temperature 55 °C"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.2 mm",
+      "fromBelow": false,
+      "line": "Layer Height 0.2 mm"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Volumetric Speed",
+      "raw": "(mm³/s) 5.0 mm³/s",
+      "fromBelow": false,
+      "line": "Volumetric Speed (mm³/s) 5.0 mm³/s"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30% - 13.64 mm/s",
+      "fromBelow": false,
+      "line": "First Layer 30% - 13.64 mm/s"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "2.5–6.0 mm",
+      "fromBelow": false,
+      "line": "Retraction distance 2.5–6.0 mm"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "75 mm/s",
+      "fromBelow": false,
+      "line": "Retraction speed 75 mm/s"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Z-Hop 0.2 mm",
+      "fromBelow": false,
+      "line": "Retraction Z-Hop 0.2 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.3 mm",
+      "fromBelow": false,
+      "line": "Layer Height 0.3 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Volumetric Speed",
+      "raw": "(mm³/s) 11.3 mm³/s",
+      "fromBelow": false,
+      "line": "Volumetric Speed (mm³/s) 11.3 mm³/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30% - 13.71 mm/s",
+      "fromBelow": false,
+      "line": "First Layer 30% - 13.71 mm/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "2.5–6.0 mm",
+      "fromBelow": false,
+      "line": "Retraction distance 2.5–6.0 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "75 mm/s",
+      "fromBelow": false,
+      "line": "Retraction speed 75 mm/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Z-Hop 0.2 mm",
+      "fromBelow": false,
+      "line": "Retraction Z-Hop 0.2 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.4 mm",
+      "fromBelow": false,
+      "line": "Layer Height 0.4 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Volumetric Speed",
+      "raw": "(mm³/s) 20.0 mm³/s",
+      "fromBelow": false,
+      "line": "Volumetric Speed (mm³/s) 20.0 mm³/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30% - 13.64 mm/s",
+      "fromBelow": false,
+      "line": "First Layer 30% - 13.64 mm/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "2.5–6.0 mm",
+      "fromBelow": false,
+      "line": "Retraction distance 2.5–6.0 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "75 mm/s",
+      "fromBelow": false,
+      "line": "Retraction speed 75 mm/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Z-Hop 0.2 mm",
+      "fromBelow": false,
+      "line": "Retraction Z-Hop 0.2 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.5 mm",
+      "fromBelow": false,
+      "line": "Layer Height 0.5 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Volumetric Speed",
+      "raw": "(mm³/s) 31.3 mm³/s",
+      "fromBelow": false,
+      "line": "Volumetric Speed (mm³/s) 31.3 mm³/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30% - 13.66 mm/s",
+      "fromBelow": false,
+      "line": "First Layer 30% - 13.66 mm/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "2.5–6.0 mm",
+      "fromBelow": false,
+      "line": "Retraction distance 2.5–6.0 mm"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "75 mm/s",
+      "fromBelow": false,
+      "line": "Retraction speed 75 mm/s"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Z-Hop 0.2 mm",
+      "fromBelow": false,
+      "line": "Retraction Z-Hop 0.2 mm"
+    },
+    {
+      "page": 5,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First layer",
+      "raw": "0% (always)",
+      "fromBelow": false,
+      "line": "First layer 0% (always)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FILAFLEX 95 FOAMY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 95 Foamy is an advanced flexible TPU filament featuring Dynamic Foaming",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "density and hardness (from 95A down to 70A). Its optimized flow allows up to 30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "faster printing and 30–40% more prints per spool. The foaming degree and color",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "developed for 3D printing applications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- High-Speed Printing: Up to 30% faster print performance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Adjustable Hardness (95A–70A): From Shore 95A down to 70A depending on",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Material Efficiency: Up to 40% more prints per spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Certifications - ISO 10993 Tested & Regulatory Compliance",
+      "reason": "properties.csv carries no property for \"Certifications -\""
+    },
+    {
+      "page": 1,
+      "text": "- ISO 10993-5: 2009 - Cytotoxicity Test with Filaflex 95 Foamy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- ISO 10993-23: 2021 - Acute Skin Irritation Test with Filaflex Foamy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unique Characteristics of Filaflex 95 Foamy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Filaflex 95 Foamy contains a foaming agent that activates when heated,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "causing the material to expand during extrusion. At 100 % flow, the line width",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "expands by approximately 37.5 % relative to the nozzle diameter. Adjust the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "· Flow rate can be reduced to 60% to achieve maximum weight reduction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "- Start with our recommended settings (73% flow) and gradually adjust:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "· Reduce flow rate in 5% increments (down to 60%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "· Decrease volumetric speed by 10-15% to allow more foaming time",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "flow rate (73%) to ensure proper material behavior.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "pronounced than with standard TPU. Set travel speed to maximum (200-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "500mm/s) and ensure proper retraction settings to minimize stringing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "85 — ISO 7619-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "foamed state (85A)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Hardness (Shore A, 3 s). Measured in non-",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "113 ºC ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(Method A, 10 N, 120 °C/h)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. Material Preparation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Minimum Time 1 hour",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. Basic Parameters, Speed Settings and Retraction Settings",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Nozzle 0.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Line Width at 100% Flow 0.55 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Optimized Flow for 0.4 mm Line Width 73%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Temperature 248 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "External Perimeter 50% - 22.73 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Internal Perimeters 75% - 34.09 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Infill 100% - 45.45 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Top/Bottom 60% - 27.27 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Nozzle 0.6 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Line Width 0.825 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Optimized Flow for 0.4 mm Line Width 73%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Temperature 248 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "External Perimeter 50% - 22.85 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Internal Perimeters 75% - 34.27 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Infill 100% - 45.70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Top/Bottom 60% - 27.42 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Nozzle 0.8 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Line Width 1.1 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Optimized Flow for 0.4 mm Line Width 73%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Temperature 250 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "External Perimeter 50% - 22.73 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Internal Perimeters 75% - 34.09 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Infill 100% - 45.45 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Top/Bottom 60% - 27.27 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Nozzle 1.0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Line Width 1.375 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Optimized Flow for 0.4 mm Line Width 73%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Temperature 252 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "External Perimeter 50% - 22.77 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Internal Perimeters 75% - 34.15 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Infill 100% - 45.53 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Top/Bottom 60% - 27.32 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3. Bed Temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Large parts 50–55 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4. Cooling",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "General Fan 0% (keep fan always off)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Layers < 15 seconds 50% fan",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5. Troubleshooting",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1. Reduce temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Excessive expansion 2. Increase flow rate",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3. Check actual line width",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1. Increase temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Insufficient foaming 2. Decrease flow rate",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3. Ensure proper drying",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1. Increase travel speed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Excessive stringing 2. Optimize retraction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3. Reduce temperature if possible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "6. Best Practices",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "experience. They may need adjustment depending on your specific 3D printer,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Date / Revised: 22.10.2025 (REF. 25112015)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Product: Filaflex 95 Foamy",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

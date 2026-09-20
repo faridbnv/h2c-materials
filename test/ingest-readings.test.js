@@ -5,7 +5,8 @@
 // The one thing each test guards is a way this reading could become a guess with a citation on it.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { admits, gluedToTheName, fromTheUrl, IMPLAUSIBLE_DENSITY } from '../scripts/ingest/readings.mjs';
+import { admits, gluedToTheName, fromTheUrl } from '../scripts/ingest/readings.mjs';
+import { IMPLAUSIBLE_DENSITY } from '../scripts/ingest/propose.mjs';
 
 const aliases = [
   { Token: 'petg', Polymer: 'PETG' }, { Token: 'pla', Polymer: 'PLA' }, { Token: 'pc', Polymer: 'PC' },

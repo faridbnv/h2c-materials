@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "b401014b68b477e46188a715a81da8181a31b0fe98689d77e3502730e7ee60ef",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3184",
+    "pages": 3,
+    "provider": "Filament2Print",
+    "manufacturer": "Prusa Research",
+    "docKey": "b401014b68b477e4"
+  },
+  "identity": {
+    "polymer": "PEI",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pei"
+    ],
+    "materialId": "M099",
+    "materialName": "PEI / ULTEM",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PVB-Safety-PEI-1010",
+      "Publisher": "Prusa Research",
+      "Title": "Versión: 1.0",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Filament2Print; the sheet is Prusa Research's.",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3184",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b401014b68b477e46188a715a81da8181a31b0fe98689d77e3502730e7ee60ef"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Versión: 1.0"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M099",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "Última actualización: 18-09-2024",
+        "Shared formulation key": "S-PVB-Safety-PEI-1010",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-Safety-PEI-1010",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Versión: 1.0"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Versión: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Última actualización: 18-09-2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prusament PEI 1010 by Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nombre Comercial Prusament PEI 1010",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Uso Impresión 3D FDM/FFF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diámetro 1.75 ± 0.05 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura del Nozzle [°C] 410 ± 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "140–160",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "90",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "hasta 40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Se requiere cámara calefactable. Secado a 150°C durante 6-8 horas.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MFR [g/10 min](1) 17 ISO 1133",
+      "reason": "the sheet states Melt mass-flow rate in min](1), and the database keeps it in g/10 min"
+    },
+    {
+      "page": 2,
+      "text": "Densidad [g/cm3] 1.27 ISO 1183",
+      "reason": "properties.csv carries no property for \"Densidad [g/cm3]\" ([g/cm3])"
+    },
+    {
+      "page": 2,
+      "text": "Absorción de Humedad en 24 horas [%](2) 0.4 Prusa Polymers",
+      "reason": "properties.csv carries no property for \"Absorción de Humedad\""
+    },
+    {
+      "page": 2,
+      "text": "Absorción de Humedad en 7 días [%](2) 0.7 Prusa Polymers",
+      "reason": "properties.csv carries no property for \"Absorción de Humedad\""
+    },
+    {
+      "page": 2,
+      "text": "Temperatura de Deflexión Térmica (0.45 MPa) [°C] 207 ISO 75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Temperatura de Deflexión Térmica (1.80 MPa) [°C] 194 ISO 75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "111.5 ± 1.4 ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dureza – Escala D 83.5 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Adhesión entre Capas [MPa] 13.97 ± 1.47 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(1) 5 kg; 340 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(2) 24 °C; humedad 22 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Propiedades mecánicas de las muestras de ensayo impresas en 3D(3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "95 ± 3.5 72 ± 5 ISO 527-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Módulo de Tracción [GPa] 2.3 ± 0.1 2.1 ± 0.1 ISO 527-1",
+      "reason": "properties.csv carries no property for \"Módulo de Tracción [GPa]\""
+    },
+    {
+      "page": 2,
+      "text": "6.6 ± 0.7 4.8 ± 0.6 ISO 527-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Resistencia a la Flexión [MPa] 98 ± 6.5 138 ± 5.3 ISO 178",
+      "reason": "properties.csv carries no property for \"Resistencia a la Flexión [MPa]\""
+    },
+    {
+      "page": 2,
+      "text": "Módulo de Flexión [GPa] 2.3 ± 0.1 2.7 ± 0.3 ISO 178",
+      "reason": "properties.csv carries no property for \"Módulo de Flexión [GPa]\""
+    },
+    {
+      "page": 2,
+      "text": "11.9 ± 0.3 13.3 ± 0.3 ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Resistencia al Impacto Charpy [kJ/m2](4) 19.7 ± 4.3 39 ± 10 ISO 179-1",
+      "reason": "properties.csv carries no property for \"Resistencia al Impacto Charpy [kJ/m2](4)\""
+    },
+    {
+      "page": 2,
+      "text": "Fuerza de impacto Charpy con Muesca [kJ/m2] 3.4 ± 0.9 3.6 ± 0.4 ISO 179-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MVR cm_3_/10 min 13 ISO 1133",
+      "reason": "the sheet states Melt volume-flow rate in min, and the database keeps it in cm³/10 min"
+    },
+    {
+      "page": 3,
+      "text": "(3) Se utilizó la impresora 3D Prusa Pro HT90 para imprimir las",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.8.0 con la siguiente configuración:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Prusament PEI 1010 filament;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Boquilla 0.6 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Ajustes de impresión 0.30 mm FAST (capas de 0.30 mm);",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Capas Sólidas Superiores: 0, Inferiores: 0;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Perímetros: 2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Relleno 100% rectilíneo;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Velocidad de Impresión de Relleno 40 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Temperatura de la Boquilla 410 °C todas las capas;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Temperatura de la Base 150 °C en todas las capas;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Temperatura de la Cámara: 90 °C;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Multiplicador de Extrusión 1.0;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(4) Charpy Sin muesca - Dirección de golpe de borde según ISO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "179-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

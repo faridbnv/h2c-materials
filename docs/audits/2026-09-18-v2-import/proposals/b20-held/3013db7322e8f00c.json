@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "3013db7322e8f00cfb2132b9ff5c20ea4b78234fc0cb1abdd9a2d85ea0523bae",
+    "url": "https://www.matterhackers.com/r/RczMCr",
+    "pages": 1,
+    "provider": "MatterHackers / PRO Series",
+    "manufacturer": "MatterHackers",
+    "docKey": "3013db7322e8f00c"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: nylon"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"nylon\" names a family, not a polymer: which nylon is a ruling: PA is a family entry and owns no product (D44)"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MATTERHACKERS-RczMCr",
+      "Publisher": "MatterHackers",
+      "Title": "TECHNICAL DATA SHEET - PRO Series Nylon",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by MatterHackers / PRO Series; the sheet is MatterHackers's.",
+      "Citation role": "cited",
+      "URL": "https://www.matterhackers.com/r/RczMCr",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3013db7322e8f00cfb2132b9ff5c20ea4b78234fc0cb1abdd9a2d85ea0523bae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET - PRO Series Nylon"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "MatterHackers",
+        "Product name": "PRO Series Nylon",
+        "Shared formulation key": "R-MATTERHACKERS-RczMCr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MATTERHACKERS-RczMCr",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET - PRO Series Nylon"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "102 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "102",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "102",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-RczMCr",
+        "Locator": "p. 1: Heat Deflection Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temperature 102°C ASTM D648 at 66 PSI"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "34 %",
+        "Raw unit": "%",
+        "Raw numeric": "34",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "34",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-RczMCr",
+        "Locator": "p. 1: Tensile Elongation",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation 34% ASTM D638, Type IV"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240°C - 260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "65°C",
+        "Bed state": "range",
+        "Bed min °C": "65",
+        "Bed max °C": "65",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "75°C",
+        "Drying state": "stated",
+        "Drying °C": "75",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-MATTERHACKERS-RczMCr",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 150 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Suggested print temperature 240°C - 260°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "print temperature",
+      "raw": "240°C - 260°C",
+      "fromBelow": false,
+      "line": "Suggested print temperature 240°C - 260°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "print speed",
+      "raw": "30 - 150 mm/s",
+      "fromBelow": false,
+      "line": "Suggested print speed 30 - 150 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "bed temperature",
+      "raw": "65°C",
+      "fromBelow": false,
+      "line": "Suggested bed temperature 65°C"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "drying temperature",
+      "raw": "75°C",
+      "fromBelow": false,
+      "line": "Suggested drying temperature 75°C for 8 hours"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "3D Printing Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Designation: 3D printing applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density 1.14 ASTM D792",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "Melting point 5 - 15 ASTM D1238",
+      "reason": "the line names Melting temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength 5260 Yield PSI ASTM D638, Type IV",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Peak Stress 13.3 KPSI ASTM D790",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus 366 KPSI ASTM D790",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75mm 1.75 ± 0.05 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 2.85mm 2.85 ± 0.05 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact 142 Jm-1 ASTM D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

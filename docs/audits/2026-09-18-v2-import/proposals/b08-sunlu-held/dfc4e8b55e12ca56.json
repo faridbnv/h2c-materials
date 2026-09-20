@@ -414,7 +414,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "SUNLU prints the scale of this hardness as \"HA/HD\", which states neither. A hardness with no scale cannot be compared with anything, and guessing between Shore A 78.5 and Shore D 78.5 is the difference between a soft rubber and a rigid plastic. Rejected, as b18 rejected the same maker's two others."
       }
     },
     {

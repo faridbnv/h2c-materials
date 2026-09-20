@@ -37,10 +37,10 @@ ASA-AF
 ASA-CF
 4.2
 ASA-EC
-~2.0–4.2†
-0.00168
+~2.0–4.1†
+0.0046
 log scale
-25.8
+25.3
 all 139 candidates
 ASA-CF: XY · Printed specimen
 Strength MPa
@@ -51,7 +51,7 @@ ASA-CF
 ASA-EC
 ~27–51†
 11.2
-288
+285
 all 139 candidates
 ASA-CF: XY · Printed specimen
 Stretch before breaking %
@@ -61,9 +61,9 @@ ASA-CF
 9.6
 ASA-EC
 ~1.1–4.7†
-0.505
+0.489
 log scale
-2,020
+2,080
 all 139 candidates
 ASA-CF: XY · Printed specimen
 Heat resistance °C
@@ -74,7 +74,7 @@ ASA-CF
 110
 ASA-EC
 ~86–105†
-41.3
+41.2
 300
 all 139 candidates
 ASA-CF: Printed specimen

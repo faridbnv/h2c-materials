@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "bbe0893ee19bcaed62f752ada5cc9b23a74d2ce3dc569d2587cd523002408aca",
+    "url": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-Entwined-Hemp.pdf?v=1600971750",
+    "pages": 1,
+    "provider": "3D-Fuel",
+    "manufacturer": "3D-Fuel",
+    "docKey": "bbe0893ee19bcaed"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Natural fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pla",
+      "filler: hemp (from the sheet, not the name)"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PLA",
+    "confidence": 0.65,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "any"
+  },
+  "newMaterial": {
+    "Original name": "PLA-NF",
+    "Family": "PLA",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Polylactic Acid (Natural fibre)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PLA-NF",
+    "Base polymer": "PLA",
+    "Estimate identity": "PLA",
+    "Modifier / filler": "Natural fibre",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-3D-TDS-3DFuel-Entwined-Hemp (p. 1): sheet: pla; filler: hemp (from the sheet, not the name)."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D-TDS-3DFuel-Entwined-Hemp",
+      "Publisher": "3D-Fuel",
+      "Title": "Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-Entwined-Hemp.pdf?v=1600971750",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bbe0893ee19bcaed62f752ada5cc9b23a74d2ce3dc569d2587cd523002408aca"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D-Fuel",
+        "Product name": "Entwined v2Hemp",
+        "Shared formulation key": "R-3D-TDS-3DFuel-Entwined-Hemp",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D-TDS-3DFuel-Entwined-Hemp",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "www.3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(> 2-FUSL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(844) 333-3616",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "General Information Maximum Tensile Strength, MPa ASTM D638 38 41",
+      "reason": "properties.csv carries no property for \"General Information\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "3D-FuelTM Entwined - Hemp Filled Tensile Strength at Yield, MPa ASTM D638 16 37",
+      "reason": "properties.csv carries no property for \"3D-FuelTM Entwined - Hemp Filled\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "filament is a composite made of Tensile Elongation, % ASTM D638 4.6 1.8",
+      "reason": "properties.csv carries no property for \"filament is a composite made of\""
+    },
+    {
+      "page": 1,
+      "text": "biodegradable thermoplastic and short *All test specimen were 3D printed to more accurately represent expected usage",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190 to 220 degrees Celsius is our recommended starting point. Entwined filament prints with virtually no warping on a non-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "heated build surface with a raft. If your printer does have a heated bed, setting it to around 50 degrees Celsius may help with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "first layer adhesion when printing without a raft. Print speed should remain between 50 and 120 mm/s and should be varied",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3DFuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(844) 333-3616",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

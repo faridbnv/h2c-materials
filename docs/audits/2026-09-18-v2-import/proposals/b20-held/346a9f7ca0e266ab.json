@@ -1,0 +1,705 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "346a9f7ca0e266ab29c3e00272c46b92eb2390021139e9f2e627eed6c235efe7",
+    "url": "https://drive.google.com/file/d/1o2Y5m-boyDLUKGqOvw_AtCM5114j38Cc/view?usp=drive_link",
+    "pages": 3,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1o2Y5m-boyDLUKGqOvw_AtCM5114j38Cc/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Metal",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs",
+      "variant: metal (Metal)",
+      "filed under ABS (M027) by R079: the database holds no ABS Metal material, and the finish is a fact about this grade"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+      "Publisher": "QIDI",
+      "Title": "TECHNICAL DATA SHEET QIDI ABS Rapido Metal",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1o2Y5m-boyDLUKGqOvw_AtCM5114j38Cc/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "346a9f7ca0e266ab29c3e00272c46b92eb2390021139e9f2e627eed6c235efe7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET QIDI ABS Rapido Metal"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "ABS Rapido Metal",
+        "Shared formulation key": "R-QIDI-ABS-RAPIDO-METAL",
+        "Composition / filler": "A Metal finish of ABS; the sheet declares no filler (R079).",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET QIDI ABS Rapido Metal"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "130-40 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "130",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "40",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "40",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "Locator": "p. 1: Melt flow rate (MFR)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rate (MFR)1 30~40g/10min ISO 1133"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "75 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "Locator": "p. 1: Heat deflection temperature(HDT)?",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature(HDT)? 75°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "91 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "91",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "91",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "Locator": "p. 1: Vicat softening temperature(VST)?",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature(VST)? 91°C ISO 306"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "% 2~4 Infill",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "Locator": "p. 2: Elongation at break (%) 2~4 Infill",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Infill 100%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220~250°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "80~100°C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "20.8mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-80mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "1.2mm"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 220~250°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "80~100°C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-ABS-RAPIDO-METAL",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "20.8mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-80mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "1.2mm"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Bed temperature 80~100°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "220~250°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 220~250°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "80~100°C",
+      "fromBelow": false,
+      "line": "Bed temperature 80~100°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "0-50%",
+      "fromBelow": false,
+      "line": "Active cooling fan 0-50%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.2mm",
+      "fromBelow": false,
+      "line": "Layer height 0.2mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "20.8mm",
+      "fromBelow": false,
+      "line": "Shell thickness 20.8mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "40-80mm/s",
+      "fromBelow": false,
+      "line": "Print speed 40-80mm/s"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "250°C",
+      "fromBelow": false,
+      "line": "Printing temperature: 250°C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated bed temperature",
+      "raw": "100°C",
+      "fromBelow": false,
+      "line": "Heated bed temperature: 100°C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "1.2mm",
+      "fromBelow": false,
+      "line": "Shell thickness: 1.2mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ABS Rapido Metal 04",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "13/01/2022 KT014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Use 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Settings are based on a 0.4mm nozzle.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Melt temperature ~190°C ISO 11357",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "1.test conditions: T= 220°C; m= 10kg.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. test conditions:0.45MPa;120°C/h.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. test conditions:10N; 120°C/h.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "density 1.05~1.07g/cm* ISO 1183",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "Test Method ISO 527",
+      "reason": "properties.csv carries no property for \"Test Method\""
+    },
+    {
+      "page": 2,
+      "text": "Infill under 45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile strength (Mpa) 34~37",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Emodulus (Mpa) 3400~4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Test Method ISO 179",
+      "reason": "properties.csv carries no property for \"Test Method\""
+    },
+    {
+      "page": 2,
+      "text": "1—impact direction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Notch impact strength’ (KJ/m?2) 6~10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact strength (KJ/m?) 22~28",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Test Method ISO 178",
+      "reason": "properties.csv carries no property for \"Test Method\""
+    },
+    {
+      "page": 2,
+      "text": "1—bending direction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Infill 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Maximum force (Mpa) 70~80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1. notch type: typeA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural modulus (Mpa) 3000~3600",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "Diameter 1.75mm 1.75+0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Diameter 2.85mm 2.85+0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Diameter 3.00mm 3.00+0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Max roundness deviation (1.75) 0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Max roundness deviation (2.85) 0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Max roundness deviation (3.00) 0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1kg EX1125",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

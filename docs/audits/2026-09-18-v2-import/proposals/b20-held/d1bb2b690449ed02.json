@@ -1,0 +1,1016 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "d1bb2b690449ed026858fa08e8b1ff9deff02cb5bc8d4e02c8fc02a1dd702037",
+    "url": "https://3d.nice-cdn.com/upload/file/PolyWood_PIS_EN.pdf",
+    "pages": 16,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Polymaker",
+    "docKey": "d1bb2b690449ed02"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"PolyWood\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+      "Publisher": "Polymaker",
+      "Title": "TM",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Polymaker's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PolyWood_PIS_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d1bb2b690449ed026858fa08e8b1ff9deff02cb5bc8d4e02c8fc02a1dd702037"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TM"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyWood",
+        "Shared formulation key": "S-POLYCN-PolyWood-PIS-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TM"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "0.8 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "0.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "800",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Density ASTM D792 (ISO 1183, GB/T 1033)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Density ASTM D792 (ISO 1183, GB/T 1033) 0.8 (g/cm3 at 21.5 °C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "62 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "62",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "62",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Glass transition temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Glass transition temperature DSC, 10 °C/min 62 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525 ISO 306 GB/T 1633",
+        "Standards": "ASTM D1525; ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Vicat softening temperature ASTM D1525 (ISO 306, GB/T 1633)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Vicat softening temperature ASTM D1525 (ISO 306, GB/T 1633) 60 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "151 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "151",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "151",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Melting temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Melting temperature DSC, 10 °C/min 151 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Crystallization temperature",
+        "Raw value": "116 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "116",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "116",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Crystallization temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Crystallization temperature DSC, 10 °C/min 116 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "23.2 ± 0.4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "23.2",
+        "Raw uncertainty ±": "0.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "23.2",
+        "Normalized uncertainty ±": "0.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040) 23.2 ± 0.4 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "8.2 ± 0.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "8.2",
+        "Raw uncertainty ±": "0.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.2",
+        "Normalized uncertainty ±": "0.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638 ISO 527 GB/T 1040",
+        "Standards": "ASTM D638; ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040) 8.2 ± 0.9 (%)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2607 ± 50 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2607",
+        "Raw uncertainty ±": "50",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.607",
+        "Normalized uncertainty ±": "0.05",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790 ISO 178 GB/T 9341",
+        "Standards": "ASTM D790; ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Bending modulus ASTM D790 (ISO 178, GB/T 9341)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Bending modulus ASTM D790 (ISO 178, GB/T 9341) 2607 ± 50 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "52.9 ± 0.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "52.9",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "52.9",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790 ISO 178 GB/T 9341",
+        "Standards": "ASTM D790; ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Bending strength ASTM D790 (ISO 178, GB/T 9341)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Bending strength ASTM D790 (ISO 178, GB/T 9341) 52.9 ± 0.3 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "2.1 ± 0.2 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "2.1",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D256 ISO 179 GB/T 1043",
+        "Standards": "ASTM D256; ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "Locator": "p. 6: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)",
+        "Notes": "the row is headed \"Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)\" and cites Charpy impact strength ASTM D256 (ISO 179, GB/T 1043) ASTM D256 ISO 179 GB/T 1043, which is the other test; recorded as unspecified",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Charpy impact strength ASTM D256 (ISO 179, GB/T 1043) 2.1 ± 0.2 (kJ/m2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "190°C - 210°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "25°C - 60°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Diameter accuracy (2.85/1.75 mm):",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-PolyWood-PIS-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 4: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.2"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 4,
+        "text": "Nozzle temperature 190˚C - 210˚C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 4,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "190°C - 210°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 190˚C - 210˚C"
+    },
+    {
+      "page": 4,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "25°C - 60°C",
+      "fromBelow": false,
+      "line": "Bed temperature 25˚C - 60˚C"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.2",
+      "fromBelow": false,
+      "line": "Layer height 0.2"
+    },
+    {
+      "page": 6,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying settings",
+      "raw": "Diameter accuracy (2.85/1.75 mm):",
+      "fromBelow": false,
+      "line": "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 3,
+      "text": "1.0 4 4.0 Polymaker Technologies",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.0 PolyWood 4.1 Jam-Free™ 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.1 Product data sheet 6 4.2 Warp-Free™ 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.2 Product comparison charts 7 4.3 Ash-Free™ 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.0 Product Families 4.4 Layer-Free™ 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.1 PolyLite™ 8 4.5 Nano-Reinforcement 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.2 PolyMax™ 8 4.6 Stabilized Foaming™ 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.3 PolyFlex™ 8 5.0 Hardware",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.4 PolyMide™ 9 5.1 PolyBox 12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.5 PolyDissolve™ 9 5.2 Polysher 13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.6 Specialty 9 6.0 About Polymaker 14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "7.0 Contact Us 15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1) Prepare the gcode",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Nozzle speed 30mm/s – 50mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Infill 20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Number of outlines (shell) 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Top/Bottom layers 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2) Prepare the printer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3) Prepare the filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4) Start the print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5) Post process",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "PolyWood™ can be dipped in hot water (above 70˚C) and be reshaped.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "70˚C for 8h 70% is within +/- 0.01 600g +/- 20g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "97% is within +/- 0.02 750g +/- 20g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "99% is within +/- 0.03 1000g +/- 30g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "99.9% is within +/- 0.04 3000g +/- 60g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "2 TM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "25kJ/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "100MPa",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 7,
+      "text": "66MPa",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 7,
+      "text": "180°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "160°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "140°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "120°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "TM 80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "60°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "20°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "PolyLite™ is a family of 3D printing filaments made with the best raw materials to deliver",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "exceptional quality and reliability. PolyLite™ covers the most popular 3D printing materials",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "PolyMax™ is a family of advanced 3D printing filaments produced with Polymaker’s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "TPU90, TPU95, TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "CoPA, PA6-CF, PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "S1, S2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "The Specialty family provides unique filaments from Polymaker to unlock new 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Polymaker offers 3D printing accessories to optimize the user experience with their",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "temperatures over 140 °C. As a result, Polymaker’s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Ash content: 0.5%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Ash content: 0.003%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "defect-free metal parts. 3D printing has been used",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Layer-Free™ technology involves exposing a 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Polymaker offers 3D printing accessories to optimize the user experience",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "3D printing filaments. The",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "3D printers and can house two",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "1kg spools or one 3kg spool.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "manufacturing, by continuously developing advanced 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "15",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

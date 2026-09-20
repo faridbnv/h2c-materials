@@ -31,6 +31,7 @@ import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { tokenise } from './classify.mjs';
+import { IMPLAUSIBLE_DENSITY } from './propose.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
@@ -49,7 +50,7 @@ const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `$
 export const RULING_OF = [
   ['R075', /no base polymer in/, 'the name says no polymer'],
   ['R077', /names a family, not a polymer/, 'the name says only a family'],
-  ['R083', /no material is not a material|would be a second (PEI-CF|PEKK-CF)|says copolymer beside/, 'a polymer and filler no material holds'],
+  ['R083', /no material is not a material|would create the material|would be a second (PEI-CF|PEKK-CF)|says copolymer beside/, 'a polymer and filler no material holds'],
 ];
 export const rulingOf = (note) => RULING_OF.find(([, re]) => re.test(String(note ?? '')))?.[0] ?? null;
 
@@ -65,10 +66,9 @@ const SAYS_WHAT_IT_IS = /\b(base polymer|polymer base|base (?:material|resin)|co
 // is the line's own shape and not the maker's name, because the next sheet that does it will be somebody else's.
 const runTogether = (text) => text.length > 24 && (text.match(/ /g) ?? []).length < text.length / 24;
 
-// A density no filament reaches. Tungsten-filled PLA, the densest thing in this corpus, is about 4000 kg/m³; a
-// reading above 8000 is the page misread, not a heavy filler, and four sheets in the ruling queue carry one
-// (23000, and one of 1183000). Such a number narrows nothing and is reported as what it is.
-export const IMPLAUSIBLE_DENSITY = 8000;
+// A density no filament reaches is the page misread, not a heavy filler, and six sheets in the ruling queue
+// carry one. Such a number narrows nothing here and declares no Variant there (R078), so both read the same
+// threshold from the one place it is written down.
 
 // A number a sheet prints about itself that a polymer row can be checked against. Nothing else narrows an
 // identity: a tensile strength varies more between two grades of one polymer than between two polymers.
@@ -289,6 +289,13 @@ export function readings(only = null) {
       why = evidence.join(' — ') || 'the sheet publishes no number and names no polymer this reader can map';
     }
 
+    // A proposal that already carries the material it would create has read the sheet; what waits is permission,
+    // not a reading. So the row says what would be made rather than guessing at it again.
+    if (ruling === 'R083' && proposal?.newMaterial) {
+      reading = proposal.identity?.polymer ?? reading;
+      strength = 'said';
+      why = `the sheet declares ${proposal.identity?.polymer} and ${proposal.identity?.modifier}, and no material holds that pair; ${proposal.identity?.signals?.[0] ?? 'read from the name and the sheet'}`;
+    }
     const identity = reading ? `${reading} / ${filler[0] ?? 'Unfilled / unspecified'}` : '';
     rows.push({
       Ruling: ruling,
@@ -298,7 +305,8 @@ export function readings(only = null) {
       Product: name,
       Reading: reading || 'Not read',
       'Filler the name declares': filler.join(', ') || 'Unfilled / unspecified',
-      'Material it would join': identity && identities.has(identity) ? identity : identity ? `${identity} (new)` : 'Not read',
+      'Material it would join': proposal?.newMaterial ? `${proposal.newMaterial['Original name']} (new material)`
+        : identity && identities.has(identity) ? identity : identity ? `${identity} (new)` : 'Not read',
       'Polymer has a row': reading ? (held.has(reading) ? 'yes' : 'no — R081') : 'Not read',
       Strength: strength,
       Evidence: why,
@@ -338,6 +346,23 @@ function document(rows) {
       out.push('');
     }
   }
+  const made = new Map();
+  for (const r of rows.filter((x) => /\(new material\)$/.test(x['Material it would join']))) {
+    const name = r['Material it would join'].replace(' (new material)', '');
+    if (!made.has(name)) made.set(name, []);
+    made.get(name).push(r);
+  }
+  if (made.size) {
+    out.push('## The materials this would create', '',
+      `R083 says the material is created where the sheet declares both, and that this list goes to the owner`,
+      `before any of it is written. **${made.size} material(s)** across ${[...made.values()].reduce((a, b) => a + b.length, 0)} document(s):`, '',
+      '| Material | Documents | Read from |', '|---|---|---|');
+    for (const [name, mine] of [...made].sort((a, b) => b[1].length - a[1].length)) {
+      out.push(`| **${name}** | ${mine.map((r) => `${r.Brand} ${r.Product}`).join('; ')} | ${String(mine[0].Evidence).replace(/\|/g, '/').slice(0, 150)} |`);
+    }
+    out.push('');
+  }
+
   const missing = rows.filter((r) => r['Polymer has a row'] === 'no — R081');
   if (missing.length) {
     out.push('## Polymers these readings need and `polymers.csv` does not hold', '',

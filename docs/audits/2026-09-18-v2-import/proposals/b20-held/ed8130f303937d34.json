@@ -1,0 +1,776 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "ed8130f303937d34e0ba0f25ac1ea375d7eadec90857047611c94346e37051da",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_petg_fx120.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "ed8130f303937d34"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet-g"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "its density of 1130 kg/m³ is below what neat PETG reaches (1220): a foaming agent and a softer grade of the same polymer both read like this, and the sheet says which"
+    ]
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+      "Publisher": "Spectrum",
+      "Title": "TECHNICAL DATA SHEET PET-G FX120",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_petg_fx120.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ed8130f303937d34e0ba0f25ac1ea375d7eadec90857047611c94346e37051da"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET PET-G FX120"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PET-G FX120",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET PET-G FX120"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.13 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Specific Gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Gravity 1.13 g/cm3 D 792 Spectrum PET-G FX 120 is a flexible material,"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "14 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Tensile Stress @ Yield",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress @ Yield 14 MPa D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "22 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Tensile Stress @ Break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress @ Break 22 MPa D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "38,00 %",
+        "Raw unit": "%",
+        "Raw numeric": "38",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "38",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Elongation @ Yield",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Yield 38,00% D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "400,00 %",
+        "Raw unit": "%",
+        "Raw numeric": "400",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "400",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Elongation @ Break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Break 400,00% D 638"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "150 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.15",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Flexural Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus 150 MPa D 790"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "40 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "40",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "40",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-40°C",
+        "Standard / load": "-40°C D 256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Izod Impact Strength, Notched @ -40°C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod Impact Strength, Notched @ -40°C 40 J/m D 256"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "55",
+        "Raw unit": "Shore D",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 2240",
+        "Standards": "ASTM D2240",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Shore D Scale",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D Scale 55 D 2240"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "95",
+        "Raw unit": "Shore A",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 2240",
+        "Standards": "ASTM D2240",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Shore A Scale",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore A Scale 95 D 2240"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "170",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "170",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "Locator": "p. 1: Vicat Softening Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature 170°C D 1525"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "80°C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "not necessary",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-petg-fx120",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "10 - 30%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.05 - 0.30 mm"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "0.40 – 2.70 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-70 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 240-260°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "240-260°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 240-260°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "80°C",
+      "fromBelow": false,
+      "line": "Bed temperature 80°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "10 - 30%",
+      "fromBelow": false,
+      "line": "Active cooling fan 10 - 30%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.05 - 0.30 mm",
+      "fromBelow": false,
+      "line": "Layer height** 0.05 - 0.30 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shell thickness",
+      "raw": "0.40 – 2.70 mm",
+      "fromBelow": false,
+      "line": "Shell thickness** 0.40 – 2.70 mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "30-70 mm/s",
+      "fromBelow": false,
+      "line": "Print speed** 30-70 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Closed chamber",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Closed chamber recommended"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "not necessary",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle not necessary"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PET-G FX120",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "use. Spectrum PET-G FX120 belongs to the group",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "used not only on 3D printers with direct drive mech-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tear Strength 350 N D 790",
+      "reason": "the line names Tear strength and states no value in a unit the database keeps it in (kN/m)"
+    },
+    {
+      "page": 1,
+      "text": "Brittleness Temperature ≤ 70°C D 746",
+      "reason": "properties.csv carries no property for \"Brittleness Temperature\""
+    },
+    {
+      "page": 1,
+      "text": "• Properties retained in 3D applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• 95A Shore hardness",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "is ca. 18-25°C (64.4 -77.0°F). Keep out of moisture,",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "product has a shelf life of 24 months.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "* settings are based on a 0,4 mm nozzle.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Preparation date: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

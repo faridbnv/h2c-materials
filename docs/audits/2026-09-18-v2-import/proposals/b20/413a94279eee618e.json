@@ -1,0 +1,528 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "413a94279eee618eb45795147d0f45353eb8719a0b64ecbd7b4207eedcc9ad21",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_-_ReForm_-_rTitan.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "FormFutura",
+    "docKey": "413a94279eee618e"
+  },
+  "identity": {
+    "polymer": "COC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: coc",
+      "undisclosed dense filler by R078: Its density of 1100 kg/m³ is above what neat COC reaches (1020), so the product carries a filler its name does not declare."
+    ],
+    "materialId": "M137",
+    "materialName": "COC",
+    "estimateIdentity": "COC",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-ReForm-rTitan",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet ReForm™ - rTitan",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_-_ReForm_-_rTitan.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "413a94279eee618eb45795147d0f45353eb8719a0b64ecbd7b4207eedcc9ad21"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet ReForm™ - rTitan"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M137",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "ReForm - rTitan",
+        "Shared formulation key": "S-PET-TDS-ReForm-rTitan",
+        "Composition / filler": "Its density of 1100 kg/m³ is above what neat COC reaches (1020), so the product carries a filler its name does not declare. Not declared on the sheet; recorded as a Variant under D57 (R078).",
+        "Variant": "undisclosed dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet ReForm™ - rTitan"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.10 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Locator": "p. 1: Specific gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity 1.10 g/cc ISO 1183 -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "41 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "41",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "41",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Locator": "p. 1: Melt flow rate",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rate 41 g/10min ISO 1133 260° C/5Kg"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "58 KJ/m²",
+        "Raw unit": "KJ/m²",
+        "Raw numeric": "58",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "58",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Locator": "p. 1: Impact strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Impact strength 58 KJ/m² ISO 179 Charpy Notched @23° C (73° F)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "43.6 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "43.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "43.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 43.6 Mpa ISO 527 @Yield 50mm/min (2 inch/min)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2030 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "2030",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.03",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Locator": "p. 1: Tensile modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus 2030 Mpa ISO 527 1mm/min"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "34 %",
+        "Raw unit": "%",
+        "Raw numeric": "34",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "34",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "Locator": "p. 1: Elongation at break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break 34% ISO 527 @ Break 50mm/min (2 inch/min)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its value and its unit as the sheet prints them. The confidence is the identity's, not the reading's, and the ruling that settles the identity is named in the proposal's signals."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M137",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "± 240 - 260° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PET-TDS-ReForm-rTitan",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Print temperature ± 240 - 260° C - -"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print temperature",
+      "raw": "± 240 - 260° C",
+      "fromBelow": false,
+      "line": "Print temperature ± 240 - 260° C - -"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date of issue: 2 May 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version: v1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "into high-end upcycled filaments. The ideology behind ReForm is to a make 3D printing more sustainable – without having",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melting termperature ± 235 ± 10° C ISO 294 -",
+      "reason": "the sheet publishes no value for \"Melting termperature\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Viscat softening temp. ± 97° C ISO 306 VST/A/50 (50° C/h, 10N)",
+      "reason": "properties.csv carries no property for \"Viscat softening temp.\""
+    },
+    {
+      "page": 1,
+      "text": "HS Code 39169090 1.75mm ± 0.05mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Formfutura VOF CoC: 55502105 Tel: +31 (0)85 002 0881",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Groenestraat 215 VAT: NL851741083B01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6531 HH Nijmegen EORI: NL851741083",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

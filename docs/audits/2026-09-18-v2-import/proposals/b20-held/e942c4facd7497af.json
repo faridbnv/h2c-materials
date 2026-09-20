@@ -1,0 +1,587 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "e942c4facd7497af5052dce52017212bd6c9ad1d06cc4dd540b2a506f4a3baf7",
+    "url": "https://drive.google.com/file/d/1qOA-wn246iokKx_PktWTPFOAjJ2m4bBL/view?usp=drive_link",
+    "pages": 5,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1qOA-wn246iokKx_PktWTPFOAjJ2m4bBL/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "filler: aero"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "any"
+  },
+  "newMaterial": {
+    "Original name": "TPU-LW",
+    "Family": "Flexible Elastomers",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "Thermoplastic Polyurethane (Foaming)",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "TPU-LW",
+    "Base polymer": "TPU",
+    "Estimate identity": "TPU",
+    "Modifier / filler": "Foaming",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-QIDI-TPU-AERO (p. 1): name: tpu; filler: aero."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-TPU-AERO",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI TPU-Aero",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1qOA-wn246iokKx_PktWTPFOAjJ2m4bBL/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e942c4facd7497af5052dce52017212bd6c9ad1d06cc4dd540b2a506f4a3baf7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI TPU-Aero"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "TPU-Aero",
+        "Shared formulation key": "R-QIDI-TPU-AERO",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-TPU-AERO",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI TPU-Aero"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.15 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-AERO",
+        "Locator": "p. 2: 线材密度 ISO 1183 Filament Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 1183 1.15 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "78.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "78.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "78.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-AERO",
+        "Locator": "p. 3: 维卡软化点 ISO 306 Vicat softening temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "ISO 306 78.8°C 70.4°C 61.8°C 50.3°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "5.98 ± 0.10 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5.98",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.98",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-AERO",
+        "Locator": "p. 3: 拉伸屈服强度(X-Y) Tensile yield strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile yield strength 5.98±0.10 MPa 4.23 ±0.04 MPa 3.22± 0.05 MPa 3.59± 0.11 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "9.80 ± 0.42 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9.8",
+        "Raw uncertainty ±": "0.42",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9.8",
+        "Normalized uncertainty ±": "0.42",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-AERO",
+        "Locator": "p. 3: Tensile breaking strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile breaking strength 9.80 ± 0.42 MPa 6.81 ± 0.11 MPa 4.77 ± 0.16 MPa 3.59± 0.11 MPa (X-Y)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "598.69 ± 72.20 %",
+        "Raw unit": "%",
+        "Raw numeric": "598.69",
+        "Raw uncertainty ±": "72.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "598.69",
+        "Normalized uncertainty ±": "72.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-AERO",
+        "Locator": "p. 3: 断裂伸长率(X-Y) elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "598.69± 72.20 % 576.27± 8.48 % 520.54± 32.31 % 452.13± 19.40 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [
+    {
+      "HeadlineKey": "density",
+      "measurement": "m01",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "tensileStrengthXY",
+      "measurement": "m03",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "elongationXY",
+      "measurement": "m05",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data / Revised: 03.2025 Version No: 1.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "主动发泡轻量化柔性 3D打印材料",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Active foaming low weight TPU 3D print material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "硬度可控制在 65A-85A 之间。在最大发泡率下，QIDI TPU-Aero 相比普通 TPU 材料可以减重 50%，打",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU-Aero printed parts can be controlled between 65A and 85A. At the maximum foaming rate,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI TPU-Aero can reduce weight by 50% compared to ordinary TPU materials, with the printed surfa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "艺，将发泡组分在未激活的状态下均匀分布在 TPU基材内部，使得整卷产品重量仍然保持在 1kg，未",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "n the TPU matrix in an unactivated state, ensuring that the entire spool of material remains at 1k",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "12mm³/s。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "with most printers, with a maximum extrusion flow rate of 12mm³/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "线径 Diameter：1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "净重 Net Wet：1KG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "熔融指数 190°C，2.16kg",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "240°C 250°C 260°C 270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.88 0.68 0.58 0.50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 845 0.93 g/cm³ 0.74 g/cm³ 0.62 g/cm³ 0.54 g/cm³",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 7619 82A 75A 72A 66A",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 3,
+      "text": "ISO 527",
+      "reason": "the line names Tensile break strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "试样打印参数：喷嘴大小 0.4mm，底板加热 45°C，打印速度 60mm/s，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "wing conditions: Nozzle size 0.4m，mBed temp 45°C, Print speed 60mm/s, Infill 100%, Infill angle ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "230-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.4mm-0.8mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "30-45°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "＜100 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0mm or Off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. TPU材料暴露在空气中容易吸收水分，建议您打开 QIDI TPU-Aero 真空铝箔袋包装后立即将线材放入干",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "燥盒内（湿度控制在 15% 以下）进行打印，不用的线材请放回原包装铝箔袋内密封保存。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "TPU-Aero filament into a dry box (humidity controlled below 15%) immediately after opening the vacuum",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2. 长时间暴露于空气中的 TPU-Aero线材，请先将线材放入 70-80°C 烘箱内干燥 4-6h 后进行打印，避免材料潮湿使得",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "filament in an oven at 70-80°C for 4-6 hours before printing to avoid issues such as bubbles, holes, or stringing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3. 由于发泡类材料在热端融腔内受热会不断膨胀，空驶时会不可避免的出现漏料情况，即使调节回抽距离和回抽",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4. 部分 PEI 涂层或 PEI 贴膜的打印底板可能会对 TPU类材料粘接力过牢，取件时请不要用力拉扯模型，容易造",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "forceful removal to prevent base layer damage. Apply a small amount of isopropyl alcohol (99%) to the edge",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "regions of the model's base. Wait 10-20 seconds to allow capillary penetration between the model and PEI",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "QIDI 3D 打印耗材适用于通用打印用途，已在标准条件下进行测试。然而，打印成品的性能与安全性受多种因素影响，包括打印参数、模型设计、使用环",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "QIDI 3D printing filaments are suitable for general printing applications and have been tested under standard conditions. However, the performance",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

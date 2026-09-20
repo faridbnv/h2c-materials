@@ -1,0 +1,378 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "c2a396a9f53bab5282e0ed0c597ae8fae2c2036ead3dcc7b5c09c7341a9f687c",
+    "url": "https://3d.nice-cdn.com/upload/file/PolySupport_TDS_V5.1.pdf",
+    "pages": 4,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Polymaker",
+    "docKey": "c2a396a9f53bab52"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": true,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"PolySupport\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports",
+      "no base polymer in \"PolySupport\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-POLYCN-PolySupport-TDS-V5-1",
+      "Publisher": "Polymaker",
+      "Title": "PolySupport",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Polymaker's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PolySupport_TDS_V5.1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "c2a396a9f53bab5282e0ed0c597ae8fae2c2036ead3dcc7b5c09c7341a9f687c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": ""
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolySupport",
+        "Shared formulation key": "S-POLYCN-PolySupport-TDS-V5-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolySupport-TDS-V5-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": ""
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.22 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1220",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO1183 GB/T1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolySupport-TDS-V5-1",
+        "Locator": "p. 2: Density ISO1183, GB/T1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ISO1183, GB/T1033 1.22 g/cm3 at 23°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3-6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "6",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "6",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "220°C",
+        "Standard / load": "220°C 2.16kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolySupport-TDS-V5-1",
+        "Locator": "p. 2: Melt index 220°C, 2.16kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt index 220°C, 2.16kg 3-6 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.64 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.64",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.64",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolySupport-TDS-V5-1",
+        "Locator": "p. 2: Equilibrium water absorption (%)=",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Equilibrium water absorption (%)= 0.64%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220 – 230 (℃)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "25 - 60 (°C)",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-PolySupport-TDS-V5-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20-40 (mm/s)"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "separation distance 0 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20 (mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 3,
+        "text": "Nozzle temperature 220 – 230 (℃)"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "220 – 230 (℃)",
+      "fromBelow": false,
+      "line": "Nozzle temperature 220 – 230 (℃)"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "25 - 60 (°C)",
+      "fromBelow": false,
+      "line": "Build plate temperature 25 - 60 (˚C)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "20-40 (mm/s)",
+      "fromBelow": false,
+      "line": "Printing speed 20-40 (mm/s)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Raft",
+      "raw": "separation distance 0 (mm)",
+      "fromBelow": false,
+      "line": "Raft separation distance 0 (mm)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "1 (mm)",
+      "fromBelow": false,
+      "line": "Retraction distance 1 (mm)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "20 (mm/s)",
+      "fromBelow": false,
+      "line": "Retraction speed 20 (mm/s)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 3,
+      "text": "* Based on 0.4 mm nozzle and Simplify 3D v.4.0. Printing conditions may vary with different nozzle diameters",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

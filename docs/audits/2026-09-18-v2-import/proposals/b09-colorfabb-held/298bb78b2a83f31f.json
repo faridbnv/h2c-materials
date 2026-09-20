@@ -62,7 +62,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       },
       "row": {
         "MaterialID": "M001",
@@ -132,7 +135,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     },
     {
@@ -179,7 +185,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     },
     {
@@ -226,7 +235,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     },
     {
@@ -273,7 +285,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     },
     {
@@ -320,7 +335,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     },
     {
@@ -367,7 +385,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     },
     {
@@ -414,7 +435,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     }
   ],
@@ -475,7 +499,10 @@
         "text": "Advised 3D printing temperature 195 - 220°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "colorFabb prints two value columns on this sheet and the reader reads them as one list: a flexural modulus of 3080 MPa and one of 40 MPa, a flexural strength of 29.6 MPa and one of 7000 MPa, two tensile strengths and two elongations. Which column is which is what the sheet has to be read by position to say, and that is a reader gap, not a value. Held whole rather than half-recorded."
       }
     }
   ],

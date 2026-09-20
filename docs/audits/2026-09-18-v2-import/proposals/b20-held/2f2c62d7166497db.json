@@ -1,0 +1,1014 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd",
+    "url": "https://s3.us-east-1.amazonaws.com/static.markforged.com/downloads/Onyx-GF-Material-Datasheet.pdf",
+    "pages": 2,
+    "provider": "Markforged",
+    "manufacturer": null,
+    "docKey": "2f2c62d7166497db"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: nylon"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "\"nylon\" names a family, not a polymer: which nylon is a ruling: PA is a family entry and owns no product (D44)"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+      "Publisher": "Markforged",
+      "Title": "COMPOSITE MATERIAL DATASHEET",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.us-east-1.amazonaws.com/static.markforged.com/downloads/Onyx-GF-Material-Datasheet.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "COMPOSITE MATERIAL DATASHEET"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Markforged",
+        "Product name": "COMPOSITE MATERIAL",
+        "Shared formulation key": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Composition / filler": "Onyx GF is a chopped-glass-fiber-filled nylon filament built for industrial (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "COMPOSITE MATERIAL DATASHEET"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "73.7 ± 2.1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "73.7",
+        "Raw uncertainty ±": "2.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "73.7",
+        "Normalized uncertainty ±": "2.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Yield MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Yield MPa 73.7 ± 2.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "57.9 ± 0.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "57.9",
+        "Raw uncertainty ±": "0.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57.9",
+        "Normalized uncertainty ±": "0.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Yield MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Yield MPa 57.9 ± 0.7"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "70.7 ± 1.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "70.7",
+        "Raw uncertainty ±": "1.8",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70.7",
+        "Normalized uncertainty ±": "1.8",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Break MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Break MPa 70.7 ± 1.8"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "56.5 ± 0.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "56.5",
+        "Raw uncertainty ±": "0.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "56.5",
+        "Normalized uncertainty ±": "0.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Break MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Break MPa 56.5 ± 0.9"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "25.9 ± 3.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "25.9",
+        "Raw uncertainty ±": "3.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25.9",
+        "Normalized uncertainty ±": "3.5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Break MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Break MPa 25.9 ± 3.5"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4.2 ± 0.2 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "4.2",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.2",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Modulus GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Modulus GPa 4.2 ± 0.2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3.1 ± 0.1 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Modulus GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Modulus GPa 3.1 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1.5 ± 0.2 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "1.5",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.5",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Modulus GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Modulus GPa 1.5 ± 0.2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "5.9 ± 0.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.9",
+        "Raw uncertainty ±": "0.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.9",
+        "Normalized uncertainty ±": "0.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at Break % 5.9 ± 0.4"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.2 ± 0.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "6.2",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.2",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at Break % 6.2 ± 0.6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.2 ± 0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.2",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.2",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at Break % 3.2 ± 0.3"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "60.4 ± 1.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "60.4",
+        "Raw uncertainty ±": "1.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60.4",
+        "Normalized uncertainty ±": "1.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Yield MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Yield MPa 60.4 ± 1.9"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "59.4 ± 1.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "59.4",
+        "Raw uncertainty ±": "1.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.4",
+        "Normalized uncertainty ±": "1.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Tensile Strength at Break MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Strength at Break MPa 59.4 ± 1.7"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "5.5 ± 0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.5",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.5",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property Unit",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Locator": "p. 2: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at Break % 5.5 ± 0.3"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Tensile Strength at Break MPa (ksi) D638¹ 56.5 ± 0.9 (8.2 ± 0.1) D3039 800 (116)",
+      "reason": "the line names Tensile break strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus GPa (ksi) D638¹ 3.1 ± 0.1 (446 ± 10) D3039 60 (8,702)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at Break % D638¹ 6.2 ± 0.6 D3039 1.5",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength MPa (ksi) D790 88.2 ± 2.4 (12.8 ± 0.3) D790 540 (78.3)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus GPa (ksi) D790 2.4 ± 0.1 (343 ± 8) D790 51 (7,397)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Compressive Strength MPa (ksi) D695² 71.8 ± 4.0 (10.4 ± 0.6) D6641 420 (60.9)",
+      "reason": "the line names Compression strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Compressive Modulus GPa (ksi) D695² 1.8 ± 0.1 (261 ± 17) D6641 62 (8,992)",
+      "reason": "properties.csv carries no property for \"Compressive Modulus\""
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Resistance D256 A3 161 ± 9 (3.0 ± 0.2) D256 960 (18)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Density g/cm3 - 1.21 ± 0.01 - 1.4",
+      "reason": "the sheet publishes no value for Density in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Mean CTE (30 to 50°C) μm/(m*°C) E831² 35.8 - -",
+      "reason": "the sheet publishes no value for \"Mean CTE (30 to 50°C)\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Mean CTE (60 to 160°C) μm/(m*°C) E831² 45.7 - -",
+      "reason": "the sheet publishes no value for \"Mean CTE (60 to 160°C)\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Onyx GF specimens were printed with a layer height of 125 μm using default solid fill settings on an FX10 and conditioned at 52% RH and 23 ± 2°C for 44 ± 2 h in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "D618 unless otherwise noted. Carbon Fiber data were derived from pure fiber test specimens. Actual part strength will depend on the amount and pathing of fiber ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile specimens are ASTM D638 type I beams.",
+      "reason": "properties.csv carries no property for \"Tensile specimens are\""
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact specimens were 12.7 mm wide and printed with a notch according to the geometry specified in ASTM D256.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT was measured via DMA using an internal method based on ASTM D648.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "markforged.com V01 - 4/7/2026 © 2026 Markforged®, Inc. All rights reserved.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Property Unit XZ Orientation XY Orientation ZX Orientation5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mean CTE (30 to 50°C)⁶ 35.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mean CTE (30 to 50°C)⁶ 121",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "μm/(m*°C) 35.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mean CTE (60 to 160°C)⁶ μm/(m*°C) 45.7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mean CTE (60 to 160°C)⁶ μm/(m*°C) 45.7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mean CTE (60 to 160°C)⁶ μm/(m*°C) 284",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Property (XY Orientation) Unit Dry7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Property (XY Orientation) 8 Wet9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength at Yield 57.9 ± 0.7",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength at Yield 41.7 ± 0.7",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength at Break 56.5 ± 0.9",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength at Break 40.4 ± 0.9",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "3.1 ± 0.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.9 ± 0.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Modulus 3.1 ± 0.1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at Break 6.2 ± 0.6",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Onyx GF specimens were printed with a layer height of 125 μm using default solid fill settings on an FX10 and conditioned at 52% RH and 23 ± 2°C for 44 ± 2 h in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ZX tensile specimens were machined from a cuboidal tube printed on an FX-10 with solid fill settings, 4 walls, and 4 floors.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at Break 21.9 ± 3.0",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dry specimens were dried under vacuum at 75°C for 24 h prior to testing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Conditioned specimens were conditioned at 52% RH and 23 ± 2°C for 44 ± 2 h in accordance with Procedure A of ASTM D618.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Wet specimens were soaked in water for 72 h prior to testing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "markforged.com V01 - 5/26/2026 © 2026 Markforged®, Inc. All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

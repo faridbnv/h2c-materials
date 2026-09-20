@@ -62,7 +62,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "LumberLay publishes a density of 0.97 g/cc and a melting point above 210 C, and the reader files it under PEI, whose density starts at 1270. A polyetherimide does not melt at 210 and does not float; the name says a wood-filled filament and the sheet does not say the polymer. Held as a question."
       },
       "row": {
         "MaterialID": "",
@@ -132,7 +135,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "LumberLay publishes a density of 0.97 g/cc and a melting point above 210 C, and the reader files it under PEI, whose density starts at 1270. A polyetherimide does not melt at 210 and does not float; the name says a wood-filled filament and the sheet does not say the polymer. Held as a question."
       }
     },
     {
@@ -179,7 +185,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "LumberLay publishes a density of 0.97 g/cc and a melting point above 210 C, and the reader files it under PEI, whose density starts at 1270. A polyetherimide does not melt at 210 and does not float; the name says a wood-filled filament and the sheet does not say the polymer. Held as a question."
       }
     }
   ],

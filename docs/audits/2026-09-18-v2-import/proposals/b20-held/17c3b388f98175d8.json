@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "17c3b388f98175d84c9870d72473a47002b62ea71f9b7f513147bc62cf72ca05",
+    "url": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/Obsidian-PA6CF-TDS_v1.pdf?v=1721633159",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "17c3b388f98175d8"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pa6",
+      "filler: carbonfiber"
+    ],
+    "materialId": "M050",
+    "materialName": "PA6-CF",
+    "estimateIdentity": "PA6",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "X-ECOMAX-Obsidian-PA6CF-TDS-v1",
+      "Publisher": "3DXTECH",
+      "Title": "Technical Data Sheet: Obsidian™ Carbon Fiber Nylon 3D Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/Obsidian-PA6CF-TDS_v1.pdf?v=1721633159",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "17c3b388f98175d84c9870d72473a47002b62ea71f9b7f513147bc62cf72ca05"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet: Obsidian™ Carbon Fiber Nylon 3D Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M050",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "Obsidian Carbon Fiber Nylon",
+        "Shared formulation key": "X-ECOMAX-Obsidian-PA6CF-TDS-v1",
+        "Composition / filler": "Technical Data Sheet: Obsidian™ Carbon Fiber Nylon 3D Filament (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-Obsidian-PA6CF-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet: Obsidian™ Carbon Fiber Nylon 3D Filament"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "X-ECOMAX-Obsidian-PA6CF-TDS-v1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.125mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Layer Height: 0.125mm"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.125mm",
+      "fromBelow": false,
+      "line": "Layer Height: 0.125mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TDS Rev 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Technical Data Sheet: Obsidian™ Carbon Fiber Nylon 3D Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density ASTM D792 g/cc 1.2 1.2",
+      "reason": "the row states 2 values in columns of its own (1.2, 1.2) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength, Break ASTM D638 MPa 44 37",
+      "reason": "the row states 2 values in columns of its own (44, 37) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus ASTM D638 GPa 3.5 2.4",
+      "reason": "the row states 2 values in columns of its own (3.5, 2.4) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Elongation, Break ASTM D638 % 11 25",
+      "reason": "the row states 2 values in columns of its own (11, 25) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength ASTM D790 MPa 75 71",
+      "reason": "the row states 2 values in columns of its own (75, 71) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus ASTM D790 GPa 3.8 3",
+      "reason": "the row states 2 values in columns of its own (3.8, 3) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D648 °C 147 145",
+      "reason": "the row states 2 values in columns of its own (147, 145) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa (66psi)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Surface Resistance ASTM D257 Ohm/sq >109 >109",
+      "reason": "the line names Surface resistivity and states no value in a unit the database keeps it in (Ω)"
+    },
+    {
+      "page": 1,
+      "text": "Infill: 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.3dxtech.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

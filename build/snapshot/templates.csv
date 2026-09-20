@@ -787,7 +787,7 @@ High-stiffness fixture,Explore with estimates,M112,PC-PTFE,UNKNOWN,screened,tens
 High-stiffness fixture,Explore with estimates,M113,ASA-AF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M126,TPU-ESD,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
-High-stiffness fixture,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M129,TPU-CF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M134,CPE-LW,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M135,PVC,UNKNOWN,yes,
@@ -865,7 +865,7 @@ Flexible component,Explore with estimates,M042,TPU 90A,PASS,yes,
 Flexible component,Explore with estimates,M043,TPU 85A,PASS,yes,
 Flexible component,Explore with estimates,M045,PEBA,PASS,yes,
 Flexible component,Explore with estimates,M046,TPC / TPEE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M049,PA6,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M049,PA6,UNKNOWN,yes,
 Flexible component,Explore with estimates,M052,PA12,UNKNOWN,yes,
 Flexible component,Explore with estimates,M055,PA66,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M056,PA66-CF,UNKNOWN,screened,elongationXY >= 100
@@ -879,7 +879,7 @@ Flexible component,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M093,PVB,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M093,PVB,UNKNOWN,yes,
 Flexible component,Explore with estimates,M104,PA6-CE,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M106,ABS-AF,UNKNOWN,screened,elongationXY >= 100

@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "419076e1fe26a4525c5fe34379d49a287c3f2875532d54a34bf08d1913392842",
+    "url": "https://nanovia.tech/ref/tpe-22d/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/ref/tpe-22d/"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "22D",
+    "support": false,
+    "signals": [
+      "name: tpe",
+      "hardness: 22D"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"tpe\" names a family, not a polymer: TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-TPE-22D-419076",
+      "Publisher": "Nanovia",
+      "Title": "Boutique",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/ref/tpe-22d/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "419076e1fe26a4525c5fe34379d49a287c3f2875532d54a34bf08d1913392842"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Boutique"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "TPE 22D",
+        "Shared formulation key": "R-NANOVIA-TPE-22D-419076",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Nanovia TPE 22D certifié RoHS : (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-TPE-22D-419076",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Boutique"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "22 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-TPE-22D-419076",
+        "Locator": "p. 1: Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D 22 – Nanovia TPE 22D"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "44 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "44",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "44",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-TPE-22D-419076",
+        "Locator": "p. 1: Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D 44 – Nanovia Istroflex & Flex VX"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "70 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-TPE-22D-419076",
+        "Locator": "p. 1: Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D 70 – Nanovia TPU 70D"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Accueil / Produits / Filaments impression 3D / Matière / Flexibles / Nanovia TPE 22D : Flexible absorption de chocs Filaments impression 3D Polymère ABS ASA HIP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia TPE 22D : Flexible absorption de chocs À partir de : 61,75 &euro; HT / kg Le Nanovia TPE 22D est un filament flexible de dureté Shore 22D / 70A qui perm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diamètre  1,75 mm 2,85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Poids  500 g 2000 g échantillon Effacer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "quantité de Nanovia TPE 22D : Flexible absorption de chocs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UGS : ND Catégories : Défense , Filaments impression 3D , Flexibles , Matière",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température d’extrusion  220 – 240  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température de plateau  30 – 50  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température d’Enceinte  20  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diamètre  1,75 & 2,85  mm  +/- 50 µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densité  1,00  g/cm 3  ISO 1183",
+      "reason": "properties.csv carries no property for \"Densité\""
+    },
+    {
+      "page": 1,
+      "text": "Module de traction  12  MPa  ISO 527-1",
+      "reason": "properties.csv carries no property for \"Module de traction\""
+    },
+    {
+      "page": 1,
+      "text": "Dureté  22  Shore D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "70  Shore A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "dernière mise à jour : 08/03/2023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Le Nanovia TPE 22D permet l’impression de pièces flexible, avec une excellente adhésion inter-couche. Très facile d’impression, ils sont largement utilisés dans",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Etuver pendant 4h à 50°C avant impression si exposition prolongée à l’air libre.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Il n’est pas possible de poncer le Nanovia TPE 22D.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia TPE 22D certifié RoHS :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bobine  L1  L2  D1  D2  D3  Poids",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max temperature  55 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diamètre  1,75 mm, 2,85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Poids  500 g, 2000 g, échantillon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia Insublend : Résistance haute tension & feu UL94 V0 À partir de : 188,98 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ABS EF : Sans perturbateurs endocrinien À partir de : 31,50 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ABS CF : Renforcé de fibres de carbone À partir de : 91,15 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PEI Ultem 1010 : Haute résistance thermique À partir de : 233,85 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nos Coordonnées NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

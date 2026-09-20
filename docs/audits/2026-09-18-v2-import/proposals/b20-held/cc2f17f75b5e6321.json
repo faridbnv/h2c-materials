@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "cc2f17f75b5e6321b153fdaa460deb1dca75f86a9bc0ebe7c6531ab5ca70f967",
+    "url": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/ABS_TDS.pdf?v=1714039377",
+    "pages": 2,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "cc2f17f75b5e6321"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PCGF-ABS-TDS",
+      "Publisher": "SIDDAMENT",
+      "Title": "ABS Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/ABS_TDS.pdf?v=1714039377",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "cc2f17f75b5e6321b153fdaa460deb1dca75f86a9bc0ebe7c6531ab5ca70f967"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ABS Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "ABS",
+        "Shared formulation key": "S-PCGF-ABS-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-ABS-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ABS Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ABS is a kind of FFF 3D printing filament, using Chi Mei ABS 757 as the main raw material for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "which is generally suitable for different FFF 3D printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moisture and oxygen in the air and ultraviolet rays will 3D Printer Guider accelerate the aging of the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "in a hot air oven at 80°C for at least 5 hours to ensure the success rate and quality of the printed",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

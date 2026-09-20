@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501",
+    "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPE_TDS_JP.pdf",
+    "pages": 1,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "36bdc5d8f5c3688c"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpe"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"tpe\" names a family, not a polymer: TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-FLASH-TPE-TDS-JP",
+      "Publisher": "Flashforge",
+      "Title": "TI-AWST —32y—|",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPE_TDS_JP.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TI-AWST —32y—|"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "FABRIAL-R",
+        "Shared formulation key": "D-FLASH-TPE-TDS-JP",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "TU V2—OieERPE AER MONKSORA CADE C hE e LT CHEE. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-TPE-TDS-JP",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TI-AWST —32y—|"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TI-AWST —32y—|",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "San ieA3D 7) Y2— RABE LOARY—(IPE)714a xv bk",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TADAY FARE 1.75 +/- 0.05mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ti arky bee 500g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "T1IAV ERE 230m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "JIS K 7210",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "mee) HE (150°C 2.16Kg) g/10 min. 10",
+      "reason": "properties.csv carries no property for \"mee) HE\" (min.)"
+    },
+    {
+      "page": 1,
+      "text": "wae JISK7161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 | aoe Ht Se (imm/3)) MPa 150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "oe (qvade cts JISK7161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 | ate ee gee (5omm/4)) MPa 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "scale cs JISK7161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 | ae AR AT See FS (50mm/3)) MPa 18",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "vests JISK7161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 | aie AR AT (ERS (50mm/3)) % > 400",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sala es JISK7171",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HA ae = (100mm/43) MPa 10",
+      "reason": "properties.csv carries no property for \"HA ae =\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "equ JIS K 7171",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HALTee SK (mm/3)) MPa 150",
+      "reason": "properties.csv carries no property for \"HALTee SK\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "ae Durometer YAavyiPeaA 90",
+      "reason": "properties.csv carries no property for \"ae\""
+    },
+    {
+      "page": 1,
+      "text": "X3D IU YB Ick SSCACRE LIGRIEIE CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "J AIVAE °C 140 - 160",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7 TIVE °C 80 - 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "jeZAE— F mm/#) 5-10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TU V2—OieERPE AER MONKSORA CADE C hE e LT CHEE.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 10993-5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RTE ME are ISO 10993-10",
+      "reason": "properties.csv carries no property for \"RTE ME are\""
+    },
+    {
+      "page": 1,
+      "text": "T 651-1516 RielALK AMS 1-2-33",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "T 136-0072 RRA LRKAE 2-31-8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TEL:078-986-0701 FAX:078-986-0702",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TEL:03-5858-2551 FAX:03-5858-2552",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

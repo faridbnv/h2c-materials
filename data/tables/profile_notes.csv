@@ -1809,3 +1809,45 @@ P0880,Speed,"of 450mm/s. For simple batch models, the maximum speed"
 P0880,Cooling,100%
 P0880,Adhesion / release,Separation Distance 0.8
 P0880,Retraction,40
+P0881,Adhesion / release,not required
+P0881,Speed,20-200mm/s
+P0881,Cooling,20-50%
+P0882,Speed,30-120 mm/s
+P0882,Retraction,s 1800-3600 mm/min
+P0883,Cooling,Speed O ff or run very low (10-20%)
+P0883,Speed,Capable of 30 mm/s up to 300 mm/s
+P0883,Retraction,1 – 3 mm
+P0884,Cooling,100%
+P0884,Speed,40mm/s
+P0886,Speed,[mm/s] 20-30
+P0887,Cooling,100%
+P0887,Speed,40 - 100mm/s
+P0888,Speed,20 - 30 mm/s
+P0888,Cooling,0 %
+P0889,Cooling,50-85%
+P0889,Layer height,0.05 - 0.30 mm
+P0889,Shell / walls,0.40 - 2.70 mm
+P0889,Speed,30-100 mm/s
+P0892,Speed,30-200 mm/s
+P0892,Retraction,1800-3600 mm/min
+P0892,Cooling,Run at 0-20% speed
+P0894,Speed,40-100 mm/s
+P0895,Speed,40-80 mm/s
+P0896,Cooling,0-100 %
+P0896,Speed,40-100 mm/s
+P0897,Speed,20 – 40 mm/s
+P0899,Speed,[mm/s] 20-30
+P0900,Warping / shrinkage,technology – printable on desktop 3D printers
+P0900,Cooling,0-50%
+P0900,Adhesion / release,not necessary*
+P0901,Speed,40-80 mm/s
+P0902,Speed,[mm/s] 20-30
+P0903,Adhesion / release,Distance 0.2-0.4mm
+P0903,Retraction,0.8-1.2mm
+P0904,Speed,30-80mm/s
+P0904,Adhesion / release,"Start slower (e.g., 15-20mm/s) and slightly hotter (e.g., +5°C on nozzle) for be"
+P0904,Retraction,1-2mm
+P0905,Speed,30-500mm/s
+P0906,Cooling,Speed 100
+P0906,Speed,30
+P0906,Retraction,Off Recommended

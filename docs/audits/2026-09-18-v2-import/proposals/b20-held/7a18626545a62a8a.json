@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "7a18626545a62a8a0bc874215fe78d83e810a4c80617110564a0b262d020a43b",
+    "url": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_Facilan_C8_Filament_v1.4.pdf?49",
+    "pages": 1,
+    "provider": "3D4Makers",
+    "manufacturer": "3D4Makers",
+    "docKey": "7a18626545a62a8a"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"TechnicalDataSheet\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-TDS-Facilan-C8-Filament-v1-4",
+      "Publisher": "3D4Makers",
+      "Title": "TechnicalDataSheet 3DPrintingFilament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_Facilan_C8_Filament_v1.4.pdf?49",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "7a18626545a62a8a0bc874215fe78d83e810a4c80617110564a0b262d020a43b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "TechnicalDataSheet",
+        "Shared formulation key": "R-3D4MAKERS-TDS-Facilan-C8-Filament-v1-4",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-Facilan-C8-Filament-v1-4",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TechnicalDataSheet 3DPrintingFilament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.4 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1400",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-Facilan-C8-Filament-v1-4",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.4g/cm³ ISO1183-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "180-210°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "180",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "25-50°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-Facilan-C8-Filament-v1-4",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: NozzleTemperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Shell / walls",
+          "Text": "linecount:2"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "NozzleTemperature 180-210°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "200",
+        "Nozzle requirement": "required",
+        "Bed °C": "25-50°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-Facilan-C8-Filament-v1-4",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzletemp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Shell / walls",
+          "Text": "linecount:2"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "BedTemperature 25-50°C"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "NozzleTemperature",
+      "raw": "180-210°C",
+      "fromBelow": false,
+      "line": "NozzleTemperature 180-210°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "BedTemperature",
+      "raw": "25-50°C",
+      "fromBelow": false,
+      "line": "BedTemperature 25-50°C"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzletemp",
+      "raw": "200°C",
+      "fromBelow": false,
+      "line": "Nozzletemp:200°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bedtemp",
+      "raw": "50°C",
+      "fromBelow": false,
+      "line": "Bedtemp:50°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Wall",
+      "raw": "linecount:2",
+      "fromBelow": false,
+      "line": "Walllinecount:2"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TechnicalDataSheet 3DPrintingFilament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version1.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ C8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™C8isthefirstproductofourFacilan™family.Enduseindustrialpartsandconsumerfriendlyprintedparts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "aswellashighendprototypesforbusinessaretheapplicationsareasforC8.ThefirstFiŜhGeneration3Dprinting",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "material,Facilan™C8hasbettermechanicalqualities,bestsurfacequalityandhightolerancesthatcombinetomake",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MATERIALPROPERTIES TYPICALVALUE TESTMETHOD Disclaimer:3D4Makersmakesno",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TensileStrength 45MPa ISO527-1*",
+      "reason": "properties.csv carries no property for \"TensileStrength\""
+    },
+    {
+      "page": 1,
+      "text": "Elongationatyield 4% ISO527-1*",
+      "reason": "properties.csv carries no property for \"Elongationatyield\""
+    },
+    {
+      "page": 1,
+      "text": "TensileModulus 3000MPa ISO527-1*",
+      "reason": "properties.csv carries no property for \"TensileModulus\""
+    },
+    {
+      "page": 1,
+      "text": "FlexuralStrength 65MPa ISO178",
+      "reason": "properties.csv carries no property for \"FlexuralStrength\""
+    },
+    {
+      "page": 1,
+      "text": "FlexuralModulus 3650MPa ISO178",
+      "reason": "properties.csv carries no property for \"FlexuralModulus\""
+    },
+    {
+      "page": 1,
+      "text": "IIzodimpactstrength(notched)77kkJ/m² IISSO1O18800--11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ShoreDHardness 72 ISO868",
+      "reason": "properties.csv carries no property for \"ShoreDHardness\""
+    },
+    {
+      "page": 1,
+      "text": "settings,thetypeof3Dprinter,slicingand",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HeatDeflectionTemperature 55°C ISO75B**",
+      "reason": "properties.csv carries no property for \"HeatDeflectionTemperature 55°C\""
+    },
+    {
+      "page": 1,
+      "text": "*Tensilesamplethickness1.5mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "**120K/h user.Themethodthroughwhichthe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "tthheeccuussttoomemerrttooddeetteerrmiminneehhowitis3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PrintSpeed 40-70mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printer:Ultimaker2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infill:100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layerheight:0.1mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printspeed:50mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWallthickness:0.7mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Additionalinfo:Formany3Dprinters,C8willprintbestatapproximately200°Cwithabedtemperatureof50°Cand",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "aspeedof50mm/s.Indesignswithsignificantoverhangsandbridges,bestresultsareobtainedwithfansat80%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ifyourmodelhasnooverhangsthenputtingyourfansat0% improvesinterlayerbondingandinsodoingthefinal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "mechanicalstrengthofyourpart.Togetthebestresultswhileprintingweadviseyoutokeepthe3Dprinterina",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "room wherethereishardlyanydraŜand/ortemperaturefluctuations.Keepthe3Dprinteroutofdirectsunlight.When",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "tthhee33DpDprriinntteerriissnnoottbbeeiinngguusseeddiittiissiimpmpoorrttaannttttookeepthe3D4MakersFacilan™C8filamentinabagandstoredina",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Info@3D4Makers.com |3D4Makers.com |Waarderweg56,2031BPHaarlem |TheNetherlands",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

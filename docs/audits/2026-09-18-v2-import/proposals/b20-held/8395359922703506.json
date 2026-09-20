@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "83953599227035063ae445aa52a5e983d41f0a01494b3d582cce7752d91d5bb8",
+    "url": "https://nexa3d.com/wp-content/uploads/2024/07/Essentium-PA-TDS.pdf",
+    "pages": 1,
+    "provider": "Essentium / Nexa3D",
+    "manufacturer": "Essentium / Nexa3D",
+    "docKey": "8395359922703506"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"pa\" names a family, not a polymer: as above"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESSENTIUM-Essentium-PA-TDS",
+      "Publisher": "Essentium / Nexa3D",
+      "Title": "technical data sheet ESSENTIUM PA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nexa3d.com/wp-content/uploads/2024/07/Essentium-PA-TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "83953599227035063ae445aa52a5e983d41f0a01494b3d582cce7752d91d5bb8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "technical data sheet ESSENTIUM PA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Essentium",
+        "Product name": "PA",
+        "Shared formulation key": "R-ESSENTIUM-Essentium-PA-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ESSENTIUM-Essentium-PA-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "technical data sheet ESSENTIUM PA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": ", °C 245 – 265",
+        "Nozzle state": "range",
+        "Nozzle min °C": "245",
+        "Nozzle max °C": "265",
+        "Nozzle requirement": "required",
+        "Bed °C": ", °C 85 – 100",
+        "Bed state": "range",
+        "Bed min °C": "85",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": ", °C",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-ESSENTIUM-Essentium-PA-TDS",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.3mm"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion Temperature, ºC 245 – 265"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion Temperature",
+      "raw": ", °C 245 – 265",
+      "fromBelow": false,
+      "line": "Extrusion Temperature, ºC 245 – 265"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": ", °C 85 – 100",
+      "fromBelow": false,
+      "line": "Bed Temperature, ºC 85 – 100"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Enclosure Temperature",
+      "raw": ", °C",
+      "fromBelow": false,
+      "line": "Enclosure Temperature, ºC Room Temperature"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "layer height",
+      "raw": "0.3mm",
+      "fromBelow": false,
+      "line": "layer height: 0.3mm, extrustion multiplie: 1.0, nozzle diameter: 1.0mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Tensile Strength, MPa ASTM D638 55 49",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength, MPa ASTM D638 55 47",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength, MPa ASTM D638 55 24",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ASTM D638 2180 1954",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ASTM D638 2180 1871",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ASTM D638 2180 1638",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ASTM D790 73 58",
+      "reason": "the sheet states Flexural strength in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ASTM D790 73 32",
+      "reason": "the sheet states Flexural strength in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ASTM D790 73 44",
+      "reason": "the sheet states Flexural strength in MPa, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, MPa ASTM D790 1749 1506",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, MPa ASTM D790 1749 877",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Specific Gravity2 ISO 1183 1.12",
+      "reason": "properties.csv carries no property for \"Specific Gravity2\" (Gravity2)"
+    },
+    {
+      "page": 1,
+      "text": "Moisture (50%, RH)2, % ISO 62 3.2",
+      "reason": "properties.csv carries no property for \"Moisture (50%, RH)2, %\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Moisture (Sat)2, % ISO 62 10.5",
+      "reason": "properties.csv carries no property for \"Moisture (Sat)2, %\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, MPa ASTM D790 1749 1097",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Melting Point2, ºC ISO 3164 189",
+      "reason": "the sheet states Melting temperature in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temp., ºC ASTM D648 82",
+      "reason": "the sheet states HDT in °C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Ex. Multiplier (Flow) 20 – 50",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1 Print settings: nozzle temp: 255ºC, bed temp: 85ºC, infill: 100%, speed: 30mm/s,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 Values taken from pellet mfr. TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1923 Eastman Avenue, Ventura, CA 93003",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nexa3D.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@nexa3d.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

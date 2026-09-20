@@ -71,6 +71,17 @@ const severalValues = (proposal) => (proposal.measurements ?? []).filter((m) => 
   return [...String(m.evidence?.text ?? '').matchAll(pattern)].length > 1;
 }).length;
 
+/**
+ * The verdicts the owner has given on a reading, by document key (readings/readings.csv). Empty where the file
+ * does not exist yet, which is the same as nobody having looked.
+ */
+const verdicts = () => {
+  const path = join(AUDIT, 'readings/readings.csv');
+  if (!existsSync(path)) return new Map();
+  return new Map(readCsv(path).records.map((r) => [r.values['Doc key'], String(r.values.Verdict ?? '').trim()]));
+};
+let VERDICTS = null;
+
 export function holdReason(proposal, problems = []) {
   const codes = new Set(problems.map((p) => p.code));
   const first = (code) => problems.find((p) => p.code === code)?.message ?? '';
@@ -78,6 +89,17 @@ export function holdReason(proposal, problems = []) {
   const noName = reasons.find((r) => /^no product name could be read/.test(r));
   if (noName) return { reason: 'no-name', detail: noName };
   if (proposal.identity?.needsRuling) return { reason: 'ruling', detail: reasons[0] ?? 'the identity is unsettled' };
+  // R083: where a sheet declares a polymer and a filler no material holds, the material is created — and the
+  // list goes to the owner before any of it is written. A reader that settles the identity has not been given
+  // permission to create the material, so a proposal carrying one waits for a verdict in readings/readings.csv.
+  if (proposal.newMaterial) {
+    VERDICTS ??= verdicts();
+    const said = VERDICTS.get(proposal.document?.docKey);
+    if (!said) {
+      return { reason: 'ruling', detail: `it would create the material ${proposal.newMaterial['Original name']} (${proposal.identity?.polymer} / ${proposal.identity?.modifier}), and R083 says that list goes to the owner before any of it is written` };
+    }
+    if (/^no$/i.test(said)) return { reason: 'ruling', detail: `the owner struck the reading that would have created ${proposal.newMaterial['Original name']}` };
+  }
   if (codes.has('APPLY-IDENTITY')) return { reason: 'ruling', detail: first('APPLY-IDENTITY') };
   if (codes.has('APPLY-OCR-UNVERIFIED')) return { reason: 'ocr-visual', detail: 'read optically; every value needs a person against the page image' };
   if (!(proposal.measurements ?? []).length) {
@@ -236,7 +258,11 @@ function decide(batch, by) {
     let touched = false;
     for (const row of rowsOf(proposal)) {
       if (['accepted', 'rejected'].includes(row.review?.status)) continue;
-      if (!holdsBack(row, proposal).some((r) => pattern.test(r))) continue;
+      // Every reason must match, not merely one of them. A row held for a confidence and for a value outside
+      // every physics window was being accepted on the confidence: the bulk decision answered the easy reason
+      // and carried the specific one with it, unread. A row a pattern does not fully cover is left for a reader.
+      const why = holdsBack(row, proposal);
+      if (!why.length || !why.every((r) => pattern.test(r))) continue;
       row.of.review = { status: how, by, date, note, ...(row.review?.visual ? { visual: true } : {}) };
       n++; touched = true; docs.add(proposal.document?.docKey);
     }

@@ -273,7 +273,28 @@ export function classifyProduct(product, context = {}, world = {}) {
   // A support product says so in its own words as often as in its name: "AquaPrint is a water-soluble support
   // material designed for complex multi-extrusion 3D printing" names no support token at all in its title.
   const SAYS_SUPPORT = /\b(is an?|as an?)\b[^.]{0,60}\b(support|breakaway|soluble)\b[^.]{0,20}\b(material|filament)\b|\bwater-soluble\b/i;
-  const support = SUPPORT.test(product) || SUPPORT.test(context.title ?? '') || SAYS_SUPPORT.test(context.body ?? '');
+  // A word about support near a product is not the product being a support, and there are two ways it lands
+  // there that have nothing to do with the filament.
+  //
+  // A captured web page carries the shop's own furniture at the head of it. Siraya Tech's twenty sheets open
+  // "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG Need help? Call us … support@siraya.tech",
+  // which is a navigation bar and a help desk; read as the title, it made supports of its whole filled range —
+  // ABS CF, ASA GF, PET CF, PETG CF, TPU GF, PEBA and four TPUs.
+  //
+  // And a sheet names the support it prints against. BASF's PAHT CF15 says "it is compatible with BVOH,
+  // water-soluble support material, and HIPS", which says what supports this filament, not that it is one. The
+  // same trap classify already guards for polymers, where "PVA glue" names the glue and not the filament.
+  const A_HELP_DESK = /support\s*@|\b(customer|technical|tech|product|online|live|chat|email)\s+support\b|\bsupport\s+(blog|cent(er|re)|team|desk|portal|page|ticket|request|hotline|line)\b|\bcontact\s+support\b/i;
+  const SUPPORTED_BY = /\b(compatible|works?|use[ds]?|print(ed|s)?|pair(ed|s)?|combine[ds]?|dissolve[ds]?)\s+(with|in|against|alongside)\b[^.]{0,80}$/i;
+  const aboutThisFilament = (text, re) => {
+    const hit = re.exec(String(text ?? ''));
+    if (!hit) return false;
+    if (A_HELP_DESK.test(String(text).slice(Math.max(0, hit.index - 30), hit.index + 40))) return false;
+    return !SUPPORTED_BY.test(String(text).slice(Math.max(0, hit.index - 100), hit.index));
+  };
+  const support = SUPPORT.test(product)
+    || aboutThisFilament(context.title, SUPPORT)
+    || aboutThisFilament(context.body, SAYS_SUPPORT);
   const hardness = shoreFromName(product);
   if (hardness) signals.push(`hardness: ${hardness}`);
 
@@ -367,6 +388,15 @@ export function classifyProduct(product, context = {}, world = {}) {
  * nothing else. ABS-GF is a class, whoever sells it, which is why the test is the declared filler and not who
  * happens to sell it today.
  */
+/**
+ * What a material is, for the purpose of asking whether another one would be the same. Its estimate identity
+ * where it has one, and its base polymer where it does not: a material the estimate model excludes is still a
+ * material, and PEI-CF, PEEK-CF and PEKK-CF are all three — each would have been created a second time because
+ * "Not applicable" is not a polymer and never matched one.
+ */
+const identityOf = (m) => (m['Estimate identity'] && m['Estimate identity'] !== 'Not applicable'
+  ? m['Estimate identity'] : m['Base polymer']);
+
 export function matchMaterial(identity, materials, context = {}) {
   if (!identity.polymer) return null;
   const grades = context.grades ?? [];
@@ -384,7 +414,7 @@ export function matchMaterial(identity, materials, context = {}) {
   // true of a plain product of that polymer. So a class row declaring it takes an unfilled product as well: POM /
   // Acetal, TPC / TPEE and PEI / ULTEM are those rows, and refusing would create a second material beside each.
   const undisclosed = (m) => m['Modifier / filler'] === 'Commercial variant / undisclosed' && identity.modifier === 'Unfilled / unspecified';
-  const same = (m) => m['Estimate identity'] === identity.polymer
+  const same = (m) => identityOf(m) === identity.polymer
     && (m['Modifier / filler'] === identity.modifier || undisclosed(m))
     && m['Variant class'] === (identity.variantClass || 'Not applicable');
   const open = materials.filter((m) => m.Scope !== 'Family entry');
@@ -407,7 +437,7 @@ export function matchMaterial(identity, materials, context = {}) {
   // (owner ruling R039). Their own rows declare one maker, so the product-level test would otherwise refuse them.
   if (identity.finish) {
     const wanted = `${identity.polymer} ${identity.finish}`;
-    const byFinish = open.find((m) => m['Estimate identity'] === identity.polymer
+    const byFinish = open.find((m) => identityOf(m) === identity.polymer
       && m['Variant class'] === (identity.variantClass || 'Not applicable')
       && names(m).some((n) => named(n, wanted)));
     if (byFinish) return byFinish;
@@ -435,9 +465,25 @@ export function matchMaterial(identity, materials, context = {}) {
 export function collidesWith(identity, materials) {
   if (!identity.polymer) return null;
   return materials.find((m) => m.Scope !== 'Family entry'
-    && m['Estimate identity'] === identity.polymer
+    && identityOf(m) === identity.polymer
     && m['Modifier / filler'] === identity.modifier
     && m['Variant class'] === (identity.variantClass || 'Not applicable')) ?? null;
+}
+
+/**
+ * The material a finish variant belongs to when the database holds no material for that finish (R079). A glow or
+ * a glitter PETG is a PETG mechanically, and the finish is a grade-level fact; the same product in PLA finds
+ * PLA Glow or PLA Sparkle first, because those exist and `collidesWith` reaches them.
+ *
+ * Only the polymer and the filler are matched, and only against a material that declares no variant class of its
+ * own — filing a finish under another finish is what this exists to avoid.
+ */
+export function plainMaterialFor(identity, materials) {
+  if (!identity.polymer || !identity.variantClass) return null;
+  return materials.find((m) => m.Scope !== 'Family entry'
+    && identityOf(m) === identity.polymer
+    && m['Modifier / filler'] === identity.modifier
+    && (m['Variant class'] || 'Not applicable') === 'Not applicable') ?? null;
 }
 
 if (process.argv[1]?.endsWith('classify.mjs')) {

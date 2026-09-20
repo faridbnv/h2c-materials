@@ -116,14 +116,14 @@ M114,TPC-ESD,within,within,within,unknown,unknown,unknown
 M115,PEKK-ESD,excluded,exceeds,exceeds,unknown,unknown,unknown
 M116,PC-ESD,within,within,exceeds,unknown,unknown,unknown
 M117,PEI-GF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
-M118,PEI-CF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
+M118,PEI-CF,excluded,exceeds,exceeds,exceeds,requires-hardened,unknown
 M119,PC-ASA,within,within,within,unknown,unknown,unknown
 M120,PVDF-ESD,within,within,within,unknown,unknown,unknown
 M121,TPI,excluded,exceeds,unknown,unknown,unknown,unknown
-M122,PEKK-CF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
+M122,PEKK-CF,excluded,exceeds,exceeds,exceeds,requires-hardened,unknown
 M123,PEI-ESD,excluded,exceeds,exceeds,unknown,unknown,unknown
 M124,PPS-ESD,within,within,exceeds,unknown,unknown,unknown
-M125,PEEK-CF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
+M125,PEEK-CF,excluded,exceeds,exceeds,unknown,requires-hardened,required
 M126,TPU-ESD,within,within,within,within,unknown,unknown
 M127,PEEK-GF,excluded,exceeds,exceeds,unknown,requires-hardened,unknown
 M128,PC-ABS-CF,within,within,within,unknown,requires-hardened,unknown
@@ -135,7 +135,7 @@ M133,PBAT,within,within,within,unknown,unknown,unknown
 M134,CPE-LW,within,within,within,unknown,unknown,unknown
 M135,PVC,within,within,unknown,unknown,unknown,unknown
 M136,SAN,within,unknown,unknown,unknown,unknown,unknown
-M137,COC,within,unknown,unknown,unknown,unknown,unknown
+M137,COC,within,within,unknown,unknown,unknown,unknown
 M138,PE-GF,within,unknown,unknown,unknown,unknown,unknown
 M139,LCP,within,unknown,unknown,unknown,unknown,unknown
 M140,PBT,within,unknown,unknown,unknown,unknown,unknown

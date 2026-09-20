@@ -1,0 +1,820 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "035bc980a7aee312148fb9b26746d168b24f2f5feedfd5c0c65e8a333ffc39ed",
+    "url": "https://3d.nice-cdn.com/upload/file/AmphoraHT5300-TDS.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "colorFabb",
+    "docKey": "035bc980a7aee312"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Eastman Amphora 3D Polymer HT5300\"",
+      "the sheet's own title is \"Eastman Amphora 3D Polymer HT5300\", which names the polymer the filament is made from rather than colorFabb's product; the product's own name is not printed on the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+      "Publisher": "colorFabb",
+      "Title": "Technical Data Sheet Eastman Amphora™ 3D Polymer HT5300",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is colorFabb's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/AmphoraHT5300-TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "035bc980a7aee312148fb9b26746d168b24f2f5feedfd5c0c65e8a333ffc39ed"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet Eastman Amphora™ 3D Polymer HT5300"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "Eastman Amphora 3D Polymer HT5300",
+        "Shared formulation key": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet Eastman Amphora™ 3D Polymer HT5300"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "43 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "43",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Yield 6200 psi D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Tensile Stress @ Yield D 638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress @ Yield D 638 43 MPa (6200 psi)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "52 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "52",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "52",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Break 7500 psi D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Tensile Stress @ Break D 638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress @ Break D 638 52 MPa (7500 psi)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "7 %",
+        "Raw unit": "%",
+        "Raw numeric": "7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Elongation @ Yield D 638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Yield D 638 7%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "210 %",
+        "Raw unit": "%",
+        "Raw numeric": "210",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Elongation @ Break D 638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Break D 638 210%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1575 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1575",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.575",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2.28 x 10^5 psi D 790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Flexural Modulus D 790",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus D 790 1575 MPa (2.28 x 10^5 psi )"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "64 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "64",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "64",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "9300 psi D 790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Flexural Strength D 790",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength D 790 64 MPa (9300 psi)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "111",
+        "Raw unit": "Rockwell R",
+        "Raw numeric": "111",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Rockwell R",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D 785",
+        "Standards": "ASTM D785",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Rockwell Hardness, R Scale D 785",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Rockwell Hardness, R Scale D 785 111"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "860 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "860",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "860",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C D 256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 1: Izod Impact Strength, Notched @ 23°C D 256",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod Impact Strength, Notched @ 23°C D 256 860 J/m (16.1 ft·lbf/in.)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "94 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "94",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "94",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.455 MPa 66 psi D 648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 2: Deflection Temperature @ 0.455 MPa (66 psi) D 648",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "@ 0.455 MPa (66 psi) D 648 94°C (201°F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "81 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "81",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "81",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.82 MPa 264 psi Typical Processing Conditions D 648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 2: Deflection Temperature @ 1.82 MPa (264 psi) D 648 Typical Processing Conditions",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "@ 1.82 MPa (264 psi) D 648 81°C (178°F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "250-260 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "250",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "260",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "250",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "260",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "Locator": "p. 2: Deflection Temperature Processing Melt Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Processing Melt Temperature 250-260°C (482-500°F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "90-110°C (194-230°F)",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "230",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-AmphoraHT5300-TDS",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0 to 100%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.1 or 0.2 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30 to 60 mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "Around 1 mm"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Heated Bed Temperature 90-110°C (194-230°F)"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated Bed Temperature",
+      "raw": "90-110°C (194-230°F)",
+      "fromBelow": false,
+      "line": "Heated Bed Temperature 90-110°C (194-230°F)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0 to 100%",
+      "fromBelow": false,
+      "line": "Cooling 0 to 100%"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.1 or 0.2 mm",
+      "fromBelow": false,
+      "line": "Layer Height 0.1 or 0.2 mm"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "30 to 60 mm/s",
+      "fromBelow": false,
+      "line": "Speed 30 to 60 mm/s"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Perimeter",
+      "raw": "Around 1 mm",
+      "fromBelow": false,
+      "line": "Perimeter Around 1 mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Eastman Amphora™ 3D Polymer HT5300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": " Production of 3D Printing filaments  Clarity and gloss",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": " Property retention in 3D applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eastman Amphora™ HT5300 3D polymer is a low-odor, and styrene-free material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "uniquely suited for advanced 3D printing users, particularly those who need their",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature resistance.The model of functional aesthetics, Amphora HT5300 can be",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "superior dimensional stability, BPA-free HT5300 allows for 3D printing to exacting",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Amphora HT5300 is ideal for prototyping and testing products, especially for applications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "that require temperature resistance up to 100°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Specific Gravity D 792 1.18",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "(73°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength, Unnotched @ 23°C (73°F) D 4812 NB",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Infill As needed up to 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Minimal Layer Time 5 sec",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unless noted otherwise, all tests are run at 23°C (73°F) and 50% relative humidity.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "10-Nov-2015 1:51:43 PM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}
