@@ -1638,7 +1638,13 @@ export function sourceIdFor(row, sources) {
   const generic = /^(index|download|file|attachment|view|get|dl)(-php|-aspx?)?$/i.test(plain)
     || /\b(file-manager|download|attachment|getfile|viewfile)\b/i.test(plain) || plain.length < 4;
   const query = decodeURIComponent(url.split('?')[1] ?? '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  const file = generic ? [plain, query || String(row.sha256 ?? '').slice(0, 8)].filter(Boolean).join('-').slice(0, 60) : plain;
+  // Where the file name names nothing, the product does: a retailer serving Fillamentum's ASA CF10 Carbon sheet
+  // through a script gave the identifier R-FILLAMENTUM-index-php-controller-attachment-id-attachment-3120,
+  // which says what the server does and nothing about the document. An identifier is never reused and never
+  // changed, so it is worth deriving from the one thing on the page that is about the sheet. The query and the
+  // digest stay the fallback for a document that arrives without a product name.
+  const fromProduct = (row.product_raw || '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const file = generic ? (fromProduct || [plain, query || String(row.sha256 ?? '').slice(0, 8)].filter(Boolean).join('-')).slice(0, 60) : plain;
   const name = file || (row.product_raw || '').replace(/[^A-Za-z0-9]+/g, '-');
   const id = `${prefix}${name}`.slice(0, 90);
   // A maker may publish two documents under one file name: Spectrum's PP sheet is at .../2022/05/en_tds_spectrum_pp.pdf
@@ -2027,7 +2033,14 @@ export function propose(row, text, world) {
       row: {
         SourceID: sourceId, Publisher: row.manufacturer || row.provider, Title: title || row.product_raw,
         Revision: NP, 'Publication date': NP, 'Access date': row.updated || new Date().toISOString().slice(0, 10),
-        'Source class': 'Manufacturer TDS', 'Source note': NA, 'Citation role': 'cited', URL: row.url,
+        // A copy is not a source, but where a retailer's is the only copy it is the one that was read. The
+        // publisher stays the maker, whose sheet it is, and the note says where the bytes came from, because
+        // that is what a reader needs to go back to them. What it does not say is why the maker's own library
+        // does not carry it: this reads one document and knows nothing about the rest of a maker's library.
+        'Source class': 'Manufacturer TDS',
+        'Source note': row.manufacturer && row.provider && row.provider !== row.manufacturer
+          ? `Hosted by ${row.provider}; the sheet is ${row.manufacturer}'s.` : NA,
+        'Citation role': 'cited', URL: row.url,
         Locator: 'Document / product page', 'Applicable grades': '${grade:main}',
         'Access state': 'retrieved', 'Access note': NA, SHA256: row.sha256,
       },

@@ -228,9 +228,12 @@ export function classifyProduct(product, context = {}, world = {}) {
   // else cannot overrule the product's own name.
   if (polymer && !polymer.value && fromSheet?.value) {
     const family = (token) => POLYMER_ORDER.find((row) => row.Token === token)?.Family ?? '';
-    if (family(fromSheet.token) && family(fromSheet.token) === family(polymer.token)) { polymer = fromSheet; where = 'sheet'; }
+    if (family(fromSheet.token) && family(fromSheet.token) === family(polymer.token)) { polymer = fromSheet; where = fromComposition ? 'composition' : 'sheet'; }
   }
-  if (!polymer && !blended) { polymer = fromSheet; if (polymer) where = 'sheet'; }
+  if (!polymer && !blended) { polymer = fromSheet; if (polymer) where = fromComposition ? 'composition' : 'sheet'; }
+  // A polymer found loose in the prose is weaker evidence than the product's own name; one the sheet states in
+  // its composition row is not. "Polymer base polyamide 12" is the maker answering for the product, and holding
+  // every row of such a sheet back for a person to confirm asks them to read what the sheet already says.
   const fromBody = where === 'sheet';
   if (polymer) signals.push(`${where}: ${polymer.token}`);
 
@@ -291,7 +294,11 @@ export function classifyProduct(product, context = {}, world = {}) {
 
   let confidence = 1;
   if (fromBody) confidence -= 0.2;
-  if (modifier && !tokens.includes(modifier.token)) confidence -= 0.15;
+  // A filler the composition row names is as plainly stated as the polymer beside it: "Polymer base Polyamide 6
+  // + carbon fibres" is one sentence naming both, and holding every row of such a sheet back asks a person to
+  // confirm what the sheet says in the row written to say it.
+  const fillerStated = modifier && stated.includes(modifier.token);
+  if (modifier && !tokens.includes(modifier.token) && !fillerStated) confidence -= 0.15;
   // Two polymers in one name ("PC/ABS" aside, which is its own identity) is a name that has to be read by a person.
   // Two polymers in one name is a blend, or a support for another material, or a sheet covering two products.
   // Which of those it is comes from the sheet, so it is a question rather than a low score: reading "PC ABS" as

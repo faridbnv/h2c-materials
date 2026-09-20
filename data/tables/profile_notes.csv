@@ -1228,3 +1228,14 @@ P0529,Cooling,0-100%
 P0529,Speed,40-80 mm/s
 P0530,Cooling,0 – 50 %
 P0530,Speed,40 – 60 mm/s
+P0531,Speed,of printing 20–40 mm/s
+P0533,Speed,of printing 20–30 mm/s
+P0533,Cooling,70–100 %
+P0535,Adhesion / release,3
+P0536,Speed,of printing 20–30 mm/s
+P0536,Cooling,70–100 %
+P0537,Cooling,0–30 %
+P0538,Speed,of printing 20–40 mm/s
+P0538,Cooling,0–15 %
+P0539,Speed,of printing 40–60 mm/s
+P0540,Speed,of printing 30–55 mm/s

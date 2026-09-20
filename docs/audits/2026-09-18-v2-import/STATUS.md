@@ -7,11 +7,11 @@
 | | Before the import | Now |
 |---|---:|---:|
 | materials | 103 | 143 |
-| grades | 179 | 494 |
-| measurements | 2,645 | 6,009 |
-| sources | 300 | 665 |
-| profiles | 172 | 530 |
-| print notes | 363 | 1,229 |
+| grades | 179 | 509 |
+| measurements | 2,645 | 6,140 |
+| sources | 300 | 681 |
+| profiles | 172 | 542 |
+| print notes | 363 | 1,240 |
 | headline selections | 377 | 474 |
 
 ```bash
@@ -25,8 +25,8 @@ npm run sql --silent -- "select (select count(*) from materials) materials, (sel
 | | Documents |
 |---|---:|
 | in the ledger | 1,936 |
-| applied: their values are in the database | 500 |
-| read and waiting for a batch | 554 |
+| applied: their values are in the database | 516 |
+| read and waiting for a batch | 538 |
 | the same sheet again, another language's edition, or a revision superseded | 208 |
 | the same numbers under another product name, queued as a question | 139 |
 | not yet fetched | 404 |
@@ -50,12 +50,21 @@ Parity on every value somebody transcribed by hand before this programme, unchan
 
 | Maker | Sheets | Values reproduced |
 |---|---:|---|
-| Spectrum | 12 | 113 of 113 |
-| 3DXTECH | 27 | 213 of 214 |
-| Polymaker | 13 | 223 of 239 |
+| Spectrum | 85 | 656 of 656 |
+| 3DXTECH | 60 | 472 of 473 |
+| Polymaker | 49 | 770 of 810 |
+| Fillamentum | 3 | 22 of 23 |
+| eSUN | 2 | 21 of 23 |
+| BASF Forward AM | 3 | 26 of 57 |
 
 The 3DXTECH miss is an Izod row whose label the sheet misspells. Polymaker's residue is one sheet: a shared data
-table covering several products at once, which the pipeline still reads as one document and one product.
+table covering several products at once, which the pipeline still reads as one document and one product. What
+Fillamentum, eSUN and BASF still miss is in [PLAN-REMAINING.md](PLAN-REMAINING.md) §2, and most of it is one
+thing: a table read by its columns.
+
+Spectrum's count rose by one when the database did. Two of its heat deflection rows held 90 °C, which is the
+temperature the sheet prints in brackets as its annealing schedule; m75 corrected them to the 116 and 66 °C the
+sheet publishes, and the reader and the database agree again.
 
 ```bash
 npm run ingest:propose -- --provider Spectrum --compare
@@ -76,9 +85,12 @@ npm run ingest:propose -- --provider "Polymaker / Fiberon" --compare
 | [b07-extrudr](batches/b07-extrudr/README.md) | Extrudr | 24 | m63, 2026-09-19 |
 | [b08-sunlu](batches/b08-sunlu/README.md) | SUNLU | 38 | m65, 2026-09-19 |
 | [b09](batches/b09/README.md) | Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy | 134 | m72, 2026-09-19 |
+| [b10](batches/b10/README.md) | Fillamentum | 16 | m76, 2026-09-19 |
 
 ## Next
 
+0. The 8 documents b10 held: seven identities for the owner and one sheet whose table prints a value column per
+   build orientation ([batches/b10/README.md](batches/b10/README.md)).
 1. The 73 documents b09 held: the optically read ones need a reader against the page image, and the rest need an
    identity ruling apiece (`batches/b09/README.md` names each).
 2. The twelve products held before that for an identity: four SUNLU, eight Extrudr.

@@ -85,6 +85,11 @@ tps,TPS,Flexible Elastomers,a styrenic thermoplastic elastomer; no polymers.csv 
 tpu,TPU,Flexible Elastomers,
 ultem,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
 xpetg,PETG,PETG,
-polylactic,PLA,PLA & Biopolymers,"a sheet may spell the polymer out: Fillamentum heads its Chemical properties table ""Polymer base"" and prints polylactic acid"
+polylactic,PLA,PLA,"a sheet may spell the polymer out: Fillamentum heads its Chemical properties table ""Polymer base"" and prints polylactic acid"
 polyolefin,,Polyolefins,"which polyolefin is a ruling: a polyolefin elastomer is not polyethylene, and the family owns no product (D44)"
-polyhydroxy,PHB,PLA & Biopolymers,"which polyhydroxyalkanoate a sheet means is a ruling: its grades are amorphous or semicrystalline and one row cannot be both (R055)"
+polyhydroxy,PHB,PVB / Specialty Polymers,"which polyhydroxyalkanoate a sheet means is a ruling: its grades are amorphous or semicrystalline and one row cannot be both (R055)"
+polycarbonate,PC,Polycarbonate,"the name spelled out, as a composition row prints it"
+polypropylene,PP,Polyolefins,"as above"
+polyvinylidene,PVDF,Fluoropolymers,"polyvinylidene fluoride, as Fillamentum's Fluorodur sheet spells it"
+polyoxymethylene,POM,Acetals,"as above"
+polyetheretherketone,PEEK,Industrial High-Temperature - Outside H2C Practical Envelope,"as above"

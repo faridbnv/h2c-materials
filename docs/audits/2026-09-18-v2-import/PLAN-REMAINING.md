@@ -7,16 +7,16 @@ each step now knows that the plan could not. Rewritten 2026-09-19, after batches
 
 | | Documents |
 |---|---:|
-| Applied: their values are in the database | 500 |
-| Read and waiting for a batch | 554 |
+| Applied: their values are in the database | 516 |
+| Read and waiting for a batch | 538 |
 | One sheet under another name, or another language's edition | 347 |
 | Not yet fetched, or behind a login | 468 |
 | A safety sheet, a dead link, no numbers on the page, out of scope | 67 |
 
-Nine batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
-SUNLU, and b09's five libraries read together (Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy). The
-database holds 143 materials, 494 grades, 6,009 measurements and 665 sources, against the 103, 179, 2,645 and 300
-it held when the plan was written.
+Ten batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
+SUNLU, b09's five libraries read together (Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy) and b10's
+Fillamentum. The database holds 143 materials, 509 grades, 6,140 measurements and 681 sources, against the 103,
+179, 2,645 and 300 it held when the plan was written.
 
 Nothing in the corpus is now unreadable for want of a text layer: `npm run ingest:ocr` reads a scan on a copy,
 caches it under the document's own digest as an optical reading, and `ingest:apply` refuses a row from one that
@@ -50,7 +50,7 @@ Wave B's next makers have been measured against the same gate, and three of them
 | 3DXTECH | 472 of 473 | an Izod row whose label the sheet misspells |
 | Polymaker / Fiberon | 770 of 810 | one shared table covering several products |
 | eSUN | 21 of 23 | a bound with no unit on its line, and a value whose unit is bracketed behind it |
-| Fillamentum | 22 of 23 | one endpoint its Test Condition column sets on a baseline of its own |
+| Fillamentum | 22 of 23 | one endpoint its Test Condition column sets on a baseline of its own — past the gate, and applied as b10 |
 | BASF Forward AM | 26 of 57 | three build orientations in three value columns, under a header row that names them |
 
 The page beside the table is off: a gutter is a band few of the page's lines cross while enough have text on
@@ -77,7 +77,11 @@ What is left is two named things:
   and an identity read from the sheet is one the owner does not have to settle.
 - **A table with a value column per build orientation.** BASF prints "Tensile strength ISO 527 36.1 MPa / 5.3 ksi
   - 11.2 MPa / 1.6 ksi" under a header row naming X-Y, X-Z and Z-X, each value twice, metric and imperial. The
-  reader takes the first and the sheet's other two orientations go unread. This is the last of
+  reader takes the first and the sheet's other two orientations go unread. **It is not only BASF**: Fillamentum's
+  OBC 905 prints "XY-axis Z-axis Test Method Test Condition" and seven of its thirteen rows carry two values, so
+  b10 held that document rather than record half of it with no direction at all. On the same sheet a Vicat row
+  whose value column prints "-" passed its label to the line below it, which is the other half of the same work:
+  a cell that states nothing is still a cell. This is the last of
   `docs/OPEN-PROBLEMS.md` §1 and §9 as well, where a neighbouring column's cell is what 96 measurements and 15
   print setups carry instead of their own.
 

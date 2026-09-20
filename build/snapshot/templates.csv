@@ -115,7 +115,7 @@ Outdoor structural part,Explore with estimates,M128,PC-ABS-CF,PASS,yes,
 Outdoor structural part,Explore with estimates,M129,TPU-CF,UNKNOWN,screened,hdt045 >= 100; tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M132,PBT-GF,PASS,yes,
-Outdoor structural part,Explore with estimates,M135,PVC,UNKNOWN,yes,
+Outdoor structural part,Explore with estimates,M135,PVC,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M136,SAN,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M137,COC,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
@@ -901,7 +901,7 @@ Flexible component,Explore with estimates,M136,SAN,UNKNOWN,yes,
 Flexible component,Explore with estimates,M137,COC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M138,PE-GF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M139,LCP,UNKNOWN,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M140,PBT,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M140,PBT,UNKNOWN,yes,
 Flexible component,Explore with estimates,M141,PET-LW,UNKNOWN,yes,
 Flexible component,Explore with estimates,M142,nGen-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M143,nGen FLEX,UNKNOWN,yes,
