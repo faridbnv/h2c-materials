@@ -35,6 +35,13 @@ export const LINT_RULES = {
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one.',
 };
 
+/**
+ * The first sentence of a window's basis. Split on the full stop alone it cut "to reach 0.45 MPa deflection"
+ * after the zero, and two accepted findings still quote the half sentence that produced. A sentence ends with a
+ * full stop and a space; a decimal point has a digit behind it.
+ */
+export const basisHead = (basis) => String(basis ?? '').split(/\.\s/)[0];
+
 const CJK = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/;
 const FULLWIDTH_PUNCT = /[\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff5e\u3001\u3002]/;
 const LIGATURE = /[\ufb00-\ufb06]/;
@@ -269,7 +276,7 @@ export function lintData(tables, schemas) {
       // headline and estimate, so neither is judged against a printed part's window.
       if (/^(Film|Filament)/.test(r['Specimen type'] ?? '')) continue;
       const where = `${r.Property} ${value} ${r['Normalized unit']} on a ${want['Matrix class']} ${want['Fill class'] === 'any' ? 'compound' : want['Fill class']} material`;
-      if (window['Always flag'] === 'TRUE') { add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where}: ${window.Basis.split('.')[0]}`); continue; }
+      if (window['Always flag'] === 'TRUE') { add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where}: ${basisHead(window.Basis)}`); continue; }
       const [hardLow, rawSoftLow, softHigh, hardHigh] = ['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => number(window[f]));
       // A part printed across its layers is weakest there: a Z value is legitimately a third to a half of the same
       // property in the build plane, so the window's soft low says nothing about it. The hard low still holds, and

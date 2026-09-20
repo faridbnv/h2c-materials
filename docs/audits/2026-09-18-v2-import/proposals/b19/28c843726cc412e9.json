@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "28c843726cc412e951783d62afb582e3dd64e9f971237bd994fb77e6351e3d1c",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_-_PLA_MATTE.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "28c843726cc412e9"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-TDS-PLA-MATTE",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet 05.24 PLA Matte (HS)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_-_PLA_MATTE.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "28c843726cc412e951783d62afb582e3dd64e9f971237bd994fb77e6351e3d1c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet 05.24 PLA Matte (HS)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "AzureFilm",
+        "Product name": "PLA Matte (HS)",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-TDS-PLA-MATTE",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-PLA-MATTE",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet 05.24 PLA Matte (HS)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.35 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1350",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-PLA-MATTE",
+        "Locator": "p. 1: Specific gravity ISO 1133",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity ISO 1133 1.35 g/cc"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "164 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "164",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "164",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 294",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-PLA-MATTE",
+        "Locator": "p. 1: Melting temp. ISO 294",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temp. ISO 294 164 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet 05.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "printing makes it a great option to speed up your 3D printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt flow rate ISO 1133 14 cm³/10 min",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflect. temp. ISO 75 55 °C",
+      "reason": "properties.csv carries no property for \"Heat deflect. temp.\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength ISO 527-2 42.8 44.2 21.7 MPa",
+      "reason": "the row states 3 values in columns of its own (42.8, 44.2, 21.7) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Yield Strength ISO 527-2 32.9 32.8 / MPa",
+      "reason": "the sheet publishes no value for Tensile yield strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus ISO 527-2 3800 3800 3200 MPa",
+      "reason": "the row states 3 values in columns of its own (3800, 3800, 3200) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Yield ISO 527-2 4.1 3.6 0.8 %",
+      "reason": "properties.csv carries no property for \"Strain at Yield\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength ISO 178 81.8 83 52.7 MPa",
+      "reason": "the row states 3 values in columns of its own (81.8, 83, 52.7) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modus ISO 178 4500 4500 4000 MPa",
+      "reason": "properties.csv carries no property for \"Flexural Modus\""
+    },
+    {
+      "page": 1,
+      "text": "All specimens were printed with 100% infill, 2 shells and a layer height of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing temp. AF 205-225 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bed temp. AF 60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing speed AF 300-500 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling AF 100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength ISO 179 6 / / kJ/m²",
+      "reason": "the sheet publishes no value for Impact strength in this row: its value column prints \"/\""
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -200,7 +200,7 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
-        "Data status": "Published value",
+        "Data status": "Published value (physically implausible)",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Unstated",
         "Moisture condition": "Not published",
@@ -226,7 +226,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "MatterHackers prints \"Tensile Modulus 3.6 MPa\" and \"Flexural Modulus 3.8 MPa\" on this sheet, which is its own slip for GPa: no solid polymer has a modulus a thousandth of a polyethylene's. The number is kept as printed and marked physically implausible (D55), so it backs no headline, estimate or bound."
       }
     },
     {
@@ -388,7 +391,7 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
-        "Data status": "Published value",
+        "Data status": "Published value (physically implausible)",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Unstated",
         "Moisture condition": "Not published",
@@ -414,7 +417,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "MatterHackers prints \"Tensile Modulus 3.6 MPa\" and \"Flexural Modulus 3.8 MPa\" on this sheet, which is its own slip for GPa: no solid polymer has a modulus a thousandth of a polyethylene's. The number is kept as printed and marked physically implausible (D55), so it backs no headline, estimate or bound."
       }
     },
     {

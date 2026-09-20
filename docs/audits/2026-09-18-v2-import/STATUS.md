@@ -8,11 +8,11 @@ can go stale without the command that made it saying so.
 | Table | Rows |
 |---|---:|
 | materials | 144 |
-| grades | 740 |
-| measurements | 8,735 |
-| sources | 990 |
-| profiles | 812 |
-| profile notes | 1,714 |
+| grades | 807 |
+| measurements | 9,144 |
+| sources | 1,065 |
+| profiles | 880 |
+| profile notes | 1,810 |
 | headlines | 476 |
 
 ## The corpus
@@ -21,8 +21,8 @@ can go stale without the command that made it saying so.
 
 | Status | Documents |
 |---|---:|
-| applied | 831 |
-| held | 664 |
+| applied | 906 |
+| held | 589 |
 | duplicate-of | 178 |
 | gated | 64 |
 | needs-ocr | 53 |
@@ -43,12 +43,12 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 
 | Reason | Documents | Where |
 |---|---:|---|
-| `ruling` | 337 | 3DJake / 3DJAKE 120, Filament2Print 28, MatterHackers / PRO Series 22, Siraya Tech 20, Nanovia 16 |
-| `twin` | 138 | 3DJake / 3DJAKE 59, Extrudr 16, Spectrum 16, SUNLU 11, Eryone 8 |
-| `no-values` | 76 | Spectrum 28, Essentium / Nexa3D 9, Raise3D 9, 3DJake / 3DJAKE 5, 3D-Fuel 3 |
-| `ocr-visual` | 62 | Fiberlogy 27, 3DJake / 3DJAKE 17, 3DXTECH 9, QIDI 5, BigRep 1 |
+| `ruling` | 237 | 3DJake / 3DJAKE 52, Siraya Tech 20, Nanovia 16, Filament2Print 14, colorFabb 9 |
+| `twin` | 136 | 3DJake / 3DJAKE 57, Extrudr 16, Spectrum 16, SUNLU 11, Eryone 8 |
+| `no-values` | 84 | Spectrum 28, 3DJake / 3DJAKE 11, Essentium / Nexa3D 9, Raise3D 9, 3D-Fuel 3 |
+| `ocr-visual` | 64 | Fiberlogy 27, 3DJake / 3DJAKE 19, 3DXTECH 9, QIDI 5, BigRep 1 |
+| `reader:several-values` | 40 | 3DJake / 3DJAKE 22, Filament2Print 9, QIDI 8, Fiberlogy 1 |
 | `reader:condition-table` | 24 | Stratasys 24 |
-| `reader:several-values` | 23 | 3DJake / 3DJAKE 14, QIDI 8, Fiberlogy 1 |
 | `registered` | 3 | Extrudr 2, Shop3D Canada 1 |
 | `reader:bilingual-columns` | 1 | QIDI 1 |
 
@@ -123,12 +123,13 @@ npm run ingest:propose -- --compare --all
 | [b14](batches/b14/README.md) | b14: the documents nothing was holding | m83-batch-b14, 2026-09-20 |
 | [b15](batches/b15/README.md) | b15: the sheets whose own title the reader was throwing away | m85-batch-b15, 2026-09-20 |
 | [b16](batches/b16/README.md) | b16: QIDI, read by the labels around its rows | m86-batch-b16, 2026-09-20 |
+| [b18](batches/b18/README.md) | b18: Wave D's first half, and a condition the sheet prints on the line below | m87-batch-b18, 2026-09-20 |
 
 ## By provider
 
 | Provider | Documents | applied | duplicate-of | extracted | gated | held | inventoried | needs-ocr | needs-staging | not-a-data-sheet | registered | safety-data-sheet | skipped | unreachable | unreadable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 3DJake / 3DJAKE | 462 | 153 | 38 |  |  | 215 |  | 46 |  | 1 | 1 | 7 |  | 1 |  |
+| 3DJake / 3DJAKE | 462 | 207 | 38 |  |  | 161 |  | 46 |  | 1 | 1 | 7 |  | 1 |  |
 | Spectrum | 150 | 86 | 14 |  |  | 50 |  |  |  |  |  |  |  |  |  |
 | Extrudr | 140 | 40 | 69 |  |  | 29 |  |  |  |  |  |  | 2 |  |  |
 | Nanovia | 73 | 22 | 33 |  |  | 18 |  |  |  |  |  |  |  |  |  |
@@ -142,7 +143,7 @@ npm run ingest:propose -- --compare --all
 | Flashforge | 41 | 34 |  |  |  | 7 |  |  |  |  |  |  |  |  |  |
 | colorFabb | 40 | 29 |  |  |  | 11 |  |  |  |  |  |  |  |  |  |
 | Eryone | 39 | 28 |  |  |  | 9 |  |  |  |  |  |  |  | 2 |  |
-| Filament2Print | 39 | 5 | 1 |  |  | 30 |  | 3 |  |  |  |  |  |  |  |
+| Filament2Print | 39 | 8 | 1 |  |  | 27 |  | 3 |  |  |  |  |  |  |  |
 | iSANMATE | 37 | 14 |  |  |  |  |  |  | 23 |  |  |  |  |  |  |
 | QIDI | 36 | 13 |  |  |  | 23 |  |  |  |  |  |  |  |  |  |
 | INTAMSYS | 33 |  |  |  |  |  | 33 |  |  |  |  |  |  |  |  |
@@ -153,7 +154,7 @@ npm run ingest:propose -- --compare --all
 | Fillamentum | 28 | 19 |  |  |  | 7 |  |  |  |  |  |  |  | 2 |  |
 | Shop3D Canada | 28 | 8 |  |  |  | 8 |  | 1 |  |  |  | 11 |  |  |  |
 | 3D4Makers | 27 | 20 |  |  |  | 7 |  |  |  |  |  |  |  |  |  |
-| MatterHackers / PRO Series | 26 |  |  |  |  | 22 |  | 1 |  |  |  | 3 |  |  |  |
+| MatterHackers / PRO Series | 26 | 18 |  |  |  | 4 |  | 1 |  |  |  | 3 |  |  |  |
 | Stratasys | 25 | 1 |  |  |  | 24 |  |  |  |  |  |  |  |  |  |
 | NinjaTek | 22 | 11 |  | 1 |  | 9 |  |  |  |  |  |  |  | 1 |  |
 | Prusa Research / Prusament | 20 | 12 |  |  |  | 8 |  |  |  |  |  |  |  |  |  |

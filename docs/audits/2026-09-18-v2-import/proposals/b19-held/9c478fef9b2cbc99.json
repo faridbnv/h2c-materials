@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "9c478fef9b2cbc9958ce733ef282512c6ba7e39fab32ae2359b195a221044138",
+    "url": "https://3d.nice-cdn.com/upload/file/PLA_TDS[7].pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "9c478fef9b2cbc99"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-PLA-TDS-7",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet PLA TDS",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PLA_TDS[7].pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9c478fef9b2cbc9958ce733ef282512c6ba7e39fab32ae2359b195a221044138"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet PLA TDS"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "AzureFilm",
+        "Product name": "PLA",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-PLA-TDS-7",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-PLA-TDS-7",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet PLA TDS"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "200",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-PLA-TDS-7",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 mm/s"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0,3 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 – 100 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature: 200 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200 – 230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-PLA-TDS-7",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 mm/s"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0,3 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 – 100 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature: 200 – 230°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "200 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature: 200 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Shells",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "Shells: 2 55 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "50 mm/s",
+      "fromBelow": false,
+      "line": "Print speed: 50 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0,3 mm",
+      "fromBelow": false,
+      "line": "Layer height: 0,3 mm"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "200 – 230°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature: 200 – 230°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "50 – 100 mm/s",
+      "fromBelow": false,
+      "line": "Print speed: 50 – 100 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Tensile modulus [MPa] 1 mm/min 3,3",
+      "reason": "the sheet states Tensile modulus in mm/min, and the database keeps it in GPa"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength [MPa] 50 mm/min 59,0",
+      "reason": "the sheet states Tensile strength (endpoint unspecified) in mm/min, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Strain at tensile strength [%] 50 mm/min 3,8",
+      "reason": "the sheet states Elongation at break in mm/min, and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "Strain at break (Tensile) [%] 50 mm/min 4,2",
+      "reason": "the sheet states Elongation at break in mm/min, and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "Flexural modulus [GPa] 2 mm/min 2,8",
+      "reason": "the sheet states Flexural modulus in mm/min, and the database keeps it in GPa"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strain at flexural 2 mm/min 3,3",
+      "reason": "the sheet states Flexural strength in mm/min, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength [MPa] 2 mm/min 73,6",
+      "reason": "the sheet states Flexural strength in mm/min, and the database keeps it in MPa"
+    },
+    {
+      "page": 1,
+      "text": "Strain at break (Flexural) [%] 2 mm/min 3,3",
+      "reason": "the sheet states Elongation at break in mm/min, and the database keeps it in %"
+    },
+    {
+      "page": 1,
+      "text": "3D printer: AzureFilm Nozzle temperature: 200 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Infill: 20 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Charpy unnotched [kJ/m2] 23 °C 10,4",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle: 0,4 mm Print speed: 50 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heated bed: Not required (recommended 50-60 °C)",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

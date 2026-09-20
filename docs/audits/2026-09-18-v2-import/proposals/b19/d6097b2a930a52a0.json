@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "d6097b2a930a52a067f9b7525b380981e5cf63e6940e75ca6a3cf8d28022eafd",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS-PETG.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "d6097b2a930a52a0"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-TDS-PETG",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet 05.24 PETG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS-PETG.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d6097b2a930a52a067f9b7525b380981e5cf63e6940e75ca6a3cf8d28022eafd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet 05.24 PETG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "AzureFilm",
+        "Product name": "PETG",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-TDS-PETG",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-PETG",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet 05.24 PETG"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.29 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1290",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-PETG",
+        "Locator": "p. 1: Specific gravity ISO 1133",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity ISO 1133 1.29 g/cc"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "180-250 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "250",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "250",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 294",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-PETG",
+        "Locator": "p. 1: Melting temp. ISO 294",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temp. ISO 294 180-250 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet 05.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "has solid, temperature-resistant (up to 80°C) and durable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt flow rate / / cm³/10 min",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Heat deflect. temp. ISO 75 73 °C",
+      "reason": "properties.csv carries no property for \"Heat deflect. temp.\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength ISO 527-2 56.7 59.2 38.4 MPa",
+      "reason": "the row states 3 values in columns of its own (56.7, 59.2, 38.4) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Yield Strength ISO 527-2 37.5 38.2 0.0 MPa",
+      "reason": "the row states 3 values in columns of its own (37.5, 38.2, 0.0) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus ISO 527-2 2100 2200 2100 MPa",
+      "reason": "the row states 3 values in columns of its own (2100, 2200, 2100) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Yield ISO 527-2 8.7 4.3 2.3 %",
+      "reason": "properties.csv carries no property for \"Strain at Yield\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength ISO 178 82.3 87.4 64.0 MPa",
+      "reason": "the row states 3 values in columns of its own (82.3, 87.4, 64.0) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus ISO 178 2200 2300 2200 MPa",
+      "reason": "the row states 3 values in columns of its own (2200, 2300, 2200) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "All specimens were printed with 100% infill, 2 shells and a layer height of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing temp. AF 220-240 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bed temp. AF 80-90 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing speed AF 50-200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling AF 40 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength ISO 179 / / / kJ/m²",
+      "reason": "the sheet publishes no value for Impact strength in this row: its value column prints \"/\""
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

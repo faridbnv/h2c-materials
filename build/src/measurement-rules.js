@@ -34,7 +34,15 @@ export function rawNumber(text) {
   if (!match) return null;
   let token = match[1].trim().replace(/[ \u00a0]/g, '');
   if (/^-?[.,]\d+$/.test(token)) token = `0${token.replace(',', '.')}`;
-  if (/^-?\d+,\d{1,2}$/.test(token)) token = token.replace(',', '.');
+  // A comma is a decimal comma wherever no thousands separator could stand. A thousands separator has exactly
+  // three digits behind it and at most three in front of the first one, so "1,1128" and "1836,740" are both
+  // decimals and neither was a number this reader returned at all: each reached the applier as a NaN, from
+  // 3DJake's density of "1,1128 g/cc" and Filament2Print's flexural modulus of "1836,740 MPa".
+  //
+  // What is left — three digits behind the comma and no more than three in front — is genuinely ambiguous, and
+  // stays so: it is read as the thousands here and settled against what the property can reach (couldBe), which
+  // is the one place that has the property to ask about.
+  if (/^-?\d+,(\d{1,2}|\d{4,})$/.test(token) || /^-?\d{4,},\d{3}$/.test(token)) token = token.replace(',', '.');
   else if (/^-?\d{1,3}(,\d{3})+$/.test(token)) token = token.replaceAll(',', '');
   if (!/^-?\d+(\.\d+)?$/.test(token)) return null;
   return Number(token);

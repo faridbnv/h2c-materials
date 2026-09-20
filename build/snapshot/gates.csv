@@ -1,5 +1,5 @@
 MaterialID,Material,scope,nozzle,bed,chamber,abrasive,drying
-M001,PLA,within,within,within,within,unknown,required
+M001,PLA,within,within,within,within,requires-hardened,required
 M002,PLA Basic,within,within,within,within,unknown,required
 M003,PLA Matte,within,within,within,within,unknown,required
 M004,PLA Lite,within,within,within,within,unknown,unknown
@@ -142,4 +142,4 @@ M140,PBT,within,unknown,unknown,unknown,unknown,unknown
 M141,PET-LW,within,within,within,unknown,unknown,unknown
 M142,nGen-CF,within,within,within,unknown,requires-hardened,unknown
 M143,nGen FLEX,within,within,within,unknown,unknown,unknown
-M144,PCTG-CF,within,unknown,unknown,unknown,unknown,unknown
+M144,PCTG-CF,within,within,within,unknown,requires-hardened,unknown

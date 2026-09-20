@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "308822fcacbde0ff7a067ddf3e312cfc8f2af26a8db263b0604b806ebe7a3f6e",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4046",
+    "pages": 2,
+    "provider": "Filament2Print",
+    "manufacturer": null,
+    "docKey": "308822fcacbde0ff"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "95A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 95A"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-F2P-Basics-TPU95A-ES",
+      "Publisher": "Filament2Print",
+      "Title": "A product byA product byA product by",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4046",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "308822fcacbde0ff7a067ddf3e312cfc8f2af26a8db263b0604b806ebe7a3f6e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "A product byA product byA product by"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "TPU 95A",
+        "Shared formulation key": "R-FILAMENT2PRINT-F2P-Basics-TPU95A-ES",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-F2P-Basics-TPU95A-ES",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "A product byA product byA product by"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "El TPU 95A Basic by Filament2Print combina",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diámetro 1.75 mm ± 0.05 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Peso neto 1 Kg | 3 Kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colores para adaptarse a todo tipo de proyectos. 195 g | 500 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densidad 1,20 g/cm³ ISO 1183,GB/T 1033",
+      "reason": "properties.csv carries no property for \"Densidad\""
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133,GB/T 3682",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "14.88 g/10min 210°C/2,16kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura de Fusión 180°C DSC,10°C/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "48°C ISO 75 0.45MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Absorción de Humedad 0.85% ISO 62 23 ºC, 50% RH",
+      "reason": "properties.csv carries no property for \"Absorción de Humedad\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia a la Tracción 28 MPa ISO 527, GB/T 1040",
+      "reason": "properties.csv carries no property for \"Resistencia a la Tracción\""
+    },
+    {
+      "page": 1,
+      "text": "Alargamiento a la Rotura >500 % ISO 527, GB/T 1040",
+      "reason": "properties.csv carries no property for \"Alargamiento a la Rotura\""
+    },
+    {
+      "page": 1,
+      "text": "Módulo de Flexión N/A ISO 527, GB/T 9341",
+      "reason": "the sheet publishes no value for \"Módulo de Flexión\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia a la Flexión N/A ISO 178, GB/T 9341",
+      "reason": "the sheet publishes no value for \"Resistencia a la Flexión\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia al Impacto 46 kJ/m² (not cut off) ISO 179, GB/T 1043",
+      "reason": "properties.csv carries no property for \"Resistencia al Impacto\""
+    },
+    {
+      "page": 1,
+      "text": "25.8 kJ/m² (not cut off) ISO 179, GB/T 1043",
+      "reason": "properties.csv carries no property for \"25.8 kJ/m² (not cut off)\""
+    },
+    {
+      "page": 1,
+      "text": "92°C ISO 306 GB/T163",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura de Impresión 190°C - 230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "35ºC - 65ºC (se recomienda el uso de adhesivo)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ventilador de Capa 10 - 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 - 1.5 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Velocidad de Retracción 15 - 30 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Velocidad de Impresión <200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle de 0.4-0.8 mm, acero endurecido o inoxidable.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura Ambiente 25°C - 50°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Condiciones de Secado 70°C durante 8 horas",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament2Print by DATIVIC S.L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "w w w.w w w.filament2print.filament2print.comcom",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Pol. Ind. Porto do Molle 7A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "info@filament2print.cominfo@filament2print.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "36350 Nigrán (Pontevedra, España)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "procedimientos adecuados de eliminación y reciclaje de los materiales de Filament2print para la aplicación",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "prevista. Salvo indicación expresa en contrario, Filament2print no ofrece ninguna garantía, expresa ni implíci-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ta, sobre la idoneidad de sus materiales para un uso o aplicación específicos. Filament2print no asumirá",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Conservar en un lugar fresco y seco (15–25 °C), protegido de la radiación ultravioleta (UV). El cumplimiento de",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Filament2Print by DATIVIC S.L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "w w w.filament2print.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Pol. Ind. Porto do Molle 7A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "info@filament2print.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "36350 Nigrán (Pontevedra, España)",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

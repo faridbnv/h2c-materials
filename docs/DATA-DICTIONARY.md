@@ -848,16 +848,24 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|
 | 3D-Fuel | US maker; its Pro and Standard lines are grades, not separate makers. | 3DFuel;3D Fuel;3d-fuel |
 | 3D4Makers | Dutch maker; its sheets are titled for the polymer alone ("ABS Filament"). | 3D4makers;3d4makers;3D4Makers.com |
+| 3DJake | German shop; its own range is sold as 3DJAKE, and the sheets it hosts for other makers are theirs (R074). | 3DJAKE;3DJake / 3DJAKE;3djake |
 | 3DXTECH | US maker; the CarbonX, FibreX, 3DXMAX and 3DXSTAT lines are its brands, not separate makers. | 3DXTech;3DXTECH LLC;3DXTECH Additive Manufacturing;3dxtech |
+| Anycubic | Printer maker (Shenzhen Anycubic Technology); sells filament under its own name. | ANYCUBIC;anycubic |
+| AzureFilm | Slovenian maker. | Azurefilm;azurefilm;AZUREFILM |
 | Bambu Lab | The printer's own filament line. | Bambu;BambuLab;Bambu Lab Canada |
 | BASF Forward AM | BASF's additive-manufacturing arm; the Ultrafuse line is its brand. | Forward AM;BASF;Ultrafuse;BASF Forward AM / Ultrafuse |
+| Bedrock 3D | German maker; Filament2Print lists its sheets as BR. | bedrock3d;BEDROCK 3D;Bedrock;BR |
 | BigRep |  |  |
 | Braskem |  |  |
 | colorFabb |  | ColorFabb;Colorfabb |
+| Creality | Printer maker (Shenzhen Creality 3D); sells filament under its own name. | CREALITY;creality;Creality 3D |
+| CreatBot | Chinese printer maker (Henan Suwei Electronic Technology); sells filament under its own name. | Creatbot;creatbot |
 | Dow | Resin supplier; the EVOLV3D line is its filament brand. | The Dow Chemical Company;Dow Chemical |
 | DSM | Resin supplier; the Arnitel line is its brand. | DSM Engineering Materials;Royal DSM |
 | DuPont | Resin supplier; the Delrin and Zytel lines are its brands. | DuPont Engineering Polymers;E. I. du Pont de Nemours |
 | DuPont / Celanese | The Delrin acetal line, sold by DuPont and later by Celanese; a grade sheet that carries both names. Two companies, so it is not merged into either. | Celanese / DuPont |
+| Elegoo | Printer maker (Shenzhen Elegoo Technology); sells filament under its own name. | ELEGOO;elegoo |
+| Ensinger | German semi-finished-plastics maker; its filament line is Tecafil. | ensingerplastics;Ensinger GmbH;Tecafil;TECAFIL |
 | Eryone |  | Shenzhen Eryone Technology;ERYONE |
 | Essentium | Sold under Nexa3D since the 2024 acquisition. | Essentium / Nexa3D;Nexa3D |
 | eSUN |  | ESUN;Shenzhen Esun Industrial;eSun |
@@ -865,16 +873,24 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Fabru | Fabru AG, whose filament brand is purefil. | Fabru / purefil;purefil;Purefil |
 | Fabru / purefil | Swiss maker; sells as purefil and as Fabru. | purefil;Purefil;Fabru;fabru;purefil GmbH |
 | Fiberlogy | Polish maker (Fiberlab S.A., Brzezie); sells under the Fiberlogy name. | Fiberlab;Fiberlab S.A.;FIBERLOGY;fiberlogy;Fioerlogy |
+| Filament2Print | Spanish shop (DATIVIC S.L.); its own range is sold as F2P, and the sheets it hosts for other makers are theirs (R074). | F2P;filament2print;DATIVIC;DATIVIC S.L. |
 | Fillamentum |  | Fillamentum Manufacturing Czech |
 | Flashforge |  | FlashForge;Zhejiang Flashforge 3D Technology |
 | FormFutura |  | Formfutura |
 | Grupa Azoty | Polish chemical group; the Tarfuse line is its filament brand. | Grupa Azoty S.A.;Tarfuse |
 | IPCON |  | IPCON Polymer Material (Suzhou);IPCON Polymer |
 | iSANMATE |  | ISANMATE;Isanmate;iSanmate |
+| Jamg He | Chinese maker. | jamghe;JAMG HE;Jamghe |
+| KCL |  |  |
 | Kimya | Airtech Europe's filament line; Armor Group until 2022. | Kimya / Airtech Europe;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group);Airtech |
+| Kingroon | Printer maker (Shenzhen Kingroon Technology); sells filament under its own name. | KINGROON;kingroon |
+| MatterHackers | US shop; its own ranges are sold as PRO Series and MH Build Series, and the sheets it hosts for other makers are theirs (R074). | MatterHackers / PRO Series;PRO Series;MH Build Series;matterhackers |
 | Nanovia | French maker; it publishes each grade as a web page rather than a PDF, and the product is named in the page's breadcrumb. | Nanovia SAS;nanovia |
+| nice essentials | 3DJake's budget house brand; the inventory recorded it as "nice". | nice;nice-essentials;niceessentials |
 | NinjaTek | US maker of the NinjaFlex, Cheetah, Armadillo and Chinchilla elastomer lines; a Fenner Drives brand. | Ninjatek;ninjatek;NinjaTek (Fenner Drives);Fenner Drives |
+| Nobufil | Austrian maker. | NOBUFIL;nobufil |
 | Polymaker |  | PolyMaker;Polymaker Technology;Polymaker (Fiberon) |
+| Protopasta | US maker (Proto-pasta, ProtoPlant). | Proto-pasta;ProtoPasta;protopasta;ProtoPlant |
 | Prusa Research | The Prusament line is its brand. | Prusa;Prusament;Prusa Research a.s. |
 | QIDI | Chinese printer maker with its own filament line; its sheets are served from Google Drive. | QIDI Tech;QIDI Technology;Qidi;qidi3d |
 | Raise3D |  | Raise 3D;Raise3D Technologies |
@@ -884,7 +900,9 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Spectrum | Spectrum Filaments. | Spectrum Filaments;SPECTRUM |
 | Stratasys |  |  |
 | SUNLU | Chinese maker (Shenzhen Sunlu Industrial); sells worldwide under its own name. | Sunlu;sunlu;SUNLU 3D;Shenzhen Sunlu Industrial;三绿 |
+| The Filament | Polish brand; Spectrum publishes its sheets. | THE FILAMENT;the filament |
 | UltiMaker | Dutch maker; MakerBot merged into it in 2022 and the research workbook lists the two together. | Ultimaker;ultimaker;MakerBot;Makerbot;UltiMaker / MakerBot;Ultimaker B.V. |
+| Xenia | Italian compounder (Xenia Materials); its filament line is XECARB. | xeniamaterials;Xenia Materials;XECARB |
 | Yousu | Guangzhou Yousu 3D Technology. | Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU |
 
 <a id="vocab-material-links"></a>
@@ -1261,6 +1279,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 727 | Fittings of unplasticised PVC: dimensions of pipe fittings. |
 | ISO 75 | Temperature of deflection under load. |
 | ISO 7619 | Indentation hardness by durometer. |
+| ISO 787 | General methods of test for pigments and extenders; part 2 is matter volatile at 105 C, which Anycubic cites for moisture content. |
 | ISO 815 | Compression set of rubber at ambient, elevated or low temperatures. |
 | ISO 8302 | Thermal conductivity by the guarded hot plate. |
 | ISO 845 | Apparent density of cellular plastics and rubbers; the test a foaming filament's sheet cites for the density its print reaches. |

@@ -320,7 +320,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "an HDT on an elastomer is always flagged (W0059, D56): ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so a thermoplastic polyurethane has no meaningful deflection temperature. Anycubic publishes 52 degC at 0.45 MPa and the row records it as printed, as Eryone's 70 and Flashforge's 95 already are."
       }
     }
   ],

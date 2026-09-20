@@ -57,14 +57,19 @@ export function mayBeNegative(property, unit) {
   return !windows.length || windows.some((w) => Number(w['Hard low']) < 0);
 }
 
-export function couldBe(property, unit, value, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
-  if (!Number.isFinite(value)) return true;
+/** The window the build itself would judge this reading by: the most specific one that matches it. */
+export function windowFor(property, unit, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
   const fits = (w, field, want) => w[field] === want || w[field] === 'any';
   const matching = WINDOWS.filter((w) => w.Property === property && w['Normalized unit'] === unit
     && fits(w, 'Matrix class', matrix) && fits(w, 'Fill class', fill) && fits(w, 'Condition', condition));
-  if (!matching.length) return true;
   const score = (w) => ['Matrix class', 'Fill class', 'Condition'].reduce((a, f) => a + (w[f] === 'any' ? 0 : 1), 0);
-  const window = matching.sort((a, b) => score(b) - score(a))[0];
+  return matching.sort((a, b) => score(b) - score(a))[0] ?? null;
+}
+
+export function couldBe(property, unit, value, of = {}) {
+  if (!Number.isFinite(value)) return true;
+  const window = windowFor(property, unit, of);
+  if (!window) return true;
   return value >= Number(window['Hard low']) && value <= Number(window['Hard high']);
 }
 const UNITS = lexicon('unit-aliases');
@@ -166,8 +171,11 @@ const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³]\d*)(?<!\d{3})(\d) (?=\d+(
 // a number after a standard carries its unit ("ISO 75 80 °C"), and the suffix of ISO 179/1eU is not digits.
 // A fragment a slash follows is not a split digit: "ISO 527 1/2" names parts 1 and 2 of ISO 527, and joined it
 // became ISO 5271, which is not a standard and which the schema gate refused a whole batch over.
+// A digit a closing bracket follows is a footnote marker, not part of the designation. Ensinger prints
+// "Moisture absorption 0,6 % DIN EN ISO 62 1) (1) (*2)", where the 1) refers to the note under the table;
+// joined, it made ISO 621, which is not a standard and which the schema gate refused the batch over.
 const joinStandardDigits = (line) => line.replace(
-  /\b((?:ISO|ASTM\s?D?|DIN|IEC|UL|EN|GB\s?\/\s?T|[DE])\s?\d{1,4})((?:\s\d(?![\d.,]))+)(?![\s]*[°%\w/])/g,
+  /\b((?:ISO|ASTM\s?D?|DIN|IEC|UL|EN|GB\s?\/\s?T|[DE])\s?\d{1,4})((?:\s\d(?![\d.,)]))+)(?![\s]*[°%\w/])/g,
   (m, head, frags) => (`${head}${frags}`.match(/\d/g) ?? []).length <= 5 ? head + frags.replace(/\s/g, '') : m);
 
 function repair(text) {
@@ -1617,10 +1625,17 @@ export function composition(text) {
 }
 
 /** A certification the sheet claims, as printed. */
+// A version marker is not a flammability class. Jamg He footers its sheet "2023/11/3 REV：V1.1
+// Http://www.jamghe.com", and "V1.1" read as UL 94 V-1 put that footer in the grade's Certification claims.
+// A class is V-0, V-1 or V-2 and nothing follows the digit; a version has a point and another number behind it,
+// and the word that introduces it in front.
+const A_VERSION_OR_LINK = /\b(rev(ision)?|ver(sion)?)\b|https?:\/\/|www\./i;
+
 export function certification(text) {
   for (const page of text.pages) {
     for (const line of page.lines) {
-      if (/\bUL\s?-?94\b|\bV-?[012]\b|\bHB\b|food contact|REACH|RoHS/i.test(line.text) && /\d|HB|V-?[012]/i.test(line.text)) {
+      if (A_VERSION_OR_LINK.test(line.text) && !/\bUL\s?-?94\b|food contact|REACH|RoHS/i.test(line.text)) continue;
+      if (/\bUL\s?-?94\b|\bV-?[012]\b(?![.\d])|\bHB\b|food contact|REACH|RoHS/i.test(line.text) && /\d|HB|V-?[012]/i.test(line.text)) {
         return `${line.text.replace(/\s+/g, ' ').trim().slice(0, 160)} (p. ${page.page}, as printed; a typical value, not a certificate: verify grade, thickness and certificate)`;
       }
     }
@@ -1921,6 +1936,113 @@ export function canonicalManufacturer(name, world = {}) {
   return name;
 }
 
+/**
+ * Who made a filament a shop sells (R074).
+ *
+ * The owner's ruling: the shop is the manufacturer where the product name carries the shop's own brand, and
+ * otherwise it is the maker the sheet or the URL names; what neither names stays held. So this never guesses
+ * from the shop's name, which is what made it a ruling — a grade whose Manufacturer is the shop says the shop
+ * made the filament, and 3DJake hosts Anycubic's and Nobufil's sheets beside its own 3DJAKE range.
+ *
+ * Three witnesses, in the order of how directly each is the maker speaking:
+ *
+ *   1. the ledger's own brand, where the inventory recorded one and the URL or the sheet corroborates it
+ *   2. a domain the sheet prints — bedrock3d.com on Bedrock's sheet, ensingerplastics.com on Ensinger's; a
+ *      technical data sheet printing a domain is the maker naming itself, and it is the same witness whichever
+ *      shop is hosting it
+ *   3. nothing, and the document stays held, which is the third thing the ruling says to do
+ *
+ * A shop's own brand answers at step 1 like any other: `manufacturers.csv` lists 3DJAKE under 3DJake and PRO
+ * Series under MatterHackers, so a sheet the inventory marked with the shop's brand resolves to the shop.
+ */
+// A domain a sheet prints that names nobody: the standards bodies it cites, the platforms it is shared on, the
+// slicers its printing table names. Left in, Prusa's sheets would be made by printables.com. A shop's own domain
+// is not here, because a shop that prints its domain on its own brand's sheet is a maker like any other.
+const NOT_A_MAKER = /^(iso|astm|din|en-standard|amazon|ebay|aliexpress|youtube|facebook|instagram|linkedin|twitter|google|shopify|wordpress|adobe|microsoft|apple|github|prusaprinters|printables|thingiverse|simplify3d|cura|orcaslicer)\./i;
+
+/**
+ * A domain the sheet prints, as the maker naming itself. A technical data sheet carries its maker's site in the
+ * header or the footer and usually in both, so the most-printed domain is the one making the claim; a domain
+ * that appears once is as likely to be a sentence the extractor ran together ("conditions. Der" reads as
+ * conditions.de) and only wins where nothing else is there.
+ *
+ * The trailing boundary a domain would normally need is not required, because some sheets arrive with every
+ * line printed twice over itself — "xeniamaterials.comxeniamaterials.com" is one line of one — and requiring it
+ * threw the maker away on exactly the sheets that name it six times.
+ */
+export function makerFromSheet(text) {
+  const seen = new Map();
+  for (const page of text?.pages ?? []) {
+    for (const line of page.lines ?? []) {
+      for (const [, domain] of String(line.text ?? '').matchAll(/(?:^|[\s(:/])(?:www\.)?([a-z0-9][a-z0-9-]{2,}\.(?:com|net|org|eu|de|nl|it|es|fr|pl|cz|co\.uk|tech|io|cn))/gi)) {
+        const clean = String(domain).toLowerCase();
+        if (NOT_A_MAKER.test(clean)) continue;
+        seen.set(clean, (seen.get(clean) ?? 0) + 1);
+      }
+    }
+  }
+  if (!seen.size) return null;
+  const [domain] = [...seen].sort((a, b) => b[1] - a[1])[0];
+  return { name: domain.replace(/\.(co\.uk|[a-z]+)$/i, ''), domain };
+}
+
+/** A name a squashed comparison can use: lower case, letters and digits only. "3DJake / 3DJAKE" -> "3djake3djake". */
+const squash = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+/** The path of a document's own URL and of the page that linked to it, squashed: the shop's claim about it. */
+const urlPath = (row) => [row.source_page_url, row.url].filter(Boolean)
+  .map((u) => { try { return squash(new URL(u).pathname); } catch { return ''; } }).join(' ');
+
+/**
+ * Who made a filament a shop sells (R074).
+ *
+ * The owner's ruling: the shop is the manufacturer where the product name carries the shop's own brand, and
+ * otherwise it is the maker the sheet or the URL names; what neither names stays held. So this never guesses
+ * from the shop's name, which is what made it a ruling — a grade whose Manufacturer is the shop says the shop
+ * made the filament, and 3DJake hosts Anycubic's and Nobufil's sheets beside its own 3DJAKE range.
+ *
+ * Four witnesses, in the order of how directly each is the maker speaking. Each is a thing a page says, never a
+ * thing the pipeline infers from a shop's catalogue:
+ *
+ *   1. the ledger's own brand, where the URL or the sheet corroborates it. The corroboration is what keeps a CDN
+ *      out: "3d.nice-cdn.com" put "nice" in one row's brand column, and it names no maker
+ *   2. a manufacturer `manufacturers.csv` already knows, named in the URL the shop serves the sheet at —
+ *      "/4734-biofil-pcl-formfutura.html" is Filament2Print saying whose filament it is
+ *   3. a domain the sheet prints
+ *   4. nothing, and the document stays held, which is the third thing the ruling says to do
+ *
+ * A shop answers at any of these like any other maker: `manufacturers.csv` lists 3DJAKE under 3DJake and F2P
+ * under Filament2Print, so a sheet whose brand or URL is the shop's own resolves to the shop, which is the
+ * ruling's first clause.
+ */
+export function makerOfRecord(row, text, world = {}) {
+  if (row.manufacturer) return { maker: canonicalManufacturer(row.manufacturer, world), why: 'the inventory recorded the maker' };
+  if (row.provider_kind !== 'retailer') return { maker: canonicalManufacturer(row.provider, world), why: "the sheet is the maker's own" };
+
+  const shop = canonicalManufacturer(row.provider, world);
+  const said = (maker, why) => ({ maker, why: squash(maker) === squash(shop) ? `the product is ${shop}'s own brand: ${why}` : why });
+  const path = urlPath(row);
+
+  const brand = canonicalManufacturer(row.brand, world);
+  if (brand && squash(brand).length > 2) {
+    if (squash(brand) === squash(shop)) return said(shop, 'the inventory recorded it');
+    if (path.includes(squash(brand))) return said(brand, `${brand} is the maker the product's own page names`);
+    const printed = squash((text?.pages ?? []).flatMap((p) => (p.lines ?? []).map((l) => l.text)).join(' '));
+    if (printed.includes(squash(brand))) return said(brand, `${brand} is the maker the sheet names`);
+  }
+
+  // The longest manufacturer the URL names, so "Filament2Print" is not read as "F2P" where both would match.
+  const named = (world.manufacturers ?? [])
+    .flatMap((m) => [m.Value, ...String(m.Aliases ?? '').split(';')].filter(Boolean).map((a) => ({ value: m.Value, key: squash(a) })))
+    .filter((m) => m.key.length > 3 && path.includes(m.key))
+    .sort((a, b) => b.key.length - a.key.length)[0];
+  if (named) return said(named.value, `${named.value} is the maker the URL names`);
+
+  const fromSheet = makerFromSheet(text);
+  if (fromSheet) return said(canonicalManufacturer(fromSheet.name, world), `the sheet prints ${fromSheet.domain}, which is the maker naming itself`);
+  return null;
+}
+
 export function sourceIdFor(row, sources) {
   const mine = sources.filter((s) => s.Publisher === row.manufacturer || s.Publisher === row.provider);
   const maker = (row.manufacturer || row.provider || '').toUpperCase().replace(/[^A-Z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -2044,14 +2166,26 @@ export function looksDamaged(line) {
 // were proposed as products called "Test Condition" — a heading that stands alone once the page beside the table
 // is off, and that sits higher than the product's own name does.
 const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|test\s+(condition|method)|^description\b|^rev(ision)?\b|^version\b|^page\b|data ?sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
+// The words that announce a sheet are not a name whatever is stuck to the end of them, and what a maker sticks
+// there is which printing of the sheet this is: "Technical Data Sheet Rev. 1", "Technical Data Sheet 04.24",
+// "Filament Technical Data Sheet V1.0". Read as names, those made twenty-three products across four makers —
+// nine of Protopasta's called after a revision number, four of Kingroon's after a version.
+//
+// `data ?sheet$` above catches the announcement on its own; this catches it with the printing's mark behind it,
+// and only where nothing else is left. A sheet that announces itself and then names its product on the same
+// line ("Technical Data Sheet: CarbonX Carbon Fiber ezPC") keeps the name, which is what withoutAnnouncement is
+// for and why this asks what remains rather than what the line starts with.
+const A_PRINTING_OF_THE_SHEET = /[\s\u2013\u2014\-\u2010:|/.,()]*(?:rev(?:ision)?\.?\s*\.?\s*\d|v(?:er(?:sion)?)?\.?\s*\d|\d{1,2}[./-]\d{2,4}|\d{4})[\s\d.,v]*$/i;
 // A version, a date, a trademark sign left on a line of its own or half of the words that announce the sheet
 // is not a name either. Polymaker sets "TECHNICAL" and "DATA SHEET" on two lines with "V6.0" under them.
-const NOT_A_PRODUCT_EITHER = /^date\b|^[\d\s.,]+$|^(draft|preliminary|provisional|confidential|general|g(é|e)n(é|e)ral|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(g(é|e)n(é|e)ralit(é|e)s|generalit(à|a)|generalidades)$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data|material|materials|fdm|fff|sla|3d|p)$|^\d{2,3}\s?[ad]$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
+const NOT_A_PRODUCT_EITHER = /^date\b|^[\d\s.,]+$|^(draft|preliminary|provisional|confidential|general|g(é|e)n(é|e)ral|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(g(é|e)n(é|e)ralit(é|e)s|generalit(à|a)|generalidades)$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data|material|materials|fdm|fff|sla|3d|p)$|^\d{2,3}\s?[ad]$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^(product|trade|article|item)\s*(name|designation)\s*[:：]?$|^produkt(name)?$|^handelsname$|^\u4ea7\u54c1\u540d\u79f0$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
 // A sheet that labels its product says so plainly, and that beats any guess from where a line sits. The label
 // may stand after the same label in the maker's own language ("产品名称 Product Name:PLA+丝绸 2.0"), and a
 // maker may call it the trade name: Fiberlogy prints "TRADE NAME: Fiberlogy FiberSilk" on all forty of its
 // sheets, which is the name, while the line above it is the maker's own heading in capitals.
 const PRODUCT_LABEL = /(?:product\s*name|trade\s*name|produkt(?:name)?|handelsname|产品名称|nom\s+du\s+produit|nome\s+commerciale)\s*[:：]\s*(.+)$/i;
+/** The same label with nothing after it: the name is on the next line. */
+const A_BARE_LABEL = new RegExp(PRODUCT_LABEL.source.replace(/\\s\*\[:：\]\\s\*\(\.\+\)\$$/, '\\s*[:：]?\\s*$'), 'i');
 
 /**
  * The name a sheet gives in two languages at once. "PLA+丝绸 2.0 (PLA+ Silk 2.0)" names one product twice, and
@@ -2068,6 +2202,21 @@ const latinName = (printed) => {
 // What a sheet calls itself when it announces what it is. A maker may qualify the words ("Preliminary Data
 // Sheet", "Technical datasheet DRAFT"); the qualifier is about the sheet, not about the product.
 const ANNOUNCES = /(?:preliminary|provisional|draft)?\s*(?:tech(?:nical)? |product )?data\s?sheet|technisches datenblatt|datenblatt/i;
+
+/**
+ * A line that names no product: the announcement, a heading, a label with nothing after it, a printing's mark.
+ *
+ * The maker's name comes off before what is left is weighed, because a maker puts its own name in front of the
+ * announcement as readily as in front of a product: "KINGROON Filament Technical Data Sheet V1.0" is the sheet
+ * announcing itself and nothing else, and four Kingroon products were called it.
+ */
+export const notAProduct = (line, maker = '') => {
+  const text = String(line ?? '').trim();
+  if (NOT_A_PRODUCT.test(text) || NOT_A_PRODUCT_EITHER.test(text)) return true;
+  const rest = withoutAnnouncement(text.replace(A_PRINTING_OF_THE_SHEET, ''));
+  if (rest === text) return false;
+  return !productName(rest, maker).replace(/^(3d\s*print(ing|er)?|filament|technical|material)\b/i, '').trim();
+};
 
 /**
  * The document's own title, as its head prints it, and the product name under it (D63).
@@ -2129,7 +2278,7 @@ export function printedTitle(text, maker = '') {
     const line = withoutAnnouncement(raw);
     if (!line) return false;
     const letters = String(line).replace(/\s+/g, '');
-    if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || NOT_A_PRODUCT_EITHER.test(letters) || looksDamaged(line)) return false;
+    if (notAProduct(line, maker) || NOT_A_PRODUCT_EITHER.test(letters) || looksDamaged(line)) return false;
     if (STATES_A_MEASUREMENT.test(line) || labelFor(String(line).trim())) return false;
     if (new RegExp(STANDARD_RE.source, 'i').test(String(line))) return false;
     if (SAYS_SOMETHING.test(String(line)) || SEVERAL_SENTENCES.test(String(line))) return false;
@@ -2149,7 +2298,16 @@ export function printedTitle(text, maker = '') {
     const name = productName(line, maker);
     return Boolean(name) && name.length < NAME_LENGTH;
   };
-  const labelled = lines.slice(0, 14).map((l) => PRODUCT_LABEL.exec(l)?.[1] ?? breadcrumb(l)).map((v) => (v ? latinName(v) : v)).find((v) => v && named(v));
+  // A label whose value is on the line below it, which is where Anycubic puts it: "Product Name:" and then
+  // "Anycubic ABS" under it. The label is read wherever its value stands, because a label with nothing after it
+  // is not a name — read as one it called nine products "Product Name:".
+  const labelled = lines.slice(0, 14)
+    .map((l, i) => {
+      const said = PRODUCT_LABEL.exec(l)?.[1];
+      if (said) return said;
+      return A_BARE_LABEL.test(l) ? lines[i + 1] : breadcrumb(l);
+    })
+    .map((v) => (v ? latinName(v) : v)).find((v) => v && named(v));
   const head = lines.slice(0, 6);
   const at = head.findIndex((l) => ANNOUNCES.test(l));
   // A sheet that announces nothing prints its product first: purefil heads its sheets "Polyethylenterephthalat
@@ -2283,13 +2441,28 @@ export function propose(row, text, world) {
     .map((l) => COMPOSITION.exec(repair(String(l.text ?? '')).trim())?.[2]).filter(Boolean).join('; ');
   // Whose sheet it is, in the ledger's own words: the manufacturer where the ledger knows one, and the provider
   // where a retailer is all it has. The maker's own name is not its product's, here or in the title.
-  const maker = row.manufacturer || row.provider || '';
-  const head = printedTitle(text, maker);
+  // Who made it, by R074 where a shop is hosting the sheet: the shop's own brand is the shop's, and anything
+  // else is the maker the sheet or the URL names. `null` means neither did, and the ruling holds the document.
+  const made = makerOfRecord(row, text, world);
+  // Two names for one maker, and they are not interchangeable. The canonical one is what a grade records, so
+  // that one maker is one value; the names as written are what comes off a product's own name, because a sheet
+  // heads itself "BASF Forward AM / Ultrafuse PAHT CF15" and the canonical "BASF Forward AM" leaves the slash
+  // and the brand behind. A shop's sheet has both to take off: the shop serving it and the maker of it.
+  const maker = made?.maker || row.manufacturer || row.provider || '';
+  // Only where the ledger recorded no maker does the resolved one join them, which is R074's case exactly: a
+  // document the inventory already named is stripped the way it always was, so no applied name can move.
+  const asWritten = [...new Set([row.manufacturer || row.provider || '',
+    ...(!row.manufacturer && made?.maker ? [made.maker] : [])].filter(Boolean))];
+  // Both names go to the reader of the page: a shop-hosted sheet has the shop's name on it and the maker's, and
+  // a title is not a product's name for carrying either. makerWords takes the words apart, so one string of
+  // them is one list.
+  const head = printedTitle(text, asWritten.join(' '));
   // The name the sheet prints is the product's own; the catalogue name a link carries is a copy of it, and the
   // two disagree ("paht" for a sheet whose own title says CarbonX Carbon Fiber High Temp Nylon). Two revisions of
   // one sheet must classify alike, so the sheet's own name is what is read, and the catalogue's is kept beside it.
-  const named = productName(head.product && !NOT_A_PRODUCT.test(head.product) ? head.product : row.product_raw, maker);
-  const identity = classifyProduct(named || row.product_raw, { manufacturer: row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
+  const named = asWritten.reduce((name, who) => productName(name, who),
+    head.product && !notAProduct(head.product, asWritten.join(' ')) ? head.product : row.product_raw);
+  const identity = classifyProduct(named || row.product_raw, { manufacturer: made?.maker ?? row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
   // What the page says about its own name, where what it says is not a product's name. Neither is decided here:
   // a name is the reader's to read and a ruling is the owner's to make, so each says what the page shows.
   //
@@ -2316,13 +2489,12 @@ export function propose(row, text, world) {
       : 'no product name could be read: the sheet prints none this reader recognises, and the ledger carries none either');
     identity.needsRuling = true;
   }
-  // A retailer is not a manufacturer. Where a sheet a shop hosts names no maker of its own, the reader has only
-  // the shop's name to give the grade, and "3DJake PLA Basic" or "Filament2Print BEDROCK 3D PPSU" says the shop
-  // made what it sells. Some of those are the shop's own brand and some are another maker's sheet under the
-  // shop's roof, and which is which is the owner's to say (Wave D). The sheets a shop hosts that do name their
-  // maker are unaffected: 3DJake's mirrors of FormFutura, Spectrum, colorFabb and Bambu read as theirs.
-  if (row.provider_kind === 'retailer' && canonicalManufacturer(row.manufacturer || row.provider, world) === canonicalManufacturer(row.provider, world)) {
-    identity.reasons.push(`the sheet is hosted by ${row.provider} and names no maker of its own; whether ${canonicalManufacturer(row.provider, world) || row.provider} is the brand or only the shop is a ruling (Wave D)`);
+  // A retailer is not a manufacturer, and R074 says what one is instead: the shop where the product name carries
+  // the shop's own brand, otherwise the maker the sheet or the URL names, and held where neither does. That is
+  // `makerOfRecord` above; what is left here is the third of those three, because a grade whose Manufacturer is
+  // the shop says the shop made the filament, and "Filament2Print BEDROCK 3D PPSU" would say it wrongly.
+  if (row.provider_kind === 'retailer' && !made) {
+    identity.reasons.push(`the sheet is hosted by ${row.provider} and names no maker of its own, and neither does its URL: R074 holds it until one of them does`);
     identity.needsRuling = true;
   }
   const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
@@ -2352,7 +2524,7 @@ export function propose(row, text, world) {
     key: 'main', review: { status: 'proposed' },
     row: {
       MaterialID: identity.materialId ?? '', Role: 'procurement', Status: 'active',
-      Manufacturer: canonicalManufacturer(row.manufacturer || row.provider, world),
+      Manufacturer: maker,
       // The name the sheet prints, unless what it prints there is not a name at all.
       'Product name': named || productName(product, maker),
       'Shared formulation key': sourceId, 'Composition / filler': composition(text) ?? NP,
@@ -2400,6 +2572,9 @@ export function propose(row, text, world) {
     generated: { tool: 'propose.mjs', date: new Date().toISOString().slice(0, 10) },
     document: { sha256: row.sha256, url: row.url, pages: text.pages.length, provider: row.provider, manufacturer: row.manufacturer, docKey: row.doc_key },
     identity,
+    // The physics window this reading was judged against, carried so a reviewer is judged against the same one.
+    // Without it every row would be weighed at "any", which is the widest window there is and catches nothing.
+    window,
     ...(newMaterial ? { newMaterial } : {}),
     source: {
       row: {

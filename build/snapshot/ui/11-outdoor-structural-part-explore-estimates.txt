@@ -36,45 +36,45 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-ASA-AF UNKNOWN ~1,060–1,080† ~1.4–2.9† ~24–45† ~1.6–6.2† ~77–98† — ☆
+ASA-AF UNKNOWN ~1,060–1,080† ~1.4–2.9† ~24–45† ~1.5–6.1† ~77–98† — ☆
 ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
-ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.1† ~27–52† ~1.2–4.8† ~86–105† — ☆
+ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.2† ~27–51† ~1.1–4.7† ~86–105† — ☆
 COC
 PVB / Specialty Polymers
- UNKNOWN 1,020 ~1.2–2.8† ~27–77† ~6–37† ~135–159† — ☆
+ UNKNOWN 1,020 ~1.2–2.9† ~28–76† ~5–36† ~136–159† — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~1.5–3.1† ~35–71† ~6–19† ~54–87† no price↗ ☆
+ UNKNOWN 1,160 ~1.5–3.2† ~36–70† ~6–18† ~54–86† no price↗ ☆
 LCP
 High-Performance Engineering
- UNKNOWN 1,400 ~7.4–16.2† ~80–240† ~2.4–7.3† 193? — ☆
+ UNKNOWN 1,400 ~7.3–16.3† ~80–230† ~2.3–7.2† 193? — ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~4.2–8.7† ~39–76† ~2.8–8.0† 142 — ☆
+ UNKNOWN 1,140 ~4.1–8.7† ~40–76† ~2.8–8.0† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~980–1,050† ~0.8–3.0† ~51–91† ~32–79† ~91–127† — ☆
+ UNKNOWN ~980–1,050† ~0.8–3.1† ~51–87† ~32–80† ~91–127† — ☆
 PA12-CF
 Nylon / Polyamide
- PASS 1,160 8 ~86.0–91.6† 2.1 150 — ☆
+ PASS 1,160 8 ~86.0–91.1† 2.1 150 — ☆
 PA12-GF
 Nylon / Polyamide
- PASS 1,230 7.8 ~82.0–89.4† 4.5 150 — ☆
+ PASS 1,230 7.8 ~82.0–89.0† 4.5 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.3–4.8† ~38–101† ~8–38† ~87–135† 163↗ ☆
+ UNKNOWN 1,250 ~2.3–4.8† ~38–98† ~7–34† ~87–136† 163↗ ☆
 PA6-CE
 Nylon / Polyamide
- UNKNOWN ~1,480–1,500† ~3.6–7.5† ~37–96† ~2.9–12.9† ~74–122† — ☆
+ UNKNOWN ~1,480–1,500† ~3.6–7.5† ~38–94† ~2.8–12.6† ~72–123† — ☆
 PA6-CF
 Nylon / Polyamide
  PASS 1,090 4.43 102 5.8 186 110↗ ☆
 PA6-GS
 Nylon / Polyamide
- UNKNOWN ~1,000–1,020† ~2.8–5.7† ~43–112† ~4–18† ~74–122† — ☆
+ UNKNOWN ~1,000–1,020† ~2.8–5.8† ~44–110† ~3–18† ~72–123† — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~1,000–1,070† ~1.3–3.4† ~42–73† ~10–25† ~81–161† — ☆
+ UNKNOWN ~990–1,070† ~1.2–3.3† ~42–73† ~9–25† ~80–163† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14 91.9 2.6 175 — ☆
@@ -83,19 +83,19 @@ Nylon / Polyamide
  PASS 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,290† ~2.5–7.8† ~58–107† ~2.1–5.6† ~149–213† — ☆
+ UNKNOWN ~1,040–1,250† ~2.4–7.6† ~59–107† ~2.0–5.7† ~146–213† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,080–1,170† ~1.4–3.9† ~40–74† ~10–28† ~100–192† — ☆
+ UNKNOWN ~1,070–1,170† ~1.3–4.0† ~40–73† ~9–28† ~99–195† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,080–1,270† ~3.1–10.5† ~63–120† ~2.5–6.9† ~169–252† — ☆
+ UNKNOWN ~1,080–1,270† ~2.9–10.4† ~64–119† ~2.3–7.0† ~166–252† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
 PBT
 Polymer Blends
- UNKNOWN 1,310 ~1.8–3.9† ~39–94† ~15–44† ~58–145† — ☆
+ UNKNOWN 1,310 ~1.8–3.9† ~40–92† ~15–44† ~58–149† — ☆
 PBT-GF
 Polymer Blends
  PASS 1,320 3.7 65 2 175 — ☆
@@ -104,28 +104,28 @@ Polymer Blends
  PASS 1,240 5.9 62 2 130 — ☆
 PC-CF
 Polycarbonate
- PASS 1,360 6.2 ~73.0–79.5† 2 135 — ☆
+ PASS 1,360 6.2 ~73.0–79.2† 2 135 — ☆
 PC-PBT-CF
 Polymer Blends
  UNKNOWN ~1,190–1,210† ~3.0–4.9† ~44–70† ~35–51† ~114–116† — ☆
 PC-PTFE
 Polycarbonate
- UNKNOWN ~1,310–1,330† ~1.6–3.2† ~38–86† ~4.4–11.8† ~139–141† — ☆
+ UNKNOWN ~1,310–1,330† ~1.5–3.2† ~38–84† ~4.4–11.8† ~139–141† — ☆
 PE-GF
 Polyolefins
- UNKNOWN 1,080 ~1.9–3.9† ~17–42† ~6–19† ~59–111† — ☆
+ UNKNOWN 1,080 ~1.9–3.9† ~18–42† ~6–18† ~58–111† — ☆
 PET-CF
 PET Engineering
  PASS 1,290 4.73 74 4.5 205 116↗ ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.32–0.84† ~19.0–23.6† ~850–1,080† 92? — ☆
+ UNKNOWN 890 ~0.32–0.87† ~19.0–23.4† ~850–1,080† 92? — ☆
 PP-CF
 Polyolefins
- PASS 1,100 6.15 ~78.0–82.8† 1.5 124 — ☆
+ PASS 1,100 6.15 ~78.0–82.6† 1.5 124 — ☆
 PP-GF
 Polyolefins
- PASS 1,120 6.75 ~65.0–71.0† 1.7 139 — ☆
+ PASS 1,120 6.75 ~65.0–70.5† 1.7 139 — ☆
 PPA-CF
 High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆
@@ -140,4 +140,4 @@ High-Performance Engineering
  PASS 1,360 5.76 72 1.6 241 — ☆
 SAN
 Styrenics
- UNKNOWN 1,080 ~2.3–4.9† ~37–88† ~7–54† ~90–114† — ☆
+ UNKNOWN 1,080 ~2.3–4.9† ~38–86† ~7–52† ~90–113† — ☆

@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "924fa364463f4c670c7f6fbb224bf3ef9498f6ab37072045a8a2085767cfa412",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_Conductive_PLA_1.0.1.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "924fa364463f4c67"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Electrically conductive",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "filler: conductive"
+    ],
+    "materialId": "M111",
+    "materialName": "PLA-EC",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet Rev 1. Conductive PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_Conductive_PLA_1.0.1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "924fa364463f4c670c7f6fbb224bf3ef9498f6ab37072045a8a2085767cfa412"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet Rev 1. Conductive PLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M111",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Protopasta",
+        "Product name": "Conductive PLA",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet Rev 1. Conductive PLA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M111",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1",
+        "Locator": "p. 1: Density approx.",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density approx. 1.24 g/cc"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M111",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 215",
+        "Nozzle state": "range",
+        "Nozzle min °C": "215",
+        "Nozzle max °C": "215",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 60",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] 25-45"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 215"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 215",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 215"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated Bed Temperature",
+      "raw": "[°C] 60",
+      "fromBelow": false,
+      "line": "Heated Bed Temperature [°C] 60"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] 25-45",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] 25-45"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet Rev 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "● Volume resistivity of molded resin (not 3D Printed): 15 ohm-cm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "● Volume resistivity of 3D printed parts along layers (x/y): 30 ohm-cm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "● Volume resistivity of 3D printed parts against layers (z): 115 ohm-cm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "● Resistance of a 10cm length of 1.75mm filament: 2-3kohm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "● Resistance of a 10cm length of 2.85mm filament: 800-1200ohm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Length Approx. 332 m/kg (1.75 mm) & 124 m/kg (2.85 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Min bend diameter mm 25 (1.75 mm) & mm 50 (2.85 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt point (Tm) onset approx. 155 deg C (310 deg F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(Based on Ultimaker s5 .15mm Profile)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flow Rate/Extrusion Multiplier [%] 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Extrusion Width [mm] .45 (.05mm larger than nozzle size)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume Flow Rate [mm³/s] 2-3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -1,0 +1,683 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "36c501000ef955976c66743edd9dae2268205272c25f5721e78c6cba4bd1b3eb",
+    "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_nice_essentials_PLA_Basic_V1.0.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "36c501000ef95597"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet: PLA Basic",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_nice_essentials_PLA_Basic_V1.0.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "36c501000ef955976c66743edd9dae2268205272c25f5721e78c6cba4bd1b3eb"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet: PLA Basic"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "nice essentials",
+        "Product name": "PLA Basic",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet: PLA Basic"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,24 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1,24 g/cm³ ASTM D792"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "53 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 53 MPa ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: Yield stress",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield stress 60 MPa ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "6 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: Elongation at yield",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at yield 6 % ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "0,3 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: Impact strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Impact strength 0,3 kJ/m² ASTM D256"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "55 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "E2092",
+        "Standards": "ASTM E2092",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: HDT",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT 55 °C ASTM E2092"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "180-200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "200",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "200",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 3146-C",
+        "Standards": "ISO 3146",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: Melting temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature 180-200 °C ISO 3146-C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "Locator": "p. 1: MFR",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR 6 g/10min ASTM D1238"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200-230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "not required",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20-200 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "21 mm³/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "30-100 %"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "not required"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature 200-230 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "200-230 °C",
+      "fromBelow": false,
+      "line": "Printing Temperature 200-230 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "20-200 mm/s",
+      "fromBelow": false,
+      "line": "Speed 20-200 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. volumetric speed",
+      "raw": "21 mm³/s",
+      "fromBelow": false,
+      "line": "Max. volumetric speed 21 mm³/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "30-100 %",
+      "fromBelow": false,
+      "line": "Cooling 30-100 %"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "not required",
+      "fromBelow": false,
+      "line": "Adhesive not required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "not required",
+      "fromBelow": false,
+      "line": "Enclosure not required"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened nozzle",
+      "raw": "not required",
+      "fromBelow": false,
+      "line": "Hardened nozzle not required"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "material is easy to process, supports high-speed printing up to 350 mm/s, and delivers a glossy surface with fine details. PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile modulus 500 (3,5) MPa ASTM D882",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Shrinking 0,4 % ASTM D955",
+      "reason": "properties.csv carries no property for \"Shrinking\""
+    },
+    {
+      "page": 1,
+      "text": "Heated Bed 20-60 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Store in a dry place at room temperature (18–27 °C). Avoid exposure to heat or direct sunlight.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "September 2025",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

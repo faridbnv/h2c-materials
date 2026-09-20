@@ -26,7 +26,7 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 139 materials, 125 of them in H2C scope
-8560 measurements, each traceable to a source
+8969 measurements, each traceable to a source
 120 have a density, 91 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
@@ -275,7 +275,7 @@ PLA Tough+ not tested 1,210 1.86 34.9 9.4 61 27↗ ☆
 PLA Translucent not tested 1,220 2.88 55.4 11 60 30↗ ☆
 PLA Wood not tested 1,210 2.36 26 15.3 60 32↗ ☆
 PLA-CF not tested 1,220 2.79 38 8.4 55 41↗ ☆
-PLA-EC not tested 1,350* 1.48* 31.2* 11.8* — — ☆
+PLA-EC not tested 1,240* 1.48* 31.2* 11.8* — — ☆
 PLA-ESD not tested 1,260* 2.56* 55* 10* 55* — ☆
 PLA-GF not tested 1,337 3.79 50.1 2.77 75.5 — ☆
 POM

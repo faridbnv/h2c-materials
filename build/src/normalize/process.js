@@ -78,8 +78,11 @@ export function parseTemperature(raw, opts = {}) {
   const ambient = AMBIENT_RE.test(s);
   const [lo, hi] = opts.plausible || [0, 500];
 
-  // A tolerance is centred on the nominal setting; its second number is not an endpoint.
-  const tolerance = s.match(/(\d+(?:\.\d+)?)\s*(?:±|\+\/-)\s*(\d+(?:\.\d+)?)/);
+  // A tolerance is centred on the nominal setting; its second number is not an endpoint. The unit may stand
+  // between the two: Nobufil prints "Print temperature 260°C ± 10" on fourteen sheets, and without the unit in
+  // the pattern that read as a range from 10 to 260 — a window PARSE-MISMATCH refused, which is how it was found.
+  // The degree sign is already off by here (`clean`), so it is the letter that has to be allowed for.
+  const tolerance = s.match(/(\d+(?:\.\d+)?)\s*[°º˚]?\s*[CF]?\s*(?:±|\+\/-)\s*(\d+(?:\.\d+)?)/);
   if (tolerance) {
     const centre = Number(tolerance[1]), delta = Number(tolerance[2]);
     const min = centre - delta, max = centre + delta;

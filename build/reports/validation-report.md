@@ -13,18 +13,18 @@ Database snapshot 2026-09-16 · build 2026-09-20
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 740 |
-| measurements | 8560 |
-| numericMeasurements | 8399 |
+| grades | 807 |
+| measurements | 8969 |
+| numericMeasurements | 8808 |
 | quarantined | 4 |
-| profiles | 812 |
+| profiles | 880 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 990 |
-| coverage | 747 |
+| sources | 1065 |
+| coverage | 754 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 313 |
-| coverageDerived | 648 |
+| coverageDerived | 649 |
 
 ## Headline coverage
 
@@ -45,8 +45,8 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 115 | n/a | 14 | 0 | 15 |
-| bed | 113 | n/a | 14 | 0 | 17 |
+| nozzle | 116 | n/a | 14 | 0 | 14 |
+| bed | 114 | n/a | 14 | 0 | 16 |
 | chamber | 77 | 3 | 8 | 2 | 54 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
@@ -118,17 +118,17 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 646 | 105 | 79% | 95% | ×1.11 | 0.0245 (7433 pairs) |
-| tensileModulusXY | 927 | 77 | 81% | 96% | ×1.51 | 0.32 (645 pairs) |
-| tensileStrengthXY | 1140 | 56 | 80% | 96% | ×1.6 | 0.238 (1405 pairs) |
-| elongationXY | 742 | 77 | 81% | 96% | ×2.8 | 0.75 (1358 pairs) |
-| hdt045 | 934 | 67 | 81% | 96% | 18.8 °C | 5.24 (1265 pairs) |
+| density | 703 | 105 | 80% | 95% | ×1.12 | 0.0217 (9637 pairs) |
+| tensileModulusXY | 969 | 77 | 79% | 96% | ×1.52 | 0.321 (692 pairs) |
+| tensileStrengthXY | 1206 | 56 | 80% | 96% | ×1.58 | 0.231 (1561 pairs) |
+| elongationXY | 776 | 77 | 81% | 96% | ×2.79 | 0.74 (1511 pairs) |
+| hdt045 | 994 | 67 | 81% | 96% | 18.4 °C | 4.8 (1482 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 19 | 12 | 3 | 4 | 0 | 0 | 19 |
-| tensileModulusXY | 47 | 31 | 6 | 6 | 4 | 0 | 43 |
-| tensileStrengthXY | 61 | 49 | 5 | 3 | 4 | 0 | 46 |
+| tensileModulusXY | 47 | 31 | 7 | 5 | 4 | 0 | 43 |
+| tensileStrengthXY | 61 | 49 | 5 | 3 | 4 | 0 | 45 |
 | elongationXY | 47 | 29 | 7 | 7 | 4 | 0 | 43 |
 | hdt045 | 49 | 24 | 7 | 4 | 14 | 0 | 31 |
 
@@ -137,22 +137,22 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | Headline | Class | Held | Top: beyond plausible | Top taken at | Bottom: beyond plausible | Bottom taken at |
 |---|---|---:|---:|---:|---:|---:|
 | density | this-grade | 0 | 0 | cannot screen | 0 | cannot screen |
-| density | this-material | 64 | 3 | 98.53% point | 3 | 1.99% point |
+| density | this-material | 65 | 3 | 97.5% point | 3 | 2.5% point |
 | density | family | 105 | 2 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-grade | 72 | 2 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-material | 50 | 0 | 97.5% point | 0 | 2.5% point |
-| tensileModulusXY | family | 77 | 1 | 97.5% point | 1 | 2.5% point |
-| tensileStrengthXY | this-grade | 54 | 0 | 97.5% point | 2 | 2.5% point |
+| tensileModulusXY | family | 77 | 0 | 97.5% point | 1 | 2.5% point |
+| tensileStrengthXY | this-grade | 54 | 2 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-material | 36 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 56 | 0 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 50 | 1 | 97.5% point | 3 | 1.61% point |
+| elongationXY | this-material | 50 | 2 | 97.59% point | 2 | 1.52% point |
 | elongationXY | family | 77 | 1 | 97.5% point | 2 | 2.5% point |
 | hdt045 | this-grade | 54 | 1 | 97.5% point | 0 | 2.5% point |
-| hdt045 | this-material | 42 | 3 | 97.84% point | 0 | 2.5% point |
-| hdt045 | family | 67 | 4 | 97.81% point | 1 | 2.5% point |
+| hdt045 | this-material | 43 | 3 | 97.77% point | 1 | 2.5% point |
+| hdt045 | family | 67 | 4 | 97.58% point | 0 | 2.5% point |
 
-- Unstated-load bracket, amorphous: top at the published value + 15.8 °C (84 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 15.8 °C, the 5th largest gap observed).
+- Unstated-load bracket, amorphous: top at the published value + 15.8 °C (86 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 15.8 °C, the 5th largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 4 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 - Unstated-load bracket, semi-filled: top at the published value + 120 °C (24 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 120 °C, the largest gap observed).
 - Unstated-load bracket, elastomer: its top cannot screen (only 0 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
@@ -161,6 +161,7 @@ Evidence that contradicts everything else and was down-weighted:
 
 - PLA, density: density 1360 (V004368)
 - PLA, density: density 1390 (V006192)
+- PLA, density: density 1329 (V006557)
 - PLA, density: density 1380 (V007667)
 - PLA, density: density 1365 (V008599)
 - PLA Metal, density: density 1250 (V000184)
@@ -168,7 +169,9 @@ Evidence that contradicts everything else and was down-weighted:
 - PLA Metal, density: density 2330, 2330 (V004048, V004062)
 - PLA Metal, density: density 2280, 2280 (V004058, V004070)
 - PLA Metal, density: density 1225 (V007387)
+- PLA Metal, density: density 1200 (V009065)
 - PLA Wood, density: density 1020 (V005557)
+- PLA Wood, density: density 1254 (V006967)
 - PLA Aero, density: density 1210 (V000303)
 - PLA Aero, density: density 1240 (V002975)
 - PLA Aero, density: density 900 (V003554)
@@ -178,12 +181,18 @@ Evidence that contradicts everything else and was down-weighted:
 - PLA Aero, density: density 1200 (V005770)
 - PLA Aero, density: density 1200 (V005973)
 - PLA Aero, density: density 1200 (V006763)
+- PLA-GF, density: density 1200 (V008897)
 - PETG, density: density 1180 (V002844)
+- PETG, density: density 1350 (V007369)
+- PAHT-CF, density: density 1060 (V000896)
+- PAHT-CF, density: density 1250 (V007437)
+- PA6-CF, density: density 1090 (V005123)
 - PA6-GF, density: density 1370 (V005580)
 - PA12-CF, density: density 1230 (V006956)
 - PPS-CF, density: density 1510 (V007156)
 - PP-CF, density: density 1100 (V001502)
 - POM / Acetal, density: density 1140 (V002322)
+- PLA, tensileModulusXY: tensile unk 3.5 (V009040)
 - PLA Silk, tensileModulusXY: tensile XY 0.597 (V004369)
 - PLA Silk, tensileModulusXY: tensile Z 0.363 (V004370)
 - PLA Silk, tensileModulusXY: flexural XY 2.473 (V004375)
@@ -192,6 +201,7 @@ Evidence that contradicts everything else and was down-weighted:
 - PETG, tensileModulusXY: flexural XY 1.9 (V004395)
 - PETG-CF, tensileModulusXY: flexural unk 0.065 (V007718)
 - ABS, tensileModulusXY: tensile XY 0.21708, 0.21716 (V005137, V005140)
+- PAHT-CF, tensileModulusXY: tensile Z 3.532 (V002470)
 - PA6-CF, tensileModulusXY: tensile unk 1.1 (V004325)
 - PA6-GF, tensileModulusXY: flexural XY 0.2, 0.0575 (V005395, V005396)
 - PA12-CF, tensileModulusXY: tensile XY 0.495 (V004845)
@@ -204,6 +214,8 @@ Evidence that contradicts everything else and was down-weighted:
 - PLA, tensileStrengthXY: ultimate XY 32.7, 8.7 (V005060, V005063)
 - PLA, tensileStrengthXY: ultimate XY 28.004 (V008589)
 - PLA, tensileStrengthXY: flexural XY 85.809 (V008591)
+- ABS, tensileStrengthXY: ultimate XY 27 (V008933)
+- ABS, tensileStrengthXY: flexural XY 92.38 (V008936)
 - TPU, tensileStrengthXY: ultimate XY 27 (V005374)
 - TPU, tensileStrengthXY: flexural XY 7 (V005377)
 - TPU, tensileStrengthXY: ultimate unk 30, 50 (V005838, V005844)
@@ -279,6 +291,7 @@ Evidence that contradicts everything else and was down-weighted:
 - PA6, hdt045: HDT unstated 60 (V002994)
 - PA6, hdt045: HDT unstated 186 (V007868)
 - PA6-CF, hdt045: HDT 0.45 203, 209 (V004530, V008619)
+- PA6-CF, hdt045: HDT 0.45 200 (V005171)
 - PA6-CF, hdt045: HDT 0.45 147 (V006453)
 - PA6-CF, hdt045: HDT 0.45 215 (V006543)
 - PA6-CF, hdt045: HDT unstated 50, 140 (V007552, V007553)
@@ -321,9 +334,10 @@ Evidence that contradicts everything else and was down-weighted:
 
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
-- PLA Metal, density: 1250 kg/m³, expected about 1880
+- PLA Metal, density: 1250 kg/m³, expected about 1730
 - PLA Aero, density: 1210 kg/m³, expected about 1030
 - TPU, elongationXY: 330.1 %, expected about 490
+- PET-GF, hdt045: 81.6 °C, expected about 117
 
 ## Consistency
 
@@ -349,5 +363,5 @@ interface can say so rather than implying a certainty it does not have.
 
 - `HDT-LOAD-UNSTATED` **materials** — 10 of 88 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
-- `EST-OUTLIER` **materials** — 3 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Metal density 1250 (expected about 1880); PLA Aero density 1210 (expected about 1030); TPU elongationXY 330.1 (expected about 490)
+- `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Metal density 1250 (expected about 1730); PLA Aero density 1210 (expected about 1030); TPU elongationXY 330.1 (expected about 490); PET-GF hdt045 81.6 (expected about 117)
 - `EST-FAMILY-ORDER` **materials** — 2 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865; ASA-AF tensileModulusXY 2.02 (estimate) < ASA 2.45

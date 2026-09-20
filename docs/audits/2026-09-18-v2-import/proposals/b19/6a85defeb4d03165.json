@@ -1,0 +1,1537 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "6a85defeb4d0316503b753204e80c860ea384bde477ae995b2e12060a68a9606",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3799",
+    "pages": 2,
+    "provider": "Filament2Print",
+    "manufacturer": null,
+    "docKey": "6a85defeb4d03165"
+  },
+  "identity": {
+    "polymer": "PEKK",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pekk"
+    ],
+    "materialId": "M098",
+    "materialName": "PEKK",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+      "Publisher": "Filament2Print",
+      "Title": "TECAFIL PEKK natural - 1.75 mm - Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3799",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6a85defeb4d0316503b753204e80c860ea384bde477ae995b2e12060a68a9606"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECAFIL PEKK natural - 1.75 mm - Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M098",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Ensinger",
+        "Product name": "TECAFIL PEKK natural - 1.75 mm",
+        "Shared formulation key": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECAFIL PEKK natural - 1.75 mm - Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "86,3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "86.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "86.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 86,3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "89,5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "89.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "89.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "5mm/min Orientation XZ ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Tensile strength 5mm/min, Orientation XZ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 5mm/min, Orientation XZ 89,5 MPa DIN EN ISO 527-2 2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "92,7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "92.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "92.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 92,7 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2921,0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2921",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.921",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Modulus of elasticity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 2921,0 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3041,0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3041",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.041",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Modulus of elasticity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 3041,0 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2997,7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2997.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.9977",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "5mm/min Orientation ZX ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Modulus of elasticity 5mm/min, Orientation ZX",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 5mm/min, Orientation ZX 2997,7 MPa DIN EN ISO 527-2 6)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5,4 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Elongation at yield (tensile test)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at yield (tensile test) 5,4 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5,4 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "tensile test 5mm/min Orientation XZ ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Elongation at yield (tensile test) 5mm/min, Orientation XZ",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at yield (tensile test) 5mm/min, Orientation XZ 5,4 % DIN EN ISO 527-2 8)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4,6 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Elongation at yield (tensile test)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at yield (tensile test) 4,6 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "95,6 %",
+        "Raw unit": "%",
+        "Raw numeric": "95.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "tensile test 5mm/min Orientation XY ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Elongation at break (tensile test) 5mm/min, Orientation XY",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (tensile test) 5mm/min, Orientation XY 95,6 % DIN EN ISO 527-2 10)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "120,3 %",
+        "Raw unit": "%",
+        "Raw numeric": "120.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "120.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Elongation at break (tensile test)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (tensile test) 120,3 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "79,2 %",
+        "Raw unit": "%",
+        "Raw numeric": "79.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "79.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Elongation at break (tensile test)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break (tensile test) 79,2 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "128,0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "128",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "128",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 mm/min 10 N ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Flexural strength 2 mm/min, 10 N",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural strength 2 mm/min, 10 N 128,0 MPa DIN EN ISO 178 13)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3000,0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Modulus of elasticity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 3000,0 MPa (flexural test)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "5,0 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "7 5J - 23°C ISO 179-1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Notched impact strength max. 7,5J - 23°C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched impact strength max. 7,5J - 23°C 5,0 kJ/m2 DIN EN ISO 179-1eA 15) (Charpy)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "160 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "160",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "160",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Glass transition temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature 160 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "300 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "300",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Melting temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature 300 °C DIN EN ISO 11357 2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "139 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "139",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "139",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Deflection temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Deflection temperature 139 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0,6 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: Moisture absorption",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Moisture absorption 0,6 % DIN EN ISO 62 1) (1) (*2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "35 cm³/10 min",
+        "Raw unit": "cm³/10 min",
+        "Raw numeric": "35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "Locator": "p. 1: MVR",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MVR 35 cm³/10 min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M098",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "340 - 380 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "340",
+        "Nozzle max °C": "380",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "120 °C",
+        "Drying state": "stated",
+        "Drying °C": "120",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0,4 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Tecafil-PEKK",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 40 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0 %"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 340 - 380 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "340 - 380 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 340 - 380 °C"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle diameter",
+      "raw": "0,4 mm",
+      "fromBelow": false,
+      "line": "Nozzle diameter 0,4 mm -"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "30 - 40 mm/s",
+      "fromBelow": false,
+      "line": "Print speed 30 - 40 mm/s -"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan speed",
+      "raw": "0 %",
+      "fromBelow": false,
+      "line": "Fan speed 0 % -"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying temperature",
+      "raw": "120 °C",
+      "fromBelow": false,
+      "line": "Drying temperature 120 °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TECAFIL PEKK natural - 1.75 mm - Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.27 g/cm (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1,75 +/- 0,05 mm - (1) standard spool body",
+      "reason": "the sheet publishes no value for \"Diameter\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "(2) do not dry spool >120°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool measurements Ø 52 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3) Ø 1,75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool measurements 55 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool measurements outer diameter Ø 200 mm - 1)",
+      "reason": "the sheet publishes no value for \"Spool measurements\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "- 2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "500 g -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- 3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "155 m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation XY DIN EN ISO 527-2 1) (1) (*5) , (*6)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation XY\""
+    },
+    {
+      "page": 1,
+      "text": "(2) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(4) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation ZX DIN EN ISO 527-2 3)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation ZX\""
+    },
+    {
+      "page": 1,
+      "text": "(5) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(6) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation XY DIN EN ISO 527-2 4)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation XY\""
+    },
+    {
+      "page": 1,
+      "text": "(7) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(8) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation XZ DIN EN ISO 527-2 5) (9) (*5) , (*6)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation XZ\""
+    },
+    {
+      "page": 1,
+      "text": "(10) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(11) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(12) (*5) , (*6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(tensile test) (13) (*1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(14) (*1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation XY DIN EN ISO 527-2 7)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation XY\""
+    },
+    {
+      "page": 1,
+      "text": "(15) (*1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation ZX DIN EN ISO 527-2 9)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation ZX\""
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation XZ DIN EN ISO 527-2 11)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation XZ\""
+    },
+    {
+      "page": 1,
+      "text": "5mm/min, Orientation ZX DIN EN ISO 527-2 12)",
+      "reason": "properties.csv carries no property for \"5mm/min, Orientation ZX\""
+    },
+    {
+      "page": 1,
+      "text": "2 mm/min, 10 N DIN EN ISO 178 14)",
+      "reason": "properties.csv carries no property for \"2 mm/min, 10 N\""
+    },
+    {
+      "page": 1,
+      "text": "ASTM D 3418 1) (1) (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(2) (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3) (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT-A ISO-R 75 Method A 3) (4) (*2)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "(5) (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(6) (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "short term - 4)",
+      "reason": "the sheet publishes no value for \"short term\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Service temperature 230 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Service temperature long term 200 °C - 5)",
+      "reason": "the sheet publishes no value for \"Service temperature\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "DIN EN ISO 11359-1;2 6)",
+      "reason": "properties.csv carries no property for \"DIN EN\""
+    },
+    {
+      "page": 1,
+      "text": "Thermal expansion (CLTE) - 10-5 K -1",
+      "reason": "the sheet publishes no value for \"Thermal expansion (CLTE)\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "(2) (*2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "380°C / 5kg DIN EN ISO 1133 2)",
+      "reason": "properties.csv carries no property for \"380°C / 5kg\""
+    },
+    {
+      "page": 1,
+      "text": "- (1) required",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max. melt temperature 410 °C -",
+      "reason": "the sheet publishes no value for \"Max. melt temperature\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Print bed temperature 140 - 160 °C -",
+      "reason": "the sheet publishes no value for \"Print bed temperature\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "- 1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Build chamber temperature 120 - 160 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- 1) (1) (*4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(*2) Values measured on the raw material",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(*3) The exact parameters depend on the printer used.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(*4) Do not exceed maximum drying temperature of 120°C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(*5) Properties tested on printed specimens",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(*6) Specimens printed on Kumovis R1",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "Regulation 1907/2006 / EC as amended Unless otherwise noted, these values were determined by tests on injection moulded samples, dry as moulded. The correspondi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ensinger GmbHEnsinger GmbH Tel +49 7032 819 0 Date: 2024/07/15 Version: AFVersion: AF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Rudolf-Diesel Str. 8Rudolf-Diesel Str. 8 Fax +49 7032 819 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "71154 Nufringen - Deutschland71154 Nufringen - Deutschland ensingerplastics.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

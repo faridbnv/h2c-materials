@@ -226,7 +226,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "MatterHackers prints \"Flexural Modulus 60MPa\" and \"Flexural Strength 1170MPa\": the two labels are swapped on its own sheet, since 60 MPa is a PETG's flexural strength and 1170 MPa its modulus. Both are kept as printed and marked physically implausible (D55) rather than re-paired here, because which label belongs to which number is the maker's to say."
       }
     },
     {
@@ -247,7 +250,7 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "GPa",
-        "Data status": "Published value",
+        "Data status": "Published value (physically implausible)",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Unstated",
         "Moisture condition": "Not published",
@@ -273,7 +276,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "MatterHackers prints \"Flexural Modulus 60MPa\" and \"Flexural Strength 1170MPa\": the two labels are swapped on its own sheet, since 60 MPa is a PETG's flexural strength and 1170 MPa its modulus. Both are kept as printed and marked physically implausible (D55) rather than re-paired here, because which label belongs to which number is the maker's to say."
       }
     },
     {
@@ -294,7 +300,7 @@
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
-        "Data status": "Published value",
+        "Data status": "Published value (physically implausible)",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Unstated",
         "Moisture condition": "Not published",
@@ -320,7 +326,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "MatterHackers prints \"Flexural Modulus 60MPa\" and \"Flexural Strength 1170MPa\": the two labels are swapped on its own sheet, since 60 MPa is a PETG's flexural strength and 1170 MPa its modulus. Both are kept as printed and marked physically implausible (D55) rather than re-paired here, because which label belongs to which number is the maker's to say."
       }
     },
     {
@@ -367,7 +376,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "the page prints \"Notched Izod Impact 7.6J/M2\" and the longest unit the lexicon knows inside that is J/m, so the row recorded a unit the page does not print — and J/m is a thousand times J/m2. Neither reading may be assumed: rejected rather than guessed, and the gap is named in PLAN-REMAINING."
       }
     }
   ],

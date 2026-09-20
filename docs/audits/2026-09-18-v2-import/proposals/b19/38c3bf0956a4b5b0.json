@@ -1,0 +1,514 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "38c3bf0956a4b5b06974a08aee7c2a37f55870bc5451fe7a865b561f4462252a",
+    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS_The_Filament_TPU_95A.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "38c3bf0956a4b5b0"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "95A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 95A"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "TECHNICAL DATA SHEET THE FILAMENT TPU 95A",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_The_Filament_TPU_95A.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "38c3bf0956a4b5b06974a08aee7c2a37f55870bc5451fe7a865b561f4462252a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET THE FILAMENT TPU 95A"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "The Filament",
+        "Product name": "TPU 95A",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET THE FILAMENT TPU 95A"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.21 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.21",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Locator": "p. 1: Specific Gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Gravity 1.21 g/cm3 ISO 1183-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "95",
+        "Raw unit": "Shore A",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 7619-1",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Locator": "p. 1: Shore hardness A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore hardness A 95A ISO 7619-1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "32 N/mm2",
+        "Raw unit": "N/mm2",
+        "Raw numeric": "32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "32",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DIN 53504-S2",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Locator": "p. 1: Tensile Strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength 32 N/mm2 DIN 53504-S2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "350 %",
+        "Raw unit": "%",
+        "Raw numeric": "350",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "350",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DIN 53504-S2",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Locator": "p. 1: Elongation at break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break 350% DIN 53504-S2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Abrasion loss",
+        "Raw value": "30 mm3",
+        "Raw unit": "mm3",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "mm³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 4649",
+        "Standards": "ISO 4649",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "Locator": "p. 1: Abrasion Resistance",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Abrasion Resistance 30 mm3 ISO 4649"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210-240°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "40-80°C",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "for printing not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "recommended",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "Up to 100%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 210-240°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "210-240°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 210-240°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "40-80°C",
+      "fromBelow": false,
+      "line": "Bed temperature 40-80°C"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Closed chamber",
+      "raw": "for printing not necessary",
+      "fromBelow": false,
+      "line": "Closed chamber for printing not necessary"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle recommended"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "Up to 100%",
+      "fromBelow": false,
+      "line": "Cooling Up to 100%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "THE FILAMENT TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tear strength 77 N/mm ISO 34-1",
+      "reason": "the line names Tear strength and states no value in a unit the database keeps it in (kN/m)"
+    },
+    {
+      "page": 1,
+      "text": "not necessary (if you need increased adhesion or prevent warping: glue stick, Dimafix, 3DLac, Magigoo)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Features up to 350% elongation at break, Shore 95",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "* settings are based on a 0,4 mm nozzle.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Recommended storage temperature is ca. 18-25°C (64.4 to contact us at",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "-77.0°F). Keep out of moisture, sunlight and direct heat. When support@spectrumfilaments.com",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "a shelf life of 24 months.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Preparation date: 23-07-2025",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

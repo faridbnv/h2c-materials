@@ -20,6 +20,8 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { projectRoot } from '../data/table-io.mjs';
+import { couldBe, windowFor } from './propose.mjs';
+import { basisHead } from '../../build/src/lint-rules.js';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && !String(process.argv[i + 1] ?? '--').startsWith('--') ? process.argv[i + 1] : null; };
@@ -56,6 +58,49 @@ export const rowsOf = (p) => [
   ...(p.evidence ?? []).map((r, i) => view('evidence', r.id ?? `e${i + 1}`, r)),
 ];
 
+/**
+ * A value the physics windows put outside anything the property reaches, at the window the row's own matrix and
+ * fill select. `couldBe` already decides which way a decimal separator was meant; this asks the same question of
+ * every row, because a number with no separator to be ambiguous about can be just as wrong.
+ *
+ * MatterHackers prints "Tensile Modulus 3.6 MPa" and "Flexural Modulus 3.8 MPa" on its PLA sheet, which is its
+ * own slip for GPa; read as printed, a PLA would have a modulus a thousandth of a polyethylene's. The value is
+ * still what the sheet says and it is transcribed as such — the reviewer decides whether it enters as a
+ * published value physics rules out (D55) or not at all, and that decision is exactly what this asks for.
+ */
+function outsideEverything(row, proposal) {
+  if (row.kind !== 'measurement') return null;
+  const value = Number(row.row?.['Normalized value']);
+  const unit = String(row.row?.['Normalized unit'] ?? '');
+  const judged = proposal.window ?? {};
+  const of = { matrix: judged.matrix ?? 'any', fill: judged.fill ?? 'any',
+    condition: ['Notched', 'Unnotched'].includes(row.row?.Notch) ? row.row.Notch : 'any' };
+  const window = windowFor(row.row?.Property, unit, of);
+  // A window that always flags is not a bound the value failed: it says the property means nothing for this kind
+  // of material at all. An HDT on an elastomer is one (W0059) — a rubber has no deflection temperature to speak
+  // of — and telling a reviewer it is "outside anything this property reaches" would send them to check a number
+  // that is not the problem.
+  if (window?.['Always flag'] === 'TRUE') {
+    return `${basisHead(window.Basis) || 'this property is always flagged for this kind of material'}: read the page and say whether the sheet's own value enters as one physics rules out (D55)`;
+  }
+  if (couldBe(row.row?.Property, unit, value, of)) return null;
+  return `${value} ${unit} is outside anything this property reaches for a ${of.matrix} ${of.fill} material: read the page and say whether the sheet prints it so`;
+}
+
+/**
+ * The unit a row records, where the page prints a longer one. "Notched Izod Impact 7.6J/M2" is joules per square
+ * metre and the lexicon knows J/m, so the longest alias it matched dropped the exponent and changed the value by
+ * a thousand. Two documents in this corpus print such a unit; a rule in the reader would be built for twenty
+ * (the plan's threshold), and until then a reviewer is told rather than the row quietly entering.
+ */
+function aUnitThePageDoesNotPrint(row) {
+  const unit = String(row.row?.['Raw unit'] ?? '').trim();
+  const line = String(row.evidence?.text ?? '');
+  if (unit.length < 2 || !line) return null;
+  const longer = new RegExp(`${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([\u00b2\u00b3\\d])`, 'i').exec(line);
+  return longer ? `the page prints "${unit}${longer[1]}" and the row records "${unit}": the exponent is the difference between this value and a thousand of them` : null;
+}
+
 /** Why a row cannot be accepted in bulk: it needs a person to look at this one thing. */
 export function holdsBack(row, proposal) {
   const reasons = [];
@@ -64,6 +109,10 @@ export function holdsBack(row, proposal) {
   if (row.evidence?.ocr) reasons.push('read from an optical-character copy: look at the page image');
   if (proposal.identity?.needsRuling) reasons.push(`the material is unsettled: ${proposal.identity.reasons?.[0] ?? ''}`);
   if ((row.confidence ?? 1) < 0.9) reasons.push(`confidence ${row.confidence}`);
+  const outside = outsideEverything(row, proposal);
+  if (outside) reasons.push(outside);
+  const unit = aUnitThePageDoesNotPrint(row);
+  if (unit) reasons.push(unit);
   return reasons;
 }
 

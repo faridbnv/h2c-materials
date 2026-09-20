@@ -1713,3 +1713,99 @@ P0811,Adhesion / release,Distance 0.4-0.6
 P0811,Retraction,5mm
 P0812,Speed,20-60 mm/s
 P0812,Retraction,s from 2-3 mm/s to 40 mm/s
+P0813,Speed,[mm/s] 25-45
+P0814,Speed,30 - 100mm/s
+P0815,Speed,50-90
+P0816,Speed,40 mm/s
+P0818,Speed,50-200
+P0818,Cooling,100%
+P0818,Adhesion / release,Separation Distance 0.8
+P0818,Retraction,40
+P0820,Speed,300mm/s
+P0822,Speed,[mm/s] 20-40
+P0823,Speed,50-250
+P0823,Cooling,90%
+P0823,Adhesion / release,Separation Distance 0.8
+P0823,Retraction,30
+P0825,Speed,50-90
+P0826,Cooling,max. 15%
+P0827,Speed,50~200mm/s
+P0827,Cooling,60-100%
+P0827,Adhesion / release,Separation Distance 1mm
+P0827,Retraction,80mm/s
+P0829,Cooling,max. 15%
+P0830,Speed,20-200 mm/s
+P0830,Cooling,30-100 %
+P0830,Adhesion / release,not required
+P0831,Cooling,20-50%
+P0832,Speed,50-150
+P0832,Cooling,80%
+P0832,Adhesion / release,Separation Distance 0.8
+P0832,Retraction,40
+P0833,Cooling,Up to 100%
+P0834,Speed,50-90 mm/s
+P0835,Cooling,20-50%
+P0836,Speed,30 - 150 mm/s
+P0837,Speed,20 - 30 mm/s
+P0837,Cooling,0 %
+P0838,Cooling,Up to 100%
+P0839,Cooling,max. 60%
+P0840,Speed,50-150
+P0840,Cooling,100%
+P0840,Adhesion / release,Separation Distance 1
+P0840,Retraction,30
+P0841,Speed,50-90 mm/s
+P0843,Speed,250mm/s
+P0844,Cooling,20-50%
+P0845,Speed,30 - 300mm/s
+P0846,Cooling,max. 15%
+P0847,Speed,30 - 100mm/s
+P0848,Speed,40-100mm/s
+P0848,Cooling,100%
+P0849,Speed,50-90
+P0850,Speed,30 - 40 mm/s
+P0850,Cooling,0 %
+P0852,Speed,30 - 100mm/s
+P0854,Cooling,20-50%
+P0855,Cooling,Up to 100%
+P0856,Cooling,max. 60%
+P0857,Cooling,max. 60%
+P0858,Speed,100-150mm/s
+P0859,Speed,30 - 150 mm/s
+P0860,Speed,50-300mm/s
+P0861,Speed,[mm/s] 25-45
+P0863,Speed,50-200
+P0863,Cooling,100%
+P0863,Adhesion / release,Separation Distance 0.8
+P0863,Retraction,30
+P0864,Speed,50-100
+P0864,Cooling,80%
+P0864,Adhesion / release,Separation Distance 0.8
+P0864,Retraction,40
+P0865,Speed,30-100mm/s
+P0865,Layer height,0.1-0.4mm
+P0866,Speed,40-250
+P0866,Cooling,100
+P0866,Adhesion / release,Separation Distance 0.5
+P0866,Retraction,30
+P0867,Speed,40-300mm/s
+P0868,Shell / walls,2
+P0868,Speed,50 mm/s
+P0868,Layer height,"0,3 mm"
+P0869,Speed,[mm/s] 20-40
+P0870,Cooling,20-50%
+P0871,Speed,50 mm/s
+P0871,Layer height,"0,2 mm"
+P0873,Cooling,max. 60%
+P0874,Cooling,max. 15%
+P0875,Speed,40-100
+P0876,Speed,[mm/s] 25-45
+P0877,Speed,50-250
+P0877,Cooling,100%
+P0877,Adhesion / release,Separation Distance 0.8
+P0877,Retraction,40
+P0879,Speed,40-100
+P0880,Speed,"of 450mm/s. For simple batch models, the maximum speed"
+P0880,Cooling,100%
+P0880,Adhesion / release,Separation Distance 0.8
+P0880,Retraction,40

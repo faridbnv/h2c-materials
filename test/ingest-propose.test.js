@@ -888,3 +888,61 @@ test('a block heading stands in the table\u2019s own column', () => {
   assert.equal(sheet(243).values[0].block, '');
   assert.equal(sheet(349).values[0].block, 'annealed');
 });
+
+// --- b19: the words that announce a sheet, and the maker a shop is hosting ------------------------
+
+test('the announcement is not a name whatever printing mark stands behind it', async () => {
+  const { notAProduct } = await import('../scripts/ingest/propose.mjs');
+  // Twenty-three products across four makers were called after the sheet's own front matter.
+  for (const [line, maker] of [['Technical Data Sheet Rev. 1', 'Protopasta'], ['Technical Data Sheet Rev .1', 'Protopasta'],
+    ['Technical Data Sheet 04.24', 'AzureFilm'], ['KINGROON Filament Technical Data Sheet V1.0', 'Kingroon'], ['Product Name:', 'Anycubic']]) {
+    assert.equal(notAProduct(line, maker), true, line);
+  }
+});
+
+test('a name that survives the announcement coming off is still a name', async () => {
+  const { notAProduct } = await import('../scripts/ingest/propose.mjs');
+  // b15's lesson: rejecting a line for ending in "datasheet" cost twenty-one SIDDAMENT products.
+  for (const [line, maker] of [['ABS Carbon Fiber', 'SIDDAMENT'], ['Nobufil PLAx', 'Nobufil'], ['Hyper-PLA RFID', 'Creality'],
+    ['TPU 95A', 'The Filament'], ['PLA 2024', '3DJake']]) {
+    assert.equal(notAProduct(line, maker), false, line);
+  }
+});
+
+test('a shop is the maker only where the product is its own brand', async () => {
+  const { makerOfRecord } = await import('../scripts/ingest/propose.mjs');
+  const world = { manufacturers: [
+    { Value: '3DJake', Aliases: '3DJAKE;3DJake / 3DJAKE' },
+    { Value: 'Anycubic', Aliases: 'ANYCUBIC' },
+    { Value: 'FormFutura', Aliases: '' },
+  ] };
+  const shop = { provider: '3DJake / 3DJAKE', provider_kind: 'retailer' };
+  // Its own brand, from the inventory.
+  assert.equal(makerOfRecord({ ...shop, brand: '3DJAKE' }, null, world).maker, '3DJake');
+  // Another maker's, corroborated by the shop's own product page.
+  assert.equal(makerOfRecord({ ...shop, brand: 'Anycubic', source_page_url: 'https://www.3djake.com/anycubic/abs-black' }, null, world).maker, 'Anycubic');
+  // A manufacturer the vocabulary knows, named in the URL where the inventory recorded no brand.
+  assert.equal(makerOfRecord({ ...shop, brand: 'See document / product page', url: 'https://x/4734-biofil-pcl-formfutura.html' }, null, world).maker, 'FormFutura');
+  // And nothing at all: R074 holds the document rather than making the shop the maker.
+  assert.equal(makerOfRecord({ ...shop, brand: 'nice', url: 'https://3d.nice-cdn.com/upload/file/x.pdf' }, null, world), null);
+});
+
+test('a brand the inventory recorded but nothing corroborates does not become a maker', async () => {
+  const { makerOfRecord } = await import('../scripts/ingest/propose.mjs');
+  // "3d.nice-cdn.com" put "nice" in a brand column; a CDN host names no maker.
+  const world = { manufacturers: [{ Value: '3DJake', Aliases: '3DJAKE;3DJake / 3DJAKE' }] };
+  const row = { provider: '3DJake / 3DJAKE', provider_kind: 'retailer', brand: 'Acme', url: 'https://cdn.example.com/f.pdf' };
+  assert.equal(makerOfRecord(row, { pages: [{ lines: [{ text: 'Technical Data Sheet' }] }] }, world), null);
+});
+
+test('a domain a sheet prints is the maker naming itself, and a standards body is not', async () => {
+  const { makerFromSheet } = await import('../scripts/ingest/propose.mjs');
+  const sheet = (...lines) => ({ pages: [{ lines: lines.map((text) => ({ text })) }] });
+  assert.equal(makerFromSheet(sheet('BEDROCK 3D PP GF30', 'ISO 527 tested', 'www.bedrock3d.com'))?.name, 'bedrock3d');
+  // Every line of this sheet is printed twice over itself, which is how Xenia's arrives.
+  assert.equal(makerFromSheet(sheet('xeniamaterials.comxeniamaterials.com'))?.name, 'xeniamaterials');
+  // A sentence the extractor ran together reads as a domain; the maker prints its own in the header and again in
+  // the footer, so the one that appears more often wins.
+  assert.equal(makerFromSheet(sheet('ensingerplastics.com', 'conditions.de Lieferung', 'ensingerplastics.com'))?.name, 'ensingerplastics');
+  assert.equal(makerFromSheet(sheet('printed to printables.com')), null);
+});
