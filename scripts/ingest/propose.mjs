@@ -246,6 +246,14 @@ const NO_VALUE_CELL = () => new RegExp(`^(?:[/–—-]|n\\.?/?a\\.?)\\s*(?:${UNI
 // distortion temperature and a glass transition with no unit at all. A unit the lexicon knows is as much a piece as
 // the superscript of one; it is never a sentence, and it is never the row's own value.
 const BARE_UNIT = () => new RegExp(`^(?:${UNIT_PATTERN})$`, 'i');
+// A page may set the superscripts of several units on one raised baseline: BASF prints "1176 kg/m³ / 73.4 lb/ft³"
+// and the two threes arrive as a line of their own, "3 3", one standing against each unit. Read as a line it is
+// neither a value nor a unit, so it stayed where it fell and both units lost their power — a density in kg/m is
+// in no unit this database keeps, and the row went unread with it. A run of them is only ever read as pieces
+// where every one of them stands against the end of a piece of the row it would join (pageRows below): that is
+// what a superscript does and what a column of values never does.
+const isRaisedRun = (line) => { const cells = lineCells(line); return cells.length > 1 && cells.length <= 3 && cells.every((c) => /^\d{1,2}$/.test(c.text.trim())); };
+
 export function isFragment(line) {
   const cells = lineCells(line);
   if (cells.length !== 1) return false;
@@ -312,7 +320,7 @@ export function pageRows(lines, registry = null) {
   const anchors = lines.map((l, i) => [l, i]).filter(([l]) => !isFragment(l));
   const attached = new Map();
   const claimed = new Set();
-  for (const [piece, i] of lines.map((l, i) => [l, i]).filter(([l]) => isFragment(l))) {
+  for (const [piece, i] of lines.map((l, i) => [l, i]).filter(([l]) => isFragment(l) || isRaisedRun(l))) {
     // A piece printed hard against a row belongs to that row, whatever else shares its band: the 2 of "kJ/m²"
     // stands where the unit ends, and a tall label above it was claiming those superscripts and leaving the
     // impact rows of the sheet in a unit the database does not keep them in.
@@ -323,7 +331,12 @@ export function pageRows(lines, registry = null) {
     // table's values ("190-230 °C", "60 °C") were read as pieces of whichever property row shared their band —
     // which put a temperature at the head of the row and lost the property, the method and the value with it.
     const rightOf = (row) => from >= Math.min(...inked(row).map((s) => s.x));
-    const fits = anchors.filter(([row]) => inBandOf(row, piece) && rightOf(row))
+    // A run of raised digits joins a row only where every one of them stands against the end of one of its
+    // pieces. A value column shares a band and stands right of the row's start too; what it never does is set
+    // each of its numbers hard against the last letter of a unit.
+    const run = isRaisedRun(piece) && !isFragment(piece);
+    const allAgainst = (row) => inked(piece).every((r) => inked(row).some((s) => Math.abs(spanRight(s) - r.x) <= AGAINST));
+    const fits = anchors.filter(([row]) => inBandOf(row, piece) && rightOf(row) && (!run || allAgainst(row)))
       .sort((a, b) => (against(b[0]) ? 1 : 0) - (against(a[0]) ? 1 : 0) || Math.abs(a[0].y - piece.y) - Math.abs(b[0].y - piece.y));
     const to = fits.find(([row, at]) => !overlapsAcross([...inked(row), ...(attached.get(at) ?? []).flatMap(inked)], inked(piece)));
     if (!to) continue;
@@ -1285,7 +1298,7 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
 }
 
 /** One measurement row, filled the way the schema requires: raw text as printed, typed columns beside it. */
-function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
+export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // The sheet's own words for the method: the condition the row states and the standards it names, and not the
   // other column of the page, which the line may run into.
   // The property's own name is not the method: "Specific Gravity" belongs in the Property column and in the

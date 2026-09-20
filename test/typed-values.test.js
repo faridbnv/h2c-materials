@@ -56,6 +56,11 @@ test('the annealing schedule is a typed pair the wording checks: three spellings
   assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%)', 'annealed'), { tempC: 100, hours: 16 });
   assert.deepEqual(parseAnnealSchedule('HDT specimens annealed at 130 °C', 'annealed'), { tempC: 130, hours: null });
   assert.deepEqual(parseAnnealSchedule('Annealed (schedule not stated)', 'annealed'), { tempC: null, hours: null });
+  // A sheet may state the same schedule the short way round, the time first and the temperature after an at
+  // sign: Spectrum prints "annealed (4h @ 90°C)" beside its heat deflection rows, and read left to right the
+  // temperature was 4.
+  assert.deepEqual(parseAnnealSchedule('0.45 MN/m2, annealed (4h @ 90\u00b0C)', 'annealed'), { tempC: 90, hours: 4 });
+  assert.deepEqual(parseAnnealSchedule('annealed (30min @ 120 C)', 'annealed'), { tempC: 120, hours: 0.5 });
   assert.equal(parseAnnealSchedule('As printed', 'as-printed'), null);
   const annealed = base.Properties.rows.find((r) => r['Anneal °C'] === '55').MeasurementID;
   const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === annealed)['Anneal °C'] = '65'; });

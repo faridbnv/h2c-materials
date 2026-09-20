@@ -1,6 +1,7 @@
 Label,Property,Direction,Notch,Note
 ^specific gravity\b|^density\b,Density,Not applicable,Not applicable,a density's specimen form is rarely stated
 "^specific density\b|^dichte\b",Density,Not applicable,Not applicable,"a maker may call it the specific density; purefil's German sheets print Dichte, and both are the row this database keeps as Density"
+"^(printed part|material|filament) density\b",Density,Not applicable,Not applicable,"a maker may say whose density the row is: BASF heads it Printed Part Density and Fillamentum Material density, and this database keeps one Density per grade"
 ^tensile (stress|strength)[^a-z]*(at )?break|^tensile break,Tensile break strength,,Not applicable,
 ^tensile (stress|strength)[^a-z]*(at )?yield|^tensile yield,Tensile yield strength,,Not applicable,
 ^tensile (stress|strength)\b,Tensile strength (endpoint unspecified),,Not applicable,

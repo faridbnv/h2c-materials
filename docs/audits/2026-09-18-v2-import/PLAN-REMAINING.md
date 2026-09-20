@@ -42,6 +42,25 @@ a value, a table printed beside another table, a bracket that lost its opening, 
 full. Parity on Spectrum, 3DXTECH and Polymaker is the gate that says none of it broke what was already right:
 113 of 113, 213 of 214 and 223 of 239 through all nine batches.
 
+Wave B's next makers have been measured against the same gate, and three of them are not ready:
+
+| Maker | Parity | What it still misses |
+|---|---|---|
+| Spectrum | 656 of 656 | — |
+| 3DXTECH | 472 of 473 | an Izod row whose label the sheet misspells |
+| Polymaker / Fiberon | 770 of 810 | one shared table covering several products |
+| eSUN | 21 of 23 | a bound with no unit on its line, and a value whose unit is bracketed behind it |
+| Fillamentum | 14 of 23 | a label the table centres between two value rows, and a prose column run into the table |
+| BASF Forward AM | 26 of 57 | three build orientations in three value columns, under a header row that names them |
+
+Two of those are one thing: **a table read by its columns rather than by its baselines**. Fillamentum sets a
+description column beside its property table and the extractor joins them by baseline, so "Hardness 42 Shore D"
+arrives inside "example for parts of ski boots."; BASF prints X-Y, X-Z and Z-X in three columns and the reader
+takes the first. It is also the root of `docs/OPEN-PROBLEMS.md` §1 and §9, where a neighbouring column's sentence
+is what 96 measurements and 15 print setups carry instead of their own. The third is a label a table merges
+across two rows, which is the mirror of the merged method-and-unit cell the reader already shares
+(`shareMergedCells`), and can be built the same way.
+
 Two things are still missing from the reader, and both cost values on every maker:
 
 - **A property the database does not carry.** Flammability class, decomposition temperature, volume resistivity,

@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -698,4 +698,43 @@ test("a standard's digits are not a value, and do not reach into what follows th
   // The window and the dash still read as they did.
   assert.equal(read('Glass Transition Temperature 55-60°C DSC').upper, '60');
   assert.equal(read('Melting temperature ISO 3146-C °C 190-210').upper, '210');
+});
+
+test('a value a sheet prints in brackets is the row’s conditions, not its result', () => {
+  // Spectrum prints its heat deflection rows with the annealing schedule in brackets on the same line, and eSUN
+  // prints the test's own conditions in full-width brackets. Read left to right, the first row deflected at the
+  // temperature it was annealed at and the second softened at the temperature its needle test was run at.
+  assert.equal(read('Heat Deflection Temperature 1.81 MN/m2, annealed (4h @ 90°C) 66°C ISO 75').rawNumber, '66');
+  assert.equal(read('Heat Deflection Temperature 0.45 MN/m2, annealed (4h @ 90°C) 116°C ISO 75').rawNumber, '116');
+  assert.equal(read('Vicat Softening Point（120℃，10N） GB/T 1633 110 ℃').rawNumber, '110');
+  // A row that prints its only value in brackets still states it: the brackets are set aside, never the row.
+  assert.equal(read('Density (1.24 g/cm3) ISO 1183').rawNumber, '1.24');
+});
+
+test('the schedule a sheet states beside the word is part of what was done to the specimen', () => {
+  const rows = pageRows([piece(180, [57, 'Heat Deflection Temperature 1.81 MN/m2, annealed (4h @ 90°C)'], [431, '66°C'], [480, 'ISO 75'])], registry);
+  const sheet = readSheet({ pages: [{ page: 1, lines: rows }] }, registry);
+  const row = measurementRow(sheet.values[0], { sourceId: 'S-TEST', materialId: 'M001', gradeId: 'G001-01' });
+  assert.equal(row['Post-processing'], 'annealed (4h @ 90°C)');
+  assert.equal(row['Anneal °C'], '90');
+  assert.equal(row['Anneal h'], '4');
+});
+
+test('a run of raised digits belongs to the units it stands against, not to a value column', () => {
+  // BASF prints "1176 kg/m3 / 73.4 lb/ft3" and both superscript threes arrive on one raised baseline of their
+  // own. Left where it fell, the row was a density in kg/m, which is in no unit this database keeps.
+  const [density] = pageRows([
+    piece(542, [76, 'Printed Part Density'], [220, '1176'], [248, 'kg/m', 21.4], [277, '/'], [286, '73.4'], [305, 'lb/ft', 8.8], [330, 'ISO 1183-1']),
+    piece(545, [269.4, '3', 3.336], [313.8, '3', 3.336]),
+  ], registry);
+  assert.match(density.text, /kg\/m3/);
+  assert.equal(read(density.text).rawNumber, '1176');
+  // A column of values shares a band and stands right of the row's start too; what it never does is set each of
+  // its numbers hard against the last letter of a unit. The row below states its own value, so nothing else is
+  // looking for one either.
+  const kept = pageRows([
+    piece(542, [76, 'Tensile strength'], [220, 'ISO 527'], [420, 'MPa'], [470, '36']),
+    piece(545, [500, '11'], [560, '22']),
+  ], registry);
+  assert.equal(kept.length, 2, 'a value column is not a run of superscripts');
 });
