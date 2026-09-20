@@ -236,3 +236,22 @@ test('two words are joined into a name, not out of prose', () => {
   assert.equal(classify('PET G Premium', 'Spectrum').polymer, 'PETG');
   assert.equal(classify('THERMAX PPE PS', '3DXTECH').polymer, 'PPE-PS');
 });
+
+test('the sheet answers what the product name leaves open, and says when it cannot', () => {
+  // Fillamentum's Chemical properties table heads its first row "Polymer base". "Nylon" names a family and a
+  // family owns no product (D44), so the product name asks the question and the sheet answers it.
+  const sheet = (composition, body = '') => ({ manufacturer: 'Fillamentum', title: '', body, composition });
+  assert.equal(classifyProduct('Nylon AF80 Aramid', sheet('polyamide 12'), world).polymer, 'PA12');
+  assert.equal(classifyProduct('Fishy Filaments\u2019 0rCA', sheet('Polyamide 6 + carbon fibres'), world).polymer, 'PA6');
+  // Two polymers in that row is a blend, and a blend is identified by its own name, never by the first of them.
+  const nonOilen = classifyProduct('NonOilen', sheet('polylactic acid and polyhydroxy butyrate compound'), world);
+  assert.equal(nonOilen.polymer, '');
+  assert.ok(nonOilen.needsRuling);
+  // A family word in that row settles nothing either: which polyolefin a polyolefin elastomer is, is a ruling.
+  assert.ok(classifyProduct('Flexfill TPE 90A', sheet('polyolefin'), world).needsRuling);
+  // And a polymer the sheet names for something else is not the filament. Its printing table names most of
+  // them, and which side the other thing stands on is what tells them apart: a polymer in front of a thing
+  // made of it names that thing, and a named surface in front of a polymer names what the part was printed on.
+  assert.equal(classifyProduct('Fluorodur', sheet('', 'Polymer base PVDF Bed adhesive Dimafix Pen, PVA glue'), world).polymer, 'PVDF');
+  assert.equal(classifyProduct('PolySmooth', sheet('', 'Build surface treatment PC and Texture PEI (Glue when needed)'), world).polymer, '');
+});

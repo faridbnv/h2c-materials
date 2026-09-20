@@ -72,8 +72,11 @@ export function tokenise(text) {
     const token = plain[i];
     out.push(token);
     // A nylon is written as a name and its numbers: "Nylon 12", "Nylon 6 6" (which is PA66) and "Nylon 6 66"
-    // (which is the 6/66 copolymer, a different polymer with a different melting point).
-    if (/^(nylon|pa)$/.test(token) && /^\d{1,3}$/.test(plain[i + 1] ?? '')) {
+    // (which is the 6/66 copolymer, a different polymer with a different melting point). A sheet may spell the
+    // name out: Fillamentum's Chemical properties table heads its first row "Polymer base" and prints
+    // "polyamide 12" and "Polyamide 6 + carbon fibres" — which is the sheet answering the question its product
+    // name leaves open, since "Nylon" names a family and a family owns no product (D44).
+    if (/^(nylon|pa|polyamide)$/.test(token) && /^\d{1,3}$/.test(plain[i + 1] ?? '')) {
       const first = plain[i + 1], after = plain[i + 2] ?? '';
       if (/^\d$/.test(first) && /^\d$/.test(after)) out.push(`pa${first}${after}`);
       else out.push(`pa${first}`);
@@ -176,14 +179,58 @@ export function classifyProduct(product, context = {}, world = {}) {
   // The catalogue name a link carries is often only "spectrum high speed", while the sheet's own first line says
   // "PLA High Speed": the title is the product naming itself, and reading it is not a guess about the prose.
   const titleTokens = tokenise(context.title ?? '');
+  // What the sheet itself says its polymer is, where it says it plainly and says one thing. A composition row
+  // that names two polymers has not settled which material this is: Fillamentum's NonOilen sheet reads "Polymer
+  // base polylactic acid and polyhydroxy butyrate compound", and taking the first of the two would have filed a
+  // PLA/PHB compound as ordinary PLA. Two is a blend, and a blend is identified by its own name.
+  // A sheet names materials that are not the filament, and its printing table names most of them: the bed
+  // adhesive it recommends ("Magigoo PA, PVA glue") and the build surface it was printed on ("Build surface
+  // treatment PC and Texture PEI"). Read word by word, an aramid-filled nylon named two polymers, which is a
+  // blend and a ruling, and Polymaker's PolySmooth — a PVB — was confidently a polycarbonate.
+  //
+  // Which side the other thing stands on is what tells them apart, so it is read and not guessed at. A polymer
+  // in front of a thing made of it is naming that thing: "PVA glue". A named surface in front of a polymer is
+  // naming what the part was printed on: "build surface treatment PC". Neither reaches across the line, which
+  // is what a window wide enough to find the glue from the filament did: "Polymer base PVDF Bed adhesive
+  // Dimafix Pen, PVA glue" is one line naming the filament, the surface and the glue.
+  const MADE_OF_IT = /(?:glue|tape|adhesive|spray|stick|lacquer|primer|solvent|cleaner)/i;
+  const A_SURFACE = /(?:build\s+(?:surface|plate|sheet)|surface\s+treatment|print\s+surface|bed\s+surface|magigoo|dimafix|3dlac)/i;
+  const aboutTheFilament = (token) => {
+    const word = token.replace(/[^a-z0-9]/gi, '').split('').join('[^a-z0-9]?');
+    const re = new RegExp(`\\b${word}\\b`, 'gi');
+    const hits = [...bodyText.matchAll(re)];
+    if (!hits.length) return true;
+    const elsewhere = new RegExp(`\\b${word}\\b[\\s,;(]*${MADE_OF_IT.source}\\b|${A_SURFACE.source}(?:\\s+\\w+)?[\\s,;(]*\\b${word}\\b`, 'gi');
+    const named = [...bodyText.matchAll(elsewhere)];
+    return hits.some((m) => !named.some((g) => m.index >= g.index && m.index < g.index + g[0].length));
+  };
+  const plain = bodyTokens.filter((t) => saidPlainly(t) && aboutTheFilament(t));
+  // The composition row is the sheet answering for itself, and it is read on its own: a polymer named anywhere in
+  // the prose is a mention, and the sheets mention plenty — a bed adhesive, a support material, the polymer a
+  // product is compared with. Where the row names two polymers the sheet has not settled which material this is:
+  // "Polymer base polylactic acid and polyhydroxy butyrate compound" is a PLA/PHB compound, and taking the first
+  // of the two would have filed it as ordinary PLA. Two is a blend, and a blend is identified by its own name.
+  const stated = tokenise(context.composition ?? '');
+  const says = POLYMER_ORDER.filter((row) => stated.includes(row.Token));
+  // A family's own word beside one of its polymers is one statement, not two: "polyamide 12" is a polyamide.
+  const saysPolymers = [...new Set(says.filter((row) => row.Polymer || !says.some((o) => o.Polymer && o.Family === row.Family))
+    .map((row) => row.Polymer || `family:${row.Family}`))];
+  const fromComposition = saysPolymers.length === 1 ? findToken(stated, POLYMER_ORDER, 'Polymer') : null;
+  const blended = saysPolymers.length > 1;
+  const fromSheet = fromComposition ?? (blended ? null : findToken(plain, POLYMER_ORDER, 'Polymer'));
+
   let polymer = findToken(tokens, POLYMER_ORDER, 'Polymer');
   let where = 'name';
   if (!polymer) { polymer = findToken(titleTokens, POLYMER_ORDER, 'Polymer'); if (polymer) where = 'title'; }
-  if (!polymer) {
-    const plain = bodyTokens.filter((t) => saidPlainly(t));
-    polymer = findToken(plain, POLYMER_ORDER, 'Polymer');
-    if (polymer) where = 'sheet';
+  // A family word names no polymer, so a name that gives one is not an answer and the sheet may still hold one:
+  // "Nylon AF80 Aramid" says only that it is a nylon, and its own Chemical properties table says "Polymer base
+  // polyamide 12". The sheet only answers for the family the name states, so a sheet talking about something
+  // else cannot overrule the product's own name.
+  if (polymer && !polymer.value && fromSheet?.value) {
+    const family = (token) => POLYMER_ORDER.find((row) => row.Token === token)?.Family ?? '';
+    if (family(fromSheet.token) && family(fromSheet.token) === family(polymer.token)) { polymer = fromSheet; where = 'sheet'; }
   }
+  if (!polymer && !blended) { polymer = fromSheet; if (polymer) where = 'sheet'; }
   const fromBody = where === 'sheet';
   if (polymer) signals.push(`${where}: ${polymer.token}`);
 

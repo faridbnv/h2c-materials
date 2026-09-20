@@ -1906,6 +1906,12 @@ export function propose(row, text, world) {
   // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
   // enough, and they are the maker's own description rather than a catalogue title.
   const body = (text.pages[0]?.lines ?? []).map((l) => l.text).join(' ').slice(0, 2000);
+  // What the sheet says its product is made of, in its own row. Fillamentum's Chemical properties table heads
+  // its first row "Polymer base" and prints the polymer in words; a statement there is the sheet answering for
+  // itself, which is worth more than the same word found somewhere in its prose.
+  const COMPOSITION = /^(polymer base|base polymer|material base|composition|chemical base)\b\s*[:：]?\s*(.+)$/i;
+  const compositionRow = (text.pages ?? []).flatMap((p) => p.lines ?? [])
+    .map((l) => COMPOSITION.exec(repair(String(l.text ?? '')).trim())?.[2]).filter(Boolean).join('; ');
   // Whose sheet it is, in the ledger's own words: the manufacturer where the ledger knows one, and the provider
   // where a retailer is all it has. The maker's own name is not its product's, here or in the title.
   const maker = row.manufacturer || row.provider || '';
@@ -1914,7 +1920,7 @@ export function propose(row, text, world) {
   // two disagree ("paht" for a sheet whose own title says CarbonX Carbon Fiber High Temp Nylon). Two revisions of
   // one sheet must classify alike, so the sheet's own name is what is read, and the catalogue's is kept beside it.
   const named = productName(head.product && !NOT_A_PRODUCT.test(head.product) ? head.product : row.product_raw, maker);
-  const identity = classifyProduct(named || row.product_raw, { manufacturer: row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body }, world);
+  const identity = classifyProduct(named || row.product_raw, { manufacturer: row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
   // What the page says about its own name, where what it says is not a product's name. Neither is decided here:
   // a name is the reader's to read and a ruling is the owner's to make, so each says what the page shows.
   //
