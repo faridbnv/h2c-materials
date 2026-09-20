@@ -1206,6 +1206,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D955 | Moulding shrinkage from mould dimensions. |
 | ASTM E1356 | Glass transition temperatures by DSC. |
 | ASTM E2092 | Distortion temperature in three-point bending by thermomechanical analysis. |
+| ASTM E2402 | Mass loss and residue of a material by thermogravimetry; a sheet cites it for the temperature at which its filament has lost five per cent of its mass. |
 | DSC | Differential scanning calorimetry, where the source names the method but no standard. |
 | GB/T 1033 | Density of plastics. |
 | GB/T 1033.1 | Density and relative density of plastics by immersion; the Chinese counterpart of ISO 1183-1. |
@@ -1233,6 +1234,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | IEC 60695 | Fire hazard testing of electrotechnical products, including the glow-wire tests. |
 | ISO 1133 | Melt mass-flow and melt volume-flow rate. |
 | ISO 11357 | Differential scanning calorimetry. |
+| ISO 11358 | Thermogravimetry of polymers; the same test under its ISO number. |
 | ISO 11359 | Thermomechanical analysis; thermal expansion. |
 | ISO 1182 | Reaction to fire: the non-combustibility test. |
 | ISO 1183 | Density of non-cellular plastics. |

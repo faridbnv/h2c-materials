@@ -1,0 +1,375 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73",
+    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS_PETG_Graphene_Light.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "fcab65f39d794b6a"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet-g",
+      "filler: graphene"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"graphene\" has no value in schema/vocab/modifiers.csv: a graphene load is neither carbon fibre nor unfilled: a ruling",
+      "the sheet is hosted by 3DJake / 3DJAKE and names no maker of its own; whether 3DJake / 3DJAKE is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet PET-G PROGRAFEN GRAPHENE LIGHT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_PETG_Graphene_Light.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet PET-G PROGRAFEN GRAPHENE LIGHT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake / 3DJAKE",
+        "Product name": "PET-G PROGRAFEN GRAPHENE LIGHT",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet PET-G PROGRAFEN GRAPHENE LIGHT"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "53 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Locator": "p. 1: Tensile Strength, MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength, MPa 53 ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2.4 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Locator": "p. 1: Tensile Modulus, GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus, GPa 2.4 ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4.57 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.57",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.57",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Locator": "p. 1: Elongation at break, %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break, % 4.57 ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PET-G PROGRAFEN GRAPHENE: a (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "general purpose 3D printing extrusion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Specific Gravity 1.29 D792",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "MFR, g/10 min (230°C, 2.16kg) 18.2 ISO 1133",
+      "reason": "the sheet states Melt mass-flow rate in 2.16kg), and the database keeps it in g/10 min"
+    },
+    {
+      "page": 1,
+      "text": "Applications 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1) Typical properties; not specifications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Prototype 3D models",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Extruder Head 210-245ºC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing table Temperature 60-70ºC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1) These are starting points and may need to be optimized.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "processed on FDM/FFF 3D printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact strength, kJ/m 3.73 ISO 179",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "1. Load filament into extruder head: Is very",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "210-260",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "insert filament int the way approved by 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Level up printing table and turn up it’s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "for PET-G are 60-70 C).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Upload previously prepared 3D model into",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer controller.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Printing process can be started.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "temperature (typically 175ºC), polymer can release fumes,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Parkowa 85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "05-806 Pecice, Poland",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

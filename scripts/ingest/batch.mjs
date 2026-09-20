@@ -25,6 +25,7 @@ import { applyBatch, guard, proposalsOf, worldOf } from './apply.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { holdsBack, rowsOf } from './review.mjs';
 import { HEADER, readLedger } from './inventory.mjs';
+import { csvText as toCsv } from '../../build/src/csv.js';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const PROPOSALS = join(AUDIT, 'proposals');
@@ -266,7 +267,9 @@ function split(batch) {
     console.log(`round ${round}: ${[...moved.values()].filter((v) => v === 'ocr').length} optical, ${[...moved.values()].filter((v) => v === 'held').length} held`);
   }
   // Twins are only visible once the batch is rehearsed against the tables, because what makes one is the values
-  // it shares with a source already recorded. The one this batch brings is the one that is queued.
+  // it shares with a source already recorded. The one this batch brings is the one that is queued, and the
+  // ledger is told which source it repeats, so the queue says why without anybody re-deriving it.
+  const queued = new Map();
   for (let round = 1; round <= 6; round++) {
     let problems = [];
     try { applyBatch(batch, { dryRun: true }); } catch (e) { problems = e.problems ?? []; }
@@ -284,10 +287,30 @@ function split(batch) {
       if (!mine.length) continue;
       const pick = mine.length === 2 ? mine[1] : mine[0];
       move(bySource.get(pick), 'held');
+      queued.set(bySource.get(pick), pick === a ? b : a);
       gone.add(pick); n++;
     }
     console.log(`round ${round}: ${pairs.length} twin pair(s), ${n} queued as a question (R053)`);
     if (!n) break;
+  }
+  if (queued.size) {
+    const byFile = new Map();
+    for (const dir of [`${batch}-held`]) {
+      for (const file of readdirSync(join(PROPOSALS, dir)).filter((f) => f.endsWith('.json'))) {
+        byFile.set(file, JSON.parse(readFileSync(join(PROPOSALS, dir, file), 'utf8')).document?.docKey);
+      }
+    }
+    const rows = readLedger();
+    let told = 0;
+    for (const row of rows) {
+      const file = [...queued.keys()].find((f) => byFile.get(f) === row.doc_key);
+      if (!file) continue;
+      row.status = 'held';
+      row.status_note = `held: twin — it prints the numbers ${queued.get(file)} already holds, and R053 says what a pair like this becomes: a grade each, citing its own sheet, with the values recorded once`;
+      row.updated = new Date().toISOString().slice(0, 10);
+      told++;
+    }
+    if (told) { writeFileSync(LEDGER, toCsv(HEADER, rows)); console.log(`  ${told} document(s) told the ledger which source they repeat`); }
   }
 }
 

@@ -1605,3 +1605,111 @@ P0761,Shell / walls,≥ 0.8 mm
 P0762,Cooling,speed 50-100%
 P0762,Speed,30-120 mm/s
 P0762,Retraction,0.4-1 mm
+P0763,Adhesion / release,Distance 0.4-0.6
+P0763,Retraction,5mm
+P0764,Adhesion / release,Distance 0.4-0.6
+P0764,Retraction,5mm
+P0765,Adhesion / release,Distance 0.3-0.5mm
+P0765,Retraction,0.8-1mm
+P0766,Adhesion / release,recommended
+P0766,Speed,150 mm/s
+P0766,Cooling,0-50%
+P0767,Adhesion / release,Distance 0.4-0.6
+P0767,Retraction,5mm
+P0768,Adhesion / release,Distance 0.1-0.2mm
+P0768,Retraction,0.8-1.2mm
+P0769,Adhesion / release,Distance 0.4-0.6
+P0769,Retraction,5mm
+P0770,Speed,[mm/s] up to 200
+P0770,Cooling,Speed [%] 100
+P0771,Adhesion / release,Distance 0.4-0.6
+P0771,Retraction,5mm
+P0772,Adhesion / release,recommended
+P0772,Speed,max. 250 mm/s
+P0772,Cooling,0-30 %
+P0773,Adhesion / release,Distance 0.4-0.6mm
+P0773,Retraction,0.8-1.2mm
+P0774,Adhesion / release,recommended
+P0774,Speed,<180mm/s
+P0774,Cooling,0-30%
+P0775,Adhesion / release,recommended
+P0775,Speed,20-200mm/s
+P0775,Cooling,0-30%
+P0776,Cooling,YES (up to 100%)
+P0776,Layer height,0.05 - 0.30 mm
+P0776,Shell / walls,0.40 – 2.70 mm
+P0776,Speed,40-150 mm/s
+P0777,Adhesion / release,Distance 0.4-0.6
+P0777,Retraction,5mm
+P0778,Adhesion / release,Distance 0.4-0.6mm
+P0778,Retraction,0.8-1.2mm
+P0779,Speed,< 300 mm/s
+P0780,Adhesion / release,not required
+P0780,Speed,20-100mm/s
+P0780,Cooling,0-30%
+P0781,Adhesion / release,Distance 0.1-0.2mm
+P0781,Retraction,0.8-1.2mm
+P0782,Speed,< 300 mm/s
+P0783,Speed,[mm/s] up to 200
+P0783,Cooling,Speed [%] 50
+P0784,Adhesion / release,Distance 0.4-0.6
+P0784,Retraction,5mm
+P0785,Adhesion / release,not required
+P0785,Speed,up to 1000 mm/s
+P0785,Cooling,30-100%
+P0786,Adhesion / release,Distance 0.4-0.6mm
+P0786,Retraction,0.8-1.2mm
+P0788,Adhesion / release,Distance 0.4-0.6
+P0788,Retraction,5mm
+P0789,Speed,< 200 mm/s
+P0790,Adhesion / release,Distance 0.4-0.6
+P0790,Retraction,5mm
+P0791,Adhesion / release,Distance 0.4-0.6
+P0791,Retraction,5mm
+P0792,Adhesion / release,Distance 0.4-0.6
+P0792,Retraction,5mm
+P0793,Adhesion / release,Distance 0.4-0.6mm
+P0793,Retraction,0.8-1.2mm
+P0794,Adhesion / release,Distance 0.4-0.6
+P0794,Retraction,5mm
+P0795,Adhesion / release,Distance 0.4-0.6mm
+P0795,Retraction,0.8-1.2mm
+P0796,Adhesion / release,not required
+P0796,Speed,20-200mm/s
+P0796,Cooling,30-100%
+P0797,Adhesion / release,not required
+P0797,Speed,20-100mm/s
+P0797,Cooling,0-30%
+P0798,Adhesion / release,Distance 0.4-0.6mm
+P0798,Retraction,0.8-1.2mm
+P0799,Adhesion / release,Distance 0.1-0.2mm
+P0799,Retraction,0.8mm
+P0800,Adhesion / release,not required
+P0800,Speed,20-100mm/s
+P0800,Cooling,0-30%
+P0801,Adhesion / release,Distance 0.3-0.5mm
+P0801,Retraction,0.8-1mm
+P0802,Adhesion / release,Distance 0.4-0.6mm
+P0802,Retraction,0.8-1.2mm
+P0803,Adhesion / release,not required
+P0803,Speed,20-200mm/s
+P0803,Cooling,20-50%
+P0804,Adhesion / release,Distance 0.4-0.6
+P0804,Retraction,5mm
+P0805,Adhesion / release,Distance 0.4-0.6
+P0805,Retraction,5mm
+P0806,Speed,< 200 mm/s
+P0807,Adhesion / release,not required
+P0807,Speed,max. 50 mm/s
+P0807,Cooling,60-100 %
+P0808,Adhesion / release,Distance 0.4-0.6mm
+P0808,Retraction,0.8-1.2mm
+P0809,Adhesion / release,not required
+P0809,Speed,20-100mm/s
+P0809,Cooling,0-30%
+P0810,Adhesion / release,Distance 0.1-0.2mm
+P0810,Retraction,0.8-1.2mm
+P0811,Adhesion / release,Distance 0.4-0.6
+P0811,Retraction,5mm
+P0812,Speed,20-60 mm/s
+P0812,Retraction,s from 2-3 mm/s to 40 mm/s

@@ -1,0 +1,284 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "207c03b7ae3dc2f695c457a433a3a7290499abdf1b91ded8a7e82806186ed8ad",
+    "url": "https://3d.nice-cdn.com/upload/file/PLA-LW_CONFIGURATION_OF_THE_PRINTING_PARAMETERS.pdf",
+    "pages": 3,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Recreus",
+    "docKey": "207c03b7ae3dc2f6"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: plalw"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-PLA-LW-CONFIGURATION-OF-THE-PRINTING-PARAMETERS",
+      "Publisher": "Recreus",
+      "Title": "CONFIGURATION OF THE PRINTING PARAMETERS",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PLA-LW_CONFIGURATION_OF_THE_PRINTING_PARAMETERS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "207c03b7ae3dc2f695c457a433a3a7290499abdf1b91ded8a7e82806186ed8ad"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "CONFIGURATION OF THE PRINTING PARAMETERS"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "CONFIGURATION OF THE PRINTING PARAMETERS",
+        "Shared formulation key": "R-RECREUS-PLA-LW-CONFIGURATION-OF-THE-PRINTING-PARAMETERS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-PLA-LW-CONFIGURATION-OF-THE-PRINTING-PARAMETERS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "CONFIGURATION OF THE PRINTING PARAMETERS"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "about 0.30-0.35mm (the equivalent thickness of 2 posits) to allow for proper expansion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0-20% (0% recommended for better adhesion).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40-60 mm/s at a distance of 2-3 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA-LW achieves its maximum expansion between 240º- 260ºC temperature.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "It is not recommended to work above this temperature (240º- 260ºC) to avoid degradation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We recommend working at 250ºC temperature to achieve the optimum values of material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.25-0.35 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40-50 mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We can reduce the % of flow up to 40-60% and with it the weight of the parts up to half.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Set the temperature to 250ºC and the printing speed to 60 mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. Date / Revised: 04.05.2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Print three cubes with different flow rates: 40%-50%-60%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.35-0.4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "boquilla de unos 0.30-0.35mm (el espesor equivalente a 2 posits) y permitir la correcta",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0-20% (0% recomendado para una mejor adhesión).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40-60 mm/s a una distancia de 2-3 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PLA-LW consigue su máxima expansión entre 240º- 260ºC de temperatura.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "No es recomendable trabajar por encima de esta temperatura (240º- 260ºC) para evitar",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Recomendamos trabajar a 250ºC de temperatura para conseguir los valores óptimos de",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RECREUS INDUSTRIES S.L. Date / Revised: 04.05.2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.25-0.35 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "40-50 mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Podemos reducir el % de flujo hasta el 40-60% y con ello el peso de las piezas hasta la",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fijar la temperatura a 250ºC y la velocidad de impresión a 60 mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Imprimir tres cubos con diferente % de flujo (flow): 40%-50%-60%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "valores superiores a 0.35-0.4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "RECREUS INDUSTRIES S.L. Date / Revised: 04.05.2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

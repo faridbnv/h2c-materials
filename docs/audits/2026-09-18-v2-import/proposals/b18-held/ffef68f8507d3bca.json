@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "ffef68f8507d3bcad2ccc8cf71fbdbebe62dba1c8529aacfcecd6313b9bbd990",
+    "url": "https://3d.nice-cdn.com/upload/file/de_tds_spectrum_rpetg.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Spectrum",
+    "docKey": "ffef68f8507d3bca"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: rpetg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-de-tds-spectrum-rpetg",
+      "Publisher": "Spectrum",
+      "Title": "TECHNISCHES MERKBLATT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Spectrum's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/de_tds_spectrum_rpetg.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ffef68f8507d3bcad2ccc8cf71fbdbebe62dba1c8529aacfcecd6313b9bbd990"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNISCHES MERKBLATT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "rPETG",
+        "Shared formulation key": "S-SPECTRUM-de-tds-spectrum-rpetg",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-de-tds-spectrum-rpetg",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNISCHES MERKBLATT"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-de-tds-spectrum-rpetg",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40-120 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Druckgeschwindigkeit** 40-120 mm/s"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Druckgeschwindigkeit",
+      "raw": "40-120 mm/s",
+      "fromBelow": false,
+      "line": "Druckgeschwindigkeit** 40-120 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Spezifisches Gewicht 1.23 g/cm3 ISO D1505",
+      "reason": "properties.csv carries no property for \"Spezifisches Gewicht\""
+    },
+    {
+      "page": 1,
+      "text": "undliches Material für den 3D-Druck, das ein Teil",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wasseraufnahme <0.2 % ISO D792",
+      "reason": "properties.csv carries no property for \"Wasseraufnahme\""
+    },
+    {
+      "page": 1,
+      "text": "52 MPa ISO D882",
+      "reason": "properties.csv carries no property for \"52 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "59 MPa ISO D882",
+      "reason": "properties.csv carries no property for \"59 MPa\""
+    },
+    {
+      "page": 1,
+      "text": "4% ISO D882",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "400% ISO D882",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Biegefestigkeit 68 MPa ISO 178",
+      "reason": "properties.csv carries no property for \"Biegefestigkeit\""
+    },
+    {
+      "page": 1,
+      "text": "2000 Mpa ISO 178",
+      "reason": "properties.csv carries no property for \"2000 Mpa\""
+    },
+    {
+      "page": 1,
+      "text": "Schlagbiegeprüfung nach Izod mit Kerbe bei 23°C 101 J/m ISO D256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wärmeverformungstemperatur 70°C ISO D648",
+      "reason": "properties.csv carries no property for \"Wärmeverformungstemperatur\""
+    },
+    {
+      "page": 1,
+      "text": "Druckkopftemperatur 230-255°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heizbetttemperatur 60-80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lagertemperatur beträgt ca. 18-25°C (64,4 -77,0°F).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Aktive Kühlung JA (bis 100%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Schichthöhe** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Haltbarkeit des Produkts 24 Monate.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Beschichtungsstärke** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* Einstellungen basieren auf einer Düse mit dem Durchmesser von 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Datum der Erstellung: 06-04-2022",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

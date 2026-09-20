@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "2255492fa2f2cc5f97739f0689ca5af79fdd2fb342a134defe4bf390abe87eda",
+    "url": "https://3d.nice-cdn.com/upload/file/EN_TDS-LumberLay.pptx.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "2255492fa2f2cc5f"
+  },
+  "identity": {
+    "polymer": "PEI",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pei"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by 3DJake / 3DJAKE and names no maker of its own; whether 3DJake / 3DJAKE is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-LumberLay-pptx",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet 10.24",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS-LumberLay.pptx.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2255492fa2f2cc5f97739f0689ca5af79fdd2fb342a134defe4bf390abe87eda"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet 10.24"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake / 3DJAKE",
+        "Product name": "Technical Data Sheet 10.24",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-EN-TDS-LumberLay-pptx",
+        "Composition / filler": "combines 40% of recycled wood and 60% of PLA filament. Because of this mix, your (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-LumberLay-pptx",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet 10.24"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "0.97 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "0.97",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "970",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-LumberLay-pptx",
+        "Locator": "p. 1: Specific gravity ISO 1133",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity ISO 1133 0.97 g/cc"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "210 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "210",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 294",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-EN-TDS-LumberLay-pptx",
+        "Locator": "p. 1: Melting temp. ISO 294",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temp. ISO 294 >210 °C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet 10.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "combines 40% of recycled wood and 60% of PLA filament. Because of this mix, your",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "That’s why we recommend using at least a 0.6 mm abrasion-resistant nozzle.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt flow rate ISO 1133 5.2 cm³/10 min",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflect. temp. ISO 75 87* °C",
+      "reason": "properties.csv carries no property for \"Heat deflect. temp.\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength ISO 527-2 25.8 30.4 13.2 MPa",
+      "reason": "the row states 3 values in columns of its own (25.8, 30.4, 13.2) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Yield Strength ISO 527-2 24.5 27.7 13.5 MPa",
+      "reason": "the row states 3 values in columns of its own (24.5, 27.7, 13.5) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus ISO 527-2 2200 2400 1800 MPa",
+      "reason": "the row states 3 values in columns of its own (2200, 2400, 1800) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Yield ISO 527-2 4.1 5.5 0.7 %",
+      "reason": "properties.csv carries no property for \"Strain at Yield\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength ISO 178 50.3 54.7 2.7 MPa",
+      "reason": "the row states 3 values in columns of its own (50.3, 54.7, 2.7) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modus ISO 178 2400 2900 1600 MPa",
+      "reason": "properties.csv carries no property for \"Flexural Modus\""
+    },
+    {
+      "page": 1,
+      "text": "All specimens were printed with 100% infill, 2 shells and a layer height of 0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing temp. AF >220 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bed temp. AF 60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing speed AF ≤200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling AF 100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength ISO 179 19.7 / / kJ/m²",
+      "reason": "the sheet publishes no value for Impact strength in this row: its value column prints \"/\""
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

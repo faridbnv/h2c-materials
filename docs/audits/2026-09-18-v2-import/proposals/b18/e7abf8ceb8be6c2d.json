@@ -1,0 +1,571 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "e7abf8ceb8be6c2d920d4dcde15ee9107a63fb8e395446ffcd965bebff756904",
+    "url": "https://3d.nice-cdn.com/upload/file/technisches-datenblatt_2_.pdf",
+    "pages": 3,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Prusa Research",
+    "docKey": "e7abf8ceb8be6c2d"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PVB-technisches-datenblatt-2",
+      "Publisher": "Prusa Research",
+      "Title": "Product card",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Prusa Research's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/technisches-datenblatt_2_.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e7abf8ceb8be6c2d920d4dcde15ee9107a63fb8e395446ffcd965bebff756904"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Product card"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "ABS",
+        "Shared formulation key": "S-PVB-technisches-datenblatt-2",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability level test UL94 3.2 mm Class HB (p. 2, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-technisches-datenblatt-2",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Product card"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23 °C/sat. ASTM D570",
+        "Standards": "ASTM D570",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-technisches-datenblatt-2",
+        "Locator": "p. 2: Water absorption to saturation ASTM D570 23 °C/sat. %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Water absorption to saturation ASTM D570 23 °C/sat. % 0.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "50 %",
+        "Raw unit": "%",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "527-1 -250 mm/min",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-technisches-datenblatt-2",
+        "Locator": "p. 2: Elongation at break 527-1, -250 mm/min %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break 527-1, -2 50 mm/min % 50"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "71 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "71",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "71",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8 MPa 75-1 -2",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-technisches-datenblatt-2",
+        "Locator": "p. 2: Deflection temperature under load 75-1,-2 1.8 MPa °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Deflection temperature under load 75-1,-2 1.8 MPa °C 71"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "10^13 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "10000000000000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10000000000000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "IEC 60093",
+        "Standards": "IEC 60093",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-technisches-datenblatt-2",
+        "Locator": "p. 2: Surface resistivity IEC 60093 – Ω",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Surface resistivity IEC 60093 – Ω 10^13"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240 – 265 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "265",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 – 105 °C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "105",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PVB-technisches-datenblatt-2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 200 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 3,
+        "text": "Hotend temperature 240 – 265 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Hotend temperature",
+      "raw": "240 – 265 °C",
+      "fromBelow": false,
+      "line": "Hotend temperature 240 – 265 °C"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "90 – 105 °C",
+      "fromBelow": false,
+      "line": "Bed temperature 90 – 105 °C"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "< 200 mm/s",
+      "fromBelow": false,
+      "line": "Print speed < 200 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. GENERAL INFORMATION ABOUT THE PRODUCT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "permissible continuous operation temperature over 75°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2. TECHNICAL PARAMETERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Density ASTM D792 – g/cm^3 1.04",
+      "reason": "the sheet states Density in g/cm3^3, and the database keeps it in kg/m³"
+    },
+    {
+      "page": 2,
+      "text": "Processing shrinkage II/ ⊥ – % 0.3 – 0.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Yield strength 527-1, -2 50 mm/min MPa 41",
+      "reason": "properties.csv carries no property for \"Yield strength\" (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Bending stress 178 2 mm/min MPa 58",
+      "reason": "properties.csv carries no property for \"Bending stress\" (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Elastic modulus at tension 178 2 mm/min MPa 1750",
+      "reason": "the row states 2 values in columns of its own (178, 1750) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 2,
+      "text": "Notched Charpy impact strength 179-1 1eA kJ/m^2 22",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Notched Charpy Impact strength ( 30°C) 179-1 1eA kJ/m^2 10",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Vicat softening point 306 50N °C 96",
+      "reason": "the row states 2 values in columns of its own (306, 96) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 2,
+      "text": "11359-1, -2 23 °C – 85 °C E-6/°C 85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flammability level test UL94 3.2 mm Class HB",
+      "reason": "properties.csv carries no property for \"Flammability level test\""
+    },
+    {
+      "page": 2,
+      "text": "IEC-60695-2-12 2 mm °C 650",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Volume resistivity IEC 60093 – Ωxcm 10^12",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"10^12\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 2,
+      "text": "Tests have been done at 23°C if it’s not marked differently.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dielectric constant IEC 60250 100 kHz – 3.9",
+      "reason": "the sheet publishes no value for Relative permittivity in this row: its value column prints \"–\""
+    },
+    {
+      "page": 3,
+      "text": "3. RECOMMENDATION OF PRINTING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1) Raising the extruder temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1) Extruder temperature is too low",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Weak layers adhesion 2) Raising the extruder temperature /",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "2) Too high speed of printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Uneven feeding losing steps of the 1) Extruder temperature is too low 1) Raising the extruder temperature",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "feeder/filament sliding on the drive gear 2) Weak feeder pressure 2) Raising the pressure",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "1) Raising the bed temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1) Too low temperature of bed 2) Degreasing the bed / using another source",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Print is peeling of the bed 2) Improperly prepared surface",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "3) Cooling 3) Giving up the cooling on first stage is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1) Compensation with amount of served",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Edge curling 1) Processing shrinkage",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "4. SAFETY NOTES",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "Decomposition of ABS is typically over 300 °C.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -1,0 +1,999 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_-_High_speed_PLA_marble.pdf",
+    "pages": 4,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "SUNLU",
+    "docKey": "3fd065cbb26dacda"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Marble",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "variant: marble (Marble)"
+    ],
+    "materialId": "M012",
+    "materialName": "PLA Marble",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+      "Publisher": "SUNLU",
+      "Title": "产品资料 Version1.0 2024-6",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is SUNLU's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_-_High_speed_PLA_marble.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "产品资料 Version1.0 2024-6"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M012",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PLA High Speed PLA Marble",
+        "Shared formulation key": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "阻燃性 Flammability UL94 1.5mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "产品资料 Version1.0 2024-6"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "41 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "41",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "41",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min ISO527/2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 拉伸强度(X-Y)Tensile Strength ISO527/2 50mm/min MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "拉伸强度（X-Y）Tensile Strength ISO527/2 50mm/min MPa 41"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "80 %",
+        "Raw unit": "%",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min ISO527/2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 断裂伸长率(X-Y) Elongation at break ISO527/2 50mm/min %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "断裂伸长率(X-Y) Elongation at break ISO527/2 50mm/min % 80"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "70 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min ISO178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 弯曲强度 (X-Y) Flexural Strength ISO178 2mm/min MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "弯曲强度 (X-Y) Flexural Strength ISO178 2mm/min MPa 70"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3400 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3400",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min ISO178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 弯曲模量 (X-Y) Flexural Modulus ISO178 2mm/min MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "弯曲模量 (X-Y) Flexural Modulus ISO178 2mm/min MPa 3400"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "11 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "11",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ ISO180",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 悬臂梁缺口冲击强度(X-Y)IZOD Impact ISO180 23℃ KJ/m2 Notched",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ISO180 23℃ KJ/m2 11"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "7.2 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "7.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ ISO180",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 悬臂梁缺口冲击强度(Z-X)IZOD Impact ISO180 23℃ KJ/m2 Notched",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ISO180 23℃ KJ/m2 7.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "82",
+        "Raw unit": "Shore (scale not specified by source)",
+        "Raw numeric": "82",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "82",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore (scale not specified by source)",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ HA/HD ISO868",
+        "Standards": "ISO 868",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 邵氏硬度 Shore hardness ISO868 23℃ HA/HD",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "邵氏硬度 Shore hardness ISO868 23℃ HA/HD 82"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "54.8 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "54.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa ISO75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 热变形温度(X-Y)Heat Deflection (HDT) ISO75 0.45MPa ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "热变形温度（X-Y）Heat Deflection (HDT) ISO75 0.45MPa ℃ 54.8"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "63 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "63",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "63",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 玻璃化转变温度 Glass Transition(Tg) ISO11357-3 10℃/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "玻璃化转变温度 Glass Transition(Tg) ISO11357-3 10℃/min ℃ 63"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "164 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "164",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "164",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 熔点温度 Melting Point ISO11357-3 10℃/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔点温度 Melting Point ISO11357-3 10℃/min ℃ 164"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Decomposition temperature",
+        "Raw value": "374 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "374",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "374",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO11358",
+        "Standards": "ISO 11358",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 分解温度@5%Decomposition Temp. ISO11358 20℃/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "分解温度@5%Decomposition Temp. ISO11358 20℃/min ℃ ≥374"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "54 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "54",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "5kg ISO306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 维卡软化温度 Vicat Softening Temp. ISO306 5kg,50℃/h ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "维卡软化温度 Vicat Softening Temp. ISO306 5kg,50℃/h ℃ 54"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.1-0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.3",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.3",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ ISO294",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 收缩率 Mold Shrinkage ISO294 23℃ %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "收缩率 Mold Shrinkage ISO294 23℃ % 0.1-0.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "10.7 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "10.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "190°C",
+        "Standard / load": "190℃/2.16kg ISO1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 熔体指数 Melt Flow Rate ISO1133 190℃/2.16kg g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔体指数 Melt Flow Rate ISO1133 190℃/2.16kg g/10min 10.7"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.25 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1250",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23℃ ISO1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-TDS-High-speed-PLA-marble",
+        "Locator": "p. 1: 密度 Density ISO1183 23℃ g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "密度 Density ISO1183 23℃ g/cm3 1.25"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "含有 0.4 毫米大理石颗粒，具有突出的大理石质地",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "[1] [2]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "杨氏模量(X-Y)Young’s Modulus ISO527/2 1mm/min MPa /",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "热膨胀系数 Coefficient of Thermal Exp. ISO11359-2 ㎛（m·℃） 101×10-6",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 1,
+      "text": "体积电阻率 Volume Resistivity IEC60093 - ohm-cm 2.90E+15",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"2.90E+15\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "阻燃性 Flammability UL94 1.5mm Class HB",
+      "reason": "properties.csv carries no property for \"阻燃性 Flammability\""
+    },
+    {
+      "page": 1,
+      "text": "弱酸影响 Weak Acid (pH 3-6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "强酸的影响 Strong Acid (pH<3) 差",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "弱碱的影响 Weak Bases （pH 8-10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "强碱的影响 Strong Bases (pH >10) 差",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "介电常数 Dielectric Constant IEC60250 1kHz 1.51",
+      "reason": "the sheet states Relative permittivity in 1kHz, and the database keeps it in Dimensionless"
+    },
+    {
+      "page": 2,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "喷嘴打印温度 Nozzle Print Temp. 190-210 50-150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "210-230 150-300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "230-260 300-600",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "打印平台温度 Print Platform Temp. 50-60℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "底阀分离距离 Raft Distance 0.4-0.6mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "回抽距离 Retraction Distance 0.8-1.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "回抽速度 Retraction Speed 30-40mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "烘干温度 Drying Temp. 50℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "[1] 测试样条打印速度 45 mm/s，打印温度 210 ℃。填充 100%，走线方式为 90 度。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "[2] 典型值是指实验室平均数据，仅用于使用时的参考，不作为产品的标准，不同打印机打印有区别。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m09",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "the sheet publishes both, and both are right: it measures its Vicat point at 5 kg (\"ASTM D1525 5kg, 50°C/h\", \"ISO 306 5kg\"), which is the heavy load, and a needle under 50 N goes into a bar as soon as the polymer softens. A Vicat at or just below the glass transition is what that load gives; the rule is drawn from sheets that state the light one. It is systematic across this maker’s library.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "the sheet prints \"Shore hardness ISO 868 23°C HA/HD 82\", naming both scales and neither; the missing scale is the finding and it is the sheet’s, not the transcription’s. The row keeps the unit the database has for exactly this: a Shore number whose scale the source did not specify.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
+}

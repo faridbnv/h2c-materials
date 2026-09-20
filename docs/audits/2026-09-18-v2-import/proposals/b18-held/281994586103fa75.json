@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "281994586103fa756dbf642b16af66d3f7bb2387f1943f7b227fb4342b3a3c87",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_CarbonFiber_HTPLA_1.0.1.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "281994586103fa75"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: htpla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by 3DJake / 3DJAKE and names no maker of its own; whether 3DJake / 3DJAKE is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-TDS-CarbonFiber-HTPLA-1-0-1",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet Rev 1.",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_CarbonFiber_HTPLA_1.0.1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "281994586103fa756dbf642b16af66d3f7bb2387f1943f7b227fb4342b3a3c87"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet Rev 1."
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake / 3DJAKE",
+        "Product name": "Technical Data Sheet Rev 1.",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-TDS-CarbonFiber-HTPLA-1-0-1",
+        "Composition / filler": "Additives 10% by weight high-purity, milled carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-CarbonFiber-HTPLA-1-0-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet Rev 1."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.3 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-CarbonFiber-HTPLA-1-0-1",
+        "Locator": "p. 1: Density approx.",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density approx. 1.3 g/cc"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 205",
+        "Nozzle state": "range",
+        "Nozzle min °C": "205",
+        "Nozzle max °C": "205",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 60",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-CarbonFiber-HTPLA-1-0-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] 20-40"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 205"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 205",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 205"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated Bed Temperature",
+      "raw": "[°C] 60",
+      "fromBelow": false,
+      "line": "Heated Bed Temperature [°C] 60"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] 20-40",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] 20-40"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet Rev 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high-performance PLA. Resulting 3D printed prototypes and end-use parts are characterized by",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "exceptional stability of form and potential use up to 155 deg C (310 deg F) when heat treated.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Additives 10% by weight high-purity, milled carbon fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max particle size 0.15 mm (may limit resolution)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Length approx. 360 m/kg (1.75 mm) & 136 m/kg (2.85 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Min bend diameter 40 mm (1.75 mm) & 100 mm (2.85 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Glass transition (Tg) onset approx. 60 deg C (140 deg F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt point (Tm) onset approx. 155 deg C (310 deg F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(Based on Ultimaker s5 .15mm Profile)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flow Rate/Extrusion Multiplier [%] 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Extrusion Width [mm] .65 (.05mm larger than nozzle size)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume Flow Rate [mm³/s] 2-4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Scale Values (x/y-axis) 100.6%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Scale Values (z-axis) 99%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "95-110 °C 10+ minutes",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

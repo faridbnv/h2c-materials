@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "f7d1faefc65eb9515453e8b347f70f576099dffbc1e7a94a58f08312dccfa884",
+    "url": "https://3d.nice-cdn.com/upload/file/Printing_Settings_PP_1_[0].pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Recreus",
+    "docKey": "f7d1faefc65eb951"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: polypropylene"
+    ],
+    "materialId": "M082",
+    "materialName": "PP",
+    "estimateIdentity": "PP",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-Printing-Settings-PP-1-0",
+      "Publisher": "Recreus",
+      "Title": "PRINTING PROPERTIES RECOMMENDED",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/Printing_Settings_PP_1_[0].pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f7d1faefc65eb9515453e8b347f70f576099dffbc1e7a94a58f08312dccfa884"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PRINTING PROPERTIES RECOMMENDED"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "Printing speed - 40 mm/s",
+        "Shared formulation key": "R-RECREUS-Printing-Settings-PP-1-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-Printing-Settings-PP-1-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PRINTING PROPERTIES RECOMMENDED"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "235°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "235",
+        "Nozzle max °C": "235",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-Printing-Settings-PP-1-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperatures - 235°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperatures",
+      "raw": "235°C",
+      "fromBelow": false,
+      "line": "Printing temperatures - 235°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "40 mm/s",
+      "fromBelow": false,
+      "line": "Printing speed - 40 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Hot-bed temperature - 40°C with primer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Optimal layer height - 0.2 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Minimal nozzle diameter - 0.4 - 0.6 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.2 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP3D THE UNIQUE 40 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "POLYPROPYLENE 25 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Travelling speed - 150 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Outer perimeters - 25 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Inner perimeters - 30 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "“3D PRINTING”",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer fan regular - 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "below 15 sec - 80%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "“3D PRIMER”",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "part dimensions - 5-10 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "INSTRUCTIONS TO USE RECREUS 3D PRIMER",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the next instructions before use PP3D filament and Recreus 3D primer:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1º 2º",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Open the primer Wait about 5 min.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "bottle and apply 5 min. before print to let",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+34 865 777 966 · info@recreus.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

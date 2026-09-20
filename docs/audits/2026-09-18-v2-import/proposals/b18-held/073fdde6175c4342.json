@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "073fdde6175c4342fc16ceac4b1dc6c6f52a29d4efbf5211640dff9e73b0a773",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_Translucent_Sparkly_HTPLA_1.0.0_1_[7].pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": null,
+    "docKey": "073fdde6175c4342"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: htpla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet is hosted by 3DJake / 3DJAKE and names no maker of its own; whether 3DJake / 3DJAKE is the brand or only the shop is a ruling (Wave D)"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-3DJAKE-TDS-Translucent-Sparkly-HTPLA-1-0-0-1-7",
+      "Publisher": "3DJake / 3DJAKE",
+      "Title": "Technical Data Sheet Rev. 1",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_Translucent_Sparkly_HTPLA_1.0.0_1_[7].pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "073fdde6175c4342fc16ceac4b1dc6c6f52a29d4efbf5211640dff9e73b0a773"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet Rev. 1"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake / 3DJAKE",
+        "Product name": "Technical Data Sheet Rev. 1",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-TDS-Translucent-Sparkly-HTPLA-1-0-0-1-7",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-Translucent-Sparkly-HTPLA-1-0-0-1-7",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet Rev. 1"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-Translucent-Sparkly-HTPLA-1-0-0-1-7",
+        "Locator": "p. 1: Density approx.",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density approx. 1.24 g/cc"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 206",
+        "Nozzle state": "range",
+        "Nozzle min °C": "206",
+        "Nozzle max °C": "206",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 60",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-3DJAKE-TDS-Translucent-Sparkly-HTPLA-1-0-0-1-7",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] 25-45"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 206"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 206",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 206"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heated Bed Temperature",
+      "raw": "[°C] 60",
+      "fromBelow": false,
+      "line": "Heated Bed Temperature [°C] 60"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] 25-45",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] 25-45"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Technical Data Sheet Rev. 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proto-pasta’s 2 main HTPLA categories are Translucent and Sparkly. All materials in these categories print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "theoretical Heat Deflection Temperature (HDT) of more than 140C (285F) after heat treating. This means",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "which loose structure as soon as 55C and by 100C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max particle size 0.1 mm (may limit resolution)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Length approx. 346 m/kg (1.75 mm) & 130 m/kg (2.85 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Min bend diameter 15 mm (1.75 mm) & 40 mm (2.85 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Glass transition (Tg) onset approx. 60 deg C (140 deg F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt point (Tm) onset approx. 155 deg C (310 deg F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(Based on Ultimaker s5 .15mm Profile)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flow Rate/Extrusion Multiplier [%] 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Extrusion Width [mm] .45 (.05mm larger than nozzle size)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume Flow Rate [mm³/s] 2-3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Scale Values (x/y-axis) 102.2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Scale Values (z-axis) 99%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "95-110 °C 10+ minutes",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

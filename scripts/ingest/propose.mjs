@@ -1542,7 +1542,14 @@ export function readSheet(text, registry) {
       values.push({
         page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
         label: fullLabel, condition: carried ? fullLabel : read.conditions,
-        direction: read.match.Direction, notch, read, target: read.target, line: line.text,
+        // A condition may stand on a line of its own under the row it belongs to. Polymaker's HT-PLA sheets
+        // print "Vicat softening temp. ISO 306, GB/T 1633 148.9°C" and then "(as printed)" underneath, and the
+        // annealed value with "(annealed)" on the same line as itself; read without the line below, the
+        // as-printed row said nothing about its state and was averaged with the annealed one.
+        // A line that is nothing but a bracketed phrase belongs to the row above it: it has no value of its own
+        // and nothing else to belong to.
+        direction: read.match.Direction, notch, read, target: read.target,
+        line: `${line.text}${/^\s*\([^)]{2,40}\)\s*$/.test(String(lines[li + 1]?.text ?? '')) ? ` ${String(lines[li + 1].text).trim()}` : ''}`,
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
         printedSpecimens, orientation, block, column: line.column ?? null, specimen: specimenBlock,
         parameters: line.parameters ?? null,

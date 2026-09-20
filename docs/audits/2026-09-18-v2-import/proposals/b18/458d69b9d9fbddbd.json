@@ -1,0 +1,479 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+    "url": "https://3d.nice-cdn.com/upload/file/durapro-asa-gf-TDS-en.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Extrudr",
+    "docKey": "458d69b9d9fbddbd"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: gf"
+    ],
+    "materialId": "M034",
+    "materialName": "ASA-GF",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+      "Publisher": "Extrudr",
+      "Title": "TECHNICAL DATA SHEET DURAPRO ASA GF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Extrudr's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/durapro-asa-gf-TDS-en.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET DURAPRO ASA GF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M034",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO ASA GF",
+        "Shared formulation key": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+        "Composition / filler": "reliability. The material is reinforced with glass fibers, making it ideal for mechanically stressed components. DuraPro ASA GF is (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Infiammabilità UL94 HB 1,5 mm (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET DURAPRO ASA GF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M034",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "101 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "101",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "101",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+        "Locator": "p. 1: VICAT A (VST) ASTM D1525 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT A (VST) ASTM D1525 °C 101"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M034",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "99 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "99",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "99",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+        "Locator": "p. 1: HDT/B ASTM D648 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT/B ASTM D648 °C 99"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M034",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230-270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "110°C",
+        "Bed state": "range",
+        "Bed min °C": "110",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "yes",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "yes",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Hardened nozzle yes",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "recommended"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "<180mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-30%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "12 mm³/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 230-270°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "230-270°C",
+      "fromBelow": false,
+      "line": "Nozzle 230-270°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed",
+      "raw": "110°C",
+      "fromBelow": false,
+      "line": "Heatbed 110°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Adhesive recommended"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "<180mm/s",
+      "fromBelow": false,
+      "line": "Speed <180mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0-30%",
+      "fromBelow": false,
+      "line": "Cooling 0-30%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed space",
+      "raw": "yes",
+      "fromBelow": false,
+      "line": "Enclosed space yes"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened nozzle",
+      "raw": "yes",
+      "fromBelow": false,
+      "line": "Hardened nozzle yes"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. Volumetric Speed",
+      "raw": "12 mm³/s",
+      "fromBelow": false,
+      "line": "Max. Volumetric Speed 12 mm³/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1. DESCRIPTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. FEATURES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. PROPERTIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Modulo di flessione ASTM D790 MPa 3500 ±200 Nozzle 230-270°C",
+      "reason": "properties.csv carries no property for \"Modulo di flessione\""
+    },
+    {
+      "page": 1,
+      "text": "Modulo di trazione ASTM D790 MPa 3520 ±200 Heatbed 110°C",
+      "reason": "properties.csv carries no property for \"Modulo di trazione\""
+    },
+    {
+      "page": 1,
+      "text": "Resistenza alla trazione ASTM D638 MPa 59,8 ±3 Adhesive recommended",
+      "reason": "properties.csv carries no property for \"Resistenza alla trazione\""
+    },
+    {
+      "page": 1,
+      "text": "Resistenza alla flessione ASTM D638 MPa 91,2 ±3 Speed <180mm/s",
+      "reason": "properties.csv carries no property for \"Resistenza alla flessione\""
+    },
+    {
+      "page": 1,
+      "text": "Allungamento a rendimento ASTM D638 % 3% Cooling 0-30%",
+      "reason": "properties.csv carries no property for \"Allungamento a rendimento\""
+    },
+    {
+      "page": 1,
+      "text": "Allungamento nominale alla rottura ASTM D638 % 8% -0,02 Enclosed space yes",
+      "reason": "properties.csv carries no property for \"Allungamento nominale alla rottura\" (8%)"
+    },
+    {
+      "page": 1,
+      "text": "Resistenza all'urto intagliato ASTM D256 kj/m² 88 Hardened nozzle yes",
+      "reason": "properties.csv carries no property for \"Resistenza all'urto intagliato\" (kj/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Resistenza all'urto non intagliato ASTM D256 kj/m² 16 Max. Volumetric Speed 12 mm³/s",
+      "reason": "properties.csv carries no property for \"Resistenza all'urto non intagliato\" (kj/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura di fusione ISO 3146-C °C 190-210",
+      "reason": "properties.csv carries no property for \"Temperatura di fusione\""
+    },
+    {
+      "page": 1,
+      "text": "Max. 50% layerheight. Optimal print settings may vary",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "MFR (Indice di fluidità) ASTM D1238 g/cm³ 12",
+      "reason": "the sheet states Melt mass-flow rate in g/cm³, and the database keeps it in g/10 min"
+    },
+    {
+      "page": 1,
+      "text": "Ritiro ASTM D955 % 0,30%",
+      "reason": "properties.csv carries no property for \"Ritiro\""
+    },
+    {
+      "page": 1,
+      "text": "Densità ASTM D792 g/cm³ 1,1",
+      "reason": "properties.csv carries no property for \"Densità\" (g/cm³)"
+    },
+    {
+      "page": 1,
+      "text": "Durezza Rockwell ASTM D785 R-Scale 110",
+      "reason": "properties.csv carries no property for \"Durezza Rockwell\""
+    },
+    {
+      "page": 1,
+      "text": "Infiammabilità UL94 HB 1,5 mm",
+      "reason": "properties.csv carries no property for \"Infiammabilità\""
+    },
+    {
+      "page": 1,
+      "text": "Temperature resistance tested at a minimum wall thickness of 4 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. CERTIFICATIONS & ADDITIONAL INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. STORAGE AND SHELF LIFE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Store in a dry room at room temperature (18-27°C / 65-80°F). Keep out of direct heat and sunlight.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "When stored correctly, this material has a shelf life of 2 years.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET Page 1/1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DURAPRO ASA GF 14. 11. 2024",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}
