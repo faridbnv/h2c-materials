@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -737,4 +737,49 @@ test('a run of raised digits belongs to the units it stands against, not to a va
     piece(545, [500, '11'], [560, '22']),
   ], registry);
   assert.equal(kept.length, 2, 'a value column is not a run of superscripts');
+});
+
+// A page laid out as Fillamentum lays one out: a column of description on the left, a property table on the
+// right, and a footer that runs the whole width. The numbers are the ones its PEBA 90A sheet prints.
+const twoColumnPage = () => [
+  piece(700, [219, 'Mechanical properties'], [332, 'Typical Value'], [406, 'Test Method']),
+  piece(619, [35, 'Polyamide content ensures very high', 159], [332, '9 MPa'], [406, 'ASTM D638']),
+  piece(612, [219, 'Tensile strength']),
+  piece(607, [35, 'chemical resistance, especially against car', 159]),
+  piece(605, [332, '36 MPa'], [406, 'ASTM D638']),
+  piece(594, [35, 'fluids (ASTM oils and fuels), non-polar', 159]),
+  piece(590, [219, 'Elongation at break'], [332, '> 1000 %'], [406, 'ASTM D638']),
+  piece(575, [35, 'hydrocarbons, ozone, and certain acids. It is', 159], [219, 'Flexural modulus'], [332, '65 MPa'], [406, 'ASTM D790']),
+  piece(487, [35, 'example for parts of ski boots.', 130], [219, 'Hardness'], [332, '42 Shore D'], [406, 'ASTM D2240']),
+  piece(300, [35, 'The information was processed with the best knowledge of the manufacturer, for information only', 480]),
+];
+
+test('the page beside the table is not part of the row', () => {
+  const lines = twoColumnPage();
+  assert.ok(pageGutters(lines).length, 'the page states its own gutters');
+  const hardness = splitAtGutters(lines).find((l) => /Shore D/.test(l.text));
+  // Read by baseline, the row is "example for parts of ski boots. Hardness 42 Shore D ASTM D2240" and no
+  // property stands at the head of it. The sentence is the page beside the table; the label is not.
+  assert.match(hardness.text, /^Hardness/);
+  assert.equal(read(hardness.text).rawNumber, '42');
+  // A gutter runs between the label column and the value column too, and nothing is taken off there: both
+  // sides of it state something a table states.
+  const elongation = splitAtGutters(lines).find((l) => /1000/.test(l.text));
+  assert.match(elongation.text, /^Elongation at break/);
+});
+
+test('a label a table merges across two rows belongs to both of them, and a heading does not', () => {
+  const rows = pageRows(twoColumnPage(), registry);
+  assert.deepEqual(rows.filter((r) => /Tensile strength/.test(r.text)).map((r) => read(r.text).rawNumber), ['9', '36']);
+  // Spectrum sets "Temperature of deflection under load" above its two rows and in their own column, which is a
+  // block heading the reader carries down, not a cell merged across them. A rule that took the nearest row
+  // either side of a label gave that heading the marketing bullets printed beside it.
+  const heading = shareMergedLabels([
+    piece(530, [26, 'Temperature of deflection under load']),
+    piece(524, [300, '\u2022 10% lighter than PA6 CF15']),
+    piece(512, [26, '0.45 MPa 170\u00b0C ISO 75-1/2']),
+    piece(506, [300, '\u2022 high thermal resistance up to 170\u00b0C']),
+    piece(494, [26, '1.8 MPa 150\u00b0C ISO 75-1/2']),
+  ], registry);
+  assert.equal(heading.length, 5, 'a heading keeps its own line and the bullets keep theirs');
 });

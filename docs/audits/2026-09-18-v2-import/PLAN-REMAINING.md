@@ -50,16 +50,26 @@ Wave B's next makers have been measured against the same gate, and three of them
 | 3DXTECH | 472 of 473 | an Izod row whose label the sheet misspells |
 | Polymaker / Fiberon | 770 of 810 | one shared table covering several products |
 | eSUN | 21 of 23 | a bound with no unit on its line, and a value whose unit is bracketed behind it |
-| Fillamentum | 14 of 23 | a label the table centres between two value rows, and a prose column run into the table |
+| Fillamentum | 18 of 23 | the endpoint its Test Condition column states on a baseline of its own |
 | BASF Forward AM | 26 of 57 | three build orientations in three value columns, under a header row that names them |
 
-Two of those are one thing: **a table read by its columns rather than by its baselines**. Fillamentum sets a
-description column beside its property table and the extractor joins them by baseline, so "Hardness 42 Shore D"
-arrives inside "example for parts of ski boots."; BASF prints X-Y, X-Z and Z-X in three columns and the reader
-takes the first. It is also the root of `docs/OPEN-PROBLEMS.md` §1 and §9, where a neighbouring column's sentence
-is what 96 measurements and 15 print setups carry instead of their own. The third is a label a table merges
-across two rows, which is the mirror of the merged method-and-unit cell the reader already shares
-(`shareMergedCells`), and can be built the same way.
+The page beside the table is off: a gutter is a band few of the page's lines cross while enough have text on
+both sides of it, and a piece of a line that reads as a sentence where another piece states what a table states
+is the page beside the table, not the row. A label a table merges across two rows is shared with both, which is
+the mirror of the merged method-and-unit cell (`shareMergedCells`); a label standing above its rows in their own
+column is a block heading and is left alone, which is what Spectrum's deflection block is. Between them those
+took Fillamentum from 11 of 23 to 18, and moved no other maker.
+
+What is left is two named things:
+
+- **The condition column on its own baseline.** Fillamentum prints "36 MPa ASTM D638" and sets "at break" beside
+  it in the Test Condition column, one point lower. The row reads as a tensile strength with no endpoint where
+  the sheet says which endpoint it is, and that is all five of its remaining misses.
+- **A table with a value column per build orientation.** BASF prints "Tensile strength ISO 527 36.1 MPa / 5.3 ksi
+  - 11.2 MPa / 1.6 ksi" under a header row naming X-Y, X-Z and Z-X, each value twice, metric and imperial. The
+  reader takes the first and the sheet's other two orientations go unread. This is the last of
+  `docs/OPEN-PROBLEMS.md` §1 and §9 as well, where a neighbouring column's cell is what 96 measurements and 15
+  print setups carry instead of their own.
 
 Two things are still missing from the reader, and both cost values on every maker:
 

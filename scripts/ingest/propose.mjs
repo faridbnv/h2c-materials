@@ -307,6 +307,87 @@ function joinRow(lines) {
 }
 
 /**
+ * The page beside the table.
+ *
+ * A maker may set a column of prose next to its property table — a description, a paragraph of marketing — and
+ * the extractor groups spans by baseline, so the two arrive as one line. Fillamentum's hardness row reads
+ * "example for parts of ski boots. Hardness 42 Shore D ASTM D2240" and its tensile row "Polyamide content
+ * ensures very high 9 MPa ASTM D638 at 50% elongation": a reader that looks for a property at the start of a
+ * line finds a sentence on both, and the sheet's own hardness and tensile strength go unread.
+ *
+ * The gutter between the two blocks is the page's own answer, and it is measured rather than guessed: a band of
+ * the page that no piece of text anywhere on it crosses, with ink on both sides of it on enough lines to be a
+ * column rather than a coincidence.
+ *
+ * Only prose is taken off, and only where the page leaves no doubt. One side must read as a sentence — several
+ * ordinary words together, naming no property this database keeps and stating no number — and the other must
+ * state something a table states. Where both sides state something the gutter runs between two columns of one
+ * table, and the line is left exactly as it was: on every sheet that prints a label column beside a value
+ * column, the label and its value sit either side of such a gutter.
+ */
+const GUTTER_LINES = 3;
+const GUTTER_CROSSING = 0.2;
+const PROSE_WORDS = 4;
+const isProse = (text) => {
+  const t = repair(String(text ?? '')).trim();
+  if (!t || labelFor(t) || /\d/.test(t)) return false;
+  return (withoutMethodsAndUnits(t).match(/[A-Za-z]{2,}/g) ?? []).length >= PROSE_WORDS;
+};
+export function pageGutters(lines) {
+  const all = lines.map(inked).filter((s) => s.length);
+  if (all.length < GUTTER_LINES) return [];
+  const from = Math.min(...all.flat().map((s) => s.x)), to = Math.max(...all.flat().map(spanRight));
+  // A page always has lines that run its whole width — a header, a footer, the paragraph of small print every
+  // maker ends with — so a gutter is not a band nothing crosses. It is a band few of the page's lines cross
+  // while enough of them have text on both sides of it to be two blocks rather than a coincidence.
+  const counts = [];
+  for (let x = Math.ceil(from); x <= to; x++) {
+    let crossing = 0, straddling = 0;
+    for (const spans of all) {
+      if (spans.some((s) => s.x < x && spanRight(s) > x)) { crossing++; continue; }
+      if (spans.some((s) => spanRight(s) <= x) && spans.some((s) => s.x >= x)) straddling++;
+    }
+    counts.push({ x, crossing, straddling });
+  }
+  const crossable = Math.max(1, Math.floor(all.length * GUTTER_CROSSING));
+  const open = counts.filter((c) => c.straddling >= GUTTER_LINES && c.crossing <= crossable);
+  // One gutter per run of positions that qualify, taken where most lines straddle it.
+  const gutters = [];
+  for (const c of open) {
+    const last = gutters.at(-1);
+    if (last && c.x - last.x <= 1) { if (c.straddling > last.straddling) gutters[gutters.length - 1] = c; continue; }
+    gutters.push(c);
+  }
+  return gutters.map((g) => g.x);
+}
+
+/** Which of the page's blocks a piece of text stands in: how many gutters are to its left. */
+const blockOf = (cuts, x) => cuts.filter((at) => x > at).length;
+
+export function splitAtGutters(lines, cuts = pageGutters(lines)) {
+  if (!cuts.length) return lines;
+  const rebuild = (line, spans) => ({
+    ...line, x0: Math.min(...spans.map((s) => s.x)), x1: Math.max(...spans.map(spanRight)),
+    text: spanText([...spans].sort((a, b) => a.x - b.x)), spans,
+  });
+  // The line is cut at every gutter at once and each piece judged on its own. Judging a side of one gutter
+  // instead read "example for parts of ski boots. Hardness" as the sentence it mostly is, and took the row's
+  // own label away with the page beside it.
+  return lines.map((line) => {
+    const spans = inked(line);
+    if (spans.length < 2) return line;
+    const segments = [];
+    for (const s of spans) { const i = blockOf(cuts, (s.x + spanRight(s)) / 2); (segments[i] ??= []).push(s); }
+    const parts = segments.filter((p) => p?.length);
+    if (parts.length < 2) return line;
+    const prose = parts.filter((p) => isProse(spanText(p)));
+    const rest = parts.filter((p) => !isProse(spanText(p)));
+    if (!prose.length || !rest.length || !rest.some((p) => /\d/.test(spanText(p)) || labelFor(repair(spanText(p)).trim()))) return line;
+    return rebuild(line, rest.flat());
+  });
+}
+
+/**
  * The page's lines as the page's rows.
  *
  * A row is a line that states something and the pieces standing in its band: the value column's number, the sign
@@ -316,7 +397,9 @@ function joinRow(lines) {
  *
  * Then the rows whose label the page set on a baseline of its own are put back together (gatherLabelled below).
  */
-export function pageRows(lines, registry = null) {
+export function pageRows(allLines, registry = null) {
+  const cuts = pageGutters(allLines);
+  const lines = splitAtGutters(allLines, cuts);
   const anchors = lines.map((l, i) => [l, i]).filter(([l]) => !isFragment(l));
   const attached = new Map();
   const claimed = new Set();
@@ -344,8 +427,8 @@ export function pageRows(lines, registry = null) {
     attached.get(to[1]).push(piece);
     claimed.add(i);
   }
-  return shareMergedCells(gatherLabelled(lines.map((line, i) => (attached.has(i) ? joinRow([line, ...attached.get(i)]) : line))
-    .filter((_, i) => !claimed.has(i)), registry));
+  return shareMergedLabels(shareMergedCells(gatherLabelled(lines.map((line, i) => (attached.has(i) ? joinRow([line, ...attached.get(i)]) : line))
+    .filter((_, i) => !claimed.has(i)), registry)), registry);
 }
 
 /**
@@ -383,6 +466,66 @@ export function shareMergedCells(lines) {
     if (!statesANumberInNoUnit(above) || !statesANumberInNoUnit(below)) continue;
     shared.set(i - 1, lines[i]);
     shared.set(i + 1, lines[i]);
+    shared.set(i, null);
+  }
+  if (!shared.size) return lines;
+  return lines.map((line, i) => (shared.get(i) ? joinRow([line, shared.get(i)]) : line))
+    .filter((_, i) => !shared.has(i) || shared.get(i));
+}
+
+/**
+ * The label of two rows, printed once in a cell the table merged across both.
+ *
+ * The mirror of shareMergedCells above. Fillamentum sets "Tensile strength" between the row it measured at 50%
+ * elongation and the row it measured at break, and "Tear resistance" between its notched and its unnotched
+ * value: the label is one cell, centred on the pair of rows it heads. Read a line at a time the label states no
+ * value and each value names no property, so four numbers the sheet publishes belong to nothing.
+ *
+ * A shared label is a line that names a property and states no value of its own. It is shared only where the
+ * lines above and below it both state a value and name no property of their own: a row that names its own
+ * property is complete, and a label standing between two complete rows is a row of its own that happens to be
+ * empty. The two rows it makes are two measurements, never one — what separates them is the condition each
+ * states, which is what the table merged the cell across in the first place.
+ */
+export function shareMergedLabels(lines, registry = null) {
+  const names = (line) => Boolean(labelFor(repair(String(line.text ?? '')).trim()));
+  // Whether the line states a number in a unit at all, which is what a value cell does. The label is judged by
+  // whether a whole row can be read from it, because a condition and a designation both carry digits of their
+  // own; a value cell names no property, so there is no row to read from it and only its number to go by.
+  const statesANumber = (line) => {
+    const t = repair(String(line.text ?? '')).replace(new RegExp(STANDARD_RE.source, 'gi'), ' ');
+    return valueRe().test(t) || unitFirstRe().test(t);
+  };
+  const statesAValue = (line) => (registry ? Boolean(readRow(line.text, registry)) : statesANumber(line));
+  // A row of a table, not a sentence that happens to carry a number: Spectrum prints "• 10% lighter than PA6
+  // CF15" beside its deflection block, and a label that took the nearest line either side took two of those.
+  const waiting = lines.map((l, i) => [l, i]).filter(([l]) => !names(l) && statesANumber(l) && isRowPiece(l));
+  const shared = new Map();
+  for (let i = 0; i < lines.length; i++) {
+    const label = lines[i];
+    if (!names(label) || statesAValue(label)) continue;
+    const reach = SHARED_REACH * lineHeight(label);
+    // The rows either side of the label, not the lines either side of it: a maker that sets a column of prose
+    // beside its table leaves a sentence between the label and the value it heads, and the page's own paragraph
+    // is not what the cell was merged across.
+    // A merged cell stands beside its rows, in a column of its own: they begin past where it ends. A label whose
+    // rows begin where it begins is standing above them and is a block heading, which the reader already carries
+    // down the block it heads. Spectrum sets "Temperature of deflection under load" above its 0.45 and 1.8 MPa
+    // rows in their own column and prints its marketing bullets in the block beside, and a rule that took the
+    // nearest row either side gave that heading two bullets and lost the sheet's 150 °C.
+    const startsAt = (l) => Math.min(...inked(l).map((sp) => sp.x));
+    const ends = Math.max(...inked(label).map(spanRight));
+    const within = ([l]) => Math.abs(l.y - label.y) <= reach;
+    if (waiting.some((w) => within(w) && Math.abs(startsAt(w[0]) - startsAt(label)) <= AGAINST)) continue;
+    const near = (sign) => waiting.filter((w) => sign * (w[0].y - label.y) > 0 && within(w) && startsAt(w[0]) >= ends)
+      .sort((a, b) => Math.abs(a[0].y - label.y) - Math.abs(b[0].y - label.y))[0];
+    const above = near(1), below = near(-1);
+    // Two rows of one table begin in the same column; two lines that happen to stand either side of a label do not.
+    if (!above || !below || Math.abs(startsAt(above[0]) - startsAt(below[0])) > AGAINST) continue;
+    // A label reaching a row that another label is nearer to would be taking that row from it.
+    if (lines.some((l, j) => j !== i && names(l) && !statesAValue(l) && Math.abs(l.y - label.y) <= reach)) continue;
+    shared.set(above[1], label);
+    shared.set(below[1], label);
     shared.set(i, null);
   }
   if (!shared.size) return lines;
