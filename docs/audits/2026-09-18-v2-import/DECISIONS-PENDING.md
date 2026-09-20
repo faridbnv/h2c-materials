@@ -135,11 +135,6 @@ Examples: PLA PHA, PLA/PHA.
 
 ## Written down earlier, still unanswered
 
-- **Fillamentum Nylon CF15 Carbon; Fillamentum Nylon FX256** — Fillamentum's Nylon CF15 Carbon and Nylon FX256 name no polymer: which nylon are they? *(PA6 (M049/M050) | PA12 (M052/M053) | a new material for the nylon the owner names | hold until Fillamentum states the polymer)*
-- **Fillamentum NonOilen** — Fillamentum's NonOilen is a compound of two polymers: what material holds it? *(a new material named for the blend (NonOilen) | file under PLA (M001) | hold until a sheet states the proportions)*
-- **Fillamentum Flexfill TPE 90A; Fillamentum Flexfill TPE 96A** — Fillamentum's Flexfill TPE 90A and 96A say "polyolefin": which elastomer are they? *(a new material for the polyolefin elastomer (TPO) | file under TPE (M044) once it stops being a family entry | hold until the sheet names the polymer)*
-- **Fillamentum Timberfill** — Fillamentum's Timberfill is wood-filled but names no polymer: what material holds it? *(PLA Wood (M014), under R039 | a new material for wood-filled PLA | hold until the sheet names the polymer)*
-- **Fillamentum Nylon AF80 Aramid** — Fillamentum's Nylon AF80 Aramid is a PA12 with an aramid load, which no material holds: create one? *(create PA12-AF, as R009 and R011 created PETG-PTFE and PA6-CE | file under PA12 (M052) with the load in Composition / filler | hold)*
 
 ## What else is waiting, and on whom
 
