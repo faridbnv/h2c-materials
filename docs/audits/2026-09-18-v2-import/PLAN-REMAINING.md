@@ -1,8 +1,8 @@
 # What is left of the plan
 
 The plan the owner approved is in the session record; this is the part of it that has not been done, with what each
-step now knows that the plan could not. Rewritten 2026-09-20, after batch b12 and the repair that gave the queue a
-reason per document.
+step now knows that the plan could not. Rewritten 2026-09-20, after batch b14, the block solve, and the repair that gave the
+queue a reason per document.
 
 **Every figure about the corpus is in [STATUS.md](STATUS.md), which is generated.** Nothing here repeats a count,
 because a count written twice is a count that goes stale in one of the two places. What is here is what has to be
@@ -28,35 +28,32 @@ worse than no hold at all.
 
 `npm run ingest:propose -- --compare --all` reads every sheet somebody transcribed by hand before this programme
 and compares, maker by maker, in one run. The table it writes is in [STATUS.md](STATUS.md) and the census is
-`census/parity.csv`, with the values each maker still misses beside it.
+`census/parity.csv`, with every value each maker still misses beside it.
 
-That run had never been made as a set. Made once, on 2026-09-20, it found **twelve makers below the 95% gate**,
-four of them badly:
+That run had never been made as a set. Made once, on 2026-09-20, it found twelve makers below the 95% gate. Two
+have moved since:
 
-| Maker | Reproduced | What it is |
-|---|---|---|
-| Stratasys | 2 of 16 | a table per layer height, each with a value column per orientation |
-| Essentium / Nexa3D | 4 of 27 | a value column per build orientation, headed 45/45 and ZX |
-| Prusa Research | 13 of 34 | one sheet, two tables, and a second column this reader does not separate |
-| iSANMATE | 58 of 142 | 84 values on fourteen sheets, the largest single gap after Bambu |
-| Bambu Lab | 592 of 739 | 147 values; the `Subjects \| Testing Methods \| Data` table of OPEN-PROBLEMS §1 |
+| Maker | Was | Now | What is left |
+|---|---|---|---|
+| Bambu Lab | 592 of 739 | **683 of 739** | its impact row is a merged cell with two values stacked around the label |
+| IPCON | 56 of 76 | **68 of 76** | |
+| Stratasys | 2 of 16 | 2 of 16 | a table per layer height, each with a column per orientation |
+| Essentium / Nexa3D | 4 of 27 | 1 of 24 | a value column per build orientation, headed 45/45 and ZX |
+| Prusa Research | 13 of 34 | 13 of 34 | one sheet, two tables, and a second column this reader does not separate |
+| iSANMATE | 58 of 142 | 58 of 142 | 84 values on fourteen sheets, the largest single gap |
 
 Parity before novelty is the rule, and it was kept per maker as each batch was run. What was not done was to run
 it over every maker at once, so a maker whose sheets nobody was proposing that week stopped being checked. It is
-one command now, and it is what `--finish` runs before a batch commits.
-
-About 380 values in all. They are the reader's to-do list, in the order the census prints them.
+one command now and `--finish` runs it before a batch commits.
 
 Two gaps cost values on every maker and are data decisions, not reader ones:
 
-- **A property the database does not carry.** Flammability class, decomposition temperature, volume resistivity,
-  permittivity, moulding shrinkage, tear strength, abrasion loss, compression set, Poisson's ratio. The reader
-  names each one it cannot file.
-- **A polymer with no row.** PHA, TPS, SEBS and PA11. PBT, COC, SAN, LCP, PVC and PBAT were written for b09, and
-  PCL and the PPE/PS blend before it, each from a producer's reference that was fetched and hashed.
-
-And two are known, small and named: a Fillamentum statement set one point lower than its own row, and a BASF Shore
-hardness stated in prose and in no table. One row of one sheet each.
+- **A property the database does not carry.** Flammability class, decomposition temperature, moulding shrinkage,
+  compression set. The reader names each one it cannot file. Nine of them went in with b12 and b14 — surface and
+  volume resistivity, dielectric strength, relative permittivity, tear strength, abrasion loss, CTE and Poisson's
+  ratio — and none of them has a plausibility window yet, which is why the resistivity misreadings had to be
+  found by a person twice.
+- **A polymer with no row.** PHA, TPS, SEBS and PA11.
 
 ## 3. What is not fetched
 
