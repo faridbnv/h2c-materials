@@ -47,6 +47,16 @@ const WINDOWS = readCsv(join(projectRoot, 'data/tables/plausibility_windows.csv'
  * itself would judge it by (lint-rules.js), which is the most specific one matching how the polymer solidifies,
  * whether it is reinforced and, for an impact result, its notch.
  */
+/**
+ * Whether a property may take a negative value at all. A dash between two numbers, a footnote marker before one
+ * and a designation's own hyphen all read as a minus sign, and a density of -1.24 g/cm3 or a specific gravity of
+ * -2240 is not a value a sheet printed. A glass transition may be negative and says so in its own window.
+ */
+export function mayBeNegative(property, unit) {
+  const windows = WINDOWS.filter((w) => w.Property === property && w['Normalized unit'] === unit);
+  return !windows.length || windows.some((w) => Number(w['Hard low']) < 0);
+}
+
 export function couldBe(property, unit, value, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
   if (!Number.isFinite(value)) return true;
   const fits = (w, field, want) => w[field] === want || w[field] === 'any';
@@ -79,9 +89,17 @@ const valueRe = () => new RegExp(`(${NUMBER_PATTERN})\\s*\\(?\\s*(${UNIT_PATTERN
 // round: a bound the sheet states in front of the number ("% > 50"), a spread behind it ("% 3,5 ± 0,1") and a
 // window behind it ("°C 190-210"). Reading only the number recorded a melting temperature of 190 for a sheet
 // that prints 190 to 210, and lost every bound Extrudr prints in this layout.
+//
+// Between the unit and the value a row may state a condition of the test, and a condition carries a unit of its
+// own, written hard against its number: Eryone prints "Charpy Impact strenght GB/T 1043.1-2008 kJ/m2 2.75J 2.83",
+// where 2.75 J is the pendulum and 2.83 kJ/m² is the answer. Read as the first number after the unit, the hammer
+// became the impact strength on every one of that sheet's impact rows. A condition is glued to its own unit, so
+// a word standing apart from the number in front of it is the column beside the table, not a condition: Extrudr's
+// "MPa 40 Nozzle 230-260°C" still states a modulus of 40, not one of 230.
+const CONDITION_UNIT = `\\d+(?:[.,]\\d+)?[A-Za-zµ°℃%][\\w/°²³]*`;
 const unitFirstRe = () => new RegExp(
-  `(?:^|\\s)(${UNIT_PATTERN})\\s+(?:[${BOUNDS}]\\s*)?(${NUMBER_PATTERN})(?![\\d.,])`
-  + `(?:\\s*(?:±|\\+\\/-)\\s*(\\d+(?:[.,]\\d+)?)|\\s*[-–~]\\s*(\\d+(?:[.,]\\d+)?))?`, 'gi');
+  `(?:^|\\s)(?<unit>${UNIT_PATTERN})(?<lead>\\s+(?:${CONDITION_UNIT}\\s+)*(?:[${BOUNDS}]\\s*)?)(?<value>${NUMBER_PATTERN})(?![\\d.,])`
+  + `(?:\\s*(?:±|\\+\\/-)\\s*(?<spread>\\d+(?:[.,]\\d+)?)|\\s*[-–~]\\s*(?<upper>\\d+(?:[.,]\\d+)?))?`, 'gi');
 
 // A section heading tells a value what it is: a printing guide is not a test result, and a storage note is neither.
 //
@@ -109,11 +127,13 @@ const methodsOf = (line) => [...new Set((String(line).match(new RegExp(STANDARD_
 // A designation may cite several parts of one standard at once: "ISO 527-1,-2" is one method, not a method and a
 // number. Left out of the designation, that ",-2" is a minus sign in front of a 2, and a yield strength printed
 // as "ISO 527-1,-2 MPa 70,2" read as -2 MPa. Only a comma that introduces another part is taken, so "ISO 527,
-// 23°C" keeps its condition. A comma may also introduce the specimen the method was run on ("DIN 53504, S2",
+// 23°C" keeps its condition. The letter and the number may be joined by a hyphen ("ASTM D-2240"), and read as a
+// value that was a specific gravity of minus two thousand two hundred and forty.
+// A comma may also introduce the specimen the method was run on ("DIN 53504, S2",
 // "ISO 815-1, method A"); left out, the S2 put a 2 in front of the unit and a tensile strength read as 2 MPa.
 // A method variant may also stand apart from the number it belongs to ("ISO 306 A50", "ISO 306/B50"): Extrudr's
 // PLA Tough prints "Vicat softening temp. ISO 306 A50 °C 65", and the A50 read as a Vicat point of 50 °C.
-const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\s?\d+[\w./-]*(?:\s?,\s?(?:-\d+[\w.-]*|[A-Za-z]\d{1,2}\b|method\s+[A-Za-z]\b))*(?:\s?\/\s?[\w.-]+)?(?:\s[A-Z]\d{1,3}\b)?(?::\s?\d{4})?/gi;
+const STANDARD_RE = /\b(?:ISO|ASTM\s?D?-?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?-?\s?\d{3,4}))\s?-?\s?\d+[\w./-]*(?:\s?,\s?(?:-\d+[\w.-]*|[A-Za-z]\d{1,2}\b|method\s+[A-Za-z]\b))*(?:\s?\/\s?[\w.-]+)?(?:\s[A-Z]\d{1,3}\b)?(?::\s?\d{4})?/gi;
 
 // Extraction separates a superscript from its unit ("g/cm 3", "kJ/m 2") and splits digits ("2 43 3 .4"); both are
 // repaired before a line is read. A standard's designation is left exactly as printed: the digits inside it are
@@ -121,7 +141,10 @@ const STANDARD_RE = /\b(?:ISO|ASTM\s?D?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?\d{3,4}))\
 // A unit can end in a digit, and that digit belongs to the unit: "kJ/m2 19" joined into "kJ/m219" and the
 // impact rows of every sheet that prints its unit in a column of its own were invisible. The same guard is in
 // pdf-text.mjs's joinDigits; this reader has its own because it joins around the designations it found itself.
-const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³])(\d) (?=\d+(?![\d.,]))/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
+// A split digit group is a fragment: extraction breaks "2 433 .4" and "1 05", never a four-figure number in
+// half. Two runs of three figures or more standing side by side are two numbers, and joining them wrote a
+// tensile modulus of 22 901 290 MPa from a colorFabb row whose two value columns print 2290 and 1290.
+const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³])(?<!\d{3})(\d) (?=\d+(?![\d.,]))|(?<![A-Za-z°²³])(\d) (?=\d{1,2}(?![\d.,]))/g, '$1$2').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
 // Extraction splits a standard's own number too ("ISO 11 8 3", "ISO 17 9", "D 2 56"), and the designation is
 // matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
 // is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
@@ -134,7 +157,19 @@ function repair(text) {
   // A superscript the extractor dropped rather than separated: Polymaker's sheets come out as "1.25 g/cm" and
   // "2.6 kJ/m". A density is per cubic centimetre and an impact strength is per square metre; there is no other
   // reading, and without the exponent the unit is not one the property is kept in and the row is lost.
+  // The degree sign a maker typed instead of the degree sign: colorFabb's sheets set every temperature with a
+  // ring above (˚C) and some with a masculine ordinal (ºC), neither of which is the degree sign the database and
+  // the build's own converter keep the unit in, so 74 glass transitions, 43 heat distortion temperatures and
+  // every melting point on that maker read as a row stating no value in any unit at all. The three glyphs are one
+  // unit — the rest of this file already matches them together — and only in front of a C or an F is one a degree.
+  // A scanned sheet has no superscript to separate: the reader that turned the page into text wrote a question
+  // mark where the ² and the ³ were printed ("g/cm?", "kJ/m?"). A question mark is neither part of a unit nor
+  // part of a number, so it is dropped where it stands against one of those two units and the rules below name
+  // the unit as the database keeps it. Without this, Fiberlogy's 33 scans stated every density and every impact
+  // strength in a unit nothing is kept in.
   const line = joinStandardDigits(String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2'))
+    .replace(/\b(g\s?\/\s?cm|kJ\s?\/\s?m)\s*\?/gi, '$1')
+    .replace(/[˚º](?=\s?[CF]\b)/g, '°')
     .replace(/\bg\/cm(?![\d²³])/g, 'g/cm3')
     .replace(/\bkJ\/m(?![\d²³])/g, 'kJ/m2');
   const out = [];
@@ -202,11 +237,21 @@ const overlapsAcross = (a, b) => a.some((s) => b.some((t) => Math.min(spanRight(
 const FRAGMENT = 16;
 const STATES_A_VALUE = new RegExp(`^[${BOUNDS}~+-]?\\s*[.,]?\\d`);
 const NO_VALUE = /^[/–—-]$|^n\.?\/?a\.?$/i;
+// The same statement with the column's unit still printed beside it: purefil prints "- °C", "- %" and
+// "- W/(K*m)" where it publishes nothing, and colorFabb prints "NA ˚C". The row states no value, which is a
+// statement about the maker's measurement and not about the database's units.
+const NO_VALUE_CELL = () => new RegExp(`^(?:[/–—-]|n\\.?/?a\\.?)\\s*(?:${UNIT_PATTERN})?$`, 'i');
+// A unit standing alone is a piece of a row too. Eryone sets the unit column of its property table a few points
+// below the rest of the row, so "℃" arrives as a line of its own and the row above it states a Vicat point, a heat
+// distortion temperature and a glass transition with no unit at all. A unit the lexicon knows is as much a piece as
+// the superscript of one; it is never a sentence, and it is never the row's own value.
+const BARE_UNIT = () => new RegExp(`^(?:${UNIT_PATTERN})$`, 'i');
 export function isFragment(line) {
   const cells = lineCells(line);
   if (cells.length !== 1) return false;
   const text = cells[0].text.trim();
-  return text.length <= FRAGMENT && (STATES_A_VALUE.test(text) || NO_VALUE.test(text) || new RegExp(`^[${BOUNDS}]$`).test(text));
+  return text.length <= FRAGMENT && (STATES_A_VALUE.test(text) || NO_VALUE_CELL().test(text)
+    || new RegExp(`^[${BOUNDS}]$`).test(text) || BARE_UNIT().test(text));
 }
 
 // Where a raised piece belongs: a superscript is printed hard against the piece it raises, so it starts where
@@ -239,7 +284,11 @@ function joinRow(lines) {
     const raised = spans.find((s) => s.y === line.y && s.x === own[0].x && s.str === own[0].str);
     raised.str = `^${own[0].str.trim()}`;
   }
-  const sorted = spans.sort((a, b) => a.x - b.x);
+  // The blanks are dropped, because their reported width measures nothing and a row built from two baselines is
+  // measured by what is inked on it: one Flashforge row reports a single space as 5 432 units wide, and a
+  // character width taken from that made every real gap on the row too small to be a gap, so its unit and its
+  // value ran together as "Mpa1960~2000". Every piece carries its own x, so the page's own spacing survives.
+  const sorted = spans.filter((s) => s.str?.trim()).sort((a, b) => a.x - b.x);
   return {
     y: base.y,
     x0: Math.min(...lines.map((l) => l.x0 ?? Infinity)),
@@ -256,8 +305,10 @@ function joinRow(lines) {
  * in front of it, the superscript of its unit. A piece belongs to the row whose band holds it and whose text it
  * does not stand over; a piece that belongs to no row is left exactly as it was, and so is every line that is a
  * row on its own.
+ *
+ * Then the rows whose label the page set on a baseline of its own are put back together (gatherLabelled below).
  */
-export function pageRows(lines) {
+export function pageRows(lines, registry = null) {
   const anchors = lines.map((l, i) => [l, i]).filter(([l]) => !isFragment(l));
   const attached = new Map();
   const claimed = new Set();
@@ -267,7 +318,12 @@ export function pageRows(lines) {
     // impact rows of the sheet in a unit the database does not keep them in.
     const from = Math.min(...inked(piece).map((s) => s.x));
     const against = (row) => inked(row).some((s) => Math.abs(spanRight(s) - from) <= AGAINST);
-    const fits = anchors.filter(([row]) => inBandOf(row, piece))
+    // A row begins with its label, so its own pieces stand to the right of where it begins. The page beside it
+    // does not: purefil sets a printing table and a property table side by side, one row apart, and the printing
+    // table's values ("190-230 °C", "60 °C") were read as pieces of whichever property row shared their band —
+    // which put a temperature at the head of the row and lost the property, the method and the value with it.
+    const rightOf = (row) => from >= Math.min(...inked(row).map((s) => s.x));
+    const fits = anchors.filter(([row]) => inBandOf(row, piece) && rightOf(row))
       .sort((a, b) => (against(b[0]) ? 1 : 0) - (against(a[0]) ? 1 : 0) || Math.abs(a[0].y - piece.y) - Math.abs(b[0].y - piece.y));
     const to = fits.find(([row, at]) => !overlapsAcross([...inked(row), ...(attached.get(at) ?? []).flatMap(inked)], inked(piece)));
     if (!to) continue;
@@ -275,8 +331,112 @@ export function pageRows(lines) {
     attached.get(to[1]).push(piece);
     claimed.add(i);
   }
-  return lines.map((line, i) => (attached.has(i) ? joinRow([line, ...attached.get(i)]) : line))
-    .filter((_, i) => !claimed.has(i));
+  return shareMergedCells(gatherLabelled(lines.map((line, i) => (attached.has(i) ? joinRow([line, ...attached.get(i)]) : line))
+    .filter((_, i) => !claimed.has(i)), registry));
+}
+
+/**
+ * The method and the unit of two rows, printed once in a cell the table merged across both.
+ *
+ * Flashforge prints "Bending Modulus (X-Y) 2100~2400", then "ISO 178 Mpa" on a baseline of its own, then
+ * "Bending Modulus (X-Z) 1960~2000": the two rows are tested to one method in one unit, and the sheet says so
+ * once, in a cell set between them. Read as three lines, the table gives two rows that name a property and a
+ * number in no unit at all and one line that is a method and a unit belonging to nothing, which is every bending
+ * and every impact row of that maker.
+ *
+ * A shared cell is a line that is nothing but a method and a unit: no property, no number of its own. It is
+ * shared only where the rows above and below it are both waiting for one — each names a property, states a
+ * number, and prints no unit anywhere on its line. A row that prints its own unit is complete and is left alone,
+ * which is what keeps this from touching the makers whose method column simply stands between two finished rows.
+ */
+const METHOD_AND_UNIT_ONLY = (text) => {
+  const t = repair(String(text ?? '')).trim();
+  if (!t || !new RegExp(STANDARD_RE.source, 'i').test(t) && !BARE_UNIT().test(t)) return false;
+  return !withoutMethodsAndUnits(t).replace(/[\s.,;:()/-]/g, '');
+};
+const statesANumberInNoUnit = (line) => {
+  const t = repair(String(line.text ?? '')).replace(new RegExp(STANDARD_RE.source, 'gi'), ' ');
+  return /\d/.test(t) && !new RegExp(`(?:${UNIT_PATTERN})`, 'i').test(t) && Boolean(labelFor(repair(String(line.text ?? '')).trim()));
+};
+const SHARED_REACH = 2;
+export function shareMergedCells(lines) {
+  const shared = new Map();
+  for (let i = 0; i < lines.length; i++) {
+    if (!METHOD_AND_UNIT_ONLY(lines[i].text)) continue;
+    const reach = SHARED_REACH * lineHeight(lines[i]);
+    const above = lines[i - 1], below = lines[i + 1];
+    if (!above || !below) continue;
+    if (Math.abs(above.y - lines[i].y) > reach || Math.abs(lines[i].y - below.y) > reach) continue;
+    if (!statesANumberInNoUnit(above) || !statesANumberInNoUnit(below)) continue;
+    shared.set(i - 1, lines[i]);
+    shared.set(i + 1, lines[i]);
+    shared.set(i, null);
+  }
+  if (!shared.size) return lines;
+  return lines.map((line, i) => (shared.get(i) ? joinRow([line, shared.get(i)]) : line))
+    .filter((_, i) => !shared.has(i) || shared.get(i));
+}
+
+// Where a row's label ends and the rest of the row begins, when the page set them on baselines of their own.
+//
+// Eryone prints "ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.32" and, two points lower, "Density(g/cm³ at 21.5 ° C）";
+// Flashforge prints "ISO 1133 g/10min 6~10" and, a point lower, "Melt Flow Rate (MFR) (220℃/5Kg)". Neither line is
+// a fragment — each is several cells wide — so the pass above leaves them apart, and the sheet reads as a label
+// with no value and a value with no property, which is the whole of both makers' property tables.
+//
+// What makes the other line part of the label's row, rather than the next row or the page beside it, is the same
+// three things a piece is judged by: its baseline is a fraction of a line from the label's (the next row is a
+// whole line away, and a paragraph's lines are too), it stands clear of the label across the page, and it begins
+// to the label's right, where the rest of a row stands. And it must name no property of its own: two labels are
+// two rows, however the page set their baselines.
+//
+// And it must read as cells of a table rather than as a sentence. A line the page itself split into cells is one
+// however long it is; a line the page left whole is one only where it is short and states a number or a unit,
+// which is what a value column or a unit column set on its own baseline looks like. Spectrum sets its marketing
+// text three points off the table's baselines, and a rule that gathered whatever stood beside a label read
+// "Izod Impact Strenght to classic PCTG. The use of carbon fibres increas-" as one row and lost eleven values.
+const SAME_ROW = 0.5;
+// Two ordinary words in a row are a phrase, and a phrase is prose: what a row states between its label and its
+// value is a method, a unit, a condition and a number, and none of those is a word next to a word. So the
+// designations and the units are taken out first, because a method's body reads as a word beside another one:
+// "50mm/min GB/T 1040.4 MPa 55.2" is a value column, and "min GB" is not two words of prose.
+const PHRASE = /\b[A-Za-z]{2,}\s+[A-Za-z]{2,}\b/;
+const withoutMethodsAndUnits = (text) => String(text)
+  .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ')
+  .replace(new RegExp(`(?:${UNIT_PATTERN})`, 'gi'), ' ');
+const isRowPiece = (line) => {
+  const text = repair(String(line.text ?? '')).trim();
+  if (!text || PHRASE.test(withoutMethodsAndUnits(text))) return false;
+  return /\d/.test(text) || BARE_UNIT().test(text) || NO_VALUE_CELL().test(text);
+};
+export function gatherLabelled(lines, registry = null) {
+  // What makes a line a label is that no row can be read from it, which is the reader's own answer and not a
+  // guess at one: a designation's digits are not a value (a Charpy row citing GB/T 1043.1-2008 beside its unit
+  // read as a line that already states one) and neither is a condition (Flashforge heads its melt flow row
+  // "Melt Flow Rate (MFR) (220℃/5Kg)", where 220 ℃ is the test and the value is on the baseline above).
+  const statesAValue = (line) => {
+    if (registry) return Boolean(readRow(line.text, registry));
+    const t = repair(String(line.text ?? '')).replace(new RegExp(STANDARD_RE.source, 'gi'), ' ');
+    return valueRe().test(t) || unitFirstRe().test(t);
+  };
+  const labelled = lines.map((l, i) => [l, i])
+    .filter(([l]) => labelFor(repair(String(l.text ?? '')).trim()) && !statesAValue(l));
+  const taken = new Set(), gathered = new Map();
+  for (const [label, i] of labelled) {
+    const h = lineHeight(label);
+    const from = Math.min(...inked(label).map((s) => s.x));
+    const rest = lines.map((l, j) => [l, j]).filter(([piece, j]) => j !== i && !taken.has(j) && !gathered.has(j)
+      && inked(piece).length && Math.abs(piece.y - label.y) <= SAME_ROW * h
+      && Math.min(...inked(piece).map((s) => s.x)) > from
+      && isRowPiece(piece) && !labelFor(repair(String(piece.text ?? '')).trim())
+      && !overlapsAcross(inked(label), inked(piece)));
+    if (!rest.length) continue;
+    gathered.set(i, rest.map(([piece]) => piece));
+    for (const [, j] of rest) taken.add(j);
+  }
+  if (!taken.size) return lines;
+  return lines.map((line, i) => (gathered.has(i) ? joinRow([line, ...gathered.get(i)]) : line))
+    .filter((_, i) => !taken.has(i));
 }
 
 // A label may be preceded by something that is not part of the property's name: the axis the bars were printed
@@ -355,16 +515,18 @@ export function readRow(text, registry, held = null) {
   // are candidates and the one that counts is still the first in a unit the property is kept in.
   {
     for (const m of line.matchAll(unitFirstRe())) {
-      const reordered = [m[0], m[2], m[1]];
-      // The number is looked for past the unit, because a unit may end in a digit: "kJ/m2 11" placed the value at
-      // the 2 of the unit, and everything measured from there was a character out.
-      reordered.index = m.index + m[0].indexOf(m[2], m[0].indexOf(m[1]) + m[1].length);
+      const { unit, lead, value, spread, upper } = m.groups;
+      const reordered = [m[0], value, unit];
+      // The value stands past the unit and past whatever condition the row states between them, which is what
+      // the match itself measures: a unit may end in a digit ("kJ/m2 11" placed the value at the 2 of the unit)
+      // and a condition carries digits of its own ("kJ/m2 2.75J 2.83").
+      reordered.index = m.index + m[0].indexOf(unit) + unit.length + lead.length;
       reordered.end = m.index + m[0].length;
       reordered.input = m.input;
       // Where the unit came first, what qualifies the value comes after it, not before it.
       reordered.unitFirst = true;
-      reordered.spread = m[3] ?? null;
-      reordered.upper = m[4] ?? null;
+      reordered.spread = spread ?? null;
+      reordered.upper = upper ?? null;
       if (!inDesignation(reordered.index) && !inPower(reordered.index)) candidates.push(reordered);
     }
   }
@@ -436,6 +598,10 @@ export function readRow(text, registry, held = null) {
     const value = spread ? spread[1] : window ? window[1] : candidate[1];
     const uncertainty = spread ? candidate[1] : candidate.spread ?? null;
     const upper = window ? candidate[1] : candidate.upper ?? null;
+    // A minus sign in front of a value a property cannot take is not a minus sign: it is the dash of a window
+    // whose low end wandered, a footnote marker, or what is left of a designation. A specific gravity of -2240
+    // and a density of -1.24 g/cm³ both came from lines that print neither.
+    if (Number(String(value).replace(',', '.')) < 0 && !mayBeNegative(match.Property, target.unit)) continue;
     if (spread) before = before.slice(0, spread.index);
     if (window) before = before.slice(0, window.index);
     return {
@@ -475,7 +641,10 @@ export function readRow(text, registry, held = null) {
 //
 // The value is taken from the label's own cell (the page's own column gaps, pdf-text.mjs), and what follows a
 // complete value is the next column's text, not part of the setting.
-const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[-–—]|to)\s*)?\d+(?:[.,]\d+)?\s*(?:°\s?C|°C|℃|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?/i;
+// A range may be written with a tilde, which is how Flashforge and every sheet typeset in China write one
+// ("240~270°C", "0~40%", "0.12~0.3mm"). Cut at the dash alone, such a setting kept its first number and
+// lost the window, and a nozzle row that no longer stated a temperature was thrown away altogether.
+const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:°\s?C|℃|%|mm)?\s*(?:[-–—~～]|to)\s*)?\d+(?:[.,]\d+)?\s*(?:°\s?C|°C|℃|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?/i;
 const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±)/i;
 // Where a neighbouring column's sentence begins: a run of capitals, or a sentence's subject and verb.
 const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)/;
@@ -521,15 +690,42 @@ export function splitAtNeighbour(line) {
   return [line, null];
 }
 
-/** What a line says about how to print, if it says anything: the setting it names and the sheet's own words for it. */
-export function readSetting(line, page = 1) {
+// A word of advice in front of a setting's name, which the lexicon's own labels do not carry: colorFabb prints
+// "Advised 3D printing temperature" and "Advised 3D printing speed". The words the lexicon already reads where
+// they matter ("Recommended layer height") are left to it, so nothing that reads today reads differently.
+const ADVICE_PREFIX = /^(advised|advisable|suggested)\s+(3d\s+)?/i;
+// A printing table's unit column, which is not the same list as a measurement's: a speed in mm/s and a layer
+// height in mm are settings the register keeps in the maker's own words, and no property is kept in either.
+const SETTING_UNIT = /^(?:[°º˚]\s?C|℃|%|mm|cm|mm\s?\/\s?s|mm\s?\/\s?min|mm[³3]\s?\/\s?s|m\s?\/\s?s|sec|min|hrs?|[shg]|kg)$/i;
+const isUnitColumn = (cell) => BARE_UNIT().test(cell) || SETTING_UNIT.test(cell);
+/**
+ * What a line says about how to print, if it says anything: the setting it names and the sheet's own words for it.
+ *
+ * `below` is the line under this one, where the page set the value there rather than beside the label: purefil
+ * prints "Printing Temperature:" and "190-230 °C" one under the other, and every profile of its 39 sheets was
+ * empty because the label's own line states nothing. It is used only when the label's line offers no value at all,
+ * and the caller has already made sure the line below names no setting and no property of its own.
+ */
+export function readSetting(line, page = 1, below = '') {
   const cells = lineCells(line).map((c) => repair(c.text).trim()).filter(Boolean);
   const source = cells.length ? cells : [repair(line.text).trim()];
   for (let i = 0; i < source.length; i++) {
-    const match = SETTINGS.find((sl) => sl.re.test(source[i]));
-    if (!match) continue;
-    const m = match.re.exec(source[i]);
-    const tail = source[i].slice(m.index + m[0].length);
+    // A maker may put a word of advice in front of the setting's name: colorFabb prints "Advised 3D printing
+    // temperature 240 - 260 ºC" and "Advised 3D printing speed 40 - 100 mm/sec". The word is advice about the
+    // setting and not another setting, so the name is read from the start of what is left, as a property's is.
+    const named = [source[i], source[i].replace(ADVICE_PREFIX, '')].filter((t, k) => k === 0 || t !== source[i]);
+    const head = named.find((t) => SETTINGS.some((sl) => sl.re.test(t)));
+    if (!head) continue;
+    const match = SETTINGS.find((sl) => sl.re.test(head));
+    const m = match.re.exec(head);
+    const tail = head.slice(m.index + m[0].length);
+    // A printing table may stand its unit in a column of its own, as a property table does: colorFabb prints
+    // "Nozzle Temp. | ˚C | 240-260", "Print Speed | mm/s | 40-100" and "Active cooling fan | % | 100". A reader
+    // that took the cell after the label read the unit as the setting and threw the row away for stating no
+    // number; and a nozzle row whose value column holds "240-260" alone states no temperature until its own unit
+    // column is put back beside it, which is the sheet's statement either way round.
+    const beside = source.slice(i + 1).filter((c) => !isUnitColumn(c));
+    const column = source.slice(i + 1).find(isUnitColumn) ?? '';
     // "Closed chamber for printing not necessary" is printed across two cells, and the half that says what it is
     // ("not necessary") is in the second. A tail that states neither a number nor a state is only the start of the
     // sentence, so the next cell finishes it.
@@ -537,10 +733,15 @@ export function readSetting(line, page = 1) {
     // A bare yes or no in the next cell is the answer to the statement in this one. Spectrum prints "Ruby or
     // hardened nozzle recommended" in one cell and "No" in the next, and reading only the first cell turned a
     // sheet that says a hardened nozzle is not needed into one that recommends it.
-    const answer = /^(yes|no)$/i.test(source[i + 1] ?? '');
-    const joined = answer || (!STATE.test(tail) && source[i + 1] && STATE.test(source[i + 1]) && `${tail} ${source[i + 1]}`.length <= 60)
-      ? `${tail} ${source[i + 1]}` : tail;
-    const raw = settingValue(joined) || settingValue(source[i + 1] ?? '');
+    const answer = /^(yes|no)$/i.test(beside[0] ?? '');
+    const joined = answer || (!STATE.test(tail) && beside[0] && STATE.test(beside[0]) && `${tail} ${beside[0]}`.length <= 60)
+      ? `${tail} ${beside[0]}` : tail;
+    // The line below is read only where this line says nothing at all, and only where it states something: a
+    // paragraph under a heading is not the heading's value.
+    const under = below && below.length <= 40 && STATE.test(below) ? settingValue(below) : '';
+    const own = settingValue(joined) || settingValue(beside[0] ?? '');
+    const rejoined = own && column && !/[a-z°º˚℃%]/i.test(own) ? `${own} ${column}` : own;
+    const raw = rejoined || under;
     if (!raw || !/[a-z0-9]/i.test(raw)) return null;
     // A note has to state something. "exceptional print quality at a speed of up to 600" wraps so that a line
     // begins with the word speed, and read as guidance it put a marketing sentence in the print setup.
@@ -548,7 +749,8 @@ export function readSetting(line, page = 1) {
     // A temperature setting states a temperature. A table whose cells the page ran together offered
     // "Nozzle temperature 50-300mm/s", which is the print speed from the column beside it.
     if (['nozzle', 'bed', 'chamber'].includes(match.Field) && !/[°º˚]\s?[cf]|℃|℉|\d\s?c\b|\b(not|no|yes|necessary|required|recommended|needed|ambient|room)\b/i.test(raw)) return null;
-    return { page, field: match.Field, topic: match.Topic || '', label: m[0].trim(), raw, line: String(line.text ?? '').slice(0, 200) };
+    return { page, field: match.Field, topic: match.Topic || '', label: m[0].trim(), raw, fromBelow: !rejoined,
+      line: `${String(line.text ?? '')}${own ? '' : ` ${below}`}`.slice(0, 200) };
   }
   return null;
 }
@@ -631,17 +833,30 @@ export function unreadRowReason(line, registry, held = null) {
   if (!held && (!/[A-Za-z]{2}/.test(label) || label.split(/\s+/).length > 6)) return null;
   // A row of a table, rather than a sentence that happens to hold a number: it names a method, or it reads as a
   // label, a method and a value in cells of its own.
+  // A row whose value column says the sheet publishes nothing is as plainly a row as one that states a number,
+  // whether or not it names its method on this line: colorFabb wraps "ISO 1133-A" onto the line below and prints
+  // "Melt Flow Index | MFI, (210˚C/2.16 kg), | NA | g/10min" on this one.
   const shaped = new RegExp(STANDARD_RE.source, 'i').test(plain)
-    || (cells.length >= 3 && /^[<>≤≥]?-?\d+(?:[.,]\d+)?$/.test(cells.at(-1)) && label.length <= 40 && !/\d/.test(label));
+    || (cells.length >= 3 && /^[<>≤≥]?-?\d+(?:[.,]\d+)?$/.test(cells.at(-1)) && label.length <= 40 && !/\d/.test(label))
+    || (cells.length >= 2 && printedCells.slice(-2).some((c) => NO_VALUE_CELL().test(c)) && label.length <= 40);
   if (!shaped) return null;
+  // A sentence about how the bars were made is not a row of the property table, whatever property its first word
+  // names: Flashforge lists "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)" under its table, and read
+  // as a row it said the sheet states an impact strength in a unit the database does not keep it in.
+  if (/\b(test(ing)? specimens?|specimens? were|test bars?)\b/i.test(plain)) {
+    return `a description of the specimen the tests were run on, not a result: "${label || plain.slice(0, 60)}"`;
+  }
   const printed = printedUnitOf(plain);
   const known = labelFor(plain) ?? held;
   const named = known ? known.Property : `"${label}"`;
   // A row whose value column holds a dash or a slash publishes no value at all. Saying that the line states none
   // in a unit the database keeps is true and useless: the sheet states none in any unit, and nothing is missing
   // here but the maker's measurement.
-  if (NO_VALUE.test(printedCells.at(-1) ?? '')) {
-    return `the sheet publishes no value for ${named} in this row: its value column prints "${printedCells.at(-1)}"`;
+  // The value column is the last cell, or the one before it where the page stands the unit in a column of its
+  // own: colorFabb prints "Melt Flow Index | MFI, (210˚C/2.16 kg), ISO 1133-A | NA | g/10min".
+  const none = printedCells.slice(-2).find((c) => NO_VALUE_CELL().test(c));
+  if (none) {
+    return `the sheet publishes no value for ${named} in this row: its value column prints "${none}"`;
   }
   // A power of ten is one number. Recording 6.75 or 10 from "6.75×10^14" would be a value the sheet never
   // printed, so the row waits for the property and the unit that could carry it.
@@ -693,7 +908,7 @@ export function readSheet(text, registry) {
     let block = '';
     // The page's rows, not the extractor's baselines: a value set a point above its label is part of that label's
     // row, and reading the two apart left a number with no property and a property with no number.
-    const lines = pageRows(page.lines);
+    const lines = pageRows(page.lines, registry);
     for (let li = 0; li < lines.length; li++) {
       const line = lines[li];
       const blockHeading = /^\s*\(?(as[- ]printed|annealed|after annealing|not annealed|un-?annealed)\)?\s*$/i.exec(line.text.trim());
@@ -735,8 +950,19 @@ export function readSheet(text, registry) {
       // "All testing specimens were printed under the following conditions: nozzle temperature = 205 °C".
       const aboutSpecimens = /\b(test(ing)? specimens?|specimens? were|test bars?)\b/i.test(plain);
       if (!aboutSpecimens && !labelFor(plain)) {
-        const setting = readSetting(rowLine, page.page);
+        // A table may set the value under the label rather than beside it. The line below is offered only when it
+        // is the value and nothing else: it stands in the label's own column, names no method (a row of a
+        // property table cites one, and Spectrum wraps "without a heated chamber" so that the word chamber lands
+        // above a heat deflection row), names no setting of its own, no property, and no section.
+        const under = lines[li + 1];
+        const underText = under ? repair(under.text).trim() : '';
+        const offered = under && Math.abs((under.x0 ?? 0) - (rowLine.x0 ?? 0)) <= 4
+          && !new RegExp(STANDARD_RE.source, 'i').test(underText)
+          && !labelFor(underText) && !readSetting(under, page.page)
+          && !SECTIONS.some(([re]) => re.test(underText)) ? underText : '';
+        const setting = readSetting(rowLine, page.page, offered);
         if (setting) {
+          if (setting.fromBelow) li += 1;
           // A statement can run onto the next line: extraction breaks "Closed chamber for printing not necessary"
           // after "printing", and the half that says what it is is on the line below. A value that states neither
           // a number nor a state is unfinished, and the next short line finishes it.
@@ -869,7 +1095,23 @@ export function readSheet(text, registry) {
       // A foaming filament's sheet prints two densities: the filament's, and the one the print reaches when the
       // foaming is active. The second is what the process achieves at a temperature, not a property of the
       // material, and feeding it to the density model taught it that every foaming material weighs 0.37 g/cm³.
-      if (read.match.Property === 'Density' && /foam/i.test(fullLabel)) {
+      // A sheet may print the two as one window rather than as two rows: a retailer's copy of the same sheet
+      // states "Density 0.40 - 1.24 g/cm3" under the headings "@ 210°C; 100% Flow" and "@ 255°C; 60% Flow". The
+      // low end of that window is still the foamed print, so a density window on a sheet that names its foaming
+      // is left for a reader. A single density on the same sheet is the filament's own and is read as ever.
+      // A row with two value columns states two results, and which is the material's own is a question about the
+      // sheet's headings, not about this row: colorFabb's lightweight sheets print "Tensile modulus | Tensile,
+      // ISO 527-1A | 2290 | 1290 | MPa" under "Value unfoamed @ 210 °C, flow: 100%" and "Value foamed @ 260 °C,
+      // flow: 60%". Read as one row, the second column became the first one's spread. Both numbers are the
+      // sheet's, so the row waits for a reader rather than losing one of them.
+      const columns = lineCells(line).map((c) => repair(c.text).trim())
+        .filter((t) => new RegExp(`^[${BOUNDS}~]?-?\\d+(?:[.,]\\d+)?$`).test(t));
+      if (columns.length >= 2) {
+        skipped.push({ page: page.page, text: line.text.slice(0, 160),
+          reason: `the row states ${columns.length} values in columns of its own (${columns.join(', ')}) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading` });
+        continue;
+      }
+      if (read.match.Property === 'Density' && (/foam/i.test(fullLabel) || (read.upper != null && /foam/i.test(line.text)))) {
         skipped.push({ page: page.page, text: line.text.slice(0, 160), reason: 'the density the print reaches with foaming active, which is what the process does and not what the material is' });
         continue;
       }
@@ -1105,8 +1347,13 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
   // and a direction the row plainly states went unrecorded (MEAS-LOCATOR-DIRECTION found it).
   const AXIS = String.raw`(X\s?[-‑–]?\s?Y|XY|Z\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|XZ|ZX|Z)`;
   const said = `${v.label ?? ''} ${printed}`;
+  // A sheet may print the plane with no bracket at all, after the property's name: Eryone heads its rows
+  // "Tensile strength X-Y", "Tensile modulus X-Z", and (where the space did not survive) "Elongation at breakX-Z".
+  // Only the two-letter planes are read that way, and only where the sheet joined their letters with a dash: a
+  // bare Z is a letter that turns up in a designation, and a direction is never guessed from one.
   const axis = new RegExp(`[（(]\\s*${AXIS}\\s*[)）]`, 'i').exec(said)?.[1]
-    ?? new RegExp(`^\\s*${AXIS}\\s*[)）]`, 'i').exec(said)?.[1];
+    ?? new RegExp(`^\\s*${AXIS}\\s*[)）]`, 'i').exec(said)?.[1]
+    ?? new RegExp(String.raw`(X\s?[-‑–]\s?[YZ]|Z\s?[-‑–]\s?X)\b`, 'i').exec(said)?.[1];
   const stated = axis ? axis.replace(/[\s-‑–]/g, '').toUpperCase() : null;
   // A treatment the sheet names for one row is that row's own words, whatever the build's reader makes of them:
   // Extrudr prints a Vicat point of 65 °C and a second, "(*sintered)", above 150 °C, and a row that recorded
@@ -1211,7 +1458,6 @@ export function sourceIdFor(row, sources) {
   return taken && taken.SHA256 !== row.sha256 ? `${id}-${String(row.sha256 ?? '').slice(0, 6)}`.slice(0, 96) : id;
 }
 
-/** The document's own title, as its head prints it, and the product name under it (D63). */
 /**
  * A product's name as the sheet prints it, without the words every one of a maker's products carries. "3DXMAX®
  * ABS 3D Printing Filament" is the ABS; the tail is a category, and keeping it would make the next revision of
@@ -1221,25 +1467,81 @@ export function sourceIdFor(row, sources) {
 const FULLWIDTH = { '（': '(', '）': ')', '［': '[', '］': ']', '：': ':', '；': ';', '，': ',', '％': '%', '－': '-', '＋': '+', '／': '/' };
 export const asciiPunctuation = (text) => String(text ?? '').replace(/[（）［］：；，％－＋／]/g, (c) => FULLWIDTH[c] ?? c);
 
-export function productName(printed) {
-  return String(printed ?? '')
+// A maker's own name, as a scan may have rendered it. A word of six letters or more is still that word with one
+// letter wrong: Fiberlogy's OCR'd sheets print "Fioerlogy" at the head of every page, and a reader that matched
+// the maker exactly left the maker's name standing as thirteen products' names.
+function nearWord(word) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (word.length < 6) return escaped;
+  const wrong = [...word].map((_, i) => `${word.slice(0, i).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}.${word.slice(i + 1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`);
+  return `(?:${[escaped, ...wrong].join('|')})`;
+}
+
+/** The words that name the maker rather than the product, from whatever the ledger calls them. */
+const makerWords = (maker) => String(maker ?? '').split(/[^A-Za-z0-9]+/).filter((w) => w.length >= 3);
+
+export function productName(printed, maker = '') {
+  let name = String(printed ?? '')
     .replace(/[™®©]/g, '')
+    // A trademark sign the extractor rendered as letters, hard against the word it marks: "FABRIALTM-R" is
+    // Fabrial R. Only after a word of four letters or more, and only where the name goes on without them.
+    .replace(/(?<=[A-Za-z]{4})TM\b/g, '')
     .replace(/\s*\[[^\]]*\]\s*/g, ' ')
     .replace(/\b3d\s*(print(ing|er)?\s*)?filament\b/gi, '')
     .replace(/\b3d\s*$/i, '')
     .replace(/\bfilament\b\s*$/i, '')
-    .replace(/\s*[-–—:,]\s*$/, '')
+    // The extractor may leave the category word hard against the name ("ABSESDFilament", "PEKK-AFilament").
+    .replace(/(?<=[A-Za-z0-9])filaments?\s*$/i, '');
+  // The maker's name in front of its product is the maker's, not the product's. Fiberlogy labels every sheet
+  // "TRADE NAME: Fiberlogy FiberSilk", and colorFabb prints "colorFabb woodFill" on one sheet and "woodFill" on
+  // the next, which filed one product under two names. It comes off either end, with whatever joined it on:
+  // "colorFabb_XT" is the XT. A name that is the maker's name and nothing else reduces to nothing, and the
+  // caller then looks further down the page rather than filing a product called after its maker.
+  // A whole word, never the front of one: Prusament begins with Prusa, and a reader that took five letters off
+  // the front of it proposed a product called "ment PETG by Prusa Polymers".
+  for (const word of makerWords(maker)) {
+    const near = nearWord(word);
+    name = name.replace(new RegExp(`^\\s*${near}(?![A-Za-z0-9])[\\s_\\-–—:.]*`, 'i'), '')
+      .replace(new RegExp(`(?<![A-Za-z0-9])[\\s_\\-–—:.]*${near}\\s*$`, 'i'), '');
+  }
+  return name
+    // "Fishy Filaments' Porthcurno by Fillamentum" says whose product it is at the end; with the maker's name
+    // off, the word that attributed it has nothing left to attribute.
+    .replace(/\s+(by|von|par|da)\s*$/i, '')
+    .replace(/\s*[-–—:,_]\s*$/, '')
+    .replace(/^[\s_\-–—:,]+/, '')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// A title line that did not survive the scan. A product's name is letters, digits and the punctuation a name
+// carries; a page whose text layer is damage brings pipes and brackets that never opened, and three letters at
+// the front of "San ieA3D 7) Y2— RABE LOARY—(IPE)714a xv bk" are not a name either.
+const NAME_ALPHABET = /^[\p{L}\p{M}\p{N}\s\-–—_/+()\[\].,&%'’®™°#:@]+$/u;
+export function looksDamaged(line) {
+  const text = String(line ?? '').trim();
+  if (!text) return true;
+  if (!NAME_ALPHABET.test(text)) return true;
+  const NAME_LENGTH = 24;
+  return text.length > NAME_LENGTH && (text.match(/\(/g) ?? []).length !== (text.match(/\)/g) ?? []).length;
 }
 
 // A line that is a table's column headings, a revision marker, a section name or the name of a standards body
 // is not a product's name. SUNLU heads its sheets "TECHNICAL DATA SHEET ISO", and read as a name that made
 // forty-two products called ISO.
-const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^version\b|^page\b|data sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
+// A word about the sheet is not the name of a product either: a sheet may call itself a draft, and a section
+// heading under the title is the sheet's own structure. purefil heads every sheet with its product and then the
+// word "General" ("Allgemein", "Generale"), and a reader that took the line under the title called thirty-eight
+// products General.
+const NOT_A_PRODUCT = /propert|standard\s+unit|typical value|^rev(ision)?\b|^version\b|^page\b|data ?sheet$|^(iso|astm|din|iec|en|ul|gb\s?\/?\s?t)$/i;
+// A version, a date, a trademark sign left on a line of its own or half of the words that announce the sheet
+// is not a name either. Polymaker sets "TECHNICAL" and "DATA SHEET" on two lines with "V6.0" under them.
+const NOT_A_PRODUCT_EITHER = /^(draft|preliminary|provisional|confidential|general|generale|allgemein|description|beschreibung|descrizione)(\s+(information(en)?|informazioni))?$|^(general information|allgemeine informationen|informazioni generali)$|^v?\d+(?:[.,]\d+)*$|^version\s*\d|^(tm|r|technical|technisch|data)$|^\(?(tds|pds|sds|msds|tdb)\)?$|^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$|^technical specifications?$|^\d{1,2}[.)]\s|@|^\+?\d[\d\s()\/-]{6,}$|\bcall us\b|^(back|home|menu|cart|search|store|shop|boutique|login|account|contact|next|previous|skip to content)$/i;
 // A sheet that labels its product says so plainly, and that beats any guess from where a line sits. The label
-// may stand after the same label in the maker's own language ("产品名称 Product Name:PLA+丝绸 2.0").
-const PRODUCT_LABEL = /(?:product\s*name|produkt(?:name)?|产品名称|nom\s+du\s+produit)\s*[:：]\s*(.+)$/i;
+// may stand after the same label in the maker's own language ("产品名称 Product Name:PLA+丝绸 2.0"), and a
+// maker may call it the trade name: Fiberlogy prints "TRADE NAME: Fiberlogy FiberSilk" on all forty of its
+// sheets, which is the name, while the line above it is the maker's own heading in capitals.
+const PRODUCT_LABEL = /(?:product\s*name|trade\s*name|produkt(?:name)?|handelsname|产品名称|nom\s+du\s+produit|nome\s+commerciale)\s*[:：]\s*(.+)$/i;
 
 /**
  * The name a sheet gives in two languages at once. "PLA+丝绸 2.0 (PLA+ Silk 2.0)" names one product twice, and
@@ -1253,18 +1555,44 @@ const latinName = (printed) => {
   return text.replace(/^\s*\)|\(\s*$/g, '').replace(/\)\s*$/, (m, at) => (text.slice(0, at).includes('(') ? m : '')).trim();
 };
 
-export function printedTitle(text) {
+// What a sheet calls itself when it announces what it is. A maker may qualify the words ("Preliminary Data
+// Sheet", "Technical datasheet DRAFT"); the qualifier is about the sheet, not about the product.
+const ANNOUNCES = /(?:preliminary|provisional|draft)?\s*(?:tech(?:nical)? |product )?data\s?sheet|technisches datenblatt|datenblatt/i;
+
+/**
+ * The document's own title, as its head prints it, and the product name under it (D63).
+ *
+ * The maker is passed in because its own name is not its product's: a line that is the maker's name and nothing
+ * else names no product, and the page goes on to say what the product is on the line after it.
+ */
+export function printedTitle(text, maker = '') {
   const lines = (text.pages[0]?.lines ?? []).map((l) => l.text.trim()).filter(Boolean);
-  const labelled = lines.slice(0, 14).map((l) => PRODUCT_LABEL.exec(l)?.[1]).map((v) => (v ? latinName(v) : v)).find((v) => v && !NOT_A_PRODUCT.test(v));
+  // How long a name is, is measured on the name: 3DXTECH announces "Technical Data Sheet: CarbonX™ Carbon Fiber
+  // ezPC Polycarbonate 3D Printing Filament", which is eighty-three characters of which the name is thirty-nine.
+  const NAME_LENGTH = 60;
+  const named = (line) => {
+    if (NOT_A_PRODUCT.test(line) || NOT_A_PRODUCT_EITHER.test(line) || looksDamaged(line)) return false;
+    const name = productName(line, maker);
+    return Boolean(name) && name.length < NAME_LENGTH;
+  };
+  const labelled = lines.slice(0, 14).map((l) => PRODUCT_LABEL.exec(l)?.[1]).map((v) => (v ? latinName(v) : v)).find((v) => v && named(v));
   const head = lines.slice(0, 6);
-  const at = head.findIndex((l) => /tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet/i.test(l));
-  if (at < 0) return { title: head[0] ?? '', product: labelled || head[1] || '' };
+  const at = head.findIndex((l) => ANNOUNCES.test(l));
+  // A sheet that announces nothing prints its product first: purefil heads its sheets "Polyethylenterephthalat
+  // Typ G (PETG)" and then "Allgemein". Taking the second line instead made General the name of a product.
+  if (at < 0) {
+    // The line under the title is still where most makers put the name, and the title above it is where purefil
+    // puts it; a sheet that announces itself in a language this reader does not read ("KARTA TECHNICZNA",
+    // "SCHEDA TECNICA") announces itself on that first line, so it is tried second and not first.
+    const order = [head[1], head[0], ...head.slice(2)].filter(Boolean);
+    return { title: head[0] ?? '', product: labelled || order.find(named) || '' };
+  }
   // The name may be on the same line as the words that announce it ("Technical Data Sheet: AmideX PA6-GF30"),
   // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.
-  const sameLine = head[at].replace(/^.*?(tech(nical)? data sheet|technisches datenblatt|product data sheet|datasheet)\s*[:\-–—]?\s*/i, '').trim();
-  const below = head.slice(at + 1).find((l) => l.length < 60 && /[A-Za-z]/.test(l) && !NOT_A_PRODUCT.test(l)) ?? '';
+  const sameLine = head[at].replace(new RegExp(`^.*?(?:${ANNOUNCES.source})\\s*[:\\-–—]?\\s*`, 'i'), '').trim();
+  const below = head.slice(at + 1).find(named) ?? '';
   // "Nov. 2018 Technical Data Sheet Version 4.0" carries a version where another maker carries the name.
-  const product = labelled || (sameLine && !NOT_A_PRODUCT.test(sameLine) ? sameLine : '') || below;
+  const product = labelled || (sameLine && named(sameLine) ? sameLine : '') || below;
   return { title: [head[at], product === sameLine ? '' : product].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim(), product };
 }
 
@@ -1365,12 +1693,41 @@ export function propose(row, text, world) {
   // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
   // enough, and they are the maker's own description rather than a catalogue title.
   const body = (text.pages[0]?.lines ?? []).map((l) => l.text).join(' ').slice(0, 2000);
-  const head = printedTitle(text);
+  // Whose sheet it is, in the ledger's own words: the manufacturer where the ledger knows one, and the provider
+  // where a retailer is all it has. The maker's own name is not its product's, here or in the title.
+  const maker = row.manufacturer || row.provider || '';
+  const head = printedTitle(text, maker);
   // The name the sheet prints is the product's own; the catalogue name a link carries is a copy of it, and the
   // two disagree ("paht" for a sheet whose own title says CarbonX Carbon Fiber High Temp Nylon). Two revisions of
   // one sheet must classify alike, so the sheet's own name is what is read, and the catalogue's is kept beside it.
-  const named = productName(head.product && !NOT_A_PRODUCT.test(head.product) ? head.product : row.product_raw);
+  const named = productName(head.product && !NOT_A_PRODUCT.test(head.product) ? head.product : row.product_raw, maker);
   const identity = classifyProduct(named || row.product_raw, { manufacturer: row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body }, world);
+  // What the page says about its own name, where what it says is not a product's name. Neither is decided here:
+  // a name is the reader's to read and a ruling is the owner's to make, so each says what the page shows.
+  //
+  // A sheet whose subject is a polymer, a resin, a compound or a grade is describing what the filament is made
+  // from: colorFabb redistributes Eastman's "Amphora™ 3D Polymer HT5300" and FKuR's "Fibrolon V 135002 (trial
+  // grade)", and neither is colorFabb's own product. Whether such a name may stand for the product is a ruling.
+  // The word has to designate the stock, not name the polymer: purefil heads a sheet "Liquid Crystal Polymer
+  // (LCP)", which is what the polymer is called, while Eastman calls its grade a 3D Polymer and FKuR calls
+  // its a trial grade.
+  const NAMES_THE_STOCK = /\b(3d polymer|resins?|compounds?|granulate|pellets?|masterbatch|trial grade|base grade)\b/i;
+  // "Prusament PETG by Prusa Polymers" says who made it, not what it is made of; the attribution is not the
+  // subject's own designation and is taken off before the question is asked.
+  if (named && NAMES_THE_STOCK.test(named.replace(/\s+(by|von|par|da)\s+.*$/i, ''))) {
+    identity.reasons.push(`the sheet's own title is "${named}", which names the polymer the filament is made from rather than ${maker || 'the maker'}'s product; the product's own name is not printed on the sheet`);
+    identity.needsRuling = true;
+  }
+  // And a sheet that prints no name this reader can make out says that, rather than offering three letters of a
+  // title line that did not survive the scan.
+  // Where the ledger carries the catalogue's name, that name still stands and there is nothing to report.
+  if (!named && !row.product_raw) {
+    const title = (text.pages[0]?.lines ?? [])[0]?.text?.trim() ?? '';
+    identity.reasons.push(title && looksDamaged(title)
+      ? `no product name could be read: the head of the page is "${title.slice(0, 60)}", which did not survive the scan`
+      : 'no product name could be read: the sheet prints none this reader recognises, and the ledger carries none either');
+    identity.needsRuling = true;
+  }
   const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
   // How this polymer solidifies and whether it is reinforced: the two things the build's own physics windows are
   // keyed on, so a reading judged here is judged the way the build will judge it.
@@ -1400,7 +1757,7 @@ export function propose(row, text, world) {
       MaterialID: identity.materialId ?? '', Role: 'procurement', Status: 'active',
       Manufacturer: row.manufacturer || row.provider,
       // The name the sheet prints, unless what it prints there is not a name at all.
-      'Product name': named || productName(product),
+      'Product name': named || productName(product, maker),
       'Shared formulation key': sourceId, 'Composition / filler': composition(text) ?? NP,
       Variant: NA, 'Colour caveat': 'Properties may vary by colour; use TDS scope',
       Availability: NP, 'Certification claims': certification(text) ?? NP,

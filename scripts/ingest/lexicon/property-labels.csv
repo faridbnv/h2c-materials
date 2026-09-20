@@ -1,5 +1,6 @@
 Label,Property,Direction,Notch,Note
 ^specific gravity\b|^density\b,Density,Not applicable,Not applicable,a density's specimen form is rarely stated
+"^specific density\b|^dichte\b",Density,Not applicable,Not applicable,"a maker may call it the specific density; purefil's German sheets print Dichte, and both are the row this database keeps as Density"
 ^tensile (stress|strength)[^a-z]*(at )?break|^tensile break,Tensile break strength,,Not applicable,
 ^tensile (stress|strength)[^a-z]*(at )?yield|^tensile yield,Tensile yield strength,,Not applicable,
 ^tensile (stress|strength)\b,Tensile strength (endpoint unspecified),,Not applicable,
@@ -7,16 +8,22 @@ Label,Property,Direction,Notch,Note
 "^stress at break\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile break strength,,Not applicable,"the sheet names the endpoint and the method column names the tensile test; a stress the sheet states at an elongation is not this row and is left for the owner"
 "^breaking stress\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile break strength,,Not applicable,"the same row under the maker’s other name for it"
 "^yield (stress|strength)\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile yield strength,,Not applicable,"the method column names the tensile test, so the yield is the tensile one"
+"^streckspannung\b",Tensile yield strength,,Not applicable,"the stress at yield on a German sheet"
+"^streckdehnung\b",Elongation at yield,,Not applicable,"the strain at yield on a German sheet"
+"^rei(ss|\u00df)dehnung\b",Elongation at break,,Not applicable,"the strain at break on a German sheet"
 "^yield strain\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Elongation at yield,,Not applicable,"the strain at yield of a tensile test is the elongation at yield"
 ^(tensile |young.?s |elastic )?e?-?modulus (of elasticity|tensile)|^modulus of elasticity|^(tensile|young.?s|elastic) modulus,Tensile modulus,,Not applicable,
+"^zug-?e-?modul\b",Tensile modulus,,Not applicable,"purefil prints its German sheets with the German names; Zug-E-Modul is the tensile modulus"
 "^e-?modulus\b(?=.*\b(?:ISO\s?178|ASTM\s?D\s?790)\b)",Flexural modulus,,Not applicable,"a sheet may head the row with the modulus alone; which modulus it is is the test it names, and ISO 178 is the bending test"
 "^e-?modulus\b(?=.*\b(?:ISO\s?527|ASTM\s?D\s?(?:638|882))\b)",Tensile modulus,,Not applicable,"the same row where the test it names is the tensile one"
 "^(tensile )?elongation[^a-z]{0,3}\(?(at )?break|^tensile strain at break|^tensile elongation[^a-z]*(at )?break|^elongation[^a-z]*at break|^tensile strain \(break\)",Elongation at break,,Not applicable,
 "^(tensile )?elongation[^a-z]{0,3}\(?(at )?yield|^tensile strain at yield|^tensile strain \(yield\)|^tensile elongation[^a-z]*(at )?yield",Elongation at yield,,Not applicable,
-^tensile strain at (strength|max)|^elongation at max,Tensile strain at strength,,Not applicable,
+^tensile strain at (tensile )?(strength|max)|^elongation at max,Tensile strain at strength,,Not applicable,
 "^elongation at stren\w*",Tensile strain at strength,,Not applicable,"a sheet spells it strenght; a source’s own typo is not a reason to lose the row"
 ^flexural modulus|^bending modulus,Flexural modulus,,Not applicable,
+^flexular modulus,Flexural modulus,,Not applicable,a sheet spells it Flexular; a source's own typo is not a reason to lose the row
 ^flexural (stress|strength)|^bending strength,Flexural strength,,Not applicable,
+^flexular strength,Flexural strength,,Not applicable,the same typo on the strength row
 ^charpy[^a-z]*(impact )?(strength )?(of )?notched|^notched charpy,Charpy strength,Not applicable,Notched,a sheet may put a word between the test and its notch: Charpy Impact Strength of Notched Specimen
 ^charpy,Charpy strength,Not applicable,Unnotched,an unqualified Charpy row is the unnotched one; the method may say otherwise and wins
 ^izod[^a-z]*(impact )?(strength )?(of )?notched|^notched izod,Izod impact strength,Not applicable,Notched,the same row as the one above it: Izod Impact Strength of Notched Specimen
@@ -26,17 +33,29 @@ Label,Property,Direction,Notch,Note
 "^(temperature of deflection under load|heat (deflection|distortion)( temp(erature)?)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."" or print the abbreviation in place of the word: ""Heat Distortion (HDT)"""
 ^vicat,Vicat softening temperature,Not applicable,Not applicable,
 ^glass transition,Glass transition temperature,Not applicable,Not applicable,
-^melt(ing)? (temperature|point),Melting temperature,Not applicable,Not applicable,
+"^melt(ing)? (temperature|point)|^melting temp\b",Melting temperature,Not applicable,Not applicable,"a sheet may abbreviate it: Melting Temp."
 ^crystalli[sz]ation temperature,Crystallization temperature,Not applicable,Not applicable,
 ^mfr\b|^melt (mass[- ]flow|flow) rate|^melt index|^melt flow (index|rate),Melt mass-flow rate,Not applicable,Not applicable,
 ^mvr\b|^melt volume,Melt volume-flow rate,Not applicable,Not applicable,
-^(equilibrium |saturated |saturation )?water absorption|^(equilibrium |saturated |saturation )?moisture absorption,Water absorption,Not applicable,Not applicable,a sheet may call the equilibrium value the saturated one
+^(equilibrium |saturated |saturation )?water absorption|^(equilibrium |saturated |saturation )?(moisture|humidity) absorption,Water absorption,Not applicable,Not applicable,a sheet may call the equilibrium value the saturated one
 ^moisture content,Moisture content,Not applicable,Not applicable,
 ^(shore|rockwell) hardness|^hardness|^shore [ad]\b,Hardness,Not applicable,Not applicable,"the scale is part of the unit, and the sheet states it"
 ^thermal conductivity,Thermal conductivity,Not applicable,Not applicable,
+"^(?:@\s?\d+\s?%\s?)?decomposition temp(erature)?\b",Decomposition temperature,Not applicable,Not applicable,"a sheet may state the mass loss the temperature is read at (@5% Decomposition Temp.); that is the test's condition, not part of the value"
+"^(mou?ld(ing)? |injection )?shrinkage\b|^schwindung\b",Mould shrinkage,,Not applicable,"a sheet may name the direction it measured in (flow direction, X/Y, Z), which is the row's own Direction; purefil prints Schwindung"
+"^(specific )?surface resist(ance|ivity)\b",Surface resistivity,Not applicable,Not applicable,"a sheet may call it the surface resistance; properties.csv keeps the row in ohms either way"
+"^(specific )?volume resist(ance|ivity)\b",Volume resistivity,Not applicable,Not applicable,"the same row through the body of the material"
+"^tear (strength|resistance)\b",Tear strength,,Not applicable,"the force per thickness that tears a specimen"
+"^oxygen index\b|^limiting oxygen index\b|^\bLOI\b",Oxygen index,Not applicable,Not applicable,"the least oxygen that sustains burning; it is a measurement, not the flammability class a sheet claims beside it"
+"^compression set\b",Compression set,,Not applicable,"the time and temperature a sheet states beside it are the test's conditions"
+"^poisson.?s? ?-? ?ratio\b",Poisson's ratio,,Not applicable,"a sheet may name the definition it used (acc. to Hencky), which is the method and not the value"
+"^dielectric strength\b",Dielectric strength,Not applicable,Not applicable,"the thickness a sheet states beside it is the test's condition"
+"^(relative permittivity|permittivity|dielectric constant)\b",Relative permittivity,Not applicable,Not applicable,"the frequency a sheet states beside it is the test's condition, not part of the value"
+"^comparative tracking index\b|^\bCTI\b",Comparative tracking index,Not applicable,Not applicable,"the voltage a wetted surface tracks at"
+"^abrasion loss\b|^abrasion resistance\b",Abrasion loss,,Not applicable,"the volume a standard abrasive removes; a sheet may head the row abrasion resistance and print the loss"
 ^coefficient of (thermal|linear) exp(ansion)?\b|^cte\b,Coefficient of thermal expansion,Not applicable,Not applicable,a sheet may abbreviate it: Coefficient of Thermal Exp.
 ^contin[uo]*s (service|use|operating) temperature,Continuous service temperature,Not applicable,Not applicable,a sheet spells it Continous; a source's own typo is not a reason to lose the row
 ^compressi(on|ve) strength,Compression strength,,Not applicable,
 ^low temperature impact( strength)?,Impact strength,Not applicable,Not published,"a maker's name for an impact test run below room temperature; which test it is comes from the standard it names, and the temperature is the row's own condition"
 ^impact\b|^notched$|^unnotched$,Impact strength,Not applicable,Not published,"the sheet names no test; ISO 180 or ASTM D256 makes it Izod, ISO 179 or GB/T 1043 Charpy"
-"^(?:tensile )?elongation\b(?!\s*\((?!\s*(?:%|\d|X-?Y\b|Z\b|ISO|ASTM|DIN|EN\b|GB|at\b|break|yield|max)))|^ultimate elongation\b|^nominal (elongation|strain) at break\b|^strain at break\b",Elongation at break,,Not applicable,"an unqualified ISO 527 elongation is the value at failure, which is how this database records the sheets that print one figure; a sheet that labels its endpoint matches the row above this one. A qualifier the lexicon cannot read is not unqualified: Extrudr prints Tensile Elongation (Indentation Depth) 5 % on a sheet that also prints Nominal Elongation at Break > 50 %, and the two are not the same measurement"
+"^(?:tensile )?elongation\b(?!\s+at\s+tear\b)(?!\s*\((?!\s*(?:%|\d|X-?Y\b|Z\b|ISO|ASTM|DIN|EN\b|GB|at\b|break|yield|max)))|^ultimate elongation\b|^nominal (elongation|strain) at break\b|^strain at break\b",Elongation at break,,Not applicable,"an unqualified ISO 527 elongation is the value at failure, which is how this database records the sheets that print one figure; a sheet that labels its endpoint matches the row above this one. A qualifier the lexicon cannot read is not unqualified: Extrudr prints Tensile Elongation (Indentation Depth) 5 % on a sheet that also prints Nominal Elongation at Break > 50 %, and the two are not the same measurement"

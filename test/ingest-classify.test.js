@@ -67,7 +67,9 @@ test('a name that does not say what the polymer is becomes a question, never a g
   // be filed under one that exists and already says so: the six high-temperature materials are not estimated.
   assert.equal(classify('PEEK', '3DXTECH').materialId, 'M097');
   assert.equal(classify('PEEK', '3DXTECH').needsRuling, false);
-  assert.match(classify('Spectrum PBT', 'Spectrum').reasons.join(' '), /polymers\.csv/);
+  // PBT, PCL and four others gained rows as the import reached a filament made of them; PHA has none, because
+  // it is a family whose grades are amorphous or semicrystalline and one row cannot be both (R055).
+  assert.match(classify('PHA filament', 'colorFabb').reasons.join(' '), /polymers\.csv/);
 });
 
 test('a hardness a product states in its own name is read from it', () => {
@@ -207,4 +209,16 @@ test('an identity ruling answers a name that says only a family', () => {
   assert.equal(classifyProduct('Easy PA', { manufacturer: 'SUNLU' }, { ...world, rulings: other }).needsRuling, true);
   const elsewhere = [{ Ruling: 'R0', Kind: 'identity', Subject: 'Eryone Easy PA', Value: 'PA6/66', Reason: '' }];
   assert.equal(classifyProduct('Easy PA', { manufacturer: 'SUNLU' }, { ...world, rulings: elsewhere }).needsRuling, true);
+});
+
+test('a plus joins a polymer to its filler', () => {
+  // Fiberlogy prints "Nylon PA12+GF15", and the whole of "pa12+gf15" matched nothing, so the reader was left
+  // with the family word in front of it and asked for a ruling on a name that says which nylon it is.
+  const gf = classify('Nylon PA12+GF15', 'Fiberlogy');
+  assert.equal(gf.polymer, 'PA12');
+  assert.equal(gf.modifier, 'Glass fibre');
+  assert.equal(gf.needsRuling, false);
+  assert.equal(classify('PETG+CF', 'Fiberlogy').materialId, 'M024');
+  // A slash between two polymers is a blend's own name and stays one token.
+  assert.equal(classify('PC/ABS', 'Flashforge').polymer, 'PC-ABS');
 });

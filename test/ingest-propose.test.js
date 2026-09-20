@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor } from '../scripts/ingest/propose.mjs';
+import { propose, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -312,7 +312,8 @@ test('a section heading governs the column it stands in, not the rest of the pag
   // The print-settings column heads itself halfway down the property table. A section that took the whole page
   // from there explained the four rows below it as printing guidance and read none of them.
   assert.deepEqual(sheet.values.map((v) => [v.property, v.read.rawNumber]), [
-    ['Tensile modulus', '40'], ['Elongation at break', '490'], ['Density', '1.2'], ['Compression strength', '40'],
+    ['Tensile modulus', '40'], ['Elongation at break', '490'], ['Density', '1.2'],
+    ['Tear strength', '175'], ['Compression strength', '40'],
   ]);
   // The settings of the column beside it are read, on the same lines as the rows.
   assert.deepEqual(sheet.settings.map((s) => [s.field, s.raw]), [
@@ -333,9 +334,9 @@ test('a stress the sheet states at an elongation is not the strength at break it
 test('a row the reader cannot read says what the database is missing, and proposes nothing', () => {
   // "no property and value this line states together" does not tell the owner whether the fix is a lexicon
   // entry, a unit or a property; the audit closes the loop on these reasons.
-  const sheet = readSheet(twoColumns, registry);
-  const tear = sheet.skipped.find((s) => /Tear strength/.test(s.text));
-  assert.equal(tear.reason, 'properties.csv carries no property for "Tear strength" (kN/m)');
+  assert.equal(
+    unreadRowReason(at([67, 'Flexural strain at break ISO 178 % 3.2']), registry),
+    'properties.csv carries no property for "Flexural strain at break" (%)');
   assert.equal(
     unreadRowReason(at([67, 'MFR ASTM D1238 g/cm³ 9']), registry),
     'the sheet states Melt mass-flow rate in g/cm³, and the database keeps it in g/10 min');
@@ -418,7 +419,8 @@ test('a superscript joins the unit it raises, and an exponent is not a digit of 
   // A power of ten is one number: neither 6.75 nor 10 is offered as a value, and the reason says why the row
   // waits for the owner rather than proposing one.
   assert.equal(readRow(power.text, registry), null);
-  assert.match(unreadRowReason(power, registry), /no property for "Volume Resistivity".*power of ten \("6\.75×10\^14"\)/);
+  assert.match(unreadRowReason(power, registry),
+    /names Volume resistivity and states no value in a unit the database keeps it in \(Ω·cm\).*power of ten \("6\.75×10\^14"\)/);
 });
 
 test('the axis a row states, and the maker’s own language, are not part of the property’s name', () => {
@@ -506,4 +508,182 @@ test('a row that states the plane its bars were printed in states a direction th
   assert.deepEqual(p.measurements.map((m) => [m.row.Direction, m.row['Raw numeric'], m.row['Raw uncertainty ±']]), [['XY', '35', '5'], ['ZX', '20', '5']]);
   // The condition column keeps what the row says about the test, and not the property's own name or the axis.
   assert.deepEqual(p.measurements.map((m) => m.row['Standard / load']), ['50 mm/min ISO 527/2', '50 mm/min ISO 527/2']);
+});
+
+// ---------------------------------------------------------------------------------------------------------
+// A row the page set on more than one baseline, and the columns a table may leave for a condition or a unit.
+// ---------------------------------------------------------------------------------------------------------
+
+test('a row whose label, method and value stand on baselines of their own is one row', () => {
+  // Eryone sets the label of every row a point or two below the rest of it, and Flashforge a point above.
+  const [density] = pageRows([
+    piece(170, [224, 'ASTM D792 (ISO 1183, GB/T 1033)'], [390, 'g/cm³']),
+    piece(169, [489, '1.32']),
+    piece(166, [69, 'Density(g/cm³ at 21.5 ° C）']),
+  ], registry);
+  assert.equal(density.text, 'Density(g/cm³ at 21.5 ° C） ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.32');
+  assert.equal(read(density.text).rawNumber, '1.32');
+  // The rest of a row may be several cells wide, and a label is still a label when a designation follows it.
+  const [tensile] = pageRows([
+    piece(688, [68, 'Tensile strength X-Y']),
+    piece(687, [204, '50mm/min'], [302, 'GB/T 1040.4'], [403, 'MPa'], [478, '55.2']),
+  ], registry);
+  assert.equal(tensile.text, 'Tensile strength X-Y 50mm/min GB/T 1040.4 MPa 55.2');
+  assert.equal(read(tensile.text).rawNumber, '55.2');
+  // A sentence beside the table shares the band and is never gathered, however close its baseline.
+  const prose = pageRows([
+    piece(602, [25, 'Izod Impact Strenght']),
+    piece(601, [381, 'to classic PCTG. The use of carbon fibres increas-']),
+  ], registry);
+  assert.equal(prose.length, 2, 'a phrase is prose, not a piece of a row');
+});
+
+test('a piece belongs to the row that begins to its left, not to the table beside it', () => {
+  // purefil sets a printing table and a property table side by side, one baseline apart. "190-230 °C" is the
+  // printing table's value and stands to the left of the property row whose band it shares.
+  const rows = pageRows([
+    piece(250, [70, '190-230 °C']),
+    piece(248, [304, 'MFR (ISO 1133)']),
+    piece(246, [488, '2.5- 5 g/10min']),
+  ], registry);
+  assert.deepEqual(rows.map((r) => r.text), ['190-230 °C', 'MFR (ISO 1133) 2.5- 5 g/10min']);
+});
+
+test('a unit standing on its own baseline is a piece of the row it belongs to', () => {
+  const [vicat] = pageRows([
+    piece(143, [55, 'Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633)'], [480, '56']),
+    piece(140, [421, '℃']),
+  ], registry);
+  assert.match(vicat.text, /56.*℃|℃.*56/);
+  assert.equal(read(vicat.text).rawNumber, '56');
+});
+
+test('a condition carrying its own unit is not the value of the unit column', () => {
+  // "kJ/m2 2.75J 2.83": 2.75 J is the pendulum the test was run with and 2.83 kJ/m² is the result.
+  const charpy = read('Charpy Impact strenght GB/T 1043.1-2008 kJ/m2 2.75J 2.83');
+  assert.equal(charpy.rawNumber, '2.83');
+  // A word standing apart from the number in front of it is the column beside the table, not a condition.
+  assert.equal(read('Tensile modulus ISO 527-2/5A/500 MPa 40 Nozzle 230-260°C').rawNumber, '40');
+});
+
+test('a method and unit cell merged across two rows belongs to both of them', () => {
+  // Flashforge tests two rows to one method in one unit and prints the cell once, between them.
+  const rows = pageRows([
+    piece(330, [57, 'Bending Modulus (X-Y)'], [440, '2100~2400']),
+    piece(313, [299, 'ISO 178'], [385, 'Mpa']),
+    piece(303, [57, 'Bending Modulus (X-Z)'], [440, '1960~2000']),
+  ], registry);
+  assert.equal(rows.length, 2, 'the shared cell is not a row of its own');
+  assert.deepEqual(rows.map((r) => read(r.text).raw), ['2100-2400 Mpa', '1960-2000 Mpa']);
+  // A row that prints its own unit is complete, and the method column between two such rows is left alone.
+  const own = pageRows([
+    piece(330, [57, 'Bending strength (X-Y)'], [440, '86.41 MPa']),
+    piece(313, [299, 'ISO 178, GB/T 9341']),
+    piece(303, [57, 'Bending strength (Z)'], [440, '29.21 MPa']),
+  ], registry);
+  assert.equal(own.length, 3);
+});
+
+test('a row with two value columns is two statements, and neither is joined to the other', () => {
+  // 3DXTECH prints "Tensile Strength, Break | ASTM D638 | MPa | 44 | 37" and colorFabb "Tensile modulus |
+  // Tensile, ISO 527-1A | 2290 | 1290 | MPa". Read as one row, the two columns were joined into a break
+  // strength of 4437 MPa and a modulus of 22 901 290 MPa, neither of which the sheet prints.
+  const sheet = readSheet({ pages: [{ page: 1, lines: [
+    at([87, 'Tensile Strength, Break'], [279, 'ASTM D638'], [370, 'MPa'], [464, '44'], [500, '37']),
+    at([87, 'Tensile Modulus'], [279, 'ASTM D638'], [370, 'GPa'], [464, '3.5']),
+  ] }] }, registry);
+  assert.deepEqual(sheet.values.map((v) => [v.property, v.read.rawNumber]), [['Tensile modulus', '3.5']]);
+  assert.match(sheet.skipped[0].reason, /states 2 values in columns of its own \(44, 37\)/);
+  // Two whole numbers of three figures are never joined, whatever else the line says.
+  assert.equal(read('Tensile modulus Tensile, ISO 527-1A 2290 1290 MPa').rawNumber, '1290');
+  // A number extraction split into fragments is still joined: "2 433 .4" is one number.
+  assert.equal(read('Charpy impact strength ISO 179 2 433 .4 kJ/m2').rawNumber, '2433.4');
+});
+
+test('a setting may stand under its label, behind a unit column, or across a window', () => {
+  // purefil prints the label and the value one under the other, in one column.
+  const label = piece(264, [70, 'Printing Temperature:']);
+  assert.equal(readSetting(label, 1, '190-230 °C').raw, '190-230 °C');
+  assert.equal(readSetting(label, 1), null, 'the label alone states nothing');
+  // colorFabb stands the unit in a column of its own, and the row states a temperature once it is put back.
+  assert.equal(readSetting(at([70, 'Nozzle Temp.'], [200, '˚C'], [300, '240-260']), 1).raw, '240-260 °C');
+  assert.equal(readSetting(at([70, 'Print Speed'], [200, 'mm/s'], [300, '40-100']), 1).raw, '40-100 mm/s');
+  // A window keeps both ends even where the sheet prints the unit on each of them.
+  assert.equal(settingValue('210°C - 230°C'), '210°C - 230°C');
+  assert.equal(settingValue('240~270°C (250°C recommended)'), '240~270°C (250°C recommended)');
+});
+
+test('a degree sign is a degree sign however the maker typed it, and a scan’s question mark is a superscript', () => {
+  // colorFabb sets every temperature with a ring above; a scanned Fiberlogy sheet lost the superscript entirely.
+  assert.equal(read('Heat Deflection Temp. HDT-B, ISO 75 74 ˚C').rawNumber, '74');
+  assert.equal(read('Glass Transition Temp. DSC, ISO 11357 67,6 ºC').target.unit, '°C');
+  assert.equal(read('Specific Density ASTM D792 g/cm? 1.24').raw, '1.24 g/cm3');
+  assert.equal(read('Charpy Impact Strength (Notched) @ 23°C ISO 179 kJ/m? 40').raw, '40 kJ/m2');
+});
+
+test('a value a property cannot take is not that property\'s value', () => {
+  // A minus sign in front of a density is a dash, a footnote marker or what is left of a designation, never a
+  // value: colorFabb's "Specific Gravity ASTM D-2240 1,19 g/cm3" proposed a specific gravity of -2240, and
+  // purefil's "Density (ASTM D792) 0.35*-1.24 g/cm3" one of -1.24. Both lines print a positive number.
+  assert.equal(read('Specific Gravity ASTM D-2240 1,19 g/cm3').rawNumber, '1.19');
+  assert.deepEqual(read('Specific Gravity ASTM D-2240 1,19 g/cm3').standards, ['ASTM D-2240']);
+  assert.equal(read('Density (ASTM D792) 0.35*-1.24 g/cm3'), null);
+  // A property whose window says it may be negative still is: a PLA's glass transition is not -60 °C, but a
+  // TPU's is -24 °C and its sheet prints it.
+  assert.equal(read('Glass transition temperature °C -24').rawNumber, '-24');
+});
+
+
+// ---------------------------------------------------------------------------------------------------------
+// The name a grade would enter under: the page's own words, the maker's taken off, and a reason where the page
+// does not say.
+// ---------------------------------------------------------------------------------------------------------
+
+const page = (...lines) => ({ pages: [{ page: 1, lines: lines.map((text, i) => ({ y: 800 - i * 20, x0: 60, x1: 400, text, spans: [{ x: 60, w: text.length * 5, str: text }] })) }] });
+
+test('a maker\u2019s name in front of its product is the maker\u2019s, not the product\u2019s', () => {
+  // Fiberlogy labels every sheet "TRADE NAME: Fiberlogy FiberSilk", and colorFabb prints the same product with
+  // its name on one sheet and without it on the next.
+  assert.equal(productName('Fiberlogy FiberSilk', 'Fiberlogy'), 'FiberSilk');
+  assert.equal(productName('colorFabb woodFill', 'colorFabb'), 'woodFill');
+  assert.equal(productName('colorFabb_XT', 'colorFabb'), 'XT');
+  // A scan may misread the maker's own name; a word that differs by a letter is still that word.
+  assert.equal(productName('Fioerlogy', 'Fiberlogy'), '');
+  // But never the front of a longer word: Prusament begins with Prusa, and five letters off the front of it
+  // proposed a product called "ment PETG by Prusa Polymers".
+  assert.equal(productName('Prusament PETG', 'Prusa'), 'Prusament PETG');
+  assert.equal(productName('Prusament PETG by Prusa Polymers', 'Prusa Research / Prusament'), 'PETG by Prusa Polymers');
+  // The maker may stand at the end, and the word that attributed the product goes with it.
+  assert.equal(productName('Fishy Filaments\u2019 Porthcurno by Fillamentum', 'Fillamentum'), 'Fishy Filaments\u2019 Porthcurno');
+  // The category words this reader already took off are still taken off, glued to the name or not.
+  assert.equal(productName('3DXMAX\u00ae ABS 3D Printing Filament', '3DXTECH'), '3DXMAX ABS');
+  assert.equal(productName('ABSESDFilament', '3D4Makers'), 'ABSESD');
+});
+
+test('a title line that did not survive the scan is not a name', () => {
+  assert.equal(looksDamaged('San ieA3D 7) Y2\u2014 RABE LOARY\u2014(IPE)714a xv bk'), true);
+  assert.equal(looksDamaged('TI-AWST \u201432y\u2014|'), true);
+  // A short name may carry the debris of a bracket that opened on the line above it, and is still a name.
+  assert.equal(looksDamaged('iw) XPETG CF'), false);
+  assert.equal(looksDamaged('Polyethylenterephthalat Typ G (PETG)'), false);
+  assert.equal(looksDamaged('ThermaX\u2122 PEI [Made using ULTEM\u2122 1010]'), false);
+});
+
+test('the name comes from the page, wherever the page puts it', () => {
+  // A sheet that labels its product says so plainly, whatever the line above it says.
+  assert.equal(printedTitle(page('TECHNICAL DATA SHEET', 'Fioerlogy', 'FIBERLOGY EASY PLA',
+    'TRADE NAME: Fiberlogy EASY PLA', 'MANUFACTURER: Fiberlab S.A.'), 'Fiberlogy').product, 'Fiberlogy EASY PLA');
+  // A sheet that announces nothing this reader reads prints its product first, and the word under it is the
+  // sheet's own structure: purefil heads every sheet with the product and then "General".
+  assert.equal(printedTitle(page('Acrylnitrilbutadienstyrol (ABS)', 'General', 'Acrylonitrile-butadiene-styrene is a copolymer'),
+    'Fabru / purefil').product, 'Acrylnitrilbutadienstyrol (ABS)');
+  // A sheet whose first line announces it in a language this reader does not read still puts the name below it.
+  assert.equal(printedTitle(page('KARTA TECHNICZNA', 'ASA-X GF10', 'W\u0141A\u015aCIWO\u015aCI MATERIA\u0141U OPIS'), 'Spectrum').product, 'ASA-X GF10');
+  // A version, a trademark sign on a line of its own and half of the words that announce the sheet are not names.
+  assert.equal(printedTitle(page('TECHNICAL', 'DATA SHEET', 'V6.0', 'TM', 'PolyLite PETG'), 'Polymaker').product, 'PolyLite PETG');
+  // How long a name is, is measured on the name and not on the line that announces it.
+  assert.equal(printedTitle(page('TDS Rev 1.0', 'Technical Data Sheet: CarbonX\u2122 Carbon Fiber ezPC Polycarbonate 3D Printing Filament',
+    'Physical Properties Standard Unit Typical Value'), '3DXTECH').product, 'CarbonX\u2122 Carbon Fiber ezPC Polycarbonate 3D Printing Filament');
+  // The maker's own name names no product, so the page is read on past it.
+  assert.equal(printedTitle(page('Preliminary Data Sheet', 'colorFabb', 'Copper filled PLA', 'Latest revision: May 2015'), 'colorFabb').product, 'Copper filled PLA');
 });

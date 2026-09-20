@@ -51,6 +51,9 @@ export function tokenise(text) {
     .replace(/([a-z])[-/]([a-z])/g, '$1-$2')
     .split(/[^a-z0-9+.-]+/).filter(Boolean)
     .flatMap((t) => (t.includes('-') && !POLYMERS.some((p) => p.Token === t) ? [t, ...t.split('-')] : [t]))
+    // A plus joins a polymer to its filler and nothing else: "PA12+GF15", "PETG+CF", "PA6+CF". Left joined, the
+    // whole of it matched nothing and Fiberlogy's "Nylon PA12+GF15" read as the family word in front of it.
+    .flatMap((t) => (t.includes('+') && !POLYMERS.some((p) => p.Token === t) ? [t, ...t.split('+')] : [t]))
     .filter(Boolean);
 
   const out = [];

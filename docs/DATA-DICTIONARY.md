@@ -823,6 +823,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Value | Meaning |
 |---|---|
 | lightweight additive | A declared additive (hollow microspheres, a foaming agent) lowers the density well below the base polymer's; stiffness and strength may move with it. |
+| plasticised | A declared plasticiser lowers the density, the modulus and the softening point well below the neat polymer's; a plasticised PVC is a different material from the rigid one and its published values are its own. |
 | undisclosed dense filler | The published density or stiffness is beyond what the unfilled base polymer can reach, so the product contains a filler its maker does not name. |
 
 <a id="vocab-h2c-status"></a>
