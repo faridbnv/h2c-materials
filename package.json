@@ -31,6 +31,7 @@
     "ingest:propose": "node scripts/ingest/propose.mjs",
     "ingest:review": "node scripts/ingest/review.mjs",
     "ingest:apply": "node scripts/ingest/apply.mjs",
+    "ingest:batch": "node scripts/ingest/batch.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
     "audit:sources": "node scripts/audit/source-completeness.mjs",

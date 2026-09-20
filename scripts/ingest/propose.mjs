@@ -21,7 +21,7 @@
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { readCsv } from '../../build/src/csv.js';
+import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, spanText } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
@@ -2321,16 +2321,37 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
 
   if (process.argv.includes('--compare')) {
     const measurements = table('measurements');
-    const scored = rows.filter((r) => r.registered_source_id);
-    let recorded = 0, found = 0;
-    for (const r of scored) {
-      const p = propose(r, cachedText(r.sha256), world);
-      const mine = measurements.filter((m) => m.SourceID === r.registered_source_id && /^Published value/.test(m['Data status']));
-      const c = compare(p, mine);
-      recorded += c.recorded; found += c.found;
-      console.log(`${String(c.found).padStart(3)} of ${String(c.recorded).padStart(3)}  ${r.registered_source_id}${c.missed.length ? `\n      missed: ${c.missed.slice(0, 6).join('; ')}` : ''}`);
+    // --all scores every maker whose sheets somebody transcribed by hand, in one run, and writes the table down.
+    // Run one maker at a time, the makers nobody asked about are the ones that quietly stop being checked: Bambu
+    // and iSANMATE were both below the gate for two days and nothing said so.
+    const all = process.argv.includes('--all');
+    const providers = all
+      ? [...new Set(rows.filter((r) => r.registered_source_id).map((r) => r.provider))].sort()
+      : [null];
+    const table2 = [];
+    for (const only of providers) {
+      const scored = rows.filter((r) => r.registered_source_id && (only == null || r.provider === only));
+      let recorded = 0, found = 0;
+      const missedAll = [];
+      for (const r of scored) {
+        const p = propose(r, cachedText(r.sha256), world);
+        const mine = measurements.filter((m) => m.SourceID === r.registered_source_id && /^Published value/.test(m['Data status']));
+        const c = compare(p, mine);
+        recorded += c.recorded; found += c.found;
+        missedAll.push(...c.missed.map((m) => `${r.registered_source_id}: ${m}`));
+        if (!all) console.log(`${String(c.found).padStart(3)} of ${String(c.recorded).padStart(3)}  ${r.registered_source_id}${c.missed.length ? `\n      missed: ${c.missed.slice(0, 6).join('; ')}` : ''}`);
+      }
+      const pct = recorded ? (found / recorded) * 100 : 0;
+      if (all) console.log(`${pct.toFixed(0).padStart(3)}%  ${String(found).padStart(4)} of ${String(recorded).padStart(4)}  ${String(scored.length).padStart(3)} sheet(s)  ${only}`);
+      else console.log(`\nparity ${pct.toFixed(0)}%: ${found} of ${recorded} recorded values on ${scored.length} sheet(s)`);
+      table2.push({ Provider: only ?? 'all', Sheets: scored.length, Recorded: recorded, Found: found, Parity: pct.toFixed(0), Missed: missedAll.slice(0, 40).join(' | ') });
     }
-    console.log(`\nparity ${recorded ? ((found / recorded) * 100).toFixed(0) : 0}%: ${found} of ${recorded} recorded values on ${scored.length} sheet(s)`);
+    if (all) {
+      mkdirSync(join(AUDIT, 'census'), { recursive: true });
+      writeFileSync(join(AUDIT, 'census/parity.csv'), csvText(['Provider', 'Sheets', 'Recorded', 'Found', 'Parity', 'Missed'], table2.sort((a, b) => b.Sheets - a.Sheets)));
+      const below = table2.filter((t) => Number(t.Parity) < 95);
+      console.log(`\n${table2.length} maker(s) -> census/parity.csv${below.length ? `\n${below.length} below the 95% gate: ${below.map((t) => `${t.Provider} ${t.Parity}%`).join(', ')}` : ''}`);
+    }
     process.exit(0);
   }
 
