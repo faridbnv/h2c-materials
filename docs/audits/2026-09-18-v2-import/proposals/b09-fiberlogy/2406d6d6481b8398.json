@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "2406d6d6481b839875f540342c90641d5639f0b00c4367c3744e35923d15f69d",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M020",
@@ -88,6 +91,56 @@
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.29 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1290",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FiberWORKS-PETG-TDS",
+        "Locator": "p. 1: Specific Density ASTM D792 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Density ASTM D792 g/cm3 1.29"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -130,11 +183,114 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "70 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FiberWORKS-PETG-TDS",
+        "Locator": "p. 1: Flexular Strength ISO 178 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexular Strength ISO 178 MPa 70"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2100 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FiberWORKS-PETG-TDS",
+        "Locator": "p. 1: Flexular Modulus ISO 178 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexular Modulus ISO 178 MPa 2100"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -177,11 +333,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -224,11 +383,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -271,11 +433,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -318,11 +483,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -365,11 +533,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -412,11 +583,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m11",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -459,11 +633,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m09",
+      "id": "m12",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -506,11 +683,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m10",
+      "id": "m13",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -553,11 +733,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m11",
+      "id": "m14",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -600,7 +783,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -611,10 +797,10 @@
         "MaterialID": "M020",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "240°C",
+        "Nozzle °C": "240°C - 260°C",
         "Nozzle state": "range",
         "Nozzle min °C": "240",
-        "Nozzle max °C": "240",
+        "Nozzle max °C": "260",
         "Nozzle requirement": "required",
         "Bed °C": "70°C",
         "Bed state": "range",
@@ -661,7 +847,10 @@
         "text": "Print Temperature: 240°C - 260°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -674,7 +863,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Print Temperature",
-      "raw": "240°C",
+      "raw": "240°C - 260°C",
+      "fromBelow": false,
       "line": "Print Temperature: 240°C - 260°C"
     },
     {
@@ -683,6 +873,7 @@
       "topic": "",
       "label": "Bed Temperature",
       "raw": "70°C",
+      "fromBelow": false,
       "line": "Bed Temperature: 70°C"
     },
     {
@@ -691,6 +882,7 @@
       "topic": "",
       "label": "Bed Temperature",
       "raw": "70°C",
+      "fromBelow": false,
       "line": "Bed Temperature: 70°C"
     },
     {
@@ -699,6 +891,7 @@
       "topic": "Shell / walls",
       "label": "Perimeters",
       "raw": "2",
+      "fromBelow": false,
       "line": "Perimeters: 2"
     }
   ],
@@ -722,21 +915,6 @@
       "page": 1,
       "text": "Avg Roundness: + 0.01 mm",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Specific Density ASTM D792 g/cm3 1.29",
-      "reason": "properties.csv carries no property for \"Specific Density\" (g/cm3)"
-    },
-    {
-      "page": 1,
-      "text": "Flexular Strength ISO 178 MPa 70",
-      "reason": "properties.csv carries no property for \"Flexular Strength\" (MPa)"
-    },
-    {
-      "page": 1,
-      "text": "Flexular Modulus ISO 178 MPa 2100",
-      "reason": "properties.csv carries no property for \"Flexular Modulus\" (MPa)"
     },
     {
       "page": 2,
@@ -775,6 +953,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

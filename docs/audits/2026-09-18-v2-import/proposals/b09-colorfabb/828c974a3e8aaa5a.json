@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "828c974a3e8aaa5aabdf477c6fecf7e78447e715e9763a48b8387c00f50b0792",
@@ -77,7 +77,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "",
@@ -147,7 +150,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -194,7 +200,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -241,7 +250,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -288,7 +300,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -335,7 +350,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -382,7 +400,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -429,7 +450,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -476,7 +500,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -523,7 +550,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -570,7 +600,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -579,7 +612,7 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Impact strength",
+        "Property": "Izod impact strength",
         "Raw value": "40 J/m",
         "Raw unit": "J/m",
         "Raw numeric": "40",
@@ -608,7 +641,7 @@
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
         "Locator": "p. 1: Izod Impact Strength Izod Notch, ISO 179",
-        "Notes": "the row is headed \"Izod Impact Strength Izod Notch, ISO 179\" and cites Izod Impact Strength Izod Notch, ISO 179 ISO 179, which is the other test; recorded as unspecified",
+        "Notes": "the row is headed \"Izod Impact Strength Izod Notch, ISO 179\" and cites Izod Impact Strength Izod Notch, ISO 179 ISO 179, which is the other test; recorded as unspecified; The row's own label says Izod and its method column says ISO 179, which is the Charpy standard; the value is recorded under the label's own word, in the unit the row prints.",
         "Parse review": "Not applicable"
       },
       "evidence": {
@@ -617,7 +650,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "Notes: the row is headed \"Izod Impact Strength Izod Notch, ISO 179\" and cites Izod Impact Strength Izod Notch, ISO 179 ISO 179, which is the other test; recorded as unspecified -> the row is headed \"Izod Impact Strength Izod Notch, ISO 179\" and cites Izod Impact Strength Izod Notch, ISO 179 ISO 179, which is the other test; recorded as unspecified; The row's own label says Izod and its method column says ISO 179, which is the Charpy standard; the value is recorded under the label's own word, in the unit the row prints."
       }
     },
     {
@@ -664,7 +700,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -711,11 +750,164 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "-40 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-40",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-40",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "Locator": "p. 1: Glass Transition Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temp. DSC, ISO 11357 -40 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "205 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "205",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "205",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "Locator": "p. 1: Melting Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting Temp. DSC, ISO 11357 205 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "100 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 36",
+        "Standards": "ISO 36",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "Locator": "p. 1: Heat Deflection Temp. HDT-B, ISO 36",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temp. HDT-B, ISO 36 100 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m17",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -742,13 +934,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "230°C",
-        "Standard / load": "230˚C/2.16 kg",
+        "Standard / load": "230°C/2.16 kg",
         "Standards": "Not published",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
-        "Locator": "p. 1: Melt Flow Index MFI, (230˚C/2.16 kg)",
+        "Locator": "p. 1: Melt Flow Index MFI, (230°C/2.16 kg)",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -758,11 +950,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m15",
+      "id": "m18",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -789,13 +984,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "215°C",
-        "Standard / load": "215˚C/1 16 kg",
+        "Standard / load": "215°C/1 16 kg",
         "Standards": "Not published",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
-        "Locator": "p. 1: Melt Flow Index MFI, (215˚C/1,16 kg)",
+        "Locator": "p. 1: Melt Flow Index MFI, (215°C/1,16 kg)",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -805,7 +1000,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -816,15 +1014,15 @@
         "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "˚C",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
+        "Nozzle °C": "240-260 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
         "Nozzle requirement": "required",
-        "Bed °C": "˚C",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
+        "Bed °C": "±80 °C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "80",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -854,14 +1052,26 @@
         "Locator": "p. 2: Recommended printing settings: Nozzle Temp",
         "Parse review": "Not applicable"
       },
-      "notes": [],
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-60 mm/s"
+        }
+      ],
       "editorial": [],
       "evidence": {
         "page": 2,
         "text": "Nozzle Temp. ˚C 240-260"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -875,10 +1085,10 @@
         "Nozzle min °C": "Not applicable",
         "Nozzle max °C": "Not applicable",
         "Nozzle requirement": "required",
-        "Bed °C": "˚C",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
+        "Bed °C": "±80 °C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "80",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -908,14 +1118,26 @@
         "Locator": "p. 2: Recommended printing settings: nozzle",
         "Parse review": "Not applicable"
       },
-      "notes": [],
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-60 mm/s"
+        }
+      ],
       "editorial": [],
       "evidence": {
         "page": 2,
         "text": "Bed Temp. ˚C ±80"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -924,6 +1146,14 @@
     {
       "HeadlineKey": "density",
       "measurement": "m12",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "hdt045",
+      "measurement": "m16",
       "Use": "value",
       "review": {
         "status": "proposed"
@@ -937,7 +1167,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle Temp",
-      "raw": "˚C",
+      "raw": "240-260 °C",
+      "fromBelow": false,
       "line": "Nozzle Temp. ˚C 240-260"
     },
     {
@@ -945,8 +1176,27 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temp",
-      "raw": "˚C",
+      "raw": "±80 °C",
+      "fromBelow": false,
       "line": "Bed Temp. ˚C ±80"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "0-50 %",
+      "fromBelow": false,
+      "line": "Active cooling fan % 0-50"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "40-60 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed mm/s 40-60"
     },
     {
       "page": 2,
@@ -954,6 +1204,7 @@
       "topic": "",
       "label": "nozzle",
       "raw": "and build-plate is not too close, the first layer cannot be squeezed too much.",
+      "fromBelow": false,
       "line": "nozzle and build-plate is not too close, the first layer cannot be squeezed too much."
     }
   ],
@@ -976,27 +1227,12 @@
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 N/A MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
-    },
-    {
-      "page": 1,
-      "text": "Melting Temp. DSC, ISO 11357 205 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 N/A ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 -40 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
-      "text": "Heat Deflection Temp. HDT-B, ISO 36 100 ˚C",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -1060,16 +1296,6 @@
     },
     {
       "page": 2,
-      "text": "Active cooling fan % 0-50",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Print Speed mm/s 40-60",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -1110,6 +1336,66 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m01",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes 150 MPa for this row (ISO 527-1A). Tensile modulus 0.15 GPa on a amorphous unfilled material is below 0.3, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m03",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes 320 % for this row (ISO 527-1A). Elongation at break 320 % on a amorphous unfilled material is above 250, which is surprising: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes 130 MPa for this row (ISO 178). Flexural modulus 0.13 GPa on a amorphous unfilled material is below 0.3, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes 8.9 MPa for this row (ISO 178). Flexural strength 8.9 MPa on a amorphous unfilled material is below 15, which is surprising: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m14",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes -40 °C for this row (ISO 11357). Glass transition temperature -40 °C on a amorphous unfilled material is below 30, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes 8.9 MPa for this row (ISO 178). Flexural strength 8.9 below tensile strength 19.3 (V004945): a bar bends harder than it pulls, because its outer fibre carries the load: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m10",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes a flexural modulus of 150 MPa (ISO 178). It is a flexible copolyester, and 0.15 GPa is what a flexible bends at; the window's floor is drawn from rigid amorphous compounds. Recorded as printed.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282",
@@ -61,7 +61,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M039",
@@ -131,11 +134,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "40-50 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "40",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "50",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "40",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "50",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "MFR 210℃/2.16Kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Locator": "p. 1: Melt Flow Rate (MFR) (210℃/2.16Kg) ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Flow Rate (MFR) (210℃/2.16Kg) ISO 1133 g/10min 40~50"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -178,11 +234,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -225,11 +284,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -272,7 +334,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -336,7 +401,7 @@
         },
         {
           "Topic": "Cooling",
-          "Text": "50%"
+          "Text": "50%~100%"
         },
         {
           "Topic": "Layer height",
@@ -353,7 +418,10 @@
         "text": "Nozzle Diameter 0.4mm"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -367,6 +435,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "0.4mm",
+      "fromBelow": false,
       "line": "Nozzle Diameter 0.4mm"
     },
     {
@@ -375,6 +444,7 @@
       "topic": "",
       "label": "Nozzle Temperature",
       "raw": "230°C",
+      "fromBelow": false,
       "line": "Nozzle Temperature 230°C"
     },
     {
@@ -383,6 +453,7 @@
       "topic": "Speed",
       "label": "Printing Speed",
       "raw": "150mm/s",
+      "fromBelow": false,
       "line": "Printing Speed 150mm/s"
     },
     {
@@ -391,6 +462,7 @@
       "topic": "",
       "label": "Heated bed temperature",
       "raw": "35°C",
+      "fromBelow": false,
       "line": "Heated bed temperature 35°C"
     },
     {
@@ -399,6 +471,7 @@
       "topic": "Shell / walls",
       "label": "Wall Thickness",
       "raw": "1.8mm",
+      "fromBelow": false,
       "line": "Wall Thickness 1.8mm"
     },
     {
@@ -407,7 +480,17 @@
       "topic": "Shell / walls",
       "label": "Shell thickness",
       "raw": "1.2mm",
+      "fromBelow": false,
       "line": "Shell thickness 1.2mm"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Build Platform Temperature",
+      "raw": "35~55℃(40℃ recommended)",
+      "fromBelow": false,
+      "line": "Build Platform Temperature 35~55℃(40℃ recommended)"
     },
     {
       "page": 2,
@@ -415,6 +498,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "φ0.4/0.6mm(0.4mm recommended)",
+      "fromBelow": false,
       "line": "Nozzle Diameter φ0.4/0.6mm(0.4mm recommended)"
     },
     {
@@ -422,7 +506,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Cooling Fan",
-      "raw": "50%",
+      "raw": "50%~100%",
+      "fromBelow": false,
       "line": "Cooling Fan 50%~100%"
     },
     {
@@ -431,6 +516,7 @@
       "topic": "Layer height",
       "label": "Layer Thickness",
       "raw": "0.2mm",
+      "fromBelow": false,
       "line": "Layer Thickness 0.2mm"
     },
     {
@@ -439,6 +525,7 @@
       "topic": "Speed",
       "label": "Printing Speed",
       "raw": "≤150mm/s(150mm/s recommended)",
+      "fromBelow": false,
       "line": "Printing Speed ≤150mm/s(150mm/s recommended)"
     }
   ],
@@ -462,16 +549,6 @@
       "page": 1,
       "text": "compatible with most direct-drive 3D printers. Its higher hardness prevents feeding issues often",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "ISO 1133 g/10min 40~50",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Melt Flow Rate (MFR) (210℃/2.16Kg)",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
       "page": 1,
@@ -500,13 +577,13 @@
     },
     {
       "page": 1,
-      "text": "Tear strength (X-Z) ASTMD 624 N/mm 150~160",
-      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+      "text": "Impact strength (Z-X) 20~25",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
       "page": 1,
-      "text": "Impact strength (Z-X) 20~25",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "text": "Tear strength (X-Z) ASTMD 624 N/mm 150~160",
+      "reason": "the line names Tear strength and states no value in a unit the database keeps it in (kN/m)"
     },
     {
       "page": 2,
@@ -529,11 +606,6 @@
       "reason": "no property and value this line states together"
     },
     {
-      "page": 2,
-      "text": "Build Platform Temperature 35~55℃(40℃ recommended)",
-      "reason": "no property and value this line states together"
-    },
-    {
       "page": 3,
       "text": "at 90℃-100℃ for at least 12 hours is recommended in order to ensure the print success rate and",
       "reason": "in the column beside the storage note, naming no property and value together"
@@ -550,6 +622,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

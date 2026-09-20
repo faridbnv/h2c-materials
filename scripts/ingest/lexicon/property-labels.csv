@@ -40,7 +40,7 @@ Label,Property,Direction,Notch,Note
 ^(equilibrium |saturated |saturation )?water absorption|^(equilibrium |saturated |saturation )?(moisture|humidity) absorption,Water absorption,Not applicable,Not applicable,a sheet may call the equilibrium value the saturated one
 ^moisture content,Moisture content,Not applicable,Not applicable,
 ^(shore|rockwell) hardness|^hardness|^shore [ad]\b,Hardness,Not applicable,Not applicable,"the scale is part of the unit, and the sheet states it"
-^thermal conductivity,Thermal conductivity,Not applicable,Not applicable,
+"^(thermal conductivity|w(ä|a)rmeleit(zahl|f(ä|a)higkeit)|conducibilit(à|a) termica|conductivit(é|e) thermique|conductividad t(é|e)rmica)",Thermal conductivity,Not applicable,Not applicable,"purefil prints its sheets in four languages and its thermal conductivity row carries no value; unread, the row was claimed by the label above it and its 23 °C condition became a Vicat softening point"
 "^(?:@\s?\d+\s?%\s?)?decomposition temp(erature)?\b",Decomposition temperature,Not applicable,Not applicable,"a sheet may state the mass loss the temperature is read at (@5% Decomposition Temp.); that is the test's condition, not part of the value"
 "^(mou?ld(ing)? |injection )?shrinkage\b|^schwindung\b",Mould shrinkage,,Not applicable,"a sheet may name the direction it measured in (flow direction, X/Y, Z), which is the row's own Direction; purefil prints Schwindung"
 "^(specific )?surface resist(ance|ivity)\b",Surface resistivity,Not applicable,Not applicable,"a sheet may call it the surface resistance; properties.csv keeps the row in ohms either way"

@@ -1,4 +1,5 @@
 Value,Meaning
+ASTM D1004,Tear resistance of plastic film and sheeting.
 ASTM D1238,Melt flow rates by extrusion plastometer.
 ASTM D1505,Density by density-gradient technique.
 ASTM D1525,Vicat softening temperature.
@@ -7,6 +8,8 @@ ASTM D2240,Durometer hardness.
 ASTM D256,Izod pendulum impact resistance.
 ASTM D257,DC resistance or conductance.
 ASTM D3418,Transition temperatures by DSC.
+ASTM D3638,Comparative tracking index of electrical insulating materials.
+ASTM D412,Tensile properties of vulcanised rubber and thermoplastic elastomers.
 ASTM D570,Water absorption of plastics.
 ASTM D638,Tensile properties of plastics.
 ASTM D648,Deflection temperature under flexural load.
@@ -16,12 +19,15 @@ ASTM D785,Rockwell hardness.
 ASTM D790,Flexural properties of plastics.
 ASTM D792,Density and specific gravity by displacement.
 ASTM D882,Tensile properties of thin plastic sheeting.
+ASTM D955,Moulding shrinkage from mould dimensions.
 ASTM E1356,Glass transition temperatures by DSC.
 ASTM E2092,Distortion temperature in three-point bending by thermomechanical analysis.
 DSC,"Differential scanning calorimetry, where the source names the method but no standard."
 GB/T 1033,Density of plastics.
 GB/T 1040,Tensile properties of plastics.
+GB/T 1040.2,"Tensile properties of moulding and extrusion plastics; the Chinese standard for what ISO 527-2 tests, and Eryone's sheets print both."
 GB/T 1043,Charpy impact properties.
+GB/T 1043.1,Charpy impact strength; the Chinese standard for what ISO 179-1 tests.
 GB/T 1633,Vicat softening temperature.
 GB/T 1634,Temperature of deflection under load.
 GB/T 1843,Izod impact strength.
@@ -31,6 +37,7 @@ GB/T 528,Tensile properties of vulcanised rubber.
 GB/T 531.1,Indentation hardness of rubber.
 GB/T 9341,Flexural properties of plastics.
 GB/T 9343,Cited by a source; kept as the source prints it.
+IEC 60093,Volume and surface resistivity of insulating materials.
 IEC 60216,Thermal endurance of electrical insulating materials.
 ISO 1133,Melt mass-flow and melt volume-flow rate.
 ISO 11357,Differential scanning calorimetry.
@@ -41,13 +48,16 @@ ISO 179,Charpy impact strength.
 ISO 180,Izod impact strength.
 ISO 2039,Hardness by ball indentation.
 ISO 2781,Density by immersion.
+ISO 294,"Injection moulding of test specimens, including moulding shrinkage."
 ISO 306,Vicat softening temperature.
 ISO 3146,Melting behaviour of semi-crystalline polymers.
+ISO 36,Adhesion of rubber to textile fabrics.
 ISO 37,Tensile properties of vulcanised or thermoplastic rubber.
 ISO 527,Tensile properties of plastics.
 ISO 604,Compressive properties of plastics.
 ISO 62,Water absorption of plastics.
 ISO 6711,Cited by a source; kept as the source prints it.
+ISO 727,Fittings of unplasticised PVC: dimensions of pipe fittings.
 ISO 75,Temperature of deflection under load.
 ISO 7619,Indentation hardness by durometer.
 ISO 8302,Thermal conductivity by the guarded hot plate.

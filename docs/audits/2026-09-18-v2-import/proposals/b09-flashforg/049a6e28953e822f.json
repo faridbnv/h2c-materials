@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "049a6e28953e822f8aaa69971695795400c8fbbef4ed1ac58a8374c9aa72b32a",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M020",
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -318,7 +333,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -365,7 +383,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -412,11 +433,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "5-6 KJ/㎡",
+        "Raw unit": "KJ/㎡",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "6",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "6",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 180",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PETG-HS-TDS-EN",
+        "Locator": "p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod Impact Strength (X-Y) ISO 180 KJ/㎡ 5~6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -443,7 +517,7 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "0.455 MPa （66 psi） ISO 75",
+        "Standard / load": "0.455 MPa (66 psi) ISO 75",
         "Standards": "ISO 75",
         "Test load MPa": "0.45",
         "Notch": "Not applicable",
@@ -459,11 +533,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m09",
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M020",
@@ -506,7 +583,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -517,16 +597,16 @@
         "MaterialID": "M020",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "220~260℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Room temperature~60℃",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -558,23 +638,23 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "50"
+          "Text": "50~100%"
         },
         {
           "Topic": "Layer height",
-          "Text": "0.12"
+          "Text": "0.12~0.3mm"
         },
         {
           "Topic": "Speed",
-          "Text": "100"
+          "Text": "100~350mm/s"
         },
         {
           "Topic": "Retraction",
-          "Text": "1"
+          "Text": "1~2mm"
         },
         {
           "Topic": "Retraction",
-          "Text": "30"
+          "Text": "30~50mm/s"
         }
       ],
       "editorial": [],
@@ -583,7 +663,10 @@
         "text": "Nozzle Diameter 0.4mm"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -597,7 +680,26 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "0.4mm",
+      "fromBelow": false,
       "line": "Nozzle Diameter 0.4mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "220~260℃",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 220~260℃"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Build Platform Temperature",
+      "raw": "Room temperature~60℃",
+      "fromBelow": false,
+      "line": "Build Platform Temperature Room temperature~60℃"
     },
     {
       "page": 2,
@@ -605,6 +707,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "φ0.4/0.6mm (φ0.4mm recommended)",
+      "fromBelow": false,
       "line": "Nozzle Diameter φ0.4/0.6mm (φ0.4mm recommended)"
     },
     {
@@ -612,7 +715,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Cooling Fan",
-      "raw": "50",
+      "raw": "50~100%",
+      "fromBelow": false,
       "line": "Cooling Fan 50~100%"
     },
     {
@@ -620,7 +724,8 @@
       "field": "note",
       "topic": "Layer height",
       "label": "Layer Thickness",
-      "raw": "0.12",
+      "raw": "0.12~0.3mm",
+      "fromBelow": false,
       "line": "Layer Thickness 0.12~0.3mm"
     },
     {
@@ -628,7 +733,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Printing Speed",
-      "raw": "100",
+      "raw": "100~350mm/s",
+      "fromBelow": false,
       "line": "Printing Speed 100~350mm/s"
     },
     {
@@ -636,7 +742,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Distance",
-      "raw": "1",
+      "raw": "1~2mm",
+      "fromBelow": false,
       "line": "Retraction Distance 1~2mm"
     },
     {
@@ -644,7 +751,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Speed",
-      "raw": "30",
+      "raw": "30~50mm/s",
+      "fromBelow": false,
       "line": "Retraction Speed 30~50mm/s"
     }
   ],
@@ -658,11 +766,6 @@
       "page": 1,
       "text": "high-speed FFF 3D printers.",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Izod Impact Strength (X-Y) ISO 180 KJ/㎡ 5~6",
-      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
     },
     {
       "page": 2,
@@ -687,16 +790,6 @@
     {
       "page": 2,
       "text": "Standard Testing Specimen Specific dimensions are shown in Attachment 1",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Nozzle Temperature 220~260℃",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Build Platform Temperature Room temperature~60℃",
       "reason": "no property and value this line states together"
     },
     {
@@ -726,7 +819,7 @@
     },
     {
       "page": 4,
-      "text": "80.00 Zaxis",
+      "text": "80.00",
       "reason": "no property and value this line states together"
     },
     {
@@ -752,7 +845,7 @@
     {
       "page": 4,
       "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
-      "reason": "properties.csv carries no property for \"Tensile testing specimen;\""
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
     },
     {
       "page": 4,
@@ -777,7 +870,7 @@
     {
       "page": 4,
       "text": "Flexural testing specimen; ASTM D790 (ISO 178, GB/T 9341)",
-      "reason": "properties.csv carries no property for \"Flexural testing specimen;\""
+      "reason": "a description of the specimen the tests were run on, not a result: \"Flexural testing specimen;\""
     },
     {
       "page": 4,
@@ -802,10 +895,12 @@
     {
       "page": 4,
       "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
-      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+      "reason": "a description of the specimen the tests were run on, not a result: \"Impact testing specimen;\""
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

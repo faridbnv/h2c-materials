@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "a994a7773027b4992f604c6c5d1fa1dc247cc93b894e9bb30814c6f23ded0c1c",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M092",
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -318,7 +333,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -365,7 +383,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -412,7 +433,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -459,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -490,13 +517,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "23°C",
-        "Standard / load": "23 ºC D 256",
+        "Standard / load": "23 °C D 256",
         "Standards": "ASTM D256",
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-colorFabb-nGen-Filament-TDS",
-        "Locator": "p. 1: Izod Impact strength, notched @ 23 ºC J/m",
+        "Locator": "p. 1: Izod Impact strength, notched @ 23 °C J/m",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -506,7 +533,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -537,13 +567,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "-40°C",
-        "Standard / load": "-40 ºC D 256",
+        "Standard / load": "-40 °C D 256",
         "Standards": "ASTM D256",
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-colorFabb-nGen-Filament-TDS",
-        "Locator": "p. 1: Izod Impact strength, notched @ -40 ºC J/m",
+        "Locator": "p. 1: Izod Impact strength, notched @ -40 °C J/m",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -553,7 +583,110 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M092",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "71 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "71",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "71",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.455 MPa D 648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-nGen-Filament-TDS",
+        "Locator": "p. 1: Deflection Temperature @ 0.455 MPa °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Deflection Temperature @ 0.455 MPa ºC 71 D 648"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M092",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "63 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "63",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "63",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.82 MPa D 648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-nGen-Filament-TDS",
+        "Locator": "p. 1: Deflection Temperature @ 1.82 MPa °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Deflection Temperature @ 1.82 MPa ºC 63 D 648"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -564,16 +697,16 @@
         "MaterialID": "M092",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "220 – 240 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "75 – 85 °C",
+        "Bed state": "range",
+        "Bed min °C": "75",
+        "Bed max °C": "85",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -606,15 +739,22 @@
         {
           "Topic": "Cooling",
           "Text": "0 – 100 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40 – 70 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Bed surface / modification nGen gives best results on a heated build platform, 75C to about 85C is"
+        "text": "Advised 3D printing temperature 220 – 240 ºC"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -624,10 +764,29 @@
   "settings": [
     {
       "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "printing temperature",
+      "raw": "220 – 240 °C",
+      "fromBelow": false,
+      "line": "Advised 3D printing temperature 220 – 240 ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "bed temperature",
+      "raw": "75 – 85 °C",
+      "fromBelow": false,
+      "line": "Advised bed temperature 75 – 85 ºC"
+    },
+    {
+      "page": 1,
       "field": "plate",
       "topic": "",
       "label": "Bed surface",
       "raw": "/ modification",
+      "fromBelow": false,
       "line": "Bed surface / modification nGen gives best results on a heated build platform, 75C to about 85C is"
     },
     {
@@ -636,7 +795,17 @@
       "topic": "Cooling",
       "label": "Active cooling fan",
       "raw": "0 – 100 %",
+      "fromBelow": false,
       "line": "Active cooling fan 0 – 100 %"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "40 – 70 mm/s",
+      "fromBelow": false,
+      "line": "Advised 3D printing speed 40 – 70 mm/sec"
     }
   ],
   "skipped": [
@@ -667,16 +836,6 @@
     },
     {
       "page": 1,
-      "text": "Deflection Temperature @ 0.455 MPa ºC 71 D 648",
-      "reason": "the sheet states HDT in ºC, and the database keeps it in °C"
-    },
-    {
-      "page": 1,
-      "text": "Deflection Temperature @ 1.82 MPa ºC 63 D 648",
-      "reason": "the sheet states HDT in ºC, and the database keeps it in °C"
-    },
-    {
-      "page": 1,
       "text": "1,75 mm ± 0,05 ≥ 95%",
       "reason": "no property and value this line states together"
     },
@@ -692,23 +851,8 @@
     },
     {
       "page": 1,
-      "text": "Advised 3D printing temperature 220 – 240 ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
-      "text": "Advised bed temperature 75 – 85 ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
       "text": "minimize warping. 3DLac, buildTak or 3DEeze can do the trick.",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Advised 3D printing speed 40 – 70 mm/sec",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
@@ -732,6 +876,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

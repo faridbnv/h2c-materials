@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "0213b4d708b87844989996308e1d0173379ff783be67fd89bab4f4dfe9fa8184",
@@ -15,16 +15,17 @@
   "identity": {
     "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
-    "variantClass": "",
-    "finish": "",
+    "variantClass": "silk",
+    "finish": "Silk",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pla"
+      "name: pla",
+      "variant: silk (Silk)"
     ],
-    "materialId": "M001",
-    "materialName": "PLA",
+    "materialId": "M008",
+    "materialName": "PLA Silk",
     "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
@@ -34,7 +35,7 @@
     "row": {
       "SourceID": "R-ERYONE-eryone-silk-pla-tds",
       "Publisher": "Eryone",
-      "Title": "Technical Data Sheet (TDS)",
+      "Title": "Technical Data Sheet (TDS) Silk PLA",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "Technical Data Sheet (TDS)"
+      "text": "Technical Data Sheet (TDS) Silk PLA"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Eryone",
-        "Product name": "(TDS)",
+        "Product name": "Silk PLA",
         "Shared formulation key": "R-ERYONE-eryone-silk-pla-tds",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +85,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "Technical Data Sheet (TDS)"
+        "text": "Technical Data Sheet (TDS) Silk PLA"
       }
     }
   ],
@@ -90,7 +94,207 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.32 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1320",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "21.5°C",
+        "Standard / load": "g/cm³ at 21.5 ° C) ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density(g/cm³ at 21.5 ° C） ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.32"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "56 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "56",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "56",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525 ISO 306 GB/T 1633",
+        "Standards": "ASTM D1525; ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 1: Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃ 56"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "53 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 1: Heat distortion temperature(° C) ASTM D648 0.45MPa ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa ℃ 53"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "63 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "63",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "63",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "° C DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 1: Glass transition temperature (° C) DSC, 10 ° C/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (° C) DSC, 10 ° C/min ℃ 63"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "20.5 ± 1.5 g/10min",
@@ -130,7 +334,460 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "55.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "55.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Tensile strength X-Y 50mm/min GB/T 1040.4 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength X-Y 50mm/min GB/T 1040.4 MPa 55.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1215.4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1215.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.2154",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.1-2006",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Tensile modulus X-Y 50mm/min GB/T 1040.1-2006 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile modulus X-Y 50mm/min GB/T 1040.1-2006 MPa 1215.4"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Elongation at break X-Y 50mm/min GB/T 1040.4 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break X-Y 50mm/min GB/T 1040.4 % 1.7"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "12.1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "12.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1843",
+        "Standards": "GB/T 1843",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Tensile strength X-Z 50mm/min GB/T 1843 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength X-Z 50mm/min GB/T 1843 MPa 12.1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1051.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1051.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.0519",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.1-2006",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Tensile modulus X-Z 50mm/min GB/T 1040.1-2006 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile modulus X-Z 50mm/min GB/T 1040.1-2006 MPa 1051.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Elongation at breakX-Z 50mm/min GB/T 1040.4 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at breakX-Z 50mm/min GB/T 1040.4 % 1.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "83 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "83",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "83",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min GB/T 9341",
+        "Standards": "GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Bending strength 2mm/min GB/T 9341 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending strength 2mm/min GB/T 9341 MPa 83"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3006.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3006.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.0068",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min GB/T 9341",
+        "Standards": "GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Bending modulus 2mm/min GB/T 9341 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending modulus 2mm/min GB/T 9341 MPa 3006.8"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M008",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "2.83 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "2.83",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.83",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2.75J GB/T 1043.1-2008",
+        "Standards": "GB/T 1043.1",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-silk-pla-tds",
+        "Locator": "p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2 2.83"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -138,7 +795,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M008",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "190-220 ℃",
@@ -195,7 +852,10 @@
         "text": "Nozzle temperature 190-220 ℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -209,6 +869,7 @@
       "topic": "",
       "label": "Nozzle temperature",
       "raw": "190-220 ℃",
+      "fromBelow": false,
       "line": "Nozzle temperature 190-220 ℃"
     },
     {
@@ -217,6 +878,7 @@
       "topic": "Speed",
       "label": "Printing speed",
       "raw": "30-100mm/s",
+      "fromBelow": false,
       "line": "Printing speed 30-100mm/s"
     },
     {
@@ -225,6 +887,7 @@
       "topic": "",
       "label": "Drying conditions",
       "raw": "50-60℃",
+      "fromBelow": false,
       "line": "Drying conditions 50-60℃, 6h"
     },
     {
@@ -233,6 +896,7 @@
       "topic": "Speed",
       "label": "printing speed",
       "raw": "80mm/s",
+      "fromBelow": false,
       "line": "printing speed=80mm/s, base plate 60 ° C, filling=100%, nozzle diameter=0.4mm"
     }
   ],
@@ -269,108 +933,13 @@
     },
     {
       "page": 1,
-      "text": "ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.32",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Density(g/cm³ at 21.5 ° C）",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
-      "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) 56",
-      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
-      "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa 53",
-      "reason": "the sheet states HDT in 0.45MPa, and the database keeps it in °C"
-    },
-    {
-      "page": 1,
-      "text": "Glass transition temperature (° C) DSC, 10 ° C/min 63",
-      "reason": "the sheet states Glass transition temperature in C/min, and the database keeps it in °C"
-    },
-    {
-      "page": 1,
       "text": "1",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 MPa 55.2",
-      "reason": "properties.csv carries no property for \"50mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "Tensile modulus X-Y 50mm/min GB/T 1040.1-2006",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
-    },
-    {
-      "page": 2,
-      "text": "MPa 1215.4",
-      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 % 1.7",
-      "reason": "properties.csv carries no property for \"50mm/min\" (%)"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1843",
-      "reason": "properties.csv carries no property for \"50mm/min\""
-    },
-    {
-      "page": 2,
-      "text": "MPa 12.1",
-      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
-    },
-    {
-      "page": 2,
-      "text": "Tensile modulus X-Z 50mm/min GB/T 1040.1-2006",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
-    },
-    {
-      "page": 2,
-      "text": "MPa 1051.9",
-      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 % 1.2",
-      "reason": "properties.csv carries no property for \"50mm/min\" (%)"
-    },
-    {
-      "page": 2,
-      "text": "MPa 83",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Bending strength 2mm/min GB/T 9341",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "2mm/min GB/T 9341 MPa 3006.8",
-      "reason": "properties.csv carries no property for \"2mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "2.75J 2.83",
       "reason": "no property and value this line states together"
     },
     {
       "page": 2,
       "text": "Note: All splines are printed under the following conditions: printing temperature=220 ° C,",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Charpy Impact strenght GB/T 1043.1-2008 kJ/m2",
-      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
     },
     {
       "page": 2,
@@ -389,6 +958,34 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-ORDER",
+      "field": "Normalized value",
+      "reason": "Eryone's Silk PLA publishes a glass transition of 63 ℃ and a Vicat softening point of 56 ℃ (ASTM D1525 ISO 306 GB/T 1633). A Vicat measured under the heavier load sits below the lighter one's and can sit below the glass transition; the pair is what the two methods give on one material, and both are recorded as printed.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m08",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "Eryone's Silk PLA publishes 1.7 % beside a strength of 55.2 MPa and a modulus of 1215.4 MPa. Taken together the elongation is below the strain those two imply, which is the maker's own arithmetic on one sheet; each number is recorded as the sheet prints it and none is inferred from the others.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m11",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "Eryone's Silk PLA publishes 1.2 % beside a strength of 55.2 MPa and a modulus of 1215.4 MPa. Taken together the elongation is below the strain those two imply, which is the maker's own arithmetic on one sheet; each number is recorded as the sheet prints it and none is inferred from the others.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

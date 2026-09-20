@@ -687,3 +687,15 @@ test('the name comes from the page, wherever the page puts it', () => {
   // The maker's own name names no product, so the page is read on past it.
   assert.equal(printedTitle(page('Preliminary Data Sheet', 'colorFabb', 'Copper filled PLA', 'Latest revision: May 2015'), 'colorFabb').product, 'Copper filled PLA');
 });
+
+test("a standard's digits are not a value, and do not reach into what follows them", () => {
+  // "Glass Transition Temp. DSC, ISO 11357 -55 ˚C" gave a glass transition of 11357 °C on four colorFabb sheets:
+  // the designation's number was read as the value, and the rule that reads "55-60" as a window took the minus
+  // in front of the real one for a range dash, because it saw 11357 before it.
+  const tg = read('Glass Transition Temp. DSC, ISO 11357 -55 ˚C');
+  assert.equal(tg.match.Property, 'Glass transition temperature');
+  assert.equal(tg.rawNumber, '-55');
+  // The window and the dash still read as they did.
+  assert.equal(read('Glass Transition Temperature 55-60°C DSC').upper, '60');
+  assert.equal(read('Melting temperature ISO 3146-C °C 190-210').upper, '210');
+});

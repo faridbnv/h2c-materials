@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "f25e6f601d3ba3b2f41f227e4b6297719544843f69c6b1235c1e9d0bcef04ef3",
@@ -52,7 +52,7 @@
     "row": {
       "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
       "Publisher": "Fiberlogy",
-      "Title": "TECHNICAL DATA SHEET FIBERLOGY FIBERFLEX AERO",
+      "Title": "TECHNICAL DATA SHEET Fiberlogy FiberFlex Aero",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -68,7 +68,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET FIBERLOGY FIBERFLEX AERO"
+      "text": "TECHNICAL DATA SHEET Fiberlogy FiberFlex Aero"
     },
     "review": {
       "status": "proposed"
@@ -78,14 +78,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fiberlogy",
-        "Product name": "FIBERLOGY FIBERFLEX AERO",
+        "Product name": "FiberFlex Aero",
         "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -99,13 +102,63 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET FIBERLOGY FIBERFLEX AERO"
+        "text": "TECHNICAL DATA SHEET Fiberlogy FiberFlex Aero"
       }
     }
   ],
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.16 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.16",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1160",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+        "Locator": "p. 1: Specific Density ASTM D792 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Density ASTM D792 g/cm3 1.16"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -148,11 +201,14 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -195,11 +251,14 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -242,11 +301,14 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -289,11 +351,14 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -336,11 +401,14 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -383,11 +451,114 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "67 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.067",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+        "Locator": "p. 1: Flexular Modulus MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexular Modulus MPa 67"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tear strength",
+        "Raw value": "115 kN/m",
+        "Raw unit": "kN/m",
+        "Raw numeric": "115",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "115",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kN/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1004",
+        "Standards": "ASTM D1004",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+        "Locator": "p. 1: Tear Strength ASTM D1004 kN/m",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tear Strength ASTM D1004 kN/m 115"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -430,11 +601,14 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m11",
       "gradeKey": "main",
       "row": {
         "MaterialID": "",
@@ -477,7 +651,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -488,15 +665,15 @@
         "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "210°C",
+        "Nozzle °C": "210°C - 235°C",
         "Nozzle state": "range",
         "Nozzle min °C": "210",
-        "Nozzle max °C": "210",
+        "Nozzle max °C": "235",
         "Nozzle requirement": "required",
-        "Bed °C": "30°C",
+        "Bed °C": "30°C - 70°C",
         "Bed state": "range",
         "Bed min °C": "30",
-        "Bed max °C": "30",
+        "Bed max °C": "70",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -533,15 +710,26 @@
         "text": "Print Temperature: 210°C - 235°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
   "evidence": [],
   "headlines": [
     {
+      "HeadlineKey": "density",
+      "measurement": "m01",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
       "HeadlineKey": "hdt045",
-      "measurement": "m07",
+      "measurement": "m10",
       "Use": "value",
       "review": {
         "status": "proposed"
@@ -555,7 +743,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Print Temperature",
-      "raw": "210°C",
+      "raw": "210°C - 235°C",
+      "fromBelow": false,
       "line": "Print Temperature: 210°C - 235°C"
     },
     {
@@ -563,7 +752,8 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temperature",
-      "raw": "30°C",
+      "raw": "30°C - 70°C",
+      "fromBelow": false,
       "line": "Bed Temperature: 30°C - 70°C"
     }
   ],
@@ -590,23 +780,8 @@
     },
     {
       "page": 1,
-      "text": "Specific Density ASTM D792 g/cm3 1.16",
-      "reason": "properties.csv carries no property for \"Specific Density\" (g/cm3)"
-    },
-    {
-      "page": 1,
-      "text": "Flexular Modulus MPa 67",
-      "reason": "the sheet states Hardness in MPa, and the database keeps it in Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source)"
-    },
-    {
-      "page": 1,
       "text": "ASTM D790",
       "reason": "the line names Hardness and states no value in a unit the database keeps it in (Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source))"
-    },
-    {
-      "page": 1,
-      "text": "Tear Strength ASTM D1004 kN/m 115",
-      "reason": "the sheet states Hardness in kN/m, and the database keeps it in Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source)"
     },
     {
       "page": 1,
@@ -615,6 +790,42 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Fiberlogy's FiberFlex Aero publishes 2 MPa for this row (5% Strain ASTM D638). Tensile strength (endpoint unspecified) 2 MPa on a amorphous compound material is below 5, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Fiberlogy's FiberFlex Aero publishes 4 MPa for this row (10% Strain ASTM D638). Tensile strength (endpoint unspecified) 4 MPa on a amorphous compound material is below 5, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Fiberlogy's FiberFlex Aero publishes 700 % for this row (ASTM D638). Elongation at break 700 % on a amorphous compound material is above 600, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m08",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Fiberlogy's FiberFlex Aero publishes 67 MPa for this row (Not published). Flexural modulus 0.067 GPa on a amorphous compound material is below 0.5, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

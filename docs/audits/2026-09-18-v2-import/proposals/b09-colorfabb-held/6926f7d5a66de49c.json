@@ -1,0 +1,1047 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "6926f7d5a66de49c20524eaa032cfe3adbc9aed1157d99ef174d28c3efdc7c95",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_E_ColorFabb_allPHA.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "colorFabb",
+    "docKey": "6926f7d5a66de49c"
+  },
+  "identity": {
+    "polymer": "PHA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pha"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PHA",
+    "Family": "PVB / Specialty Polymers",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "PHA",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PHA",
+    "Base polymer": "PHA",
+    "Estimate identity": "Not applicable",
+    "Modifier / filler": "Unfilled / unspecified",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-COLORFABB-TDS-E-ColorFabb-allPHA (p. 1): sheet: pha. No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+      "Publisher": "colorFabb",
+      "Title": "Technical datasheet allPHA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_E_ColorFabb_allPHA.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6926f7d5a66de49c20524eaa032cfe3adbc9aed1157d99ef174d28c3efdc7c95"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet allPHA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "allPHA",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet allPHA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2510 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2510",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.51",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Tensile modulus MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus MPa 2510 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "26",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Yield strength MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield strength MPa 26 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3,5 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Yield strain %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield strain % 3,5 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "26",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Tensile strength MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength MPa 26 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "3,5 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Tensile strain at tensile strength %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strain at tensile strength % 3,5 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "24 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "24",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Tensile stress at break MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at break MPa 24 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4,5 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Tensile strain at break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strain at break % 4,5 ISO 527"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1820 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1820",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.82",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Flexural modulus MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural modulus MPa 1820 ISO 178"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "41 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "41",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "41",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Flexural strength MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural strength MPa 41 ISO 178"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "25,4 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "25.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 179-1/1",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Charpy unnotched impact strength kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy unnotched impact strength kJ/m2 25,4 ISO 179-1/1 eU"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "3,4 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "3.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 179-1/1",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Charpy notched impact strength kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy notched impact strength kJ/m2 3,4 ISO 179-1/1 eU"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "62 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "62",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "62",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 7619",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: Shore D Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D Shore D 62 ISO 7619"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "153 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "153",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "153",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "Locator": "p. 1: HDT °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT °C 153 ISO 75"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "180 - 200°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "180",
+        "Nozzle max °C": "200",
+        "Nozzle requirement": "required",
+        "Bed °C": "Room temperature / not heated",
+        "Bed state": "ambient",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "/ modification 3DLac / Diluted wood glue",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-allPHA-6926f7",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "slicer settings Brim (for small parts brim is not needed)"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-60 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle temperature 180 - 200ºC"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [
+    {
+      "HeadlineKey": "hdt045",
+      "measurement": "m13",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "180 - 200°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 180 - 200ºC"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "Room temperature / not heated",
+      "fromBelow": false,
+      "line": "Bed temperature Room temperature / not heated"
+    },
+    {
+      "page": 2,
+      "field": "plate",
+      "topic": "",
+      "label": "Bed surface",
+      "raw": "/ modification 3DLac / Diluted wood glue",
+      "fromBelow": false,
+      "line": "Bed surface / modification 3DLac / Diluted wood glue"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Bed adhesion",
+      "raw": "slicer settings Brim (for small parts brim is not needed)",
+      "fromBelow": false,
+      "line": "Bed adhesion slicer settings Brim (for small parts brim is not needed)"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling 100% fan speed on the 2nd or 3rd layer."
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "30-60 mm/s",
+      "fromBelow": false,
+      "line": "Print speed 30-60 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date of issue: April 4, 2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version: v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our allPHA 3D printing filament (pronounced as all-PHA) is the ultimate bioplastic. PolyHydroxyAlkanoates",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AllPHA is 100% biobased and 100% biodegradable in any biotope, without leaving",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TYPICAL MATERIAL PROPERTIES – 3D Printed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strain at standard deflection MPa 37 ISO 178",
+      "reason": "properties.csv carries no property for \"Flexural strain at standard deflection\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strain at flexural strength % 6,4 ISO 178",
+      "reason": "properties.csv carries no property for \"Flexural strain at flexural strength\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strain at break % - ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural stress at break MPa - ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 F +31 (0)77 – 3971414 VAT nr: NL850902770B01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5951 DK Belfeld E sales@colorfabb.com IBAN: NL54RABO0151849188",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Netherlands I colorfabb.com BIC: RABONL2U",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date of issue: April 4, 2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Version: v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1,75 mm ± 0.1mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2,85 mm ± 0.1mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Netto filament weight 750g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Layerheight 0.1mm / 0.27 mm (for 0.4mm nozzle)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "Contrary to most 3D printing materials allPHA is best printed on a cold plate, so no active heating",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "We advise using 100% cooling starting on the second layer. This helps set the model by slowing",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "Removal of 3D print",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "PEI or flexplate. In this case it’s adviced to heat-up the plate to 90c and wait 15 minutes for the",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "bottom layers to heat through. The heat induces crystallization which makes it easier for the 3D",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "Bremweg 7 F +31 (0)77 – 3971414 VAT nr: NL850902770B01",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "5951 DK Belfeld E sales@colorfabb.com IBAN: NL54RABO0151849188",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 2,
+      "text": "The Netherlands I colorfabb.com BIC: RABONL2U",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

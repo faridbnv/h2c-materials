@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "924993cc4c26212ab909281caf6ce9dd6fd1715dba2bf8f48ee7072dce239340",
@@ -34,7 +34,7 @@
     "row": {
       "SourceID": "R-FIBERLOGY-FIBERLOGY-VELVET-PLA-TDS-1-3",
       "Publisher": "Fiberlogy",
-      "Title": "TECHNICAL DATA SHEET FIBERLOGY VELVET PLA",
+      "Title": "TECHNICAL DATA SHEET Fiberlogy VELVET PLA",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +50,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET FIBERLOGY VELVET PLA"
+      "text": "TECHNICAL DATA SHEET Fiberlogy VELVET PLA"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fiberlogy",
-        "Product name": "FIBERLOGY VELVET PLA",
+        "Product name": "VELVET PLA",
         "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-VELVET-PLA-TDS-1-3",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,13 +84,63 @@
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET FIBERLOGY VELVET PLA"
+        "text": "TECHNICAL DATA SHEET Fiberlogy VELVET PLA"
       }
     }
   ],
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.27 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1270",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-VELVET-PLA-TDS-1-3",
+        "Locator": "p. 1: Specific Density ISO 1183 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Density ISO 1183 g/cm3 1.27"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -130,11 +183,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -177,11 +233,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -224,11 +283,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -271,11 +333,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -318,11 +383,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -365,11 +433,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -412,11 +483,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -459,7 +533,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -470,15 +547,15 @@
         "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "200°C",
+        "Nozzle °C": "200°C - 230°C",
         "Nozzle state": "range",
         "Nozzle min °C": "200",
-        "Nozzle max °C": "200",
+        "Nozzle max °C": "230",
         "Nozzle requirement": "required",
-        "Bed °C": "50°C",
+        "Bed °C": "50°C - 70°C",
         "Bed state": "range",
         "Bed min °C": "50",
-        "Bed max °C": "50",
+        "Bed max °C": "70",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -515,7 +592,10 @@
         "text": "Print Temperature: 200°C - 230°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -528,7 +608,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Print Temperature",
-      "raw": "200°C",
+      "raw": "200°C - 230°C",
+      "fromBelow": false,
       "line": "Print Temperature: 200°C - 230°C"
     },
     {
@@ -536,7 +617,8 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temperature",
-      "raw": "50°C",
+      "raw": "50°C - 70°C",
+      "fromBelow": false,
       "line": "Bed Temperature: 50°C - 70°C"
     }
   ],
@@ -568,11 +650,6 @@
     },
     {
       "page": 1,
-      "text": "Specific Density ISO 1183 g/cm3 1.27",
-      "reason": "properties.csv carries no property for \"Specific Density\" (g/cm3)"
-    },
-    {
-      "page": 1,
       "text": "Last update: February 11, 2026",
       "reason": "no property and value this line states together"
     },
@@ -583,6 +660,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "7c61a91c8cd35f9087c9d442abd4681028da08321962acb611767d7f33607132",
@@ -61,7 +61,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M045",
@@ -89,194 +92,6 @@
   "measurements": [
     {
       "id": "m01",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M045",
-        "GradeID": "",
-        "Property": "Elongation at break",
-        "Raw value": "300 %",
-        "Raw unit": "%",
-        "Raw numeric": "300",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "300",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 37-1A",
-        "Standards": "ISO 37",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-PEBA40D",
-        "Locator": "p. 1: elongation Stress @",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Stress @ 300% Tenilse, ISO 37-1A 9,5 5,0 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m02",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M045",
-        "GradeID": "",
-        "Property": "Tensile strength (endpoint unspecified)",
-        "Raw value": "19,7 ± 6,2 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "19.7",
-        "Raw uncertainty ±": "6.2",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "19.7",
-        "Normalized uncertainty ±": "6.2",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "MPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 37-1A",
-        "Standards": "ISO 37",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-PEBA40D",
-        "Locator": "p. 1: Tensile Strength Tensile, ISO 37-1A",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Tensile Strength Tensile, ISO 37-1A 19,7 6,2 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m03",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M045",
-        "GradeID": "",
-        "Property": "Elongation at break",
-        "Raw value": "616,0 %",
-        "Raw unit": "%",
-        "Raw numeric": "616",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "616",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "1110 ISO 37-1A",
-        "Standards": "ISO 37",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-PEBA40D",
-        "Locator": "p. 1: Elongation at break Tensile, ISO 37-1A 1110",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Elongation at break Tensile, ISO 37-1A 1110 616,0 %"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m04",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M045",
-        "GradeID": "",
-        "Property": "Flexural modulus",
-        "Raw value": "36,5 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "36.5",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "0.001",
-        "Normalized value": "0.0365",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "GPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "72 1 ISO 178",
-        "Standards": "ISO 178",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-PEBA40D",
-        "Locator": "p. 1: Flexural Modulus Flexural, ISO 178 72,1",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Flexural Modulus Flexural, ISO 178 72,1 36,5 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M045",
@@ -319,11 +134,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M045",
@@ -366,11 +184,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M045",
@@ -413,11 +234,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M045",
@@ -460,7 +284,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "148 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "148",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "148",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-varioShore-PEBA40D",
+        "Locator": "p. 1: Melting Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting Temp. DSC, ISO 11357 148 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -471,16 +348,16 @@
         "MaterialID": "M045",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "210 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "60 °C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -520,20 +397,23 @@
         },
         {
           "Topic": "Cooling",
-          "Text": "100"
+          "Text": "100 %"
         },
         {
           "Topic": "Speed",
-          "Text": "50"
+          "Text": "50 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 2,
-        "text": "Adhesion spray (3D -"
+        "text": "Nozzle Temp. 210 250 ˚C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -543,10 +423,29 @@
   "settings": [
     {
       "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temp",
+      "raw": "210 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temp. 210 250 ˚C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temp",
+      "raw": "60 °C",
+      "fromBelow": false,
+      "line": "Bed Temp. 60 60 ˚C"
+    },
+    {
+      "page": 2,
       "field": "note",
       "topic": "Adhesion / release",
       "label": "Adhesion",
       "raw": "spray (3D",
+      "fromBelow": false,
       "line": "Adhesion spray (3D -"
     },
     {
@@ -555,6 +454,7 @@
       "topic": "Adhesion / release",
       "label": "Adhesion",
       "raw": "spray (3D",
+      "fromBelow": false,
       "line": "Bed / surface modification Adhesion spray (3D"
     },
     {
@@ -562,7 +462,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "100",
+      "raw": "100 %",
+      "fromBelow": false,
       "line": "Active cooling fan 100 100 %"
     },
     {
@@ -570,7 +471,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Print Speed",
-      "raw": "50",
+      "raw": "50 mm/s",
+      "fromBelow": false,
       "line": "Print Speed 50 50 mm/s"
     }
   ],
@@ -617,28 +519,48 @@
     },
     {
       "page": 1,
+      "text": "Stress @ 300% Tenilse, ISO 37-1A 9,5 5,0 MPa",
+      "reason": "the row states 2 values in columns of its own (9,5, 5,0) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength Tensile, ISO 37-1A 19,7 6,2 MPa",
+      "reason": "the row states 2 values in columns of its own (19,7, 6,2) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break Tensile, ISO 37-1A 1110 616,0 %",
+      "reason": "the row states 2 values in columns of its own (1110, 616,0) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus Flexural, ISO 178 72,1 36,5 MPa",
+      "reason": "the row states 2 values in columns of its own (72,1, 36,5) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 NA NA MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Impact Strength Charpy Notch, ISO 179 NA NA kJ/m2",
-      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+      "reason": "the sheet publishes no value for Impact strength in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Tensile Strength Tensile, ISO 527-1A NA MPa",
-      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Elongation at break Tensile, ISO 527-1A NA %",
-      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 NA MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -647,23 +569,18 @@
     },
     {
       "page": 1,
-      "text": "Melting Temp. DSC, ISO 11357 148 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "text": "Glass Transition Temp. DSC, ISO 11357 NA ˚C",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 NA ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 NA ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Heat Deflection Temp. HDT-B, ISO 75 NA ˚C",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for HDT in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -673,12 +590,12 @@
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (210˚C/2.16 kg), NA g/10min",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (190˚C/1,16 kg), NA g/10 min",
-      "reason": "no property and value this line states together"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -752,16 +669,6 @@
     },
     {
       "page": 2,
-      "text": "Nozzle Temp. 210 250 ˚C",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Bed Temp. 60 60 ˚C",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -802,6 +709,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

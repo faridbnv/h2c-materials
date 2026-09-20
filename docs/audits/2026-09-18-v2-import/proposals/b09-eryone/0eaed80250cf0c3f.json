@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "0eaed80250cf0c3fc057ed175c1022d3cbc8e11f9c907c62f6f2a3809221c873",
@@ -14,17 +14,18 @@
   },
   "identity": {
     "polymer": "PLA",
-    "modifier": "Unfilled / unspecified",
+    "modifier": "Foaming",
     "variantClass": "",
     "finish": "",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pla"
+      "name: pla",
+      "filler: lightweight"
     ],
-    "materialId": "M001",
-    "materialName": "PLA",
+    "materialId": "M017",
+    "materialName": "PLA Aero",
     "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
@@ -34,7 +35,7 @@
     "row": {
       "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
       "Publisher": "Eryone",
-      "Title": "Technical Data Sheet (TDS)",
+      "Title": "Technical Data Sheet (TDS) Light Weight PLA",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "Technical Data Sheet (TDS)"
+      "text": "Technical Data Sheet (TDS) Light Weight PLA"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M017",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Eryone",
-        "Product name": "(TDS)",
+        "Product name": "Light Weight PLA",
         "Shared formulation key": "R-ERYONE-eryone-pla-light-weight-tds",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,7 +85,7 @@
       },
       "evidence": {
         "page": 1,
-        "text": "Technical Data Sheet (TDS)"
+        "text": "Technical Data Sheet (TDS) Light Weight PLA"
       }
     }
   ],
@@ -90,7 +94,157 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.21 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.21",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "21.5°C",
+        "Standard / load": "g/cm³ at 21.5 ° C) ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density(g/cm³ at 21.5 ° C） ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.21"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "54 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "54",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525 ISO 306 GB/T 1633",
+        "Standards": "ASTM D1525; ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 1: Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃ 54"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "48 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "48",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 1: Heat distortion temperature(° C) ASTM D648 0.45MPa ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa ℃ 48"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
         "Raw value": "7.5-7.7 g/10min",
@@ -130,7 +284,360 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "20 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "20",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "20",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Tensile strength X-Y 50mm/min GB/T 1040.4 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength X-Y 50mm/min GB/T 1040.4 MPa 20"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1350 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1350",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.1-2006",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Tensile modulus X-Y 50mm/min GB/T 1040.1-2006 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile modulus X-Y 50mm/min GB/T 1040.1-2006 MPa 1350"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "758.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "758.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.7583",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.1-2006",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Tensile modulus X-Z 50mm/min GB/T 1040.1-2006 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile modulus X-Z 50mm/min GB/T 1040.1-2006 MPa 758.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.2",
+        "Standards": "GB/T 1040.2",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Elongation at breakX-Z 50mm/min GB/T 1040.2 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at breakX-Z 50mm/min GB/T 1040.2 % 1.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "45 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "45",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "45",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min GB/T 9341",
+        "Standards": "GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Bending strength 2mm/min GB/T 9341 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending strength 2mm/min GB/T 9341 MPa 45"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1680 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1680",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.68",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min GB/T 9341",
+        "Standards": "GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Bending modulus 2mm/min GB/T 9341 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending modulus 2mm/min GB/T 9341 MPa 1680"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "3 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2.75J GB/T 1043.1-2008",
+        "Standards": "GB/T 1043.1",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-pla-light-weight-tds",
+        "Locator": "p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2 3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -138,13 +645,13 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M001",
+        "MaterialID": "M017",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "210℃",
+        "Nozzle °C": "210℃-260℃",
         "Nozzle state": "range",
         "Nozzle min °C": "210",
-        "Nozzle max °C": "210",
+        "Nozzle max °C": "260",
         "Nozzle requirement": "required",
         "Bed °C": "45-60℃",
         "Bed state": "range",
@@ -195,7 +702,10 @@
         "text": "Nozzle temperature 210℃-260℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -208,7 +718,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle temperature",
-      "raw": "210℃",
+      "raw": "210℃-260℃",
+      "fromBelow": false,
       "line": "Nozzle temperature 210℃-260℃"
     },
     {
@@ -217,6 +728,7 @@
       "topic": "",
       "label": "Bed temperature",
       "raw": "45-60℃",
+      "fromBelow": false,
       "line": "Bed temperature 45-60℃"
     },
     {
@@ -225,6 +737,7 @@
       "topic": "Speed",
       "label": "Printing speed",
       "raw": "30-90mm/s",
+      "fromBelow": false,
       "line": "Printing speed 30-90mm/s"
     },
     {
@@ -233,6 +746,7 @@
       "topic": "Speed",
       "label": "speed",
       "raw": "60mm/s",
+      "fromBelow": false,
       "line": "speed=60mm/s, base plate 55° C, filling=100%, nozzle diameter=0.4mm"
     }
   ],
@@ -269,36 +783,6 @@
     },
     {
       "page": 1,
-      "text": "ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.21",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Density(g/cm³ at 21.5 ° C）",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
-      "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633)",
-      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
-      "text": "℃ 54",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "℃ 48",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
       "text": "220℃ 2.16kg GB/T 3682",
       "reason": "properties.csv carries no property for \"220℃ 2.16kg\""
     },
@@ -309,63 +793,8 @@
     },
     {
       "page": 2,
-      "text": "Tensile strength X-Y 50mm/min GB/T 1040.4",
-      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "MPa 20",
-      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min MPa 1350",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "GB/T 1040.1-2006",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 MPa 3",
-      "reason": "properties.csv carries no property for \"50mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min MPa 758.3",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "GB/T 1040.1-2006",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.2 % 1.2",
-      "reason": "properties.csv carries no property for \"50mm/min\" (%)"
-    },
-    {
-      "page": 2,
-      "text": "MPa 45",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Bending strength 2mm/min GB/T 9341",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "2mm/min GB/T 9341 MPa 1680",
-      "reason": "properties.csv carries no property for \"2mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "2.75J GB/T 1043.1-2008 kJ/m2 3",
-      "reason": "no property and value this line states together"
+      "text": "Elongation at breakX-Y 50mm/min GB/T 1040.4 MPa 3",
+      "reason": "the sheet states Elongation at break in MPa, and the database keeps it in %"
     },
     {
       "page": 2,
@@ -389,6 +818,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m08",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "Eryone's Light Weight PLA publishes 1.2 % beside a strength of 20 MPa and a modulus of 1350 MPa. Taken together the elongation is below the strain those two imply, which is the maker's own arithmetic on one sheet; each number is recorded as the sheet prints it and none is inferred from the others.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

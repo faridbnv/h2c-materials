@@ -222,3 +222,17 @@ test('a plus joins a polymer to its filler', () => {
   // A slash between two polymers is a blend's own name and stays one token.
   assert.equal(classify('PC/ABS', 'Flashforge').polymer, 'PC-ABS');
 });
+
+test('two words are joined into a name, not out of prose', () => {
+  // Every adjacent pair was joined, so a sheet's legal footer — "provided as a guidance", "considered as a
+  // quality specification" — produced "asa", and eight colorFabb products read as an ASA. A join is made only
+  // where it is a name something answers to and neither half is an ordinary English word.
+  const footer = 'ColorFabb CopperFill is a high quality PLA 3D printing filament, loaded with copper powder.'
+    + ' This information is provided as a guidance for good use and is not to be considered as a quality specification.';
+  const copper = classifyProduct('CopperFill', { manufacturer: 'colorFabb', body: footer }, world);
+  assert.equal(copper.polymer, 'PLA');
+  // The joins that are names still happen: a blend, a glycol-modified polyester, a two-word blend code.
+  assert.equal(classify('PC ABS', 'Flashforge').polymer, 'PC-ABS');
+  assert.equal(classify('PET G Premium', 'Spectrum').polymer, 'PETG');
+  assert.equal(classify('THERMAX PPE PS', '3DXTECH').polymer, 'PPE-PS');
+});

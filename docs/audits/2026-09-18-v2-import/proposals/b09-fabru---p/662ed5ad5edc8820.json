@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "662ed5ad5edc88207d290f15ccfb2d264f642a8efad2461a17cc88455faeea28",
@@ -18,19 +18,35 @@
     "variantClass": "",
     "finish": "",
     "family": "PVB / Specialty Polymers",
-    "hardness": null,
+    "hardness": "94A",
     "support": false,
     "signals": [
-      "title: pvc"
+      "name: pvc",
+      "hardness: 94A"
     ],
     "materialId": null,
     "materialName": null,
-    "estimateIdentity": "",
+    "estimateIdentity": "PVC",
     "confidence": 1,
-    "needsRuling": true,
-    "reasons": [
-      "\"PVC\" has no row in polymers.csv, so a material of it cannot be created"
-    ]
+    "needsRuling": false,
+    "reasons": []
+  },
+  "newMaterial": {
+    "Original name": "PVC",
+    "Family": "PVB / Specialty Polymers",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "PVC",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PVC",
+    "Base polymer": "PVC",
+    "Estimate identity": "PVC",
+    "Modifier / filler": "Unfilled / unspecified",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil (p. 1): name: pvc; hardness: 94A."
   },
   "source": {
     "row": {
@@ -62,14 +78,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fabru / purefil",
-        "Product name": "Allgemein",
+        "Product name": "Polyvinylchlorid weich 94A (PVC-P)",
         "Shared formulation key": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -94,20 +113,120 @@
       "row": {
         "MaterialID": "",
         "GradeID": "",
-        "Property": "Vicat softening temperature",
-        "Raw value": "23 °C",
-        "Raw unit": "°C",
-        "Raw numeric": "23",
+        "Property": "Tensile yield strength",
+        "Raw value": "24.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "24.8",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "23",
+        "Normalized value": "24.8",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "°C",
+        "Normalized unit": "MPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
+        "Locator": "p. 1: Streckspannung (ISO 527)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckspannung (ISO 527) 24.8 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "366 %",
+        "Raw unit": "%",
+        "Raw numeric": "366",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "366",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
+        "Locator": "p. 1: Reissdehnung (ISO 527)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Reissdehnung (ISO 527) 366 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.269 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.269",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1269",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -116,29 +235,41 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ISO 1183-1",
+        "Standards": "ISO 1183",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil",
-        "Locator": "p. 1: Vicat Erweichungstemperatur A - °C Wärmeleitzahl",
-        "Notes": "Not applicable",
+        "Locator": "p. 1: Dichte (ISO 1183-1)",
+        "Notes": "\"1.269\" may be a thousands separator or a decimal one; read as 1.269 because the other reading is outside anything this property reaches",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Wärmeleitzahl 23°C - W/(K*m)"
+        "text": "Dichte (ISO 1183-1) 1.269 g/cm3"
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
   "profiles": [],
   "evidence": [],
-  "headlines": [],
+  "headlines": [
+    {
+      "HeadlineKey": "density",
+      "measurement": "m03",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
   "coverage": [],
   "settings": [],
   "skipped": [
@@ -164,23 +295,18 @@
     },
     {
       "page": 1,
-      "text": "190-230 °C MFR - g/10min",
+      "text": "190-230 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Streckspannung (ISO 527) 24.8 MPa",
-      "reason": "properties.csv carries no property for \"Streckspannung (\""
+      "text": "MFR - g/10min",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"- g/10min\""
     },
     {
       "page": 1,
-      "text": "60-70 °C Streckdehnung - %",
+      "text": "60-70 °C",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Reissdehnung (ISO 527) 366 %",
-      "reason": "properties.csv carries no property for \"Reissdehnung (\""
     },
     {
       "page": 1,
@@ -194,11 +320,23 @@
     },
     {
       "page": 1,
-      "text": "Dichte (ISO 1183-1) 1.269 g/cm3",
-      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+      "text": "Wärmeleitzahl 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Fabru / purefil's Polyvinylchlorid weich 94A (PVC-P) publishes 366 % for this row (ISO 527). Elongation at break 366 % on a amorphous unfilled material is above 250, which is surprising: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

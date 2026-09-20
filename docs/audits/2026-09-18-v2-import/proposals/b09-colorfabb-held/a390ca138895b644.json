@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "a390ca138895b644c0eb2b3d813ef3ba98e2385d38aa499d814c20ef66aca518",
+    "url": "https://ninjatek.com/wp-content/uploads/colorFabb_LW-ASA_TDS.pdf",
+    "pages": 1,
+    "provider": "NinjaTek",
+    "manufacturer": "colorFabb",
+    "docKey": "https://ninjatek.com/wp-content/uploads/colorFabb_LW-ASA_TDS.pdf"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: lw"
+    ],
+    "materialId": "M032",
+    "materialName": "ASA Aero",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-colorFabb-LW-ASA-TDS",
+      "Publisher": "colorFabb",
+      "Title": "Technical datasheet colorFabb LW-ASA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ninjatek.com/wp-content/uploads/colorFabb_LW-ASA_TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "a390ca138895b644c0eb2b3d813ef3ba98e2385d38aa499d814c20ef66aca518"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet colorFabb LW-ASA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      },
+      "row": {
+        "MaterialID": "M032",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "LW-ASA",
+        "Shared formulation key": "R-COLORFABB-colorFabb-LW-ASA-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-colorFabb-LW-ASA-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet colorFabb LW-ASA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "0.40-1,07 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "0.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.07",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "400",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1070",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-LW-ASA-TDS",
+        "Locator": "p. 1: Density g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm3 0.40 - 1,07 -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "The sheet prints \"0.40 - 1,24 g/cm3\": the low end is what the filament reaches when its foaming is active, which is what the process does and not what the material weighs. The pair is not a density this database can record as one, and the sheet publishes no single value."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240 – 260 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 – 100 °C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "/ modification",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-LW-ASA-TDS",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 – 50 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Advised 3D printing temperature 240 – 260 ºC"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "printing temperature",
+      "raw": "240 – 260 °C",
+      "fromBelow": false,
+      "line": "Advised 3D printing temperature 240 – 260 ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "bed temperature",
+      "raw": "90 – 100 °C",
+      "fromBelow": false,
+      "line": "Advised bed temperature 90 – 100 ºC"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Bed surface",
+      "raw": "/ modification",
+      "fromBelow": false,
+      "line": "Bed surface / modification -"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "30 – 50 mm/s",
+      "fromBelow": false,
+      "line": "Advised 3D printing speed 30 – 50 mm/sec"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date of issue: October 29, 2020",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version: v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ColorFabb LW-ASA is a high quality expanding ASA 3D printing filament. The active foaming",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "technology can be used to achieve light weight, low density ASA parts. At around 230ºC this",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "material will start foaming, increasing its volume by nearly 2,5 times. Users can decrease",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "material flow by 60% to achieve light weight parts, or use the expanding properties to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "of 96ºC.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1,75 mm ± 0,10 ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2,85 mm ± 0,10 ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Netto filament weight 650 grams",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 F +31 (0)77 – 3971414 VAT nr: NL850902770B01",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "5951 DK Belfeld E sales@colorfabb.com IBAN: NL54RABO0151849188",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "The Netherlands I colorfabb.com BIC: RABONL2U",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m01",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's LW-ASA publishes 0.40-1,07 g/cm3 for this row (3). Density 400 kg/m³ on a amorphous compound material is below 700, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
+}

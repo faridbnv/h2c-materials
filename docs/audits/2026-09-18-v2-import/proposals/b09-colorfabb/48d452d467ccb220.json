@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "48d452d467ccb220bf754fa9e21e74b2ab72f94e896eece5ace228820758ffe8",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M039",
@@ -88,241 +91,6 @@
   "measurements": [
     {
       "id": "m01",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M039",
-        "GradeID": "",
-        "Property": "Tensile modulus",
-        "Raw value": "5040 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "5040",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "0.001",
-        "Normalized value": "5.04",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "GPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 527-1A",
-        "Standards": "ISO 527",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
-        "Locator": "p. 1: Youngs Modulus Tensile, ISO 527-1A",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Youngs Modulus Tensile, ISO 527-1A 50 40 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m02",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M039",
-        "GradeID": "",
-        "Property": "Tensile strength (endpoint unspecified)",
-        "Raw value": "2412 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "2412",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "2412",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "MPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 527-1A",
-        "Standards": "ISO 527",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
-        "Locator": "p. 1: Tensile Strength Tensile, ISO 527-1A",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Tensile Strength Tensile, ISO 527-1A 24 12 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m03",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M039",
-        "GradeID": "",
-        "Property": "Elongation at break",
-        "Raw value": "465450 %",
-        "Raw unit": "%",
-        "Raw numeric": "465450",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "465450",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 527-1A",
-        "Standards": "ISO 527",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
-        "Locator": "p. 1: Elongation at break Tensile, ISO 527-1A",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Elongation at break Tensile, ISO 527-1A 465 450 %"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m04",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M039",
-        "GradeID": "",
-        "Property": "Flexural modulus",
-        "Raw value": "5040 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "5040",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "0.001",
-        "Normalized value": "5.04",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "GPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 178",
-        "Standards": "ISO 178",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
-        "Locator": "p. 1: Flexural Modulus Flexural, ISO 178",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Flexural Modulus Flexural, ISO 178 50 40 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m05",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M039",
-        "GradeID": "",
-        "Property": "Flexural strength",
-        "Raw value": "32 MPa",
-        "Raw unit": "MPa",
-        "Raw numeric": "32",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "32",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "MPa",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "ISO 178",
-        "Standards": "ISO 178",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
-        "Locator": "p. 1: Flexural Strength Flexural, ISO 178",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Flexural Strength Flexural, ISO 178 3 2 MPa"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -365,11 +133,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -412,11 +183,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -459,11 +233,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m09",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -506,24 +283,27 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m10",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
         "GradeID": "",
         "Property": "Hardness",
-        "Raw value": "224092",
+        "Raw value": "92",
         "Raw unit": "Shore A",
-        "Raw numeric": "224092",
+        "Raw numeric": "92",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "224092",
+        "Normalized value": "92",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "Shore A",
@@ -537,13 +317,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-2240",
+        "Standards": "ASTM D2240",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
-        "Locator": "p. 1: Hardness Shore A, ASTM D-",
+        "Locator": "p. 1: Hardness Shore A, ASTM D-2240",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -553,7 +333,110 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "-20 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-20",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-20",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
+        "Locator": "p. 1: Glass Transition Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temp. DSC, ISO 11357 -20 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "130 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "130",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-varioShore-TPU-95A",
+        "Locator": "p. 1: Melting Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting Temp. DSC, ISO 11357 130 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -564,15 +447,15 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "˚C",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
+        "Nozzle °C": "195-260 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "195",
+        "Nozzle max °C": "260",
         "Nozzle requirement": "required",
-        "Bed °C": "˚C",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
+        "Bed °C": "50-60 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -602,14 +485,22 @@
         "Locator": "p. 2: Recommended printing settings",
         "Parse review": "Not applicable"
       },
-      "notes": [],
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40-100 mm/s"
+        }
+      ],
       "editorial": [],
       "evidence": {
         "page": 2,
         "text": "Nozzle Temp. ˚C 195-260"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -622,7 +513,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle Temp",
-      "raw": "˚C",
+      "raw": "195-260 °C",
+      "fromBelow": false,
       "line": "Nozzle Temp. ˚C 195-260"
     },
     {
@@ -630,8 +522,18 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temp",
-      "raw": "˚C",
+      "raw": "50-60 °C",
+      "fromBelow": false,
       "line": "Bed Temp. ˚C 50-60"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "40-100 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed mm/s 40-100"
     }
   ],
   "skipped": [
@@ -677,13 +579,38 @@
     },
     {
       "page": 1,
+      "text": "Youngs Modulus Tensile, ISO 527-1A 50 40 MPa",
+      "reason": "the row states 2 values in columns of its own (50, 40) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength Tensile, ISO 527-1A 24 12 MPa",
+      "reason": "the row states 2 values in columns of its own (24, 12) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break Tensile, ISO 527-1A 465 450 %",
+      "reason": "the row states 2 values in columns of its own (465, 450) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus Flexural, ISO 178 50 40 MPa",
+      "reason": "the row states 2 values in columns of its own (50, 40) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength Flexural, ISO 178 3 2 MPa",
+      "reason": "the row states 2 values in columns of its own (3, 2) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
       "text": "Youngs Modulus Tensile, ISO 527-1A - MPa",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"-\""
     },
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 N/A MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -692,23 +619,13 @@
     },
     {
       "page": 1,
-      "text": "Melting Temp. DSC, ISO 11357 130 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 N/A ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 -20 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Heat Deflection Temp. HDT-B, ISO 75 N/A ˚C",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for HDT in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -718,12 +635,12 @@
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (210˚C/2.16 kg), N/A g/10min",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (190˚C/1,16 kg), N/A g/10 min",
-      "reason": "no property and value this line states together"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -782,11 +699,6 @@
     },
     {
       "page": 2,
-      "text": "Print Speed mm/s 40-100",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -827,6 +739,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m01",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's varioShore TPU publishes 4020 kJ/m2 for this row (ISO 179). Charpy strength 4020 kJ/m² on a elastomer unfilled material is above 400, which is impossible: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

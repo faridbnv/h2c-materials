@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "7a500b54d01016b4b93c5953a66f2c2c969ddb870b8f4b17091540207866444e",
@@ -32,7 +32,7 @@
   },
   "source": {
     "row": {
-      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
       "Publisher": "colorFabb",
       "Title": "Technical datasheet PLA HP",
       "Revision": "Not published",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M001",
@@ -68,14 +71,14 @@
         "Status": "active",
         "Manufacturer": "colorFabb",
         "Product name": "PLA HP",
-        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
@@ -119,7 +122,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Locator": "p. 1: Youngs Modulus Tensile, ISO 527-1A",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -166,7 +172,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Locator": "p. 1: Tensile Strength Tensile, ISO 527-1A",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -213,7 +222,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Locator": "p. 1: Elongation at break Tensile, ISO 527-1A",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -260,7 +272,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Locator": "p. 1: Flexural Modulus Flexural, ISO 178",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -307,7 +322,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Locator": "p. 1: Flexural Strength Flexural, ISO 178",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -318,7 +333,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -354,7 +372,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Unnotched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "Locator": "p. 1: Charpy Impact Charpy Notch, ISO 179",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -365,7 +383,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "135 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "135",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "135",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
+        "Locator": "p. 1: Heat Deflection Temp.* HDT-B, ISO 75",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temp.* HDT-B, ISO 75 135 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -376,15 +447,15 @@
         "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "˚C",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
+        "Nozzle °C": "200-220 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "220",
         "Nozzle requirement": "required",
-        "Bed °C": "˚C",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
+        "Bed °C": "50-60 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -409,19 +480,31 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 2: Recommended printing settings",
         "Parse review": "Not applicable"
       },
-      "notes": [],
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "50-100 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-100 mm/s"
+        }
+      ],
       "editorial": [],
       "evidence": {
         "page": 2,
         "text": "Nozzle Temp. ˚C 200-220"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -434,7 +517,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle Temp",
-      "raw": "˚C",
+      "raw": "200-220 °C",
+      "fromBelow": false,
       "line": "Nozzle Temp. ˚C 200-220"
     },
     {
@@ -442,8 +526,27 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temp",
-      "raw": "˚C",
+      "raw": "50-60 °C",
+      "fromBelow": false,
       "line": "Bed Temp. ˚C 50-60"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "50-100 %",
+      "fromBelow": false,
+      "line": "Active cooling fan % 50-100"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "40-100 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed mm/s 40-100"
     }
   ],
   "skipped": [
@@ -469,23 +572,18 @@
     },
     {
       "page": 1,
+      "text": "Glass Transition Temp. DSC, ISO 11357 N/A ˚C",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
       "text": "Melting Temp. DSC, ISO 11357 N/A ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Melting temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 N/A ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 N/A ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
-      "text": "Heat Deflection Temp.* HDT-B, ISO 75 135 ˚C",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -495,12 +593,12 @@
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (210˚C/2.16 kg), N/A g/10min",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (190˚C/1,16 kg), N/A g/10 min",
-      "reason": "no property and value this line states together"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -559,16 +657,6 @@
     },
     {
       "page": 2,
-      "text": "Active cooling fan % 50-100",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Print Speed mm/s 40-100",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -609,6 +697,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

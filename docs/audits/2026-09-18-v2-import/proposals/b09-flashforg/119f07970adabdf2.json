@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "119f07970adabdf203beb370d797ee705c1cba54370392d0f7b31f01a76a9719",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M001",
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -318,7 +333,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -365,7 +383,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -412,7 +433,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -459,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -506,7 +533,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -553,7 +583,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -569,11 +602,11 @@
         "Nozzle min °C": "210",
         "Nozzle max °C": "210",
         "Nozzle requirement": "required",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Bed °C": "Room temperature~60℃ (40℃ recommended)",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -599,7 +632,7 @@
         "Failure modes": "Not published",
         "SourceID": "D-FLASH-PLA-Multicolor-TDS-EN",
         "H2C SourceID": "H2C-WIKI",
-        "Locator": "p. 2: Recommended printing settings",
+        "Locator": "p. 2: Recommended printing settings: Nozzle Temperature",
         "Parse review": "Not applicable"
       },
       "notes": [
@@ -613,23 +646,23 @@
         },
         {
           "Topic": "Cooling",
-          "Text": "50"
+          "Text": "50~100%"
         },
         {
           "Topic": "Layer height",
-          "Text": "0.12"
+          "Text": "0.12~0.3mm"
         },
         {
           "Topic": "Speed",
-          "Text": "60"
+          "Text": "60~90mm/s (60mm/s recommended)"
         },
         {
           "Topic": "Retraction",
-          "Text": "1"
+          "Text": "1~2mm"
         },
         {
           "Topic": "Retraction",
-          "Text": "30"
+          "Text": "30~50mm/s"
         }
       ],
       "editorial": [],
@@ -638,7 +671,96 @@
         "text": "Nozzle Diameter 0.4mm"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "190~220℃ (210℃ recommended)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
+        "Bed °C": "Room temperature~60℃ (40℃ recommended)",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FLASH-PLA-Multicolor-TDS-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "60mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "1.2mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50~100%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.12~0.3mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "60~90mm/s (60mm/s recommended)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "1~2mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "30~50mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle Diameter 0.4mm"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -652,6 +774,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "0.4mm",
+      "fromBelow": false,
       "line": "Nozzle Diameter 0.4mm"
     },
     {
@@ -660,6 +783,7 @@
       "topic": "",
       "label": "Nozzle Temperature",
       "raw": "210 °C",
+      "fromBelow": false,
       "line": "Nozzle Temperature 210 °C"
     },
     {
@@ -668,6 +792,7 @@
       "topic": "Speed",
       "label": "Printing Speed",
       "raw": "60mm/s",
+      "fromBelow": false,
       "line": "Printing Speed 60mm/s"
     },
     {
@@ -676,7 +801,26 @@
       "topic": "Shell / walls",
       "label": "Wall Thickness",
       "raw": "1.2mm",
+      "fromBelow": false,
       "line": "Wall Thickness 1.2mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "190~220℃ (210℃ recommended)",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 190~220℃ (210℃ recommended)"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Build Platform Temperature",
+      "raw": "Room temperature~60℃ (40℃ recommended)",
+      "fromBelow": false,
+      "line": "Build Platform Temperature Room temperature~60℃ (40℃ recommended)"
     },
     {
       "page": 2,
@@ -684,6 +828,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "φ0.4/0.6mm (φ0.4mm recommended)",
+      "fromBelow": false,
       "line": "Nozzle Diameter φ0.4/0.6mm (φ0.4mm recommended)"
     },
     {
@@ -691,7 +836,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Cooling Fan",
-      "raw": "50",
+      "raw": "50~100%",
+      "fromBelow": false,
       "line": "Cooling Fan 50~100%"
     },
     {
@@ -699,7 +845,8 @@
       "field": "note",
       "topic": "Layer height",
       "label": "Layer Thickness",
-      "raw": "0.12",
+      "raw": "0.12~0.3mm",
+      "fromBelow": false,
       "line": "Layer Thickness 0.12~0.3mm"
     },
     {
@@ -707,7 +854,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Printing Speed",
-      "raw": "60",
+      "raw": "60~90mm/s (60mm/s recommended)",
+      "fromBelow": false,
       "line": "Printing Speed 60~90mm/s (60mm/s recommended)"
     },
     {
@@ -715,7 +863,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Distance",
-      "raw": "1",
+      "raw": "1~2mm",
+      "fromBelow": false,
       "line": "Retraction Distance 1~2mm"
     },
     {
@@ -723,7 +872,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Speed",
-      "raw": "30",
+      "raw": "30~50mm/s",
+      "fromBelow": false,
       "line": "Retraction Speed 30~50mm/s"
     }
   ],
@@ -741,16 +891,6 @@
     {
       "page": 2,
       "text": "Standard Testing Specimen Specific dimensions are shown in Attachment 1",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Nozzle Temperature 190~220℃ (210℃ recommended)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Build Platform Temperature Room temperature~60℃ (40℃ recommended)",
       "reason": "no property and value this line states together"
     },
     {
@@ -806,7 +946,7 @@
     {
       "page": 4,
       "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
-      "reason": "properties.csv carries no property for \"Tensile testing specimen;\""
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
     },
     {
       "page": 4,
@@ -831,7 +971,7 @@
     {
       "page": 4,
       "text": "Flexural testing specimen; ASTM D790 (ISO 178, GB/T 9341)",
-      "reason": "properties.csv carries no property for \"Flexural testing specimen;\""
+      "reason": "a description of the specimen the tests were run on, not a result: \"Flexural testing specimen;\""
     },
     {
       "page": 4,
@@ -840,7 +980,7 @@
     },
     {
       "page": 4,
-      "text": "45.00° Zaxis",
+      "text": "45.00°",
       "reason": "no property and value this line states together"
     },
     {
@@ -856,10 +996,22 @@
     {
       "page": 4,
       "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
-      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+      "reason": "a description of the specimen the tests were run on, not a result: \"Impact testing specimen;\""
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Flashforge's PLA Multicolor publishes a modulus of elasticity of 1000~1100 MPa (X-Y, ISO 527). A printed multicolour PLA measured across its layers is softer than a moulded bar of the same polymer, and the window is drawn from moulded and printed rows together. Recorded as printed.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

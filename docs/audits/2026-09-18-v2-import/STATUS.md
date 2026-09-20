@@ -6,13 +6,13 @@
 
 | | Before the import | Now |
 |---|---:|---:|
-| materials | 103 | 131 |
-| grades | 179 | 375 |
-| measurements | 2,645 | 4,801 |
-| sources | 300 | 528 |
-| profiles | 172 | 427 |
-| print notes | 363 | 977 |
-| headline selections | 377 | 452 |
+| materials | 103 | 143 |
+| grades | 179 | 494 |
+| measurements | 2,645 | 6,009 |
+| sources | 300 | 665 |
+| profiles | 172 | 530 |
+| print notes | 363 | 1,229 |
+| headline selections | 377 | 474 |
 
 ```bash
 npm run sql --silent -- "select (select count(*) from materials) materials, (select count(*) from grades) grades,
@@ -25,16 +25,19 @@ npm run sql --silent -- "select (select count(*) from materials) materials, (sel
 | | Documents |
 |---|---:|
 | in the ledger | 1,936 |
-| applied: their values are in the database | 363 |
-| read and waiting for a batch | 274 |
-| the same sheet again, another language's edition, or a revision superseded | 235 |
-| the same numbers under another product name, queued as a question | 76 |
-| fetched, not yet read | 112 |
-| not yet fetched | 861 |
-| a dead link, a user guide or a safety sheet | 14 |
+| applied: their values are in the database | 500 |
+| read and waiting for a batch | 554 |
+| the same sheet again, another language's edition, or a revision superseded | 208 |
+| the same numbers under another product name, queued as a question | 139 |
+| not yet fetched | 404 |
+| behind a login or a request form | 64 |
+| a safety data sheet, not a data sheet | 29 |
+| fetched, and carries no numbers to read | 23 |
+| a dead link, or out of scope | 15 |
 
-Nothing is now unreadable for want of a text layer: 49 scans were read optically, and a value from one of those
-does not enter until somebody has read it against the page image.
+Nothing waits for a text layer: 49 scans were read optically, and a value from one of those does not enter until
+somebody has read it against the page image. The 23 that carry no numbers are web pages whose tables are drawn
+by a script the capture did not run; they are a fetch problem, not a reading one.
 
 ```bash
 npm run ingest:ocr -- --all        # the scans
@@ -72,10 +75,17 @@ npm run ingest:propose -- --provider "Polymaker / Fiberon" --compare
 | b06-ppe | 3DXTECH THERMAX PPE/PS | 1 | m61, 2026-09-19 |
 | [b07-extrudr](batches/b07-extrudr/README.md) | Extrudr | 24 | m63, 2026-09-19 |
 | [b08-sunlu](batches/b08-sunlu/README.md) | SUNLU | 38 | m65, 2026-09-19 |
+| [b09](batches/b09/README.md) | Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy | 134 | m72, 2026-09-19 |
 
 ## Next
 
-1. The five libraries already read and waiting: colorFabb, Fabru / purefil, Flashforge, Eryone, Fiberlogy.
-2. The twelve products held for an identity: four SUNLU, eight Extrudr.
-3. The rest of Wave B, then the viewer libraries of Wave C and the retailers of Wave D.
-4. The properties the database does not carry, which cost values on every maker's sheets.
+1. The 73 documents b09 held: the optically read ones need a reader against the page image, and the rest need an
+   identity ruling apiece (`batches/b09/README.md` names each).
+2. The twelve products held before that for an identity: four SUNLU, eight Extrudr.
+3. The 554 documents already read and waiting across about two dozen makers, then the 404 not yet fetched.
+4. The 139 twin-check decisions, under R053: a grade each, citing its own sheet, the values recorded once.
+5. The estimate model's block solve. The stage is 40 s on today's data and cubic in it; `npm run scale` reads
+   111 s at twice the data against a 150 s budget, so this stops being deferrable within two or three batches
+   (`batches/b09/README.md`, "What it costs").
+6. The 64 gated documents, which need the owner's credentials.
+7. The properties the database does not carry, which cost values on every maker's sheets.

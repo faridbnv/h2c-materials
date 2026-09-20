@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "b68e8d6f66aa189424f420ae2691490679a7d9391a7158b52c32bf5e20891fe4",
@@ -61,7 +61,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M039",
@@ -131,7 +134,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -178,7 +184,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -225,7 +234,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -272,7 +284,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -319,7 +334,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -366,7 +384,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -413,7 +434,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -424,16 +448,16 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "60 °C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -465,20 +489,23 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "100"
+          "Text": "100 %"
         },
         {
           "Topic": "Speed",
-          "Text": "50"
+          "Text": "50 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 2,
-        "text": "Active cooling fan 100 %"
+        "text": "Nozzle Temp. 250 ˚C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -488,10 +515,29 @@
   "settings": [
     {
       "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temp",
+      "raw": "250 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temp. 250 ˚C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temp",
+      "raw": "60 °C",
+      "fromBelow": false,
+      "line": "Bed Temp. 60 ˚C"
+    },
+    {
+      "page": 2,
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "100",
+      "raw": "100 %",
+      "fromBelow": false,
       "line": "Active cooling fan 100 %"
     },
     {
@@ -499,7 +545,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Print Speed",
-      "raw": "50",
+      "raw": "50 mm/s",
+      "fromBelow": false,
       "line": "Print Speed 50 mm/s"
     }
   ],
@@ -542,32 +589,32 @@
     {
       "page": 1,
       "text": "Flexural Modulus Flexural, ISO 178 NA MPa",
-      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 NA MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Impact Strength Charpy Notch, ISO 179 NA kJ/m2",
-      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+      "reason": "the sheet publishes no value for Impact strength in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Tensile Strength Tensile, ISO 527-1A NA MPa",
-      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Elongation at break Tensile, ISO 527-1A NA %",
-      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 NA MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -576,23 +623,23 @@
     },
     {
       "page": 1,
+      "text": "Glass Transition Temp. DSC, ISO 11357 NA ˚C",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"NA\""
+    },
+    {
+      "page": 1,
       "text": "Melting Temp. DSC, ISO 11357 NA ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Melting temperature in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 NA ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 NA ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Heat Deflection Temp. HDT-B, ISO 75 NA ˚C",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for HDT in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -602,12 +649,12 @@
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (210˚C/2.16 kg), NA g/10min",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (190˚C/1,16 kg), NA g/10 min",
-      "reason": "no property and value this line states together"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -681,16 +728,6 @@
     },
     {
       "page": 2,
-      "text": "Nozzle Temp. 250 ˚C",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Bed Temp. 60 ˚C",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -731,6 +768,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

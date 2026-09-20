@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "23c9c450444fc2fe2980fffbe599db11fbbe4758068061cdce536712e535062e",
@@ -61,7 +61,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M017",
@@ -131,7 +134,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -178,7 +184,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -225,7 +234,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -272,7 +284,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -319,11 +334,214 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2512-2723 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "2512",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "2723",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.512",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "2.723",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PLA-LW-TDS-EN",
+        "Locator": "p. 1: Bending Modulus (X-Y) ISO 178 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending Modulus (X-Y) ISO 178 Mpa 2512-2723"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1908-2317 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "1908",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "2317",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.908",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "2.317",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PLA-LW-TDS-EN",
+        "Locator": "p. 1: Bending Modulus (X-Z) ISO 178 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending Modulus (X-Z) ISO 178 Mpa 1908-2317"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "78.9-80.2 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "78.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "80.2",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "78.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "80.2",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PLA-LW-TDS-EN",
+        "Locator": "p. 1: Bending Strength (X-Y) ISO 178 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending Strength (X-Y) ISO 178 Mpa 78.9-80.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "53 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.455 MPa 66 psi ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PLA-LW-TDS-EN",
+        "Locator": "p. 2: HDT@ 0.455 MPa (66 psi) ISO 75 ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "HDT@ 0.455 MPa (66 psi) ISO 75 ℃ 53"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M017",
@@ -366,7 +584,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -377,16 +598,16 @@
         "MaterialID": "M017",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "210~240°C (220°C recommended)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "Room temperature~60°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -418,7 +639,7 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "50"
+          "Text": "50~100%"
         },
         {
           "Topic": "Adhesion / release",
@@ -426,11 +647,11 @@
         },
         {
           "Topic": "Layer height",
-          "Text": "0.12"
+          "Text": "0.12~0.3mm"
         },
         {
           "Topic": "Speed",
-          "Text": "40"
+          "Text": "40~100mm/s"
         },
         {
           "Topic": "Retraction",
@@ -438,7 +659,7 @@
         },
         {
           "Topic": "Retraction",
-          "Text": "30"
+          "Text": "30~50mm/s"
         }
       ],
       "editorial": [],
@@ -447,7 +668,10 @@
         "text": "Nozzle Diameter 0.4mm"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -461,7 +685,26 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "0.4mm",
+      "fromBelow": false,
       "line": "Nozzle Diameter 0.4mm"
+    },
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "210~240°C (220°C recommended)",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 210~240°C (220°C recommended)"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Build Platform Temperature",
+      "raw": "Room temperature~60°C",
+      "fromBelow": false,
+      "line": "Build Platform Temperature Room temperature~60°C"
     },
     {
       "page": 3,
@@ -469,6 +712,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "φ0.4/0.6mm (φ0.4mm recommended)",
+      "fromBelow": false,
       "line": "Nozzle Diameter φ0.4/0.6mm (φ0.4mm recommended)"
     },
     {
@@ -476,7 +720,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Cooling Fan",
-      "raw": "50",
+      "raw": "50~100%",
+      "fromBelow": false,
       "line": "Cooling Fan 50~100%"
     },
     {
@@ -485,6 +730,7 @@
       "topic": "Adhesion / release",
       "label": "First Layer",
       "raw": "Flow Rate 1.3",
+      "fromBelow": false,
       "line": "First Layer Flow Rate 1.3"
     },
     {
@@ -492,7 +738,8 @@
       "field": "note",
       "topic": "Layer height",
       "label": "Layer Thickness",
-      "raw": "0.12",
+      "raw": "0.12~0.3mm",
+      "fromBelow": false,
       "line": "Layer Thickness 0.12~0.3mm"
     },
     {
@@ -500,7 +747,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Printing Speed",
-      "raw": "40",
+      "raw": "40~100mm/s",
+      "fromBelow": false,
       "line": "Printing Speed 40~100mm/s"
     },
     {
@@ -509,6 +757,7 @@
       "topic": "Retraction",
       "label": "Retraction",
       "raw": "Length 0.3~1mm",
+      "fromBelow": false,
       "line": "Retraction Length 0.3~1mm"
     },
     {
@@ -516,7 +765,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Speed",
-      "raw": "30",
+      "raw": "30~50mm/s",
+      "fromBelow": false,
       "line": "Retraction Speed 30~50mm/s"
     }
   ],
@@ -530,31 +780,6 @@
       "page": 1,
       "text": "it in an oven at 50°C for at least 5 hours before use, and to keep it stored in a dry box",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "ISO 178 Mpa",
-      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
-    },
-    {
-      "page": 1,
-      "text": "Bending Modulus (X-Y) 2512-2723",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
-      "text": "Bending Modulus (X-Z) 1908-2317",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
-      "text": "ISO 178 Mpa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
-    },
-    {
-      "page": 1,
-      "text": "Bending Strength (X-Y) 78.9-80.2",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
       "page": 2,
@@ -574,16 +799,6 @@
     {
       "page": 2,
       "text": "Izod Impact Strength (X-Z) 3.2-4.1",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 2,
-      "text": "ISO 75 ℃",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 2,
-      "text": "HDT@ 0.455 MPa (66 psi) 53",
       "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
@@ -613,16 +828,6 @@
     },
     {
       "page": 3,
-      "text": "Nozzle Temperature 210~240°C (220°C recommended)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 3,
-      "text": "Build Platform Temperature Room temperature~60°C",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 3,
       "text": "Flow Rate 0.6~0.8 (0.7 recommended)",
       "reason": "no property and value this line states together"
     },
@@ -643,6 +848,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

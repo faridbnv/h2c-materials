@@ -35,6 +35,17 @@ const MODIFIER_ORDER = byLength(MODIFIERS);
 const VARIANT_ORDER = byLength(VARIANTS);
 
 const MODIFIER_TOKENS = new Set(MODIFIERS.map((m) => m.Token));
+// Every token any lexicon knows. Two words are joined into one only where the join is a name something answers
+// to: joining every pair made a polymer out of prose, and "provided as a guidance" filed eight colorFabb
+// products under ASA because their legal footer says it.
+// The short English words a data sheet's prose is made of. Not stopwords.csv, which says what a product name may
+// contain; this says what may be joined to what.
+const ENGLISH = new Set(['a', 'an', 'as', 'at', 'be', 'by', 'do', 'for', 'if', 'in', 'is', 'it', 'its', 'no', 'not',
+  'of', 'on', 'or', 'so', 'the', 'to', 'up', 'use', 'we', 'you', 'all', 'any', 'are', 'can', 'may', 'per', 'has',
+  'was', 'one', 'two', 'out', 'our', 'who', 'why', 'how', 'and', 'but', 'with', 'from', 'this', 'that', 'they',
+  'them', 'than', 'then', 'when', 'will', 'good', 'high', 'low', 'more', 'most', 'such', 'a4', 'as3']);
+
+const KNOWN_TOKENS = new Set([...POLYMERS.map((p) => p.Token), ...MODIFIERS.map((m) => m.Token), ...VARIANTS.map((v) => v.Token)]);
 
 /**
  * A product name as tokens: lower case, split on anything that is not a letter or digit, brand words dropped, and
@@ -70,8 +81,16 @@ export function tokenise(text) {
     }
     // A polymer written as two words ("PC ABS", "PET G", "PA6 66", "PPE PS") is one name. Joining the pair makes
     // the alias reachable; without it the longest single token wins and a PC/ABS blend reads as plain ABS.
+    // Only where both halves could be part of a name. Joining every pair made a polymer out of prose: "provided
+    // as a guidance" gave "asa", and eight colorFabb products read as ASA because their legal footer says it.
+    // An ordinary English word is not half of a polymer's name, and neither is a word long enough to be one.
+    // Joined only where the join is a name something answers to, and where neither half is an ordinary English
+    // word: "asa" is ASA's own alias, and "provided as a guidance" filed eight colorFabb products under ASA.
     const next = plain[i + 1];
-    if (next) out.push(`${token}-${next}`, `${token}${next}`);
+    const joinable = (t) => !ENGLISH.has(t);
+    for (const joined of next && joinable(token) && joinable(next) ? [`${token}-${next}`, `${token}${next}`] : []) {
+      if (KNOWN_TOKENS.has(joined)) out.push(joined);
+    }
     if (POLYMER_ORDER.some((p) => p.Token === token)) continue;
     for (const p of POLYMER_ORDER) {
       if (token.length <= p.Token.length || !token.startsWith(p.Token)) continue;
@@ -116,13 +135,21 @@ const SUPPORT = /\b(support|breakaway|dissolv|soluble|polysupport|sr-?30|rapidri
  * or without its maker in front of it; the Value is a PolymerID. Nothing else in a ruling reaches the reader:
  * a ruling that settles a material or a filler is read by apply.mjs, where the material is created.
  */
-function identityRuling(product, context, world) {
+function identityRuling(product, context, world, seen = null) {
   const norm = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9/+]+/g, ' ').trim();
   const names = new Set([norm(product), norm(`${context.manufacturer ?? ''} ${product}`)].filter(Boolean));
   const polymers = new Set((world.polymers ?? []).map((p) => p.PolymerID));
   for (const r of world.rulings ?? []) {
     if (r.Kind !== 'identity' || !names.has(norm(r.Subject)) || !polymers.has(r.Value)) continue;
     return { ruling: r.Ruling, token: norm(product), value: r.Value, note: r.Reason };
+  }
+  // A ruling may answer for a name rather than for a product: "TPS" on these sheets is the ISO 18064 code for a
+  // styrenic elastomer, not thermoplastic starch, and every sheet that says it means the same thing.
+  if (seen) {
+    for (const r of world.rulings ?? []) {
+      if (r.Kind !== 'identity' || norm(r.Subject) !== norm(seen) || !polymers.has(r.Value)) continue;
+      return { ruling: r.Ruling, token: norm(seen), value: r.Value, note: r.Reason };
+    }
   }
   return null;
 }
@@ -203,7 +230,7 @@ export function classifyProduct(product, context = {}, world = {}) {
   // An identity the rule cannot settle is a ruling, written once and applied to every sheet that says the same
   // thing. SUNLU's Easy PA sheet says only "PA", which names a family; SUNLU's own store calls it a PA6/66
   // copolymer, and the ruling carries that answer here so the reader does not have to guess it twice.
-  const namedByRuling = identityRuling(product, context, world);
+  const namedByRuling = identityRuling(product, context, world, polymer?.token ?? null);
   if (namedByRuling) {
     polymer = { token: namedByRuling.token, value: namedByRuling.value, note: namedByRuling.note };
     signals.push(`ruling ${namedByRuling.ruling}: ${namedByRuling.value}`);

@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "d10cdb9067bb12dda9d4f1455a0ccd54d6b0b594f53dc43cacc2f31aa3833466",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/8446%2FFiche-technique-du-mat%C3%A9riau-PP-GF20.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "d10cdb9067bb12dd"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pp",
+      "filler: gf20 (from the sheet, not the name)"
+    ],
+    "materialId": "M084",
+    "materialName": "PP-GF",
+    "estimateIdentity": "PP",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-8446-Fiche-technique-du-mat-riau-PP-GF20",
+      "Publisher": "Fabru / purefil",
+      "Title": "Polypropylène Fibre de verre 20 % (PP GF20)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/8446%2FFiche-technique-du-mat%C3%A9riau-PP-GF20.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d10cdb9067bb12dda9d4f1455a0ccd54d6b0b594f53dc43cacc2f31aa3833466"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polypropylène Fibre de verre 20 % (PP GF20)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      },
+      "row": {
+        "MaterialID": "M084",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Généralités",
+        "Shared formulation key": "R-FABRU-PUREFIL-8446-Fiche-technique-du-mat-riau-PP-GF20",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Inflammabilité (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-8446-Fiche-technique-du-mat-riau-PP-GF20",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Polypropylène Fibre de verre 20 % (PP GF20)"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Polypropylène Fibre de verre 20 % (PP GF20)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Le polypropylène (PP) avec 20 % de renfort en fibre de verre est un matériau composite créé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "200-240 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MFF (ISO 1133) 14 g/10min",
+      "reason": "properties.csv carries no property for \"MFF (\""
+    },
+    {
+      "page": 1,
+      "text": "Limite d'élasticité (ISO 527) 70 Mpa",
+      "reason": "properties.csv carries no property for \"Limite d'élasticité (\""
+    },
+    {
+      "page": 1,
+      "text": "90-110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Allongement d'élasticité (ISO 527) 5 %",
+      "reason": "properties.csv carries no property for \"Allongement d'élasticité (\""
+    },
+    {
+      "page": 1,
+      "text": "Allongement à la rupture (ISO 527) 5 %",
+      "reason": "properties.csv carries no property for \"Allongement à la rupture (\""
+    },
+    {
+      "page": 1,
+      "text": "Module de traction (ISO 178) 5300 Mpa",
+      "reason": "properties.csv carries no property for \"Module de traction (\""
+    },
+    {
+      "page": 1,
+      "text": "Température de stabilité 140 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "dimensionnelle 1,82 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ISO 75A)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Inflammabilité (UL 94) HB",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 1,
+      "text": "Masse volumique (ASTM D792) 1.04 g/cm3",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 1,
+      "text": "Conductivité thermique 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -43,7 +43,11 @@ const MISSING = /^Not (published|applicable)$/;
 // A source Title is what the publisher printed (D63): not a shop page's payment or store chrome, not a file name and
 // not a placeholder.
 const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google Pay|Shop Pay|American Express|Diners Club|Discover|Direct Debit|Add to cart|Checkout)\b/i;
-const FILE_NAME = /^B [A-Za-z]|_|\.(xlsx|xls|csv|pdf|docx?)$/i;
+// A file name, not a title: the register's own "B pla basic" shape, a document extension, a name that opens with
+// the kind of document it is ("TDS_FIBERON..."), or more than one underscore. A single underscore inside a word
+// is not enough — colorFabb writes its products nGen_FLEX and colorFabb_XT, and "Technical datasheet nGen_FLEX"
+// is the title its own sheet prints.
+const FILE_NAME = /^B [A-Za-z]|^(tds|msds|sds|pds|tdb)[_-]|_[^_]*_|\.(xlsx|xls|csv|pdf|docx?)$/i;
 export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
 
 const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];

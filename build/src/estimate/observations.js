@@ -51,8 +51,13 @@ export function snapshot(materials, gradeList, measurements, model) {
   const tgOf = (m) => own(m, 'Glass transition temperature', -150, 420)
     ?? median(pool.filter((p) => identityOf(p) === identityOf(m)).flatMap((p) => (byMaterial.get(p.id) ?? [])
       .filter((x) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !mouldedValue(x)).map((x) => x.value)));
+  // A bound on what this material's part can do comes from this material's own sheets, never from a sibling of
+  // the same identity: colorFabb's nGen FLEX publishes a glass transition of -40 °C, and read as the identity's
+  // it capped the rigid nGen's heat deflection at 30 °C. The fallback above stays for the fit, where an
+  // identity's glass transition is one observation among many.
+  const ownTgOf = (m) => own(m, 'Glass transition temperature', -150, 420);
 
-  return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf, vicatOf };
+  return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf, ownTgOf, vicatOf };
 }
 
 // --------------------------------------------------------------------------------- evidence kinds

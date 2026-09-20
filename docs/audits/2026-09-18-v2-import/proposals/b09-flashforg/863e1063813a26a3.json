@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "863e1063813a26a3588491008ec4c651271a8715abee9fbb00523bbc46929c42",
@@ -61,7 +61,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M071",
@@ -131,11 +134,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M071",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "35-40 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "40",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "40",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "280°C",
+        "Standard / load": "MFR 280℃/5Kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PPA-GF-TDS-EN",
+        "Locator": "p. 1: Melt Flow Rate (MFR) (280℃/5Kg) ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Flow Rate (MFR) (280℃/5Kg) ISO 1133 g/10min 35~40"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -178,11 +234,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -225,11 +284,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -272,11 +334,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -319,11 +384,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -366,11 +434,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -413,11 +484,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -460,11 +534,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m09",
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -507,11 +584,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m10",
+      "id": "m11",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -554,11 +634,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m11",
+      "id": "m12",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -601,11 +684,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m12",
+      "id": "m13",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -648,11 +734,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m13",
+      "id": "m14",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M071",
@@ -695,7 +784,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M071",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "1012 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "1012",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "1012",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "IEC 60093",
+        "Standards": "IEC 60093",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-FLASH-PPA-GF-TDS-EN",
+        "Locator": "p. 2: Surface Resistance IEC 60093 Ω",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Surface Resistance IEC 60093 Ω ≤1012"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -711,11 +853,11 @@
         "Nozzle min °C": "270",
         "Nozzle max °C": "270",
         "Nozzle requirement": "required",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Bed °C": "80~100℃ (90℃ recommended)",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -755,23 +897,23 @@
         },
         {
           "Topic": "Cooling",
-          "Text": "0"
+          "Text": "0~30%"
         },
         {
           "Topic": "Layer height",
-          "Text": "0.2"
+          "Text": "0.2~0.4mm"
         },
         {
           "Topic": "Speed",
-          "Text": "60"
+          "Text": "60~250mm/s (200mm/s recommended)"
         },
         {
           "Topic": "Retraction",
-          "Text": "0.5"
+          "Text": "0.5~1.5mm"
         },
         {
           "Topic": "Retraction",
-          "Text": "20"
+          "Text": "20~40mm/s"
         }
       ],
       "editorial": [
@@ -782,7 +924,10 @@
         "text": "Nozzle Diameter 0.4mm"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -796,6 +941,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "0.4mm",
+      "fromBelow": false,
       "line": "Nozzle Diameter 0.4mm"
     },
     {
@@ -804,6 +950,7 @@
       "topic": "",
       "label": "Nozzle Temperature",
       "raw": "270 °C",
+      "fromBelow": false,
       "line": "Nozzle Temperature 270 °C"
     },
     {
@@ -812,6 +959,7 @@
       "topic": "Speed",
       "label": "Printing Speed",
       "raw": "200mm/s",
+      "fromBelow": false,
       "line": "Printing Speed 200mm/s"
     },
     {
@@ -820,7 +968,17 @@
       "topic": "Shell / walls",
       "label": "Wall Thickness",
       "raw": "0.4mm",
+      "fromBelow": false,
       "line": "Wall Thickness 0.4mm"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Build Platform Temperature",
+      "raw": "80~100℃ (90℃ recommended)",
+      "fromBelow": false,
+      "line": "Build Platform Temperature 80~100℃ (90℃ recommended)"
     },
     {
       "page": 2,
@@ -828,6 +986,7 @@
       "topic": "",
       "label": "Nozzle Diameter",
       "raw": "φ0.4/0.6mm",
+      "fromBelow": false,
       "line": "Nozzle Diameter φ0.4/0.6mm"
     },
     {
@@ -835,7 +994,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Cooling Fan",
-      "raw": "0",
+      "raw": "0~30%",
+      "fromBelow": false,
       "line": "Cooling Fan 0~30%"
     },
     {
@@ -843,7 +1003,8 @@
       "field": "note",
       "topic": "Layer height",
       "label": "Layer Thickness",
-      "raw": "0.2",
+      "raw": "0.2~0.4mm",
+      "fromBelow": false,
       "line": "Layer Thickness 0.2~0.4mm"
     },
     {
@@ -851,7 +1012,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Printing Speed",
-      "raw": "60",
+      "raw": "60~250mm/s (200mm/s recommended)",
+      "fromBelow": false,
       "line": "Printing Speed 60~250mm/s (200mm/s recommended)"
     },
     {
@@ -859,7 +1021,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Distance",
-      "raw": "0.5",
+      "raw": "0.5~1.5mm",
+      "fromBelow": false,
       "line": "Retraction Distance 0.5~1.5mm"
     },
     {
@@ -867,7 +1030,8 @@
       "field": "note",
       "topic": "Retraction",
       "label": "Retraction Speed",
-      "raw": "20",
+      "raw": "20~40mm/s",
+      "fromBelow": false,
       "line": "Retraction Speed 20~40mm/s"
     }
   ],
@@ -893,21 +1057,6 @@
       "reason": "no property and value this line states together"
     },
     {
-      "page": 1,
-      "text": "ISO 1133 g/10min 35~40",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Melt Flow Rate (MFR) (280℃/5Kg)",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 2,
-      "text": "Surface Resistance IEC 60093 Ω ≤1012",
-      "reason": "properties.csv carries no property for \"Surface Resistance\""
-    },
-    {
       "page": 2,
       "text": "Test Equipment Guider 3 Ultra (Flashforge)",
       "reason": "no property and value this line states together"
@@ -925,11 +1074,6 @@
     {
       "page": 2,
       "text": "255~275℃ (270℃ recommended)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "Build Platform Temperature 80~100℃ (90℃ recommended)",
       "reason": "no property and value this line states together"
     },
     {
@@ -959,6 +1103,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "ac886392fd1f461c573760ef5c721e49bc483c48418ec9ac8722ff117cb356b4",
@@ -61,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M017",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "colorFabb",
-        "Product name": "colorFabb LW-PLA",
+        "Product name": "LW-PLA",
         "Shared formulation key": "R-COLORFABB-colorFabb-LW-PLA-TDS",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -131,7 +134,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "The sheet prints \"0.40 - 1,24 g/cm3\": the low end is what the filament reaches when its foaming is active, which is what the process does and not what the material weighs. The pair is not a density this database can record as one, and the sheet publishes no single value."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "55-60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "60",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "60",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-LW-PLA-TDS",
+        "Locator": "p. 1: Glass Transition Temperature °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temperature ºC 55 - 60 DSC"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -142,16 +198,16 @@
         "MaterialID": "M017",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "195 - 250°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "195",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "50 - 60°C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -193,10 +249,13 @@
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Bed surface / modification Tape or glue"
+        "text": "Nozzle temperature 195 - 250ºC"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -206,10 +265,29 @@
   "settings": [
     {
       "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "195 - 250°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 195 - 250ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "50 - 60°C",
+      "fromBelow": false,
+      "line": "Bed temperature 50 - 60ºC"
+    },
+    {
+      "page": 1,
       "field": "plate",
       "topic": "",
       "label": "Bed surface",
       "raw": "/ modification",
+      "fromBelow": false,
       "line": "Bed surface / modification Tape or glue"
     },
     {
@@ -218,6 +296,7 @@
       "topic": "Cooling",
       "label": "Active cooling fan",
       "raw": "0-100%",
+      "fromBelow": false,
       "line": "Active cooling fan 0-100%"
     },
     {
@@ -226,6 +305,7 @@
       "topic": "Speed",
       "label": "Print speed",
       "raw": "40-80 mm/s",
+      "fromBelow": false,
       "line": "Print speed 40-80 mm/s"
     }
   ],
@@ -267,21 +347,6 @@
     },
     {
       "page": 1,
-      "text": "Glass Transition Temperature ºC 55 - 60 DSC",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
-      "text": "Nozzle temperature 195 - 250ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
-      "text": "Bed temperature 50 - 60ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
       "text": "colorFabb B.V. T +31 (0)77 – 4664015 KvK nr: 53498607",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -302,6 +367,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

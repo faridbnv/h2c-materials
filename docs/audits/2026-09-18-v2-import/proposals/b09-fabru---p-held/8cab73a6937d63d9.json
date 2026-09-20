@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "8cab73a6937d63d90b32e4f2081e2a6f3201a8158f1bb718ad76ca6ee36e4710",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/220%2FMaterial+data+sheet+PVA+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "8cab73a6937d63d9"
+  },
+  "identity": {
+    "polymer": "PVA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Support / Soluble",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: pva"
+    ],
+    "materialId": "M075",
+    "materialName": "PVA",
+    "estimateIdentity": "PVA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"Polyvinyl alcohol (PVA)\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-220-Material-data-sheet-PVA-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Polyvinyl alcohol (PVA)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/220%2FMaterial+data+sheet+PVA+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "8cab73a6937d63d90b32e4f2081e2a6f3201a8158f1bb718ad76ca6ee36e4710"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polyvinyl alcohol (PVA)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M075",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Polyvinyl alcohol (PVA)",
+        "Shared formulation key": "R-FABRU-PUREFIL-220-Material-data-sheet-PVA-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-220-Material-data-sheet-PVA-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Polyvinyl alcohol (PVA)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M075",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "60 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-220-Material-data-sheet-PVA-purefil",
+        "Locator": "p. 1: MFR (ISO 1133)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ISO 1133) 60 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M075",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "28.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "28.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "28.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-220-Material-data-sheet-PVA-purefil",
+        "Locator": "p. 1: Yield stress (ISO 527)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield stress (ISO 527) 28.5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M075",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.258 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.258",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1258",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-220-Material-data-sheet-PVA-purefil",
+        "Locator": "p. 1: Density (ISO 1183)",
+        "Notes": "\"1.258\" may be a thousands separator or a decimal one; read as 1.258 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ISO 1183) 1.258 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "extrusion printing. Support structures detach from the printed object within 24 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "190-220 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "not absolutely necessary, recommended 60-90°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability (UL 94) HB",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Thermal conductivity 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

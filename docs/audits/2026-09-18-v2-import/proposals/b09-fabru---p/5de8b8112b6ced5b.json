@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "5de8b8112b6ced5b96c04865bc2934e14b20bae235bf20fc771d6384c46b23ed",
@@ -14,17 +14,18 @@
   },
   "identity": {
     "polymer": "ASA",
-    "modifier": "Unfilled / unspecified",
+    "modifier": "Carbon fibre",
     "variantClass": "",
     "finish": "",
     "family": "ASA",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: asa"
+      "name: asa",
+      "filler: cf10"
     ],
-    "materialId": "M031",
-    "materialName": "ASA",
+    "materialId": "M033",
+    "materialName": "ASA-CF",
     "estimateIdentity": "ASA",
     "confidence": 1,
     "needsRuling": false,
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
-        "MaterialID": "M031",
+        "MaterialID": "M033",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fabru / purefil",
-        "Product name": "Generale",
+        "Product name": "ASA CF10",
         "Shared formulation key": "R-FABRU-PUREFIL-7739-Scheda-tecnica-del-materiale-ASA-CF10-purefil",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -90,20 +94,20 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M031",
+        "MaterialID": "M033",
         "GradeID": "",
-        "Property": "Vicat softening temperature",
-        "Raw value": "23 °C",
-        "Raw unit": "°C",
-        "Raw numeric": "23",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "5.2 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "5.2",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "23",
+        "Normalized value": "5.2",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "°C",
+        "Normalized unit": "g/10 min",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
         "Direction": "Not applicable",
@@ -114,23 +118,26 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D1238",
+        "Standards": "ASTM D1238",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-FABRU-PUREFIL-7739-Scheda-tecnica-del-materiale-ASA-CF10-purefil",
-        "Locator": "p. 1: Vicat A(ASTM D1525) Conducibilità termica",
+        "Locator": "p. 1: MFR (ASTM D1238)",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Conducibilità termica 23°C - W/(K*m)"
+        "text": "MFR (ASTM D1238) 5.2 g/10min"
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -178,11 +185,11 @@
     {
       "page": 1,
       "text": "Restringimento (ASTM D955) - %",
-      "reason": "properties.csv carries no property for \"Restringimento (\""
+      "reason": "the sheet publishes no value for \"Restringimento (\" in this row: its value column prints \"- %\""
     },
     {
       "page": 1,
-      "text": "210-260 °C MFR (ASTM D1238) 5.2 g/10min",
+      "text": "210-260 °C",
       "reason": "no property and value this line states together"
     },
     {
@@ -192,7 +199,12 @@
     },
     {
       "page": 1,
-      "text": "90-110 °C (ASTM D638)",
+      "text": "90-110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D638)",
       "reason": "no property and value this line states together"
     },
     {
@@ -202,7 +214,12 @@
     },
     {
       "page": 1,
-      "text": "80 °C (ASTM D638)",
+      "text": "80 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D638)",
       "reason": "no property and value this line states together"
     },
     {
@@ -212,7 +229,12 @@
     },
     {
       "page": 1,
-      "text": "2-4 h (ASTM D638)",
+      "text": "2-4 h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(ASTM D638)",
       "reason": "no property and value this line states together"
     },
     {
@@ -232,16 +254,28 @@
     },
     {
       "page": 1,
+      "text": "Vicat A(ASTM D1525)",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
       "text": "Infiammabilità (UL 94) HB",
-      "reason": "properties.csv carries no property for \"Infiammabilità (\""
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
     },
     {
       "page": 1,
       "text": "Densità (ASTM D792) 1.11 g/cm3",
-      "reason": "properties.csv carries no property for \"Densità (\""
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 1,
+      "text": "Conducibilità termica 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

@@ -144,7 +144,7 @@ const STANDARD_RE = /\b(?:ISO|ASTM\s?D?-?|GB\/T|DIN|IEC|UL|EN|[DE](?=\s?-?\s?\d{
 // A split digit group is a fragment: extraction breaks "2 433 .4" and "1 05", never a four-figure number in
 // half. Two runs of three figures or more standing side by side are two numbers, and joining them wrote a
 // tensile modulus of 22 901 290 MPa from a colorFabb row whose two value columns print 2290 and 1290.
-const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³])(?<!\d{3})(\d) (?=\d+(?![\d.,]))|(?<![A-Za-z°²³])(\d) (?=\d{1,2}(?![\d.,]))/g, '$1$2').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
+const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³]\d*)(?<!\d{3})(\d) (?=\d+(?![\d.,]))|(?<![A-Za-z°²³]\d*)(\d) (?=\d{1,2}(?![\d.,]))/g, '$1$2').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
 // Extraction splits a standard's own number too ("ISO 11 8 3", "ISO 17 9", "D 2 56"), and the designation is
 // matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
 // is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
@@ -508,7 +508,11 @@ export function readRow(text, registry, held = null) {
   // A power of ten is one number, and neither of its pieces is a value: "6.75×10^14" is not 6.75 and not 10.
   const powers = [...line.matchAll(POWER_RE)].map((m) => [m.index, m.index + m[0].length]);
   const inPower = (at) => powers.some(([from, to]) => at >= from && at < to);
-  const candidates = [...line.matchAll(valueRe())].filter((m) => !inDesignation(m.index) && !afterSlash(m.index) && !inPower(m.index));
+  // A standard's digits are blanked before the values are matched, so they cannot be read as a value and cannot
+  // reach into what follows them: "Glass Transition Temp. DSC, ISO 11357 -55 °C" had the minus taken for a
+  // range dash, because the rule that reads "55-60" as a window saw 11357 in front of it.
+  const masked = line.replace(new RegExp(STANDARD_RE.source, 'gi'), (m) => ' '.repeat(m.length));
+  const candidates = [...masked.matchAll(valueRe())].filter((m) => !inDesignation(m.index) && !afterSlash(m.index) && !inPower(m.index));
   // The table may have put the unit in a column before the value, and a row that does may still carry a "number
   // unit" pair that is not its result: "Notched impact strength ASTM D256 kj/m² 100 @ 23°C" states the test
   // temperature that way. Offering only the temperature lost every impact row of that layout, so both readings
@@ -1424,7 +1428,7 @@ function measurementRow(v, { sourceId, materialId, gradeId, window = {} }) {
     'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,
     'Anneal h': postState === 'annealed' ? (schedule?.hours == null ? NP : String(schedule.hours)) : NA,
     'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
-    'Standard / load': standardText || NP, Standards: standards.length ? standards.join('; ') : NP,
+    'Standard / load': asciiPunctuation(standardText) || NP, Standards: standards.length ? standards.join('; ') : NP,
     'Test load MPa': v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(standardText)) : NA,
     Notch: v.notch || NA, 'Specimen / print parameters': NP,
     SourceID: sourceId, Locator: `p. ${v.page}: ${v.label}`, Notes: [v.methodNote, notchNote, ambiguity].filter(Boolean).join('; ') || NA, 'Parse review': NA,
@@ -1445,7 +1449,9 @@ export function sourceIdFor(row, sources) {
     .replace(/\.(pdf|html?)$/i, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
   // A maker may serve every sheet from one script: Polymaker's older library is all index.php?...id_attachment=236,
   // so the file name names nothing. What tells those apart is the query, and failing that the digest.
-  const generic = /^(index|download|file|attachment|view|get|dl)(-php|-aspx?)?$/i.test(plain) || plain.length < 4;
+  // A name that describes the server rather than the document: an index, a download endpoint, a file manager.
+  const generic = /^(index|download|file|attachment|view|get|dl)(-php|-aspx?)?$/i.test(plain)
+    || /\b(file-manager|download|attachment|getfile|viewfile)\b/i.test(plain) || plain.length < 4;
   const query = decodeURIComponent(url.split('?')[1] ?? '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const file = generic ? [plain, query || String(row.sha256 ?? '').slice(0, 8)].filter(Boolean).join('-').slice(0, 60) : plain;
   const name = file || (row.product_raw || '').replace(/[^A-Za-z0-9]+/g, '-');
@@ -1872,8 +1878,32 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const dir = join(AUDIT, 'proposals', batch ?? 'unsorted');
   mkdirSync(dir, { recursive: true });
   let values = 0;
-  for (const r of rows) {
-    const p = propose(r, cachedText(r.sha256), world);
+  const made = rows.map((r) => ({ row: r, proposal: propose(r, cachedText(r.sha256), world) }));
+  // A maker who serves every sheet from one endpoint gives every sheet the same identifier. The name is left
+  // alone where it is already the document's own, and where two documents ask for one identifier each takes its
+  // own digest: a document is its bytes, and the second run of a batch writes the same identifiers again.
+  const byId = new Map();
+  for (const m of made) {
+    const id = m.proposal.source?.row?.SourceID;
+    if (!id) continue;
+    if (!byId.has(id)) byId.set(id, []);
+    byId.get(id).push(m);
+  }
+  for (const [id, sharing] of byId) {
+    if (sharing.length < 2) continue;
+    for (const m of sharing) {
+      const digest = String(m.row.sha256 ?? '').slice(0, 6);
+      m.proposal.source.row.SourceID = `${id}-${digest}`.slice(0, 96);
+      for (const key of ['grades', 'measurements', 'profiles', 'evidence']) {
+        for (const r of m.proposal[key] ?? []) {
+          if (r.row?.SourceID === id) r.row.SourceID = m.proposal.source.row.SourceID;
+          // The formulation key is the sheet's identifier too: left behind, one key stood on eleven materials.
+          if (r.row?.['Shared formulation key'] === id) r.row['Shared formulation key'] = m.proposal.source.row.SourceID;
+        }
+      }
+    }
+  }
+  for (const { row: r, proposal: p } of made) {
     // A document the research had no identifier for is keyed by its URL, which is not a file name. Its digest is.
     const name = /^[A-Za-z0-9._-]{1,64}$/.test(r.doc_key ?? '') ? r.doc_key : String(r.sha256 ?? '').slice(0, 16);
     writeFileSync(join(dir, `${name}.json`), `${JSON.stringify(p, null, 2)}\n`);

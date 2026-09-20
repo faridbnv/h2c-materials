@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "db8229fc6da7850cfe9a7f61b2455c47b9d0a37ae815a0b2c17c3e11c3735478",
@@ -21,7 +21,7 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: hips"
+      "name: hips"
     ],
     "materialId": "M081",
     "materialName": "HIPS",
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M081",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fabru / purefil",
-        "Product name": "General",
+        "Product name": "High impact Polystyrol (HIPS)",
         "Shared formulation key": "R-FABRU-PUREFIL-35-material-data-sheet-HIPS-purefil",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -88,6 +91,56 @@
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "12 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-35-material-data-sheet-HIPS-purefil",
+        "Locator": "p. 1: MFR (ISO 1133)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ISO 1133) 12 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M081",
@@ -130,11 +183,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2/5",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-35-material-data-sheet-HIPS-purefil",
+        "Locator": "p. 1: Elongation at yield (ISO 527-2/5)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at yield (ISO 527-2/5) 1.5 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M081",
@@ -177,11 +283,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2000 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-35-material-data-sheet-HIPS-purefil",
+        "Locator": "p. 1: Tensile modulus (ISO 178)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (ISO 178) 2000 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M081",
@@ -224,11 +383,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M081",
@@ -271,11 +433,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M081",
@@ -318,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -345,23 +513,28 @@
     },
     {
       "page": 1,
-      "text": "210-260 °C MFR (ISO 1133) 12 g/10min",
+      "text": "210-260 °C",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "70-100 °C Elongation at yield (ISO 527-2/5) 1.5 %",
+      "text": "70-100 °C",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "75 °C Tensile modulus (ISO 178) 2000 MPa",
+      "text": "75 °C",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "2 h 0.45 MPa (ISO 75-2/B)",
+      "text": "2 h",
       "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa (ISO 75-2/B)",
+      "reason": "properties.csv carries no property for \"0.45 MPa (\""
     },
     {
       "page": 1,
@@ -380,6 +553,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

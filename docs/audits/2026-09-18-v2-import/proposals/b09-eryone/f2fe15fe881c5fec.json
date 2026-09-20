@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "f2fe15fe881c5fec743e26d1b7aa4bd8ebccb298c8ea06e45077b5d99a3c5622",
@@ -21,21 +21,21 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: abs",
-      "filler: glassfiber (from the sheet, not the name)"
+      "name: abs",
+      "filler: glassfiber"
     ],
     "materialId": "M028",
     "materialName": "ABS-GF",
     "estimateIdentity": "ABS",
-    "confidence": 0.85,
+    "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
   "source": {
     "row": {
-      "SourceID": "R-ERYONE-file-manager-downLoad",
+      "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
       "Publisher": "Eryone",
-      "Title": "Technical Data Sheet (TDS)",
+      "Title": "Technical Data Sheet (TDS) Glass Fiber ABS",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -51,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "Technical Data Sheet (TDS)"
+      "text": "Technical Data Sheet (TDS) Glass Fiber ABS"
     },
     "review": {
       "status": "proposed"
@@ -61,34 +61,137 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M028",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Eryone",
-        "Product name": "(TDS)",
-        "Shared formulation key": "R-ERYONE-file-manager-downLoad",
+        "Product name": "Glass Fiber ABS",
+        "Shared formulation key": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Composition / filler": "enclosures, and structural components. Note: The glass fiber content is 10%. (p. 1, as the sheet states it)",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "with a heat resistance temperature of up to 82°C. The printing speed can reach 150 mm/s, and it (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "Technical Data Sheet (TDS)"
+        "text": "Technical Data Sheet (TDS) Glass Fiber ABS"
       }
     }
   ],
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.1 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "21.5°C",
+        "Standard / load": "g/cm³ at 21.5 ° C) ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density(g/cm³ at 21.5 ° C） ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "82 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "82",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "82",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 1: Heat distortion temperature(° C) ASTM D648 0.45MPa ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa ℃ 82"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M028",
@@ -120,7 +223,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Locator": "p. 1: Glass transition temperature (° C) DSC, 10 ° C/min ℃",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -129,13 +232,16 @@
         "page": 1,
         "text": "Glass transition temperature (° C) DSC, 10 ° C/min ℃ 104"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M028",
@@ -167,7 +273,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Locator": "p. 1: Melt Index(g/10 min) 220 ° C, 10kg 240 ° C, 2.16 kg g/10min",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -176,13 +282,66 @@
         "page": 1,
         "text": "Melt Index(g/10 min) 220 ° C, 10kg 240 ° C, 2.16 kg g/10min 30"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "37.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "37.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "37.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 2: Tensile strength X-Y 50mm/min GB/T 1040.4 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength X-Y 50mm/min GB/T 1040.4 MPa 37.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M028",
@@ -201,7 +360,7 @@
         "Normalized unit": "GPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Direction": "XY",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -214,7 +373,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Locator": "p. 2: Elastic modulus X-Y MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -223,13 +382,116 @@
         "page": 2,
         "text": "Elastic modulus X-Y MPa 1735.8"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 2: Elongation at break X-Y 50mm/min GB/T 1040.4 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break X-Y 50mm/min GB/T 1040.4 % 2.0"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "19.2 ± 4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "19.2",
+        "Raw uncertainty ±": "4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "19.2",
+        "Normalized uncertainty ±": "4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1843",
+        "Standards": "GB/T 1843",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 2: Tensile strength X-Z 50mm/min GB/T 1843 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile strength X-Z 50mm/min GB/T 1843 MPa 19.2±4"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M028",
@@ -248,7 +510,7 @@
         "Normalized unit": "GPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Direction": "XZ",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -261,7 +523,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Locator": "p. 2: Elastic modulus X-Z MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -270,13 +532,166 @@
         "page": 2,
         "text": "Elastic modulus X-Z MPa 1651.2"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 2: Elongation at break X-Z 50mm/min GB/T 1040.4 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break X-Z 50mm/min GB/T 1040.4 % 1.6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "57.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "57.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min GB/T 9341",
+        "Standards": "GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 2: Bending strength 2mm/min GB/T 9341 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending strength 2mm/min GB/T 9341 MPa 57.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2487.4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2487.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.4874",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2mm/min GB/T 9341",
+        "Standards": "GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
+        "Locator": "p. 2: Bending modulus 2mm/min GB/T 9341 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Bending modulus 2mm/min GB/T 9341 MPa 2487.4"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m13",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M028",
@@ -308,7 +723,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Unnotched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "Locator": "p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2",
         "Notes": "the row is headed \"Charpy Impact strenght 2.75J GB/T 1843 kJ/m2\" and cites Charpy Impact strenght 2.75J GB/T 1843 kJ/m2 GB/T 1843, which is the other test; recorded as unspecified",
         "Parse review": "Not applicable"
@@ -317,9 +732,12 @@
         "page": 2,
         "text": "Charpy Impact strenght 2.75J GB/T 1843 kJ/m2 6.2"
       },
-      "confidence": 0.85,
+      "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -363,7 +781,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-ERYONE-file-manager-downLoad",
+        "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -386,7 +804,10 @@
         "text": "enclosures, and structural components. Note: The glass fiber content is 10%."
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -400,6 +821,7 @@
       "topic": "",
       "label": "enclosure",
       "raw": "s, and structural components. Note: The glass fiber content is 10%.",
+      "fromBelow": false,
       "line": "enclosures, and structural components. Note: The glass fiber content is 10%."
     },
     {
@@ -408,6 +830,7 @@
       "topic": "",
       "label": "Nozzle temperature",
       "raw": "240-280 ℃",
+      "fromBelow": false,
       "line": "Nozzle temperature 240-280 ℃"
     },
     {
@@ -416,6 +839,7 @@
       "topic": "",
       "label": "Bed temperature",
       "raw": "80-100℃",
+      "fromBelow": false,
       "line": "Bed temperature 80-100℃"
     },
     {
@@ -424,6 +848,7 @@
       "topic": "Speed",
       "label": "Printing speed",
       "raw": "30-150mm/s",
+      "fromBelow": false,
       "line": "Printing speed 30-150mm/s"
     },
     {
@@ -432,6 +857,7 @@
       "topic": "",
       "label": "Drying conditions",
       "raw": "75-85℃",
+      "fromBelow": false,
       "line": "Drying conditions 75-85℃, 6h"
     },
     {
@@ -440,6 +866,7 @@
       "topic": "Speed",
       "label": "speed",
       "raw": "150mm/s",
+      "fromBelow": false,
       "line": "speed=150mm/s, base plate 90° C, filling=100%, nozzle diameter=0.4mm"
     }
   ],
@@ -466,23 +893,8 @@
     },
     {
       "page": 1,
-      "text": "ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.1",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Density(g/cm³ at 21.5 ° C）",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
-      "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) /",
+      "text": "Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃ /",
       "reason": "the sheet publishes no value for Vicat softening temperature in this row: its value column prints \"/\""
-    },
-    {
-      "page": 1,
-      "text": "Heat distortion temperature(° C) ASTM D648 0.45MPa 82",
-      "reason": "the sheet states HDT in 0.45MPa, and the database keeps it in °C"
     },
     {
       "page": 1,
@@ -491,43 +903,13 @@
     },
     {
       "page": 2,
-      "text": "50mm/min GB/T 1040.4 MPa 37.2",
-      "reason": "properties.csv carries no property for \"50mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
       "text": "50mm/min GB/T 1040.1-2006",
-      "reason": "properties.csv carries no property for \"50mm/min\""
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 % 2.0",
-      "reason": "properties.csv carries no property for \"50mm/min\" (%)"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1843 MPa 19.2±4",
       "reason": "properties.csv carries no property for \"50mm/min\""
     },
     {
       "page": 2,
       "text": "50mm/min GB/T 1040.1-2006",
       "reason": "properties.csv carries no property for \"50mm/min\""
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 % 1.6",
-      "reason": "properties.csv carries no property for \"50mm/min\" (%)"
-    },
-    {
-      "page": 2,
-      "text": "2mm/min GB/T 9341 MPa 57.9",
-      "reason": "properties.csv carries no property for \"2mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "2mm/min GB/T 9341 MPa 2487.4",
-      "reason": "properties.csv carries no property for \"2mm/min\" (MPa)"
     },
     {
       "page": 2,
@@ -551,6 +933,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m07",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "Eryone's Glass Fiber ABS publishes 2.0 % beside a strength of 37.2 MPa and a modulus of 1735.8 MPa. Taken together the elongation is below the strain those two imply, which is the maker's own arithmetic on one sheet; each number is recorded as the sheet prints it and none is inferred from the others.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m10",
+      "code": "MEAS-PHYSICS-STRAIN",
+      "field": "Normalized value",
+      "reason": "Eryone's Glass Fiber ABS publishes 1.6 % beside a strength of 37.2 MPa and a modulus of 1735.8 MPa. Taken together the elongation is below the strain those two imply, which is the maker's own arithmetic on one sheet; each number is recorded as the sheet prints it and none is inferred from the others.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

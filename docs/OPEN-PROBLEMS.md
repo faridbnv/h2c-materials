@@ -1,6 +1,7 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of the 2026-09-16 snapshot. It is here so that nobody
+What is known to be wrong or missing in this database, as of the 2026-09-19 snapshot, after batches b01 to b09
+brought 143 materials, 494 grades, 6,009 measurement rows and 665 sources in. It is here so that nobody
 has to rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
@@ -11,10 +12,12 @@ generated. It is not the audit history: what each review found and what happened
 
 ---
 
-## 1. Transcription damage: 133 measurements carry the wrong text in `Standard / load`
+## 1. Transcription damage: 96 measurements carry the wrong text in `Standard / load`
 
-**The most serious item here.** 133 rows, across 56 sources and 56 materials, hold a fragment of the neighbouring
-column instead of the test standard:
+**The most serious item here.** 96 rows, across 30 sources and 32 materials, hold a fragment of the neighbouring
+column instead of the test standard. 80 of them leave the standard unnamed; the other 16 name a family only
+because the fragment happens to contain one ("ISO 179,"). It was 133 rows over 56 sources when this page was
+written, and the difference is sheets re-read since, not rows removed:
 
 ```
 Modulus · Strength · Elongation · Deflection · Temperature · Transition Temperature · (X-Y)
@@ -44,12 +47,16 @@ npm run sql --silent -- "select sourceid, count(*) n, group_concat(distinct stan
   group by 1 order by n desc"
 ```
 
-A further **18 rows** say only `Method A` or `Method B`, which are ISO 75's methods (A is 1.80 MPa, B is 0.45 MPa).
+A further **6 rows** say only `Method A` or `Method B`, which are ISO 75's methods (A is 1.80 MPa, B is 0.45 MPa).
 The load is typed correctly in `Test load MPa`; only the standard is unnamed. Same fix, smaller.
+
+Nine batches of imported sheets have added none of this damage: `scripts/ingest/propose.mjs` reads a standard by
+its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed `Standards` and raw
+text disagree. Every one of the 96 predates the pipeline.
 
 ---
 
-## 2. Ten published values that physics rules out
+## 2. Twenty-six published values that physics rules out
 
 Kept, flagged, and backing nothing: no headline, estimate, conversion, implied bound or plot point (D55). Each is
 what the source really prints, with the reason in its Notes.
@@ -62,21 +69,30 @@ what the source really prints, with the reason in its Notes.
 | V000775, V000776 | TPU for AMS | a modulus its own hardness and elongation contradict |
 | V000970, V001013, V001206 | PA12-CF, PA12-GF, PA-ESD | a glass transition of 158 °C for a PA12, whose glass transition is 40 to 55 °C; a template value left in three sheets |
 | V001159, V000508, V000729 | PA6-CF, PETG-GF, PC-CF | 113 %, 98 % and "> 100 %" elongation on short-fibre compounds, which cannot draw past a few per cent. Each reads as the neat resin's elongation printed on a filled product's sheet (m52) |
+| V002818, V002981, V004034, V004255 | PLA-ESD, PLA Aero, PLA Sparkle, PLA | a flexural or tensile modulus of 0.5 to 3.8 MPa on a rigid PLA, three orders of magnitude below what the same sheets' strength and elongation require |
+| V003219, V003252 | PPA-CF, PVDF-ESD | a glass transition of 265 °C, and of 158 °C again — the same template value as the PA12 rows above |
+| V004123 | TPU | a tensile strength of 470 MPa on an elastomer |
+| V004148, V004210, V004270, V004539 | ASA, ABS-CF, ABS, PEEK | notched Izod of 138 to 250 kJ/m², where an unnotched bar of the same polymer breaks well below that |
+| V005397, V005398 | PA6-GF | flexural strength of 5,545 and 1,582 MPa, above the modulus printed beside them |
 
-These need the manufacturer to be asked, not more reading. Ten more (`MEAS-PHYSICS-STRAIN`) are accepted with a
-reason: brittle bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across three
-manufacturers, which reads as a difference in how modulus was measured rather than a transcription error.
+These need the manufacturer to be asked, not more reading. They are the values the database refuses to use. A
+larger set — 173 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
+says the rule, not the number, is what does not fit: 120 `MEAS-PHYSICS-WINDOW` (outside the plausible window for
+its matrix and fill, most of them flexible grades the window was not drawn for), 25 `MEAS-PHYSICS-STRAIN` (brittle
+bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across several manufacturers,
+which reads as a difference in how modulus was measured rather than a transcription error), 25
+`MEAS-PHYSICS-ORDER` and 3 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for the list above if a re-read finds
+the sheet really does print what cannot be.
 
 ```bash
 npm run sql --silent -- "select measurementid, materialid, property, normalized_value, notes from measurements
   where data_status like '%implausible%'"
 ```
 
-Two more are a pair a sheet orders the wrong way round, both transcribed correctly. The Bambu PC and PC FR sheets
-print a glass transition of 145 °C and a Vicat of 119 and 114 °C, and a needle cannot sink into a polycarbonate
+Among the `MEAS-PHYSICS-ORDER` pairs is one a sheet orders the wrong way round, both rows transcribed correctly.
+The Bambu PC and PC FR sheets print a glass transition of 145 °C and a Vicat of 119 and 114 °C, and a needle cannot sink into a polycarbonate
 26 °C below the temperature at which it goes rubbery (V000679, V000700). Which of the two is wrong cannot be
-settled from the sheet; it is the same PC sheet as the heat-deflection pair above. Accepted with that reason under
-`MEAS-PHYSICS-ORDER`.
+settled from the sheet; it is the same PC sheet as the heat-deflection pair above. Accepted with that reason.
 
 ## 3. Four values that cannot be read at all
 
@@ -106,9 +122,11 @@ npm run sql --silent -- "select coverageid, materialid, domain, finding from cov
 ## 5. Materials with nothing, or with no grade to stand for them
 
 - **PA66-CF (M056)** and **PA612-GF (M060)** have no measurement of any kind. Their estimates are family-only and
-  say so. No filament data sheet with published properties was found in the sampled manufacturers.
-- **PA66 (M055), PA66-CF (M056), PA612 (M058), PA612-GF (M060)** have no representative grade, so nothing can be
-  a headline for them even where a study or resin reference publishes a number.
+  say so. No filament data sheet with published properties was found in the sampled manufacturers. **PA-GF (M063)**
+  has none either, and needs none: it is a family entry, and a family owns no product (D44).
+- **Nine materials have no representative grade**, so nothing can be a headline for them even where a study or a
+  resin reference publishes a number: TPE (M044), PA (M047), PA66 (M055), PA66-CF (M056), PA612 (M058), PA612-GF
+  (M060), CoPA (M061), PA-CF (M062), PA-GF (M063). For the family entries among them that is correct.
 
 Both are evidence gaps, not defects. Only a manufacturer publishing a sheet fixes them.
 
@@ -118,11 +136,21 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `EST-OUTLIER` | 5 | A measured headline far outside what every other observation predicts. All five re-read and confirmed: PVDF's density, TPU's elongation, PE's elongation, PPA-CF's and PPS's heat deflection. The manufacturers genuinely disagree. |
-| `HDT-LOAD-UNSTATED` | 7 | The source names the test but not the load. Flagged, and screens no heat requirement until re-read. Five are the high-temperature 3DXTECH sheets (PEEK, PEKK, PEI / ULTEM, PSU, PPSU); the others are PLA Lite and PP. |
-| `EST-FAMILY-ORDER` | 1 | PLA-CF is estimated below unfilled PLA, because the two sheets are different products and no conversion makes them comparable. |
-| `MEAS-PHYSICS-STRAIN` | 10 | See item 2. |
-| `MEAS-PHYSICS-Z-ABOVE-XY` | 2 | Polymaker prints a Z stiffness 15 to 26 % above XY. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
+| `MEAS-PHYSICS-WINDOW` | 120 | See item 2. |
+| `MEAS-PHYSICS-ORDER` | 25 | See item 2. |
+| `MEAS-PHYSICS-STRAIN` | 25 | See item 2. |
+| `HDT-LOAD-UNSTATED` | 10 | The source names the test but not the load. Flagged, and screens no heat requirement until re-read. Five are the high-temperature 3DXTECH sheets (PEEK, PEKK, PEI / ULTEM, PSU, PPSU); two are PLA Lite and PP; three arrived with b09 — Flashforge's PBAT, purefil's LCP and colorFabb's nGen. |
+| `COVERAGE-SUPERSEDED` | 9 | A coverage finding a later row replaces. |
+| `MEAS-CROSS-SOURCE-TWIN` | 6 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet, republished without remeasuring; the sixth is 3DXTECH's single data set for its two ESD Ultem grades. |
+| `EST-OUTLIER` | 4 | A measured headline far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; PLA Aero's density, which is what the filament weighs before it foams; TPU's elongation; and a Flashforge Flexible sheet whose modulus of 6 to 7 MPa sits beside a strength of 27 to 28 MPa. |
+| `SOURCE-LOCAL-PATH` | 4 | See item 8. |
+| `MEAS-PHYSICS-Z-ABOVE-XY` | 3 | Polymaker prints a Z stiffness 15 to 26 % above XY, and one b09 sheet a Z strength above its own X-Y one. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
+| `EST-FAMILY-ORDER` | 2 | PLA-CF is estimated below unfilled PLA, because the two sheets are different products and no conversion makes them comparable; ASA-AF's one modulus is an injection-moulded bar. |
+| `MEAS-LOCATOR-DIRECTION` | 2 | HDT is recorded without a direction by convention; the sheet's "XY" names the bar's build orientation, not a test axis. |
+| `NO-MEASUREMENTS` | 2 | See item 5. |
+
+194 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
+that no longer occurs, so this list cannot go stale unnoticed.
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:
 more data narrows them, a review does not (D73).
@@ -130,9 +158,9 @@ more data narrows them, a review does not (D73).
 ## 7. Structural limits, accepted knowingly
 
 - **The `Post-processing / application` coverage domain cannot be derived.** Its Gap rows distinguish grade-specific
-  evidence from family notes a material owns, and no rule over evidence domains expresses that: six materials say
-  Gap there truthfully, beside records of their own. Its 53 templated rows stay stored where the other seven
-  domains' were derived (D74).
+  evidence from family notes a material owns, and no rule over evidence domains expresses that: some materials say
+  Gap there truthfully, beside records of their own. Its 103 rows (54 Evidence recorded, 44 Gap, 5 Not applicable)
+  stay stored where the other seven domains' were derived (D74).
 - **A list column loses its missing state in SQLite.** `Standards` and `Units` are TEXT and hold `Not published`
   inline, where a number column gets a `_state` sibling and a NULL. Harmless today, because no vocabulary value
   collides with a missing-state word, but it is an inconsistency in the query layer (D75).
@@ -147,11 +175,17 @@ more data narrows them, a review does not (D73).
 - **Two are recorded `not-retrieved`**: a Polymaker CoPE sheet (HTTP 404) and the Fiberon PET-GF15 page (HTTP 403),
   both on 2026-09-13. Nothing was entered from either, and nothing may cite them. The second is what C01136 above
   is blocked on.
+- **Eighteen are `retrieved-copy`**: the bytes were staged by hand because the host serves them through a viewer
+  or refuses an automated fetch. The document is still identified by the SHA-256 of what was read.
 - **Four have no public URL and are `read-only`** (`LOCAL-CANON`, `LOCAL-CREEP`, `LOCAL-FATIGUE`, `LOCAL-XLSM`):
   local references on the owner's machine. Two are cited, for the creep and fatigue principles; nothing selectable
   depends on reaching any of them, and `SOURCE-LOCAL-PATH` is accepted for each with that reason.
 - **Four sources serve a revision that differs from the copy that was read.** They are recorded `retrieved` with
   the difference in their Access note, because the served file is what was read.
+
+24 of 665 sources are in one of those states; the other 641 were fetched, hashed and read. Beside them, and not in
+`sources.csv` at all, the import ledger holds 64 documents behind a login or a request form and 404 not yet
+fetched (`docs/audits/2026-09-18-v2-import/STATUS.md`).
 
 ```bash
 npm run sql --silent -- "select sourceid, access_state, access_note from sources where access_state <> 'retrieved'"
@@ -179,7 +213,9 @@ reads the raw text. What is wrong is the text a reader is shown, and what is los
 the Fiberon and Polymaker sheets state a print speed, a drying schedule and a support pairing in those cells,
 which belong in `profile_notes.csv`, `Drying` and `Support pairing`.
 
-Five `profile_notes` rows carry the same damage (`P0092`, `P0111`, `P0114` and both notes of `P0120`).
+Five `profile_notes` rows carry the same damage (`P0092`, `P0111`, `P0114` and both notes of `P0120`), and
+**18 `Nozzle material` cells** read `recommended No`, `recommended Yes` or `Ye s`, which is the sheet's "hardened
+nozzle recommended" with the neighbouring column's answer stuck to it. The typed state beside them is right.
 
 **The fix** is a re-read of each source (D35), which `scripts/ingest/propose.mjs` now does correctly: it reads a
 setting by its own label, takes the value from the label's own cell, and stops where the next column begins. It
@@ -202,15 +238,20 @@ npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), subs
 
 ## Coverage, in one number
 
-294 coverage rows record a gap, 93 a comparability limitation, 31 a reviewed limitation, 13 a partial resolution.
-Those are not defects; they are the database saying what it does not know. The headline gaps:
+Of 705 coverage rows, 281 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial
+resolution. Those are not defects; they are the database saying what it does not know. The headline gaps, against
+143 materials:
 
 | Headline | Measured on |
 |---|---|
-| Density | 92 of 103 materials |
-| Elongation, XY | 75 |
-| Stiffness, XY | 74 |
-| Heat deflection at 0.45 MPa | 68 |
-| Strength, XY | 59 |
+| Density | 124 of 143 materials |
+| Stiffness, XY | 97 |
+| Elongation, XY | 97 |
+| Heat deflection at 0.45 MPa | 94 |
+| Strength, XY | 83 |
 
 The rest are estimated, and every estimate says how far to trust it.
+
+```bash
+npm run sql --silent -- "select status, count(*) from coverage group by 1 order by 2 desc"
+```

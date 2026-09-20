@@ -61,9 +61,10 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       bounds.push({ side: 'lower', value: toModel(lo), sd: cfg.sd, why: `${Math.round(lo)} kg/m³: the neat polymer's ${dlo} kg/m³ less ${cfg.porosity * 100} % porosity; ${cfg.why}` });
       bounds.push({ side: 'upper', value: toModel(hi), sd: cfg.sd, why: `${Math.round(hi)} kg/m³: ${rf ? `the rule of mixtures at ${cfg.maxFibreWeight * 100} wt% ${r}` : 'the neat polymer\'s upper value'}; ${cfg.why}` });
     }
-    if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.tgOf(m) != null) {
+    if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.ownTgOf(m) != null) {
+      const tg = S.ownTgOf(m);
       const lift = S.fibre(m) ? model.bounds.amorphousAboveTg.fibre : model.bounds.amorphousAboveTg.unfilled;
-      bounds.push({ side: 'upper', value: S.tgOf(m) + lift, sd: model.bounds.amorphousAboveTg.sd, why: `glass transition ${S.tgOf(m)} °C + ${lift} °C: ${model.bounds.amorphousAboveTg.why}` });
+      bounds.push({ side: 'upper', value: tg + lift, sd: model.bounds.amorphousAboveTg.sd, why: `glass transition ${tg} °C + ${lift} °C: ${model.bounds.amorphousAboveTg.why}` });
     }
     const qWith = (list) => (pr, cal) => inv(boundedQuantile(p.mu, p.sd * cal, list, pr));
     // A physical limit takes part only where it can reach the distribution; far limits would change

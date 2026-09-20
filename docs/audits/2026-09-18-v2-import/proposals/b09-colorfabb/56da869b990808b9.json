@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "56da869b990808b9801d3d49b4466f32439314af5bd66eb9d34386fad8ebef40",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M066",
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -271,7 +283,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -318,7 +333,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M066",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "67,6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "67.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "67.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED",
+        "Locator": "p. 1: Glass Transition Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temp. DSC, ISO 11357 67,6 ˚C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -329,16 +397,16 @@
         "MaterialID": "M066",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "280-320 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "320",
+        "Nozzle requirement": "required",
+        "Bed °C": "60 °C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -374,20 +442,23 @@
         },
         {
           "Topic": "Cooling",
-          "Text": "100"
+          "Text": "100 %"
         },
         {
           "Topic": "Speed",
-          "Text": "500"
+          "Text": "500 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 2,
-        "text": "Bed / surface modification Adhesion spray (3D lac) -"
+        "text": "Nozzle Temp. 280-320 ˚C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -397,10 +468,29 @@
   "settings": [
     {
       "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temp",
+      "raw": "280-320 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temp. 280-320 ˚C"
+    },
+    {
+      "page": 2,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temp",
+      "raw": "60 °C",
+      "fromBelow": false,
+      "line": "Bed Temp. 60 ˚C"
+    },
+    {
+      "page": 2,
       "field": "note",
       "topic": "Adhesion / release",
       "label": "Adhesion",
       "raw": "spray (3D lac)",
+      "fromBelow": false,
       "line": "Bed / surface modification Adhesion spray (3D lac) -"
     },
     {
@@ -408,7 +498,8 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "100",
+      "raw": "100 %",
+      "fromBelow": false,
       "line": "Active cooling fan 100 %"
     },
     {
@@ -416,7 +507,8 @@
       "field": "note",
       "topic": "Speed",
       "label": "Print Speed",
-      "raw": "500",
+      "raw": "500 mm/s",
+      "fromBelow": false,
       "line": "Print Speed 500 mm/s"
     }
   ],
@@ -439,17 +531,12 @@
     {
       "page": 1,
       "text": "Melting Temp. DSC, ISO 11357 NA ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Melting temperature in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 NA ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 67,6 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"NA\""
     },
     {
       "page": 1,
@@ -513,16 +600,6 @@
     },
     {
       "page": 2,
-      "text": "Nozzle Temp. 280-320 ˚C",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Bed Temp. 60 ˚C",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -563,6 +640,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

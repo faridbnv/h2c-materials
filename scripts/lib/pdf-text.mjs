@@ -146,10 +146,10 @@ export function lineCells(line, ems = 3, floor = 10) {
 // Extraction splits digits ("1 05 °C", "2 433 .4 ± 79.4"); join them before reading numbers. A standard's
 // designation ("ISO 75", "GB/T 1633") is not a value; it is taken out first so that joining split digits cannot glue
 // it onto the number that follows.
-// A unit can end in a digit ("g/cm3", "kJ/m2"), and that digit belongs to the unit: joining it to the value beside
-// it made "g/cm3 1.24" read as one number.
+// A unit can end in a digit ("g/cm3", "kJ/m2"), and so can a method's own variant ("ISO 306 B50"): that digit
+// belongs to the unit or the method, not to the value beside it. Joined, "B50 145" became a Vicat point of 50145.
 export const STANDARD = /\b(?:I\s?S\s?O|ASTM\s?D?|GB\s?\/\s?T|DIN|IEC|UL|D(?=\s?\d{3}))\s?\d+[A-Za-z]{0,2}(?:\s?[-–.:/]\s?(?:\d+[A-Za-z]{0,2}|[A-Za-z]{1,3}\d*))*/g;
-export const joinDigits = (s) => s.replace(STANDARD, ' § ').replace(/(?<![A-Za-z°³²])(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/\bO\.(?=\d)/g, '0.');
+export const joinDigits = (s) => s.replace(STANDARD, ' § ').replace(/(?<![A-Za-z°³²]\d*)(\d) (?=\d)/g, '$1').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/\bO\.(?=\d)/g, '0.');
 export const UNIT = String.raw`([°˚º]\s?C|℃|MPa|Mpa|MP\s?a|GPa|%|g\s?/\s?cm\s?3|g\s?/\s?cm³|g\s?/\s?cc|kJ\s?/\s?m|J\s?/\s?m|HRM|Shore)`;
 // A rate ("10°C/min"), a humidity ("70% RH") or a condition ("at 23°C") is not a result.
 export const statementRe = () => new RegExp(String.raw`(?<![\d.\-–])(\d+(?:\.\d+)?)(?:\s?±\s?(\d+(?:\.\d+)?))?\s?(?:\(\s?)?${UNIT}(?!\s?\/\s?min|\s?RH|\w)`, 'g');

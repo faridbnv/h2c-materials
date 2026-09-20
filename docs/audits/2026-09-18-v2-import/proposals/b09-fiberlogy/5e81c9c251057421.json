@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "5e81c9c251057421c0b990db5ee67b89d5753fd09df14418f232c25c1be8aea7",
@@ -60,7 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M001",
@@ -88,6 +91,56 @@
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FiberWORKS-PLA-TDS",
+        "Locator": "p. 1: Specific Density ASTM D792 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Density ASTM D792 g/cm3 1.24"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -130,11 +183,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -177,11 +233,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -224,11 +283,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -271,11 +333,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -318,11 +383,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -365,11 +433,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -412,11 +483,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -459,11 +533,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m09",
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -506,11 +583,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m10",
+      "id": "m11",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -553,11 +633,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m11",
+      "id": "m12",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -600,11 +683,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m12",
+      "id": "m13",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -647,11 +733,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m13",
+      "id": "m14",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -694,7 +783,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -705,15 +797,15 @@
         "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "200°C",
+        "Nozzle °C": "200°C - 230°C",
         "Nozzle state": "range",
         "Nozzle min °C": "200",
-        "Nozzle max °C": "200",
+        "Nozzle max °C": "230",
         "Nozzle requirement": "required",
-        "Bed °C": "50°C",
+        "Bed °C": "50°C - 70°C",
         "Bed state": "range",
         "Bed min °C": "50",
-        "Bed max °C": "50",
+        "Bed max °C": "70",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -755,7 +847,10 @@
         "text": "Print Temperature: 200°C - 230°C"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -768,7 +863,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Print Temperature",
-      "raw": "200°C",
+      "raw": "200°C - 230°C",
+      "fromBelow": false,
       "line": "Print Temperature: 200°C - 230°C"
     },
     {
@@ -776,7 +872,8 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temperature",
-      "raw": "50°C",
+      "raw": "50°C - 70°C",
+      "fromBelow": false,
       "line": "Bed Temperature: 50°C - 70°C"
     },
     {
@@ -785,6 +882,7 @@
       "topic": "",
       "label": "Bed Temperature",
       "raw": "55°C",
+      "fromBelow": false,
       "line": "Bed Temperature: 55°C"
     },
     {
@@ -793,6 +891,7 @@
       "topic": "Shell / walls",
       "label": "Perimeters",
       "raw": "2",
+      "fromBelow": false,
       "line": "Perimeters: 2"
     }
   ],
@@ -816,11 +915,6 @@
       "page": 1,
       "text": "Avg Roundness: + 0.01 mm",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Specific Density ASTM D792 g/cm3 1.24",
-      "reason": "properties.csv carries no property for \"Specific Density\" (g/cm3)"
     },
     {
       "page": 2,
@@ -859,6 +953,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

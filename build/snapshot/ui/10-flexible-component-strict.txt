@@ -1,7 +1,7 @@
-COUNT 7 shown PASS
-STATUS ☑ PASS 7 | ☐ UNKNOWN 30 | ☐ FAIL 89
-7 of the 126 materials in this database meet these requirements
-30 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+COUNT 8 shown PASS
+STATUS ☑ PASS 8 | ☐ UNKNOWN 40 | ☐ FAIL 90
+8 of the 138 materials in this database meet these requirements
+40 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -28,6 +28,9 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+PBAT
+PVB / Specialty Polymers
+ PASS 1,250 0.006 27 400 90 — ☆
 PE
 Polyolefins
  PASS 954 0.752 18.5 208 66 — ☆

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "9d9dd982bb095d4d4f251fa8dd3725e7e0bddbb861fb4f1e28227a49c183a099",
@@ -14,17 +14,18 @@
   },
   "identity": {
     "polymer": "PA12",
-    "modifier": "Unfilled / unspecified",
+    "modifier": "Carbon fibre",
     "variantClass": "",
     "finish": "",
     "family": "Nylon / Polyamide",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pa12"
+      "name: pa12",
+      "filler: cf15"
     ],
-    "materialId": "M052",
-    "materialName": "PA12",
+    "materialId": "M053",
+    "materialName": "PA12-CF",
     "estimateIdentity": "PA12",
     "confidence": 1,
     "needsRuling": false,
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
-        "MaterialID": "M052",
+        "MaterialID": "M053",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fabru / purefil",
-        "Product name": "Allgemein",
+        "Product name": "Polyamid 12 Carbonfaser 15% (PA12 CF15)",
         "Shared formulation key": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -90,22 +94,272 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M052",
+        "MaterialID": "M053",
         "GradeID": "",
-        "Property": "Vicat softening temperature",
-        "Raw value": "23 °C",
-        "Raw unit": "°C",
-        "Raw numeric": "23",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.2-0.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.5",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.5",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 294-4",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
+        "Locator": "p. 1: Schwindung (ISO 294-4)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Schwindung (ISO 294-4) 0.2-0.5 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "110 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "110",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "23",
+        "Normalized value": "110",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "°C",
+        "Normalized unit": "MPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
+        "Locator": "p. 1: Streckspannung (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckspannung (ISO 527-1,2) 110 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
+        "Locator": "p. 1: Streckdehnung (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckdehnung (ISO 527-1,2) 4.5 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
+        "Locator": "p. 1: Reissdehnung (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Reissdehnung (ISO 527-1,2) 4.5 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "9500 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9500",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "9.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
+        "Locator": "p. 1: Zug-E-Modul (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Zug-E-Modul (ISO 527-1,2) 9500 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.07 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.07",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1070",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
         "Direction": "Not applicable",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
@@ -114,23 +368,26 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil",
-        "Locator": "p. 1: Vicat Erweichungstemperatur A - °C Wärmeleitzahl",
+        "Locator": "p. 1: Dichte (ISO 1183)",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Wärmeleitzahl 23°C - W/(K*m)"
+        "text": "Dichte (ISO 1183) 1.07 g/cm3"
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -172,32 +429,22 @@
     },
     {
       "page": 1,
-      "text": "Schwindung (ISO 294-4) 0.2-0.5 %",
-      "reason": "properties.csv carries no property for \"Schwindung (\""
-    },
-    {
-      "page": 1,
-      "text": "255-275 °C MFR - g/10min",
+      "text": "255-275 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Streckspannung (ISO 527-1,2) 110 MPa",
-      "reason": "properties.csv carries no property for \"Streckspannung (\""
+      "text": "MFR - g/10min",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"- g/10min\""
     },
     {
       "page": 1,
-      "text": "100-120 °C Streckdehnung (ISO 527-1,2) 4.5 %",
+      "text": "100-120 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Reissdehnung (ISO 527-1,2) 4.5 %",
-      "reason": "properties.csv carries no property for \"Reissdehnung (\""
-    },
-    {
-      "page": 1,
-      "text": "80°C Zug-E-Modul (ISO 527-1,2) 9500 MPa",
+      "text": "80°C",
       "reason": "no property and value this line states together"
     },
     {
@@ -207,8 +454,13 @@
     },
     {
       "page": 1,
-      "text": "4-16h 1.8 MPa (ISO 75-1,2)",
+      "text": "4-16h",
       "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.8 MPa (ISO 75-1,2)",
+      "reason": "properties.csv carries no property for \"1.8 MPa (\""
     },
     {
       "page": 1,
@@ -222,11 +474,13 @@
     },
     {
       "page": 1,
-      "text": "Dichte (ISO 1183) 1.07 g/cm3",
-      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+      "text": "Wärmeleitzahl 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "e2a86ba681dd0ef8cb66eabf7b7f86a1d44a979f4299961202dc564728bfd939",
@@ -77,7 +77,10 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "",
@@ -147,7 +150,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -194,7 +200,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -241,7 +250,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -288,7 +300,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -335,7 +350,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -382,7 +400,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -413,13 +434,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "-40°C",
-        "Standard / load": "-40 ºC D 256",
+        "Standard / load": "-40 °C D 256",
         "Standards": "ASTM D256",
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS",
-        "Locator": "p. 1: Izod Impact strength, notched @ -40 ºC J/m",
+        "Locator": "p. 1: Izod Impact strength, notched @ -40 °C J/m",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -429,7 +450,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "170",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "170",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 kg load D 1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS",
+        "Locator": "p. 1: Vicat Softening Temperature @ 1 kg load °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature @ 1 kg load ºC 170 D 1525"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -440,16 +514,16 @@
         "MaterialID": "",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "240 – 260 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "80 °C (+ buildTak)",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -482,15 +556,22 @@
         {
           "Topic": "Cooling",
           "Text": "0 – 50 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40 – 60 mm/s"
         }
       ],
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Bed surface / modification nGen_FLEX gives best results on a buildTak covered buildplate, heated at"
+        "text": "Advised 3D printing temperature 240 – 260 ºC"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -509,10 +590,29 @@
   "settings": [
     {
       "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "printing temperature",
+      "raw": "240 – 260 °C",
+      "fromBelow": false,
+      "line": "Advised 3D printing temperature 240 – 260 ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "bed temperature",
+      "raw": "80 °C (+ buildTak)",
+      "fromBelow": false,
+      "line": "Advised bed temperature 80 ºC (+ buildTak)"
+    },
+    {
+      "page": 1,
       "field": "plate",
       "topic": "",
       "label": "Bed surface",
       "raw": "/ modification",
+      "fromBelow": false,
       "line": "Bed surface / modification nGen_FLEX gives best results on a buildTak covered buildplate, heated at"
     },
     {
@@ -521,7 +621,17 @@
       "topic": "Cooling",
       "label": "Active cooling fan",
       "raw": "0 – 50 %",
+      "fromBelow": false,
       "line": "Active cooling fan 0 – 50 %"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "40 – 60 mm/s",
+      "fromBelow": false,
+      "line": "Advised 3D printing speed 40 – 60 mm/sec"
     }
   ],
   "skipped": [
@@ -547,11 +657,6 @@
     },
     {
       "page": 1,
-      "text": "Tear Strength N 350 D 1004",
-      "reason": "properties.csv carries no property for \"Tear Strength\" (N)"
-    },
-    {
-      "page": 1,
       "text": "Durometer Hardness Shore D Scale - 55 D 2240",
       "reason": "properties.csv carries no property for \"Durometer Hardness Shore D Scale\""
     },
@@ -562,13 +667,13 @@
     },
     {
       "page": 1,
-      "text": "Brittleness Temperature ºC < -70 D 746",
-      "reason": "properties.csv carries no property for \"Brittleness Temperature\""
+      "text": "Tear Strength N 350 D 1004",
+      "reason": "the sheet states Tear strength in N, and the database keeps it in kN/m"
     },
     {
       "page": 1,
-      "text": "Vicat Softening Temperature @ 1 kg load ºC 170 D 1525",
-      "reason": "no property and value this line states together"
+      "text": "Brittleness Temperature ºC < -70 D 746",
+      "reason": "properties.csv carries no property for \"Brittleness Temperature\""
     },
     {
       "page": 1,
@@ -587,23 +692,8 @@
     },
     {
       "page": 1,
-      "text": "Advised 3D printing temperature 240 – 260 ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
-      "text": "Advised bed temperature 80 ºC (+ buildTak)",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
       "text": "around 80C. Make sure the distance between nozzle and buildplate is not",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Advised 3D printing speed 40 – 60 mm/sec",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
@@ -627,6 +717,26 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes 400 % for this row (D 638). Elongation at break 400 % on a amorphous unfilled material is above 250, which is surprising: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    },
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "colorFabb's nGen_FLEX publishes a flexural modulus of 150 MPa (ASTM D 790). Same reasoning as its other sheet: a flexible copolyester bends at a tenth of a rigid one's modulus.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

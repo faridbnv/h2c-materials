@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "5eed6a625b56f39b9859185c198aa8e4d95c0c01aff95ec21196ff779c64508f",
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M039",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "colorFabb",
-        "Product name": "colorFabb varioShore TPU",
+        "Product name": "varioShore TPU",
         "Shared formulation key": "R-COLORFABB-colorFabb-VarioShore-TPU-TDS",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -161,8 +167,8 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "3",
-        "Standards": "Not published",
+        "Standard / load": "3 ASTM D-792",
+        "Standards": "ASTM D792",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
@@ -177,11 +183,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "-20 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-20",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-20",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-colorFabb-VarioShore-TPU-TDS",
+        "Locator": "p. 1: Glass transition temperature °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature ºC -20 DSC"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -208,8 +267,8 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-2240",
+        "Standards": "ASTM D2240",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
@@ -224,11 +283,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m05",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -255,8 +317,8 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-412",
+        "Standards": "ASTM D412",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
@@ -271,11 +333,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -302,8 +367,8 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-412",
+        "Standards": "ASTM D412",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
@@ -318,7 +383,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -329,16 +397,16 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
-        "Bed °C": "Not published",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
-        "Bed requirement": "unknown",
+        "Nozzle °C": "190 - 250°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "20 - 40°C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "40",
+        "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
         "Chamber min °C": "Not applicable",
@@ -380,10 +448,13 @@
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Bed surface / modification Tape or glue"
+        "text": "Nozzle temperature 190 - 250ºC"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -393,10 +464,29 @@
   "settings": [
     {
       "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "190 - 250°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 190 - 250ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "20 - 40°C",
+      "fromBelow": false,
+      "line": "Bed temperature 20 - 40ºC"
+    },
+    {
+      "page": 1,
       "field": "plate",
       "topic": "",
       "label": "Bed surface",
       "raw": "/ modification",
+      "fromBelow": false,
       "line": "Bed surface / modification Tape or glue"
     },
     {
@@ -405,6 +495,7 @@
       "topic": "Cooling",
       "label": "Active cooling fan",
       "raw": "Least amound of cooling as possible. For better overhangs use 50 - 100%",
+      "fromBelow": false,
       "line": "Active cooling fan Least amound of cooling as possible. For better overhangs use 50 - 100%"
     },
     {
@@ -413,6 +504,7 @@
       "topic": "Speed",
       "label": "Print speed",
       "raw": "20 - 30 mm/s",
+      "fromBelow": false,
       "line": "Print speed 20 - 30 mm/s"
     }
   ],
@@ -444,11 +536,6 @@
     },
     {
       "page": 1,
-      "text": "Glass transition temperature ºC -20 DSC",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
       "text": "1,75 mm ± 0,10 ≥ 95%",
       "reason": "no property and value this line states together"
     },
@@ -456,16 +543,6 @@
       "page": 1,
       "text": "2,85 mm ± 0,10 ≥ 95%",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Nozzle temperature 190 - 250ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 1,
-      "text": "Bed temperature 20 - 40ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
@@ -489,6 +566,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

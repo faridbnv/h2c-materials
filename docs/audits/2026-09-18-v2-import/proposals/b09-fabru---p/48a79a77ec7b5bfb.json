@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "48a79a77ec7b5bfb23930600942d1a037afbb1578397a5b70fc85353da10f2d6",
@@ -21,7 +21,7 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pom"
+      "name: pom"
     ],
     "materialId": "M087",
     "materialName": "POM / Acetal",
@@ -60,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M087",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fabru / purefil",
-        "Product name": "General",
+        "Product name": "Polyoxymethylen (POM)",
         "Shared formulation key": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -88,6 +91,56 @@
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M087",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "2 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+        "Locator": "p. 1: MFR (ISO 1133)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ISO 1133) 2 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M087",
@@ -130,11 +183,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M087",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "30 %",
+        "Raw unit": "%",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-1/-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+        "Locator": "p. 1: Elongation at yield (ISO 527-1/-2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at yield (ISO 527-1/-2) 30 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M087",
@@ -177,11 +283,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m03",
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M087",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1050 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1050",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.05",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+        "Locator": "p. 1: Tensile modulus (ISO 178)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (ISO 178) 1050 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M087",
@@ -224,11 +383,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m04",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M087",
@@ -271,11 +433,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m05",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M087",
@@ -318,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -355,23 +523,28 @@
     },
     {
       "page": 1,
-      "text": "190-210 °C MFR (ISO 1133) 2 g/10min",
+      "text": "190-210 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "120-150°C Elongation at yield (ISO 527-1/-2) 30 %",
+      "text": "120-150°C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "80°C Tensile modulus (ISO 178) 1050 MPa",
+      "text": "80°C",
       "reason": "in the column beside the storage note, naming no property and value together"
     },
     {
       "page": 1,
-      "text": "2-4h 0.45 MPa (ISO 75-1/-2)",
+      "text": "2-4h",
       "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa (ISO 75-1/-2)",
+      "reason": "properties.csv carries no property for \"0.45 MPa (\""
     },
     {
       "page": 1,
@@ -390,6 +563,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m05",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Fabru / purefil's Polyoxymethylen (POM) publishes 1050 MPa for this row (ISO 178). Tensile modulus 1.05 GPa on a semicrystalline compound material is below 1.5, which is surprising: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }

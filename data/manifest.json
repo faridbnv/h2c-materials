@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 131,
-      "sha256": "b469a171f6215ae2ee7ba61dffcdfaecffd8b254cae47c4a3019f34c41314229"
+      "rows": 143,
+      "sha256": "12205539a762595fcb83a350930012eb3cac4568a15a7efa7056eca97f33d26a"
     },
     "grades": {
-      "rows": 375,
-      "sha256": "7280e8dc820bc3bc894888e3c84fd401117ff27d1ee41dee44c180c8e1efd073"
+      "rows": 494,
+      "sha256": "796c0165c55c9df283fbb79f9643ea5bc9a5df1984cf789b264218e0769da344"
     },
     "profiles": {
-      "rows": 427,
-      "sha256": "a059bfe28d8fc6d37e7d480d5cc4a8b200b6df5ef08b91e7dddb5bbc84b4f72a"
+      "rows": 530,
+      "sha256": "c5f369374ff35dc24cea0aa00eea9ebef95ffd54b57e5846f4ce184a5b26aa10"
     },
     "profile_notes": {
-      "rows": 977,
-      "sha256": "edb5025b2d238037f607e7189822f4cb82d5f1de26626751f89a343c78ff38f8"
+      "rows": 1229,
+      "sha256": "96bcc4c6ada66d6974f9ce68b588cbbbb39a422ba982da1dac08fd1462c28ca5"
     },
     "measurements": {
-      "rows": 4801,
-      "sha256": "e6a925d9bbbe847be0dc0cbeea2633a55598fabfb7fba27690df07ee259edcaa"
+      "rows": 6009,
+      "sha256": "555992dfe0f3953859eece03fc4e668f80af762eacc776263c53a2ff949f5ed3"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -38,12 +38,12 @@
       "sha256": "490c13bcfc668287ed10685f2b8b5b871d32df2e959931c59fd5e63cb4e3330f"
     },
     "sources": {
-      "rows": 535,
-      "sha256": "840c0a78e7119efa53adca29bcd4cc71ffc8512d18d1de6bacd91e04aafd8492"
+      "rows": 665,
+      "sha256": "b298ccff084126f41bdf9c45c21c9ed5a1b9b6614d51846ae8633f8f200532d6"
     },
     "coverage": {
-      "rows": 688,
-      "sha256": "261a9193ee527c4f84edb66a9bb93d10e3385d6723f16ce65915d9408e705a11"
+      "rows": 705,
+      "sha256": "5a736af783c84edb2f1966cbc4381d41886a462cab06e5b7066f51c05757cdb5"
     },
     "method": {
       "rows": 50,
@@ -58,8 +58,8 @@
       "sha256": "f189d525924e1b3d0f0510406bf42d1e417bfeaea72cf0888dde020236251406"
     },
     "headlines": {
-      "rows": 452,
-      "sha256": "613d52d1638114b1fb9ef2161c3d7125000a3d3426836f180530529384d5ca5a"
+      "rows": 474,
+      "sha256": "6a5792d23278f53d60ecd63a46beafeff02e3a63989f0a5e7b8a3c0764bf1556"
     },
     "material_links": {
       "rows": 707,

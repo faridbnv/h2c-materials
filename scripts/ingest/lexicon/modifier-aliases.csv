@@ -44,7 +44,7 @@ lightweight,Foaming,
 lw,Foaming,
 magnetite,,an iron-oxide load: a ruling
 microspheres,Glass spheres,
-mineral,,a mineral load changes modulus and is not declared as a fraction: a ruling
+mineral,Ceramic,"schema/vocab/modifiers.csv defines Ceramic as a ceramic or mineral particle load, which is what a maker means by mineral (R059)"
 ptfe,PTFE,
 rcf08,Carbon fibre,recycled carbon fibre
 spheres,Glass spheres,a hollow glass sphere load is not a reinforcing fibre

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "5210c315281e63b30071dbe6d80ac70eb8ab244218254f1e48ae89dcbeea752b",
@@ -21,7 +21,7 @@
     "hardness": null,
     "support": false,
     "signals": [
-      "title: pla"
+      "name: pla"
     ],
     "materialId": "M001",
     "materialName": "PLA",
@@ -32,9 +32,9 @@
   },
   "source": {
     "row": {
-      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
       "Publisher": "colorFabb",
-      "Title": "Technical datasheet DRAFT",
+      "Title": "Technical datasheet DRAFT PLA-HP",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +50,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "Technical datasheet DRAFT"
+      "text": "Technical datasheet DRAFT PLA-HP"
     },
     "review": {
       "status": "proposed"
@@ -60,28 +60,31 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "colorFabb",
-        "Product name": "DRAFT",
-        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "Product name": "PLA-HP",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "Technical datasheet DRAFT"
+        "text": "Technical datasheet DRAFT PLA-HP"
       }
     }
   ],
@@ -119,7 +122,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Tensile modulus MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -130,7 +133,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -166,7 +172,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Yield strength MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -177,7 +183,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -213,7 +222,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Yield strain %",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -224,7 +233,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -260,7 +272,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Tensile strength MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -271,11 +283,64 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "2.07 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.07",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.07",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
+        "Locator": "p. 1: Tensile strain at tensile strength %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strain at tensile strength % 2.07 ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -307,7 +372,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Tensile stress at break MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -318,11 +383,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m06",
+      "id": "m07",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -354,7 +422,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Tensile strain at break %",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -365,11 +433,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m07",
+      "id": "m08",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -401,7 +472,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Unnotched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Charpy unnotched impact strength kJ/m2",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -412,11 +483,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m08",
+      "id": "m09",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -448,7 +522,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: Charpy notched impact strength kJ/m2",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -459,11 +533,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m09",
+      "id": "m10",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M001",
@@ -495,7 +572,7 @@
         "Test load MPa": "Not published",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "Locator": "p. 1: HDT °C",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -506,7 +583,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -517,11 +597,11 @@
         "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "Not published",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
-        "Nozzle requirement": "unknown",
+        "Nozzle °C": "200 - 220°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
         "Bed °C": "50°C",
         "Bed state": "range",
         "Bed min °C": "50",
@@ -550,7 +630,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"
@@ -572,10 +652,13 @@
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Bed temperature 50°C"
+        "text": "Nozzle temperature 200 - 220ºC"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -585,10 +668,20 @@
   "settings": [
     {
       "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "200 - 220°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 200 - 220ºC"
+    },
+    {
+      "page": 1,
       "field": "bed",
       "topic": "",
       "label": "Bed temperature",
       "raw": "50°C",
+      "fromBelow": false,
       "line": "Bed temperature 50°C"
     },
     {
@@ -597,6 +690,7 @@
       "topic": "",
       "label": "Bed surface",
       "raw": "/ modification",
+      "fromBelow": false,
       "line": "Bed surface / modification -"
     },
     {
@@ -605,6 +699,7 @@
       "topic": "Adhesion / release",
       "label": "Bed adhesion",
       "raw": "slicer settings 3D Lac",
+      "fromBelow": false,
       "line": "Bed adhesion slicer settings 3D Lac"
     },
     {
@@ -613,6 +708,7 @@
       "topic": "Cooling",
       "label": "Cooling",
       "raw": "50-100%",
+      "fromBelow": false,
       "line": "Cooling 50-100%"
     },
     {
@@ -621,6 +717,7 @@
       "topic": "Speed",
       "label": "Print speed",
       "raw": "40-100 mm/s",
+      "fromBelow": false,
       "line": "Print speed 40-100 mm/s"
     }
   ],
@@ -652,11 +749,6 @@
     },
     {
       "page": 1,
-      "text": "Tensile strain at tensile strength % 2.07 ISO 527",
-      "reason": "properties.csv carries no property for \"Tensile strain at tensile strength\" (%)"
-    },
-    {
-      "page": 1,
       "text": "1,75 mm ± 0.1mm ≥ 95%",
       "reason": "no property and value this line states together"
     },
@@ -669,11 +761,6 @@
       "page": 1,
       "text": "Netto filament weight 750g",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Nozzle temperature 200 - 220ºC",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
@@ -702,6 +789,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

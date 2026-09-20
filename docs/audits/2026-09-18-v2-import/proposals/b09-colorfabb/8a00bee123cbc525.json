@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "8a00bee123cbc525e1902ce0362ed4875e567716722957a1f329b789c8c3fc55",
@@ -23,29 +23,12 @@
     "signals": [
       "name: ngen"
     ],
-    "materialId": null,
-    "materialName": null,
+    "materialId": "M092",
+    "materialName": "nGen / Amphora",
     "estimateIdentity": "nGen",
     "confidence": 1,
     "needsRuling": false,
     "reasons": []
-  },
-  "newMaterial": {
-    "Original name": "nGen",
-    "Family": "Copolyesters",
-    "H2C status": "Theoretical",
-    "Representative grade": "${grade:main}",
-    "Best uses": "Not published",
-    "Limitations": "Not published",
-    "Full name": "Amphora-Based Copolyester (nGen Family) (Unfilled / unspecified)",
-    "Scope": "H2C-relevant",
-    "Abbreviation": "nGen",
-    "Base polymer": "nGen",
-    "Estimate identity": "nGen",
-    "Modifier / filler": "Unfilled / unspecified",
-    "Variant class": "Not applicable",
-    "Role": "Structural / functional / appearance",
-    "Identity notes": "Identity read from R-COLORFABB-TDS-E-ColorFabb-nGen (p. 1): name: ngen."
   },
   "source": {
     "row": {
@@ -77,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "colorFabb",
-        "Product name": "colorFabb_nGen",
+        "Product name": "nGen",
         "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -107,7 +93,7 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Tensile modulus",
         "Raw value": "1700 MPa",
@@ -147,14 +133,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "54 MPa",
@@ -194,14 +183,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "11 %",
@@ -241,14 +233,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Charpy strength",
         "Raw value": "3.3 kJ/m2",
@@ -288,14 +283,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m05",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
         "Raw value": "50 MPa",
@@ -335,14 +333,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m06",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "190 %",
@@ -382,14 +383,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m07",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Flexural modulus",
         "Raw value": "1800 MPa",
@@ -429,14 +433,17 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
       "id": "m08",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Property": "Density",
         "Raw value": "1.2 g/cm3",
@@ -476,7 +483,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -484,18 +494,18 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "",
+        "MaterialID": "M092",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "˚C",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
+        "Nozzle °C": "220-240 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "240",
         "Nozzle requirement": "required",
-        "Bed °C": "˚C",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
+        "Bed °C": "75-85 °C",
+        "Bed state": "range",
+        "Bed min °C": "75",
+        "Bed max °C": "85",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -525,28 +535,31 @@
         "Locator": "p. 2: Recommended printing settings",
         "Parse review": "Not applicable"
       },
-      "notes": [],
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-80 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-70 mm/s"
+        }
+      ],
       "editorial": [],
       "evidence": {
         "page": 2,
         "text": "Nozzle Temp. ˚C 220-240"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
   "evidence": [],
-  "headlines": [
-    {
-      "HeadlineKey": "density",
-      "measurement": "m08",
-      "Use": "value",
-      "review": {
-        "status": "proposed"
-      }
-    }
-  ],
+  "headlines": [],
   "coverage": [],
   "settings": [
     {
@@ -554,7 +567,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle Temp",
-      "raw": "˚C",
+      "raw": "220-240 °C",
+      "fromBelow": false,
       "line": "Nozzle Temp. ˚C 220-240"
     },
     {
@@ -562,8 +576,27 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temp",
-      "raw": "˚C",
+      "raw": "75-85 °C",
+      "fromBelow": false,
       "line": "Bed Temp. ˚C 75-85"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "0-80 %",
+      "fromBelow": false,
+      "line": "Active cooling fan % 0-80"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "40-70 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed mm/s 40-70"
     }
   ],
   "skipped": [
@@ -585,17 +618,17 @@
     {
       "page": 1,
       "text": "Flexural Modulus Flexural, ISO 178 N/A MPa",
-      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 N/A MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Youngs Modulus Tensile, ASTM D638 N/A MPa",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -609,18 +642,18 @@
     },
     {
       "page": 1,
+      "text": "Glass Transition Temp. DSC, ISO 11357 N/A ˚C",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
       "text": "Melting Temp. DSC, ISO 11357 N/A ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Melting temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 N/A ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 N/A ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -645,7 +678,7 @@
     {
       "page": 1,
       "text": "Melt Flow Index MFI, ISO 1133-A N/A g/10 min",
-      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -704,16 +737,6 @@
     },
     {
       "page": 2,
-      "text": "Active cooling fan % 0-80",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Print Speed mm/s 40-70",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -754,6 +777,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

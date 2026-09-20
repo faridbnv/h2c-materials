@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10255%2FMaterial-data-sheet-TPV-98A-purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "0d7409be7fc659cf"
+  },
+  "identity": {
+    "polymer": "TPE",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tps",
+      "ruling R056: TPE"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "TPE",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "a new material for this identity would be a second TPE (M044): TPE / Unfilled / unspecified"
+    ]
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Thermoplas+c vulcanizate (TPV)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10255%2FMaterial-data-sheet-TPV-98A-purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Thermoplas+c vulcanizate (TPV)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Thermoplas+c vulcanizate (TPV)",
+        "Shared formulation key": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Thermoplas+c vulcanizate (TPV)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+        "Locator": "p. 1: density of approximately",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "density of approximately 1.24g/cm³ ensures a favorable weight-to-performance ra+o."
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "13.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "13.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.0139",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 37",
+        "Standards": "ISO 37",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+        "Locator": "p. 1: Tensile modulus (ISO 37)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (ISO 37) 13.9 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1A ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+        "Locator": "p. 1: Density (ISO 1183 1A)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ISO 1183 1A) 1.24 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-10255-Material-data-sheet-TPV-98A-purefil",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "1.1 %"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Shrinkage 1.1 %"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Shrinkage",
+      "raw": "1.1 %",
+      "fromBelow": false,
+      "line": "Shrinkage 1.1 %"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "applica+ons. With a Shore A hardness of 92, this material offers an excep+onal combina+on",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ease of processing of thermoplas+cs, making it ideal for 3D prin+ng.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The high elonga+on at break of up to 630% underscores the material's elas+city, while the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prin3ng temperature Shrinkage 1.1 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "175-230 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yield stress 7.2 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80-95 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yield elonga3on 630 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elonga3on at break (ISO 37) 630 %",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "60-80 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MFR - g/10min",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"- g/10min\""
+    },
+    {
+      "page": 1,
+      "text": "82 °C Heat deflec3on temperature 90 °C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "3h Vicat soQening temperature A - °C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Thermal conduc3vity 23°C - W/(K*m)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability (UL 94) V0",
+      "reason": "properties.csv carries no property for \"Flammability (\""
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "b53f2e54a113a2c5d715e8972e53afd1e5773b91227c463a1a8bba34301d66d2",
@@ -27,10 +27,8 @@
     "materialName": "TPU",
     "estimateIdentity": "TPU",
     "confidence": 0.8,
-    "needsRuling": true,
-    "reasons": [
-      "its density of -2240000 kg/m³ is below what neat TPU reaches (1050), so the product is foamed or carries a lightweight additive"
-    ]
+    "needsRuling": false,
+    "reasons": []
   },
   "source": {
     "row": {
@@ -62,14 +60,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M039",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "colorFabb",
-        "Product name": "colorFabb TPU95A",
+        "Product name": "TPU95A",
         "Shared formulation key": "R-COLORFABB-TDS-colorFabb-TPU95A",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -132,7 +133,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -179,7 +183,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -226,7 +233,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -273,7 +283,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -320,7 +333,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -367,7 +383,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -414,7 +433,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -424,14 +446,14 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Property": "Tensile strength (endpoint unspecified)",
-        "Raw value": "-41232 MPa",
+        "Raw value": "32 MPa",
         "Raw unit": "MPa",
-        "Raw numeric": "-41232",
+        "Raw numeric": "32",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "-41232",
+        "Normalized value": "32",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "MPa",
@@ -445,13 +467,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-412",
+        "Standards": "ASTM D412",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-colorFabb-TPU95A",
-        "Locator": "p. 1: Tensile Strength ASTM D",
+        "Locator": "p. 1: Tensile Strength ASTM D-412",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -461,7 +483,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -471,14 +496,14 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Property": "Elongation at break",
-        "Raw value": "-412380 %",
+        "Raw value": "380 %",
         "Raw unit": "%",
-        "Raw numeric": "-412380",
+        "Raw numeric": "380",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "-412380",
+        "Normalized value": "380",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "%",
@@ -492,13 +517,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-412",
+        "Standards": "ASTM D412",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-colorFabb-TPU95A",
-        "Locator": "p. 1: Elongation at break ASTM D",
+        "Locator": "p. 1: Elongation at break ASTM D-412",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -508,7 +533,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -518,15 +546,15 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Property": "Density",
-        "Raw value": "-2240 ± 1,21 g/cm3",
+        "Raw value": "1,21 g/cm3",
         "Raw unit": "g/cm3",
-        "Raw numeric": "-2240",
-        "Raw uncertainty ±": "1.21",
+        "Raw numeric": "1.21",
+        "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1000",
-        "Normalized value": "-2240000",
-        "Normalized uncertainty ±": "1210",
+        "Normalized value": "1210",
+        "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "kg/m³",
         "Data status": "Published value",
@@ -539,13 +567,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
+        "Standard / load": "ASTM D-2240",
+        "Standards": "ASTM D2240",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-COLORFABB-TDS-colorFabb-TPU95A",
-        "Locator": "p. 1: Specific Gravity ASTM D",
+        "Locator": "p. 1: Specific Gravity ASTM D-2240",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -555,7 +583,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -602,7 +633,110 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "-25 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-colorFabb-TPU95A",
+        "Locator": "p. 1: Glass Transition Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temp. DSC, ISO 11357 -25 ˚C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-colorFabb-TPU95A",
+        "Locator": "p. 1: Melting Temp. DSC, ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting Temp. DSC, ISO 11357 200 ˚C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -613,15 +747,15 @@
         "MaterialID": "M039",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "˚C",
-        "Nozzle state": "unknown",
-        "Nozzle min °C": "Not applicable",
-        "Nozzle max °C": "Not applicable",
+        "Nozzle °C": "220-230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "230",
         "Nozzle requirement": "required",
-        "Bed °C": "˚C",
-        "Bed state": "unknown",
-        "Bed min °C": "Not applicable",
-        "Bed max °C": "Not applicable",
+        "Bed °C": "30-40 °C",
+        "Bed state": "range",
+        "Bed min °C": "30",
+        "Bed max °C": "40",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -653,8 +787,16 @@
       },
       "notes": [
         {
+          "Topic": "Cooling",
+          "Text": "25-50 %"
+        },
+        {
           "Topic": "Speed",
-          "Text": "mm3/s"
+          "Text": "30-40 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "3.2 mm3/s"
         }
       ],
       "editorial": [],
@@ -663,7 +805,10 @@
         "text": "Nozzle Temp. ˚C 220-230"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -676,7 +821,8 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle Temp",
-      "raw": "˚C",
+      "raw": "220-230 °C",
+      "fromBelow": false,
       "line": "Nozzle Temp. ˚C 220-230"
     },
     {
@@ -684,15 +830,35 @@
       "field": "bed",
       "topic": "",
       "label": "Bed Temp",
-      "raw": "˚C",
+      "raw": "30-40 °C",
+      "fromBelow": false,
       "line": "Bed Temp. ˚C 30-40"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Active cooling fan",
+      "raw": "25-50 %",
+      "fromBelow": false,
+      "line": "Active cooling fan % 25-50"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30-40 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed mm/s 30-40"
     },
     {
       "page": 2,
       "field": "note",
       "topic": "Speed",
       "label": "Max. Volumetric speed",
-      "raw": "mm3/s",
+      "raw": "3.2 mm3/s",
+      "fromBelow": false,
       "line": "Max. Volumetric speed mm3/s 3.2"
     }
   ],
@@ -730,17 +896,17 @@
     {
       "page": 1,
       "text": "Youngs Modulus ASTM D-412 N/A MPa",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Flexural Modulus Flexural, ISO 178 N/A MPa",
-      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Flexural Strength Flexural, ISO 178 N/A MPa",
-      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -749,23 +915,13 @@
     },
     {
       "page": 1,
-      "text": "Melting Temp. DSC, ISO 11357 200 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
-    },
-    {
-      "page": 1,
       "text": "Decomposition Temp. TGA, ISO 11358 N/A ˚C",
-      "reason": "properties.csv carries no property for \"Decomposition Temp.\""
-    },
-    {
-      "page": 1,
-      "text": "Glass Transition Temp. DSC, ISO 11357 -25 ˚C",
-      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for Decomposition temperature in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Heat Deflection Temp. HDT-B, ISO 75 N/A ˚C",
-      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+      "reason": "the sheet publishes no value for HDT in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -775,12 +931,12 @@
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (210˚C/2.16 kg), N/A g/10min",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
       "text": "Melt Flow Index MFI, (190˚C/1,16 kg), N/A g/10 min",
-      "reason": "no property and value this line states together"
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
     },
     {
       "page": 1,
@@ -839,16 +995,6 @@
     },
     {
       "page": 2,
-      "text": "Active cooling fan % 25-50",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
-      "text": "Print Speed mm/s 30-40",
-      "reason": "in the printing guide, naming no setting the lexicon knows"
-    },
-    {
-      "page": 2,
       "text": "The reported properties are an average of a batch of 3D specimens.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
@@ -889,6 +1035,8 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

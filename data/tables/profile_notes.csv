@@ -976,3 +976,255 @@ P0426,Adhesion / release,Distance 0.2-0.4mm
 P0426,Retraction,0.8-1.2mm
 P0427,Adhesion / release,Distance 0.2-0.4mm
 P0427,Retraction,0.8-1.2mm
+P0428,Speed,30-100mm/s
+P0429,Speed,30-90mm/s
+P0430,Speed,30-200mm/s
+P0431,Speed,30-100mm/s
+P0432,Speed,30-100mm/s
+P0433,Speed,30-500mm/s
+P0434,Speed,30-100mm/s
+P0435,Speed,30-80mm/s
+P0436,Speed,30-60mm/s
+P0437,Speed,≤40mm/s
+P0438,Speed,30-100mm/s
+P0439,Speed,≤600mm/s
+P0440,Speed,30-100mm/s
+P0441,Speed,30-150mm/s
+P0442,Speed,≤300mm/s
+P0443,Speed,30-150mm/s
+P0444,Speed,30-100mm/s
+P0445,Speed,30-50mm/s
+P0446,Speed,30-80mm/s
+P0447,Speed,30-80mm/s
+P0448,Speed,30-600mm/s
+P0449,Speed,30-500mm/s
+P0450,Speed,30-100mm/s
+P0451,Speed,30-500mm/s
+P0452,Speed,30-100mm/s
+P0453,Speed,30-150mm/s
+P0454,Speed,30-100mm/s
+P0455,Speed,30-600mm/s
+P0456,Speed,250mm/s
+P0456,Cooling,0~40%
+P0456,Layer height,0.12~0.3mm
+P0456,Retraction,Length 0.5~2mm
+P0457,Cooling,50~100%
+P0457,Layer height,0.12~0.3mm
+P0457,Speed,100~350mm/s
+P0457,Retraction,1~2mm
+P0458,Speed,50mm/s
+P0458,Shell / walls,1.2mm
+P0458,Layer height,0.18~0.3mm
+P0458,Retraction,Length 2~4mm
+P0459,Speed,60mm/s
+P0459,Shell / walls,1.2mm
+P0459,Cooling,50~100%
+P0459,Layer height,0.12~0.3mm
+P0459,Retraction,1~2mm
+P0460,Speed,50mm/s
+P0460,Shell / walls,1.2mm
+P0460,Cooling,0~20%
+P0460,Layer height,0.12~0.3mm
+P0460,Retraction,Length 1~3mm
+P0461,Speed,50mm/s
+P0461,Shell / walls,1.2mm
+P0461,Cooling,0~20%
+P0461,Layer height,0.12~0.3mm
+P0461,Retraction,Length 1~2mm
+P0462,Cooling,50~100%
+P0462,Adhesion / release,Flow Rate 1.3
+P0462,Layer height,0.12~0.3mm
+P0462,Speed,40~100mm/s
+P0462,Retraction,Length 0.3~1mm
+P0463,Speed,250mm/s
+P0463,Shell / walls,1.2mm
+P0463,Cooling,0~50%
+P0463,Layer height,0.12~0.3mm
+P0463,Retraction,Length 0.3~2mm
+P0464,Speed,50mm/s
+P0464,Shell / walls,1.2mm
+P0464,Cooling,0~50%
+P0464,Layer height,0.12~0.3mm
+P0464,Retraction,Length 0.3~2mm
+P0465,Speed,200mm/s
+P0465,Shell / walls,0.4mm
+P0465,Cooling,0~30%
+P0465,Layer height,0.2~0.4mm
+P0465,Retraction,0.5~1.5mm
+P0466,Speed,150mm/s
+P0466,Shell / walls,1.8mm
+P0466,Layer height,0.2~0.3mm
+P0466,Retraction,0.3~0.8mm
+P0467,Speed,80mm/s
+P0467,Shell / walls,1.8mm
+P0467,Layer height,0.12~0.3mm
+P0467,Retraction,1~2mm
+P0469,Speed,50mm/s
+P0469,Shell / walls,1.2mm
+P0469,Cooling,50~100%
+P0469,Layer height,0.12~0.3mm
+P0469,Retraction,Length 1~2mm
+P0470,Speed,200mm/s
+P0470,Shell / walls,0.4mm
+P0470,Cooling,0~30%
+P0470,Layer height,0.2~0.4mm
+P0470,Retraction,0.5~1.5mm
+P0471,Speed,50mm/s
+P0471,Shell / walls,1.8mm
+P0471,Layer height,0.12~0.3mm
+P0471,Retraction,Length 4~6mm
+P0472,Speed,60mm/s
+P0472,Shell / walls,1.2mm
+P0472,Cooling,50~100%
+P0472,Layer height,0.12~0.3mm
+P0472,Retraction,1~2mm
+P0473,Speed,150mm/s
+P0473,Shell / walls,0.4mm
+P0473,Cooling,0~30%
+P0473,Layer height,0.2~0.4mm
+P0473,Retraction,0.5~1.5mm
+P0474,Speed,60mm/s
+P0474,Shell / walls,1.2mm
+P0474,Cooling,50~100%
+P0474,Layer height,0.12~0.3mm
+P0474,Retraction,1~2mm
+P0475,Speed,60mm/s
+P0475,Shell / walls,1.2mm
+P0475,Cooling,50~100%
+P0475,Layer height,0.12~0.3mm
+P0475,Retraction,Length 1~2mm
+P0476,Speed,150mm/s
+P0476,Shell / walls,1.2mm
+P0476,Cooling,50~100%
+P0476,Layer height,0.2~0.3mm
+P0476,Retraction,0.3~1mm
+P0477,Speed,150mm/s
+P0477,Shell / walls,1.2mm
+P0477,Cooling,50~100%
+P0477,Layer height,0.12~0.3mm
+P0477,Retraction,0.3~1mm
+P0478,Speed,50mm/s
+P0478,Shell / walls,1.2mm
+P0478,Cooling,0~50%
+P0478,Layer height,0.12~0.3mm
+P0478,Retraction,Length 0.3~2mm
+P0479,Speed,150mm/s
+P0479,Cooling,0~50%
+P0479,Layer height,0.12~0.3mm
+P0479,Retraction,Length 0.5~2mm
+P0480,Speed,50mm/s
+P0480,Shell / walls,1.2mm
+P0480,Cooling,0~50%
+P0480,Layer height,0.12~0.3mm
+P0480,Retraction,Length 1~2mm
+P0481,Speed,50mm/s
+P0481,Shell / walls,1.2mm
+P0481,Cooling,0~50%
+P0481,Layer height,0.12~0.3mm
+P0481,Retraction,Length 1~3mm
+P0482,Speed,60mm/s
+P0482,Shell / walls,1.2mm
+P0482,Cooling,50~100%
+P0482,Layer height,0.12~0.3mm
+P0482,Retraction,1~2mm
+P0483,Speed,200mm/s
+P0483,Cooling,50~100%
+P0483,Layer height,0.12~0.3mm
+P0483,Retraction,Length 0.5~2mm
+P0484,Speed,200mm/s
+P0484,Cooling,0~20%
+P0484,Layer height,0.12~0.3mm
+P0484,Retraction,Length 0.5~2mm
+P0485,Warping / shrinkage,", no cracking, and good antistatic performance as well. The surface resistivity"
+P0485,Speed,50mm/s
+P0485,Shell / walls,1.2mm
+P0485,Cooling,0~20%
+P0485,Layer height,0.12~0.3mm
+P0485,Retraction,Length 1~2mm
+P0486,Speed,60mm/s
+P0486,Shell / walls,1.2mm
+P0486,Cooling,50~100%
+P0486,Layer height,0.12~0.3mm
+P0486,Retraction,Length 1~2mm
+P0487,Speed,150mm/s
+P0487,Shell / walls,1.8mm
+P0487,Cooling,50%~100%
+P0487,Layer height,0.2mm
+P0488,Shell / walls,2
+P0489,Shell / walls,2
+P0495,Adhesion / release,spray (3D
+P0495,Cooling,100 %
+P0495,Speed,50 mm/s
+P0496,Adhesion / release,spray (3D lac)
+P0496,Cooling,100 %
+P0496,Speed,260 mm/s
+P0497,Cooling,0-50 %
+P0497,Speed,30-50 mm/s
+P0498,Adhesion / release,spray (3D
+P0498,Cooling,100 %
+P0498,Speed,50 mm/s
+P0499,Cooling,0-80 %
+P0499,Speed,40-70 mm/s
+P0500,Speed,40-100 mm/s
+P0501,Speed,40-100 mm/s
+P0502,Adhesion / release,slicer settings 3D Lac
+P0502,Cooling,50-100%
+P0502,Speed,40-100 mm/s
+P0503,Cooling,100 %
+P0503,Speed,40-100 mm/s
+P0504,Adhesion / release,spray (3D lac)
+P0504,Cooling,100 %
+P0504,Speed,500 mm/s
+P0505,Adhesion / release,spray (3D lac)
+P0505,Cooling,100 %
+P0505,Speed,150 mm/s
+P0506,Cooling,Least amound of cooling as possible. For better overhangs use 50 - 100%
+P0506,Speed,20 - 30 mm/s
+P0507,Speed,40 – 100 mm/s
+P0508,Adhesion / release,spray (3D
+P0508,Cooling,100 %
+P0508,Speed,50 mm/s
+P0509,Cooling,25-50 %
+P0509,Speed,30-40 mm/s
+P0510,Cooling,50-100 %
+P0510,Speed,40-100 mm/s
+P0511,Adhesion / release,spray (3D
+P0511,Cooling,100 %
+P0511,Speed,50 mm/s
+P0512,Cooling,0-50 %
+P0512,Speed,40-60 mm/s
+P0513,Cooling,0-50 %
+P0513,Speed,40-60 mm/s
+P0514,Cooling,75-100 %
+P0514,Speed,30-50 mm/s
+P0515,Cooling,0-80 %
+P0515,Speed,40-70 mm/s
+P0516,Cooling,100 %
+P0516,Speed,40-100 mm/s
+P0517,Cooling,100 %
+P0517,Speed,40-100 mm/s
+P0518,Cooling,0 – 100 %
+P0518,Speed,40 – 70 mm/s
+P0519,Cooling,0-50 %
+P0519,Speed,30-50 mm/s
+P0520,Cooling,0-100%
+P0520,Speed,40-80 mm/s
+P0521,Cooling,25-50 %
+P0521,Speed,30-40 mm/s
+P0522,Cooling,100 %
+P0522,Speed,50 mm/s
+P0523,Cooling,100%
+P0523,Speed,40-80 mm/s
+P0524,Cooling,75 – 100%
+P0524,Speed,30 – 50 mm/s
+P0525,Speed,40-100 mm/s
+P0526,Cooling,100 %
+P0526,Speed,print speed 12-21
+P0527,Cooling,100 %
+P0527,Speed,40-100 mm/s
+P0528,Cooling,0-80%
+P0528,Speed,40-70 mm/s
+P0529,Cooling,0-100%
+P0529,Speed,40-80 mm/s
+P0530,Cooling,0 – 50 %
+P0530,Speed,40 – 60 mm/s

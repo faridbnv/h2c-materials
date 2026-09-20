@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "d9e7df3f4e50cfa6f1f892941b784000ec4c30b8995aded2ca0b8a74799cf33c",
@@ -14,17 +14,18 @@
   },
   "identity": {
     "polymer": "ABS",
-    "modifier": "Unfilled / unspecified",
+    "modifier": "Glass fibre",
     "variantClass": "",
     "finish": "",
     "family": "ABS",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: abs"
+      "name: abs",
+      "filler: gf10"
     ],
-    "materialId": "M027",
-    "materialName": "ABS",
+    "materialId": "M028",
+    "materialName": "ABS-GF",
     "estimateIdentity": "ABS",
     "confidence": 1,
     "needsRuling": false,
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M028",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fabru / purefil",
-        "Product name": "Allgemein",
+        "Product name": "Acrylnitrilbutadienstyrol Glasfaser 10% (ABS GF10)",
         "Shared formulation key": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -90,7 +94,307 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.2-0.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.4",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.4",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2577 ISO 294-4",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Schwindung (ISO 294-4, 2577)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Schwindung (ISO 294-4, 2577) 0.2-0.4 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "24 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "24",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: MFR (ISO 1133)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ISO 1133) 24 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "81 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "81",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "81",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Streckspannung (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckspannung (ISO 527-1,2) 81 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Streckdehnung (ASTM D638)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckdehnung (ASTM D638) 3 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Reissdehnung (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Reissdehnung (ISO 527-1,2) 3 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "4200 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Zug-E-Modul (ISO 178)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Zug-E-Modul (ISO 178) 4200 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
         "GradeID": "",
         "Property": "Vicat softening temperature",
         "Raw value": "95 °C",
@@ -130,7 +434,60 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M028",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.11 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.11",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1110",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil",
+        "Locator": "p. 1: Dichte (ISO 1183)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Dichte (ISO 1183) 1.11 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -162,32 +519,17 @@
     },
     {
       "page": 1,
-      "text": "Schwindung (ISO 294-4, 2577) 0.2-0.4 %",
-      "reason": "properties.csv carries no property for \"Schwindung (\""
-    },
-    {
-      "page": 1,
-      "text": "240-260 °C MFR (ISO 1133) 24 g/10min",
+      "text": "240-260 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Streckspannung (ISO 527-1,2) 81 MPa",
-      "reason": "properties.csv carries no property for \"Streckspannung (\""
-    },
-    {
-      "page": 1,
-      "text": "80-110 °C Streckdehnung (ASTM D638) 3 %",
+      "text": "80-110 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "Reissdehnung (ISO 527-1,2) 3 %",
-      "reason": "properties.csv carries no property for \"Reissdehnung (\""
-    },
-    {
-      "page": 1,
-      "text": "80°C Zug-E-Modul (ISO 178) 4200 MPa",
+      "text": "80°C",
       "reason": "no property and value this line states together"
     },
     {
@@ -197,8 +539,13 @@
     },
     {
       "page": 1,
-      "text": "2-4h 0.45 MPa (ASTM D648)",
+      "text": "2-4h",
       "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MPa (ASTM D648)",
+      "reason": "properties.csv carries no property for \"0.45 MPa (\""
     },
     {
       "page": 1,
@@ -207,21 +554,18 @@
     },
     {
       "page": 1,
-      "text": "Wärmeleitzahl 23°C - W/(K*m)",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
       "text": "Brennbarkeit (UL 94) HB",
-      "reason": "properties.csv carries no property for \"Brennbarkeit (\""
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
     },
     {
       "page": 1,
-      "text": "Dichte (ISO 1183) 1.11 g/cm3",
-      "reason": "properties.csv carries no property for \"Dichte (\""
+      "text": "Wärmeleitzahl 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
   }
 }

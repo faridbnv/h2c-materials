@@ -83,7 +83,10 @@ export function guard(proposals, world) {
   const materials = new Map(world.materials.map((m) => [m.MaterialID, m]));
   const materialByName = new Map(world.materials.map((m) => [m['Original name'], m]));
   const vocabularies = world.vocabularies ?? {};
-  const rulings = new Set((world.rulings ?? []).map((r) => r.Subject));
+  // Only a ruling that creates a material creates one. Every ruling's subject counted, so R055 — which says PHA
+  // is a family whose grades are amorphous or semicrystalline and that its products wait — was read as leave to
+  // create a PHA material, and one was created with no polymer row behind it.
+  const rulings = new Set((world.rulings ?? []).filter((r) => r.Kind === 'new-material').map((r) => r.Subject));
 
   // Two documents of one batch may derive one identifier as easily as one document and one already registered.
   const claimed = new Map();

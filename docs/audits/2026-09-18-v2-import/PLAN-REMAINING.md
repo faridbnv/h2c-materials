@@ -1,34 +1,38 @@
 # What is left of the plan
 
 The plan the owner approved is in the session record; this is the part of it that has not been done, with what
-each step now knows that the plan could not. Rewritten 2026-09-19, after batches b01 to b08.
+each step now knows that the plan could not. Rewritten 2026-09-19, after batches b01 to b09.
 
 ## Where the import stands
 
 | | Documents |
 |---|---:|
-| Applied: their values are in the database | 363 |
-| Read and waiting for a batch | 274 |
-| One sheet under another name, or another language's edition | 311 |
-| Fetched but not yet read, or not yet fetched | 976 |
-| Dead links, a user guide, a safety sheet | 12 |
+| Applied: their values are in the database | 500 |
+| Read and waiting for a batch | 554 |
+| One sheet under another name, or another language's edition | 347 |
+| Not yet fetched, or behind a login | 468 |
+| A safety sheet, a dead link, no numbers on the page, out of scope | 67 |
 
-Eight batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr
-and SUNLU. The database holds 131 materials, 375 grades, 4,801 measurements and 524 sources, against the 103, 179,
-2,645 and 300 it held when the plan was written.
+Nine batches have landed: Bambu re-read, 3DXTECH, Polymaker, Spectrum, iSANMATE, the held PPE/PS blend, Extrudr,
+SUNLU, and b09's five libraries read together (Eryone, Flashforge, colorFabb, Fabru / purefil, Fiberlogy). The
+database holds 143 materials, 494 grades, 6,009 measurements and 665 sources, against the 103, 179, 2,645 and 300
+it held when the plan was written.
 
 Nothing in the corpus is now unreadable for want of a text layer: `npm run ingest:ocr` reads a scan on a copy,
 caches it under the document's own digest as an optical reading, and `ingest:apply` refuses a row from one that
 nobody has checked against the page image. Fiberlogy's whole library came in that way.
 
-## 1. The five libraries already read and waiting
+## 1. What b09 held, and the twelve before it
 
-colorFabb (67), Fabru / purefil (38), Flashforge (37), Eryone (30), Fiberlogy (43, all but ten of them scans).
-Their proposals exist; what they need is what every maker's first batch needs — the reader taught that maker's
-layout, proved against the three makers whose sheets are transcribed by hand, and then a review.
+Seventy-three documents of the five libraries did not enter. Thirty of them are Fiberlogy scans and the other
+optically read sheets: a value read from a picture waits for somebody to read it against the page image, which is
+`ingest:review --visual` and nothing else. The rest are identities nobody has settled — colorFabb's four sheets
+titled for the resin instead of the product, the PHA products, purefil's TPV and its GreenTEC rebrands,
+Flashforge's Fabrial, Fiberlogy's FiberSilk, FiberSatin, FiberWood and FiberFlex — each needing a ruling, not a
+guess. `batches/b09/README.md` names them.
 
-Four SUNLU products and eight Extrudr products wait beside them: a polymer nobody names, a finish material that
-does not exist yet, or a sheet that reprints another product's table.
+Four SUNLU products and eight Extrudr products wait beside them for the same reason: a polymer nobody names, a
+finish material that does not exist yet, or a sheet that reprints another product's table.
 
 ## 2. What each new maker's batch costs
 
@@ -36,7 +40,7 @@ Every library so far has needed the reader taught something, and each thing it l
 special case: a unit printed before its value, a value printed above its label, a designation whose digits are not
 a value, a table printed beside another table, a bracket that lost its opening, a label the lexicon cannot read in
 full. Parity on Spectrum, 3DXTECH and Polymaker is the gate that says none of it broke what was already right:
-100%, 100% and 93% through all eight batches.
+113 of 113, 213 of 214 and 223 of 239 through all nine batches.
 
 Two things are still missing from the reader, and both cost values on every maker:
 
@@ -44,14 +48,16 @@ Two things are still missing from the reader, and both cost values on every make
   permittivity, moulding shrinkage, tear strength, abrasion loss, compression set, Poisson's ratio: 162 rows on
   SUNLU's sheets alone, and the reader names each one. `properties.csv` rows and the units beside them are a data
   decision, and the plan's Phase 1.9 is where they belong.
-- **A polymer with no row.** PBT, PHA, TPS, COC, SEBS, SAN, PA11, LCP, PVC and PBAT are still missing; PCL and the
-  PPE/PS blend now have rows, each written from a producer's reference that was fetched and hashed.
+- **A polymer with no row.** PHA, TPS, SEBS and PA11 are still missing. PBT, COC, SAN, LCP, PVC and PBAT were
+  written for b09, and PCL and the PPE/PS blend before it, each from a producer's reference that was fetched and
+  hashed.
 
 ## 3. What is not fetched
 
-976 documents. 3DJake's 317 are Wave D, and most are copies of sheets that arrive with their makers. The rest are
-the libraries in the table below, being fetched as this is written, and the ones behind a viewer or a request form:
-FormFutura's SharePoint (64), Nanovia (73), QIDI (36), Siraya (20), Recreus (16), INTAMSYS's request form (33).
+404 documents, plus 64 behind a login. 3DJake's are Wave D and most are copies of sheets that arrive with their
+makers. The gated ones need the owner's credentials: FormFutura's SharePoint (64) above all, with INTAMSYS's
+request form (33) beside it. Twenty-three fetched web pages carry no numbers at all, because their tables are
+drawn by a script the capture did not run; those are a fetch problem to reopen, not sheets without data.
 
 ## 4. Wave D: the retailers
 
@@ -60,11 +66,20 @@ only through a retailer. Last, so every twin has a manufacturer's sheet to point
 
 ## 5. The estimate stage at scale
 
-`npm run scale` builds twice today's data and holds compile and validate inside its budget; the margin is the
-thing to watch, because the spread search is hundreds of fits per headline and a fit is cubic in what it sees. The
-cap that keeps it affordable is `fitting.spreadSampleMax` (D77). The trigger for the exact block solve is a
-headline above 4,000 observations or the estimate stage above five minutes: today the largest headline has about
-600 observations and the stage takes 12 seconds.
+This is now the nearest thing to a deadline in the programme. The estimate stage is 40 s on today's data where
+the core compile and validate together are 74 ms, and it is cubic in observations: `npm run scale`, which builds
+twice the data, read about 10 s yesterday and reads 111 s today, because the corpus grew 2.3× in a day. Its budget
+was raised from 90 s to 150 s with both measurements recorded beside it in `test/scale.check.js`, and the check
+gained a second assertion holding the core build at 2× to 5 s so a real compile regression still fails it.
+
+The cap that keeps the spread search affordable is `fitting.spreadSampleMax` (D77), and it is already doing its
+work. The plan's trigger for the exact block solve is a headline above 4,000 observations or the estimate stage
+above five minutes; the largest headline holds 733 observations and the stage 40 s, and two or three more batches
+of this size reach it. Building it before Wave C is cheaper than building it during.
+
+Beside it, the distributable: `dist/db.json` is 11.3 MB and the one-file page that embeds it gzipped is 5.2 MB,
+against the plan's 15 MB threshold for taking measurements out of the page payload. At this rate that arrives
+around three times today's data, so it is a Wave C decision.
 
 What the batches have already taught the model, each in its own place: a support product with no measurements is
 not characterised and one with them is read like any other material; a conditioned bar beside its own dry one is
@@ -83,4 +98,4 @@ whether a declared variant moves its family is measured against an ordinary sibl
   corrections. m62 did that work by hand for 84 rows after the reader improved; `edits[]` through
   `scripts/migrate/source-edits.mjs` is what would make it a part of the pipeline.
 - **The second read at every batch.** b01 and b02 were read a second time by a different reviewer, which found the
-  source collision m55 repairs. b03 to b08 were not.
+  source collision m55 repairs. b03 to b09 were not.

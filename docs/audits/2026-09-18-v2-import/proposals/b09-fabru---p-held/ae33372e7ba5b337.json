@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-20"
+  },
+  "document": {
+    "sha256": "ae33372e7ba5b337f9faf17a23d2d9feb648a89812d6edd7670210a7de85427c",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/372%2FMaterialdatenblatt+PETG+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "ae33372e7ba5b337"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-PUREFIL-372-Materialdatenblatt-PETG-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Polyethylenterephthalat Typ G (PETG)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/372%2FMaterialdatenblatt+PETG+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ae33372e7ba5b337f9faf17a23d2d9feb648a89812d6edd7670210a7de85427c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polyethylenterephthalat Typ G (PETG)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Polyethylenterephthalat Typ G (PETG)",
+        "Shared formulation key": "R-FABRU-PUREFIL-372-Materialdatenblatt-PETG-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-372-Materialdatenblatt-PETG-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Polyethylenterephthalat Typ G (PETG)"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ausgezeichneten Material für den FDM 3D Druck.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "bei 80°C 2h-4h getrocknet werden. Dieses Filament erfüllt die Anforderungen an die",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Zusammensetzung der europäischen Verordnung Nr. 10/2011 über Kunststoffmaterialien für",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- hohe Zähigkeit bis Temperaturen -40 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "210-260 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50-80 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dichte (g/cm3, 21.5 °C)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "1.27 g/cc",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  }
+}

@@ -35,10 +35,23 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     assert.ok(errors.every((e) => /cannot be estimated: its identity ".+ ×2" \(a blend is identified by its name\)/.test(e.message)), errors.map((e) => e.message).join(' | '));
     assert.ok(errors.every((e) => blends.some((b) => e.message.startsWith(b))));
 
-    // Budgets with headroom for slow CI machines. Measured locally: gate ~0.3 s, compile and validate
-    // ~10 s (the estimate model's Gaussian process is cubic in observations).
+    // Budgets with headroom for slow CI machines, and a record of what they were set against, because the
+    // number that matters is the trend:
+    //
+    //   2026-09-18   2,645 measurements   compile+validate ~10 s at 2x   (budget 90 s)
+    //   2026-09-19   6,009 measurements   compile+validate 111 s at 2x   (compile alone 0.04 s; the estimate
+    //                                     stage is 40 s at 1x and all of the rest)
+    //
+    // The corpus has grown 2.3x in a day, so this 2x check now covers 4.5x what it did, and the estimate
+    // model's Gaussian process is cubic in observations. The budget is raised to 150 s with that measurement
+    // beside it rather than removed: what it is for is to say when the exact block solve (DECISIONS D77, the
+    // plan's Phase 5 option 2) has to be built, and the answer is now soon. The core compile and validate,
+    // which is what the schema gate and the database's own correctness rest on, is separately held to 5 s.
     assert.ok(t1 - t0 < 3000, `schema gate took ${Math.round(t1 - t0)} ms`);
-    assert.ok(t2 - t1 < 90000, `compile and validate took ${Math.round(t2 - t1)} ms`);
+    assert.ok(t2 - t1 < 150000, `compile and validate took ${Math.round(t2 - t1)} ms`);
+    const t3 = performance.now();
+    buildDatabase(loadTables(join(dir, 'data')), { snapshot: snapshotDate(wb.Method.rows), build: 'scale', estimates: false });
+    assert.ok(performance.now() - t3 < 5000, `compile and validate without estimates took ${Math.round(performance.now() - t3)} ms`);
     console.log(`2x: ${counts.materials} materials, ${counts.measurements} measurements; gate ${Math.round(t1 - t0)} ms, compile+validate ${Math.round(t2 - t1)} ms, db ${(JSON.stringify(db).length / 1048576).toFixed(1)} MB`);
   } finally {
     rmSync(dir, { recursive: true, force: true });

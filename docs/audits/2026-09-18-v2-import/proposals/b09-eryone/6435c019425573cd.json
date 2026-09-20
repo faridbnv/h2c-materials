@@ -2,7 +2,7 @@
   "version": 1,
   "generated": {
     "tool": "propose.mjs",
-    "date": "2026-09-19"
+    "date": "2026-09-20"
   },
   "document": {
     "sha256": "6435c019425573cd19a7808e13ba6861c5ca21eb2edff039502ffb027447ff92",
@@ -18,10 +18,11 @@
     "variantClass": "",
     "finish": "",
     "family": "Flexible Elastomers",
-    "hardness": null,
+    "hardness": "90A",
     "support": false,
     "signals": [
-      "title: tpu"
+      "name: tpu",
+      "hardness: 90A"
     ],
     "materialId": "M039",
     "materialName": "TPU",
@@ -34,7 +35,7 @@
     "row": {
       "SourceID": "R-ERYONE-eryone-tpu-90a-tds",
       "Publisher": "Eryone",
-      "Title": "Technical Data Sheet (TDS)",
+      "Title": "Technical Data Sheet (TDS) TPU 90A",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-19",
@@ -50,7 +51,7 @@
     },
     "evidence": {
       "page": 1,
-      "text": "Technical Data Sheet (TDS)"
+      "text": "Technical Data Sheet (TDS) TPU 90A"
     },
     "review": {
       "status": "proposed"
@@ -60,14 +61,17 @@
     {
       "key": "main",
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       },
       "row": {
         "MaterialID": "M039",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Eryone",
-        "Product name": "(TDS)",
+        "Product name": "TPU 90A",
         "Shared formulation key": "R-ERYONE-eryone-tpu-90a-tds",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -81,13 +85,63 @@
       },
       "evidence": {
         "page": 1,
-        "text": "Technical Data Sheet (TDS)"
+        "text": "Technical Data Sheet (TDS) TPU 90A"
       }
     }
   ],
   "measurements": [
     {
       "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.2 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "21.5°C",
+        "Standard / load": "g/cm³ at 21.5 ° C) ASTM D792 ISO 1183 GB/T 1033",
+        "Standards": "ASTM D792; ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-tpu-90a-tds",
+        "Locator": "p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density(g/cm³ at 21.5 ° C） ASTM D792 (ISO 1183, GB/T 1033) g/cm³ 1.2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m02",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -130,11 +184,14 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
-      "id": "m02",
+      "id": "m03",
       "gradeKey": "main",
       "row": {
         "MaterialID": "M039",
@@ -177,54 +234,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
-      }
-    },
-    {
-      "id": "m03",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M039",
-        "GradeID": "",
-        "Property": "Elongation at break",
-        "Raw value": "100 %",
-        "Raw unit": "%",
-        "Raw numeric": "100",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "100",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
-        "Data status": "Published value",
-        "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
-        "Standard / load": "Not published",
-        "Standards": "Not published",
-        "Test load MPa": "Not applicable",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-ERYONE-eryone-tpu-90a-tds",
-        "Locator": "p. 2: Elongation at break X-Y",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 2,
-        "text": "100% Modulus MPa 8"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     },
     {
@@ -233,21 +246,21 @@
       "row": {
         "MaterialID": "M039",
         "GradeID": "",
-        "Property": "Elongation at break",
-        "Raw value": "300 %",
-        "Raw unit": "%",
-        "Raw numeric": "300",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "23.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "23.7",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "300",
+        "Normalized value": "23.7",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
-        "Normalized unit": "%",
+        "Normalized unit": "MPa",
         "Data status": "Published value",
         "Specimen type": "Not published (do not assume printed)",
-        "Direction": "Unstated",
+        "Direction": "XY",
         "Moisture condition": "Not published",
         "Moisture state": "not-stated",
         "Post-processing": "Not published",
@@ -255,23 +268,126 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ASTM D412",
-        "Standards": "ASTM D412",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
         "SourceID": "R-ERYONE-eryone-tpu-90a-tds",
-        "Locator": "p. 2: Elongation at break X-Y",
+        "Locator": "p. 2: Tensile strength X-Y 50mm/min GB/T 1040.4 MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 2,
-        "text": "300% Modulus / ASTM D412 MPa 11"
+        "text": "Tensile strength X-Y 50mm/min GB/T 1040.4 MPa 23.7"
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "27 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.027",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.1-2006",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-tpu-90a-tds",
+        "Locator": "p. 2: Elastic modulus X-Y 50mm/min GB/T 1040.1-2006 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elastic modulus X-Y 50mm/min GB/T 1040.1-2006 MPa 27"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "573.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "573.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "573.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50mm/min GB/T 1040.4",
+        "Standards": "GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-ERYONE-eryone-tpu-90a-tds",
+        "Locator": "p. 2: Elongation at break X-Y 50mm/min GB/T 1040.4 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation at break X-Y 50mm/min GB/T 1040.4 % 573.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -336,7 +452,10 @@
         "text": "Nozzle temperature 200-220 ℃"
       },
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-20",
+        "note": "read against the page: the row states its property, its method, its condition and its unit, and the identity its sheet names"
       }
     }
   ],
@@ -350,6 +469,7 @@
       "topic": "",
       "label": "Nozzle temperature",
       "raw": "200-220 ℃",
+      "fromBelow": false,
       "line": "Nozzle temperature 200-220 ℃"
     },
     {
@@ -358,6 +478,7 @@
       "topic": "",
       "label": "Bed temperature",
       "raw": "0-60℃",
+      "fromBelow": false,
       "line": "Bed temperature 0-60℃"
     },
     {
@@ -366,6 +487,7 @@
       "topic": "Speed",
       "label": "Printing speed",
       "raw": "≤40mm/s",
+      "fromBelow": false,
       "line": "Printing speed ≤40mm/s"
     },
     {
@@ -374,6 +496,7 @@
       "topic": "",
       "label": "Drying conditions",
       "raw": "65℃",
+      "fromBelow": false,
       "line": "Drying conditions 65℃, 8H"
     },
     {
@@ -382,6 +505,7 @@
       "topic": "Speed",
       "label": "speed",
       "raw": "40mm/s",
+      "fromBelow": false,
       "line": "speed=40mm/s, base plate 55° C, filling=100%, nozzle diameter=0.4mm"
     }
   ],
@@ -418,38 +542,8 @@
     },
     {
       "page": 1,
-      "text": "ASTM D792 (ISO 1183, GB/T 1033) g/cm³",
-      "reason": "no property and value this line states together"
-    },
-    {
-      "page": 1,
-      "text": "Density(g/cm³ at 21.5 ° C） 1.2",
-      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
-    },
-    {
-      "page": 1,
       "text": "1",
       "reason": "no property and value this line states together"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 MPa 23.7",
-      "reason": "properties.csv carries no property for \"50mm/min\" (MPa)"
-    },
-    {
-      "page": 2,
-      "text": "Elastic modulus X-Y 50mm/min GB/T 1040.1-2006",
-      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
-    },
-    {
-      "page": 2,
-      "text": "MPa 27",
-      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
-    },
-    {
-      "page": 2,
-      "text": "50mm/min GB/T 1040.4 % 573.9",
-      "reason": "properties.csv carries no property for \"50mm/min\" (%)"
     },
     {
       "page": 2,
@@ -458,18 +552,33 @@
     },
     {
       "page": 2,
-      "text": "/ 116",
+      "text": "MPa 8",
       "reason": "no property and value this line states together"
     },
     {
       "page": 2,
-      "text": "Tear Strength ASTM D624 N/mm",
-      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+      "text": "100% Modulus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "/ ASTM D412 MPa 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "300% Modulus",
+      "reason": "no property and value this line states together"
     },
     {
       "page": 2,
       "text": "Note: All splines are printed under the following conditions: printing temperature=220 ° C, printing",
       "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tear Strength / ASTM D624 N/mm 116",
+      "reason": "the sheet states Tear strength in N/mm, and the database keeps it in kN/m"
     },
     {
       "page": 2,
@@ -488,6 +597,18 @@
     }
   ],
   "review": {
-    "status": "proposed"
-  }
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-20"
+  },
+  "acceptances": [
+    {
+      "row": "m02",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "Eryone's TPU 90A publishes 70 ℃ for this row (0.45MPa ASTM D648). HDT 70 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0: the window is drawn from what this database has seen of that class, and this sheet is a product of it. The value is recorded as printed and backs no headline it could not.",
+      "by": "claude-opus-5",
+      "date": "2026-09-20"
+    }
+  ]
 }
