@@ -425,6 +425,10 @@ function markApplied(proposals, t) {
     row.registered_source_id = bySha.get(row.sha256);
     row.registered_by = 'sha';
     row.status = 'applied';
+    // A document that has entered waits for nothing, so the reason it was waiting goes with the status. Where
+    // the document was found is not a reason and stays: "also listed by" outlives the hold beside it.
+    const listed = (row.status_note ?? '').match(/also listed by [^\u2014;]+/)?.[0]?.trim();
+    if (/^held: /.test(row.status_note ?? '')) row.status_note = listed ?? '';
     row.updated = new Date().toISOString().slice(0, 10);
     n++;
   }

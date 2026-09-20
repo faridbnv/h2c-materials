@@ -43,8 +43,8 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 
 | Reason | Documents | Where |
 |---|---:|---|
-| `ruling` | 237 | 3DJake / 3DJAKE 52, Siraya Tech 20, Nanovia 16, Filament2Print 14, colorFabb 9 |
-| `twin` | 136 | 3DJake / 3DJAKE 57, Extrudr 16, Spectrum 16, SUNLU 11, Eryone 8 |
+| `ruling` | 230 | 3DJake / 3DJAKE 45, Siraya Tech 20, Nanovia 16, Filament2Print 14, colorFabb 9 |
+| `twin` | 143 | 3DJake / 3DJAKE 64, Extrudr 16, Spectrum 16, SUNLU 11, Eryone 8 |
 | `no-values` | 84 | Spectrum 28, 3DJake / 3DJAKE 11, Essentium / Nexa3D 9, Raise3D 9, 3D-Fuel 3 |
 | `ocr-visual` | 64 | Fiberlogy 27, 3DJake / 3DJAKE 19, 3DXTECH 9, QIDI 5, BigRep 1 |
 | `reader:several-values` | 40 | 3DJake / 3DJAKE 22, Filament2Print 9, QIDI 8, Fiberlogy 1 |
@@ -124,6 +124,7 @@ npm run ingest:propose -- --compare --all
 | [b15](batches/b15/README.md) | b15: the sheets whose own title the reader was throwing away | m85-batch-b15, 2026-09-20 |
 | [b16](batches/b16/README.md) | b16: QIDI, read by the labels around its rows | m86-batch-b16, 2026-09-20 |
 | [b18](batches/b18/README.md) | b18: Wave D's first half, and a condition the sheet prints on the line below | m87-batch-b18, 2026-09-20 |
+| [b19](batches/b19/README.md) | b19: the sheets a shop hosts that name no maker of their own | m90-batch-b19, 2026-09-20 |
 
 ## By provider
 

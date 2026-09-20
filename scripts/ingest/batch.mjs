@@ -131,11 +131,18 @@ function writeHolds() {
   let touched = 0;
   for (const row of rows) {
     if (!CARRIED.has(row.status)) continue;
+    // A twin stays a twin, and it is asked first. The splitter ran the applier over the pair and saw what the
+    // proposal alone cannot — which source this document repeats — so a proposal left over from an earlier batch
+    // must not speak over it. Seven documents had their twin note replaced by a question the ruling behind it
+    // had already answered, because an old proposal was the only thing still asking it.
+    const twin = /^held: twin/.test(row.status_note ?? '') || row.status === 'twin-check'
+      ? { reason: 'twin', detail: (row.status_note ?? '').replace(/^held: twin \u2014 /, '') || 'the same numbers under another product name' }
+      : null;
     const seen = found.get(row.doc_key);
     const gap = READER_GAPS.find((g) => g.when(row, seen?.proposal));
-    const hold = seen?.hold
+    const hold = twin
+      ?? seen?.hold
       ?? (gap ? { reason: `reader:${gap.gap}`, detail: gap.why } : null)
-      ?? (row.status === 'twin-check' ? { reason: 'twin', detail: row.status_note || 'the same numbers under another product name' } : null)
       // A document nobody has proposed from still says one thing about itself: whether its text was read from the
       // page or from a picture of it. An optical reading waits for a person either way (D35, APPLY-OCR-UNVERIFIED).
       ?? (row.sha256 && cachedText(row.sha256)?.ocr ? { reason: 'ocr-visual', detail: 'read optically; every value from it needs a person against the page image' } : null);
