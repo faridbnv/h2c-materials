@@ -64,3 +64,31 @@ Worth looking for, because the reader has seen each of these:
 Report: how many rows you accepted, how many you rejected, how many documents you left for a ruling, and the
 kinds of error you found — with the MeasurementID-equivalent (`m01`) and doc_key of each rejection. Do not run
 `ingest:apply`; the batch is applied by whoever is running the import, after reading your report.
+
+## Round two (2026-09-21): the grade row, and the five documents left open
+
+The first round signed the measurement and profile rows. `apply.mjs` also refuses a **grade** row read from a scan
+that nobody has checked (`APPLY-OCR-UNVERIFIED`), and every one of the 108 documents now in `proposals/b27/` has one:
+its `grades[0]`, whose review id is `main`. Twenty other documents are the products batches b28 and b30 already
+recorded and have left the batch; do not look for them.
+
+For each document, open `.cache/pages/<sha256>/p-1.png` and read the head of the page:
+
+- **The name is what page 1 prints for the product, and the maker is the one the page names** → sign it:
+  `npm run ingest:review -- --batch b27 --doc "<doc_key>" --visual main --by "<your name>" --note "p. 1 prints …"`.
+  The maker's own name in front of the product is not part of it ("Fiberlogy ABS" is ABS), and neither is a form
+  label ("TRADE NAME:"), the words "Technical Data Sheet", or a revision date.
+- **The name is the page's furniture** — a logo read as letters ("UTURA", "forwardAafyT"), a footer ("run by Mass
+  Additive Manufacturing"), a single letter ("a"), a heading ("Sheet", "PRODUCT INFORMATION"), a list marker
+  ("vii)") — **and the page prints the product's name** → give it that name, exactly as printed:
+  `npm run ingest:review -- --batch b27 --doc "<doc_key>" --rename "<name as printed>" --by "<your name>" --note "p. 1 prints \"…\" as the product"`.
+- **The page prints no product name at all**, or the document is not a filament's data sheet (an SLS powder, a
+  scanner), or the page plainly names a different polymer or filler than the proposal's `identity` (a stone-filled
+  PLA proposed as plain PLA) → leave the grade row undecided and put the document in your report with what page 1
+  says. The material is not yours to change.
+
+Then finish the five documents that still have undecided rows (28 rows; `node` over `rowsOf` shows them, or
+`npm run ingest:review -- --batch b27 --doc "<doc_key>"`), by the rules above, and sign each `--done` again once
+every row is decided (a document already `reviewed` stays so).
+
+Report: documents signed, renamed (old name → new, with the line), left open and why; rows decided in the five.

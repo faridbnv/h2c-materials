@@ -12,6 +12,7 @@
 //   npm run ingest:review -- --doc <key> --reject m03 --note "the sheet prints this as a range" --by "farid"
 //   npm run ingest:review -- --doc <key> --set m03,m04 "Direction=XY" --by "farid"
 //   npm run ingest:review -- --doc <key> --visual m01,m02 --by "farid"   (a row read from a scan)
+//   npm run ingest:review -- --doc <key> --rename "<name the page prints>" --note "p. 1 prints ..." --by "farid"
 //   npm run ingest:review -- --doc <key> --done --by "farid" [--note "..."]
 //
 // --accept takes only rows the pipeline is confident about: nothing flagged ambiguous, nothing read from an
@@ -205,6 +206,22 @@ if (process.argv[1]?.endsWith('review.mjs')) {
       save(path, proposal);
     }
     console.log(`${n} row(s) read against the page image`);
+  } else if (arg('rename')) {
+    // A grade named from the page's furniture — a logo ("UTURA"), a footer ("run by Mass Additive Manufacturing"),
+    // a form label ("TARDE NAME:") — takes the name the page image prints for the product, and only that: the note
+    // quotes the line, and the row is signed as read from the image. It is not a correction of a value (D35 is
+    // about numbers a page does not print); a name nobody can point to on the page is not given one.
+    const name = String(arg('rename')).trim();
+    if (!by || !arg('note') || !name) { console.error('usage: --rename "<the name the page prints>" --note "p. 1 prints ..." --by <name>'); process.exit(2); }
+    for (const { path, proposal } of found) {
+      for (const grade of proposal.grades ?? []) {
+        const before = grade.row?.['Product name'];
+        grade.row['Product name'] = name;
+        grade.review = { status: 'accepted', by, date: today(), visual: true, note: `Product name: ${before} -> ${name}. ${arg('note')}` };
+        console.log(`${proposal.document?.docKey}: ${before} -> ${name}`);
+      }
+      save(path, proposal);
+    }
   } else if (arg('accept')) decide('accepted', arg('accept'), arg('note'));
   else if (arg('reject')) decide('rejected', arg('reject'), arg('note'));
   else if (arg('set')) {
