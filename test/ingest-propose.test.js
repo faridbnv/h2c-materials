@@ -1320,3 +1320,15 @@ test('a filament lighter than its polymer is what its sheet says it is: a foam, 
   assert.equal(unsaid.identity.needsRuling, true);
   assert.match(unsaid.identity.reasons.join(' '), /the sheet says which/);
 });
+
+test('a metal the lexicon holds no modifier for is answered by the density and the sheet’s words, and only by them (R095)', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = { polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: [], manufacturers: [{ Value: 'Spectrum' }], rulings: [] };
+  const sheet = (...lines) => propose({ doc_key: 'k', sha256: 'x', provider: 'Spectrum', provider_kind: 'manufacturer', manufacturer: 'Spectrum', product_raw: 'PETG Tungsten 75%', url: 'https://x.example/tds.pdf' },
+    page('Technical Data Sheet', 'Product name: PETG Tungsten 75%', 'PETG filled with tungsten powder (75 % in mass).', ...lines), world);
+  const heavy = sheet('Density 4.0 g/cm3 ISO 1183');
+  assert.equal(heavy.identity.needsRuling, false, heavy.identity.reasons.join(' | '));
+  assert.equal(heavy.grades[0].row.Variant, 'declared dense filler');
+  // No density, no answer: a tungsten-filled PETG is never filed as plain PETG.
+  assert.equal(sheet('Tensile strength 35 MPa ISO 527').identity.needsRuling, true);
+});

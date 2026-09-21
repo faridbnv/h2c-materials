@@ -55,6 +55,8 @@ const READER_GAPS = [
   // volume rate of "3434") is accepted as it reads. Nothing on such a page can be read from its text layer.
   { gap: 'doubled-glyphs', when: (row) => doubledGlyphs(row.sha256),
     why: 'the text layer draws each glyph twice ("180180 °C", "1,751,75"): every number on the page reads as two of itself, and the page image is where it can be read' },
+  { gap: 'bracketed-units', when: (row) => /^Prusa Research/.test(row.provider ?? ''),
+    why: 'Prusament prints each unit in square brackets after its label ("Density [g/cm3] 4") and its printed specimens in two columns headed "Horizontal" and "Vertical xz"; the reader reads neither, so a proposal carries the heat deflections and the hardness and nothing else, about 3 of 20 values. The bracketed unit and the two headings are what free the maker (census: 15 of 34 on its transcribed sheets)' },
   { gap: 'bilingual-columns', when: (row) => row.provider === 'QIDI',
     why: "a bilingual table whose label, standard, value and English label sit on four baselines the page orders by height rather than by row; the label under a value line is read now, but a label that lands between two values still takes the wrong one's, and that needs the columns read by position" },
 ];
@@ -497,6 +499,9 @@ function split(batch) {
         moved.set(p.file, hold.reason === 'ocr-visual' ? 'ocr' : 'held');
         continue;
       }
+      // A reader gap --holds names holds the document there too, and a batch that took it would apply a sheet the
+      // reader is known to read a fraction of.
+      if (READER_GAPS.some((g) => g.when({ provider: p.document?.provider, sha256: p.document?.sha256 }, p))) { moved.set(p.file, 'held'); continue; }
       // A document whose every row a reader rejected has been read and refused, and the reason is on its rows;
       // it is held, not applied, and it was being moved aside by hand in three batches running.
       const rows = rowsOf(p);

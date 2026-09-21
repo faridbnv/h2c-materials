@@ -3043,6 +3043,10 @@ export function propose(row, text, world) {
       // metal: a copper-filled PETG is a PETG with a load, which is what D57 made Variant for.
       const declared = A_DECLARED_LOAD.exec(`${row.product_raw ?? ''} ${named ?? ''} ${text.pages[0]?.lines?.map((l) => String(l.text ?? '')).join(' ') ?? ''}`);
       if (declared) {
+        // A metal the lexicon knows as a load with no modifier value ("tungsten", "magnetite") asked this question;
+        // the sheet's density and its own words answer it (R095), and only here: without a density it stays asked.
+        const asked = identity.reasons.findIndex((r) => /^"(?:magnetite|tungsten|aluminium)" has no value in schema\/vocab\/modifiers\.csv/.test(r));
+        if (asked >= 0) { identity.reasons.splice(asked, 1); identity.needsRuling = identity.reasons.length > 0; }
         const said = declared[0].trim().slice(0, 80);
         declare('declared dense filler', `Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), and the sheet declares the load: "${said}".`,
           `The sheet declares the load: "${said}". Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}); recorded as a Variant under D57 (R095).`);
@@ -3060,19 +3064,23 @@ export function propose(row, text, world) {
       // ... thermoplastic elastomer based on cyclic olefin copolymers" and Spectrum's PET-G FX120 "a flexible
       // material": a softer grade of the polymer, which foams nothing. A sheet that says both, or neither, stays a
       // question. The words are read on a line about this product, not on the maker's menu of every other.
-      const lines = (text.pages[0]?.lines ?? []).map((l) => String(l.text ?? '')).filter((l) => !A_RANGE_MENU.test(l) && !/\bexclusive for\b|^\s*(?:\S+\s+){0,3}family\b/i.test(l));
-      // The sentence that says it, as the line prints it: a sentence ends at a stop before a capital, never at a
-      // decimal point, and a run of spaces is a column gap.
+      // Page one first, where a sheet says what its product is; then the rest, where a printing guide does
+      // (Polymaker's PolyWood guide says it on its second page). A page's lines are joined before its sentences
+      // are found, because a sentence wraps: "PolyWood™ is made entirely with PLA using a special" / "foaming
+      // technology". A sentence ends at a stop before a capital, never at a decimal point; a run of spaces is a
+      // column gap, and a contents line ("4.6 Stabilized Foaming™ 11") is not a sentence at all.
+      const keep = (l) => !A_RANGE_MENU.test(l) && !/\bexclusive for\b|^\s*(?:\S+\s+){0,3}family\b/i.test(l) && !/^\s*\d+(?:\.\d+)*\s.*\s\d+\s*$/.test(l);
+      // A line runs on into the next only where the next goes on in lower case; a heading ends where it ends.
+      const sentences = text.pages.flatMap((pg) => (pg.lines ?? []).map((l) => String(l.text ?? '')).filter(keep)
+        .reduce((out, l, i, all) => `${out}${l}${/^\s*[a-z(]/.test(all[i + 1] ?? '') && !/[.!?:]\s*$/.test(l) ? ' ' : '\u0000'}`, '')
+        .split(/\u0000|(?<=[.!?])\s+(?=[A-Z])|\s{2,}/));
       const find = (re) => {
-        for (const l of lines) {
-          const sentence = l.split(/(?<=[.!?])\s+(?=[A-Z])|\s{2,}/).find((x) => re.test(x));
-          if (!sentence) continue;
-          const at = sentence.search(re);
-          const cut = sentence.length <= 120 ? sentence
-            : `… ${sentence.slice(Math.max(0, at - 50), at + 70).replace(/^\S*\s/, '').replace(/\s\S*$/, '')} …`;
-          return cut.trim().replace(/[.,;:!]$/, '');
-        }
-        return null;
+        const sentence = sentences.find((x) => re.test(x));
+        if (!sentence) return null;
+        const at = sentence.search(re);
+        const cut = sentence.length <= 120 ? sentence
+          : `… ${sentence.slice(Math.max(0, at - 50), at + 70).replace(/^\S*\s/, '').replace(/\s\S*$/, '')} …`;
+        return cut.trim().replace(/[.,;:!]$/, '');
       };
       const light = find(/\b(?:foam(?:ed|ing)?|ultra[- ]?light(?:weight)?|light[- ]?weight|lightest filament|hollow (?:glass )?(?:micro)?spheres?|glass bubbles)\b/i);
       const soft = find(/\bthermoplas\S*\s+elastomer|\belastomer(?:ic)? (?:grade|version|based)|\bis an? (?:highly )?flexible (?:material|grade|filament)\b/i);
