@@ -157,7 +157,9 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 - Unstated-load bracket, semi-filled: top at the published value + 126 °C (28 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 126 °C, the largest gap observed).
 - Unstated-load bracket, elastomer: its top cannot screen (only 0 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 
-Evidence that contradicts everything else and was down-weighted:
+Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 233 observations):
+
+By material: PLA 39, PA12-CF 14, TPU 12, PLA Aero 9, PLA Wood 8, PPA-CF 8, PETG 7, ABS 7, PLA Metal 6, PA6-CF 6, PA6 5, PLA-CF 4, PLA-NF 4, PLA Silk 4, PAHT-CF 4, PA6-GF 4, PA12 4, ABS-GF 4, PC 4, PET-GF 4, PPA-GF 4, nGen FLEX 3, ABS-CF 3, ASA 3, PA6/66 3, PPA 3, PVA 2, PP 2, PP-CF 2, CPE-CF 2, PLA-EC 2, PAHT-CE 2, PETG-CF 2, PET 2, PPS-CF 2, HIPS 2, PEBA 2, OBC 2, TPC-ESD 2, PBAT 2, CPE-LW 2, TPU-LW 2, BVOH 2, PLA-GF 2, ASA-CF 2, PA12-GF 2, PET-CF 2, Support for PA/PET 2, PC-PBT 2, PE-GF 2, PLA Sparkle 1, POM / Acetal 1, TPC / TPEE 1, PCL 1, TPU for AMS 1, TPU-CF 1, PC FR 1, CPE 1, PC-PBT-CF 1.
 
 - PLA, density: density 1360 (V004368)
 - PLA, density: density 1390 (V006192)

@@ -81,6 +81,17 @@ export function validateEstimates(db) {
     issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`, { records: model.outliers.map((o) => `${o.materialId} ${o.key}`) }));
   }
 
+  // Evidence the model down-weights as contradicting everything else (fitWithConflicts), one finding per material,
+  // headline and kind: the reviewer's list for the sweep, reported and not yet reviewed (PLAN-REMAINING 2.1).
+  if (model.conflicts?.length) {
+    const by = new Map();
+    for (const c of model.conflicts) {
+      const record = `${c.materialId} ${c.key} ${c.kind}`;
+      if (!by.has(record)) by.set(record, { record, text: `${c.material} ${c.key} ${c.kind} ${c.values.join(', ')}${c.measurementIds.length ? ` (${c.measurementIds.join(', ')})` : ''}` });
+    }
+    issues.push(warn('EST-CONFLICT', 'measurements', `${by.size} observations contradict everything else the model knows about their headline and are down-weighted: ${[...by.values()].map((c) => c.text).join('; ')}`, { records: [...by.keys()] }));
+  }
+
   // -- estimates a reader should not lean on, and family order ---------------------------------------------
   // An imprecise estimate is two different things, and only one of them is a defect. Where the material publishes a
   // value the headline could have used, the model is ignoring evidence it has, and a reviewer must say why
@@ -175,7 +186,11 @@ export function estimateReportLines(db) {
   L.push('');
   screeningLines();
   if (mdl.conflicts?.length) {
-    L.push('Evidence that contradicts everything else and was down-weighted:');
+    L.push(`Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, ${mdl.conflicts.length} observations):`);
+    L.push('');
+    const byMaterial = new Map();
+    for (const c of mdl.conflicts) byMaterial.set(c.material, (byMaterial.get(c.material) ?? 0) + 1);
+    L.push(`By material: ${[...byMaterial].sort((a, b) => b[1] - a[1]).map(([m, n]) => `${m} ${n}`).join(', ')}.`);
     L.push('');
     for (const c of mdl.conflicts) L.push(`- ${c.material}, ${c.key}: ${c.kind} ${c.values.join(', ')} (${c.measurementIds.join(', ') || 'hardness'})`);
     L.push('');

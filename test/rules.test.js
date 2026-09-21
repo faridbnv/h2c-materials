@@ -57,7 +57,10 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // load with the Variant D57 asks for, and the model keeps the value out rather than learning a PLA that weighs
   // like bronze. What the assertion above guards is that every code is catalogued at its catalogued level; this
   // list is the record of which ones a real build raises, and a code entering it is a thing to explain, as here.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  //
+  // EST-CONFLICT appeared with PLAN-REMAINING 2.1: the observations the model had always down-weighted, and only
+  // listed in the report, are a finding now, one per material, headline and kind, informational until the sweep.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {
