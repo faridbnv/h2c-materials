@@ -851,7 +851,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | 3D-Fuel | US maker; its Pro and Standard lines are grades, not separate makers. | 3DFuel;3D Fuel;3d-fuel |
 | 3D4Makers | Dutch maker; its sheets are titled for the polymer alone ("ABS Filament"). | 3D4makers;3d4makers;3D4Makers.com |
 | 3DJake | German shop; its own range is sold as 3DJAKE, and the sheets it hosts for other makers are theirs (R074). | 3DJAKE;3DJake / 3DJAKE;3djake |
-| 3DXTECH | US maker; the CarbonX, FibreX, 3DXMAX and 3DXSTAT lines are its brands, not separate makers. | 3DXTech;3DXTECH LLC;3DXTECH Additive Manufacturing;3dxtech |
+| 3DXTECH | US maker; the CarbonX, FibreX, 3DXMAX, 3DXSTAT and Triton3D lines are its brands, not separate makers. Triton3D's sheets name only TRITON 3D, and 3DXTECH serves them from its own store and its own Triton3D download page. | 3DXTech;3DXTECH LLC;3DXTECH Additive Manufacturing;3dxtech |
 | Anycubic | Printer maker (Shenzhen Anycubic Technology); sells filament under its own name. | ANYCUBIC;anycubic |
 | AzureFilm | Slovenian maker. | Azurefilm;azurefilm;AZUREFILM |
 | Bambu Lab | The printer's own filament line. | Bambu;BambuLab;Bambu Lab Canada |

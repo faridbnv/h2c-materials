@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: UTURA -> TitanX. p. 1 prints \"TECHNICAL DATA SHEET / TitanX\" as the product (\"TitanX is a modified ABS-based 3D printer filament\"), with the FormFutura logo; \"UTURA\" was the logo read as letters"
       },
       "row": {
         "MaterialID": "M027",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "FormFutura",
-        "Product name": "UTURA",
+        "Product name": "TitanX",
         "Shared formulation key": "S-PET-formfutura-tds-titanx",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -137,7 +138,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,05 g/cm3 ASTM D792; Elongation at break 10 % ASTM D638; Vicat softening temperature 93 C ASTM D1525"
       }
     },
     {
@@ -184,7 +189,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-1.png: the page prints Melt flow rate 21 g/10min ASTM D1238 with the test condition 220C/10kg; the row records Test temperature Not published and drops the load"
       }
     },
     {
@@ -231,7 +239,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,05 g/cm3 ASTM D792; Elongation at break 10 % ASTM D638; Vicat softening temperature 93 C ASTM D1525"
       }
     },
     {
@@ -278,7 +290,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-1.png: the page prints Flexural modulus 25000 MPa ASTM D790; the row holds 29000 MPa, a number the page does not print"
       }
     },
     {
@@ -325,7 +340,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-1.png: the page prints Heat deflection temperature 85 C ASTM D648 with the test condition HDT A; the row records Standard / load and Test load MPa as Not published"
       }
     },
     {
@@ -372,7 +390,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,05 g/cm3 ASTM D792; Elongation at break 10 % ASTM D638; Vicat softening temperature 93 C ASTM D1525"
       }
     }
   ],
@@ -437,10 +459,10 @@
         "text": "Enclosure Yes"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (overrides a non-visual acceptance): nozzle 245-270 C, bed 100-110 C and enclosure Yes are as printed, but the page prints Drying Recommended 45 - 60 C, 12 h and the row records Drying Not published"
       }
     }
   ],
@@ -582,6 +604,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "round two: grade renamed TitanX from p. 1; m01, m03, m06 signed; m02, m04, m05 and p1 rejected (dropped MFR and HDT conditions, a flexural modulus the page does not print, drying not recorded)"
   }
 }

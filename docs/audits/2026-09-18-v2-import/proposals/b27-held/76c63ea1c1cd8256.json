@@ -5,56 +5,56 @@
     "date": "2026-09-21"
   },
   "document": {
-    "sha256": "e217895632b087707e21efe835b29f89c63be6d9c8badf3360c8b9bd84eeb4d9",
-    "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/SMP_TDS_JP.pdf",
+    "sha256": "76c63ea1c1cd8256b91d8d97f7a1978f1839d9a88a621d246d185ca1a191c4c5",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_PETG_MATTE.pdf",
     "pages": 1,
-    "provider": "Flashforge",
-    "manufacturer": "Flashforge",
-    "docKey": "e217895632b08770"
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "3DJake",
+    "docKey": "76c63ea1c1cd8256"
   },
   "identity": {
-    "polymer": "TPU",
+    "polymer": "PETG",
     "modifier": "Unfilled / unspecified",
     "variantClass": "",
     "finish": "",
-    "family": "Flexible Elastomers",
+    "family": "PETG",
     "hardness": null,
     "support": false,
     "signals": [
-      "sheet: tpu"
+      "name: petg"
     ],
-    "materialId": "M039",
-    "materialName": "TPU",
-    "estimateIdentity": "TPU",
-    "confidence": 0.8,
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
   "window": {
-    "matrix": "elastomer",
+    "matrix": "amorphous",
     "fill": "unfilled"
   },
   "source": {
     "row": {
-      "SourceID": "D-FLASH-SMP-TDS-JP",
-      "Publisher": "Flashforge",
-      "Title": "FIA-~AWF—-—AY—t",
+      "SourceID": "R-3DJAKE-TDS-3DJAKE-PETG-MATTE",
+      "Publisher": "3DJake",
+      "Title": "Technical Data Sheet 3DJAKE PETG Matte",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-21",
       "Source class": "Manufacturer TDS",
-      "Source note": "Not applicable",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is 3DJake's.",
       "Citation role": "cited",
-      "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/SMP_TDS_JP.pdf",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_PETG_MATTE.pdf",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "e217895632b087707e21efe835b29f89c63be6d9c8badf3360c8b9bd84eeb4d9"
+      "SHA256": "76c63ea1c1cd8256b91d8d97f7a1978f1839d9a88a621d246d185ca1a191c4c5"
     },
     "evidence": {
       "page": 1,
-      "text": "FIA-~AWF—-—AY—t"
+      "text": "Technical Data Sheet 3DJAKE PETG Matte"
     },
     "review": {
       "status": "proposed"
@@ -65,30 +65,31 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 1 prints \"Product name: 3DJAKE PETG Matte\" under the 3DJAKE logo",
+        "visual": true
       },
       "row": {
-        "MaterialID": "M039",
+        "MaterialID": "M020",
         "Role": "procurement",
         "Status": "active",
-        "Manufacturer": "Flashforge",
-        "Product name": "FARRARBD TU VY 2 — RABBI AKacle RU DL AY",
-        "Shared formulation key": "D-FLASH-SMP-TDS-JP",
+        "Manufacturer": "3DJake",
+        "Product name": "PETG Matte",
+        "Shared formulation key": "R-3DJAKE-TDS-3DJAKE-PETG-MATTE",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
-        "Certification claims": "3DTU V2—OieERPE AER MONKSORA CADE C hE e LT CHEE. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Certification claims": "3,2 V-2 UL94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "D-FLASH-SMP-TDS-JP",
+        "SourceID": "R-3DJAKE-TDS-3DJAKE-PETG-MATTE",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "FIA-~AWF—-—AY—t"
+        "text": "Technical Data Sheet 3DJAKE PETG Matte"
       }
     }
   ],
@@ -101,138 +102,133 @@
   "skipped": [
     {
       "page": 1,
-      "text": "FARRARBD TU VY 2 — RABBI AKacle RU DL AY",
+      "text": "es 3DJAKE",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "SMP55 7+47XAY FE",
+      "text": "Product name: 3DJAKE PETG Matte",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "TADAY FARE 1.75 +/-0.05mm",
+      "text": "Version: 1.0",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "TtarXy bss 300g",
+      "text": "Date: 05.03.2025",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "T1IAVbES 100m",
+      "text": "1,75 mm +0,05mm > 95%",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "JIS K 7210",
+      "text": "2,85 mm +0,1O0mm > 95%",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "may ME (190°C 2.16Ka) g/10 min. 1",
-      "reason": "properties.csv carries no property for \"may ME\" (min.)"
-    },
-    {
-      "page": 1,
-      "text": "a [aR Ese Cima)5 MPa 570",
-      "reason": "properties.csv carries no property for \"a [aR Ese\" (MPa)"
-    },
-    {
-      "page": 1,
-      "text": "5 | SR REARS (50mm/4)) MPa 11",
+      "text": "1,41 g/m? — ISO 1183-1/A",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "JIS K 7161",
+      "text": "3100 + 46 MPa = 1SO527",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "5 | ART Se FSAT SS (60mm/43) MPa 16",
+      "text": "53 + 0,2 MPa —1SO527",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "JIS K 7161",
+      "text": "3,5+0,] % ISO 527-2",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "PE 0)",
+      "text": "53 + 0,2 MPa = 1SO527",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "5 | aie AR TERS (50mm/)) Y% 31",
+      "text": "7,6 £1,1 % ISO 527-2",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "paZa aig JIS K 7171",
+      "text": "1,7+0,4 KJ/m? —- ISO.180",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "AAI a = (oomm/5)) MPa 26",
-      "reason": "properties.csv carries no property for \"AAI a =\" (MPa)"
-    },
-    {
-      "page": 1,
-      "text": "sK7110 KJ /m? 21",
+      "text": "78 +6 kKJ/m? — 1SO.180",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "bps Durometer Y a7 ieE D 57",
-      "reason": "properties.csv carries no property for \"bps\" (D)"
-    },
-    {
-      "page": 1,
-      "text": "3D 7) YS —Ick SEERCHIE LIGRIEIE CT",
+      "text": "85 ic ISO 306",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "J AIDE °C 190- 210",
+      "text": "3,2 V-2 UL94",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "_—_ ¥ Y=—-=- ° oe ain ~ A5°C",
+      "text": "76 ShoreD 1SO.868/D",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "TJ 7 VBE C *55°C S58",
+      "text": "210 - 240 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "jaAZAE— F mm/# 10 - 30",
+      "text": "60-90 °C",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "3DTU V2—OieERPE AER MONKSORA CADE C hE e LT CHEE.",
+      "text": "20 - 200 mm/s",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "LAY—P77 AescrRB4t",
+      "text": "20 - 50%",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "T 651-1516 RieALK AMS 1-2-33 T 136-0072 RRABLRXAE 2-31-8",
+      "text": "12mm*/s",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "TEL:078-986-0701 FAX:078-986-0702 TEL:03-5858-2551 FAX:03-5858-2552",
-      "reason": "no property and value this line states together"
+      "text": "Heat Deflection Temperature |fey/ °C ISO 15075",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Additional info: Storage: Cool and dry (15-25 °C) and away from UV light. This",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Web: www.3djake.com niceshops GmbH",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Mail: office@3djake.com Saaz 99, Paldau",
+      "reason": "in the column beside the storage note, naming no property and value together"
     }
   ],
   "review": {

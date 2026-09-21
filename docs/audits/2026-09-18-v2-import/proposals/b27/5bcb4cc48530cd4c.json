@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: PLA High Speed Pro Olympic Gold -> PLA High Speed PRO. p. 1 prints \"colorFabb PLA High Speed PRO\" as the product; \"Olympic Gold\" is the retailer listing's colour and is printed on neither page"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "colorFabb",
-        "Product name": "PLA High Speed Pro Olympic Gold",
+        "Product name": "PLA High Speed PRO",
         "Shared formulation key": "R-COLORFABB-Files-colorFabb",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",

@@ -58,6 +58,8 @@ const READER_GAPS = [
     why: 'the text layer draws each glyph twice ("180180 °C", "1,751,75"): every number on the page reads as two of itself, and the page image is where it can be read' },
   { gap: 'bracketed-units', when: (row) => /^Prusa Research/.test(row.provider ?? ''),
     why: 'Prusament prints each unit in square brackets after its label ("Density [g/cm3] 4") and its printed specimens in two columns headed "Horizontal" and "Vertical xz"; the reader reads neither, so a proposal carries the heat deflections and the hardness and nothing else, about 3 of 20 values. The bracketed unit and the two headings are what free the maker (census: 15 of 34 on its transcribed sheets)' },
+  { gap: 'basf-extended', when: (row) => /^(BASF Forward AM|Shop3D)/.test(row.provider ?? '') && Boolean(row.sha256 && cachedText(row.sha256)?.ocr),
+    why: "BASF Forward AM's scanned extended sheets print every mechanical value in an XY / XZ / ZX column, the notch in words, a conditioning footnote (23 °C, 50 % RH, 72 h; the TPUs also tempered 100 °C, 20 h) and, in a sidebar, that the specimens are printed; the optical reading keeps the number and drops all four, so the b27 second reader rejected every measurement row of seven sheets. A reader for the extended layout (columns, footnote, sidebar) is what frees them, and it would also correct the text-layer extended sheets already applied (OPEN-PROBLEMS)" },
   { gap: 'bilingual-columns', when: (row) => row.provider === 'QIDI',
     why: "a bilingual table whose label, standard, value and English label sit on four baselines the page orders by height rather than by row; the label under a value line is read now, but a label that lands between two values still takes the wrong one's, and that needs the columns read by position" },
 ];
@@ -658,7 +660,25 @@ function twins(batch, by) {
     const valuesUnder = materialOfKey.get(key) ?? shapedKeys.get(key);
     const ours = proposal.identity?.materialId;
     if (valuesUnder && ours && valuesUnder !== ours) {
-      waiting.push(`${row?.provider ?? '?'} "${row?.product_raw ?? ''}" — the values sit under ${valuesUnder} and this product reads as ${ours}`);
+      // R166, R045's shape for the class: a finish or a variant whose sheet reprints another material's table
+      // (Spectrum's PLA Glow in the Dark prints PLA Premium's numbers). The product and its sheet are its own and
+      // are registered; the numbers are the other grade's and stay there, and a coverage row says so. Nothing is
+      // shared: one formulation key belongs to one material.
+      if (proposal.identity?.needsRuling) {
+        waiting.push(`${row?.provider ?? '?'} "${row?.product_raw ?? ''}" — its own identity is unsettled: ${proposal.identity?.reasons?.[0] ?? 'no material'}`);
+        continue;
+      }
+      const why166 = `R166 (R045's shape): this sheet reprints the table ${primary} already carries under ${valuesUnder}; the values stay there, and this product keeps its own grade and source with no values of its own.`;
+      for (const r of rowsOf(proposal)) {
+        r.of.review = (r.kind === 'measurement' || r.kind === 'profile')
+          ? { status: 'rejected', by, date, note: why166 }
+          : { status: 'accepted', by, date, note: `R166: the product and the document are its own; the table is ${primary}'s.` };
+      }
+      proposal.reprints = { source: primary, material: valuesUnder };
+      proposal.review = { status: 'reviewed', by, date, note: why166 };
+      writeFileSync(path, `${JSON.stringify(proposal, null, 2)}\n`);
+      renameSync(path, join(PROPOSALS, batch, file));
+      shaped++;
       continue;
     }
     // A product the database already holds a grade for does not need a second one, and its sheet does not need a

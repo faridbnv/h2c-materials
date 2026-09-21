@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: 3DFuel Standard PLA -> Standard PLA. p. 1 prints \"Technical Data Sheet / Standard PLA\" and \"3D-Fuel™ Standard PLA\" as the product under the 3D-FUEL logo; the maker's name in front is not part of the product"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "3D-Fuel",
-        "Product name": "3DFuel Standard PLA",
+        "Product name": "Standard PLA",
         "Shared formulation key": "R-3D-TDS-3DFuel-Standard-PLA",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",

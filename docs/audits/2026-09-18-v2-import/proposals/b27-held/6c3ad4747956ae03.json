@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: forwardAafyT -> Ultrafuse TPU 85A. p. 1 prints \"Ultrafuse® TPU 85A\" as the product under the forward AM logo (\"a brand of MAM – Mass Additive Manufacturing GmbH\"); \"forwardAafyT\" was the logo read as letters"
       },
       "row": {
         "MaterialID": "M039",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BASF Forward AM",
-        "Product name": "forwardAafyT",
+        "Product name": "Ultrafuse TPU 85A",
         "Shared formulation key": "R-BASF-admin-ajax-php-6c3ad4",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -137,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-5.png: the page prints the value in the XY-Direction column (ZX beside it), under Tensile Properties footnote 4 'Conditioning of the specimens: Tempering (100°C, 20h) Standard climate (23°C, 50% RH, 72h)', and the sidebar and p. 3 ('Used for test specimens': German RepRap X400, 210 °C) state the specimens were FFF-printed; the row records Direction Unstated, Moisture condition Not published, Post-processing Not published and Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -187,10 +188,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-5.png: the page prints the value in the XY-Direction column (ZX beside it), under Tensile Properties footnote 4 'Conditioning of the specimens: Tempering (100°C, 20h) Standard climate (23°C, 50% RH, 72h)', and the sidebar and p. 3 ('Used for test specimens': German RepRap X400, 210 °C) state the specimens were FFF-printed; the row records Direction Unstated, Moisture condition Not published, Post-processing Not published and Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -237,10 +238,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-5.png: the page prints the value in the XY-Direction column (ZX beside it), under Tensile Properties footnote 4 'Conditioning of the specimens: Tempering (100°C, 20h) Standard climate (23°C, 50% RH, 72h)', and the sidebar and p. 3 ('Used for test specimens': German RepRap X400, 210 °C) state the specimens were FFF-printed; the row records Direction Unstated, Moisture condition Not published, Post-processing Not published and Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -287,10 +288,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-5.png: the value and standard are as printed, but the sidebar ('The used specimens are produced with the Fused Filament Fabrication method') and p. 3 ('Used for test specimens': German RepRap X400, 210 °C, bed 40 °C) state the specimens were printed; the row records Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -337,10 +338,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-5.png: the value and standard are as printed, but the sidebar ('The used specimens are produced with the Fused Filament Fabrication method') and p. 3 ('Used for test specimens': German RepRap X400, 210 °C, bed 40 °C) state the specimens were printed; the row records Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -387,10 +388,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-5.png: the value and standard are as printed, but the sidebar ('The used specimens are produced with the Fused Filament Fabrication method') and p. 3 ('Used for test specimens': German RepRap X400, 210 °C, bed 40 °C) state the specimens were printed; the row records Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -437,10 +438,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-6.png: Dielectric Strength IEC 60243-1 21 kV/mm is printed in the XY-Direction column (17 kV/mm ZX), under Electrical Properties footnote 7 'Conditioning of the specimens: Tempering (100°C, 20h) Standard climate (23°C, 50% RH, 72h)'; the row records Direction Not applicable, Moisture condition and Post-processing Not published, Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -487,10 +488,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-6.png: the page prints 'Shore Hardness A (3s) DIN ISO 7619-1 85'; the row's Standard / load is '3s DIN = = ISO 7619-1' (table rules read as text), and Specimen type Not published (do not assume printed) where the sidebar and p. 3 state FFF-printed specimens"
       }
     },
     {
@@ -537,10 +538,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-6.png: Shore Hardness D (15s) DIN ISO 7619-1 29 is as printed, but the sidebar and p. 3 ('Used for test specimens': German RepRap X400) state the specimens were FFF-printed; the row records Specimen type Not published (do not assume printed)"
       }
     },
     {
@@ -587,10 +588,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-6.png: the page prints 'Compression Set at 23°C, 72 h' ISO 815 26%; the row records the 23°C but not the 72 h duration (Standard / load '23°C ISO 815'), and Specimen type Not published (do not assume printed) where the sidebar states FFF-printed specimens"
       }
     }
   ],
@@ -655,10 +656,10 @@
         "text": "Nozzle Temperature” 200 - 220°C / 392 — 428°F 210°C / 410°F"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png and p-4.png: the page prints Nozzle Temperature '200 – 220°C / 392 – 428°F'; the row holds Nozzle max 428 (the °F figure). Also Nozzle Diameter '≥ 0.4 mm' held as '> 0.4 mm'; Drying hours Not published where p. 4 prints 'for at least 5 hours'; Plate Not published where p. 3 prints Bed Material 'Glass'; Support pairing Not published where p. 4 prints 'Single material breakaway, Ultrafuse® BVOH, Ultrafuse® HIPS'"
       }
     }
   ],

@@ -9,8 +9,8 @@ before any of it becomes data. This is that reading, for
 - **said** — a line of the sheet names one polymer, and the line is quoted: 1
 - **named** — the product's own name carries the polymer with a word stuck to the front (easyPETG, ecoPLA, ePC): 19
 - **said (product page)** — the sheet names none, and the maker's own product page, fetched and hashed as a second witness, does: 5
-- **narrowed** — the sheet names none, but its own density and melting point admit one row of `polymers.csv`: 9
-- **unread** — neither, and what the sheet does publish is listed instead: 60
+- **narrowed** — the sheet names none, but its own density and melting point admit one row of `polymers.csv`: 8
+- **unread** — neither, and what the sheet does publish is listed instead: 61
 
 Strike a row by writing `no` in its Verdict; correct one by writing the polymer it should be. A row left empty
 stays held, which is the same as striking it but says nobody looked.
@@ -39,15 +39,14 @@ document stays held under its ruling with the strike noted.
 |---|---|---|---|---|
 | Antero 800NA | Stratasys | PEKK | PEKK / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "Antero 800NA: A PEKK-Based 3D Printing Material" (https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/antero-800na/ |
 
-### narrowed — 3
+### narrowed — 2
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
-| FiberFlex 30D | Fiberlogy | PP | PP / Unfilled / unspecified | its own numbers admit 6 polymers and this maker makes one of them: melts at 174 against 165 |
 | niceBIO | 3DJAKE | CoPA | CoPA / Unfilled / unspecified | its own numbers admit one polymer: melts at 190 against 200 |
 | antero 800na | Stratasys | PPA | PPA / Unfilled / unspecified | its own numbers admit one polymer: melts at 300 against 290 |
 
-### unread — 36
+### unread — 37
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
@@ -56,25 +55,26 @@ document stays held under its ruling with the strike noted.
 | carbon | colorFabb | Not read | Not read | density 1,35 g/cm3; melting 235-255 °C — this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
 | colorFabb Woodfill Fine | colorFabb | Not read | Not read | this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
 | colorFabb XT Light Blue | colorFabb | Not read | Not read | this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
-| FIBERLOGY FIBERFLEX 30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 170 °C — this maker's range: PLA×5, CPE×2, ABS×2, PETG×1, PP×1 |
-| FIBERLOGY FIBERFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×5, CPE×2, ABS×2, PETG×1, PP×1 |
-| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×5, CPE×2, ABS×2, PETG×1, PP×1 |
-| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×5, CPE×2, ABS×2, PETG×1, PP×1 |
+| FiberFlex 30D | Fiberlogy | Not read | Not read | its numbers admit PA12, PP, PVDF, POM, PA11, PLA-PHB — melting 174 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FIBERLOGY FIBERFLEX 30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 170 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FIBERLOGY FIBERFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
 | ultrafuse 17 4 ph | Ultrafuse | Not read | Not read | the sheet publishes no number and names no polymer this reader can map |
-| hi temp | BigRep | Not read | Not read | this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
-| hi temp cf | BigRep | Not read | Not read | density 1.36 g/cm3; vicat 165 °C; melting 180 °C — this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
-| pro ht | BigRep | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.3 g/cm³ — this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
+| hi temp | BigRep | Not read | Not read | this maker's range: PLA×2, BVOH×1, ASA×1, ABS×1, PETG×1 |
+| hi temp cf | BigRep | Not read | Not read | density 1.36 g/cm3; vicat 165 °C; melting 180 °C — this maker's range: PLA×2, BVOH×1, ASA×1, ABS×1, PETG×1 |
+| pro ht | BigRep | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.3 g/cm³ — this maker's range: PLA×2, BVOH×1, ASA×1, ABS×1, PETG×1 |
 | purefil kerfil alumina | purefil | Not read | Not read | density 3.776 g/cm3 — this maker's range: PLA×6, ABS×3, PC×2, ASA×2, PA12×2 |
-| FIBERLOGY FIBERFLEX30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 174 °C — this maker's range: PLA×5, CPE×2, ABS×2, PETG×1, PP×1 |
-| FIBERLOGY FIBERFLEX40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 157 °C — this maker's range: PLA×5, CPE×2, ABS×2, PETG×1, PP×1 |
+| FIBERLOGY FIBERFLEX30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 174 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FIBERLOGY FIBERFLEX40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 157 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
 | Electrifi | Electrifi | Not read | Not read | density 2.0-4.0 g/cm³ — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | Iglidur | Iglidur | Not read | Not read | its numbers admit PET, POM — density 1.42 g/cm3 — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | Nuterials Jecto [EN] | Nuterials | Not read | Not read | polymers the page prints somewhere: PEI×1 — density 1.1-1.2 g/cm³; melting 150 °C — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | POP 4 | POP | Not read | Not read | polymers the page prints somewhere: PC×3 — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | Timberfill | Fillamentum | Not read | Not read | density 1,26 g/cm3; melting 145-160 °C — this maker's range: CPE×2, PA6×2, ASA×2, PLA×2, TPU×2 |
-| Crystal Flex | FormFutura | Not read | Not read | polymers the page prints somewhere: COC×1 — its numbers admit ABS, PA12, PAHT, TPE, PEBA, COC — density 1.01 g/cc — this maker's range: PLA×19, PETG×7, TPU×5, ABS×4, PA6×3 |
+| Crystal Flex | FormFutura | Not read | Not read | polymers the page prints somewhere: COC×1 — its numbers admit ABS, PA12, PAHT, TPE, PEBA, COC — density 1.01 g/cc — this maker's range: PLA×19, PETG×7, ABS×7, TPU×5, ASA×4 |
 | MDflex | Copper3D | Not read | Not read | its numbers admit PA, PA6, PAHT — density 1,16 g/cc; melting 225 °C; glass -16 °C; vicat 138 °C — this maker's range: PLA×1 |
-| SKULPT | FormFutura | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cc — this maker's range: PLA×19, PETG×7, TPU×5, ABS×4, PA6×3 |
+| SKULPT | FormFutura | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cc — this maker's range: PLA×19, PETG×7, ABS×7, TPU×5, ASA×4 |
 | Flex | Nanovia | Not read | Not read | polymers the page prints somewhere: ASA×2, PC×2, PA6×2, ABS×1, HIPS×1, PEI×1 — its numbers admit PLA, PCTG, CPE, PC, PC-ABS, PC-PBT, PPA, PVA, BVOH, TPU, TPE, TPC, PLA-PHA — density 1.21 g/cm3 — this  |
 | Flex B4C | Nanovia | Not read | Not read | polymers the page prints somewhere: ASA×2, PC×2, ABS×1, HIPS×1, PEI×1, PEKK×1 — density 1,45 g/cm3 — this maker's range: PLA×5, PC×5, ABS×4, PETG×4, PA6×3 |
 | Flex VX | Nanovia | Not read | Not read | polymers the page prints somewhere: ABS×2, PLA×2, PA6×2, ASA×1, HIPS×1, PC×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PBAT — density 1,25 g/cm3; vicat 91 °C — this m |
@@ -183,7 +183,7 @@ document stays held under its ruling with the strike noted.
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
-| BioFil Wood 1 | FormFutura | Not read | Not read | polymers the page prints somewhere: PLA×1, SAN×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cm3; vicat 50 °C — this maker's range: PLA×19, PETG×7, TPU×5, AB |
+| BioFil Wood 1 | FormFutura | Not read | Not read | polymers the page prints somewhere: PLA×1, SAN×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cm3; vicat 50 °C — this maker's range: PLA×19, PETG×7, ABS×7, TP |
 
 ## The materials this would create
 

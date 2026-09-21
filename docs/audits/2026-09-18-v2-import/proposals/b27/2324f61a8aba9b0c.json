@@ -67,7 +67,8 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "Certification claims: the optical reading of the compliance block is unreadable (\"SZP26-009521 mena Hail Jed HH\"), so none is recorded from it; the name was read against p. 1 by claude-optical. ",
+        "visual": true
       },
       "row": {
         "MaterialID": "M001",
@@ -80,7 +81,7 @@
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
-        "Certification claims": "Legis; SZP26-009521 mena Hail Jed HH: 2026“fF 03 A 05 H ~ 2026 47 03 H 13H A RoHS Dir Mercury, Hexavalent Chromium, hundred and fitty-three(253) subst ublished  (p. 4, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
         "SourceID": "B-PC-uVYGQd",
         "Source locator": "TDS / official product page",

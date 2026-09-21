@@ -27,8 +27,10 @@
     "materialName": "PETG",
     "estimateIdentity": "PETG",
     "confidence": 1,
-    "needsRuling": false,
-    "reasons": []
+    "needsRuling": true,
+    "reasons": [
+      "p. 1 prints \"PRODUCT INFORMATION / FIBERLOGY PETG+CF\" and \"10% carbon fiber\", and the proposal files it under unfilled PETG (M020) (claude-optical, b27 round two)"
+    ]
   },
   "window": {
     "matrix": "amorphous",

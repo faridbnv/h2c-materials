@@ -36,7 +36,7 @@
   },
   "source": {
     "row": {
-      "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+      "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
       "Publisher": "Fiberlogy",
       "Title": "DATA SHEET Fiberlogy PC/ABS",
       "Revision": "Not published",
@@ -65,9 +65,10 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 1 prints \"TRADE NAME: Fiberlogy PC/ABS\", \"MANUFACTURER: Fiberlab S.A.\" (Fiberlogy)",
+        "visual": true
       },
       "row": {
         "MaterialID": "M094",
@@ -75,14 +76,14 @@
         "Status": "active",
         "Manufacturer": "Fiberlogy",
         "Product name": "PC/ABS",
-        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "Shared formulation key": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
@@ -126,7 +127,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Specific Density ISO 1183 g/cm3",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -176,7 +177,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Tensile Strength @ Yield ISO 527 MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -227,7 +228,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Tensile Modulus ISO 527 MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -278,7 +279,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Elongation @ Break ISO 527 %",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -329,7 +330,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Flexural Strength ISO 178 MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -380,7 +381,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Flexural Modulus ISO 178 MPa",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -431,7 +432,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Izod Impact Strength (Notched) @ 23°C ISO 180 kJ/m2",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -482,7 +483,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Izod Impact Strength (Notched) @ -30°C ISO 180 kJ/m2",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -533,7 +534,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Notched",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Charpy notched impact strength @ 23°C ISO 179 kJ/m2",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -584,7 +585,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Vicat Softening Temperature, B50,50°C/h ISO 306 °C",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -634,7 +635,7 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "Locator": "p. 1: Vicat Softening Temperature, B120,120°C/h ISO 306 °C",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
@@ -692,7 +693,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-FIBERLOGY-FIBERLOGY-PCABS-TDS",
+        "SourceID": "R-3DJAKE-FIBERLOGY-PCABS-TDS",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings",
         "Parse review": "Not applicable"

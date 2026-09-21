@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: vii) -> rPLA. p. 1 prints \"bigrep FILAMENT / rPLA\" as the product (\"BigRep's rPLA is a well-rounded filament\", bigrep.com/filaments/rpla; Material: Polylactic Acid); \"vii)\" was not on the page as a name"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BigRep",
-        "Product name": "vii)",
+        "Product name": "rPLA",
         "Shared formulation key": "R-BIGREP-ETc3xC8Tf1xLsCQNb96LTKcBFORK1-vyseiwkW-aUdjaJw",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -138,9 +139,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -188,9 +190,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -238,9 +241,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -288,9 +292,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -338,9 +343,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -388,9 +394,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -438,9 +445,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -488,9 +496,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -538,9 +547,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (BigRep rPLA, last updated 30.07.2025): the page prints Density (ISO 1183) 1.24 g/cm3, Tensile Strength (ISO 527) 53 MPa, Tensile Modulus (ISO 527) 3400 MPa, Flexural Strength (ISO 178) 61 MPa, Flexural Modulus (ISO 178) 3800 MPa, Impact Strength, Notched (ISO 179) 2 kJ/m2, HDT A - 1.8 MPa (ISO 75) 52 °C, HDT B - 0.45 MPa (ISO 75) 54 °C, Glass Transition Temperature (Tg) (DSC) 55 °C; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     }
   ],
@@ -601,10 +611,10 @@
         "text": "Nozzle Temperature 200 - 230 °C"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png: nozzle 200 - 230 °C is as printed, but the row records Bed Not published where the page prints 'Print Bed Temperature 50 - 70 °C', and Drying '50°C' with Drying hours Not published where the page prints 'Drying Recommendations 50 °C for 4 - 6 hours'"
       }
     }
   ],

@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: run by Mass Additive Manufacturing -> Ultrafuse ABS. p. 1 prints \"Ultrafuse® ABS\" as the product (and pp. 3-5 head \"Ultrafuse® ABS\"); \"run by Mass Additive Manufacturing\" is the line under the forward AM logo"
       },
       "row": {
         "MaterialID": "M027",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BASF Forward AM",
-        "Product name": "run by Mass Additive Manufacturing",
+        "Product name": "Ultrafuse ABS",
         "Shared formulation key": "R-BASF-admin-ajax-php-b97185",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -137,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-04.png (overrides a non-visual acceptance): the page prints the value (36.3 MPa / 7.4 % / 1958 MPa) in the XY-Direction column of Tensile Properties, whose footnote 5 says the samples were conditioned in standard climate (23 C, 50% RH 72h); the row records Direction Unstated and Moisture Not published"
       }
     },
     {
@@ -187,10 +188,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-04.png (overrides a non-visual acceptance): the page prints the value (36.3 MPa / 7.4 % / 1958 MPa) in the XY-Direction column of Tensile Properties, whose footnote 5 says the samples were conditioned in standard climate (23 C, 50% RH 72h); the row records Direction Unstated and Moisture Not published"
       }
     },
     {
@@ -237,10 +238,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-04.png (overrides a non-visual acceptance): the page prints the value (36.3 MPa / 7.4 % / 1958 MPa) in the XY-Direction column of Tensile Properties, whose footnote 5 says the samples were conditioned in standard climate (23 C, 50% RH 72h); the row records Direction Unstated and Moisture Not published"
       }
     },
     {
@@ -287,10 +288,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-04.png (overrides a non-visual acceptance): the page prints Flexural Strength ISO 178 56.6 MPa in the XY-Direction column (58.3 XZ, 38.6 ZX); the row records Direction Unstated"
       }
     },
     {
@@ -337,7 +338,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-04.png: the page prints Flexural Modulus ISO 178 1833 MPa (XY), 1767 MPa (XZ), 1586 MPa (ZX); the row holds 18383 MPa, a number the page does not print"
       }
     },
     {
@@ -384,10 +388,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-04.png (overrides a non-visual acceptance): the page prints Flexural Elongation at Break ISO 178 5.3 % (XY), 5.0 % (XZ), 3.1 % (ZX); the row holds 178 +/- 5.3 %, the 178 being the standard number ISO 178, and records the method as \"1ISO\""
       }
     },
     {
@@ -434,10 +438,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png (overrides a non-visual acceptance): the page prints Impact Strength Charpy (notched) ISO 179-2 16 kJ/m2 and Impact Strength Izod (notched) ISO 180 18.8 kJ/m2, both in the XY-Direction column; the rows record Notch Not published and no direction"
       }
     },
     {
@@ -484,10 +488,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png (overrides a non-visual acceptance): the page prints Impact Strength Charpy (unnotched) ISO 179-2 36.4 kJ/m2 in the XY-Direction column; the row records Notch Not published and no direction"
       }
     },
     {
@@ -534,10 +538,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png (overrides a non-visual acceptance): the page prints Impact Strength Charpy (notched) ISO 179-2 16 kJ/m2 and Impact Strength Izod (notched) ISO 180 18.8 kJ/m2, both in the XY-Direction column; the rows record Notch Not published and no direction"
       }
     },
     {
@@ -584,10 +588,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png (overrides a non-visual acceptance): the page prints Impact Strength Izod (unnotched) ISO 180 40 kJ/m2 (XY), 35.7 kJ/m2 (XZ), 7.2 kJ/m2 (ZX); the row holds the XZ 35.7 with no direction or notch, and its Standard / load carries \"40 kJ/m7? ISO 180\""
       }
     },
     {
@@ -635,9 +639,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png: the page prints HDT A at 1.8 MPa ISO 75-2 90 C, HDT B at 0.45 MPa ISO 75-2 96 C, Vicat softening point at 50 N ISO 306 94 C, at 10 N ISO 306 102 C, Glass Transition Temperature ISO 11357-2 104 C, Shore Hardness D (15s) DIN ISO 7619-1 71",
+        "visual": true
       }
     },
     {
@@ -685,9 +690,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png: the page prints HDT A at 1.8 MPa ISO 75-2 90 C, HDT B at 0.45 MPa ISO 75-2 96 C, Vicat softening point at 50 N ISO 306 94 C, at 10 N ISO 306 102 C, Glass Transition Temperature ISO 11357-2 104 C, Shore Hardness D (15s) DIN ISO 7619-1 71",
+        "visual": true
       }
     },
     {
@@ -735,9 +741,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png: the page prints HDT A at 1.8 MPa ISO 75-2 90 C, HDT B at 0.45 MPa ISO 75-2 96 C, Vicat softening point at 50 N ISO 306 94 C, at 10 N ISO 306 102 C, Glass Transition Temperature ISO 11357-2 104 C, Shore Hardness D (15s) DIN ISO 7619-1 71",
+        "visual": true
       }
     },
     {
@@ -785,9 +792,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png: the page prints HDT A at 1.8 MPa ISO 75-2 90 C, HDT B at 0.45 MPa ISO 75-2 96 C, Vicat softening point at 50 N ISO 306 94 C, at 10 N ISO 306 102 C, Glass Transition Temperature ISO 11357-2 104 C, Shore Hardness D (15s) DIN ISO 7619-1 71",
+        "visual": true
       }
     },
     {
@@ -835,9 +843,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png: the page prints HDT A at 1.8 MPa ISO 75-2 90 C, HDT B at 0.45 MPa ISO 75-2 96 C, Vicat softening point at 50 N ISO 306 94 C, at 10 N ISO 306 102 C, Glass Transition Temperature ISO 11357-2 104 C, Shore Hardness D (15s) DIN ISO 7619-1 71",
+        "visual": true
       }
     },
     {
@@ -885,9 +894,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-05.png: the page prints HDT A at 1.8 MPa ISO 75-2 90 C, HDT B at 0.45 MPa ISO 75-2 96 C, Vicat softening point at 50 N ISO 306 94 C, at 10 N ISO 306 102 C, Glass Transition Temperature ISO 11357-2 104 C, Shore Hardness D (15s) DIN ISO 7619-1 71",
+        "visual": true
       }
     }
   ],
@@ -952,10 +962,10 @@
         "text": "Nozzle Temperature”) 240 —- 260 °C / 464-500 °F 260 °C/ 500 °F"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-03.png (overrides a non-visual acceptance): the page prints Nozzle Temperature 240 - 260 C / 464 - 500 F; the row records Nozzle max 500 C (the Fahrenheit figure), and Drying hours Not published where p. 4 prints 60 C for 4 to 16 hours"
       }
     }
   ],
@@ -1625,6 +1635,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "round two: grade renamed to Ultrafuse ABS from p. 1; m11-m16 signed against p. 5; m01-m10 and p1 rejected (m05 and m06 values not printed, m10 the XZ value, the rest drop the XY direction, notch or the conditioning the page states; p1 records the Fahrenheit nozzle limit)"
   }
 }

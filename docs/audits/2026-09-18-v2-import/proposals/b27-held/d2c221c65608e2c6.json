@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: Sheet -> Ultrafuse PLA. p. 1 prints \"Information Sheet | FCC Ultrafuse PLA\" under the forward AM logo, a food-contact statement for \"our PLA filaments\"; the product it names is Ultrafuse PLA, FCC being the statement's topic as BPA and BSE are on the sister sheets; \"Sheet\" was the heading"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BASF Forward AM",
-        "Product name": "Sheet",
+        "Product name": "Ultrafuse PLA",
         "Shared formulation key": "R-BASF-admin-ajax-php-d2c221",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",

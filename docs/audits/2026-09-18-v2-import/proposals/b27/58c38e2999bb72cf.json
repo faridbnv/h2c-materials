@@ -66,16 +66,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: PET G CF 2022 -> PET-G CF. p. 1 prints \"TECHNICAL DATA SHEET / PET-G CF\" as the product (\"Recreus PET-G CF\"; footer \"Product: PET-G CF\"); \"2022\" in the row was the revision date 10/01/2022"
       },
       "row": {
         "MaterialID": "M024",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Recreus",
-        "Product name": "PET G CF 2022",
+        "Product name": "PET-G CF",
         "Shared formulation key": "R-RECREUS-PET-G-CF-TECHNICAL-DATA-SHEET-TDS-2022",
         "Composition / filler": "~ CARBON FIBER (p. 1, as the sheet states it)",
         "Variant": "Not applicable",

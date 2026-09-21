@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: a -> Ultrafuse PLA Tough. p. 1 prints \"Information Sheet | BSE / Ultrafuse® PLA Tough\" as the product under the forward AM logo (a BSE statement for \"Ultrafuse® PLA Tough Natural and Black\"); \"a\" was a stray letter"
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BASF Forward AM",
-        "Product name": "a",
+        "Product name": "Ultrafuse PLA Tough",
         "Shared formulation key": "R-BASF-admin-ajax-php-c4ca7d",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",

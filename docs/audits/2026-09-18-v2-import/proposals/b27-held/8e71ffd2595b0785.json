@@ -5,27 +5,27 @@
     "date": "2026-09-21"
   },
   "document": {
-    "sha256": "67c485ebfb6147b2b6ec92509c911c2f8b155eebaf51ba2d31a7b061597e6af0",
-    "url": "https://drive.google.com/file/d/1dvDjY47IRF-VjIIZqXzXGXfF202Bb4D6/view?usp=drive_link",
+    "sha256": "8e71ffd2595b07850210da6ff304317d4d26b8abbe152c4d8a435f070d55ed25",
+    "url": "https://drive.google.com/file/d/1sLVAUb8BQcEXDONqKQEgaDZnhxQ9F12i/view?usp=drive_link",
     "pages": 3,
     "provider": "QIDI",
     "manufacturer": "QIDI",
-    "docKey": "https://drive.google.com/file/d/1dvDjY47IRF-VjIIZqXzXGXfF202Bb4D6/view?usp=drive_link"
+    "docKey": "https://drive.google.com/file/d/1sLVAUb8BQcEXDONqKQEgaDZnhxQ9F12i/view?usp=drive_link"
   },
   "identity": {
     "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
     "variantClass": "particle-filled",
-    "finish": "Metal",
+    "finish": "Wood",
     "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
       "name: pla",
-      "variant: metal (Metal)"
+      "variant: wood (Wood)"
     ],
-    "materialId": "M011",
-    "materialName": "PLA Metal",
+    "materialId": "M014",
+    "materialName": "PLA Wood",
     "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
@@ -37,25 +37,25 @@
   },
   "source": {
     "row": {
-      "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
+      "SourceID": "R-QIDI-PLA-WOOD",
       "Publisher": "QIDI",
-      "Title": "TECHNICAL DATA SHEET QIDI PLA Rapido Metal",
+      "Title": "TECHNICAL DATA SHEET QIDI PLA WOOD",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-21",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://drive.google.com/file/d/1dvDjY47IRF-VjIIZqXzXGXfF202Bb4D6/view?usp=drive_link",
+      "URL": "https://drive.google.com/file/d/1sLVAUb8BQcEXDONqKQEgaDZnhxQ9F12i/view?usp=drive_link",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "67c485ebfb6147b2b6ec92509c911c2f8b155eebaf51ba2d31a7b061597e6af0"
+      "SHA256": "8e71ffd2595b07850210da6ff304317d4d26b8abbe152c4d8a435f070d55ed25"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET QIDI PLA Rapido Metal"
+      "text": "TECHNICAL DATA SHEET QIDI PLA WOOD"
     },
     "review": {
       "status": "proposed"
@@ -66,30 +66,31 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 1 prints \"QIDI PLA WOOD\" (Trade name QIDI PLA WOOD; Origin QIDI; \"xyloid\")",
+        "visual": true
       },
       "row": {
-        "MaterialID": "M011",
+        "MaterialID": "M014",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "QIDI",
-        "Product name": "PLA Rapido Metal",
-        "Shared formulation key": "R-QIDI-PLA-RAPIDO-METAL",
+        "Product name": "PLA WOOD",
+        "Shared formulation key": "R-QIDI-PLA-WOOD",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
+        "SourceID": "R-QIDI-PLA-WOOD",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET QIDI PLA Rapido Metal"
+        "text": "TECHNICAL DATA SHEET QIDI PLA WOOD"
       }
     }
   ],
@@ -98,19 +99,19 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M011",
+        "MaterialID": "M014",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
-        "Raw value": "14-5 g/10min",
+        "Raw value": "7-12 g/10min",
         "Raw unit": "g/10min",
-        "Raw numeric": "14",
+        "Raw numeric": "7",
         "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "5",
+        "Raw upper bound": "12",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "14",
+        "Normalized value": "7",
         "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "5",
+        "Normalized upper bound": "12",
         "Normalized unit": "g/10 min",
         "Data status": "Published value",
         "Specimen type": "Printed specimen",
@@ -127,30 +128,80 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
-        "Locator": "p. 1: Melt flow rate (MFR)",
+        "SourceID": "R-QIDI-PLA-WOOD",
+        "Locator": "p. 1: Melt flow rate (MFR)‘",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Melt flow rate (MFR)1 4~5 g/10min ISO 1133"
+        "text": "Melt flow rate (MFR)‘ 7~12g/10min ISO 1133"
       },
       "confidence": 1,
       "review": {
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "the page prints Melt flow rate (MFR) 4~5 g/10min ISO 1133; the row holds 14 to 5 g/10 min, and the footnote conditions (T=190C, m=2.16kg) are nowhere in the row"
+        "note": "the page prints Melt flow rate (MFR) 7~12g/10min ISO 1133 with footnote 1: T=190C, m=2.16kg; the row records Test temperature Not published and carries none of that load"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M011",
+        "MaterialID": "M014",
         "GradeID": "",
         "Property": "HDT",
+        "Raw value": "57 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "57",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-WOOD",
+        "Locator": "p. 1: Heat deflection temperature(HDT)?",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature(HDT)? 57°C ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "the page prints HDT 57C ISO 75 with footnote 2: 0.45MPa; 120C/h; the row records Test load MPa as Not published"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
         "Raw value": "58 °C",
         "Raw unit": "°C",
         "Raw numeric": "58",
@@ -172,83 +223,33 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "ISO 75",
-        "Standards": "ISO 75",
-        "Test load MPa": "Not published",
-        "Notch": "Not applicable",
-        "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
-        "Locator": "p. 1: Heat deflection temperature(HDT)",
-        "Notes": "Not applicable",
-        "Parse review": "Not applicable"
-      },
-      "evidence": {
-        "page": 1,
-        "text": "Heat deflection temperature(HDT) 58°C ISO 75"
-      },
-      "confidence": 1,
-      "review": {
-        "status": "rejected",
-        "by": "claude-optical",
-        "date": "2026-09-21",
-        "note": "the page prints HDT 58C ISO 75 with footnote 2: 0.45MPa; 120C/h; the row records Test load MPa as Not published"
-      }
-    },
-    {
-      "id": "m03",
-      "gradeKey": "main",
-      "row": {
-        "MaterialID": "M011",
-        "GradeID": "",
-        "Property": "Vicat softening temperature",
-        "Raw value": "62 °C",
-        "Raw unit": "°C",
-        "Raw numeric": "62",
-        "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "Not applicable",
-        "Operator": "=",
-        "Conversion factor": "1",
-        "Normalized value": "62",
-        "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "Not applicable",
-        "Normalized unit": "°C",
-        "Data status": "Published value",
-        "Specimen type": "Printed specimen",
-        "Direction": "Not applicable",
-        "Moisture condition": "Not published",
-        "Moisture state": "not-stated",
-        "Post-processing": "Not published",
-        "Post-processing state": "not-stated",
-        "Anneal °C": "Not applicable",
-        "Anneal h": "Not applicable",
-        "Test temperature": "Not published",
         "Standard / load": "ISO 306",
         "Standards": "ISO 306",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
-        "Locator": "p. 1: Vicat softening temperature(VST)*",
+        "SourceID": "R-QIDI-PLA-WOOD",
+        "Locator": "p. 1: Vicat softening temperature(VST)?",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Vicat softening temperature(VST)* 62°C ISO 306"
+        "text": "Vicat softening temperature(VST)? 58°C ISO 306"
       },
       "confidence": 1,
       "review": {
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "the page prints VST 62C ISO 306 with footnote 3: 10N; 120C/h; the row carries no load at all"
+        "note": "the page prints VST 58C ISO 306 with footnote 3: 10N; 120C/h; the row carries no load at all"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M011",
+        "MaterialID": "M014",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "100 %",
@@ -272,13 +273,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "% 6~10 Infill",
+        "Standard / load": "% 8~10 Infill",
         "Standards": "Not published",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
-        "Locator": "p. 2: Elongation at break (%) 6~10 Infill",
+        "SourceID": "R-QIDI-PLA-WOOD",
+        "Locator": "p. 2: Elongation at break (%) 8~10 Infill",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -291,7 +292,7 @@
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "p. 2 prints Elongation at break (%) 6~10; the row holds 100 %, which is the Infill 100% line above it"
+        "note": "p. 2 prints Elongation at break (%) 8~10; the row holds 100 %, which is the Infill 100% line above it"
       }
     }
   ],
@@ -299,7 +300,7 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M011",
+        "MaterialID": "M014",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "190~220°C",
@@ -335,7 +336,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
+        "SourceID": "R-QIDI-PLA-WOOD",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
         "Parse review": "Not applicable"
@@ -343,7 +344,7 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "ON,50%~100%"
+          "Text": "ON, 50%~100%"
         },
         {
           "Topic": "Layer height",
@@ -356,6 +357,10 @@
         {
           "Topic": "Speed",
           "Text": "40-80mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50mm/s"
         },
         {
           "Topic": "Shell / walls",
@@ -371,14 +376,14 @@
         "status": "accepted",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against .cache/pages/67c485ebfb6147b2/p-1.png: GUIDELINE FOR PRINT SETTINGS prints Nozzle temperature 190~220C and Bed temperature 30~60C",
+        "note": "read against .cache/pages/8e71ffd2595b0785/p-1.png: GUIDELINE FOR PRINT SETTINGS prints Nozzle temperature 190~220C and Bed temperature 30~60C",
         "visual": true
       }
     },
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M011",
+        "MaterialID": "M014",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
         "Nozzle °C": "210°C",
@@ -414,7 +419,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-QIDI-PLA-RAPIDO-METAL",
+        "SourceID": "R-QIDI-PLA-WOOD",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings: Printing temperature",
         "Parse review": "Not applicable"
@@ -422,7 +427,7 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "ON,50%~100%"
+          "Text": "ON, 50%~100%"
         },
         {
           "Topic": "Layer height",
@@ -435,6 +440,10 @@
         {
           "Topic": "Speed",
           "Text": "40-80mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50mm/s"
         },
         {
           "Topic": "Shell / walls",
@@ -481,9 +490,9 @@
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "ON,50%~100%",
+      "raw": "ON, 50%~100%",
       "fromBelow": false,
-      "line": "Active cooling fan ON,50%~100%"
+      "line": "Active cooling fan ON, 50%~100%"
     },
     {
       "page": 1,
@@ -533,6 +542,15 @@
     {
       "page": 2,
       "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "50mm/s",
+      "fromBelow": false,
+      "line": "Print speed: 50mm/s"
+    },
+    {
+      "page": 2,
+      "field": "note",
       "topic": "Shell / walls",
       "label": "Shell thickness",
       "raw": "1.2mm",
@@ -543,12 +561,12 @@
   "skipped": [
     {
       "page": 1,
-      "text": "PLA Rapido Metal 04 24/11/2022",
+      "text": "QIDI PLA WOOD 04",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "KTO008",
+      "text": "12/01/2022 KTO19",
       "reason": "no property and value this line states together"
     },
     {
@@ -593,13 +611,18 @@
     },
     {
       "page": 1,
-      "text": "Density 1.19~1.21g/cm? ISO 1183",
+      "text": "density 1.22~1.24g/cm? ISO 1183",
       "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
     },
     {
       "page": 2,
       "text": "Test Method ISO 527",
       "reason": "properties.csv carries no property for \"Test Method\""
+    },
+    {
+      "page": 2,
+      "text": "QIDIQ1PRO under the",
+      "reason": "no property and value this line states together"
     },
     {
       "page": 2,
@@ -613,12 +636,12 @@
     },
     {
       "page": 2,
-      "text": "Tensile strength (Mpa) 29~34",
+      "text": "Tensile strength (Mpa) 25~28",
       "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
       "page": 2,
-      "text": "Emodulus (Mpa) 3200~3500",
+      "text": "Emodulus (Mpa) 4200~4600",
       "reason": "no property and value this line states together"
     },
     {
@@ -628,17 +651,17 @@
     },
     {
       "page": 2,
-      "text": "1—impact direction",
+      "text": "1— impact direction",
       "reason": "no property and value this line states together"
     },
     {
       "page": 2,
-      "text": "Notch impact strength’ (KJ/m?2) 9~12",
+      "text": "Notch impact strength’ (KJ/m?) 3~4",
       "reason": "no property and value this line states together"
     },
     {
       "page": 2,
-      "text": "Impact strength (KJ/m?) 28~32",
+      "text": "Impact strength (KJ/m?) 12~15",
       "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
@@ -658,12 +681,12 @@
     },
     {
       "page": 2,
-      "text": "Maximum force (Mpa) 53~57",
+      "text": "Maximum force (Mpa) 50~55",
       "reason": "no property and value this line states together"
     },
     {
       "page": 2,
-      "text": "1. notch type: typeA",
+      "text": "1. notch type: type A",
       "reason": "no property and value this line states together"
     },
     {
@@ -673,7 +696,7 @@
     },
     {
       "page": 3,
-      "text": "¢ I 2 I",
+      "text": "Qi 2",
       "reason": "no property and value this line states together"
     },
     {
@@ -688,12 +711,22 @@
     },
     {
       "page": 3,
+      "text": "Diameter 3.00mm 3.00+0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
       "text": "Max roundness deviation (1.75) 0.03mm EX1125",
       "reason": "no property and value this line states together"
     },
     {
       "page": 3,
       "text": "Max roundness deviation (2.85) 0.03mm EX1125",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Max roundness deviation (3.00) 0.03mm EX1125",
       "reason": "no property and value this line states together"
     },
     {

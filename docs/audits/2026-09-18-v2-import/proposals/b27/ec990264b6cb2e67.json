@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: UTURA -> ApolloX. p. 1 prints \"TECHNICAL DATA SHEET / ApolloX\" as the product (\"ApolloX is a modified ASA based 3D printer filament\"), with the FormFutura logo; \"UTURA\" was the logo read as letters"
       },
       "row": {
         "MaterialID": "M031",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "FormFutura",
-        "Product name": "UTURA",
+        "Product name": "ApolloX",
         "Shared formulation key": "S-PET-formfutura-tds-apollox2024",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -137,7 +138,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,07 g/cm3 ASTM D792; Tensile modulus 1800 MPa ASTM D638; Elongation at break 35 % ASTM D638; Flexural modulus 1900 MPa ASTM D790; Vicat softening temperature 94 C ASTM D1525"
       }
     },
     {
@@ -184,7 +189,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-1.png: the page prints Melt flow rate 5 g/10min ASTM D1238 with the test condition 220C/10kg; the row records Test temperature Not published and drops the load"
       }
     },
     {
@@ -231,7 +239,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-1.png: the page does print \"Impact strenght 435 kJ/m2 ASTM D256, Izod notched 23C\" (the sister rApollo sheet prints the same 435 as J/m), but the row records Test temperature Not published and enters it as a plain Published value where physics rules out 435 kJ/m2 for an ASA (D55)"
       }
     },
     {
@@ -278,7 +289,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,07 g/cm3 ASTM D792; Tensile modulus 1800 MPa ASTM D638; Elongation at break 35 % ASTM D638; Flexural modulus 1900 MPa ASTM D790; Vicat softening temperature 94 C ASTM D1525"
       }
     },
     {
@@ -325,7 +340,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,07 g/cm3 ASTM D792; Tensile modulus 1800 MPa ASTM D638; Elongation at break 35 % ASTM D638; Flexural modulus 1900 MPa ASTM D790; Vicat softening temperature 94 C ASTM D1525"
       }
     },
     {
@@ -372,7 +391,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,07 g/cm3 ASTM D792; Tensile modulus 1800 MPa ASTM D638; Elongation at break 35 % ASTM D638; Flexural modulus 1900 MPa ASTM D790; Vicat softening temperature 94 C ASTM D1525"
       }
     },
     {
@@ -419,7 +442,10 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "read against p-1.png: the page prints Heat deflection temperature 86 C ASTM D648 with the test condition HDT A; the row records Test load MPa as Not published"
       }
     },
     {
@@ -466,7 +492,11 @@
       },
       "confidence": 0.8,
       "review": {
-        "status": "proposed"
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints Specific gravity 1,07 g/cm3 ASTM D792; Tensile modulus 1800 MPa ASTM D638; Elongation at break 35 % ASTM D638; Flexural modulus 1900 MPa ASTM D790; Vicat softening temperature 94 C ASTM D1525"
       }
     }
   ],
@@ -531,10 +561,10 @@
         "text": "Enclosure Yes"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (overrides a non-visual acceptance): nozzle 230-280 C, bed 90-110 C and enclosure Yes are as printed, but the page prints Drying Recommended 45 - 60 C, 12 h and the row records Drying Not published"
       }
     }
   ],
@@ -651,6 +681,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "round two: grade renamed ApolloX from p. 1; m01, m04-m06, m08 signed; m02 (MFR condition dropped), m03 (435 kJ/m2 entered as a plain value, 23C dropped), m07 (HDT A dropped) and p1 (drying not recorded) rejected"
   }
 }

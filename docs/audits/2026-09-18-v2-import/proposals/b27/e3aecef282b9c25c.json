@@ -67,20 +67,21 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Certification claims: the optical reading of the compliance block is unreadable (\"SZP26-009521 mena Hail Jed HH\"), so none is recorded from it; the name was read against p. 1 by claude-optical. "
       },
       "row": {
         "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Bambu Lab",
-        "Product name": "8 Sambu TDS of Bambu PLA Pure",
+        "Product name": "PLA Pure",
         "Shared formulation key": "B-PC-PLA-Pure-TDS",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
-        "Certification claims": "SiS: SOR Ghbeos nnn rr Berl Fed 34: 2026 4F 03 A 05 H ~ 2026 44 03 A 13 A A RoHS Direc lent Chromium, P sty-three(253) substan . European Chemica s Pass (p. 4, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
         "SourceID": "B-PC-PLA-Pure-TDS",
         "Source locator": "TDS / official product page",
@@ -138,9 +139,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-2.png (TDS of Bambu PLA Pure V1.0): the page prints Density ISO 1183 1.24 g/cm³ and Melt Index 210 °C, 2.16 kg 11.76 ± 1.6 g/10 min under Physical Properties, with no specimen, direction or conditioning stated for them",
+        "visual": true
       }
     },
     {
@@ -188,9 +190,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-2.png (TDS of Bambu PLA Pure V1.0): the page prints Density ISO 1183 1.24 g/cm³ and Melt Index 210 °C, 2.16 kg 11.76 ± 1.6 g/10 min under Physical Properties, with no specimen, direction or conditioning stated for them",
+        "visual": true
       }
     },
     {
@@ -237,10 +240,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-2.png: the page prints Glass Transition Temperature, DSC, 10 °C/min, 55 °C; the row holds 99 °C, which the page does not print, with Standard / load '0 0.253 Temperature DSC' (chart axis labels read as text)"
       }
     },
     {
@@ -287,10 +290,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-2.png: 63 °C is the page's Vicat Softening Temperature (ISO 306, GB/T 1633), not a glass transition (printed as 55 °C); the row files it as Glass transition temperature with Standard / load '0 0.253 Micat Softening Temperature : ISO 306 GB/T 1633'"
       }
     },
     {
@@ -337,10 +340,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Young's Modulus (X-Y) 2481 ± 20 MPa / (Z) 2196 ± 25 MPa by 'ISO 527, GB/T 1040'; the row's Standard / load is 'ISO 927 GB/T 1040', and it records Specimen type Not published (do not assume printed) and Specimen / print parameters Not published where the page's note states the specimens were printed on a Bambu H2D (0.4 mm hardened steel nozzle, 220°C, bed 55°C, 147 mm/s, 100% infill) from filament baked at 50°C for 8 hours"
       }
     },
     {
@@ -387,10 +390,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Young's Modulus (X-Y) 2481 ± 20 MPa / (Z) 2196 ± 25 MPa by 'ISO 527, GB/T 1040'; the row's Standard / load is 'ISO 927 GB/T 1040', and it records Specimen type Not published (do not assume printed) and Specimen / print parameters Not published where the page's note states the specimens were printed on a Bambu H2D (0.4 mm hardened steel nozzle, 220°C, bed 55°C, 147 mm/s, 100% infill) from filament baked at 50°C for 8 hours"
       }
     },
     {
@@ -437,10 +440,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the value, direction and standard are as printed, but the page's note states the specimens were printed on a Bambu H2D (0.4 mm hardened steel nozzle, 220°C, bed 55°C, 147 mm/s, 100% infill) from PLA Pure Milky Pink baked at 50°C for 8 hours; the row records Specimen type Not published (do not assume printed), Specimen / print parameters and Moisture condition Not published"
       }
     },
     {
@@ -487,10 +490,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Tensile Strength (Z) 30.0 ± 3 MPa by ISO 527, GB/T 1040; the row holds 50.0 ± 3 MPa and Standard 'ISO 927 GB/T 1040'"
       }
     },
     {
@@ -537,10 +540,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Breaking Elongation Rate (X-Y) 5.6 ± 1.0 %; the row holds 56 ± 10 % (decimal points lost) and Standard 'ISO 927 GB/T 1040'"
       }
     },
     {
@@ -587,10 +590,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Breaking Elongation Rate (Z) 2.8 ± 0.5 %; the row holds 28 ± 05 % (decimal points lost) and Standard 'ISO 927 GB/T 1040'"
       }
     },
     {
@@ -637,10 +640,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the value, direction and standard are as printed, but the page's note states the specimens were printed on a Bambu H2D (0.4 mm hardened steel nozzle, 220°C, bed 55°C, 147 mm/s, 100% infill) from PLA Pure Milky Pink baked at 50°C for 8 hours; the row records Specimen type Not published (do not assume printed), Specimen / print parameters and Moisture condition Not published"
       }
     },
     {
@@ -687,10 +690,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the value, direction and standard are as printed, but the page's note states the specimens were printed on a Bambu H2D (0.4 mm hardened steel nozzle, 220°C, bed 55°C, 147 mm/s, 100% infill) from PLA Pure Milky Pink baked at 50°C for 8 hours; the row records Specimen type Not published (do not assume printed), Specimen / print parameters and Moisture condition Not published"
       }
     },
     {
@@ -737,10 +740,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the value, direction and standard are as printed, but the page's note states the specimens were printed on a Bambu H2D (0.4 mm hardened steel nozzle, 220°C, bed 55°C, 147 mm/s, 100% infill) from PLA Pure Milky Pink baked at 50°C for 8 hours; the row records Specimen type Not published (do not assume printed), Specimen / print parameters and Moisture condition Not published"
       }
     },
     {
@@ -787,10 +790,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Bending Strength (Z) 55 ± 5 MPa by ISO 178, GB/T 9341; the row holds 90 ± 5 MPa"
       }
     },
     {
@@ -837,10 +840,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: Impact Strength (X-Y) ISO 179, GB/T 1043 20.6 ± 0.7 kJ/m² is as printed, but the page draws the impact bar with a 45° notch and its note states the specimens were printed on a Bambu H2D (220°C, bed 55°C, 100% infill) from filament baked at 50°C for 8 hours; the row records Notch Not published, Specimen type Not published (do not assume printed) and Specimen / print parameters Not published"
       }
     },
     {
@@ -887,10 +890,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-3.png: the page prints Impact Strength (Z) ISO 179, GB/T 1043 10.0 ± 0.7 kJ/m²; the row holds '.7 kJ/m2' with Standard / load 'Z 10.0 + QO ISO 179 GB/T 1043'"
       }
     }
   ],
@@ -959,10 +962,10 @@
         "text": "Drying Settings before Printing"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png: nozzle 190 - 230 °C is as printed, but the page prints Bed Temperature '35 - 65 °C' (the row holds 55 - 69°C) and Chamber Temperature '25 - 40 °C' (the row holds 29- 40°C); Plate is 'Type' where the page prints 'Textured PEI Plate / Smooth PEI Plate/Cool Plate Supertack'; Drying is 'before Printing' with no temperature or hours where the page prints 'Blast Drying Oven: 50 °C, 8 h' and the heatbed and AMS schedules; Nozzle diameter '0.2' where the page prints '0.2, 0.4, 0.6, 0.8 mm'; Support pairing and AMS published Not published where the page prints 'Support for PLA' and 'AMS, AMS 2 PRO, AMS HT, AMS Lite'"
       }
     }
   ],

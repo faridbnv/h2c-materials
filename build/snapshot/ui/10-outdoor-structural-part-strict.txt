@@ -1,6 +1,6 @@
 COUNT 17 shown PASS
-STATUS ☑ PASS 17 | ☐ UNKNOWN 48 | ☐ FAIL 87
-17 of the 152 materials in this database meet these requirements
+STATUS ☑ PASS 17 | ☐ UNKNOWN 48 | ☐ FAIL 88
+17 of the 153 materials in this database meet these requirements
 48 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements

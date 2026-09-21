@@ -1,6 +1,7 @@
 # Batch b27: the optical pool, read and not applied
 
-**Proposed and reviewed on 2026-09-21. Not applied.** 139 documents, 1,211 rows, every one read from a scan.
+**Proposed and reviewed on 2026-09-21; applied the same day by `m121-batch-b27`** (see "How it was applied" at the
+end). 139 documents, 1,211 rows, every one read from a scan.
 
 ## Why the batch exists
 
@@ -69,3 +70,31 @@ already in the tables were corrected with it.
 
 The reviews themselves are in the proposals and survive all of it: every accepted row carries `visual: true` and
 the reader's name, which is what `APPLY-OCR-UNVERIFIED` asks for.
+
+## How it was applied (2026-09-21)
+
+`m121-batch-b27` wrote 791 records from 81 documents: 1 material (PLA-CE, PLA with a declared mineral load, R059),
+52 grades, 79 sources, 593 measurements, 52 print profiles. What had to happen first:
+
+- **Twenty documents left as `registered`**: the FormFutura sheets 3DJake hosts, whose products b28 applied from
+  FormFutura's own library, and products b30 recorded.
+- **Round two** (claude-optical): every grade row read against page 1. 72 signed as they stood; 22 renamed with
+  `ingest:review --rename` to the name the page prints ("run by Mass Additive Manufacturing" is Ultrafuse ABS,
+  "UTURA" is TitanX, "vii)" is BigRep rPLA, "TARDE NAME: Fiberlogy Nylon PA12+CF15" is Nylon PA12+CF15). Nine
+  Triton3D sheets name only TRITON 3D; they are filed under 3DXTECH, whose brand it is (manufacturers.csv).
+- **Round three** (claude-optical): 122 rows an earlier round had accepted unread. 21 signed, 101 rejected: BASF
+  Forward AM's scanned extended sheets print every value in an XY column, with the notch, a conditioning footnote
+  and a printed-specimen sidebar, and the optical reading kept none of them.
+- **Seven documents are not data sheets** (`not-a-data-sheet`): BASF's BPA, BSE and FCC statements and a
+  flame-resistance letter, which print no property; Powder Monkeys' SLS powder; Ultrafuse rPETG pellets.
+- **Three wait for a ruling**: an unfilled ULTEM 9085 proposed as PEI-CF, a FIBERLOGY PETG+CF (10 % carbon fibre)
+  proposed as unfilled PETG, and an SMP 55 shape-memory polyurethane sold by NCI Sales, not Flashforge.
+- **Twelve whose every value was rejected wait on the reader**: six BASF extended sheets and Shop3D's copy of one
+  (`reader:basf-extended`), QIDI's five (`reader:bilingual-columns`), and one Recreus row. Three documents with no
+  value at all are held as no-values.
+- **Five Fiberlogy sheets and their 3DJake copies** proposed one source identifier each; the copies are different
+  scans, so each became its own source (`R-3DJAKE-FIBERLOGY-…`) on the one grade. Three pairs that print the same
+  values were queued as twins.
+- **Findings accepted with a reason**: PCTG's notched Izod of 92 kJ/m², two low flexural moduli the sheets print
+  under ISO 527, a HIPS Vicat below its Tg. Bambu PLA Pure's compliance block is unreadable in the optical text, so
+  no certification is recorded from it.

@@ -65,9 +65,10 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 1 prints \"PC ABS Technical Data Sheet\" under the SIDDAMENT logo",
+        "visual": true
       },
       "row": {
         "MaterialID": "M094",
@@ -444,5 +445,15 @@
     "by": "claude-optical",
     "date": "2026-09-21",
     "note": "five rows read against p-1.png"
-  }
+  },
+  "acceptances": [
+    {
+      "row": "m04",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "the sheet prints a flexural modulus of 800 MPa, labelled with ISO 527; read against the page image by claude-optical. Low for a PC/ABS, and the sheet's own number.",
+      "by": "claude-opus-5",
+      "date": "2026-09-21"
+    }
+  ]
 }

@@ -68,7 +68,8 @@
         "status": "accepted",
         "by": "claude-opus-5",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "Read against p. 1 by claude-optical (round two), who found the name exactly as printed and left only the maker open; the maker decided by claude-opus-5: p. 1 prints \"TriStat ESD-PC Model Material\" as the product; the sheet names TRITON 3D (triton3d.com), a 3DXTECH brand whose sheets 3DXTECH serves from its own store and its own Triton3D download page",
+        "visual": true
       },
       "row": {
         "MaterialID": "M116",

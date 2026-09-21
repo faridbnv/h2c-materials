@@ -66,16 +66,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: TARDE NAME: Fiberlogy Nylon PA12+CF15 -> Nylon PA12+CF15. p. 1 prints \"TARDE NAME: Fiberlogy Nylon PA12+CF15\" (the sheet's own misprint of TRADE) and the heading \"NYLON PA12+CF15\" as the product; the form label and the maker's name are not part of it"
       },
       "row": {
         "MaterialID": "M053",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "Fiberlogy",
-        "Product name": "TARDE NAME: Fiberlogy Nylon PA12+CF15",
+        "Product name": "Nylon PA12+CF15",
         "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
@@ -138,10 +139,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png: the page prints Specific Gravity, Test Method ISO 1183, Unit g/cm3, 1.07; the row's Standard / load is '3 ISO 1183' (the superscript of cm3 read into the method), which is not what the page prints and reads as ISO 1183-3"
       }
     },
     {
@@ -189,9 +190,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -239,9 +241,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -289,9 +292,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -339,9 +343,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -389,9 +394,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -439,9 +445,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -489,9 +496,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -539,9 +547,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     },
     {
@@ -589,9 +598,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png (Fiberlogy Nylon PA12+CF15, last update December 1, 2021): the page prints Tensile Strength @ Break ISO 527 MPa 120, Tensile Modulus ISO 527 MPa 7300, Elongation @ Break ISO 527 % 5, Flexural Modulus ISO 178 MPa 7000, Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 170 and @ 1.8 MPa 150, Vicat Softening Temperature ISO 306 °C 170, Melting Temperature Tm DSC °C 178, Continuous Use Temperature (UL Yellow Card) UL 746 °C 100; it states no direction, specimen, conditioning or annealing for any of them",
+        "visual": true
       }
     }
   ],
@@ -650,9 +660,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against p-1.png: the page prints Print Temperature 255°C - 270°C and Bed Temperature 80°C - 100°C, and no chamber, enclosure, plate, drying or nozzle guidance; the Abrasion / clogging sentence and Hardened nozzle TRUE are the pipeline's editorial default for a fibre-filled grade (flagged editorial), not a reading of the page",
+        "visual": true
       }
     }
   ],

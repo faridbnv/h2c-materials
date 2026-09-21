@@ -5,38 +5,38 @@
     "date": "2026-09-21"
   },
   "document": {
-    "sha256": "8dd67742c7543f7bf5f9cb5addd0e96a417db2a826e3a4ac36b6fe804e6d4b8a",
-    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIX5IP7FQNY2EBAL7TP4U62B42MM&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=5259b1d9d58b1ce040f9261fed4d1e37&dl=1",
+    "sha256": "84c6e17b78289b3da63607a718f9909cc292822daaac0f44c1254b0d17b1148c",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIUR2OMRZKRIG5AZPNQM4RCWAUDA&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=ff6b19fbea4c487a26d9a9790f6380c2&dl=1",
     "pages": 1,
     "provider": "BASF Forward AM / Ultrafuse",
     "manufacturer": "BASF Forward AM",
-    "docKey": "url:6e899a35d70b843b"
+    "docKey": "url:45e75bdc403ed4d9"
   },
   "identity": {
-    "polymer": "BVOH",
+    "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
     "variantClass": "",
     "finish": "",
-    "family": "Support / Soluble",
+    "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "title: bvoh"
+      "title: pla"
     ],
-    "materialId": "M076",
-    "materialName": "BVOH",
-    "estimateIdentity": "BVOH",
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
     "reasons": []
   },
   "window": {
-    "matrix": "semicrystalline",
+    "matrix": "amorphous",
     "fill": "unfilled"
   },
   "source": {
     "row": {
-      "SourceID": "R-BASF-admin-ajax-php-8dd677",
+      "SourceID": "R-BASF-admin-ajax-php-84c6e1",
       "Publisher": "BASF Forward AM",
       "Title": "a",
       "Revision": "Not published",
@@ -45,12 +45,12 @@
       "Source class": "Manufacturer TDS",
       "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
       "Citation role": "cited",
-      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIX5IP7FQNY2EBAL7TP4U62B42MM&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=5259b1d9d58b1ce040f9261fed4d1e37&dl=1",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIUR2OMRZKRIG5AZPNQM4RCWAUDA&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=ff6b19fbea4c487a26d9a9790f6380c2&dl=1",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "8dd67742c7543f7bf5f9cb5addd0e96a417db2a826e3a4ac36b6fe804e6d4b8a"
+      "SHA256": "84c6e17b78289b3da63607a718f9909cc292822daaac0f44c1254b0d17b1148c"
     },
     "evidence": {
       "page": 1,
@@ -65,24 +65,25 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: a -> Ultrafuse PLA Tough. p. 1 prints \"Information Sheet | BPA / Ultrafuse® PLA Tough\" as the product under the forward AM logo (a BPA statement for \"Ultrafuse® PLA Tough Natural and Black\"); \"a\" was a stray letter"
       },
       "row": {
-        "MaterialID": "M076",
+        "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BASF Forward AM",
-        "Product name": "a",
-        "Shared formulation key": "R-BASF-admin-ajax-php-8dd677",
+        "Product name": "Ultrafuse PLA Tough",
+        "Shared formulation key": "R-BASF-admin-ajax-php-84c6e1",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-BASF-admin-ajax-php-8dd677",
+        "SourceID": "R-BASF-admin-ajax-php-84c6e1",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
@@ -101,7 +102,7 @@
   "skipped": [
     {
       "page": 1,
-      "text": "Date: March 21th, 2024 Version no.: 1.0",
+      "text": "Date: November 16th, 2023 Version no.: 1.0",
       "reason": "no property and value this line states together"
     },
     {

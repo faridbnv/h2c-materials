@@ -1,4 +1,4 @@
-COUNT 152 materials no requirements set
+COUNT 153 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-152 materials, 138 of them in H2C scope
-10247 measurements, each traceable to a source
-128 have a density, 92 a modulus, 38 a Canadian price
+153 materials, 139 of them in H2C scope
+10840 measurements, each traceable to a source
+127 have a density, 92 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -86,7 +86,7 @@ also called Amphora · Copolyesters
  not tested 1,200* 1.7 54 11 71* — ☆
 nGen FLEX
 Copolyesters
- not tested 1,160 0.15* 19.3* 320* 100 — ☆
+ not tested 1,160* 0.15* 19.3* 320* 100* — ☆
 nGen-CF
 Copolyesters
  not tested — 2.52* 44.7* 3.1* 78 — ☆
@@ -209,7 +209,7 @@ Copolyesters
  not tested 1,280 — 70* 5* 78 — ☆
 PCTG-GF
 Copolyesters
- not tested 1,310* — 55* 8* 78* — ☆
+ not tested 1,310* 3.4* 55* 8* 78* — ☆
 PE
 Polyolefins
  not tested 954 0.752 18.5 208 66 — ☆
@@ -221,7 +221,7 @@ Flexible Elastomers
  not tested 1,010 0.09* 16.5* 520 n/a — ☆
 PEEK
 Industrial High-Temperature - Outside H2C Practical Envelope
- not tested 1,300 3.72 100 28 140? — ☆
+ not tested 1,300 3.72 100 28 140 — ☆
 PEEK-CF
 Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,390 8.1 105 3 265 — ☆
@@ -230,7 +230,7 @@ Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,440 7.25 105 2.5 300 — ☆
 PEI
 also called ULTEM · Industrial High-Temperature - Outside H2C Practical Envelope
- not tested 1,270 2.5 56 3 208? no price↗ ☆
+ not tested 1,270 2.5 56 3 208 no price↗ ☆
 PEI-CF
 Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,310 7.7 145 1.5 205 — ☆
@@ -242,7 +242,7 @@ Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,510 8.79 145 2 212 — ☆
 PEKK
 Industrial High-Temperature - Outside H2C Practical Envelope
- not tested 1,270 2.75 105 5 150? — ☆
+ not tested 1,270 2.75 105 5 150 — ☆
 PEKK-CF
 Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,330 9.13 126 3.15 285 — ☆
@@ -254,7 +254,7 @@ also called PES · Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,370 2.64* 86* 6.9* 205* — ☆
 PET
 PET Engineering
- not tested 1,340 2.56* 59.4* 5.2* 65.7* — ☆
+ not tested 1,340 2.08* 52.6* 8.6* 65.7* — ☆
 PET-CF
 PET Engineering
  not tested 1,290 4.73 74 4.5 205 116↗ ☆
@@ -272,7 +272,7 @@ PETG-CF not tested 1,250 2.46 35 10.4 74 41↗ ☆
 PETG-ESD not tested 1,280 1.8 50* 13 75 — ☆
 PETG-GF not tested 1,330 2.33 53.6 1.9 80* — ☆
 PETG-GR not tested — 1.4* 55.2* 5.62* — — ☆
-PETG-PTFE not tested 1,320* 1.85* 40* — — — ☆
+PETG-PTFE not tested 1,320* 1.85* 40* 100* — — ☆
 PLA not tested 1,240 2.87 56* 8 80* — ☆
 PLA Aero not tested 1,210 1.35 24 2.6 53 58↗ ☆
 PLA Basic not tested 1,240 2.58 35 12.2 57 28↗ ☆
@@ -290,6 +290,7 @@ PLA Sparkle not tested 1,260 1.94 39 11.7 55 32↗ ☆
 PLA Tough+ not tested 1,210 1.86 34.9 9.4 61 27↗ ☆
 PLA Translucent not tested 1,220 2.88 55.4 11 60 30↗ ☆
 PLA Wood not tested 1,210 2.36 26 15.3 60 32↗ ☆
+PLA-CE not tested — 3.5* 45* 23* 55 — ☆
 PLA-CF not tested 1,220 2.79 38 8.4 55 41↗ ☆
 PLA-EC not tested 1,240* 1.48* 31.2* 11.8* — — ☆
 PLA-ESD not tested 1,260* 2.56* 55* 10* 55* — ☆
@@ -343,10 +344,10 @@ High-Performance Engineering
  not tested 1,360 5.76 72 1.6 241 — ☆
 PPSU
 Industrial High-Temperature - Outside H2C Practical Envelope
- not tested 1,280 2.31 55 3 190? — ☆
+ not tested 1,280 2.31 55 3 190 — ☆
 PSU
 Industrial High-Temperature - Outside H2C Practical Envelope
- not tested 1,240 2.1 52 8 172? — ☆
+ not tested 1,240 2.1 52 8 172 — ☆
 PVA
 Support / Soluble
  not tested 1,270 1.8* 23* 215* 55* 102↗ ☆
@@ -388,7 +389,7 @@ Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,300 2.95 74 6 237 — ☆
 TPU
 Flexible Elastomers
- not tested 1,200 0.029 30* 330 n/a — ☆
+ not tested 1,200 0.029 29* 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  not tested 1,180 0.0068 12 700 n/a no price↗ ☆

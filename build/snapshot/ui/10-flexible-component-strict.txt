@@ -1,7 +1,7 @@
 COUNT 8 shown PASS
-STATUS ☑ PASS 8 | ☐ UNKNOWN 53 | ☐ FAIL 91
-8 of the 152 materials in this database meet these requirements
-53 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+STATUS ☑ PASS 8 | ☐ UNKNOWN 54 | ☐ FAIL 91
+8 of the 153 materials in this database meet these requirements
+54 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -39,7 +39,7 @@ Flexible Elastomers
  PASS 1,010 0.09* 16.5* 520 n/a — ☆
 TPU
 Flexible Elastomers
- PASS 1,200 0.029 30* 330 n/a — ☆
+ PASS 1,200 0.029 29* 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  PASS 1,180 0.0068 12 700 n/a no price↗ ☆

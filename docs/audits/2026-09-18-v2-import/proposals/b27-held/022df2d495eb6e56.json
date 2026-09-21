@@ -28,8 +28,10 @@
     "materialName": "PEI-CF",
     "estimateIdentity": "Not applicable",
     "confidence": 0.85,
-    "needsRuling": false,
-    "reasons": []
+    "needsRuling": true,
+    "reasons": [
+      "p. 1 prints \"ULTEM™ 9085 Filament\", an unfilled PEI, and the proposal files it under PEI-CF (M118): the carbon fibre products on that page are separate continuous-fibre products (claude-optical, b27 round two)"
+    ]
   },
   "window": {
     "matrix": "high-temp",

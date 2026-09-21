@@ -65,16 +65,17 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "visual": true,
+        "note": "Product name: Flame resistance of -> Ultrafuse PC/ABS FR Black. p. 1 prints \"Statement | Flame resistance of Ultrafuse® PC/ABS FR Black\" and names \"our Ultrafuse® PC/ABS FR Black filament\" as the product under the forward AM logo; \"Flame resistance of\" was the first line of the heading"
       },
       "row": {
         "MaterialID": "M094",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "BASF Forward AM",
-        "Product name": "Flame resistance of",
+        "Product name": "Ultrafuse PC/ABS FR Black",
         "Shared formulation key": "R-BASF-admin-ajax-php-bacf37",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",

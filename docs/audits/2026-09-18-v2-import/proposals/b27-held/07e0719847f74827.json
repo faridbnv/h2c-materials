@@ -5,27 +5,27 @@
     "date": "2026-09-21"
   },
   "document": {
-    "sha256": "3899969e5700aa27321a8646483aa5a01a18d91517d346a62a72cc2a3df1a25d",
-    "url": "https://drive.google.com/file/d/1slDSMF4i03Isx5fBOJmIuCyQSAyoDIjA/view?usp=drive_link",
+    "sha256": "07e0719847f74827da2d87837769c6e5a28c4020692f0fb59bdcabb136f5dc32",
+    "url": "https://drive.google.com/file/d/1c1ovAy5v74V4XCC-CLGtm06ZBYTVO9QY/view?usp=drive_link",
     "pages": 3,
     "provider": "QIDI",
     "manufacturer": "QIDI",
-    "docKey": "https://drive.google.com/file/d/1slDSMF4i03Isx5fBOJmIuCyQSAyoDIjA/view?usp=drive_link"
+    "docKey": "https://drive.google.com/file/d/1c1ovAy5v74V4XCC-CLGtm06ZBYTVO9QY/view?usp=drive_link"
   },
   "identity": {
-    "polymer": "ABS",
+    "polymer": "PLA",
     "modifier": "Unfilled / unspecified",
     "variantClass": "",
     "finish": "",
-    "family": "ABS",
+    "family": "PLA",
     "hardness": null,
     "support": false,
     "signals": [
-      "name: abs"
+      "name: pla"
     ],
-    "materialId": "M027",
-    "materialName": "ABS",
-    "estimateIdentity": "ABS",
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
     "confidence": 1,
     "needsRuling": false,
     "reasons": []
@@ -36,25 +36,25 @@
   },
   "source": {
     "row": {
-      "SourceID": "R-QIDI-ABS-RAPIDO",
+      "SourceID": "R-QIDI-PLA-MATTE",
       "Publisher": "QIDI",
-      "Title": "TECHNICAL DATA SHEET QIDI ABS Rapido",
+      "Title": "TECHNICAL DATA SHEET QIDI PLA Matte",
       "Revision": "Not published",
       "Publication date": "Not published",
       "Access date": "2026-09-21",
       "Source class": "Manufacturer TDS",
       "Source note": "Not applicable",
       "Citation role": "cited",
-      "URL": "https://drive.google.com/file/d/1slDSMF4i03Isx5fBOJmIuCyQSAyoDIjA/view?usp=drive_link",
+      "URL": "https://drive.google.com/file/d/1c1ovAy5v74V4XCC-CLGtm06ZBYTVO9QY/view?usp=drive_link",
       "Locator": "Document / product page",
       "Applicable grades": "${grade:main}",
       "Access state": "retrieved",
       "Access note": "Not applicable",
-      "SHA256": "3899969e5700aa27321a8646483aa5a01a18d91517d346a62a72cc2a3df1a25d"
+      "SHA256": "07e0719847f74827da2d87837769c6e5a28c4020692f0fb59bdcabb136f5dc32"
     },
     "evidence": {
       "page": 1,
-      "text": "TECHNICAL DATA SHEET QIDI ABS Rapido"
+      "text": "TECHNICAL DATA SHEET QIDI PLA Matte"
     },
     "review": {
       "status": "proposed"
@@ -65,30 +65,31 @@
       "key": "main",
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 1 prints \"QIDI PLA Matte\" (Trade name QIDI PLA Matte; Origin QIDI)",
+        "visual": true
       },
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "Role": "procurement",
         "Status": "active",
         "Manufacturer": "QIDI",
-        "Product name": "ABS Rapido",
-        "Shared formulation key": "R-QIDI-ABS-RAPIDO",
+        "Product name": "PLA Matte",
+        "Shared formulation key": "R-QIDI-PLA-MATTE",
         "Composition / filler": "Not published",
         "Variant": "Not applicable",
         "Colour caveat": "Properties may vary by colour; use TDS scope",
         "Availability": "Not published",
         "Certification claims": "Not published",
         "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
+        "SourceID": "R-QIDI-PLA-MATTE",
         "Source locator": "TDS / official product page",
         "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
       },
       "evidence": {
         "page": 1,
-        "text": "TECHNICAL DATA SHEET QIDI ABS Rapido"
+        "text": "TECHNICAL DATA SHEET QIDI PLA Matte"
       }
     }
   ],
@@ -97,19 +98,19 @@
       "id": "m01",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Melt mass-flow rate",
-        "Raw value": "30-35 g/10min",
+        "Raw value": "3-5 g/10min",
         "Raw unit": "g/10min",
-        "Raw numeric": "30",
+        "Raw numeric": "3",
         "Raw uncertainty ±": "Not applicable",
-        "Raw upper bound": "35",
+        "Raw upper bound": "5",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "30",
+        "Normalized value": "3",
         "Normalized uncertainty ±": "Not applicable",
-        "Normalized upper bound": "35",
+        "Normalized upper bound": "5",
         "Normalized unit": "g/10 min",
         "Data status": "Published value",
         "Specimen type": "Printed specimen",
@@ -126,38 +127,38 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
-        "Locator": "p. 1: Melt flow rate (MFR)*",
+        "SourceID": "R-QIDI-PLA-MATTE",
+        "Locator": "p. 1: Melt flow rate (MFR)‘",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Melt flow rate (MFR)* 30~35g/10min ISO 1133"
+        "text": "Melt flow rate (MFR)‘ 3~5g/10min ISO 1133"
       },
       "confidence": 1,
       "review": {
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "the page prints Melt flow rate (MFR) 30~35g/10min ISO 1133 with footnote 1 on the label: test conditions T=220C, m=10kg; the row records Test temperature Not published and carries none of that load"
+        "note": "the page prints Melt flow rate (MFR) 3~5g/10min ISO 1133 with footnote 1 on the label: test conditions T=190C, m=2.16kg; the row records Test temperature Not published and carries none of that load in Standard / load"
       }
     },
     {
       "id": "m02",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "HDT",
-        "Raw value": "285 °C",
+        "Raw value": "58 °C",
         "Raw unit": "°C",
-        "Raw numeric": "285",
+        "Raw numeric": "58",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "285",
+        "Normalized value": "58",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
@@ -176,38 +177,38 @@
         "Test load MPa": "Not published",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
+        "SourceID": "R-QIDI-PLA-MATTE",
         "Locator": "p. 1: Heat deflection temperature(HDT)",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Heat deflection temperature(HDT)2 85°C ISO 75"
+        "text": "Heat deflection temperature(HDT) 58°C ISO 75"
       },
       "confidence": 1,
       "review": {
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "the page prints Heat deflection temperature(HDT) 85C ISO 75; the row holds 285 C, and the footnote load 0.45MPa is recorded as Not published"
+        "note": "the page prints Heat deflection temperature(HDT) 58C ISO 75 with footnote 2: test conditions 0.45MPa; 120C/h; the row records Test load MPa as Not published"
       }
     },
     {
       "id": "m03",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Vicat softening temperature",
-        "Raw value": "95 °C",
+        "Raw value": "57 °C",
         "Raw unit": "°C",
-        "Raw numeric": "95",
+        "Raw numeric": "57",
         "Raw uncertainty ±": "Not applicable",
         "Raw upper bound": "Not applicable",
         "Operator": "=",
         "Conversion factor": "1",
-        "Normalized value": "95",
+        "Normalized value": "57",
         "Normalized uncertainty ±": "Not applicable",
         "Normalized upper bound": "Not applicable",
         "Normalized unit": "°C",
@@ -226,28 +227,28 @@
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
-        "Locator": "p. 1: Vicat softening temperature(VST)*",
+        "SourceID": "R-QIDI-PLA-MATTE",
+        "Locator": "p. 1: Vicat softening temperature(VST)°",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
       "evidence": {
         "page": 1,
-        "text": "Vicat softening temperature(VST)* 95°C ISO 306"
+        "text": "Vicat softening temperature(VST)° 57°C ISO 306"
       },
       "confidence": 1,
       "review": {
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "the page prints Vicat softening temperature(VST) 95C ISO 306 with footnote 3: test conditions 10N; 120C/h; the row carries no load at all"
+        "note": "the page prints Vicat softening temperature(VST) 57C ISO 306 with footnote 3: test conditions 10N; 120C/h; the row carries no load at all"
       }
     },
     {
       "id": "m04",
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "GradeID": "",
         "Property": "Elongation at break",
         "Raw value": "100 %",
@@ -271,13 +272,13 @@
         "Anneal °C": "Not applicable",
         "Anneal h": "Not applicable",
         "Test temperature": "Not published",
-        "Standard / load": "% 10~12 Infill",
+        "Standard / load": "% 2~4 Infill",
         "Standards": "Not published",
         "Test load MPa": "Not applicable",
         "Notch": "Not applicable",
         "Specimen / print parameters": "Not published",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
-        "Locator": "p. 2: Elongation at break (%) 10~12 Infill",
+        "SourceID": "R-QIDI-PLA-MATTE",
+        "Locator": "p. 2: Elongation at break (%) 2~4 Infill",
         "Notes": "Not applicable",
         "Parse review": "Not applicable"
       },
@@ -290,7 +291,7 @@
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "p. 2 prints Elongation at break (%) 10~12; the row holds 100 %, which is the Infill 100% line above it"
+        "note": "p. 2 prints Elongation at break (%) 2~4; the row holds 100 %, which is the Infill 100% line above it"
       }
     }
   ],
@@ -298,18 +299,18 @@
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "220~250°C",
+        "Nozzle °C": "210~230°C",
         "Nozzle state": "range",
-        "Nozzle min °C": "220",
-        "Nozzle max °C": "250",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "230",
         "Nozzle requirement": "required",
-        "Bed °C": "80~100°C",
+        "Bed °C": "30~60°C",
         "Bed state": "range",
-        "Bed min °C": "80",
-        "Bed max °C": "100",
+        "Bed min °C": "30",
+        "Bed max °C": "60",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -334,7 +335,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
+        "SourceID": "R-QIDI-PLA-MATTE",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings: Nozzle temperature",
         "Parse review": "Not applicable"
@@ -342,7 +343,7 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "0~50%"
+          "Text": "ON, 50%~100%"
         },
         {
           "Topic": "Layer height",
@@ -368,31 +369,31 @@
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Nozzle temperature 220~250°C"
+        "text": "Nozzle temperature 210~230°C"
       },
       "review": {
         "status": "accepted",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against .cache/pages/3899969e5700aa27/p-1.png: GUIDELINE FOR PRINT SETTINGS prints Nozzle temperature 220~250C and Bed temperature 80~100C",
+        "note": "read against .cache/pages/07e0719847f74827/p-1.png: GUIDELINE FOR PRINT SETTINGS prints Nozzle temperature 210~230C and Bed temperature 30~60C",
         "visual": true
       }
     },
     {
       "gradeKey": "main",
       "row": {
-        "MaterialID": "M027",
+        "MaterialID": "M001",
         "GradeID": "",
         "Profile": "Manufacturer published guidance",
-        "Nozzle °C": "250°C",
+        "Nozzle °C": "220°C",
         "Nozzle state": "range",
-        "Nozzle min °C": "250",
-        "Nozzle max °C": "250",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "220",
         "Nozzle requirement": "required",
-        "Bed °C": "80~100°C",
+        "Bed °C": "30~60°C",
         "Bed state": "range",
-        "Bed min °C": "80",
-        "Bed max °C": "100",
+        "Bed min °C": "30",
+        "Bed max °C": "60",
         "Bed requirement": "required",
         "Chamber °C": "Not published",
         "Chamber state": "unknown",
@@ -417,7 +418,7 @@
         "AMS published": "Not published",
         "Support pairing": "Not published",
         "Failure modes": "Not published",
-        "SourceID": "R-QIDI-ABS-RAPIDO",
+        "SourceID": "R-QIDI-PLA-MATTE",
         "H2C SourceID": "H2C-WIKI",
         "Locator": "p. 1: Recommended printing settings: Printing temperature",
         "Parse review": "Not applicable"
@@ -425,7 +426,7 @@
       "notes": [
         {
           "Topic": "Cooling",
-          "Text": "0~50%"
+          "Text": "ON, 50%~100%"
         },
         {
           "Topic": "Layer height",
@@ -451,13 +452,13 @@
       "editorial": [],
       "evidence": {
         "page": 1,
-        "text": "Bed temperature 80~100°C"
+        "text": "Bed temperature 30~60°C"
       },
       "review": {
         "status": "rejected",
         "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "the 250C printing temperature and 100C bed are the tensile specimens' conditions on p. 2, not guidance on p. 1 as the locator says; the row pairs that 250C nozzle with the p. 1 bed range 80~100C"
+        "note": "the 220C printing temperature and 60C bed are the tensile specimens' conditions on p. 2, not guidance on p. 1 as the locator says; the row also pairs that 220C nozzle with the p. 1 bed range 30~60C, which the page never prints together"
       }
     }
   ],
@@ -470,27 +471,27 @@
       "field": "nozzle",
       "topic": "",
       "label": "Nozzle temperature",
-      "raw": "220~250°C",
+      "raw": "210~230°C",
       "fromBelow": false,
-      "line": "Nozzle temperature 220~250°C"
+      "line": "Nozzle temperature 210~230°C"
     },
     {
       "page": 1,
       "field": "bed",
       "topic": "",
       "label": "Bed temperature",
-      "raw": "80~100°C",
+      "raw": "30~60°C",
       "fromBelow": false,
-      "line": "Bed temperature 80~100°C"
+      "line": "Bed temperature 30~60°C"
     },
     {
       "page": 1,
       "field": "note",
       "topic": "Cooling",
       "label": "Active cooling fan",
-      "raw": "0~50%",
+      "raw": "ON, 50%~100%",
       "fromBelow": false,
-      "line": "Active cooling fan 0~50%"
+      "line": "Active cooling fan ON, 50%~100%"
     },
     {
       "page": 1,
@@ -524,18 +525,18 @@
       "field": "nozzle",
       "topic": "",
       "label": "Printing temperature",
-      "raw": "250°C",
+      "raw": "220°C",
       "fromBelow": false,
-      "line": "Printing temperature: 250°C"
+      "line": "Printing temperature: 220°C"
     },
     {
       "page": 2,
       "field": "bed",
       "topic": "",
       "label": "Heated bed temperature",
-      "raw": "100°C",
+      "raw": "60°C",
       "fromBelow": false,
-      "line": "Heated bed temperature: 100°C"
+      "line": "Heated bed temperature: 60°C"
     },
     {
       "page": 2,
@@ -559,7 +560,7 @@
   "skipped": [
     {
       "page": 1,
-      "text": "ABS Rapido 04 12/01/2022 KT012",
+      "text": "Matte 03 12/01/2022 KTOO3",
       "reason": "no property and value this line states together"
     },
     {
@@ -569,38 +570,53 @@
     },
     {
       "page": 1,
+      "text": "Bed modification Tape or glue below 60°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
       "text": "Settings are based on a 0.4mm nozzle.",
       "reason": "in the printing guide, naming no setting the lexicon knows"
     },
     {
       "page": 1,
-      "text": "Melt temperature ~180°C ISO 11357",
+      "text": "Melt temperature ~160°C ISO 11357",
       "reason": "the upper end of a range: a window, not a result"
     },
     {
       "page": 1,
-      "text": "1.test conditions: T= 220°C; m= 10kg.",
+      "text": "Glass transition temperature ~60°C ISO 11357",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "1.test conditions: T= 190°C; m= 2.16kg.",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "2. test conditions:0.45MPa;120°C/h.",
+      "text": "2. test conditions:0.45MPa;120C/h.",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "3. test conditions:10N; 120 °C/h.",
+      "text": "3. test conditions:10N; 120°C/h.",
       "reason": "no property and value this line states together"
     },
     {
       "page": 1,
-      "text": "density 1.05g/cm? ISO 1183",
+      "text": "Density 1.40~1.45g/cm? ISO 1183",
       "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
     },
     {
       "page": 2,
       "text": "Test Method ISO 527",
       "reason": "properties.csv carries no property for \"Test Method\""
+    },
+    {
+      "page": 2,
+      "text": "QIDIQ1PRO under the",
+      "reason": "no property and value this line states together"
     },
     {
       "page": 2,
@@ -614,12 +630,12 @@
     },
     {
       "page": 2,
-      "text": "Tensile strength (Mpa) 40~42",
+      "text": "Tensile strength (Mpa) 36~42",
       "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
       "page": 2,
-      "text": "Emodulus (Mpa) 3700~4000",
+      "text": "Emodulus (Mpa) 2200~2600",
       "reason": "no property and value this line states together"
     },
     {
@@ -634,7 +650,7 @@
     },
     {
       "page": 2,
-      "text": "Notch impact strength’ (KJ/m?) 18~22",
+      "text": "Notch impact strength’ (KJ/m?) 6~9",
       "reason": "no property and value this line states together"
     },
     {
@@ -669,12 +685,12 @@
     },
     {
       "page": 2,
-      "text": "Flexural modulus (Mpa) 2600~2800",
+      "text": "Flexural modulus (Mpa) 2000~2400",
       "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
     },
     {
       "page": 3,
-      "text": "Diameter 1.75mm 1.75+0.03mm EX1125",
+      "text": "Diameter 1./5mm 1.75+0.03mm EX1125",
       "reason": "no property and value this line states together"
     },
     {
