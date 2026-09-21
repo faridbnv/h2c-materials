@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "b6682298760d35df7b87bdd1f5f647688f8b57e383c89163263f290924a74a3c",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3018",
+    "pages": 1,
+    "provider": "Filament2Print",
+    "manufacturer": "Filament2Print",
+    "docKey": "b6682298760d35df"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12"
+    ],
+    "materialId": "M052",
+    "materialName": "PA12",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Other",
+      "Publisher": "Filament2Print",
+      "Title": "Monkey SiPA12",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3018",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b6682298760d35df7b87bdd1f5f647688f8b57e383c89163263f290924a74a3c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Monkey SiPA12"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M052",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "PA12 Powder dedicated for Sintratec SLS Machines",
+        "Shared formulation key": "R-FILAMENT2PRINT-Other",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Other",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Monkey SiPA12"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1 750 MPa (TDS prints \"1.750\" with European decimal separator)",
+        "Raw unit": "MPa",
+        "Raw numeric": "1750",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other",
+        "Locator": "p. 1: Tensile Modulus",
+        "Notes": "\"1.750\" may be a thousands separator or a decimal one; read as 1750 because 0.00175 GPa is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus 1.750 MPa DIN EN ISO 527 ®"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "48 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "48",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other",
+        "Locator": "p. 1: Tensile Strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength 48 MPa DIN EN ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "14 %",
+        "Raw unit": "%",
+        "Raw numeric": "14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other",
+        "Locator": "p. 1: Elongation at Break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Break 14 % DIN EN ISO 527 M O N K YS"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Monkey SiPA12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 Powder dedicated for Sintratec SLS Machines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume: 2,61 (~1,5 kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Thermoplastic Polyamid 12 powder for the application in selective lasersintering Process",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Powder Properties Particle Size Div, 90) 82 ym DIN EN ISO 9276",
+      "reason": "properties.csv carries no property for \"Powder Properties\""
+    },
+    {
+      "page": 1,
+      "text": "Powder Bulk Density 0.43 g/cm? DIN EN ISO 60",
+      "reason": "properties.csv carries no property for \"Powder Bulk Density\""
+    },
+    {
+      "page": 1,
+      "text": "176 °c DIN EN ISO 11357",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temperature 130 Cc DIN EN ISO 306",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "1.01 g/cm? DIN EN ISO 1183-1",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "67403ed3650f48e9ae7d7a957983f3464aa7ca4a402ef59e522be49a58c03e88",
+    "url": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PA6CF.pdf?v=1714050084",
+    "pages": 2,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "67403ed3650f48e9"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6",
+      "filler: cf"
+    ],
+    "materialId": "M050",
+    "materialName": "PA6-CF",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PCGF-PA6CF",
+      "Publisher": "SIDDAMENT",
+      "Title": "PA6-CF Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PA6CF.pdf?v=1714050084",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "67403ed3650f48e9ae7d7a957983f3464aa7ca4a402ef59e522be49a58c03e88"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PA6-CF Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M050",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "PA6-CF",
+        "Shared formulation key": "S-PCGF-PA6CF",
+        "Composition / filler": "the main raw material. PA6-CF is a polyimide modified material containing 15% carbon fiber. It has the (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-PA6CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PA6-CF Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C/24h ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PA6CF",
+        "Locator": "p. 1: Moisture Absorption(23°C/24h) ISO 62 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Moisture Absorption(23°C/24h) ISO 62 % <0.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "60-65 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "65",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "65",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PA6CF",
+        "Locator": "p. 1: Tensile strength ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength ISO 527 Mpa 60~65"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6-6.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "6.5",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "6.5",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PA6CF",
+        "Locator": "p. 1: Elongation at break ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break ISO 527 % 6~6.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "4900-5000 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "4900",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "5000",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "5",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PA6CF",
+        "Locator": "p. 1: Flexural Modulus ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus ISO 527 Mpa 4900~5000"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "0178 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "178",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "178",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PA6CF",
+        "Locator": "p. 1: Flexural Strength IS",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength IS0178 Mpa i"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6-CF Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-CF is a FFF 3D printing filament, which is produced with LUVOCOM® 3F PAHT CF 9742 BK as",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "the main raw material. PA6-CF is a polyimide modified material containing 15% carbon fiber. It has the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FFF 3D printers in non-heated chambers. It has excellent tensile and impact strength, heat distortion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature up to 200°C, and can be used for a long time at a temperature of 180°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "before use. It is recommended to dry the filament in a dryer at 80°C for at least 12 hours to ensure the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "success rate and quality of the printed model. If using PA6-CF as its own support material, remove the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80~100°C for 1~3 hours to increase the strength of the model.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density ISO 1183 gicm3 = 1.24~1.26",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "MFR(250°C/2.16Kg) ISO 1133 gii0min 3-6",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength ISO180 KJim? —-7.5~8",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "HDT@ 0.455 MPa(66 psi) ISO7T5 c 200",
+      "reason": "the sheet states HDT in c, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Use Temperature (200 hours longest) Cc 180",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Insulation Resistance (strip electrode) IEC 60167 0 2107",
+      "reason": "properties.csv carries no property for \"Insulation Resistance (strip electrode)\""
+    },
+    {
+      "page": 1,
+      "text": "Continuous Use Temperature IEC 60216 Cc 150",
+      "reason": "the sheet states Continuous service temperature in Cc, and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "4.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ASTM D636 (ISO 527, GB/T 1040)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "= 7 axis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural testing specimen; ASTMD790 (ISO 178, GB/T 9341)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Flexural testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "80,00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40.00,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "440",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Impact testing specimen;\""
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

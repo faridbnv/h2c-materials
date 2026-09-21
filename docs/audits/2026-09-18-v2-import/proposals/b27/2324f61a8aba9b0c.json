@@ -1,0 +1,1522 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "2324f61a8aba9b0c02b216a84d03559adba51776284fa75e4545a32650113320",
+    "url": "https://www.matterhackers.com/r/uVYGQd",
+    "pages": 4,
+    "provider": "MatterHackers / PRO Series",
+    "manufacturer": "Bambu Lab",
+    "docKey": "2324f61a8aba9b0c"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "B-PC-uVYGQd",
+      "Publisher": "Bambu Lab",
+      "Title": "- tH TA Is TDS of Bambu PLA Pure",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by MatterHackers / PRO Series; the sheet is Bambu Lab's.",
+      "Citation role": "cited",
+      "URL": "https://www.matterhackers.com/r/uVYGQd",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2324f61a8aba9b0c02b216a84d03559adba51776284fa75e4545a32650113320"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "- tH TA Is TDS of Bambu PLA Pure"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Pure",
+        "Shared formulation key": "B-PC-uVYGQd",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Legis; SZP26-009521 mena Hail Jed HH: 2026“fF 03 A 05 H ~ 2026 47 03 H 13H A RoHS Dir Mercury, Hexavalent Chromium, hundred and fitty-three(253) subst ublished  (p. 4, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-uVYGQd",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "- tH TA Is TDS of Bambu PLA Pure"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 2: Density ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ISO 1183 1.24 g/cm?"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "11.76 ± 1.6 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "11.76",
+        "Raw uncertainty ±": "1.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11.76",
+        "Normalized uncertainty ±": "1.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "210 °C 2.16 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 2: Melt Index 210 °C, 2.16 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt Index 210 °C, 2.16 kg 11.76+ 1.6 g/10 min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "99 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "99",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "99",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0 0.253 Temperature DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 2: Glass Transition OR? Inn: 0 0.253 Temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Temperature DSC, 10 °C/min 99 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "63 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "63",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "63",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0 0.253 Micat Softening Temperature : ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 2: Glass Transition OR? Inn: 0 0.253 Micat Softening ISO 306, GB/T 1633 Temperature :",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Micat Softening ISO 306, GB/T 1633 63°C :"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2481 ± 20 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2481",
+        "Raw uncertainty ±": "20",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.481",
+        "Normalized uncertainty ±": "0.02",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 927 GB/T 1040",
+        "Standards": "ISO 927; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Young’s Modulus (X-Y) ISO 927, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Young’s Modulus (X-Y) ISO 927, GB/T 1040 2481+ 20 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2196 ± 25 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2196",
+        "Raw uncertainty ±": "25",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.196",
+        "Normalized uncertainty ±": "0.025",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 927 GB/T 1040",
+        "Standards": "ISO 927; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Young’s Modulus (Z) ISO 927, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Young’s Modulus (Z) ISO 927, GB/T 1040 2196 + 25 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "51.5 ± 2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "51.5",
+        "Raw uncertainty ±": "2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "51.5",
+        "Normalized uncertainty ±": "2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Tensile Strength (X-Y ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile Strength (X-Y ISO 527, GB/T 1040 51.5 + 2MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "50.0 ± 3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 927 GB/T 1040",
+        "Standards": "ISO 927; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Tensile Strength (Z) ISO 927, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile Strength (Z) ISO 927, GB/T 1040 50.0 +3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "56 ± 10 %",
+        "Raw unit": "%",
+        "Raw numeric": "56",
+        "Raw uncertainty ±": "10",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "56",
+        "Normalized uncertainty ±": "10",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 927 GB/T 1040",
+        "Standards": "ISO 927; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Breaking Elongation Rate (X-Y) ISO 927, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Breaking Elongation Rate (X-Y) ISO 927, GB/T 1040 56+10% 4°"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "28 ± 05 %",
+        "Raw unit": "%",
+        "Raw numeric": "28",
+        "Raw uncertainty ±": "5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "28",
+        "Normalized uncertainty ±": "5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 927 GB/T 1040",
+        "Standards": "ISO 927; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Breaking Elongation Rate (Z) ISO 927, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Breaking Elongation Rate (Z) ISO 927, GB/T 1040 28+05%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2880 ± 100 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2880",
+        "Raw uncertainty ±": "100",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.88",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Bending Modulus (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Bending Modulus (X-Y) ISO 178, GB/T 9341 2880 + 100 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2599 ± 71 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2599",
+        "Raw uncertainty ±": "71",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.599",
+        "Normalized uncertainty ±": "0.071",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Bending Modulus (Z) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Bending Modulus (Z) ISO 178, GB/T 9341 2599 + 71 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "75 ± 2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "75",
+        "Raw uncertainty ±": "2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "75",
+        "Normalized uncertainty ±": "2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Bending Strength (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Bending Strength (X-Y) ISO 178, GB/T 9341 75 +2MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "90 ± 5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Bending Strength (Z) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Bending Strength (Z) ISO 178, GB/T 9341 90 +5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "20.6 ± 0.7 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "20.6",
+        "Raw uncertainty ±": "0.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "20.6",
+        "Normalized uncertainty ±": "0.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Impact Strength (X-Y) ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Impact Strength (X-Y) ISO 179, GB/T 1043 20.6 + 0.7 kJ/m-2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": ".7 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "0.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Z 10.0 + QO ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "Locator": "p. 3: Impact Strength (Z) ISO 179, GB/T 1043 10.0 + QO",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Impact Strength (Z) ISO 179, GB/T 1043 10.0 + QO.7 kJ/m?"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "190 - 230°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "55 - 69°C",
+        "Bed state": "range",
+        "Bed min °C": "55",
+        "Bed max °C": "69",
+        "Bed requirement": "required",
+        "Chamber °C": "29- 40°C",
+        "Chamber state": "range",
+        "Chamber min °C": "29",
+        "Chamber max °C": "40",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Type",
+        "Drying": "before Printing",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.2",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-uVYGQd",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 200 mm/s"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Length 0.4-0.8mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "20-40 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Drying Settings before Printing"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying Settings",
+      "raw": "before Printing",
+      "fromBelow": false,
+      "line": "Drying Settings before Printing"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Size",
+      "raw": "0.2",
+      "fromBelow": false,
+      "line": "Nozzle Size 0.2,0.4, 0.6,0.8 mm"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "190 - 230°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 190 - 230°C"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Build Plate",
+      "raw": "Type",
+      "fromBelow": false,
+      "line": "Build Plate Type Textured PEI Plate / Smooth PEI Plate/Cool Plate Supertack"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "55 - 69°C",
+      "fromBelow": false,
+      "line": "Bed Temperature 55 - 69°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "< 200 mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed < 200 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "Length 0.4-0.8mm",
+      "fromBelow": false,
+      "line": "Retraction Length 0.4-0.8mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Speed",
+      "raw": "20-40 mm/s",
+      "fromBelow": false,
+      "line": "Retraction Speed 20-40 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "chamber",
+      "topic": "",
+      "label": "Chamber Temperature",
+      "raw": "29- 40°C",
+      "fromBelow": false,
+      "line": "Chamber Temperature 29- 40°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Bambu Lab V1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Blast Drying Oven: 50 °C, 8h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "X1 Series & P Series & H2 Series Printer Heatbed: 60 - 70°C, 12h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro & AMS HT: Filament inserted state: 45°C, 12h; Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "non-inserted state: 55°C, 8h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "18 days",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printers Compatibility All Bambu 3D printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS Compatibility AMS, AMS 2 PRO, AMS HT, AMS Lite",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "< 20% RH (Sealed, with desiccant)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max Overhang Angle D9 ©",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max Bridging Length 50mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "vaturated Water 25 °C, 55% RH 0.28% 0.20% | --------b ee, 40%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.15% fpv-----s-ceereccncencbececencencdiensncennebecesansnnedhensansnnenbensansansndensansnnen 30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.109% fe-----2- econ eee beh de 20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.05% |o-------2--beeeeeeecc eden cece cece cb neces ccc esc c esse edecceeeeeeey 10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.00% | | | | | | | 1 O%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0 2 4 6 8 10 12 14 16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Time (day) Test Conditions - 25~350°C, 55~/0% RH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Subjects Testing Methods Data Deformation (mm) 0.45MPae=— 1.8MPa om",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0 :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Temperature DSC, 10 °C/min 160 °C 0.35",
+      "reason": "properties.csv carries no property for \"Temperature\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "0.3 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "02 :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Crystallization DSC. 10 °C/min |",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Temperature 01 3",
+      "reason": "the line names Glass transition temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 2,
+      "text": "0.05 :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "-0.05 :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat Defiection -01 | | | | | | |",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Temperature ISO 75 1.8 MPa 56 °C 20 2c 40 Ls 50 Br 60",
+      "reason": "the row states 4 values in columns of its own (20, 40, 50, 60) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 2,
+      "text": "reat Detiection ISO 75 0.45 MPa 60°C",
+      "reason": "properties.csv carries no property for \"reat Detiection\""
+    },
+    {
+      "page": 3,
+      "text": "150.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Subjects Testing Methods Data 114.00",
+      "reason": "properties.csv carries no property for \"Subjects\" (Data)"
+    },
+    {
+      "page": 3,
+      "text": "80.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "20.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": ") 10.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "60.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10,00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10,00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "baked in a 50°C blast drying oven for 8 hours before printing. The printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "equipment is the Bambu H2D model, using a 0.4 mm hardened steel nozzle, with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "the nozzle temperature set at 220°C, the hot bed temperature at 55°C, the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "printing speed at 147 mm/s, and the filling rate at 100%. If annealing treatment is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "temperature between 50 and 60°C, with an annealing duration of 6 to 12 hours. It",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "RMR $a: CANEC26004685502 ARH: 20264403 5 13H BR, HSK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "+ CANEC2600473650 THREE ACL 2228 SHRAEALE 903 bs Corp. OR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ae BE: . 2 Aw: 2026 EO ; \" 7 Bay Area Compliance La E P af of 8 ss Core",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "die eilisdoalilpente vee ae gia - TEST R Date: February 28, 2026 hie ereer Bay Ares Compan “ TEST RE PO RT 7, 2026 Page 2 of 36",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "~ 90 O.: eile",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "° PSE: A19-XX (XX AREER) Report N Report No.: 26010463524",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2 : . USION 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "O DERERsASHAZE SGS TfE4aS: SZP26-009521 TEST REQUEST Utseaz: 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ee ‘s _ 5/863 on ST REQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "a REBECA 2026 ## 03 A 05 A ite t directives (EU) 201 TEST REQUES* ct of Substances",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "sosieme oo... / < Directive 2011/65/EU and amendmen” co Lepes, Phthalates(DBP, must 3) substances in the Candidate List oo.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Legis; SZP26-009521 mena Hail Jed HH: 2026“fF 03 A 05 H ~ 2026 47 03 H 13H A RoHS Dir Mercury, Hexavalent Chromium, hundred and fitty-three(253) subst ublished ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Certificate y ron Ms 2026 ## 03 A 05 A me: aie BBPDEHP, DIBP) cae URHIBTESS (EU) 2015/863 , Wits , HB. Ae, NUTR Regulation (EC) No 1907/2006 an",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "L Verification Servi SH: RW 7: Wak 2011/65/EU A ncy (ECHA) regara! , 4 25344",
+      "reason": "properties.csv carries no property for \"L Verification Servi\""
+    },
+    {
+      "page": 4,
+      "text": "429084-410 AWW SER: “a<m A 08 A ~ 2026 4 03 9 11 A MLR: wen pare drectives concerning the 07/2006 REIBITIES: sqiist eC A ELSA TORS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "23 Mar 2026 AU LR Wat pie 4 IHWAl Wk HF ERM. 1935/2004(2004 4# 10 A 27 A), (EU) No 10/2011 RH ye Ate — 7 7 oe 1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(ET ESR (EU) 2025/3561 - HIEREt \" A.2 Phthalate ae: : ewes Set tetalalleleial “\" a ‘ le(s). ope tezettttan gn. fea II",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Expiration Date forthe followi EN 71-3: > | BM a AIBA REE SEK AL 1935/2004(2004 4: 10 H 27 A), (EU) No 10/2011 3K es 483% — FRRGBE(DBP.BBRDEHP, ) csenwnneslitl ",
+      "reason": "properties.csv carries no property for \"Expiration Date\""
+    },
+    {
+      "page": 4,
+      "text": "25'ht € following product: 71-3:2019+ A2:2024 - APR TORE WR HERES = 3e-aT DL AMER BLE : 417 ER (EU) 2025/351 - HiIER 5 tg = HUBIBAEHY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ar 2027 A1 PF *) | BRAN dei ML ZH BL 1935/2004(2004 4 10 Hi 27 H), (EU) No 10/2011 KI 7 .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "002-A 3D Printer with Bambu PLA p 4B VT VEIN (EU) 2025/3511 - WBF A HAG KEKE Uk (ATH) :",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ure 4 PRINAl WK BA FE YEH 1935/2004(2004 4E 10 A 27 A), (EU) No 10/2011 RH Res",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "GR = 5 PRINSA WK BFE SE EH 1935/2004(2004 4E 10 A 27 A), (EU) 2024/3190 - Xx} ae",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "® EENGUARD 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "GREENGUARD 6 | KAMAAK FE SEL 1935/2004(2004 4E 10 8 27 A) - RE (AAR) TES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "UL 2904",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "from 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4+ Pp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "< Kim Cai 47%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2211 Noernaiias Pecan200-108 sitetationcna evan ec",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "re rater prosectted linspection report& certificate, (86-755) 8307 1443, 7 -Wes ; A e 3r D,A Shihua Road,i. Fubao Community,’ Fubao Subdistrict,1 oO L : . — - -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "UL Sokons Hentied Standard ecb requbamants in , nie vupert & austen: plooes bomen acs taeteeeGe oNAAT St, $35cS Gags Tectia See, it isa aad reel seat ghee ei t ",
+      "reason": "properties.csv carries no property for \"UL Sokons\" (ERY)"
+    },
+    {
+      "page": 4,
+      "text": "apoyo SOSCSN Ragas Tectnal Sg A. Ic | No 510663 t (86-20) 82155555 www.sgsgroup.com.cn APRA IIGS ABE: 510063 t (86-20) 82155555 sgs.china@sgs.com Tel: +86-755-3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Solutions tho Agrooment. This Cortticate1s valkd for the identtied datos unless thore is non-complance with the Agrooenont. This cortficate& subject to EY OR cu",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ee ee | ERIE : +86-755-33320018 {6H : +86-755-33320008 PPR GRY RR RAL 78S 135 FL =RADE ( FEB) . 7X. bt",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Page 1 of 1 FRIA : +86-755-33320018 {@H : +86-755-33320008",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Density 1.26 1.52 1.24 1.27 1.4 1.21",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 4,
+      "text": "Bending Modulus (X-Y) 69.6+2 55.5+1 75+2 76.542 53.443 63+1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "Bending Strength (X-Y) 2955.2+100 2280.2+50 2880+100 2516.2+100 2622.1+100 21251450",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 4,
+      "text": "Bending Strength (Z) 5441.5 37.621 5545 29,62 251+2 48.71",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 4,
+      "text": "Bending Modulus (Z) 2597.9+100 1843.8+100 2599+71 1993.6+100 2069.8+100 1883.2+100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.7 45+) 5 45+? $118+10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(Z, un-notched) 12.842 11.7842.5 10",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 4,
+      "text": "comparison only. Actual 3D printing model performance Is related to many other factors, including printers, printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Bambu Lab 3D printing filaments, legality, safety, and performance",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

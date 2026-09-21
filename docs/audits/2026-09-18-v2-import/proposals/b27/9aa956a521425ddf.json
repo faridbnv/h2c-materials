@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "9aa956a521425ddf9c12d9654b16822e4664f82c5bed644fedc4bfef018fc0e1",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3973",
+    "pages": 1,
+    "provider": "Filament2Print",
+    "manufacturer": "Filament2Print",
+    "docKey": "9aa956a521425ddf"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Blue Multi-line Laser\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-POP-4",
+      "Publisher": "Filament2Print",
+      "Title": "Name POP 4 K Scanning Type Handheld and Desktop",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3973",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9aa956a521425ddf9c12d9654b16822e4664f82c5bed644fedc4bfef018fc0e1"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Name POP 4 K Scanning Type Handheld and Desktop"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "Blue Multi-line Laser",
+        "Shared formulation key": "R-FILAMENT2PRINT-POP-4",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-POP-4",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Name POP 4 K Scanning Type Handheld and Desktop"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Name POP 4 K Scanning Type Handheld and Desktop",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.03 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.03 mm + 0.05 mm * L (m)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.08 mm Volumetric Accuracy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.10 mm @ 300-500 mm,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.20 mm @ 500-800 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "200 - 400 mm(Multi-line Laser Mode)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fused 250 - 500 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.05 mm Working",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "300 - 800 mm(VCSEL Mode)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "312 x 269 mm at 400 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "131 x 134 mm at 200 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "505 x 538 mm at 800 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "46 x 37° 10 x 10 x10mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80 - 105 fps (NVIDIA GPU),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40 - 60 fps (CPU)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume 2x2x2m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15 - 20 fps",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "20 - 30 fps",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2,000,000 Points/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.3 Megapixels",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5,000,000 Points/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30 Blue Cross Laser Lines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 Blue Single Laser Line",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Multi-line Laser < 50,000 lux,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "VCSEL < 100,000 lux",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Outdoor Scanning® 3D Light Source®",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "conditions of up to 100,000 lux.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "8 (4 Infrared LEDs+4 Blue LEDs)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Depth Map Computing Buttons 4",
+      "reason": "properties.csv carries no property for \"Depth Map Computing\""
+    },
+    {
+      "page": 1,
+      "text": "System Version: 9.0 or better; RAM 2 8 GB;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RAM 216 GB",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CPU: Intel i7 13th Gen or AMD Ryzen 7 5800",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "System Version: iOS 14.0 or better;",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "RAM 2 16 GB",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RAM > 4 GB; Storage 2 64 GB",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "GPU: NVIDIA GeForce RTX 3060 (8 GB)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: 10th Gen iPad or later",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "cores28, threads216, and a base frequency",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22.4GHz.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CPU: M3 Pro/Max/Ultra or better",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RAM 2 24GB",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended PC Compatible Windows 10/11 (64 bit), Android, iOS,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Requirements Operating Systems macoOs$ 11.0 or better",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CPU: Intel i9 12th Gen or better",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RAM 2 32 GB",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "GPU: NVIDIA RTX 4060 (8 GB) or better",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Output File Formats PLY, OBJ, STL, ASC, 3MF, GLTF, FBX, Splat",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Models",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wi-Fi 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DC 5V, 2A",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Connector Type Type-C to Type-C USB 3.0 Power Requirements",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Scanner Weight 286 g 160 x 30 x 72mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5500 mAh",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Supported Marker Block Kit, Mobile Kit (4th Gen),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Power Bank Capacity (4 hours of battery life under average",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Accuracy is how close a measured value at a single angle is to the actual (true) value. The date was acquired in a controlled lab",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Class 1 Laser: Avoid direct eye exposure for extended periods! Refer to Standards for Class | Lasers for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Some products have flashing lights, which may not be suitable for people with photosensitive epilepsy.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

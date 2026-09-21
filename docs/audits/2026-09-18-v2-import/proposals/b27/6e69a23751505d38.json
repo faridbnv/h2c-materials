@@ -1,0 +1,395 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "6e69a23751505d38d0bfd7728ed2441ed3cef31ace7100d44f72e66854eddd93",
+    "url": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/ASA_TDS.pdf?v=1714040576",
+    "pages": 2,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "6e69a23751505d38"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: cf"
+    ],
+    "materialId": "M033",
+    "materialName": "ASA-CF",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PCGF-ASA-TDS",
+      "Publisher": "SIDDAMENT",
+      "Title": "ASA CF Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/ASA_TDS.pdf?v=1714040576",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6e69a23751505d38d0bfd7728ed2441ed3cef31ace7100d44f72e66854eddd93"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ASA CF Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M033",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "ASA CF",
+        "Shared formulation key": "S-PCGF-ASA-TDS",
+        "Composition / filler": "ASA-CF is an FFF 3D printing filament produced with an ASA modified material containing carbon fiber. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-ASA-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ASA CF Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "4-7 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "7",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "7",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "250°C",
+        "Standard / load": "250°C/2.16Kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-ASA-TDS",
+        "Locator": "p. 1: MFR(250°C/2.16Kg) ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR(250°C/2.16Kg) ISO 1133 g/10min 4~7"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "39-42 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "39",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "42",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "39",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "42",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-ASA-TDS",
+        "Locator": "p. 1: Tensile strength ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength ISO 527 Mpa 39~42"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "850-900 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "850",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "900",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.9",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-ASA-TDS",
+        "Locator": "p. 1: Flexural Modulus ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus ISO 527 Mpa 850~900"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "80-82.5 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "82.5",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "82.5",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-ASA-TDS",
+        "Locator": "p. 1: Flexural Strength ISO178 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength ISO178 Mpa 80~82.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ASA-CF is an FFF 3D printing filament produced with an ASA modified material containing carbon fiber.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "before use. It is recommended to dry the filament in a dryer at 80°C for at least 5 hours to ensure the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80~100°C for 1~3 hours to increase the strength of the model.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density ISO 1183 gicm3 1.09~1.10",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "Moisture Absorption(23°C/24h) ISO 62 a <=0.5",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break ISO 527 %o 15.5~17.5",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength ISO180 KJ/m? — 10.5~12",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "HDT@ 0.455 MPa(66 psi) 1SO75 e 88",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Continuous Use Temperature IEC 60216 Cc 85",
+      "reason": "the sheet states Continuous service temperature in Cc, and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "4.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "= 7 axis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural testing specimen; ASTMD790 (ISO 178, GB/T 9341)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Flexural testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "80,00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40.00,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "440",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Impact testing specimen;\""
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

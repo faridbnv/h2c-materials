@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "2f4e4545703bbd4a52210e4170c6ce5238225db398766f147f7361808c2d9015",
+    "url": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PET_CF_TDS.pdf?v=1714039377",
+    "pages": 2,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "2f4e4545703bbd4a"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet",
+      "filler: cf"
+    ],
+    "materialId": "M067",
+    "materialName": "PET-CF",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PCGF-PET-CF-TDS",
+      "Publisher": "SIDDAMENT",
+      "Title": "PET CF Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PET_CF_TDS.pdf?v=1714039377",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2f4e4545703bbd4a52210e4170c6ce5238225db398766f147f7361808c2d9015"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PET CF Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M067",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "PET CF",
+        "Shared formulation key": "S-PCGF-PET-CF-TDS",
+        "Composition / filler": "carbon fiber. It has the characteristics of temperature resistance, low shrinkage and easy printing. It can (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PET CF Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.3-1.31 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.31",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1310",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: Density ISO 1183 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cm3 1.3~1.31"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3-6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "6",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "6",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "190°C",
+        "Standard / load": "190°C/2.16Kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: MFR(190°C/2.16Kg) ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR(190°C/2.16Kg) ISO 1133 g/10min 3~6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "75-85 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "85",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "85",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: Tensile strength (X-Y) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength (X-Y) ISO 527 Mpa 75~85"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "4500-5000 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "4500",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "5000",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "5",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: Flexural Modulus (X-Y) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (X-Y) ISO 527 Mpa 4500~5000"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2000-2500 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "2000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "2500",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "2.5",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "X-2 ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: Flexural Modulus (X-2) ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (X-2) ISO 527 Mpa 2000~2500"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "140-150 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "140",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "150",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "140",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "150",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: Flexural Strength (X-Y) ISO178 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength (X-Y) ISO178 Mpa 140~150"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "150180 KJ/m2",
+        "Raw unit": "KJ/m2",
+        "Raw numeric": "150180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "150180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Locator": "p. 1: Impact Strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Impact Strength (X-Y) 150180 KJ/m2 25~30"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PET-CF is a kind of FDM 3D printing filament, which is produced using LUVOCOM® 3F PET CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "modified material as the main raw material. PET-CF is a polyester modified material containing 10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "be used on non-heated chamber FDM 3D printers. It has excellent rigidity and tensile strength and can",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "be used for a long time at temperatures of 150°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "recommended to dry the consumables in a hot air oven at 90°C~100°C for at least 12 hours to ensure",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "recommended to dry it in an oven at a temperature of 120~130°C for 6~8 hours to improve the strength",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moisture Absorption(23 ‘C/24h) ISO 62 fo =0.3",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "ISO 527 “fo",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (X-Y) 4~5",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (X-Z) 1.5~2.5",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "HDT@ 0.455 MPa(66 psi) ISO75 Cc 190",
+      "reason": "the sheet states HDT in Cc, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Continuous Use Temperature IEC 60216 Cc 150",
+      "reason": "the sheet states Continuous service temperature in Cc, and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ASTM D636 (ISO 527, GB/T 1040)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "1.00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "= #7 axis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural testing specimen; ASTMD790 (ISO 178, GB/T 9341)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Flexural testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "80,00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40.00,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "440",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Impact testing specimen;\""
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

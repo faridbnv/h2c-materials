@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "d2c221c65608e2c60cff624dc333e43d410d84bf6966f40f01934e83e57244e2",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKISE2SC2CWTWNVB22ZVRQ5SNNJTK&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=28cdbb0047e8d756b14aa287280b98e0&dl=1",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "url:2da364d5b93acbdf"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-admin-ajax-php-d2c221",
+      "Publisher": "BASF Forward AM",
+      "Title": "a A",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKISE2SC2CWTWNVB22ZVRQ5SNNJTK&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=28cdbb0047e8d756b14aa287280b98e0&dl=1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d2c221c65608e2c60cff624dc333e43d410d84bf6966f40f01934e83e57244e2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "a A"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Sheet",
+        "Shared formulation key": "R-BASF-admin-ajax-php-d2c221",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "food contact applications according to the FDA (food and drug administration) Regulation 21 CFR. This excludes (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-admin-ajax-php-d2c221",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "a A"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date: May 13th, 2022 Version no.: 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(EU) no. 10/2011.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Regarding the color batches used for the production we refer to Annex II of Regulation (EU) no. 10/2011. Objects",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All color batches used for the production of our colored filaments contain zinc (zinc-restriction: SML = 5 mg/kg).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The following color batches used for the production of our filaments contain copper (copper-restriction: SML 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "food contact applications according to the FDA (food and drug administration) Regulation 21 CFR. This excludes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Since BASF 3DPS B.V. is not the manufacturer of the final (3D printed) product, the responsibility to test if the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eerste Bokslootweg 17, 7821 AT Emmen, The Netherlands +31 591 820 389 | Info_NL@forward-am.com | www.forward-a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

@@ -1,0 +1,685 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "83cc4862d1335c92cde120b136fdcefcfb5b89f148aa6c94a9809fe0d959676d",
+    "url": "https://drive.google.com/file/d/1C7-xEbL7phBtD_rIoT63gIORRzRiQvFY/view",
+    "pages": 2,
+    "provider": "Recreus / Filaflex",
+    "manufacturer": "Recreus",
+    "docKey": "https://drive.google.com/file/d/1C7-xEbL7phBtD_rIoT63gIORRzRiQvFY/view"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet-g",
+      "filler: cf"
+    ],
+    "materialId": "M024",
+    "materialName": "PETG-CF",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-PETG-CF",
+      "Publisher": "Recreus",
+      "Title": "TECHNICAL DATA SHEET PET-G CF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Recreus / Filaflex; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1C7-xEbL7phBtD_rIoT63gIORRzRiQvFY/view",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "83cc4862d1335c92cde120b136fdcefcfb5b89f148aa6c94a9809fe0d959676d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET PET-G CF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M024",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "PET-G CF",
+        "Shared formulation key": "R-RECREUS-PETG-CF",
+        "Composition / filler": "CARBON FIBER (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET PET-G CF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.32 g/cm3 (TDS prints \"1,320\" with European decimal separator)",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.320",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1320",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "Locator": "p. 1: Material density",
+        "Notes": "\"1,320\" may be a thousands separator or a decimal one; read as 1.320 because 1320000 kg/m³ is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Material density 1,320 g/cm3 I50 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "5000,00 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "Locator": "p. 1: Tensile modulus (roung)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (roung) 5000,00 MPa I50 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "105 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "105",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "105",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DIN 53504-52",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 105 MPa DIN 53504-52"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "2,0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0,45MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "Locator": "p. 1: HDT (0,45MPa} F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (0,45MPa} F2,0 °C ISO 75-2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "67,0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "67",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "01,82MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "Locator": "p. 1: HDT (01,82MPa}",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (01,82MPa} 67,0 °C ISO 75-2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "245-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "245",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing temperatures",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40-50mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "s 1-2 mm (speed 20-50mm/s)}"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-50mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "s 1-2 mm (speed 20-50mm/s)}"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperatures 245-260°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M024",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "245-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "245",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-PETG-CF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings: Printing temperatures",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40-50mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "s 1-2 mm (speed 20-50mm/s)}"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40-50mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "s 1-2 mm (speed 20-50mm/s)}"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Printing temperatures 245-260°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperatures",
+      "raw": "245-260°C",
+      "fromBelow": false,
+      "line": "Printing temperatures 245-260°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "40-50mm",
+      "fromBelow": false,
+      "line": "Printing speed 40-50mm's"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "s 1-2 mm (speed 20-50mm/s)}",
+      "fromBelow": false,
+      "line": "Retractions 1-2 mm (speed 20-50mm/s)}"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperatures",
+      "raw": "245-260°C",
+      "fromBelow": false,
+      "line": "Printing temperatures 245-260°C"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "40-50mm",
+      "fromBelow": false,
+      "line": "Printing speed 40-50mm's"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "s 1-2 mm (speed 20-50mm/s)}",
+      "fromBelow": false,
+      "line": "Retractions 1-2 mm (speed 20-50mm/s)}"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "designed for 3D printing extrusions due to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "mechanical strength which is 5 times higher than its original formulation.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1320,000 kg’m3 IS0 1183",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mel flow rate (230°C/2 16kg) 0,000 g/10min I50 1133",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Notched impact strengh (Charpyjn at +23°C 6,50 kJ /mz I50 179",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break 400 {0 DIN 5350452",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "60,0 °C VicatA Method: 50 Nw, 50°Cyh",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "C/E| Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "03600, Elda (Alicante) - SPAIN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date / Revised: 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Optimal layer height 0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ilinimal nozzle 0,4 mm- 0.6 mm (recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hardened steel or ruby-type (avoid brass) of 0.50 mm and never",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0/01/2022 (REF 28109023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB548'76479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "03600, Elda (Alicante) - SPAIN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date/ Revised:1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Optimal layer height 0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ilinimal nozzle 0,4 mm- 0.6 mm (recommended)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Hardened steel or ruby-type (avoid brass) of 0.50 mm and never",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0/01/2022 (REF 28109023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

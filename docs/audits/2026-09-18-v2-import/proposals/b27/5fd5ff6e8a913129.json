@@ -1,0 +1,384 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "5fd5ff6e8a913129b384ce4165cb2628aeaedbc60ce2c7818e6d69ad8d092bee",
+    "url": "https://3d.nice-cdn.com/upload/file/PET-G_TECHNICAL_DATA_SHEET_TDS_2020[0].pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Recreus",
+    "docKey": "5fd5ff6e8a913129"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet-g"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+      "Publisher": "Recreus",
+      "Title": "TECHNICAL DATA SHEET PET-G",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PET-G_TECHNICAL_DATA_SHEET_TDS_2020[0].pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5fd5ff6e8a913129b384ce4165cb2628aeaedbc60ce2c7818e6d69ad8d092bee"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET PET-G"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "PET-G",
+        "Shared formulation key": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET PET-G"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3020 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3020",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.02",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 327-2",
+        "Standards": "ISO 327",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+        "Locator": "p. 1: Tensile Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus 3020 MPa ISO 327-2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2040 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2040",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.04",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+        "Locator": "p. 1: Flexural Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus 2040 MPa ISO 527-2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230 - 260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20 - 100 mm"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "parameters 3.5-6.5 mm (speed 20-160 mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperatures 230 - 260°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperatures",
+      "raw": "230 - 260°C",
+      "fromBelow": false,
+      "line": "Printing temperatures 230 - 260°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "speed",
+      "raw": "20 - 100 mm",
+      "fromBelow": false,
+      "line": "speed 20 - 100 mmis"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "parameters 3.5-6.5 mm (speed 20-160 mm/s)",
+      "fromBelow": false,
+      "line": "Retraction parameters 3.5-6.5 mm (speed 20-160 mm/s)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "products commonly known as “PETG” (PET Glycol modified). Has been specially designed for 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FDM 3D printers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Material density 129 gicm? = DIN EN 150 1183-1-4",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "Hardness 76c Shore D2240 (2010)",
+      "reason": "the line names Hardness and states no value in a unit the database keeps it in (Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source))"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break 3] % ISO 527-2",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strenght 63 MiP A ISO 178",
+      "reason": "properties.csv carries no property for \"Strenght\""
+    },
+    {
+      "page": 1,
+      "text": "Vicat Softening temp. 82 °G ISO 306",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact Resistance 4&4 kJ/im? SO 180",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Hot-bed temperature 40-FOPC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Optimal layer height 02 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "01-0.4 mm or higher",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. VAT: ESB548'76479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "C/EI Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "03600, Elda (Alicante) - SPAIN WWWw.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date / Revised: 17.17.2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

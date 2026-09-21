@@ -1,0 +1,444 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "835113a2fb39b669d2ab1ff5deb6ed95033e551729d6b57b2044959381496bee",
+    "url": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PC_ABS_TDS.pdf?v=1714039377",
+    "pages": 2,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "835113a2fb39b669"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PCGF-PC-ABS-TDS",
+      "Publisher": "SIDDAMENT",
+      "Title": "PC ABS Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PC_ABS_TDS.pdf?v=1714039377",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "835113a2fb39b669d2ab1ff5deb6ed95033e551729d6b57b2044959381496bee"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PC ABS Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "PC ABS",
+        "Shared formulation key": "S-PCGF-PC-ABS-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PC ABS Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.14-1.15 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.15",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1140",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1150",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3 ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Locator": "p. 1: Density ISO 1183 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density ISO 1183 g/cm3 1.14~1.15"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "19-22 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "19",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "22",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "19",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "22",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "250°C",
+        "Standard / load": "250°C/2.16Kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Locator": "p. 1: MFR(250°C/2.16Kg) ISO 1133 g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR(250°C/2.16Kg) ISO 1133 g/10min 19~22"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "43.5-45.5 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "43.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "45.5",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "43.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "45.5",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Locator": "p. 1: Tensile strength ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength ISO 527 Mpa 43.5~45.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "800-950 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "950",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.95",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Locator": "p. 1: Flexural Modulus ISO 527 Mpa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus ISO 527 Mpa 800~950"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "0178 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "178",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "178",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Locator": "p. 1: Flexural Strength IS",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength IS0178 Mpa 71.5~74.5"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PC/ABS filament is a FDM 3D printing filament, produced using SABIC's PC/ABS composite material. It",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "For best results,It is recommended to dry the filament in a hot air oven at 80°C for at least 12 hours to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "to dry it in an oven at 100 °C for 1~3 hours to increase the strength of the model.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moisture Absorption(23‘C/24h) ISO 62 “0 =0.8",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break ISO 527 Yo 24~26",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "lmpact Strength 50180 KJ/m? 43.5~44.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT@ 0.455 MPa(66 psi) ISO75 123",
+      "reason": "the sheet states HDT in psi), and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Continuous Use Temperature IEC 60216 130",
+      "reason": "the line names Continuous service temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 2,
+      "text": "a7 ]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Tensile testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "01.00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "60.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural testing specimen; ASTMD790 (ISO 178, GB/T 9341)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Flexural testing specimen;\""
+    },
+    {
+      "page": 2,
+      "text": "80,00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40.00,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",
+      "reason": "a description of the specimen the tests were run on, not a result: \"Impact testing specimen;\""
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

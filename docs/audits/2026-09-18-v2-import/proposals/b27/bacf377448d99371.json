@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "bacf377448d99371ffb3964f0f86d9095ce23d16d1f46bccbbc01a02bbde1c7c",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKISHZ2V7LKMSDFGYUVUM5A7AISIM&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=e4a7a09302aa213fae43b41d1f755e76&dl=1",
+    "pages": 2,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "url:473e41615e639395"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-admin-ajax-php-bacf37",
+      "Publisher": "BASF Forward AM",
+      "Title": "forward AfT*",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKISHZ2V7LKMSDFGYUVUM5A7AISIM&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=e4a7a09302aa213fae43b41d1f755e76&dl=1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bacf377448d99371ffb3964f0f86d9095ce23d16d1f46bccbbc01a02bbde1c7c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "forward AfT*"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Flame resistance of",
+        "Shared formulation key": "R-BASF-admin-ajax-php-bacf37",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "11-10:2014 (equivalent to UL94:2018) was performed on Ultrafuse® PC/ABS FR Black 3D printed test (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-admin-ajax-php-bacf37",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "forward AfT*"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date / Revised: December 16, 2022 Version No.: 1.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* — Conform the European railway standard for fire safety EN45545-2:2016, R26 (EL 10), the DIN EN 60695-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "11-10:2014 (equivalent to UL94:2018) was performed on Ultrafuse® PC/ABS FR Black 3D printed test",
+      "reason": "properties.csv carries no property for \"11-10:2014 (equivalent to\""
+    },
+    {
+      "page": 1,
+      "text": "specimen. The test result was V-0 for the specimen of nominal thickness 1.5 and 3 mm subjected to vertical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "flammability test. This result provides evidence for conformity with EN45545-2:2016, R26 for HL1, HL2 and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HL3. The accreditation by DAkkS is presented on the next page.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "In reference to the UL94 Standard for Safety of Flammability of Plastic Materials for Parts in Devices and",
+      "reason": "properties.csv carries no property for \"In reference to the\""
+    },
+    {
+      "page": 1,
+      "text": "Appliances testing our Ultrafuse® PC/ABS FR Black material is tested in 3D printed specimens complying",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "and fulfilling the requirements in reference to the UL94 V-0 standard with a wall thicknesses of 1.5 and 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "¢ Glow wire on end product test (GWEPT) is performed on 3D printed specimens per IEC 60695-2-11. The",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D printed specimens from Ultrafuse® PC/ABS FR Black passed the GWEPT without dripping at 750 °C when",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "testing a specimen with a wall thickness of 1.5 mm and the 960 °C with a wall thickness of 3 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eerste Bokslootweg 17, 7821 AT Emmen, The Netherlands +31 591 820 389 | Info_NL@forward-am.com | www.forward-am:com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "~~ fA 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Formblett hAd.5 FOO3, Revision: 3.4, culty ab: 05.01.2021 o BASF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TEST REPORT according to ISO/IEC 17025",
+      "reason": "properties.csv carries no property for \"TEST REPORT according to ISO/\""
+    },
+    {
+      "page": 2,
+      "text": "No. AVS: 2006115",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date: 2021-11-15 (( DAKkS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "File: 27006115 V_EN DOCK Deutoche",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "[ePL-14121-04-00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PMD /EX-H201",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "67056 Ludwigshafen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Company: BASF 3D Printing Solutions GmbH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Speyerer Strasse 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "69115 Heidelberg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "A2020-2248 PC-ABS (FR) black - [EC 60695-11-10:2014 vertical (equivalent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "to ULS4-2020)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Order received on: 2071-01-04",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Specimen received on: 2071-01-04",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tests conducted on: 2071-01-13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "EN45545-2-2016, R26 (EL 10): HL1-3 (VO)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Test specimen of nominal thickness 1.5 and 3 mm were subjected to vertical flammability testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "according to DIN EN 60695-11-10:2014 (equivalent to UL94:27018). The test result is V-0. This result",
+      "reason": "properties.csv carries no property for \"according to DIN\""
+    },
+    {
+      "page": 2,
+      "text": "provides evidence for conformity with EN45545-2:2016, R26 for HL1, HL? amd HL3.",
+      "reason": "properties.csv carries no property for \"provides evidence for conformity with\""
+    },
+    {
+      "page": 2,
+      "text": "50 17025 for mechanical, thermal, physical-chemical and flammability tests. The accreditation is valid only for the scope of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "accreditation listed in the Annex to the =ditation certificate (Registration No. O-PL-14121-04-00).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Eerste Bokslootweg 17, 7821 AT Emmen, The Netherlands +31 591 820 389 | Info_NL@forward-am.com | www.forward-a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}
