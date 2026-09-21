@@ -124,7 +124,7 @@ const valueRe = () => new RegExp(`(${NUMBER_PATTERN})\\s*\\(?\\s*(${UNIT_PATTERN
 // apart, the unit must be one a test condition is stated in, or "% 6 at 23 °C" would make "6 at" a condition.
 const CONDITION_UNIT = `\\d+(?:[.,]\\d+)?(?:[A-Za-zµ°℃%][\\w/°²³]*|\\s(?:℃|°\\s?[CF]|[Kk]g|N|J|mm\\/min)(?=[\\s,]))(?:\\s?,)?`;
 const unitFirstRe = () => new RegExp(
-  `(?:^|\\s)(?<unit>${UNIT_PATTERN})(?<lead>\\s+(?:${CONDITION_UNIT}\\s+)*(?:[${BOUNDS}]\\s*)?)(?<value>${NUMBER_PATTERN})(?![\\d.,])`
+  `(?:^|\\s)(?<unit>${UNIT_PATTERN})(?<lead>\\s+(?:${CONDITION_UNIT}(?:\\s+|(?<=,)))*(?:[${BOUNDS}]\\s*)?)(?<value>${NUMBER_PATTERN})(?![\\d.,])`
   + `(?:\\s*(?:±|\\+\\/-)\\s*(?<spread>\\d+(?:[.,]\\d+)?)|\\s*[-–~]\\s*(?<upper>\\d+(?:[.,]\\d+)?))?`, 'gi');
 
 /**

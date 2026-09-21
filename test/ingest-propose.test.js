@@ -1295,6 +1295,8 @@ test('a condition set apart between the unit and the value is a condition, and I
   assert.equal(read('Melt Flow Rate ASTM D1238 g/10min 210℃, 2.16Kg 7').raw, '7 g/10min');
   assert.equal(read('Melt Flow Rate GB/T 3682-2000 g/10min 230℃, 2.16Kg 12~15').raw, '12-15 g/10min');
   assert.equal(read('Density ASTM D792 g/cm 23 ℃ 1.20').raw, '1.20 g/cm3');
+  // A comma alone may part two conditions: "% 23 ℃,24hr 0.15".
+  assert.equal(read('Water Absorption ASTM D570 % 23 ℃,24hr 0.15').raw, '0.15 %');
   // Set apart, only a unit a condition is stated in: "6 at" is not a condition, and 6 is the value.
   assert.equal(read('Elongation at break % 6 at 23 °C').raw, '6 %');
   // QIDI's text layer: "IS0 1183" gave up 1183 as a density.
