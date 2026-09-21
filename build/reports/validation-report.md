@@ -13,14 +13,14 @@ Database snapshot 2026-09-16 · build 2026-09-21
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 900 |
-| measurements | 9291 |
-| numericMeasurements | 9130 |
+| grades | 901 |
+| measurements | 9293 |
+| numericMeasurements | 9132 |
 | quarantined | 4 |
 | profiles | 928 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 1173 |
+| sources | 1174 |
 | coverage | 761 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 313 |
@@ -119,8 +119,8 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
 | density | 734 | 106 | 80% | 95% | ×1.12 | 0.0257 (10744 pairs) |
-| tensileModulusXY | 993 | 77 | 81% | 96% | ×1.51 | 0.342 (718 pairs) |
-| tensileStrengthXY | 1241 | 56 | 80% | 96% | ×1.6 | 0.236 (1608 pairs) |
+| tensileModulusXY | 994 | 77 | 81% | 96% | ×1.51 | 0.342 (718 pairs) |
+| tensileStrengthXY | 1242 | 56 | 80% | 96% | ×1.6 | 0.236 (1608 pairs) |
 | elongationXY | 805 | 77 | 81% | 96% | ×2.83 | 0.728 (1604 pairs) |
 | hdt045 | 1030 | 67 | 81% | 96% | 18.1 °C | 5.24 (1624 pairs) |
 

@@ -1,0 +1,470 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "ec62b2b9070414bf4414b367fc2ef808371b384eeb6fd9f29882696ba4bece15",
+    "url": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/metal-filaments/ultrafuse-17-4-ph/",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/metal-filaments/ultrafuse-17-4-ph/"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "88A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "filler: cf15 (from the sheet, not the name)",
+      "hardness: 88A"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-17-4-ph",
+      "Publisher": "BASF Forward AM",
+      "Title": "About Us Our Story Jobs SUSTAINABILITY Privacy",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/metal-filaments/ultrafuse-17-4-ph/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ec62b2b9070414bf4414b367fc2ef808371b384eeb6fd9f29882696ba4bece15"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "About Us Our Story Jobs SUSTAINABILITY Privacy"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS TPU LINE Ultrasint TPU01 TPU 88A TPU 88A black",
+        "Shared formulation key": "R-BASF-ultrafuse-17-4-ph",
+        "Composition / filler": "This stainless steel can be fully heat treated to high levels of strength and hardness. It is therefore ideal for Petrochemistry, Aerospace, and the Automotive. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-17-4-ph",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "About Us Our Story Jobs SUSTAINABILITY Privacy"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "POWDERS TPU LINE Ultrasint® TPU01 TPU 88A TPU 88A black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 LINE Ultrasint® PA11 PA11 Black PA11 ESD PA11 Black CF PA11 rCF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP LINE Ultrasint® HP 3D High Reusability PP PP 1400 Black Stratasys SAF™ PP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ENGINEERING LINE Ultrafuse® PLA Tough PLA PRO1 ABS Fusion+ ASA PC/ABS FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXIBLE LINE TPU Ultrafuse® TPU 85A TPU 64D TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REINFORCED LINE Ultrafuse® PP GF30 PET CF15 PAHT CF15 PA6 GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PELLET LINE Ultrafuse® rPETG PP GF30 PC GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PHOTOPOLYMERS RIGID LINE Ultracur3D® RG 35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 1100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 3280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 9400 B FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TOUGH LINE Ultracur3D® ST 45 ST 7500 G",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXIBLE LINE Ultracur3D® EL 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DENTAL LINE Ultracur3D® DM 2505 DM 4505 N",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUPPLEMENTARY LINE Ultracur3D® Cleaner COAT F+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® DM 4505 N Precise and Safer Resin for Dental Professionals. DISCOVER MORE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SOLUTIONS SERVICES Ultrasim® 3D ENGINEERING SERVICES Ultrasim® 3D Lattice Design",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ECO & ECON SERVICES Ultrasim® 3D Sustainability Analysis (LCA) Cost Analysis (TCO)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SOLUTIONS Ultrasim® 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DATA LICENSE SOLUTIONS Ultrasim® 3D Lattice Library",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® Coat F+ Depowdering Chemical Smoothing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Line TPU01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 88A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 88A black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP Line HP 3D High Reusability PP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP 1400 Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 Line PA11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 Black CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 rCF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA PRO1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexible Line TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reinforced Line PP GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PC GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® Photopolymers Rigid Line RG 35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 1100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 3280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 9400 B FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tough Line ST 45",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ST 7500 G",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexible/Elastomeric Line EL 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dental Line DM 2505",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DM 4505 N",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® Coat F+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Workflow Navigator",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Solutions ENGINEERING SERVICES Ultrasim® 3D Lattice Design",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ECO & ECON SERVICES Ultrasim® 3D Sustainability Analysis (LCA)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SOLUTIONS Ultrasim® 3D NextMold",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DATA LICENSE SOLUTIONS Ultrasim® 3D Lattice Library",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Post-Processing Ultracur3D® Coat F+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 17-4 PH (Discontinued)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 17-4 PH (Discontinued)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 17-4 PH (Discontinued)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 17-4 PH is a filament for the production of metal components in 17-4 stainless steel on standard Fused Filament Fabrication (FFF) printers.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This stainless steel can be fully heat treated to high levels of strength and hardness. It is therefore ideal for Petrochemistry, Aerospace, and the Automotive.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Easy and affordable metal 3D printing High mechanical strength and hardness Good corrosion resistance Fully hardened enables highest strength Wide range of post",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Use Cases and Whitepaper of Ultrafuse® 17-4 PH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Automotive Industry Benefits from 3D Printed Prototypes Offering Extensive Design and Manufacturing Solutions Metal Fused Filament Fabrication (MFFF) with Ultra",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tooling Fixtures Electronic communication systems, avionics, space intelligence, cyber security and weather monitoring solutions – American company L3HARRIS…",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With Ultrafuse 17-4PH we offer an efficient way to produce metal parts with high mechanical strength. Ultrafuse 17-4PH is compatible with most FFF 3D printers, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Download via Ultimaker website Download via BCN3D website",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® 316L (Discontinued) Stainless Steel Composite Metal Filament for 3D Printers Benefits at a Glance Easy and affordable metal 3D printing Fast material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AM Marketplace GmbH Airport Boulevard B 120 77836 Rheinmünster Germany",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2026 AM Marketplace GmbH",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "611bdfa6c965637d09f7eb96a27cc1b13762837ed73400d7ebe04ae713c071d5",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIUGUEBGR3Z2FFBIHV5K3E6GI7SM&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=516e54e9622cc74dbe3542e859f05ea7&dl=1",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "url:7e4a03bf24e001ac"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pp"
+    ],
+    "materialId": "M082",
+    "materialName": "PP",
+    "estimateIdentity": "PP",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-admin-ajax-php-611bdf",
+      "Publisher": "BASF Forward AM",
+      "Title": "Page 1 / 1",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIUGUEBGR3Z2FFBIHV5K3E6GI7SM&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=516e54e9622cc74dbe3542e859f05ea7&dl=1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "611bdfa6c965637d09f7eb96a27cc1b13762837ed73400d7ebe04ae713c071d5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Page 1 / 1"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Biocompatibility product Information",
+        "Shared formulation key": "R-BASF-admin-ajax-php-611bdf",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-admin-ajax-php-611bdf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Page 1 / 1"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Page 1 / 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Revision: 6/7/2022 Version: 1.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BASF 3D Printing Solutions B.V.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eerste Bokslootweg 17",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7821 AT Emmen, The Netherlands",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@basf-3dps.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® PP material is 3D printed as test specimens and successfully passed the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": " Cytotoxicity XTT Test - Neutral red (ISO 10993-5:2009)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The extract of the product Ultrafuse® PP resulted in a cell vitality of more than 70% in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": " Skin Irritation Test (ISO10993-10:2013)",
+      "reason": "properties.csv carries no property for \" Skin Irritation Test (\""
+    },
+    {
+      "page": 1,
+      "text": "All 10 volunteers exhibited no dermal changes in the test zone at 24h, 48h and 72h when",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": " Skin Sensitisation Test - Local Lymph Node Assay KretinoSens (ISO10993-10:2020)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "less than 1.5 times compared to the DMSO control and is therefore to be assessed as non-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Biocompatibility Statement_Ultrafuse® PP_EN_V1.2",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

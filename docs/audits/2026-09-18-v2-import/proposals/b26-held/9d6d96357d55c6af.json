@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "9d6d96357d55c6af7c60ec103dcfa8dc2d64ee569a57dc0dcbceea7a1eb977c8",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIW2DIUB33SFNNBZSLK7JQNB2QQC&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=28cdbb0047e8d756b14aa287280b98e0&dl=1",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "url:7f9d431e0185c0d7"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-admin-ajax-php-9d6d96",
+      "Publisher": "BASF Forward AM",
+      "Title": "Compostability Ultrafuse PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIW2DIUB33SFNNBZSLK7JQNB2QQC&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=28cdbb0047e8d756b14aa287280b98e0&dl=1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9d6d96357d55c6af7c60ec103dcfa8dc2d64ee569a57dc0dcbceea7a1eb977c8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Compostability Ultrafuse PLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Compostability Ultrafuse PLA",
+        "Shared formulation key": "R-BASF-admin-ajax-php-9d6d96",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-admin-ajax-php-9d6d96",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Compostability Ultrafuse PLA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date: April 27th, 2021 Version no.: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BASF Forward-AM Ultrafuse® PLA natural is a certified industrial compostable1 biopolymer in accordance with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "standards such as DIN V 54900-1, EN 13432 and ASTM D 6400.",
+      "reason": "properties.csv carries no property for \"standards such as DIN V 54900-1,\""
+    },
+    {
+      "page": 1,
+      "text": "a maximum thickness of 2.0 mm:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DIN V 54900-1, is a German standard that focuses on the chemical assessment of the biodegradability of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EN 13432, is a European standard that specifies the requirements for packaging materials and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D6400, is and American standard to determine if a plastic will compost satisfactorily industrial",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "D6400 and EN 13432 specification for industrial composting defines 84 days as reasonable for fragmentation of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "the product, and 180 days for complete mineralization in a properly managed composting facility.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+31 591 820 389 | Info_NL@forward-am.com | www.forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eerste Bokslootweg 17, 7821 AT Emmen, The Netherlands",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

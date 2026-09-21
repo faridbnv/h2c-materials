@@ -1,0 +1,1750 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "28d6ed91d2f2b4c305d75cf3ee2a6fdffc98a3a6a77dc1715ef7864242e9aea1",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIRORWWT3VYIBBFJAGTJX6GEZCI5&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=e4a7a09302aa213fae43b41d1f755e76&dl=1",
+    "pages": 12,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "url:1c4370204c4b3b2f"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+      "Publisher": "BASF Forward AM",
+      "Title": "®",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIRORWWT3VYIBBFJAGTJX6GEZCI5&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=e4a7a09302aa213fae43b41d1f755e76&dl=1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "28d6ed91d2f2b4c305d75cf3ee2a6fdffc98a3a6a77dc1715ef7864242e9aea1"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "®"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Ultrafuse PC/ABS FR Black",
+        "Shared formulation key": "R-BASF-admin-ajax-php-28d6ed",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "EN45545-2 certified | flame retardant UL94 V-0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "®"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "10.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "10.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "6 ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Elongation at Break6) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation at Break6) ISO 527 10.7% - 0.8%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2545 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2545",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.545",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "7 ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Young’s Modulus7) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Young’s Modulus7) ISO 527 2545 MPa - 2188 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "88.1 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "88.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "88.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Flexural Strength ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Flexural Strength ISO 178 88.1 MPa 90.6 MPa 24.7 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2550 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2550",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Flexural Modulus ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Flexural Modulus ISO 178 2550 MPa 2200 MPa 1810 MPa legislation are observed."
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "5.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Flexural Elongation at Break ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Flexural Elongation at Break ISO 178 5.6% 6.1% 1.3%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "13.3 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "13.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179-2",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Impact Strength Charpy ISO 179-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Impact Strength Charpy ISO 179-2 13.3 kJ/m2 31.2 kJ/m2 0.9 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "49.8 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "49.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "49.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179-2",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 5: Impact Strength Charpy ISO 179-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Impact Strength Charpy ISO 179-2 49.8 kJ/m2 65.4 kJ/m2 2.9 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "81 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "81",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "81",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8 MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: HDT A at 1.8 MPa ISO 75-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "HDT A at 1.8 MPa ISO 75-2 81 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "89 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "89",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "89",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75-2",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: HDT B at 0.45 MPa ISO 75-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "HDT B at 0.45 MPa ISO 75-2 89 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: Vicat softening point at 50 N ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Vicat softening point at 50 N ISO 306 90 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "97 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "97",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "97",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "10 N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: Vicat softening point at 10 N ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Vicat softening point at 10 N ISO 306 97 °C investigations and tests;"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "94 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "94",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "94",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357-2",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: Glass Transition ISO 11357-2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Glass Transition ISO 11357-2 94 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "227 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "227",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "227",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: Melting Temperature ISO 11357-3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Melting Temperature ISO 11357-3 227 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "46.6 cm3/10 min",
+        "Raw unit": "cm3/10 min",
+        "Raw numeric": "46.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: Melt Volume-Flow Rate ISO 1133",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Melt Volume-Flow Rate ISO 1133 46.6 cm3/10 min (260 °C, 5 kg)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "48.4 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "48.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 6: Melt Mass-Flow Rate (MFR) ISO 1133",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Melt Mass-Flow Rate (MFR) ISO 1133 48.4 g/10 min (260 °C, 5 kg)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "77",
+        "Raw unit": "Shore D",
+        "Raw numeric": "77",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "77",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "15s DIN ISO 7619-1",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "Locator": "p. 7: Shore Hardness D (15s) DIN ISO 7619-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Shore Hardness D (15s) DIN ISO 7619-1 77"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": ") 260 – 280°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 – 110°C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": ", passively",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "to Ultrafuse PC/ABS FR",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.4 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BASF-admin-ajax-php-28d6ed",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 300 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "28 mm"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 3,
+        "text": "Nozzle Temperature1) 260 – 280°C 270°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature1",
+      "raw": ") 260 – 280°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature1) 260 – 280°C 270°C"
+    },
+    {
+      "page": 3,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Closed Chamber",
+      "raw": ", passively",
+      "fromBelow": false,
+      "line": "Build Chamber Closed Chamber, passively Closed Chamber,"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "90 – 110°C",
+      "fromBelow": false,
+      "line": "Bed Temperature 90 – 110°C 100°C"
+    },
+    {
+      "page": 3,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "≥ 0.4 mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter ≥ 0.4 mm 0.4 mm"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30 - 300 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 30 - 300 mm/s 40 mm/s"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max Volumetric Speed",
+      "raw": "28 mm",
+      "fromBelow": false,
+      "line": "Max Volumetric Speed 28 mm /s -"
+    },
+    {
+      "page": 4,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying recommendations",
+      "raw": "to Ultrafuse PC/ABS FR",
+      "fromBelow": false,
+      "line": "Drying recommendations to Ultrafuse PC/ABS FR Black can be dried at 60°C in a"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "EN45545-2 certified | flame retardant UL94 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version 1.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Technical Data Sheet ........................................................................................................... 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties Diagrams ......................................................................................... 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Thermal Properties Diagrams ............................................................................................ 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fire protection on railway vehicles Data ............................................................................ 12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Filament Diameter 1.75 mm 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Average diameter ±0.050 mm ±0.1 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Average ovality <0.050 mm <0.050 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Available Spool size 1.0 kg, 2.0 kg 1.0 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Spool size 1.0 kg 2.0 kg 4.0 kg 8.0 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Outer diameter 200 mm 300 mm 350 mm 355 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Inner diameter 52 mm 51.5 mm 51.7 mm 36 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Width 68 mm 103 mm 103 mm 167 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Recommended 3D-Print processing parameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Printer FFF printer Ultimaker S5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2) 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Based on Bambu Lab X1C with a nozzle diameter of 0.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "hot air dryer or vacuum oven for 4 to 16 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "compatibility XIONEER® VXL 90, XIONEER® VXL 111",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Warehousing Ultrafuse PC/ABS FR filament should be stored at 15 -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "25°C in its originally sealed package in a clean and dry",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "life of 24 months.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Filament Density4) ISO 1183-1 1193 kg/m3",
+      "reason": "properties.csv carries no property for \"Filament Density4)\""
+    },
+    {
+      "page": 5,
+      "text": "Tensile Properties5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Tensile strength6) ISO 527 50.1 MPa - 17.3 MPa",
+      "reason": "the sheet publishes no value for \"Tensile strength6)\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 5,
+      "text": "Flexural Properties5) 8) Standard Average Values",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Impact Properties5) Standard Average Values",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "Impact Strength Izod ISO 180 16.8 J/m 28.4 J/m 1.8 J/m",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 5,
+      "text": "Impact Strength Izod ISO 180 57.0 J/m 87.9 J/m 3.0 J/m",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 5,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Samples were conditioned in standard climate (23°C, 50% RH 72h) use professional",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Testing speed: 5 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Testing speed: 1 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Testing speed: 2 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "properties6) proprietary rights and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "EN45545-2- R26 HL1-3 (1.5 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "vehicles 2016",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "R26 HL1-3 (3.0 mm) are average values,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Flame class rating UL 94 V-0 (1.5 mm)",
+      "reason": "properties.csv carries no property for \"Flame class rating\""
+    },
+    {
+      "page": 6,
+      "text": "V-0 (3.0 mm) standards. The used",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "IEC 60695-2-11 725°C (1.5 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "960°C (3.0 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Dielectric Strength IEC 60243-1 33 - 24",
+      "reason": "the sheet publishes no value for Dielectric strength in this row: its value column prints \"-\""
+    },
+    {
+      "page": 6,
+      "text": "Volume Resistivity IEC 62631-3-1 3.20E+14 - 6.00E+15",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"3.20E+14\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 6,
+      "text": "Surface resistivity IEC 62631-3-2 5.50E+12 - 9.30E+15",
+      "reason": "the line names Surface resistivity and states no value in a unit the database keeps it in (Ω); its value is a power of ten (\"5.50E+12\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Comparative Tracking Index IEC 60112 325-0.7 - 300-0.7",
+      "reason": "the sheet publishes no value for Comparative tracking index in this row: its value column prints \"-\""
+    },
+    {
+      "page": 7,
+      "text": "The orientation of the 3D printed part in the printer is always aligned with the longest axis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Tensile Strength according to DIN EN ISO 527",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 8,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Elongation at break according to DIN EN ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "3.000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2.500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2.000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1.500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1.000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Young´s Modulus according to DIN EN ISO 527",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 9,
+      "text": "120",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "[kJ/m2 / J/m]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "40",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "[kJ/m2 / J/m]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "95",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "90",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "70",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Heat Deflection Temperature (HDT) according to ISO 75-2",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 11,
+      "text": "HDT A (at 1.8 MPa) HDT B (at 0.45 MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "forward-am.com +49 6033 8943 930",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Classification Report EN45545-2 R26",
+      "reason": "properties.csv carries no property for \"Classification Report\""
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "forward-am.com +49 6033 8943 930 sales@forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "+49 6221 67417 900",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

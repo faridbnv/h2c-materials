@@ -1,0 +1,26 @@
+     2  db.materials[].headline.tensileStrengthXY.estimate.hi
+     2  db.materials[].headline.tensileModulusXY.estimate.plausible.lo
+     2  db.materials[].headline.tensileModulusXY.estimate.screenRange.lo
+     2  db.measurements[]
+     1  db.meta.counts.grades
+     1  db.meta.counts.measurements
+     1  db.meta.counts.numericMeasurements
+     1  db.meta.counts.sources
+     1  db.meta.estimateModel.properties.tensileModulusXY.observations
+     1  db.meta.estimateModel.properties.tensileModulusXY.formulations
+     1  db.meta.estimateModel.properties.tensileStrengthXY.observations
+     1  db.meta.estimateModel.properties.tensileStrengthXY.formulations
+     1  db.meta.estimateModel.properties.tensileStrengthXY.calibration.likelyScale
+     1  db.materials[].gradeIds.length
+     1  db.materials[].headline.tensileStrengthXY.related.count
+     1  db.materials[].headline.tensileStrengthXY.related.grades
+     1  db.materials[].headline.tensileStrengthXY.estimate.evidence.length
+     1  db.materials[].headline.tensileModulusXY.estimate.plausible.hi
+     1  db.materials[].headline.tensileModulusXY.estimate.screenRange.hi
+     1  db.materials[].headline.tensileStrengthXY.estimate.centre
+     1  db.materials[].headline.tensileModulusXY.estimate.hi
+     1  db.materials[].headline.tensileStrengthXY.estimate.ownShare
+     1  db.grades[]
+     1  db.sources[]
+     1  db.coverage[].finding
+29 difference(s) between HEAD and the working tree

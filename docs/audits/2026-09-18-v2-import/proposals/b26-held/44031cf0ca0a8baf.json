@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "44031cf0ca0a8bafa7f15d33f27a97ada4163378f40c95f2f2086e146133db9e",
+    "url": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIS4CIPQIH6S3VGK63WQBVXYPBIX&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=1b66a68506f6a5e5b69564d901aba033&dl=1",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "url:dcb69b10885de213"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet"
+    ],
+    "materialId": "M066",
+    "materialName": "PET",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-admin-ajax-php-44031c",
+      "Publisher": "BASF Forward AM",
+      "Title": "FCC Ultrafuse PET",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://hub.forward-am.com/wp-admin/admin-ajax.php?action=shareonedrive-download&id=01L33VKIS4CIPQIH6S3VGK63WQBVXYPBIX&account_id=e1d32568-af27-42ea-9891-ec0a3377f70d&drive_id=b!duI-UMjOqk-5v7fMYBt2wgI49tv6gxdAsKfaXFHrcJa6-qgo7DOGSbiZwOdMfIoI&listtoken=1b66a68506f6a5e5b69564d901aba033&dl=1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "44031cf0ca0a8bafa7f15d33f27a97ada4163378f40c95f2f2086e146133db9e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FCC Ultrafuse PET"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M066",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "FCC Ultrafuse PET",
+        "Shared formulation key": "R-BASF-admin-ajax-php-44031c",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "use in food contact applications according to the FDA (food and drug administration) Regulation 21 CFR. This (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-admin-ajax-php-44031c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FCC Ultrafuse PET"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Date: January 20th, 2023 Version no.: 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "in Annex I of the mentioned Commission Regulation (EU) no. 10/2011 of 14 January 2011, as amended before the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Purified terephthalic acid 785 100-21-0 7.5",
+      "reason": "properties.csv carries no property for \"Purified terephthalic acid\""
+    },
+    {
+      "page": 1,
+      "text": "Purified isophthalic acid 291 121-91-5 5",
+      "reason": "properties.csv carries no property for \"Purified isophthalic acid\""
+    },
+    {
+      "page": 1,
+      "text": "Mono-ethylene glycol 227 107-21-1 30 (SML(T))*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "as Ref. No’s: 15760, 16990, 47680, 53650, and 89440.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "restrictions according to Annex II of Commission Regulation (EU) no. 10/2011, as amended:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.04 Antimony (Sb)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 Zinc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 Copper1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Regulation (EU) no. 10/2011, as amended:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Acetaldehyde 128 75-07-0 62",
+      "reason": "properties.csv carries no property for \"Acetaldehyde\""
+    },
+    {
+      "page": 1,
+      "text": "Di-ethylene glycol (DEG) 263 111-46-6 30 (EG + DEG expressed as ES)3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This total specific migration limit (SML(T)) applies to FCM substances no. 128 and 211. This total",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3specific migration limit (SML(T)) applies to FCM substances no. 89, 277, 263, and 1048.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "use in food contact applications according to the FDA (food and drug administration) Regulation 21 CFR. This",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Since BASF 3DPS B.V. is not the manufacturer of the final (3D printed) product, the responsibility to test if the final",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+31 591 820 389 | Info_NL@forward-am.com | www.forward-am.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eerste Bokslootweg 17, 7821 AT Emmen, The Netherlands",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

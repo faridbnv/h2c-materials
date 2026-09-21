@@ -201,7 +201,16 @@ function recordedAlready(world) {
   const key = (maker, name) => `${flat(maker)}|${flat(productName(name ?? '', maker ?? ''))}`;
   const have = new Map();
   for (const g of world.grades ?? []) if (g.Status === 'active') have.set(key(g.Manufacturer, g['Product name']), g);
-  return (row) => {
+  // Two names for one product: the catalogue's, which the ledger carries, and the sheet's own, which the reader
+  // reads and a proposal's grade holds. AzureFilm's ABS sits in the ledger as 3DJake's "ABS P" and in the tables
+  // as AzureFilm's "ABS", and asked only by the first the lookup said the product was not recorded — while the
+  // twin phase, which asks by the second, said it was. Either name finding the grade is the product being found.
+  return (row, proposal) => {
+    const grade = proposal?.grades?.[0]?.row;
+    if (grade?.Manufacturer && grade['Product name']) {
+      const bySheet = have.get(key(grade.Manufacturer, grade['Product name']));
+      if (bySheet) return bySheet;
+    }
     if (!flat(row.product_raw)) return null;
     return have.get(key(row.manufacturer || row.brand || row.provider, row.product_raw)) ?? null;
   };
@@ -227,7 +236,7 @@ function writeHolds() {
     // must not speak over it. Seven documents had their twin note replaced by a question the ruling behind it
     // had already answered, because an old proposal was the only thing still asking it.
     // Asked before anything else, because it is the one answer that makes the rest of the question moot.
-    const grade = recorded(row);
+    const grade = recorded(row, found.get(row.doc_key)?.proposal);
     if (grade) {
       // A product the database holds is a terminal state, not a hold: nothing is waiting, and a queue that lists
       // it beside the documents that wait is a queue that overstates itself by a hundred. The note keeps the
@@ -620,9 +629,14 @@ function twins(batch, by) {
     shaped++;
   }
   if (registered.length) {
+    // `registered` is terminal, as writeHolds has said since the queue was consolidated: the product is in the
+    // database and nothing is waiting. Written as a hold instead, two documents were freed again by the next
+    // run that found no proposal holding them, and proposed a third time.
     for (const [row, grade] of registered) {
-      row.status = 'held';
-      row.status_note = `held: registered — ${grade.Manufacturer} ${grade['Product name']} is already ${grade.GradeID}, and a second sheet for one product is a revision or a copy whose rows belong on the grade that is there`;
+      row.status = 'registered';
+      row.registered_source_id = row.registered_source_id || grade.SourceID || '';
+      row.registered_by = row.registered_by || 'product';
+      row.status_note = `${grade.Manufacturer} ${grade['Product name']} is already ${grade.GradeID}, and a second sheet for one product is a revision or a copy whose rows belong on the grade that is there`;
       row.updated = date;
     }
   }

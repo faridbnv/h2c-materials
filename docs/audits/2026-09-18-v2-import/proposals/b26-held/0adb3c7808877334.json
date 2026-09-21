@@ -1,0 +1,549 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "0adb3c780887733448388d6ce3a0cde753f4248663898bd1aedf9752a4881915",
+    "url": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/engineering-filaments/ultrafuse-pa/",
+    "pages": 1,
+    "provider": "BASF Forward AM / Ultrafuse",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/engineering-filaments/ultrafuse-pa/"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "88A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "filler: cf15 (from the sheet, not the name)",
+      "hardness: 88A"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ultrafuse-pa",
+      "Publisher": "BASF Forward AM",
+      "Title": "About Us Our Story Jobs SUSTAINABILITY Privacy",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by BASF Forward AM / Ultrafuse; the sheet is BASF Forward AM's.",
+      "Citation role": "cited",
+      "URL": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/engineering-filaments/ultrafuse-pa/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "0adb3c780887733448388d6ce3a0cde753f4248663898bd1aedf9752a4881915"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "About Us Our Story Jobs SUSTAINABILITY Privacy"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "POWDERS TPU LINE Ultrasint TPU01 TPU 88A TPU 88A black",
+        "Shared formulation key": "R-BASF-ultrafuse-pa",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Ultrafuse® PC/ABS FR Ultrafuse® PC/ABS FR Black is a V-0 flame retardant blend of Polycarbonate and ABS – two of the most used thermoplastics for engineering &  (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-ultrafuse-pa",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "About Us Our Story Jobs SUSTAINABILITY Privacy"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "0.45 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "0.45",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.45",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "MPa : 16.4 ZX 61.4 XY Flexural Modulus MPa : 2149 ZX 2246 XZ 2051 XY Elongation at Break: 0.8 % ZX 9.6 % XY Impact Strength Izod kJ/m2 : 1.7 ZX 3.9 XZ 5.8 XY Impact Strength Izod kJ/m2 : 3.2 ZX 45.6 XZ 28.0 XY HDT",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-BASF-ultrafuse-pa",
+        "Locator": "p. 1: Tensile Strength (MPa): 16.4 (ZX), 61.4 (XY) Flexural Modulus (MPa): 2149 (ZX), 2246 (XZ), 2051 (XY) Elongation at Break: 0.8 % (ZX), 9.6 % (XY) Impact Strength Izod notched (kJ/m2): 1.7 (ZX), 3.9 (XZ), 5.8 (XY) Impact Strength Izod unnotched (kJ/m2): 3.2 (ZX), 45.6 (XZ), 28.0 (XY) HDT",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (MPa): 16.4 (ZX), 61.4 (XY) Flexural Modulus (MPa): 2149 (ZX), 2246 (XZ), 2051 (XY) Elongation at Break: 0.8 % (ZX), 9.6 % (XY) Impact Strength Izod notched (kJ/m2): 1.7 (ZX), 3.9 (XZ"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: this is BASF's range page for its engineering filaments, not a sheet for one product. Its text runs several products' tables together and the 0.45 MPa the reader took is a fragment of one of them. A page that covers several products states no value that belongs to one."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220-250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BASF-ultrafuse-pa",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature: 220-250 °C Build Chamber Temperature: - Bed Temperature: 90 - 120 °C Bed Material: Glass + PVA / Kapton tape / PA adhesive Nozzle Diameter: ≥ 0.4 mm Print Speed: 30 -60 mm / s"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "220-250 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature: 220-250 °C Build Chamber Temperature: - Bed Temperature: 90 - 120 °C Bed Material: Glass + PVA / Kapton tape / PA adhesive Nozzle Diameter: ≥ 0.4 mm Print Speed: 30 -60 mm / s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "POWDERS TPU LINE Ultrasint® TPU01 TPU 88A TPU 88A black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 LINE Ultrasint® PA11 PA11 Black PA11 ESD PA11 Black CF PA11 rCF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP LINE Ultrasint® HP 3D High Reusability PP PP 1400 Black Stratasys SAF™ PP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ENGINEERING LINE Ultrafuse® PLA Tough PLA PRO1 ABS Fusion+ ASA PC/ABS FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXIBLE LINE TPU Ultrafuse® TPU 85A TPU 64D TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REINFORCED LINE Ultrafuse® PP GF30 PET CF15 PAHT CF15 PA6 GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PELLET LINE Ultrafuse® rPETG PP GF30 PC GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PHOTOPOLYMERS RIGID LINE Ultracur3D® RG 35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 1100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 3280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 9400 B FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TOUGH LINE Ultracur3D® ST 45 ST 7500 G",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXIBLE LINE Ultracur3D® EL 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DENTAL LINE Ultracur3D® DM 2505 DM 4505 N",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUPPLEMENTARY LINE Ultracur3D® Cleaner COAT F+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® DM 4505 N Precise and Safer Resin for Dental Professionals. DISCOVER MORE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SOLUTIONS SERVICES Ultrasim® 3D ENGINEERING SERVICES Ultrasim® 3D Lattice Design",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ECO & ECON SERVICES Ultrasim® 3D Sustainability Analysis (LCA) Cost Analysis (TCO)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SOLUTIONS Ultrasim® 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DATA LICENSE SOLUTIONS Ultrasim® 3D Lattice Library",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® Coat F+ Depowdering Chemical Smoothing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Line TPU01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 88A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 88A black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP Line HP 3D High Reusability PP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP 1400 Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 Line PA11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 Black CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA11 rCF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA PRO1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexible Line TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reinforced Line PP GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PAHT CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PC GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® Photopolymers Rigid Line RG 35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 1100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 3280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RG 9400 B FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tough Line ST 45",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ST 7500 G",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexible/Elastomeric Line EL 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dental Line DM 2505",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DM 4505 N",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultracur3D® Coat F+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Workflow Navigator",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Solutions ENGINEERING SERVICES Ultrasim® 3D Lattice Design",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ECO & ECON SERVICES Ultrasim® 3D Sustainability Analysis (LCA)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SOLUTIONS Ultrasim® 3D NextMold",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DATA LICENSE SOLUTIONS Ultrasim® 3D Lattice Library",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Post-Processing Ultracur3D® Coat F+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultimaker Prusa Raise3D Bambu Lab",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Download via BCN3D website",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Bambu Lab",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® PLA PRO1 PLA PRO1 is an extremely versatile, tough biobased PLA filament made for professionals. Benefits at a Glance Speed: Reduce your printing tim",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Ultrafuse® PC/ABS FR Ultrafuse® PC/ABS FR Black is a V-0 flame retardant blend of Polycarbonate and ABS – two of the most used thermoplastics for engineering & ",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "AM Marketplace GmbH Airport Boulevard B 120 77836 Rheinmünster Germany",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2026 AM Marketplace GmbH",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

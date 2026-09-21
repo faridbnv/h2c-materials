@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "64012de4641bd2ace5792cf048791950413032906d3c83cf89d10bdca6e337dd",
+    "url": "https://support.makerbot.com/s/article/1667411002374",
+    "pages": 1,
+    "provider": "UltiMaker / MakerBot",
+    "manufacturer": "UltiMaker",
+    "docKey": "https://support.makerbot.com/s/article/1667411002374"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: nylon"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"nylon\" names a family, not a polymer: which nylon is a ruling: PA is a family entry and owns no product (D44)"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ULTIMAKER-1667411002374",
+      "Publisher": "UltiMaker",
+      "Title": "× Sorry to interrupt CSS Error",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by UltiMaker / MakerBot; the sheet is UltiMaker's.",
+      "Citation role": "cited",
+      "URL": "https://support.makerbot.com/s/article/1667411002374",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "64012de4641bd2ace5792cf048791950413032906d3c83cf89d10bdca6e337dd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "× Sorry to interrupt CSS Error"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "UltiMaker",
+        "Product name": "Refresh",
+        "Shared formulation key": "R-ULTIMAKER-1667411002374",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ULTIMAKER-1667411002374",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "× Sorry to interrupt CSS Error"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "UltiMaker 2.85 mm materials UltiMaker 2.85 data sheets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UltiMaker Breakaway TDS Mar 8, 2024 Knowledge",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1667411002374",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Here you can find the UltiMaker Breakaway TDS. The TDS applies to UltiMaker 2.85 mm material .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: The technical data sheet was updated in April 2022. This version is currently only available in English. Previous translations can be found below.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TDS version April 2022 - English",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NL - Dutch version 2017  KO - Korean version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DE - German version 2017  NO - Norwegian version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FR - French version 2017  PL - Polish version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IT - Italian version 2017  PT - Portuguese version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ES - Spanish version 2017  DA - Danish version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SV - Swedish version 2017  CS - Czech version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ZH - Chinese version 2017  RU - Russian version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "JA - Japanese version 2017  HU - Hungarian version 2017",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TR - Turkish version 2017  FI - Finnish version 2017",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}
