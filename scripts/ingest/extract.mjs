@@ -180,10 +180,23 @@ if (process.argv[1]?.endsWith('extract.mjs')) {
       if (['fetched', 'fetched-page', 'unreadable'].includes(row.status)) {
         // A PDF with no numbers is a scan and optical character recognition is the next step. A web page with
         // none is not: its table is drawn by script, or the page is not a data sheet, and no OCR will help.
-        row.status = print.length ? 'extracted' : text.html ? 'unreadable' : 'needs-ocr';
+        // A captured page has already been through a browser (ingest:capture), so "its numbers are drawn by
+        // script" is no longer one of the two answers: what the browser drew is what the page has. Which of the
+        // remaining two it is, the page itself says. MakerBot's support articles are a thousand words about a
+        // polymer and no table; BASF's hub draws its own failure — "No content received. Try to reload this
+        // page." — which is the maker's site not serving the document rather than the document having nothing.
+        const captured = row.access_status === 'captured in a browser' || /captured with a browser/.test(row.status_note ?? '');
+        const words = allLines(text).map((l) => l.text).join(' ');
+        const serverFailed = /no content received|try to reload this page|temporarily unavailable/i.test(words);
+        row.status = print.length ? 'extracted'
+          : !text.html ? 'needs-ocr'
+          : captured && serverFailed ? 'unreachable'
+          : captured ? 'not-a-data-sheet' : 'unreadable';
         row.status_note = print.length ? ''
-          : text.html ? 'a page with no table of values: its numbers are drawn by script, or it is not a data sheet'
-          : `${text.pages.length} page(s) with no readable text: a scan`;
+          : !text.html ? `${text.pages.length} page(s) with no readable text: a scan`
+          : captured && serverFailed ? `the page draws its own failure ("No content received"): the maker's site did not serve the document, on ${new Date().toISOString().slice(0, 10)}`
+          : captured ? `${words.trim().split(/\s+/).length} word(s) drawn in a browser and no value beside a unit: prose about the material, not a data sheet`
+          : 'a page with no table of values: its numbers are drawn by script, or it is not a data sheet';
       }
       read++;
     } catch (e) {

@@ -47,7 +47,9 @@
     "ui:check": "node scripts/ui-probe.mjs",
     "ui:fuzz": "node scripts/ui-fuzz.mjs",
     "ui:fuzz:full": "node scripts/ui-fuzz.mjs --n 2000",
-    "scale": "node --test test/scale.check.js"
+    "scale": "node --test test/scale.check.js",
+    "ingest:capture": "node scripts/ingest/capture.mjs",
+    "ingest:harvest": "node scripts/ingest/harvest.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",
