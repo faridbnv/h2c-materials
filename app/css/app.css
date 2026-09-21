@@ -209,6 +209,9 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .checks { display: grid; gap: 5px; }
 .checks label { display: flex; gap: 9px; align-items: baseline; font-weight: 400; font-size: var(--t-body); margin: 0; }
 .checks .n { margin-left: auto; color: var(--ink-3); font-size: var(--t-label); font-variant-numeric: tabular-nums; }
+/* A chosen family opens its polymers beneath it, indented to its label. */
+.family-chip .sub-checks { margin: 4px 0 4px 22px; }
+.family-chip .sub-checks label { font-size: var(--t-label); }
 
 /* Evidence chips: fields that cannot discriminate are shown, never offered as filters. */
 .note {

@@ -53,7 +53,7 @@ const isObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v)
  * question is still worth having.
  */
 const GATES = new Set(['scope', 'h2cStatus', 'abrasive', 'buyable', 'dryingKnown', 'nozzle', 'bed', 'chamber']);
-const FACETS = new Set(['reinforcement', 'esd', 'flexible', 'supportMaterial', 'flameRetardant']);
+const FACETS = new Set(['reinforcement', 'esd', 'flexible', 'supportMaterial', 'flameRetardant', 'family', 'polymer']);
 
 export function validateScenario(raw, meta, { materialIds = null, headlineKeys = null } = {}) {
   if (!isObject(raw)) throw new Error('The file does not contain a scenario object.');

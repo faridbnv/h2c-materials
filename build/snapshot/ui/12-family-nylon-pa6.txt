@@ -1,0 +1,96 @@
+COUNT 5 shown PASS
+STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 148
+5 of the 153 materials in this database meet these requirements
+Click any criterion to remove it.
+Why the rest were excluded
+Clear requirements
+Family: Nylon / Polyamide
+×
+Polymer: PA6
+×
+What this database cannot answer
+Properties
+Printing
+What the material is like
+Compare against
+no reference
+PLA
+PETG
+ABS
+ASA
+PC
+— not published
+* measured, not the headline
+? heat load not stated
+≈ close to the limit
+n/a not applicable
+Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+PA6
+Nylon / Polyamide
+ PASS 1,250 3.4* 78* 1.9* 90* 163↗ ☆
+PA6-CE
+Nylon / Polyamide
+ PASS 1,490* 6* 55* — 90* — ☆
+PA6-CF
+Nylon / Polyamide
+ PASS 1,090 4.43 102 5.8 186 110↗ ☆
+PA6-GF
+Nylon / Polyamide
+ PASS 1,140 2.85 75 3.9 182 77↗ ☆
+PA6-GS
+Nylon / Polyamide
+ PASS 1,010* 4.2* 87* — 90* — ☆
+RAIL
+Each count is how many of a family the other requirements leave. Choose a family to see its polymers.
+PLA
+24
+Nylon / Polyamide
+21
+PA6
+5
+PA12
+4
+PA612
+4
+PAHT
+3
+PA6/66
+2
+PA66
+2
+PA
+1
+Industrial High-Temperature
+14
+Flexible Elastomers
+13
+Copolyesters
+10
+Polymer Blends
+10
+PETG
+9
+High-Performance Engineering
+8
+Polyolefins
+7
+ASA
+6
+Polycarbonate
+6
+ABS
+5
+PVB / Specialty Polymers
+5
+PET Engineering
+4
+Support / Interface
+4
+Fluoropolymers
+2
+Styrenics
+2
+Support / Soluble
+2
+Acetals
+1

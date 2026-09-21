@@ -126,6 +126,15 @@ Groups are ordered by how often a criterion actually decides something: mechanic
 compatibility sits last. For this database compatibility mostly cannot discriminate, and putting it
 first made the whole rail look like it did nothing.
 
+**Material family** comes first, above them, because a reader usually starts from a family ("a nylon") before a
+number. It is two levels: the families, each with a count, and under a chosen family its base polymers. A polymer
+chosen in one family narrows that family only; a second chosen family with no polymer chosen keeps all of its own. The
+polymer is named within its family in the requirement ("Polymer Blends › PC"), because PC heads two families and a
+PC chosen among the blends must not admit polycarbonate. These are the only counts in the rail that follow the other
+requirements: each says how many of that family the rest of the query leaves, which is what a click would show. The
+availability lines elsewhere describe the data and stay fixed. A chosen family also takes the first colour on the
+chart, so a family asked about is never in the grey "other families".
+
 **Every numeric control states its own data availability before it is touched.**
 
 ```

@@ -136,6 +136,8 @@ export function describeConstraint(c) {
       return GATE[c.gate]?.plain ?? c.gate;
     case 'facet':
       if (c.facet === 'supportMaterial') return c.equals === false ? 'A build material, not a support' : 'Support or interface material';
+      if (c.facet === 'family') return `Family: ${(c.in ?? []).map((x) => x.replace(' - Outside H2C Practical Envelope', '')).join(' or ')}`;
+      if (c.facet === 'polymer') return `Polymer: ${[...new Set((c.in ?? []).map((x) => x.split(' › ').pop()))].join(' or ')}`;
       return `Reinforcement: ${(c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ')}`;
     case 'environment':
       return `Resists ${envNoun(c.category)}`;

@@ -490,7 +490,9 @@ export function estimateTrace(q, xDef, yDef, { color = '#8d8d84', fill = 'rgba(1
 function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const { scenario, reference, db } = state;
   const p = scenario.plot;
-  const colors = buildFamilyColors(db.materials, p.promotedFamilies ?? []);
+  // The families a reader asked for take the first colours, so a family filtered for is never the grey "other".
+  const asked = scenario.constraints.find((c) => c.kind === 'facet' && c.facet === 'family')?.in ?? [];
+  const colors = buildFamilyColors(db.materials, [...asked, ...(p.promotedFamilies ?? [])]);
 
   // One trace per family+filler pair keeps colour and shape independent. The legend lists colours only, one entry per
   // family colour (the families past the palette share Other's), and a press on an entry hides every trace of that

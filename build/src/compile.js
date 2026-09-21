@@ -520,6 +520,11 @@ function deriveFacets(mat) {
     flexible: { value: mat.Family === 'Flexible Elastomers', origin: ORIGIN.DERIVED, from: 'Family' },
     supportMaterial: { value: mat.Role === 'Support/interface', origin: ORIGIN.SOURCE },
     flameRetardant: { value: /\bFR\b/.test(name), origin: ORIGIN.DERIVED, from: 'name only; no flame-retardancy field exists' },
+    // The two levels a reader narrows by first: the family the materials table files it under, then its base polymer.
+    // The polymer is named within its family ("Polymer Blends › PC"), because one polymer can head two families and a
+    // polymer chosen in one must not admit the other's.
+    family: { value: mat.Family || 'Not published', origin: ORIGIN.SOURCE },
+    polymer: { value: `${mat.Family || 'Not published'} › ${mat['Base polymer'] || 'Not published'}`, origin: ORIGIN.SOURCE },
   };
 }
 

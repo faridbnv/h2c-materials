@@ -283,6 +283,17 @@ try {
   await sleep(300);
   results['20-compare-three-pins'] = await view();
 
+  // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
+  // counts are the only ones in the rail that follow the other requirements.
+  const rail = () => evaluate(`(document.querySelector('.family-facet')?.innerText ?? 'NO FAMILY RAIL').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim()`);
+  await open(pageUrl);
+  await click('[data-family="Nylon / Polyamide"]');
+  await sleep(200);
+  results['12-family-nylon'] = [await view(), 'RAIL', await rail()].join('\n');
+  await click('[data-polymer="Nylon / Polyamide › PA6"]');
+  await sleep(200);
+  results['12-family-nylon-pa6'] = [await view(), 'RAIL', await rail()].join('\n');
+
   // Layout on each screen. The emulation is cleared afterwards so nothing after this section inherits a screen.
   const when = (selector, ms = 150) => until(`!!document.querySelector(${JSON.stringify(selector)})`, selector).then(() => sleep(ms));
   try {

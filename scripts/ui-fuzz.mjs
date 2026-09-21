@@ -101,6 +101,19 @@ const threshold = (k) => {
 const H2C = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical', 'Excluded'];
 const REINF = ['carbon-fibre', 'glass-fibre', 'unfilled', 'esd', 'foaming', 'undisclosed'];
 const CATS = Object.keys(db.meta.environmentCategories);
+const FAMILIES = [...new Set(candidates.map((m) => m.facets.family.value))];
+const POLYMERS = [...new Set(candidates.map((m) => m.facets.polymer.value))];
+// The rail's pair: some families, then (sometimes) a polymer list over them, as filters.js builds it.
+function genFamily() {
+  const fams = subset(FAMILIES).slice(0, 3); if (!fams.length) fams.push(pick(FAMILIES));
+  const out = [{ kind: 'facet', facet: 'family', in: fams }];
+  if (chance(0.4)) {
+    const of = POLYMERS.filter((p) => fams.some((f) => p.startsWith(`${f} › `)));
+    const chosen = subset(of);
+    out.push({ kind: 'facet', facet: 'polymer', in: chosen.length ? chosen : [pick(of)] });
+  }
+  return out;
+}
 function genConstraint() {
   // Link-only shapes the rail cannot produce: empty lists, an unknown gate, extreme thresholds.
   if (chance(0.03)) return pick([{ kind: 'gate', gate: 'h2cStatus', in: [] }, { kind: 'facet', facet: 'reinforcement', in: [] }, { kind: 'gate', gate: 'warp' },
@@ -112,7 +125,8 @@ function genConstraint() {
       { kind, gate: 'abrasive', hardenedAvailable: chance(0.3) }, { kind, gate: 'buyable', inStock: chance(0.5) }, { kind, gate: 'dryingKnown' },
       { kind, gate: 'h2cStatus', in: (() => { const s = subset(H2C); return s.length ? s : [pick(H2C)]; })() }]);
   }
-  if (kind === 'facet') return pick([{ kind, facet: 'supportMaterial', equals: false }, { kind, facet: 'supportMaterial', equals: chance(0.2) ? true : false }, { kind, facet: 'reinforcement', in: (() => { const s = subset(REINF); return s.length ? s : [pick(REINF)]; })() }, { kind, facet: 'flexible', equals: chance(0.5) }]);
+  if (kind === 'facet') return pick([{ kind, facet: 'supportMaterial', equals: false }, { kind, facet: 'supportMaterial', equals: chance(0.2) ? true : false }, { kind, facet: 'reinforcement', in: (() => { const s = subset(REINF); return s.length ? s : [pick(REINF)]; })() }, { kind, facet: 'flexible', equals: chance(0.5) },
+    { kind, facet: 'family', in: [pick(FAMILIES)] }, { kind, facet: 'polymer', in: [pick(POLYMERS)] }]);
   if (kind === 'environment') return { kind, category: pick(CATS) };
   const spec = {}; if (chance(0.6)) spec.exactGrade = true; if (chance(0.6)) spec.noConflicts = true;
   return { kind, ...spec };
@@ -139,6 +153,7 @@ function genScenario(i, prior) {
   } else {
     const n = pick([0, 1, 1, 2, 2, 3, 3, 4, 5]);
     s.constraints = Array.from({ length: n }, genConstraint);
+    if (chance(0.15)) s.constraints.push(...genFamily());
     // Two requirements on the same property.
     if (chance(0.1)) { const k = pick(KEYS); s.constraints.push({ kind: 'numeric', property: k, operator: '>=', value: threshold(k), mandatory: true }, { kind: 'numeric', property: k, operator: pick(['<=', '<']), value: threshold(k), mandatory: !chance(0.2) }); }
   }

@@ -9,6 +9,7 @@
 // here. A filter that passes everything teaches the user to trust something that checked nothing.
 
 import { availability } from '../engine/coverage.js';
+import { runSelection } from '../engine/constraints.js';
 import { esc } from './format.js';
 import { prop, envLabel, envNoun, GATE } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
@@ -25,8 +26,10 @@ import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 // Ordered by how often a criterion actually decides something. Mechanical and thermal properties
 // carry the decision; compatibility sits last because for this database it mostly cannot
 // discriminate, and putting it first made the whole rail look like it did nothing.
-const GROUPS = ['Mechanical', 'Thermal', 'Cost', 'Environment', 'Manufacturing', 'Evidence', 'Compatibility'];
-const OPEN_BY_DEFAULT = new Set(['Mechanical', 'Thermal']);
+// A reader narrows by family first ("a nylon", "a PETG"), and then by the polymer inside it, so that group leads.
+const GROUPS = ['Material family', 'Mechanical', 'Thermal', 'Cost', 'Environment', 'Manufacturing', 'Evidence', 'Compatibility'];
+const OPEN_BY_DEFAULT = new Set(['Material family', 'Mechanical', 'Thermal']);
+const FAMILY_NAME = (f) => (f ?? '').replace(' - Outside H2C Practical Envelope', '');
 
 const H2C_STATUSES = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical'];
 const REINFORCEMENT = [
@@ -45,7 +48,7 @@ const find = (cs, pred) => cs.find(pred) ?? null;
 // operator chosen before a number was typed was thrown away because no constraint held it yet.
 const openGroups = new Map();
 const draftOps = new Map();
-const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'env', 'buy', 'evidence', 'buildMaterial', 'clear'];
+const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'family', 'polymer', 'env', 'buy', 'evidence', 'buildMaterial', 'clear'];
 
 function availLine(a, extra) {
   let s = `<div class="avail">${a.withData} of ${a.total} have data`;
@@ -82,7 +85,7 @@ export function renderFilters(host, state, actions) {
     const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
     parts.push(`<details class="group" data-group="${group}" ${open ? 'open' : ''}>
       <summary>${group}<span class="count" data-zero="${n === 0}">${n} set</span></summary>
-      <div class="group-body">${body(group, materials, cs, db)}</div>
+      <div class="group-body">${body(group, materials, cs, db, state.ctx)}</div>
     </details>`);
   }
   host.innerHTML = parts.join('');
@@ -96,8 +99,44 @@ export function renderFilters(host, state, actions) {
   }
 }
 
-function body(group, materials, cs, db) {
+function body(group, materials, cs, db, ctx = {}) {
   const out = [];
+
+  if (group === 'Material family') {
+    // Counted over the candidates every other requirement leaves, so a chip says how many a click would show; the
+    // rest of the rail counts every material, because its availability lines describe the data, not the query.
+    const isFamilyFacet = (c) => c.kind === 'facet' && (c.facet === 'family' || c.facet === 'polymer');
+    const eligible = new Set(runSelection(materials, cs.filter((c) => !isFamilyFacet(c)), ctx).candidates.map((e) => e.materialId));
+    const famSel = find(cs, (c) => c.facet === 'family')?.in ?? [];
+    const polySel = find(cs, (c) => c.facet === 'polymer')?.in ?? null;
+    const families = new Map();
+    for (const m of materials) {
+      const f = m.facets.family?.value ?? m.family;
+      if (!families.has(f)) families.set(f, { total: 0, open: 0, polymers: new Map() });
+      const e = families.get(f);
+      e.total++;
+      if (eligible.has(m.id)) e.open++;
+      const p = m.facets.polymer?.value ?? `${f} › ${m.basePolymer}`;
+      const pe = e.polymers.get(p) ?? { total: 0, open: 0 };
+      pe.total++;
+      if (eligible.has(m.id)) pe.open++;
+      e.polymers.set(p, pe);
+    }
+    const ordered = [...families].sort((a, b) => b[1].total - a[1].total || FAMILY_NAME(a[0]).localeCompare(FAMILY_NAME(b[0])));
+    out.push(`<div class="control family-facet" data-active="${famSel.length > 0}">
+      <div class="avail">Each count is how many of a family the other requirements leave. Choose a family to see its polymers.</div>
+      <div class="checks">${ordered.map(([f, e]) => {
+        const on = famSel.includes(f);
+        const polymers = [...e.polymers].sort((a, b) => b[1].total - a[1].total || a[0].localeCompare(b[0]));
+        const sub = on && polymers.length > 1 ? `<div class="checks sub-checks">${polymers.map(([p, pe]) => `
+          <label><input type="checkbox" data-polymer="${esc(p)}" data-polymer-family="${esc(f)}" ${polySel?.includes(p) ? 'checked' : ''}>
+          ${esc(p.split(' › ').pop())}<span class="n" title="${pe.open} of ${pe.total} left by the other requirements">${pe.open}</span></label>`).join('')}</div>` : '';
+        return `<div class="family-chip">
+          <label title="${e.open} of ${e.total} left by the other requirements"><input type="checkbox" data-family="${esc(f)}" data-polymers="${esc(polymers.map(([p]) => p).join('|'))}" ${on ? 'checked' : ''}>
+          ${esc(FAMILY_NAME(f))}<span class="n">${e.open}</span></label>${sub}</div>`;
+      }).join('')}</div>
+    </div>`);
+  }
 
   if (group === 'Compatibility') {
     const sel = find(cs, (c) => c.gate === 'h2cStatus')?.in ?? [];
@@ -294,6 +333,30 @@ function wire(host, state, actions) {
     if (chosen.length) scenario.constraints.push({ kind: 'gate', gate: 'h2cStatus', in: chosen, __group: 'Compatibility' });
     actions.changed();
   }));
+
+  // Family, then polymer. A polymer chosen inside one family narrows that family only: the polymer requirement lists
+  // the chosen polymers of the families that have some chosen, and every polymer of the families that have none (each
+  // named within its family, so the two requirements together say exactly that).
+  const familyBoxes = [...host.querySelectorAll('[data-family]')];
+  const polymerBoxes = [...host.querySelectorAll('[data-polymer]')];
+  const applyFamilies = () => {
+    const families = familyBoxes.filter((b) => b.checked);
+    drop((c) => c.facet === 'family' || c.facet === 'polymer');
+    if (families.length) {
+      scenario.constraints.push({ kind: 'facet', facet: 'family', in: families.map((b) => b.dataset.family), __group: 'Material family' });
+      const chosen = (f) => polymerBoxes.filter((b) => b.checked && b.dataset.polymerFamily === f).map((b) => b.dataset.polymer);
+      if (families.some((b) => chosen(b.dataset.family).length)) {
+        const polymers = families.flatMap((b) => (chosen(b.dataset.family).length ? chosen(b.dataset.family) : b.dataset.polymers.split('|')));
+        scenario.constraints.push({ kind: 'facet', facet: 'polymer', in: [...new Set(polymers)], __group: 'Material family' });
+      }
+    }
+    actions.changed();
+  };
+  familyBoxes.forEach((el) => el.addEventListener('change', () => {
+    if (!el.checked) polymerBoxes.filter((b) => b.dataset.polymerFamily === el.dataset.family).forEach((b) => { b.checked = false; });
+    applyFamilies();
+  }));
+  polymerBoxes.forEach((el) => el.addEventListener('change', applyFamilies));
 
   const facetBoxes = [...host.querySelectorAll('[data-facet]')];
   facetBoxes.forEach((el) => el.addEventListener('change', () => {
