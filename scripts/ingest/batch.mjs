@@ -145,8 +145,28 @@ export function holds() {
   return found;
 }
 
+/**
+ * A product the database already holds an active grade for, from this document's own maker. Whatever else is
+ * holding the document, that fact settles it: the product is recorded, its values are recorded, and "a second
+ * sheet for one product is a revision or a copy, and its rows belong on the grade that is already there".
+ *
+ * Asked of the tables rather than of the ledger, because the ledger says which documents were applied and the
+ * tables say what came of them. Eighty-four documents were waiting in four different queues for this.
+ */
+function recordedAlready(world) {
+  const flat = (v) => String(v ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const key = (maker, name) => `${flat(maker)}|${flat(productName(name ?? '', maker ?? ''))}`;
+  const have = new Map();
+  for (const g of world.grades ?? []) if (g.Status === 'active') have.set(key(g.Manufacturer, g['Product name']), g);
+  return (row) => {
+    if (!flat(row.product_raw)) return null;
+    return have.get(key(row.manufacturer || row.brand || row.provider, row.product_raw)) ?? null;
+  };
+}
+
 function writeHolds() {
   const found = holds();
+  const recorded = recordedAlready(worldOf());
   const rows = readLedger();
   // Only a document the pipeline is carrying can be held: a fetch state (unreachable, gated, needs-staging,
   // unreadable, needs-ocr) says where the document is, not why its values are waiting, and is not overwritten.
@@ -159,6 +179,18 @@ function writeHolds() {
     // proposal alone cannot — which source this document repeats — so a proposal left over from an earlier batch
     // must not speak over it. Seven documents had their twin note replaced by a question the ruling behind it
     // had already answered, because an old proposal was the only thing still asking it.
+    // Asked before anything else, because it is the one answer that makes the rest of the question moot.
+    const grade = recorded(row);
+    if (grade) {
+      const hold = { reason: 'registered', detail: `${grade.Manufacturer} ${grade['Product name']} is already ${grade.GradeID}: the product is in the database, and a second sheet for one product is a revision or a copy whose rows belong on the grade that is there` };
+      row.status = 'held';
+      row.status_note = `held: ${hold.reason} \u2014 ${hold.detail}`.slice(0, 400);
+      row.updated = new Date().toISOString().slice(0, 10);
+      touched++;
+      if (!byReason.has(hold.reason)) byReason.set(hold.reason, new Map());
+      byReason.get(hold.reason).set(row.provider, (byReason.get(hold.reason).get(row.provider) ?? 0) + 1);
+      continue;
+    }
     const twin = /^held: twin/.test(row.status_note ?? '') || row.status === 'twin-check'
       ? { reason: 'twin', detail: (row.status_note ?? '').replace(/^held: twin \u2014 /, '') || 'the same numbers under another product name' }
       : null;

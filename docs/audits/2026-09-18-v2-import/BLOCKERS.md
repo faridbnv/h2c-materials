@@ -9,62 +9,62 @@ That leaves **727**, and this is what stands in front of each of them.
 
 | | Documents |
 |---|---:|
-| the owner | 275 |
-| the pipeline | 202 |
-| the pipeline, or nobody | 87 |
-| a reader | 64 |
+| the owner | 268 |
+| the pipeline | 180 |
+| nobody | 109 |
+| a reader | 62 |
+| the pipeline, or nobody | 55 |
 | the pipeline, then a reader | 53 |
-| nobody | 46 |
 
 ## Each blocker, what it needs, and what is uncertain about it
 
-### `ruling:R075/R077/R083` — 146 document(s)
+### `ruling:R075/R077/R083` — 140 document(s)
 
 **Waits on:** the owner. **Needs:** a verdict in readings/readings.csv. The reading is done and cited; what is missing is permission.
 
 **Uncertain:** for 76 of the 117 read so far the sheet itself names no polymer, so the answer is the maker’s and not the page’s.
 
-Where: 3DJake / 3DJAKE 35, Nanovia 10, Fiberlogy 9, Filament2Print 9, Extrudr 7, Fillamentum 7, QIDI 7, colorFabb 5, and 21 more.
+Where: 3DJake / 3DJAKE 32, Fiberlogy 9, Filament2Print 9, Nanovia 9, Extrudr 7, Fillamentum 7, QIDI 7, colorFabb 5, and 21 more.
 
-### `ruling:unsettled` — 42 document(s)
+### `ruling:unsettled` — 41 document(s)
 
 **Waits on:** the owner. **Needs:** a ruling of its own: each of these says something no policy so far covers.
 
 **Uncertain:** two are a magnetite and a tungsten load, which R080 named neither; two are a PESU the reader took off a Filament2Print sheet.
 
-Where: Polymaker / Fiberon 5, Prusa Research / Prusament 4, Raise3D 4, 3DJake / 3DJAKE 3, Filament2Print 3, Yousu 3, colorFabb 2, Fabru / purefil 2, and 12 more.
+Where: Polymaker / Fiberon 5, Prusa Research / Prusament 4, Raise3D 4, 3DJake / 3DJAKE 3, Filament2Print 3, Yousu 3, colorFabb 2, Fabru / purefil 2, and 11 more.
 
-### `twin:not-yet-applied` — 69 document(s)
+### `twin:not-yet-applied` — 53 document(s)
 
 **Waits on:** the pipeline. **Needs:** the sheet it repeats to be applied first, or a reading of the two sheets.
 
 **Uncertain:** "one sheet served twice, or two products tested once?" — the extract stage pairs them and says the question is open. The product name with the maker’s off it decides the clear ends and not the middle.
 
-Where: 3DJake / 3DJAKE 38, Spectrum 9, SUNLU 5, 3D4Makers 2, Eryone 2, Flashforge 2, Nanovia 2, Prusa Research / Prusament 2, and 6 more.
+Where: 3DJake / 3DJAKE 25, Spectrum 7, SUNLU 4, 3D4Makers 2, Eryone 2, Flashforge 2, Nanovia 2, Prusa Research / Prusament 2, and 6 more.
 
-### `no-values` — 87 document(s)
+### `no-values` — 55 document(s)
 
 **Waits on:** the pipeline, or nobody. **Needs:** a reader rule, or the finding that the document is a brochure and carries no values at all.
 
 **Uncertain:** which of the two it is has not been asked per document; Spectrum’s 27 are one shape and would answer together.
 
-Where: Spectrum 27, 3DJake / 3DJAKE 11, Essentium / Nexa3D 10, Raise3D 9, SIDDAMENT 5, Filament2Print 4, 3D-Fuel 3, Recreus / Filaflex 3, and 10 more.
+Where: 3DJake / 3DJAKE 10, Essentium / Nexa3D 10, Raise3D 8, SIDDAMENT 5, Spectrum 4, 3D-Fuel 3, Filament2Print 3, Recreus / Filaflex 3, and 7 more.
 
-### `ocr-visual` — 64 document(s)
+### `ocr-visual` — 62 document(s)
 
 **Waits on:** a reader. **Needs:** a person against the page image, row by row (ingest:review --visual).
 
 **Uncertain:** nothing: D35 says an optical reading may not enter on a machine’s word, and that is the whole blocker.
 
-Where: Fiberlogy 25, 3DJake / 3DJAKE 19, 3DXTECH 9, QIDI 5, Recreus / Filaflex 3, BigRep 1, Extrudr 1, SIDDAMENT 1.
+Where: Fiberlogy 24, 3DJake / 3DJAKE 19, 3DXTECH 9, QIDI 5, Recreus / Filaflex 3, BigRep 1, SIDDAMENT 1.
 
-### `reader:several-values` — 51 document(s)
+### `reader:several-values` — 45 document(s)
 
 **Waits on:** the pipeline. **Needs:** the table read by column position: "Method | Molded | X-Y | Z" prints three results on one line.
 
 **Uncertain:** refusing such a row inside the reader was tried and cost 297 values the database already holds.
 
-Where: 3DJake / 3DJAKE 24, Filament2Print 9, QIDI 8, Siraya Tech 8, Fiberlogy 1, Flashforge 1.
+Where: 3DJake / 3DJAKE 20, Filament2Print 9, QIDI 8, Siraya Tech 6, Fiberlogy 1, Flashforge 1.
 
 ### `reader:condition-table` — 24 document(s)
 
@@ -82,13 +82,13 @@ _Nothing uncertain about it._
 
 Where: QIDI 1.
 
-### `registered` — 33 document(s)
+### `registered` — 96 document(s)
 
 **Waits on:** nobody. **Needs:** nothing: the product is in the database under another document.
 
 _Nothing uncertain about it._
 
-Where: Extrudr 18, 3DJake / 3DJAKE 8, SUNLU 3, Eryone 1, Shop3D Canada 1, Siraya Tech 1, Spectrum 1.
+Where: 3DJake / 3DJAKE 29, Spectrum 26, Extrudr 21, SUNLU 4, BASF Forward AM / Ultrafuse 3, Shop3D Canada 3, Siraya Tech 3, 3D4Makers 1, and 6 more.
 
 ### `gated` — 64 document(s)
 
