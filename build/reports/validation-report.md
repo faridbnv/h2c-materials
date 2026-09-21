@@ -13,15 +13,15 @@ Database snapshot 2026-09-16 · build 2026-09-20
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 868 |
-| measurements | 9136 |
-| numericMeasurements | 8975 |
+| grades | 879 |
+| measurements | 9166 |
+| numericMeasurements | 9005 |
 | quarantined | 4 |
-| profiles | 906 |
+| profiles | 920 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 1130 |
-| coverage | 756 |
+| sources | 1142 |
+| coverage | 757 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 313 |
 | coverageDerived | 650 |
@@ -118,11 +118,11 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 720 | 105 | 80% | 95% | ×1.13 | 0.0255 (10435 pairs) |
-| tensileModulusXY | 982 | 77 | 81% | 96% | ×1.5 | 0.343 (717 pairs) |
-| tensileStrengthXY | 1223 | 56 | 80% | 96% | ×1.6 | 0.237 (1607 pairs) |
-| elongationXY | 784 | 77 | 81% | 96% | ×2.78 | 0.743 (1556 pairs) |
-| hdt045 | 1005 | 67 | 81% | 96% | 19.1 °C | 5.24 (1567 pairs) |
+| density | 727 | 105 | 80% | 95% | ×1.11 | 0.0257 (10713 pairs) |
+| tensileModulusXY | 985 | 77 | 81% | 96% | ×1.5 | 0.343 (717 pairs) |
+| tensileStrengthXY | 1229 | 56 | 80% | 96% | ×1.6 | 0.237 (1607 pairs) |
+| elongationXY | 787 | 77 | 81% | 96% | ×2.78 | 0.743 (1556 pairs) |
+| hdt045 | 1007 | 67 | 81% | 96% | 19.1 °C | 5.24 (1567 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -149,8 +149,8 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | elongationXY | this-material | 50 | 1 | 97.5% point | 3 | 1.73% point |
 | elongationXY | family | 77 | 0 | 97.5% point | 2 | 2.5% point |
 | hdt045 | this-grade | 54 | 1 | 97.5% point | 0 | 2.5% point |
-| hdt045 | this-material | 43 | 3 | 97.82% point | 0 | 2.5% point |
-| hdt045 | family | 67 | 4 | 97.67% point | 1 | 2.5% point |
+| hdt045 | this-material | 43 | 3 | 97.83% point | 0 | 2.5% point |
+| hdt045 | family | 67 | 4 | 97.65% point | 1 | 2.5% point |
 
 - Unstated-load bracket, amorphous: top at the published value + 15.8 °C (86 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 15.8 °C, the 5th largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 4 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).

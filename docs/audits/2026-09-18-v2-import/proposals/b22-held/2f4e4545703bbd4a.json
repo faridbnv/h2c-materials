@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "2f4e4545703bbd4a52210e4170c6ce5238225db398766f147f7361808c2d9015",
+    "url": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PET_CF_TDS.pdf?v=1714039377",
+    "pages": 2,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "2f4e4545703bbd4a"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pet",
+      "filler: cf"
+    ],
+    "materialId": "M067",
+    "materialName": "PET-CF",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PCGF-PET-CF-TDS",
+      "Publisher": "SIDDAMENT",
+      "Title": "PET CF Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PET_CF_TDS.pdf?v=1714039377",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2f4e4545703bbd4a52210e4170c6ce5238225db398766f147f7361808c2d9015"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PET CF Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M067",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "PET CF",
+        "Shared formulation key": "S-PCGF-PET-CF-TDS",
+        "Composition / filler": "carbon fiber. It has the characteristics of temperature resistance, low shrinkage and easy printing. It can (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-PET-CF-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PET CF Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PET-CF is a kind of FDM 3D printing filament, which is produced using LUVOCOM® 3F PET CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "modified material as the main raw material. PET-CF is a polyester modified material containing 10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "be used on non-heated chamber FDM 3D printers. It has excellent rigidity and tensile strength and can",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "be used for a long time at temperatures of 150°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "recommended to dry the consumables in a hot air oven at 90℃~100℃ for at least 12 hours to ensure",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "recommended to dry it in an oven at a temperature of 120~130°C for 6~8 hours to improve the strength",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

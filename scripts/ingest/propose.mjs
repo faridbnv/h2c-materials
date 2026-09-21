@@ -855,7 +855,40 @@ export function readRow(text, registry, held = null) {
       ambiguous: /^(?!0[.,])\d{1,3}[.,]\d{3}(?!\d)$/.test(value) ? `"${value}" may be a thousands separator or a decimal one` : null,
     };
   }
-  return asHardness();
+  /**
+   * A label that carries its own unit, and a bare number where the value belongs. Raise3D heads its rows
+   * "Density (g/cm³) ISO 1183, GB/T 1033 1.34" and Siraya Tech "Tensile strength (MPa) ASTM D638 52": the unit
+   * is stated once, in the label, and the value column holds a number and nothing else. Thirty-one held
+   * documents across seven makers print at least one row that way, and the reader read none of them.
+   *
+   * This is the hardness fallback generalised — a hardness has always stated its scale in the label and printed
+   * a bare number — and it is tried last for the same reason: every other layout states the unit beside the
+   * value, so a row that offers a "number unit" pair has already been read by the time this is reached.
+   */
+  const asLabelUnit = () => {
+    // The unit the label states, in its own brackets, and nothing else in them: "(g/cm³)", "(MPa)", "(%)".
+    // A bracket holding a condition ("(120℃, 10N)") or a direction ("(X-Y)") states no unit and is passed over.
+    const stated = [...line.matchAll(/[(（[［]\s*([^)）\]］,;]{1,12}?)\s*[)）\]］]/g)]
+      .map((m) => ({ unit: m[1].trim(), at: m.index }))
+      .find((c) => c.unit && !/\d/.test(c.unit) && targetUnit(match.Property, c.unit, registry));
+    if (!stated) return null;
+    const target = targetUnit(match.Property, stated.unit, registry);
+    // Everything that is not the value comes off first: the designations, the label with its bracket, and any
+    // condition the row states in a unit of its own ("70% RH, 30 days"). What is left at the end of the line is
+    // the value, and it is only read where exactly one number is left — a row offering two is a row that needs
+    // its columns read by position, which is a different gap.
+    const tail = line.slice(stated.at + 1).replace(new RegExp(STANDARD_RE.source, 'gi'), ' ')
+      .replace(/^[^)）\]］]*[)）\]］]/, ' ')
+      .replace(/-?\d+(?:[.,]\d+)?\s*(?:[°º˚]\s?[CF]\b|℃|℉|%|h\b|hr\b|days?\b|min\b|s\b|kg\b|N\b|mm\b|rh\b)/gi, ' ');
+    const numbers = [...tail.matchAll(/(?<![\w.,])(-?\d+(?:[.,]\d+)?)(?![\w.,])/g)];
+    if (numbers.length !== 1 || !target) return null;
+    const value = numbers[0][1];
+    return { match, label: line.slice(0, stated.at).trim(), conditions: line.slice(0, stated.at).trim(),
+      raw: value, rawNumber: rawNumber(value) == null ? value : String(rawNumber(value)), printedUnit: stated.unit,
+      uncertainty: null, upper: null, target,
+      standards: (line.match(STANDARD_RE) ?? []).map((m) => m.replace(/\s+/g, ' ').trim()), operator: '=', range: false };
+  };
+  return asHardness() ?? asLabelUnit();
 }
 
 // A printing setting is read by its own label, wherever on the page it sits. Reading it by the section it falls

@@ -1851,3 +1851,13 @@ P0905,Speed,30-500mm/s
 P0906,Cooling,Speed 100
 P0906,Speed,30
 P0906,Retraction,Off Recommended
+P0910,Speed,(mm/s) 30 - 50
+P0910,Retraction,(mm) 1
+P0911,Speed,(mm/s) 30 - 50
+P0911,Retraction,(mm) 1
+P0914,Shell / walls,2
+P0914,Speed,50 mm/s
+P0914,Layer height,"0,3 mm"
+P0920,Shell / walls,2
+P0920,Speed,50 mm/s
+P0920,Layer height,"0,2 mm"

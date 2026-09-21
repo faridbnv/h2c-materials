@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "016693faa017264d15ce014ca9e94e19a45d73c62721601720c48ab157fb2bc5",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2023/11/pl_tds_spectrum_asa_x_gf10.pdf",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "016693faa017264d"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa",
+      "filler: gf10"
+    ],
+    "materialId": "M034",
+    "materialName": "ASA-GF",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-pl-tds-spectrum-asa-x-gf10",
+      "Publisher": "Spectrum",
+      "Title": "KARTA TECHNICZNA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2023/11/pl_tds_spectrum_asa_x_gf10.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "016693faa017264d15ce014ca9e94e19a45d73c62721601720c48ab157fb2bc5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "KARTA TECHNICZNA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M034",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ASA-X GF10",
+        "Shared formulation key": "S-SPECTRUM-pl-tds-spectrum-asa-x-gf10",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-pl-tds-spectrum-asa-x-gf10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "KARTA TECHNICZNA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ASA-X GF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ciężar właściwy 1.11 g/cm3 ISO 1183 ASA-X GF10 to zaawansowany materiał kompozy-",
+      "reason": "properties.csv carries no property for \"Ciężar właściwy\""
+    },
+    {
+      "page": 1,
+      "text": "filament ASA-X GF10 z domieszką włókna szklanego",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "bez karbu (@ 23°C) 25 kJ/m2 ISO 179-1eU",
+      "reason": "properties.csv carries no property for \"bez karbu (@ 23°C)\""
+    },
+    {
+      "page": 1,
+      "text": "z karbem (@ 23°C) 8.3 kJ/m2 ISO 179-1eA",
+      "reason": "properties.csv carries no property for \"z karbem (@ 23°C)\""
+    },
+    {
+      "page": 1,
+      "text": "2.80% ISO 527 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• zawartość 10% włókna szklanego",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "na granicy zerwania 55 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"na granicy zerwania\""
+    },
+    {
+      "page": 1,
+      "text": "Moduł sprężystości** (1mm/min) 2550 MPa ISO 527 (1)",
+      "reason": "properties.csv carries no property for \"Moduł sprężystości** (1mm/min)\""
+    },
+    {
+      "page": 1,
+      "text": "98°C ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.45 MN/m2 100°C ISO 75",
+      "reason": "properties.csv carries no property for \"0.45 MN/m2\""
+    },
+    {
+      "page": 1,
+      "text": "1.81 MN/m2 90°C ISO 75",
+      "reason": "properties.csv carries no property for \"1.81 MN/m2\""
+    },
+    {
+      "page": 1,
+      "text": "temperatura przechowywania wynosi ok. 18-25°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(64,4 -77,0°F). Chronić przed wilgocią, światłem",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "produktu wynosi 24 miesiące.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura dyszy 240 - 270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura stołu 80 - 100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 - 20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wysokość warstwy** 0.05 - 0.30 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grubość powłoki** 0.40 – 2.70 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prędkość drukowania** 40-200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* ustawienia oparto na dyszy o średnicy 0,4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.spectrumfilaments.com Data przygotowania: 01-10-2023",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

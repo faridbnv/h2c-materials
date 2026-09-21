@@ -372,6 +372,7 @@
   "review": {
     "status": "reviewed",
     "by": "claude-opus-5",
-    "date": "2026-09-20"
+    "date": "2026-09-21",
+    "note": "every row read against the page; the tensile modulus the sheet heads [MPa] is kept as printed and marked physically implausible"
   }
 }

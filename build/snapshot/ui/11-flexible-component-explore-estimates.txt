@@ -79,7 +79,7 @@ PVB / Specialty Polymers
  UNKNOWN 1,269 ~0.1–12† ~23–59† ~110–340† ~53–78† — ☆
 SAN
 Styrenics
- UNKNOWN 1,080 ~2.4–5.1† ~38–86† ~7–51† ~90–113† — ☆
+ UNKNOWN 1,080 ~2.4–5.1† ~38–86† ~7–50† ~90–113† — ☆
 TPC
 also called TPEE · Flexible Elastomers
  UNKNOWN 1,150 ~0.012–0.061† ~19–62† ~520–950† n/a — ☆

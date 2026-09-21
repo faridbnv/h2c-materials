@@ -61,7 +61,7 @@ ASA-CF
 9.6
 ASA-EC
 ~1.1–4.7†
-0.489
+0.488
 log scale
 2,080
 all 139 candidates

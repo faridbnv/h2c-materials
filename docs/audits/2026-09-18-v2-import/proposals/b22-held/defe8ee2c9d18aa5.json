@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "defe8ee2c9d18aa5a9734e7db27cc77b68a60773fb8a1a2247ff97d82db01892",
+    "url": "https://3d.nice-cdn.com/upload/file/PPGF_TECHNICAL_DATA_SHEET_TDS_2023.pdf",
+    "pages": 2,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Recreus",
+    "docKey": "defe8ee2c9d18aa5"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pp",
+      "filler: gf"
+    ],
+    "materialId": "M084",
+    "materialName": "PP-GF",
+    "estimateIdentity": "PP",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-PPGF-TECHNICAL-DATA-SHEET-TDS-2023",
+      "Publisher": "Recreus",
+      "Title": "\u0000\u0002\u0003\u0004\u0005\u0006\u0007\u0004\b \u0000 \b\u0002\b\u0000\u0005\u0003\u0003\u0002\u0000",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PPGF_TECHNICAL_DATA_SHEET_TDS_2023.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "defe8ee2c9d18aa5a9734e7db27cc77b68a60773fb8a1a2247ff97d82db01892"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "\u0000\u0002\u0003\u0004\u0005\u0006\u0007\u0004\b \u0000 \b\u0002\b\u0000\u0005\u0003\u0003\u0002\u0000"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M084",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "PPGF 2023",
+        "Shared formulation key": "R-RECREUS-PPGF-TECHNICAL-DATA-SHEET-TDS-2023",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-PPGF-TECHNICAL-DATA-SHEET-TDS-2023",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "\u0000\u0002\u0003\u0004\u0005\u0006\u0007\u0004\b \u0000 \b\u0002\b\u0000\u0005\u0003\u0003\u0002\u0000"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "\u0000\u0015\u0015\u0000\u0016\u0017\u0018\u0019\u0019\u0000\u001a\u001b\u001c\u001d\u001e\u0000\u001f\u0000!\u0000\"\u001f#\"\u0000$%&\u0000'%()'*%')(+,+\u0000'+-\u001f!(()\u0000.+ \u001f#,+.\u0000/%*\u0000\u001a\u001a\u001a\u0000!,.\u0000\u001a\u0016\u001a\u000001\u0000'*\u001f,2\u001f,#\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u00002+-\",%(%#\u001f+ 3\u0000\u001b2\u0000\"! \u0000#(! \u000045+*\u0000! \u0000!\u0000*+\u001f,/%*-\u001f,#\u0000-%6'%,+,23\u0000\u001b2\u0000+7\"\u001f5\u001f2\u0000\"\u001f#\"\u00002\u001f//,+ 8\u0000&\"\u001f(+\u00006!\u001f,2!\u001f,\u001f,#\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000#%%.\u0000\u001f6'!-2\u00002*+,#2\"\u0000\u001f,\u0000!((\u00002+6'+*!29*+\u0000*!,#+ 3\u0000\u001b2\u0000!(%\u0000+7\"\u001f5\u001f2\u0000(%&\u0000\"*\u001f,:!#+\u0000.+/%*6!2\u001f%,3\u0000;\"\u001f\u0000#*!.+\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u001f\u0000<=\u00002!5(+3\u0000\u001e+-)-(!5(+3\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u0015\u0015\u0000\u0016\u0017\u0018\u0019\u0019\u0000\u001a\u001b\u001c\u001d\u001e\u0000\u001f\u0000'+-\u001f4-!(()\u0000\u001f,.\u001f-!2+.\u0000/%*\u000001\u0000\u0015*\u001f,2\u001f,#\u0000\u001a\u001f(!6+,2\u0000\u001f,\u0000&\"\u001f-\"\u00002\"+\u00006!\u001f,\u0000*+@9\u001f*+6+,2\u0000\u001f\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\"\u001f#\"\u00006+-\"!,\u001f-!(\u00002*+,#2\"\u00002%#+2\"+*\u0000&\u001f2\"\u0000+7-+((+,2\u0000'*%-+ !5\u001f(\u001f2)\u0000!,.\u00002!5\u001f(\u001f2)\u0000%/\u00002\"+\u0000-%, 2*9-2+.\u0000'!*28\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u00009-\"\u0000! A\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000B\u0000 \u0000\u001892%6%2\u001fC+A\u0000'*%2%2)'+ 8\u0000!+ 2\"+2\u001f-\u0000'!*28\u0000'+-\u001f4-\u00002%%(\u0000%*\u00002%%(8\u0000+2-3\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000B\u0000 \u0000\u0018+*% '!-+A\u0000'*%2%2)'+ 3\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000B\u0000 \u0000;+-\",\u001f-!(\u0000-%6'%,+,2A\u00002%)8\u00002+72\u001f(+ 8\u0000/%%2&+!*8\u0000D+&+(*)8\u0000(+\u001f9*+8\u0000+2-3\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u0015\u0015E\u0016\u001a\u0000-%6'(\u001f+ \u0000&\u001f2\"\u00002\"+\u0000\u0000\u001d9*%'+!,\u00001\u001f*+-2\u001fC+ \u0000*+#!*.\u001f,#\u00006!2+*\u001f!(\u0000\u001f,2+,.+.\u0000/%*\u0000-%,2!-2\u0000&\u001f2\"\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000/%%. 29//3\u0000;\"+\u0000'*%.9-2\u00006+,2\u001f%,+.\u0000\"+*+\u001f,\u0000\u001f\u0000,%2\u0000\u001f,2+,.+.\u00002%\u00005+\u00009 +.\u0000/%*\u00006+.\u001f-!(8\u0000'\"!*6!-+92\u001f-!(\u0000%*\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\"+!(2\"-!*+\u0000!''(\u001f-!2\u001f%, \u0000!,.\u0000&+\u0000.%\u0000,%2\u00009''%*2\u00002\"+\u001f*\u00009 +\u0000/%*\u00009-\"\u0000!''(\u001f-!2\u001f%, 3\u0000\u001a%*\u0000/9*2\"+*\u0000\u001f,/%*6!2\u001f%,8\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000'(+! +\u0000-%,2!-2\u00009 3\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u001e\u001dG\u001e\u001d<\u0019\u0000\u001bH1<\u0019;\u001e\u001b\u001d\u0019\u0000\u00193\u00173\u0000=\u0018;A\u0000\u001d\u0019\u001cIJKLMJLN\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000OPP0JQ\u0000KMI\u0000LLL\u0000NMM\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000GR\u001d(\u0000\u001d,C+(%'+8\u0000\u001aS0T\u001aSJ8\u0000\u0015%(3\u0000\u001b,.3\u0000\u001a\u001f,-!\u0000\u0017!-)\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001f,/%U*+-*+9 3-%6\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000P0MPP8\u0000\u001d(.!\u0000O\u0018(\u001f-!,2+Q\u0000T\u0000\u0019\u0015\u0018\u001bH\u0000 \u0000&&&3*+-*+9 3-%6\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u001e\u001dG\u001e\u001d<\u0019\u0000\u001bH1<\u0019;\u001e\u001b\u001d\u0019\u0000\u00193\u00173\u0000\u0000\u0019!/+2)\u00001!2!\u0000\u0019\"++2\u0000!--%*.\u001f,#\u00002%\u0000\u001e+#9(!2\u001f%,\u0000O\u001dGQ\u0000H%3\u0000SNPLRVPPM\u0000! \u0000!6+,.+.\u0000/*%6\u00002\u001f6+\u00002%\u00002\u001f6+3\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u00001!2+\u0000R\u0000\u001e+C\u001f+.A\u0000VL3PS3VPV0\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u0000\u0015*%.9-2A\u0000\u0000\u0015\u0015E\u0016\u001a\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000.,-\u0003\u0005/0\u0003+\u0004,-\u0000\u0003\u0004\u0000/-\b\u000012\u00003\u0005+4\b\u0005\u00005\u0004\u0005\u0000**\u000067\u00064\b,\u0003\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000\u000f\u0011\u0011\u000f)\u0000\u0015\u000e\u0014\u0000\u0017\u0018 \u0015\u0016\u0010'\u0015\u0017\u000f\u0018 \u0000\u0013\u0014\u0011\u000f)\u0000(\u000f\u0016\u0000\u0010 \u0017\u0018&\u0000\u0015\u000e\u0014\u000089\u0000\u001c\u0016\u0017\u001b\u0014\u0016\u0000)\u0017\u0015\u000e\u0000\u0015\u000e\u0014\u0000 \u0000:\u0011\u0019\u001b\u0014\u0018\u0015;\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000?=\u0000@\u0019\u0017\u0015\u0000\u0019\u0013\u000f\u0010\u0015\u0000\u0000A\u00004+,\u0000\u0000\u0013\u0014(\u000f\u0016\u0014\u0000\u001c\u0016\u0017\u0018\u0015\u0017\u0018&\u0000\u0015\u000f\u0000\u0011\u0014\u0015\u0000\u0015\u000e\u0014\u0000\u001c\u0016\u0017\u001b\u0014\u0016\u0000\u0000\u0012\u0016\u001a$\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u00008=\u0000%\u0014\u0015\u0000\u0013\u0014\u0012\u0000\u0015\u0014\u001b\u001c\u0000\u0015\u000f\u0000\u0000BCDE\u0000\u0000F\u0018\u000f\u0015\u0000\u001b\u000f\u0016\u0014\u0000\u0015\u0014\u001b\u001c\u0014\u0016\u0019\u0015\u0010\u0016\u0014\u0000\u0017(\u0000\u0018\u000f\u0015\u0000\u0000\u0015\u000e\u0014\u0000\u001c\u0019\u0016\u0015\u0000)\u0017\u0011\u0011\u0000)\u0019\u0016\u001cG$\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000KL#KLM%\u0000NO9M%PKNL%\u0000%$Q$\u0000RSP;\u0000L%TUHVW HWX\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000F!!8HG\u0000V U\u0000WWW\u0000X \u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000#YL\u0011\u0000L\u0018\u001e\u0014\u0011\u000f\u001c\u0014\u001d\u0000<8Z <H\u001d\u0000\u000f\u0011$\u0000N\u0018\u0012$\u0000\u0017\u0018'\u0019\u0000Q\u0019'\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0017\u0018(\u000f[\u0016\u0014'\u0016\u0014\u0010 $'\u000f\u001b\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000!8 !!\u001d\u0000L\u0011\u0012\u0019\u0000FS\u0011\u0017'\u0019\u0018\u0015\u0014G\u0000Z\u0000% SNO\u0000 \u0000)))$\u0016\u0014'\u0016\u0014\u0010 $'\u000f\u001b\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u0000KL#KLM%\u0000NO9M%PKNL%\u0000%$Q$\u0000\u0000%\u0019(\u0014\u0015\u001a\u00009\u0019\u0015\u0019\u0000%\u000e\u0014\u0014\u0015\u0000\u0019''\u000f\u0016\u0012\u0017\u0018&\u0000\u0015\u000f\u0000K\u0014&\u0010\u0011\u0019\u0015\u0017\u000f\u0018\u0000FL#G\u0000O\u000f$\u0000<X!WY?!! \u0000\u0019 \u0000\u0019\u001b\u0014\u0018\u0012\u0014\u0012\u0000(\u0016\u000f\u001b\u0000\u0015\u0017\u001b\u0014\u0000\u0015\u000f\u0000\u0015\u0017\u001b\u0014$\u0000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "\u00009\u0019\u0015\u0014\u0000Y\u0000K\u0014\u001e\u0017\u0014\u0012;\u0000?W$!<$?!?8\u0000",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

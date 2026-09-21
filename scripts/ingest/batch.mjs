@@ -452,6 +452,7 @@ function twins(batch, by) {
     .reduce((n, who) => productName(n, who), r.product_raw ?? '')).toLowerCase().replace(/[^a-z0-9]+/g, '') : '');
   const waiting = [], copies = [], registered = [], editions = [];
   const shapedProducts = new Map();
+  const shapedKeys = new Map();
   let shaped = 0, missing = 0;
   for (const file of readdirSync(held).filter((f) => f.endsWith('.json'))) {
     const path = join(held, file);
@@ -470,7 +471,10 @@ function twins(batch, by) {
     // two. Where the sheet that carries the values sits under a different material than this reader gives this
     // product, the pair is not one formulation — or one of the two identities is wrong — and either way it is a
     // reading of the two sheets rather than a rule. Seventeen of these, and they are logged, not guessed.
-    const valuesUnder = materialOfKey.get(key);
+    // Including what this run has already shaped: the sheet that carries the values may be in this batch, and
+    // until it is applied the tables know nothing about it. AzureFilm publishes one table for its PLA and its
+    // Silk PLA, which are two materials, and one formulation key cannot be on both (D12, D44).
+    const valuesUnder = materialOfKey.get(key) ?? shapedKeys.get(key);
     const ours = proposal.identity?.materialId;
     if (valuesUnder && ours && valuesUnder !== ours) {
       waiting.push(`${row?.provider ?? '?'} "${row?.product_raw ?? ''}" — the values sit under ${valuesUnder} and this product reads as ${ours}`);
@@ -494,6 +498,7 @@ function twins(batch, by) {
     const product = `${flat(g0?.Manufacturer)}|${flat(g0?.['Product name'])}`;
     if (shapedProducts.has(product)) { editions.push([row, shapedProducts.get(product)]); continue; }
     shapedProducts.set(product, row);
+    shapedKeys.set(key, ours);
     if (!ours || proposal.identity?.needsRuling) {
       waiting.push(`${row?.provider ?? '?'} "${row?.product_raw ?? ''}" — its own identity is unsettled: ${proposal.identity?.reasons?.[0] ?? 'no material'}`);
       continue;
