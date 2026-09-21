@@ -1300,3 +1300,23 @@ test('a condition set apart between the unit and the value is a condition, and I
   // QIDI's text layer: "IS0 1183" gave up 1183 as a density.
   assert.equal(read('Density IS0 1183 1.19g/cm³').raw, '1.19 g/cm³');
 });
+
+test('a filament lighter than its polymer is what its sheet says it is: a foam, a softer grade, or a question (R098)', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = (maker) => ({ polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: [], manufacturers: [{ Value: maker }], rulings: [] });
+  const sheet = (maker, product, ...lines) => propose({ doc_key: 'k', sha256: 'x', provider: maker, provider_kind: 'manufacturer', manufacturer: maker, product_raw: product, url: 'https://x.example/tds.pdf' },
+    page('Technical Data Sheet', `Product name: ${product}`, ...lines), world(maker));
+  const foam = sheet('Polymaker', 'PolyWood', 'PolyWood is made entirely with PLA using a special foaming technology.', 'Density 0.90 g/cm3 ISO 1183');
+  assert.equal(foam.identity.needsRuling, false, foam.identity.reasons.join(' | '));
+  assert.equal(foam.grades[0].row.Variant, 'lightweight additive');
+  assert.match(foam.grades[0].row['Composition / filler'], /^The sheet declares it: "PolyWood is made entirely with PLA using a special foaming technology"/);
+  assert.equal(foam.window.fill, 'light');
+  // A softer grade foams nothing: a Variant of its own, judged by the unfilled windows.
+  const soft = sheet('Spectrum', 'PET-G FX120', 'Specific Gravity 1.13 g/cm3 D 792 PET-G FX 120 is a flexible material, made for parts that bend.');
+  assert.equal(soft.grades[0].row.Variant, 'declared softer grade');
+  assert.notEqual(soft.window.fill, 'light');
+  // A sheet that says neither is still a question.
+  const unsaid = sheet('Nobody', 'PLA Feather', 'A PLA for light parts.', 'Density 0.90 g/cm3 ISO 1183');
+  assert.equal(unsaid.identity.needsRuling, true);
+  assert.match(unsaid.identity.reasons.join(' '), /the sheet says which/);
+});

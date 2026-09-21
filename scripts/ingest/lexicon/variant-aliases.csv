@@ -1,6 +1,7 @@
 Token,Variant class,Finish name,Note
 basic,,,
 cork,particle-filled,Wood,
+coffee,particle-filled,Wood,"coffee grounds in PLA (Filament2Print Eco Coffee: ""Compuesto de PLA con residuos de café""), a plant particle fill filed as cork is"
 esilk,silk,Silk,
 fr,,,flame retardant: a certification claim
 galaxy,particle-filled,Galaxy,
@@ -33,4 +34,5 @@ woodfill,particle-filled,Wood,
 metalfil,particle-filled,Metal,"FormFutura's MetalFil range: a metal-filled PLA whose name carries Metal, as Spectrum's PLA Metal Copper does (R039)"
 easywood,particle-filled,Wood,FormFutura's EasyWood: 40% wood particles in PLA (R039)
 easycork,particle-filled,Wood,"FormFutura's EasyCork: cork fibres in PLA, filed as cork already is (purefil's cork filament is PLA Wood)"
+lumberlay,particle-filled,Wood,"Lay Filaments LumberLay: ""combines 40% of recycled wood and 60% of PLA filament"""
 stonefil,particle-filled,Marble,FormFutura's StoneFil: a stone-filled PLA (R039)

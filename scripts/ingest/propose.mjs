@@ -3029,7 +3029,7 @@ export function propose(row, text, world) {
       // against must stop saying it is. Without this, the very density that declared the Variant is then held
       // back for being outside what an unfilled polymer reaches — which is what it was read to mean. The class
       // is the one the lint will judge it by, so the reader and the build weigh the row against one window (D80).
-      window.fill = /dense filler$/.test(variant) ? 'dense' : 'light';
+      window.fill = /dense filler$/.test(variant) ? 'dense' : variant === 'lightweight additive' ? 'light' : window.fill;
     };
     if (value >= IMPLAUSIBLE_DENSITY) {
       identity.reasons.push(`its density reads ${value} kg/m³, which no filament reaches: the page is misread, and a load that is not there may not be declared`);
@@ -3054,8 +3054,38 @@ export function propose(row, text, world) {
       // lighter one has two explanations and the sheet has to say which. Fabru's "Cyclo-Olefin-Copolymer
       // flexibel" is 940 against COC's 1010 because it is the soft grade, not because anything was foamed, and
       // calling it a lightweight additive would record a component that is not in it.
-      identity.reasons.push(`its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}): a foaming agent and a softer grade of the same polymer both read like this, and the sheet says which`);
-      identity.needsRuling = true;
+      // R098: where the sheet does say which, that is the answer, in its own words. Polymaker's PolyWood is "made
+      // entirely with PLA using a special foaming technology", FormFutura's Pegasus PP "an ultralight ...
+      // compound", Siraya's PEBA Air an "active foaming" material: a lightweight additive. Fabru's COC flex is "a
+      // ... thermoplastic elastomer based on cyclic olefin copolymers" and Spectrum's PET-G FX120 "a flexible
+      // material": a softer grade of the polymer, which foams nothing. A sheet that says both, or neither, stays a
+      // question. The words are read on a line about this product, not on the maker's menu of every other.
+      const lines = (text.pages[0]?.lines ?? []).map((l) => String(l.text ?? '')).filter((l) => !A_RANGE_MENU.test(l) && !/\bexclusive for\b|^\s*(?:\S+\s+){0,3}family\b/i.test(l));
+      // The sentence that says it, as the line prints it: a sentence ends at a stop before a capital, never at a
+      // decimal point, and a run of spaces is a column gap.
+      const find = (re) => {
+        for (const l of lines) {
+          const sentence = l.split(/(?<=[.!?])\s+(?=[A-Z])|\s{2,}/).find((x) => re.test(x));
+          if (!sentence) continue;
+          const at = sentence.search(re);
+          const cut = sentence.length <= 120 ? sentence
+            : `… ${sentence.slice(Math.max(0, at - 50), at + 70).replace(/^\S*\s/, '').replace(/\s\S*$/, '')} …`;
+          return cut.trim().replace(/[.,;:!]$/, '');
+        }
+        return null;
+      };
+      const light = find(/\b(?:foam(?:ed|ing)?|ultra[- ]?light(?:weight)?|light[- ]?weight|lightest filament|hollow (?:glass )?(?:micro)?spheres?|glass bubbles)\b/i);
+      const soft = find(/\bthermoplas\S*\s+elastomer|\belastomer(?:ic)? (?:grade|version|based)|\bis an? (?:highly )?flexible (?:material|grade|filament)\b/i);
+      if (light && !soft) {
+        declare('lightweight additive', `Its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}), and the sheet says why: "${light}".`,
+          `The sheet declares it: "${light}". Its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}); recorded as a Variant under D57 (R098).`);
+      } else if (soft && !light) {
+        declare('declared softer grade', `Its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}), and the sheet says why: "${soft}".`,
+          `The sheet declares a softer grade: "${soft}". Its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}); recorded as a Variant under D57 (R098).`);
+      } else {
+        identity.reasons.push(`its density of ${value} kg/m³ is below what neat ${identity.polymer} reaches (${neat[0]}): a foaming agent and a softer grade of the same polymer both read like this, and the sheet says which`);
+        identity.needsRuling = true;
+      }
     }
   }
 

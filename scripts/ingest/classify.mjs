@@ -94,7 +94,8 @@ export function tokenise(text) {
     for (const joined of next && joinable(token) && joinable(next) ? [`${token}-${next}`, `${token}${next}`] : []) {
       if (KNOWN_TOKENS.has(joined)) out.push(joined);
     }
-    if (POLYMER_ORDER.some((p) => p.Token === token)) continue;
+    // A word the lexicon lists as a word is not an alias with a suffix: Filament2Print's "PESO NETO" is a weight.
+    if (POLYMER_ORDER.some((p) => p.Token === token) || STOPWORDS.has(token)) continue;
     for (const p of POLYMER_ORDER) {
       if (token.length <= p.Token.length || !token.startsWith(p.Token)) continue;
       const rest = token.slice(p.Token.length);

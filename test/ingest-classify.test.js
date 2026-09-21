@@ -105,6 +105,8 @@ test('a short alias does not eat a longer name', () => {
   // PES is polyethersulfone. Read as PE plus a letter, a 225 °C sulfone was filed as polyethylene at confidence 1.
   assert.equal(classify('THERMAX PES', '3DXTECH').polymer, 'PESU');
   assert.equal(classify('THERMAX PES', '3DXTECH').materialId, 'M101');
+  // And a word is not an alias with a letter after it: Filament2Print's "PESO NETO" is a net weight.
+  assert.ok(!tokenise('TAMAÑO PESO NETO PESO BRUTO').includes('pes'));
   assert.notEqual(classify('THERMAX PPE PS', '3DXTECH').polymer, 'PP');
   // The suffix rule still reads a maker's own spelling: Spectrum's ASAX is an ASA.
   assert.equal(classify('spectrum asax cf10', 'Spectrum').materialId, 'M033');
