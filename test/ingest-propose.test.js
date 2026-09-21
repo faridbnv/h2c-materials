@@ -1092,3 +1092,41 @@ test('a rate, a humidity and a published spread are conditions of a test, not se
   assert.equal(count('Impact Strength - XY 26.6 kJ/m² 31.5 kJ/m² 39.3 kJ/m²', 'kJ/m²'), 3);
   assert.equal(count('HDT 73.5 °C / 81 °C Method A/B', '°C'), 2);
 });
+
+test('a power of ten is one number wherever it stands, and never one of its pieces', () => {
+  // A resistivity is always a power of ten, and two shapes kept being read as a piece of one. A window's low end
+  // may be the tail of a power — "10^7 - 10^9 Ω" read 7 as the low end of a range ending at a billion — and a
+  // candidate may begin where a power begins and take only its ten: ">10¹² Ω" read 10. Either way the sheet says
+  // an insulator and the row said a conductor. Three rows in the database say 7 Ω for an ESD filament.
+  const of = (line) => { const r = read(line); return r && { raw: r.raw, value: r.rawNumber, upper: r.upper, operator: r.operator }; };
+  assert.deepEqual(of('Surface resistivity 10^7 - 10^9 Ω internal'), { raw: '10^7-10^9 Ω', value: '10000000', upper: '1000000000', operator: '=' });
+  assert.deepEqual(of('Surface Resistance: 10^7 – 10^9 Ω/sq ASTM D257'), { raw: '10^7-10^9 Ω', value: '10000000', upper: '1000000000', operator: '=' });
+  // A superscript exponent is an exponent. rawNumber has read this form since the build was written; the reader
+  // has to see it too, or it never offers it the whole number.
+  assert.deepEqual(of('Surface resistance ROB DIN IEC 60093 Ronde 60x4mm Ω >10¹²'), { raw: '10¹² Ω', value: '1000000000000', upper: null, operator: '>' });
+  assert.deepEqual(of('Volume resistivity 10^9 Ω·cm'), { raw: '10^9 Ω·cm', value: '1000000000', upper: null, operator: '=' });
+  // And an ordinary window is still an ordinary window.
+  assert.deepEqual(of('Glass Transition Temperature 55-60°C'), { raw: '55-60 °C', value: '55', upper: '60', operator: '=' });
+  assert.deepEqual(of('Tensile modulus 2300-2600 MPa'), { raw: '2300-2600 MPa', value: '2300', upper: '2600', operator: '=' });
+});
+
+test('a load a heat deflection was tested under is not also the temperature it was tested at', () => {
+  // 3DXTECH splits the label across two lines — "Deflection Temperature at 0.45" above "ISO 75 °C 185" — and the
+  // °C of the unit column stands next to the load. Thirty rows in the database say they were tested at 0.45 °C.
+  const row = (lines) => {
+    const sheet = readSheet({ pages: [{ page: 1, lines: lines.map((text) => ({ text, x0: 0 })) }] }, registry);
+    return sheet.values.length ? measurementRow(sheet.values[0], { sourceId: 'X', materialId: 'M001', gradeId: '', window: {} }) : null;
+  };
+  const split = row(['Deflection Temperature at 0.45', 'ISO 75 °C 185']);
+  assert.equal(split.Property, 'HDT');
+  assert.equal(split['Test load MPa'], '0.45');
+  assert.equal(split['Test temperature'], 'Not published');
+  // The same where the sheet writes the unit itself.
+  const plain = row(['Heat deflection temperature ISO 75 1.8 MPa 74.8 °C']);
+  assert.equal(plain['Test load MPa'], '1.8');
+  assert.equal(plain['Test temperature'], 'Not published');
+  // And a temperature a row really does state is still read: an impact test at 23 °C is a different test from
+  // the same one at -40 °C, and a row that does not say which is indistinguishable from its twin.
+  const impact = row(['Izod Impact Strength, Notched @ 23°C ASTM D256 kJ/m2 5.4']);
+  assert.equal(impact['Test temperature'], '23°C');
+});

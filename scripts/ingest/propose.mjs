@@ -218,7 +218,15 @@ function repair(text) {
 // a value is one token here, and none of its pieces is ever offered as a result.
 // The exponent's sign may be left out where it is positive ("10E13", "1E1"), so it is optional here too; the
 // digit in front of the E is what makes it a number and not the tail of a designation.
-const POWER_RE = /\d+(?:[.,]\d+)?\s*[×x*·]\s*10\s*\^\s*[-+]?\d+|(?<![\d.,])10\s*\^\s*[-+]?\d+|\d+(?:[.,]\d+)?\s*[Ee]\s*[-+]?\d{1,3}(?![\d.,])/g;
+// A superscript exponent is an exponent: a sheet that prints ">10\u00b9\u00b2 \u03a9" states a resistivity of a million
+// million ohms, and a reader that sees only the ten records ten, which is a conductor where the sheet says an
+// insulator. `rawNumber` has read the superscript form since the build was written; the reader must see it too,
+// or it never offers it the whole number.
+const SUPERSCRIPTS = '\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079\u207a\u207b';
+const POWER_RE = new RegExp(`\\d+(?:[.,]\\d+)?\\s*[\u00d7x*\u00b7]\\s*10\\s*\\^\\s*[-+]?\\d+`
+  + `|(?<![\\d.,])10\\s*\\^\\s*[-+]?\\d+`
+  + `|(?<![\\d.,])10\\s*[${SUPERSCRIPTS}]+`
+  + `|\\d+(?:[.,]\\d+)?\\s*[Ee]\\s*[-+]?\\d{1,3}(?![\\d.,])`, 'g');
 
 // ---------------------------------------------------------------------------------------------------------
 // The rows a page prints.
@@ -824,7 +832,16 @@ export function readRow(text, registry, held = null) {
     // end carries no unit of its own. Reading the number beside the unit alone made it a point, and reading the
     // dash as a sign made it -60 °C. The database keeps the pair (Raw upper bound), so the row is read as one.
     const window = spread || candidate.unitFirst ? null : /(-?\d+(?:[.,]\d+)?)\s*[-–~]\s*$/.exec(before);
-    const value = spread ? spread[1] : window ? window[1] : candidate[1];
+    // A power of ten is one number wherever it stands. Two places in a row kept reading a piece of one:
+    // a window's low end may be the tail of a power ("10^7 - 10^9 Ω" read 7 as the low end of a range ending at
+    // a billion), and a candidate may begin where a power begins and take only its ten (">10¹² Ω" read 10).
+    // Either way the sheet says an insulator and the row said a conductor.
+    const wholePower = (at) => powers.find(([from]) => from === at);
+    const powerAround = (at) => powers.find(([from, to]) => at >= from && at <= to);
+    const asWritten = (piece, at) => { const p = powerAround(at); return p ? line.slice(p[0], p[1]) : piece; };
+    const value = spread ? spread[1]
+      : window ? asWritten(window[1], window.index + (window[0].length - window[0].replace(/^\s+/, '').length))
+      : wholePower(candidate.index) ? line.slice(candidate.index, wholePower(candidate.index)[1]) : candidate[1];
     const uncertainty = spread ? candidate[1] : candidate.spread ?? null;
     const upper = window ? candidate[1] : candidate.upper ?? null;
     // A minus sign in front of a value a property cannot take is not a minus sign: it is the dash of a window
@@ -1895,7 +1912,13 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // 527/2 50 mm/min" made the whole row its own condition and wrote the property's name into the method column.
   // The axis has a column of its own (Direction), which is read from the label.
   const withoutAxis = labelHeads(printed).at(-1);
-  const spans = [...withoutAxis.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]);
+  // A unit's own exponent is not a condition. A table that prints its unit before its value leaves "g/cm3" in
+  // the row's words, and the 3 of it was the first digit outside a standard's span, so sixty density rows took
+  // "3" for the condition they were measured under and recorded "3 ISO 1183" as their method. The unit is known:
+  // it is masked with the standards, and what follows it is read as before.
+  const unit = String(v.read.printedUnit ?? '').trim();
+  const unitSpans = unit ? [...withoutAxis.matchAll(new RegExp(unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'))].map((m) => [m.index, m.index + m[0].length]) : [];
+  const spans = [...[...withoutAxis.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]), ...unitSpans];
   const at0 = [...withoutAxis.matchAll(/[,(@]|\d/g)].map((m) => m.index)
     .find((i) => !spans.some(([from, to]) => i >= from && i < to)) ?? -1;
   const condition = (at0 > 0 ? withoutAxis.slice(at0) : withoutAxis.replace(v.read.match.re, ' '))
@@ -1984,7 +2007,15 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // A test temperature the row states is a condition, not a result: "Izod Impact Strength, Notched @ -40°C" and
   // "@ 23°C" are two different tests of one property, and a row that does not say which is indistinguishable from
   // its twin (MEAS-CONDITIONS-INDISTINCT).
-  const at = /(-?\d+(?:[.,]\d+)?)\s*(?:[°º˚]\s*C|℃)/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
+  // A number the row has already recorded as its test load is not also its test temperature. 3DXTECH splits the
+  // label across two lines — "Deflection Temperature at 0.45" above "ISO 75 °C 185" — and the °C of the unit
+  // column stood next to the load, so thirty heat deflections were recorded as tested at 0.45 °C, which is a
+  // laboratory nobody has.
+  const asTemperature = /(-?\d+(?:[.,]\d+)?)\s*(?:[°º˚]\s*C|℃)/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
+  // The load the row is judged to have been tested under is the one the typed column keeps, whether the sheet
+  // wrote its unit or left it to the heading; the same number cannot also be a temperature.
+  const hdtLoad = v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(asciiPunctuation(standardText))) : null;
+  const at = asTemperature && hdtLoad && NUMBER(asTemperature[1]) === NUMBER(hdtLoad) ? null : asTemperature;
   let rawNumeric = v.read.rawNumber;
   let raw = v.read.raw;
   let normalized = round(NUMBER(rawNumeric) * v.target.factor);
