@@ -931,9 +931,11 @@ test('a declared grade variant explains its own offset instead of moving its fam
   assert.ok(undeclared >= declared * 0.98, `PA66 stiffness ${declared} declared, ${undeclared} undeclared: an undeclared compound lowered the family`);
   // Every declared variant is deliberate and says why: the column is a claim about a product whose published
   // numbers its base polymer cannot reach, and a claim with no reason beside it is a guess. (A list of the grades
-  // themselves went stale with every batch; what matters is that each one is declared and explained.)
+  // themselves went stale with every batch; so did a list of the values, which named two and failed the day R095
+  // added a third. What matters is that each one is a value of the vocabulary and is explained.)
+  const variants = new Set(readFileSync(join(root, 'schema/vocab/grade-variants.csv'), 'utf8').split(/\r?\n/).slice(1).map((l) => l.split(',')[0]).filter(Boolean));
   for (const g of db.grades.filter((x) => x.variant)) {
-    assert.ok(['undisclosed dense filler', 'lightweight additive'].includes(g.variant), `${g.id} ${g.variant}`);
+    assert.ok(variants.has(g.variant), `${g.id} ${g.variant}`);
     const row = db.grades.find((x) => x.id === g.id);
     assert.ok(row.composition && !/^Not (published|applicable)$/.test(row.composition), `${g.id} declares a variant and says nothing about why`);
   }
