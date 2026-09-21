@@ -118,18 +118,18 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 734 | 106 | 80% | 95% | ×1.12 | 0.0257 (10744 pairs) |
-| tensileModulusXY | 994 | 77 | 81% | 96% | ×1.51 | 0.342 (718 pairs) |
-| tensileStrengthXY | 1242 | 56 | 80% | 96% | ×1.6 | 0.236 (1608 pairs) |
-| elongationXY | 805 | 77 | 81% | 96% | ×2.83 | 0.728 (1604 pairs) |
-| hdt045 | 1030 | 67 | 79% | 96% | 18.8 °C | 5.24 (1720 pairs) |
+| density | 734 | 106 | 80% | 95% | ×1.13 | 0.0257 (10744 pairs) |
+| tensileModulusXY | 983 | 77 | 81% | 96% | ×1.5 | 0.342 (718 pairs) |
+| tensileStrengthXY | 1214 | 56 | 80% | 96% | ×1.6 | 0.236 (1608 pairs) |
+| elongationXY | 788 | 77 | 81% | 96% | ×2.79 | 0.728 (1604 pairs) |
+| hdt045 | 1030 | 67 | 81% | 96% | 20.5 °C | 5.24 (1720 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 19 | 12 | 3 | 4 | 0 | 0 | 19 |
-| tensileModulusXY | 48 | 32 | 7 | 5 | 4 | 0 | 43 |
-| tensileStrengthXY | 62 | 50 | 5 | 3 | 4 | 0 | 46 |
-| elongationXY | 48 | 30 | 7 | 7 | 4 | 0 | 43 |
+| tensileModulusXY | 48 | 31 | 8 | 5 | 4 | 0 | 43 |
+| tensileStrengthXY | 62 | 50 | 5 | 3 | 4 | 0 | 47 |
+| elongationXY | 48 | 29 | 8 | 7 | 4 | 0 | 43 |
 | hdt045 | 50 | 25 | 7 | 4 | 14 | 0 | 31 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
@@ -146,11 +146,11 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileStrengthXY | this-material | 37 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 56 | 0 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 51 | 1 | 97.5% point | 2 | 1.46% point |
+| elongationXY | this-material | 51 | 1 | 97.5% point | 2 | 1.8% point |
 | elongationXY | family | 77 | 0 | 97.5% point | 3 | 2.5% point |
 | hdt045 | this-grade | 54 | 1 | 97.5% point | 0 | 2.5% point |
 | hdt045 | this-material | 44 | 3 | 98.05% point | 0 | 2.5% point |
-| hdt045 | family | 67 | 4 | 97.69% point | 0 | 2.5% point |
+| hdt045 | family | 67 | 4 | 97.67% point | 0 | 2.5% point |
 
 - Unstated-load bracket, amorphous: top at the published value + 15 °C (92 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 15 °C, the 6th largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 4 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
@@ -191,15 +191,14 @@ Evidence that contradicts everything else and was down-weighted:
 - PLA Aero, density: density 1200 (V005770)
 - PLA Aero, density: density 1200 (V005973)
 - PLA Aero, density: density 1200 (V006763)
-- PETG, density: density 1350 (V007369)
 - PETG, density: density 1410 (V009154)
 - PA6, density: density 1250 (V000917)
 - PA12-CF, density: density 1230 (V006956)
-- PPS-CF, density: density 1510 (V007156)
 - PP, density: density 1010 (V004428)
 - PP-CF, density: density 1100 (V001502)
 - PP-CF, density: density 910 (V006381)
 - PE, density: density 1100, 1100 (V001516, V009268)
+- PE, density: density 954 (V002277)
 - POM / Acetal, density: density 1140 (V002322)
 - PLA-EC, density: density 1350 (V003052)
 - PLA-EC, density: density 1240 (V009037)

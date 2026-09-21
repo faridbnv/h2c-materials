@@ -785,7 +785,7 @@ High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,screened,tensileM
 High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M093,PVB,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M104,PA6-CE,UNKNOWN,yes,
-High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,yes,
+High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M106,ABS-AF,UNKNOWN,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M107,PLA-ESD,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M108,PA6-GS,UNKNOWN,yes,
