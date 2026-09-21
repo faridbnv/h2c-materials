@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -1071,4 +1071,24 @@ test('a maker who says what the filament is loaded with has declared it, and R07
     'A general purpose PLA for everyday printing',
     'HDPE filament for chemical resistance',
   ]) assert.ok(!A_DECLARED_LOAD.test(silent), silent);
+});
+
+test('a rate, a humidity and a published spread are conditions of a test, not second results of it', () => {
+  // The hold that asks whether a row states more than one result counts the results, and a condition in the
+  // value's own unit is not one. Fifty-three documents waited on this, and most of them stated one value each.
+  const count = (text, unit) => {
+    const t = String(text).replace(/[(（[［][^)）\]］]*[)）\]］]/g, ' ');
+    const re = new RegExp(String.raw`(?<![\d.,])(?<![-–~±]\s{0,2})\d+(?:[.,]\d+)?\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi');
+    return [...t.matchAll(re)].filter((hit) => !RATE_OR_CONDITION.test(t.slice(hit.index + hit[0].length))).length;
+  };
+  // A published spread: the number after the sign is the spread of the one before it. Without a boundary before
+  // the digits the pattern matched the "0" of "± 10 °C", its own preceding character being the "1".
+  assert.equal(count('Melting temperature 190 °C ± 10 °C ISO 3146-C', '°C'), 1);
+  // A heating rate and a conditioning humidity are what the test was run at.
+  assert.equal(count('Glass transition temp. DSC, 10°C/min 55 °C', '°C'), 1);
+  assert.equal(count('Vicat softening temperature 150 °C ISO 306 method A, 10 N, 50 °C/h', '°C'), 1);
+  assert.equal(count('Humidity absorption, 23 °C/50 % r.h. ISO 62 % 0,3', '%'), 1);
+  // And a row that really does print several results still says so.
+  assert.equal(count('Impact Strength - XY 26.6 kJ/m² 31.5 kJ/m² 39.3 kJ/m²', 'kJ/m²'), 3);
+  assert.equal(count('HDT 73.5 °C / 81 °C Method A/B', '°C'), 2);
 });

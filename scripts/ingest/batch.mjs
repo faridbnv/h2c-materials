@@ -26,7 +26,7 @@ import { projectRoot } from '../data/table-io.mjs';
 import { applyBatch, guard, proposalsOf, worldOf } from './apply.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { holdsBack, rowsOf } from './review.mjs';
-import { productName, labelFor } from './propose.mjs';
+import { productName, labelFor, RATE_OR_CONDITION } from './propose.mjs';
 import { HEADER, readLedger } from './inventory.mjs';
 
 
@@ -75,8 +75,14 @@ const severalValues = (proposal) => (proposal.measurements ?? []).filter((m) => 
   // rate held eighteen of its documents for stating two temperatures. readRow already sets a bracketed number
   // aside; the count here has to as well, or it holds what the reader has already read correctly.
   const text = String(m.evidence?.text ?? '').replace(/[(（[［][^)）\]］]*[)）\]］]/g, ' ');
-  const pattern = new RegExp(String.raw`(?<![-\u2013~\u00b1]\s{0,2})\d+(?:[.,]\d+)?\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi');
-  return [...text.matchAll(pattern)].length > 1;
+  // A number begins where a number begins. Without this the pattern matched the "0" inside "± 10 °C" — its own
+  // character before it being the "1" and not the sign — and every published spread counted as a second result.
+  const pattern = new RegExp(String.raw`(?<![\d.,])(?<![-\u2013~\u00b1]\s{0,2})\d+(?:[.,]\d+)?\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi');
+  // And a rate or a humidity is the condition a test was run at, not its result: "DSC, 10 °C/min 55 °C" states
+  // one temperature, and "23 °C/50 % r.h. 0,3 %" one absorption. readRow already refuses to read either as a
+  // value (RATE_OR_CONDITION); a count that does not do the same holds what the reader read correctly.
+  const results = [...text.matchAll(pattern)].filter((hit) => !RATE_OR_CONDITION.test(text.slice(hit.index + hit[0].length)));
+  return results.length > 1;
 }).length;
 
 /**

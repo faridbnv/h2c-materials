@@ -669,7 +669,7 @@ export const labelFor = (text) => { const heads = labelHeads(text); return LABEL
 // A rate ("10 °C/min", "2 mm/min") and a humidity ("50% RH", "50% r.h.") are conditions of a test, not its
 // result. Spectrum's PA6 Low Warp prints "Moisture absorption, 23°C/ 50% r.h. 3,00%", where 50 is the humidity
 // the test was run at and 3.00 is the answer.
-const RATE_OR_CONDITION = /^\s*(\/\s*(min|h|hr|s)\b|\s*(RH|r\.?\s?h\.?|relative humidity)\b)/i;
+export const RATE_OR_CONDITION = /^\s*(\/\s*(min|h|hr|s)\b|\s*(RH|r\.?\s?h\.?|relative humidity)\b)/i;
 
 /**
  * The unit the database keeps this property in, and the factor from the printed one. The conversion table is the
