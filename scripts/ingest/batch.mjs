@@ -622,9 +622,13 @@ function twins(batch, by) {
   // a key each ("SourceID#product"). Asked of the tables, so a twin of a twin follows the chain to the values.
   const keyOfSource = new Map();
   const materialOfKey = new Map();
+  // And the material of the grade a source's own values sit on, which is where they are whatever its key is
+  // called: Spectrum's PET-G FX120 was shaped onto colorFabb nGen_FLEX's source as though the two were one material.
+  const materialOfSource = new Map();
   for (const g of world.grades ?? []) {
     if (g.SourceID && g['Shared formulation key']) keyOfSource.set(g.SourceID, g['Shared formulation key']);
     if (g['Shared formulation key']) materialOfKey.set(g['Shared formulation key'], g.MaterialID);
+    if (g.SourceID && g.Status === 'active') materialOfSource.set(g.SourceID, g.MaterialID);
   }
   const date = new Date().toISOString().slice(0, 10);
   // A product's own name, with the maker's off it, so "ColorFabb SteelFill" and colorFabb's "steelFill" are one
@@ -657,7 +661,7 @@ function twins(batch, by) {
     // Including what this run has already shaped: the sheet that carries the values may be in this batch, and
     // until it is applied the tables know nothing about it. AzureFilm publishes one table for its PLA and its
     // Silk PLA, which are two materials, and one formulation key cannot be on both (D12, D44).
-    const valuesUnder = materialOfKey.get(key) ?? shapedKeys.get(key);
+    const valuesUnder = materialOfKey.get(key) ?? shapedKeys.get(key) ?? materialOfSource.get(primary);
     const ours = proposal.identity?.materialId;
     if (valuesUnder && ours && valuesUnder !== ours) {
       // R166, R045's shape for the class: a finish or a variant whose sheet reprints another material's table

@@ -7,7 +7,7 @@
     },
     "grades": {
       "rows": 1106,
-      "sha256": "391636e04b952325dee34188517180f2685ea07aaafd888c987b7baab099060f"
+      "sha256": "9e435efe2beabb3ec326b005a735306696a3b2310731063b6ea20e4245e85fd0"
     },
     "profiles": {
       "rows": 1091,
@@ -42,8 +42,8 @@
       "sha256": "2bed088a45ac9bb9bacad499b0029bdd8dc01f4c826216f82765bfc7376c3078"
     },
     "coverage": {
-      "rows": 792,
-      "sha256": "f4e0b74a0a5864516cd2ddf8468cbc047ac0c68d29e5c658f6bda76aa013fed4"
+      "rows": 793,
+      "sha256": "e023f51245f2448015f348e6976b4068798709b8f7c548733b9d83e9e9d3c99f"
     },
     "method": {
       "rows": 50,

@@ -6,8 +6,8 @@ as twins — sheets that print another sheet's numbers under another product's n
 
 | Shape | Documents | What is recorded |
 |---|---:|---|
-| R053, one material | 8 | the product's grade and its sheet; the values once, under the shared formulation key of the sheet that carries them (Kingroon's PLA Basic and PETG Basic print Bambu's; FormFutura's MagicFil Thermo, ReForm rPLA and LimoSolve print EasyFil's; FormFutura's PEI ULTEM 9085 prints 3D4Makers'; Fiberlogy's ASA+AF prints Spectrum's ASA Kevlar) |
-| R166, across materials | 14 | R045's shape: the grade and the sheet, no values from it, and a coverage row per material naming the table it reprints (Spectrum's PLA Glow in the Dark and PLA Stone Age print PLA Glitter's; eSUN's Luminous and Silk products print their base PLA's) |
+| R053, one material | 6 | the product's grade and its sheet; the values once, under the shared formulation key of the sheet that carries them (FormFutura's MagicFil Thermo, ReForm rPLA and LimoSolve print EasyFil's; FormFutura's PEI ULTEM 9085 prints 3D4Makers'; Fiberlogy's ASA+AF prints Spectrum's ASA Kevlar) |
+| R166, across materials | 16 | R045's shape: the grade and the sheet, no values from it, and a coverage row per material naming the table it reprints (Spectrum's PLA Glow in the Dark and PLA Stone Age print PLA Glitter's; eSUN's Luminous and Silk products print their base PLA's; Kingroon's PLA Basic and PETG Basic print Bambu's, whose values sit on Bambu's own materials: shaped as R053 in b31 and corrected by m123) |
 
 R166 is new: a formulation key belongs to one material (D12, D44), so a finish or a variant whose sheet reprints
 a base product's table could be neither shaped nor applied. R045 had answered the same question for one Extrudr
