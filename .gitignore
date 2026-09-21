@@ -19,3 +19,7 @@ build/reports/data-audit/
 
 # Owner-supplied source documents staged for a migration; cached under .cache/sources by SourceID.
 temp_Fillaments Docs/
+
+# Owner archives of maker document libraries, staged into .cache/sources by ingest:fetch --stage (R084).
+_temp FormFutura Filaments/
+_temp iSANMATE/

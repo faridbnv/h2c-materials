@@ -1,7 +1,7 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b25 brought
-145 materials, 900 grades, 9,466 measurement rows and 1,173 sources in. It is here so that nobody has to
+What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b26 brought
+145 materials, 901 grades, 9,468 measurement rows and 1,174 sources in. It is here so that nobody has to
 rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
@@ -49,7 +49,7 @@ Twenty-five batches of imported sheets have added none of this damage: `scripts/
 standard by its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed
 `Standards` and raw text disagree.
 
-## 2. Twenty-six published values that physics rules out
+## 2. Forty-one published values that physics rules out
 
 Kept, flagged, and backing nothing: no headline, estimate, conversion, implied bound or plot point (D55). Each is
 what the source really prints, with the reason in its Notes.
@@ -68,14 +68,32 @@ what the source really prints, with the reason in its Notes.
 | V004148, V004210, V004270, V004539 | ASA, ABS-CF, ABS, PEEK | notched Izod of 138 to 250 kJ/m², where an unnotched bar of the same polymer breaks well below that |
 | V005397, V005398 | PA6-GF | flexural strength of 5,545 and 1,582 MPa, above the modulus printed beside them |
 
+Fifteen more entered with b11 to b22, all of classes the table already names:
+
+| Measurements | Class |
+|---|---|
+| V006316, V006356, V006409, V008951, V008955, V009320 | a rigid PLA's or ABS's modulus of 1 to 500 MPa, far below what the same sheet's strength requires, as V002818 |
+| V008991, V008992, V009135, V009136 | a PETG whose flexural strength of 1,170 MPa stands beside a modulus of 60 MPa, as V005397 |
+| V007526, V007837 | a heat deflection at 0.45 MPa below the one at 1.8 MPa on the same sheet, as V000682 |
+| V007863, V007866 | an unfilled PA6 pulling at 170 MPa and bending at 245 |
+| V006262 | a carbon-fibre PC drawing to 100 %, as V000729 |
+
+Eleven of the fifteen carry only the batch's standard note and not the reason the flag was set; the class above is
+the reason, and the sweep in PLAN-REMAINING §2.3 writes it into each row.
+
 These need the manufacturer to be asked, not more reading. They are the values the database refuses to use. A
-larger set — 173 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
-says the rule, not the number, is what does not fit: 120 `MEAS-PHYSICS-WINDOW` (outside the plausible window for
-its matrix and fill, most of them flexible grades the window was not drawn for), 25 `MEAS-PHYSICS-STRAIN` (brittle
+larger set — 264 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
+says the rule, not the number, is what does not fit: 182 `MEAS-PHYSICS-WINDOW`, 30 `MEAS-PHYSICS-STRAIN` (brittle
 bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across several manufacturers,
-which reads as a difference in how modulus was measured rather than a transcription error), 25
-`MEAS-PHYSICS-ORDER` and 3 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for the list above if a re-read finds
+which reads as a difference in how modulus was measured rather than a transcription error), 45
+`MEAS-PHYSICS-ORDER` and 7 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for the list above if a re-read finds
 the sheet really does print what cannot be.
+
+The window findings are not mostly flexible grades, which is what this page used to say. By family they are PLA 59,
+flexible elastomers 25, PETG 16, copolyesters 14, polyamides 13; by property tensile modulus 33, hardness 31, Izod
+23, elongation 21, density 17. **Thirty are one defect, not thirty**: SUNLU's hardness column names both Shore
+scales ("HA/HD"), so a Shore D value is judged as Shore A or the other way round. That is a unit to read off each
+sheet, and PLAN-REMAINING §2.3 does it.
 
 ```bash
 npm run sql --silent -- "select measurementid, materialid, property, normalized_value, notes from measurements
@@ -129,20 +147,20 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 120 | See item 2. |
-| `MEAS-PHYSICS-ORDER` | 25 | See item 2. |
-| `MEAS-PHYSICS-STRAIN` | 25 | See item 2. |
+| `MEAS-PHYSICS-WINDOW` | 182 | See item 2. |
+| `MEAS-PHYSICS-ORDER` | 45 | See item 2. |
+| `MEAS-PHYSICS-STRAIN` | 30 | See item 2. |
 | `HDT-LOAD-UNSTATED` | 10 | The source names the test but not the load. Flagged, and screens no heat requirement until re-read. Five are the high-temperature 3DXTECH sheets (PEEK, PEKK, PEI / ULTEM, PSU, PPSU); two are PLA Lite and PP; three arrived with b09 — Flashforge's PBAT, purefil's LCP and colorFabb's nGen. |
 | `COVERAGE-SUPERSEDED` | 9 | A coverage finding a later row replaces. |
-| `MEAS-CROSS-SOURCE-TWIN` | 6 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet, republished without remeasuring; the sixth is 3DXTECH's single data set for its two ESD Ultem grades. |
-| `EST-OUTLIER` | 4 | A measured headline far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; PLA Aero's density, which is what the filament weighs before it foams; TPU's elongation; and a Flashforge Flexible sheet whose modulus of 6 to 7 MPa sits beside a strength of 27 to 28 MPa. |
+| `MEAS-CROSS-SOURCE-TWIN` | 5 | Two sources publishing the same numbers: two revisions of one Polymaker sheet each, republished without remeasuring. |
+| `EST-OUTLIER` | 3 | A measured headline far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; TPU's elongation; and a Flashforge Flexible sheet whose modulus of 6 to 7 MPa sits beside a strength of 27 to 28 MPa. PLA Aero's density stopped being one when D80 gave the lightweight grades a window of their own. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
-| `MEAS-PHYSICS-Z-ABOVE-XY` | 3 | Polymaker prints a Z stiffness 15 to 26 % above XY, and one b09 sheet a Z strength above its own X-Y one. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
+| `MEAS-PHYSICS-Z-ABOVE-XY` | 7 | Polymaker prints a Z stiffness 15 to 26 % above XY, and one b09 sheet a Z strength above its own X-Y one. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
 | `EST-FAMILY-ORDER` | 2 | PLA-CF is estimated below unfilled PLA, because the two sheets are different products and no conversion makes them comparable; ASA-AF's one modulus is an injection-moulded bar. |
 | `MEAS-LOCATOR-DIRECTION` | 2 | HDT is recorded without a direction by convention; the sheet's "XY" names the bar's build orientation, not a test axis. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 
-194 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
+301 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
 that no longer occurs, so this list cannot go stale unnoticed.
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:
@@ -274,17 +292,17 @@ has not been designed.
 
 ## Coverage, in one number
 
-Of 705 coverage rows, 281 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial
+Of 761 coverage rows, 272 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial
 resolution. Those are not defects; they are the database saying what it does not know. The headline gaps, against
-143 materials:
+145 materials:
 
 | Headline | Measured on |
 |---|---|
-| Density | 124 of 143 materials |
-| Stiffness, XY | 97 |
-| Elongation, XY | 97 |
-| Heat deflection at 0.45 MPa | 94 |
-| Strength, XY | 83 |
+| Density | 121 of 145 materials |
+| Stiffness, XY | 91 |
+| Elongation, XY | 91 |
+| Heat deflection at 0.45 MPa | 88 |
+| Strength, XY | 77 |
 
 The rest are estimated, and every estimate says how far to trust it.
 

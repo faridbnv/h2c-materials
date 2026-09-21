@@ -258,6 +258,20 @@ function writeHolds() {
       byReason.get(hold.reason).set(row.provider, (byReason.get(hold.reason).get(row.provider) ?? 0) + 1);
       continue;
     }
+    // A row an older run wrote as "held: registered" names its grade in its own note and is terminal like any
+    // other registered row. Nothing re-proposes it, so without this it keeps saying it waits: eleven Extrudr
+    // bundle sheets did, written by --twins before registered became a status there.
+    const stale = /^held: registered — (.+)$/.exec(row.status_note ?? '');
+    if (stale) {
+      row.status = 'registered';
+      row.registered_by = row.registered_by || 'product';
+      row.status_note = stale[1].slice(0, 400);
+      row.updated = new Date().toISOString().slice(0, 10);
+      touched++;
+      if (!byReason.has('registered')) byReason.set('registered', new Map());
+      byReason.get('registered').set(row.provider, (byReason.get('registered').get(row.provider) ?? 0) + 1);
+      continue;
+    }
     const twin = /^held: twin/.test(row.status_note ?? '') || row.status === 'twin-check'
       ? { reason: 'twin', detail: (row.status_note ?? '').replace(/^held: twin \u2014 /, '') || 'the same numbers under another product name' }
       : null;
