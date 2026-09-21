@@ -115,10 +115,36 @@ test('a name that holds two polymers is a question, not a lower score', () => {
   const blend = classify('Nobody PETG/ASA', 'Nobody');
   assert.equal(blend.needsRuling, true);
   assert.match(blend.reasons.join(' '), /more than one polymer/);
-  // A support product is never filed under the material it supports.
+  // A support product is never filed under the material it supports (R076, and the next test).
   const support = classify('PolySupport for PA12', 'Polymaker');
-  assert.equal(support.needsRuling, true);
-  assert.match(support.reasons.join(' '), /support or soluble/);
+  assert.notEqual(support.materialId, 'M052');
+  assert.equal(support.support, true);
+});
+
+test('a support is filed by its own chemistry, else by what it says it supports (R076)', () => {
+  const pick = (product, context) => classifyProduct(product, { manufacturer: 'Somebody', ...context }, world);
+  // Its chemistry, where the sheet says what the product is.
+  const helios = pick('Helios Support', { body: "Helios Support is a 'high heat' water-soluble PVA material for complex prints." });
+  assert.equal(helios.materialId, 'M075');
+  assert.equal(helios.needsRuling, false, helios.reasons.join('; '));
+  // Bambu's "Support for ABS" states its composition, HIPS; the ABS in its name is what it supports.
+  const forAbs = pick('Support for ABS', { composition: 'HIPS' });
+  assert.equal(forAbs.materialId, 'M081');
+  assert.equal(forAbs.needsRuling, false, forAbs.reasons.join('; '));
+  // No chemistry, and a stated target: the breakaway supports M077 to M080 are named for it. "a break away
+  // support for interface with PLA" has "away support" before the target, which names nothing.
+  const poly = pick('PolySupport', { body: 'PolySupport is a break away support for interface with PLA, strong enough to support it.' });
+  assert.equal(poly.materialId, 'M077');
+  assert.equal(poly.needsRuling, false, poly.reasons.join('; '));
+  // A statement that names no material ("specially developed for printing process with …") gives way to one that does.
+  const raise = pick('Industrial PA12 CF Support', { body: 'Industrial PA12 CF Support Filament is a break-away support material specially developed for printing process with carbon fiber reinforced filaments.' });
+  assert.equal(raise.materialId, 'M080');
+  assert.equal(pick('PolySupport for PA12', {}).materialId, 'M080');
+  assert.equal(pick('Support for PLA/PETG', {}).materialId, 'M078');
+  // A list of what it sticks to is not its chemistry, and a support that says neither stays a question.
+  const sticks = pick('Tack Support', { body: 'Tack Support adheres extremely well to styrene based materials such as ABS and HIPS.' });
+  assert.equal(sticks.needsRuling, true);
+  assert.match(sticks.reasons.join(' '), /support or soluble/);
 });
 
 test('a product-level row needs a maker, because most documents do not name one', () => {

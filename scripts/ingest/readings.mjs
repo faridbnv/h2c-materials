@@ -321,7 +321,15 @@ export function readings(only = null) {
       why = `the maker's page names this product and one polymer on one line: "${witnessLine.trim().slice(0, 160)}" (${witness.doc_key}, sha ${witness.sha256.slice(0, 12)})`;
     } else if (urlSays.size === 1) {
       reading = [...urlSays.keys()][0]; strength = 'named';
-      why = `the maker's own page for it says so: ${[row.source_page_url, row.url].find(Boolean)}`;
+      // The link that named it, and whose it is: a shop's link is a pointer to the maker's words, never the
+      // maker's words (R089), so it is called what it is and the verdict is read with that in mind.
+      const link = [row.source_page_url, row.url].filter(Boolean).find((u) => fromTheUrl({ url: u }, byLength, knownTokens).has(reading));
+      // The maker's where the link or the page that lists it is on a host carrying the maker's name: a maker's
+      // own shop serves its files from a CDN (cdn.shopify.com) that its own page links to.
+      const host = (u) => { try { return new URL(u).hostname.toLowerCase().replace(/[^a-z0-9]/g, ''); } catch { return ''; } };
+      const makers = [row.brand, row.manufacturer].flatMap((w) => String(w ?? '').toLowerCase().split(/[^a-z0-9]+/).filter((t) => t.length >= 3));
+      const theirs = [link, row.source_page_url].some((u) => makers.some((m) => host(u).includes(m)));
+      why = theirs ? `the maker's own link for it names it: ${link}` : `a link it was found under names it, and the link is not the maker's: ${link}`;
     } else if (narrowed.length === 1) {
       reading = narrowed[0].polymer; strength = 'narrowed'; why = `its own numbers admit one polymer: ${narrowed[0].why}`;
     } else if (preferred.length === 1) {

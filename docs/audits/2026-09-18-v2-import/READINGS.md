@@ -30,16 +30,16 @@ document stays held under its ruling with the strike noted.
 | 3DJAKE easyPETG Pastel Pink | 3DJAKE | PETG | PETG / Unfilled / unspecified | the product's own name says it: "easypetg" is "petg" with a word in front of it |
 | 3DJAKE ecoPLA CF | 3DJAKE | PLA | PLA / Carbon fibre | the product's own name says it: "ecopla" is "pla" with a word in front of it |
 | 3DJAKE mattePLA Silver | 3DJAKE | PLA | PLA / Unfilled / unspecified | the product's own name says it: "mattepla" is "epla" with a word in front of it |
-| AmphoraAM3300 | colorFabb | nGen | nGen / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/colorfabb/ngen-red |
+| AmphoraAM3300 | colorFabb | nGen | nGen / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/colorfabb/ngen-red |
 | eSUN ePC Filament | eSUN | PC | PC / Unfilled / unspecified | the product's own name says it: "epc" is "pc" with a word in front of it |
-| FIBERLOGY FIBERSILK | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/fiberlogy/pla-fibersilk-metallic-bronze |
+| FIBERLOGY FIBERSILK | Fiberlogy | PLA | PLA / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/fiberlogy/pla-fibersilk-metallic-bronze |
 | Polymaker PolyLite CosPLA Version B | Polymaker | PLA | PLA / Unfilled / unspecified | the product's own name says it: "cospla" is "pla" with a word in front of it |
-| purefil BioTEC filament | purefil | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://www.purefil.ch/en/purefil-abs-filament_153_1179/ |
-| FIBERLOGY FIBERSATIN | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's own page for it says so: https://fiberlogy.com/en/product/fibersatin-pla-filament-s2/ |
-| FIBERLOGY FIBERSILK | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's own page for it says so: https://fiberlogy.com/en/product/fibersilk-pla-filament-s1/ |
+| purefil BioTEC filament | purefil | ABS | ABS / Unfilled / unspecified | the maker's own link for it names it: https://www.purefil.ch/en/purefil-abs-filament_153_1179/ |
+| FIBERLOGY FIBERSATIN | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's own link for it names it: https://fiberlogy.com/en/product/fibersatin-pla-filament-s2/ |
+| FIBERLOGY FIBERSILK | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's own link for it names it: https://fiberlogy.com/en/product/fibersilk-pla-filament-s1/ |
 | BR rPET | See document / product page | PET | PET / Unfilled / unspecified | the product's own name says it: "rpet" is "pet" with a word in front of it |
-| Other | See document / product page | PLA | PLA / Unfilled / unspecified | the maker's own page for it says so: https://filament2print.com/en/pla/2135-pla-pellets-kai-parthy.html |
-| Thermal properties | See document / product page | PA12 | PA12 / Unfilled / unspecified | the maker's own page for it says so: https://filament2print.com/en/polyamide-pa12/3106-monkey-repa12-50-8gb.html |
+| Other | See document / product page | PLA | PLA / Unfilled / unspecified | the maker's own link for it names it: https://filament2print.com/en/pla/2135-pla-pellets-kai-parthy.html |
+| Thermal properties | See document / product page | PA12 | PA12 / Unfilled / unspecified | the maker's own link for it names it: https://filament2print.com/en/polyamide-pa12/3106-monkey-repa12-50-8gb.html |
 
 ### said (product page) — 2
 
@@ -126,11 +126,11 @@ document stays held under its ruling with the strike noted.
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
-| FIBERLOGY R NYLON | Fiberlogy | PA12 | PA12 / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/fiberlogy/r-pa12-anthracite |
-| ultrafuse tps 90a | Ultrafuse | TPS | TPS / Unfilled / unspecified (new) | the maker's own page for it says so: https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/flexible-filaments/ultrafuse-tps-90a/ |
-| purefil GreenTEC filament | purefil | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://www.purefil.ch/en/purefil-abs-filament_159_1241/ |
-| purefil TPS 40D Filament | purefil | TPS | TPS / Unfilled / unspecified (new) | the maker's own page for it says so: https://www.purefil.ch/en/brands/purefil/purefil-tps-40d-filament_1249_9948/ |
-| purefil TPS 40D Filament | purefil | TPS | TPS / Unfilled / unspecified (new) | the maker's own page for it says so: https://www.purefil.ch/en/brands/purefil/purefil-tps-40d-filament_1230_9946/ |
+| FIBERLOGY R NYLON | Fiberlogy | PA12 | PA12 / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/fiberlogy/r-pa12-anthracite |
+| ultrafuse tps 90a | Ultrafuse | TPS | TPS / Unfilled / unspecified (new) | the maker's own link for it names it: https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/flexible-filaments/ultrafuse-tps-90a/ |
+| purefil GreenTEC filament | purefil | ABS | ABS / Unfilled / unspecified | the maker's own link for it names it: https://www.purefil.ch/en/purefil-abs-filament_159_1241/ |
+| purefil TPS 40D Filament | purefil | TPS | TPS / Unfilled / unspecified (new) | the maker's own link for it names it: https://www.purefil.ch/en/brands/purefil/purefil-tps-40d-filament_1249_9948/ |
+| purefil TPS 40D Filament | purefil | TPS | TPS / Unfilled / unspecified (new) | the maker's own link for it names it: https://www.purefil.ch/en/brands/purefil/purefil-tps-40d-filament_1230_9946/ |
 
 ### said (product page) — 2
 
@@ -225,17 +225,17 @@ document stays held under its ruling with the strike noted.
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
-| PETG Glow In The Dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/sunlu/petg-glow-in-the-dark-green-1 |
-| SUNLU TPU Silk Light Blue | SUNLU | TPU | TPU / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/sunlu/tpu-silk-light-blue |
-| WearX Wear Resistant PA6 | 3DXTECH | PA6 | PA6 / Unfilled / unspecified | the maker's own page for it says so: https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets |
-| Other | See document / product page | PCL | PCL / Unfilled / unspecified | the maker's own page for it says so: https://filament2print.com/en/wood-stone-metal/4731-biofil-wood-pcl-formfutura.html |
-| Prusament PETG Ultraglow Green | Prusament | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://prusament.com/materials/prusament-petg-ultraglow/ |
-| ABS Marble | SIDDAMENT | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://siddament.com.au/pages/tds |
-| ABS Wood | SIDDAMENT | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://siddament.com.au/pages/tds |
-| PETG Marble | SIDDAMENT | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://siddament.com.au/pages/tds |
-| spectrum petg glitter | Spectrum | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://spectrumfilaments.com/en/download/ |
-| petg glow in the dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://www.sunlu.com/products/petg-glow-in-the-dark |
-| silk tpu filament | SUNLU | TPU | TPU / Unfilled / unspecified | the maker's own page for it says so: https://www.sunlu.com/products/silk-tpu-filament |
+| PETG Glow In The Dark | SUNLU | PETG | PETG / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/sunlu/petg-glow-in-the-dark-green-1 |
+| SUNLU TPU Silk Light Blue | SUNLU | TPU | TPU / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/sunlu/tpu-silk-light-blue |
+| WearX Wear Resistant PA6 | 3DXTECH | PA6 | PA6 / Unfilled / unspecified | the maker's own link for it names it: https://cdn.shopify.com/s/files/1/0625/4185/6821/files/wearx_tds_FW_PA6_Copolymer_v1.0.pdf?v=1728481558 |
+| Other | See document / product page | PCL | PCL / Unfilled / unspecified | the maker's own link for it names it: https://filament2print.com/en/wood-stone-metal/4731-biofil-wood-pcl-formfutura.html |
+| Prusament PETG Ultraglow Green | Prusament | PETG | PETG / Unfilled / unspecified | the maker's own link for it names it: https://prusament.com/materials/prusament-petg-ultraglow/ |
+| ABS Marble | SIDDAMENT | ABS | ABS / Unfilled / unspecified | the maker's own link for it names it: https://cdn.shopify.com/s/files/1/0685/9168/1815/files/ABS_Marble_TDS_Siddament.pdf?v=1747543761 |
+| ABS Wood | SIDDAMENT | ABS | ABS / Unfilled / unspecified | the maker's own link for it names it: https://cdn.shopify.com/s/files/1/0685/9168/1815/files/ABS_Wood_TDS_Siddament.pdf?v=1747543619 |
+| PETG Marble | SIDDAMENT | PETG | PETG / Unfilled / unspecified | the maker's own link for it names it: https://cdn.shopify.com/s/files/1/0685/9168/1815/files/PETG_Marble_TDS_Siddament.pdf?v=1747543538 |
+| spectrum petg glitter | Spectrum | PETG | PETG / Unfilled / unspecified | the maker's own link for it names it: https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_petg_glitter.pdf |
+| petg glow in the dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's own link for it names it: https://www.sunlu.com/products/petg-glow-in-the-dark |
+| silk tpu filament | SUNLU | TPU | TPU / Unfilled / unspecified | the maker's own link for it names it: https://www.sunlu.com/products/silk-tpu-filament |
 
 ### said (product page) — 1
 

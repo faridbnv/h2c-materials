@@ -334,8 +334,38 @@ export function classifyProduct(product, context = {}, world = {}) {
     signals.push(`ruling ${namedByRuling.ruling}: ${namedByRuling.value}`);
   }
 
+  // R076, built: a support is filed by its own chemistry, read where the sheet says what the product is — its
+  // name, or a sentence whose subject it is ("Helios Support is a 'high heat' water-soluble PVA material", "Atlas
+  // Support is an unique PVA blend") — and never from a list of what it sticks to ("adheres extremely well to
+  // styrene based materials such as ABS … HIPS"). A breakaway support that names no chemistry is filed by what it
+  // supports, which its sheet does state (M077 to M080 are named for it); anything else stays a ruling.
+  const supportPick = (() => {
+    if (!support) return null;
+    const chemistry = [[/\bBVOH\b|butenediol vinyl alcohol/i, 'BVOH'], [/\bPVA\b|polyvinyl alcohol/i, 'PVA'], [/\bHIPS\b|high[- ]impact polystyrene/i, 'HIPS']];
+    const isA = (text) => [...String(text ?? '').matchAll(/\b(?:is|are)\s+(?:an?|the)\b[^.]{0,80}/gi)].map((m) => m[0]).join(' . ');
+    for (const where of [product, isA(context.title), isA(context.body), context.composition]) {
+      const hit = chemistry.find(([re]) => re.test(String(where ?? '')));
+      if (hit) return { polymer: hit[1], how: `support chemistry: ${hit[1]} (R076)` };
+    }
+    // "Support for PA12" first, wherever it stands, and only then "PLA support": "a break away support for
+    // interface with PLA" has "away support" before it. The name may fuse the word ("PolySupport for PA12").
+    // "Specially developed for printing process with …" names no material, so each statement is tried in turn.
+    const said = `${product} ${isA(context.body)}`;
+    const targets = [...said.matchAll(/support\b[^.]{0,30}?\bfor\s+([A-Za-z0-9/ -]{2,20})/gi),
+      ...said.matchAll(/\b([A-Za-z0-9/-]{2,12})\s+(?:cf\s+)?support\b/gi)].map((m) => m[1]);
+    const nameFor = (target) => (/\b(PA\d*|PPA|PAHT|nylon|polyamide|PET)\b(?!G)/i.test(target) ? 'Support for PA/PET'
+      : /\bPETG\b/i.test(target) ? 'Support for PLA/PETG' : /\b(ABS|ASA)\b/i.test(target) ? 'Support for ABS' : /\bPLA\b/i.test(target) ? 'Support for PLA' : null);
+    const target = targets.find(nameFor) ?? '';
+    const name = nameFor(target);
+    const material = name ? (world.materials ?? []).find((m) => m.Abbreviation === name) : null;
+    return material ? { materialId: material.MaterialID, polymer: material['Base polymer'], how: `a breakaway support for ${target.trim()}: ${name} (R076)` } : null;
+  })();
+  // Its polymer is its chemistry, or for one filed by what it supports the base polymer that material records.
+  if (supportPick?.polymer) { polymer = { token: supportPick.polymer.toLowerCase(), value: supportPick.polymer }; }
+  if (supportPick) signals.push(supportPick.how);
+
   const reasons = [];
-  if (support) reasons.push(`"${product}" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports`);
+  if (support && !supportPick) reasons.push(`"${product}" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports`);
   if (!polymer) reasons.push(`no base polymer in "${product}"`);
   else if (!polymer.value) reasons.push(`"${polymer.token}" names a family, not a polymer: ${polymer.note}`);
   if (modifier && !modifier.value) reasons.push(`"${modifier.token}" has no value in schema/vocab/modifiers.csv: ${modifier.note}`);
@@ -363,7 +393,9 @@ export function classifyProduct(product, context = {}, world = {}) {
     // "PLA/PHA" names both parts of a blend the database holds a row for, which is the blend naming itself.
     polymer = asBlend(distinct, blendNamed);
     signals.push(`name: ${distinct.join('/')} is the blend ${blendNamed}`);
-  } else if (distinct.length > 1 && !namedByARuling) {
+  } else if (distinct.length > 1 && !namedByARuling && !supportPick) {
+    // (A support's name names what it supports — "Support for PLA/PETG", "Support for ABS" — not what it is made
+    // of: R076 filed it above, by its chemistry or by that name.)
     // A ruling that names this product has already read the name: Siraya Tech's "Fibreheart PAHT CF (PPA based)"
     // names one polymer twice — PAHT is the trade descriptor and PPA the polymer it says it is based on — and
     // R086 says so. Asking the same question again of a product a ruling answers for would hold it forever.
@@ -389,7 +421,8 @@ export function classifyProduct(product, context = {}, world = {}) {
     confidence -= 0.3;
   }
 
-  const match = matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [] });
+  const match = supportPick?.materialId ? (world.materials ?? []).find((m) => m.MaterialID === supportPick.materialId)
+    : matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [] });
   if (!match) {
     const collision = collidesWith(identity, world.materials ?? []);
     if (collision) reasons.push(`a new material here would duplicate ${collision.MaterialID} ${collision['Original name']}, which already holds ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
