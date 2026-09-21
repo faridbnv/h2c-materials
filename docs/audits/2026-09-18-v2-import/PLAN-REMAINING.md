@@ -55,7 +55,7 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 1.1 | FormFutura: recursive staging, layout parity, batch b28 | 1½ | done 2026-09-21 (b28, m107–m111) |
 | 1.2 | iSANMATE: staging, layout parity, batch b29 | ½ | done 2026-09-21 (b29, m112; parity 61 %, completeness measured) |
 | 1.3 | Verdicts by witness, batch b30 | 1½ | done 2026-09-21 (b30, m117; R099–R164) |
-| 1.4 | Supports, density-unit misreads, the six unsettled, batch b31 | 1 | mostly in b30 (R076, R098, m114, m116); left: polymer rows, WearX |
+| 1.4 | Supports, density-unit misreads, the six unsettled, batch b31 | 1 | done 2026-09-21 in b30 (R076, R098, m114, m116); PEKK/PAEK rows wait with Stratasys's reader gap (1.7); PMMA, SBC, PI and WearX to the owner's list |
 | 1.5 | Batch b27 applied | 1 | |
 | 1.6 | Second read: the findings register, the corrections | 1 | |
 | 1.7 | The tail: twins, no-values, unreachable, several-values, low-parity makers, `deferred` | 1½ | |
@@ -375,10 +375,11 @@ second thirty-per-cent grade (four findings accepted).
 ## 8. Where to pick this up
 
 1. `npm run ingest:inventory -- --status`, `npm run ingest:blockers`, `npm run ingest:readings`.
-2. The first step in §3 without a date in its State column. After b30 that is what is left of **1.4**: a
-   polymers.csv row each for PEKK/PAEK, PMMA, SBC and PI from a producer's reference (R081), and WearX's
-   copolymer. Then **1.5**, batch b27. What b28 to b30 left waiting is in their READMEs' last sections; b30's is
-   the owner's list: family-only names, contradicting maker documents, resin makers' sheets, and TPS under R056.
+2. The first step in §3 without a date in its State column. After b30 that is **1.5**, batch b27. What b28 to
+   b30 left waiting is in their READMEs' last sections; b30's is the owner's list: family-only names, contradicting
+   maker documents, resin makers' sheets, TPS under R056, and single sheets whose polymer has no row (PMMA, SBC, PI).
+   A polymer row for PEKK and PAEK is worth writing only with Stratasys's condition-table rule, which holds both
+   sheets anyway (1.7).
 3. Before committing: `npm run verify:fast`; `npm run verify` once per batch; `npm run ingest:propose -- --compare
    --all` if the reader changed. A parity drop after a reader fix may be the recorded rows being wrong: it happened
    three times, and each time the migration that corrected them brought the census back.

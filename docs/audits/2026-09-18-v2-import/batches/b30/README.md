@@ -71,4 +71,5 @@ foamed-grade windows this batch needed (W0109, W0110), and m116 took Yousu's rev
 | 3 | supports that name no chemistry: AquaPrint, AquaSys GP, ABS-R + RapidRinse | owner |
 | 1 | Ultrafuse PA: its sheet says "due to its glass reinforcement" and prints an unfilled PA6/66's numbers | owner |
 | 1 | colorFabb's 2015 "20% milled carbon fibres": names no product; only a shop's link says XT-CF20 | owner |
+| 1 | 3DXTECH WearX "PA6 Copolymer": melts at 198 °C, which is a copolyamide's, not PA6's; R128 (PA6) withdrawn, and 3DXTECH names no comonomer | owner |
 | 1 | 3DJake's eSUN ePC: a density of 1.12 g/cm³ below polycarbonate's, and its sheet says neither foam nor softer grade | owner |
