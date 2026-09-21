@@ -1,7 +1,7 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-20, after batches b01 to b20 brought
-144 materials, 830 grades, 9,311 measurement rows and 1,092 sources in. It is here so that nobody has to
+What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b25 brought
+145 materials, 900 grades, 9,466 measurement rows and 1,173 sources in. It is here so that nobody has to
 rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
@@ -12,50 +12,42 @@ generated. It is not the audit history: what each review found and what happened
 
 ---
 
-## 1. Transcription damage: 74 measurements carry the wrong text in `Standard / load`
+## 1. The test method 20 measurements were published without
 
-**The most serious item here.** 74 rows, across 22 sources, hold a fragment of the neighbouring column instead
-of the test standard, and leave the standard unnamed. It was 133 rows over 56 sources when this page was written
-and 96 over 30 on 2026-09-19; the difference is sheets re-read since, not rows removed:
+**Closed on 2026-09-21 by m101**, which corrected 70 rows across 19 sources. What is left is not damage.
 
-```
-Modulus · Strength · Elongation · Deflection · Temperature · Transition Temperature · (X-Y)
-ter Absorption Rate 25 °C, 55% RH · te 25 °C, 55% RH · ate 25 °C, 55% RH · ption 25 °C, 55% RH
-rated Water Absorption Rate 25 °C, 55% RH · tion Rate 25 °C, 55% RH, room air
-DSC, · ISO · ISO 179, · ASTM · N/A · Prusa Polymers
-```
+The 74 rows this section counted held a fragment of the neighbouring column instead of the test method: the tail
+of a Subject ("Transition Temperature"), the head of a Testing Method ("DSC,", "ISO 179,", "ASTM"), or the
+direction that followed it ("(X-Y)"). Bambu Lab's properties table is `Subjects | Testing Methods | Data` and
+the original extraction cut it in the wrong place; Polymaker prints a method once between a property's two
+direction rows, and the second row kept only its first word. The values were never affected — they come from the
+Data cell and reconcile against their raw text on every build. Each of the 70 was re-read from its own cached,
+hash-checked source, matched to its sheet row by its property, its direction and its load, and given the method
+that row prints (D35).
 
-Most are Bambu Lab data sheets, whose properties table is `Subjects | Testing Methods | Data`. The original
-extraction took the tail of the Subject and the head of the Testing Method, so "Glass Transition Temperature |
-DSC, 10 °C/min" became "Transition Temperature". The **values are not affected** — those come from the Data
-column and reconcile against their raw text on every build — only the standard they were tested to.
+**Twenty rows were read and deliberately left as they stand, because the fragment is what the sheet prints:**
 
-Since m49 the typed `Standards` column reads these as naming no standard, which is true of the text as it stands,
-so nothing downstream infers a standard from them. No headline or estimate depends on the field.
+| Rows | Source | What the sheet prints |
+|---:|---|---|
+| 10 | Polymaker's PolyLite, PolyMax, PolyMide, PolySonic and Polymaker sheets | `N/A` in the Testing Method column, for thermal conductivity |
+| 5 | Prusament PVB | `Prusa Polymers` — Prusa's own measurement, for density, both moisture absorptions, hardness and interlayer adhesion |
+| 5 | iSANMATE PLA-GF and PA6-CF | a bare `ISO`, beside four values and nothing more |
 
-**The fix** is to re-read each source and correct the raw text (D35), matching each measurement to its sheet row by
-the Data cell, which identifies the row beyond doubt. The sources are cached under `.cache/sources/` and
-hash-matched, so no new retrieval is needed. It was deliberately not done during the 2026-09-17 model freeze:
-every one of those rows has an obvious-looking answer, and a standard nobody read off a sheet is exactly what this
-database exists not to hold.
+A sheet being vague is not transcription damage, and a standard nobody read off a sheet is exactly what this
+database exists not to hold. The same applies to the six `Method A` / `Method B` rows this section used to count
+separately: Siraya Tech prints "Method A/B" beside a pair of heat deflection temperatures and names no standard,
+and the load each row was measured at is typed in `Test load MPa`.
 
 ```bash
-npm run sql --silent -- "select sourceid, count(*) n, group_concat(distinct standard_load) from measurements
+npm run sql --silent -- "select sourceid, standard_load, count(*) n from measurements
   where standards = 'Not published' and standard_load in ('Modulus','Strength','Elongation','Deflection',
   'Temperature','Transition Temperature','(X-Y)','DSC,','ISO','ISO 179,','ASTM','N/A','Prusa Polymers')
-  group by 1 order by n desc"
+  group by 1, 2 order by n desc"
 ```
 
-A further **6 rows** say only `Method A` or `Method B`, which are ISO 75's methods (A is 1.80 MPa, B is 0.45 MPa).
-The load is typed correctly in `Test load MPa`; only the standard is unnamed. Same fix, smaller.
-
-Twenty batches of imported sheets have added none of this damage: `scripts/ingest/propose.mjs` reads a standard
-by its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed `Standards` and
-raw text disagree. Every one of the 74 predates the pipeline. b20 added the last guard the reader was missing
-there: a digit a closing bracket follows is a footnote marker and not part of a designation, which is what made
-"DIN EN ISO 62 1)" into ISO 621.
-
----
+Twenty-five batches of imported sheets have added none of this damage: `scripts/ingest/propose.mjs` reads a
+standard by its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed
+`Standards` and raw text disagree.
 
 ## 2. Twenty-six published values that physics rules out
 
@@ -194,37 +186,28 @@ npm run sql --silent -- "select sourceid, access_state, access_note from sources
 
 ---
 
-## 9. Fifteen print setups carry a neighbouring column's sentence
+## 9. The column beside the printing table
 
-The same transcription damage as item 1, in `profiles.csv` rather than `measurements.csv`. A data sheet prints its
-storage paragraph or its marketing column beside the printing table, extraction interleaves the two by line, and
-the setting cell kept what followed it:
+**Closed on 2026-09-21 by m102**, which corrected 130 cells across 31 profiles.
 
-```
-Nozzle °C = 230-260°C STORAGE AND SHELF LIFE
-Bed °C    = 60-80°C Filament should be stored in a dr y room at room
-Nozzle °C = 250-300 °C Printing speed Up to 300mm/s
-Bed °C    = 40-50 °C Drying temp. and time 100 °C/10H PolySupport(TM) for PA
-Nozzle material = Ye s
-```
+A data sheet prints its storage paragraph beside its printing table, extraction interleaves the two by line, and
+the setting cell kept what followed it: `240-290°C STORAGE AND SHELF LIFE`, `80-100°C Filament should be stored
+in a dr y room at room`. The windows were never affected — `parseTemperature` reads the range at the head of the
+cell and stops — but the text a reader is shown was nonsense, and two makers' layouts swallowed data that belongs
+in a column of its own. Every cell was re-read from its own cached, hash-checked source (D35).
 
-**The windows are not affected.** `parseTemperature` reads the range at the head of the cell and stops, so
-`Nozzle min °C`, `Nozzle max °C` and every state and requirement beside them are right, and nothing downstream
-reads the raw text. What is wrong is the text a reader is shown, and what is lost is the data sitting inside it:
-the Fiberon and Polymaker sheets state a print speed, a drying schedule and a support pairing in those cells,
-which belong in `profile_notes.csv`, `Drying` and `Support pairing`.
-
-Five `profile_notes` rows carry the same damage (`P0092`, `P0111`, `P0114` and both notes of `P0120`), and
-**18 `Nozzle material` cells** read `recommended No`, `recommended Yes` or `Ye s`, which is the sheet's "hardened
-nozzle recommended" with the neighbouring column's answer stuck to it. The typed state beside them is right.
-
-**The fix** is a re-read of each source (D35), which `scripts/ingest/propose.mjs` now does correctly: it reads a
-setting by its own label, takes the value from the label's own cell, and stops where the next column begins. It
-reads those twelve Spectrum sheets at 100% parity, so the corrected cells are a proposal away. What is missing is
-the path that turns a proposal for a document already registered into corrections rather than new rows: the plan's
-`edits[]`, through `scripts/migrate/source-edits.mjs`, so each correction names the value it replaces. Ten of the
-fifteen are Spectrum sheets and five are Polymaker and Fiberon ones, whose print speed and drying schedule move
-into the columns that own them in the same re-read.
+- **Eleven setting cells** that kept a neighbour's sentence now hold what their own cell prints.
+- **Five Fiberon sheets** print their printing table two columns wide, and the right-hand column stood in the
+  left-hand cells: "Nozzle temperature 280-300 °C Printing speed Up to 300mm/s" is two settings, not one. Their
+  drying schedules (100 °C/10H) and the supports Polymaker pairs them with (PolySupport™, PolyDissolve™ S1) are
+  now in the columns that own them, and the printing speeds in profile notes. The annealing schedules beside
+  them were already on every measurement of those sources, where an annealing belongs.
+- **Twenty-six `Nozzle material` cells** read `recommended No`, `recommended Yes` or `Ye s`. Spectrum asks the
+  question in the label — "Ruby or hardened nozzle recommended" — and answers it in the cell, which now holds
+  the answer. Twenty of those answers are **No**, which the database was not recording at all: their
+  `Abrasion / clogging` column said "Not published" while the sheet plainly said a hardened nozzle is not
+  needed. `parseAbrasion` now reads an answer where the label asks the question, and six materials — PETG,
+  PETG-ESD, ASA, PEBA, PE, PLA-ESD — say "no special concern" instead of "unknown".
 
 ```bash
 npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), substr(bed_c,1,40) from profiles

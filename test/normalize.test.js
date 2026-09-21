@@ -175,6 +175,16 @@ test('nozzle, drying and abrasion text', () => {
   assert.equal(parseAbrasion('Use abrasion-resistant nozzle; verify minimum orifice.').requiresHardened, true);
   assert.equal(parseAbrasion('No special concerns').requiresHardened, false);
   assert.equal(parseAbrasion('Not published').requiresHardened, null);
+  // A sheet that asks the question in the label and answers it in the cell is answering it. Spectrum prints
+  // "Ruby or hardened nozzle recommended | No" for its unfilled filaments; read by its words alone that row
+  // says "hardened", which is the opposite of what the sheet says.
+  assert.equal(parseAbrasion('Ruby or hardened nozzle recommended No').requiresHardened, false);
+  assert.equal(parseAbrasion('Ruby or hardened nozzle recommended Yes').requiresHardened, true);
+  assert.equal(parseAbrasion('Ruby or hardened nozzle Yes').requiresHardened, true);
+  assert.equal(parseAbrasion('Hardened nozzle: not necessary').requiresHardened, false);
+  // And a statement that names the nozzle it wants is still a statement, whatever word it ends on.
+  assert.equal(parseAbrasion('Hardened steel, diamond, tungsten carbide, etc').requiresHardened, true);
+  assert.equal(parseAbrasion('Abrasive milled carbon fibre; accelerated brass wear').requiresHardened, true);
 });
 
 // Every temperature the app shows carries its unit. The gate reasons were the one place that

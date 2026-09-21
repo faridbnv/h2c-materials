@@ -1868,3 +1868,8 @@ P0927,Cooling,0 – 100 %
 P0927,Speed,40 – 100 mm/s
 P0928,Cooling,0-100%
 P0928,Speed,40-100 mm/s
+P0084,Speed,Up to 300mm/s
+P0074,Speed,Up to 300mm/s
+P0078,Speed,Up to 300mm/s
+P0083,Speed,Up to 300mm/s
+P0095,Speed,Up to 250mm/s

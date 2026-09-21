@@ -217,6 +217,16 @@ export function parseAbrasion(raw) {
   const text = raw == null ? '' : String(raw).trim();
   if (!text || /^not published$/i.test(text)) return { text, requiresHardened: null, state: PROCESS_STATE.UNKNOWN };
   if (/no special concerns/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // A sheet that asks the question and answers it is answering it: Spectrum prints "Ruby or hardened nozzle
+  // recommended | No" for its unfilled filaments and "| Yes" for its carbon-filled ones, one row of a table
+  // whose label is the question. Read by its words alone, the "No" row says hardened — which is the opposite of
+  // what the sheet says, and would put twenty ordinary PLAs and PETGs behind a hardened nozzle.
+  const answer = /\b(yes|no|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
+  if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {
+    const says = answer[1].toLowerCase();
+    if (says === 'no' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
+    return { text, requiresHardened: true, state: 'stated' };
+  }
   if (/abrasi|hardened|carbide|diamond/i.test(text)) return { text, requiresHardened: true, state: 'stated' };
   return { text, requiresHardened: null, state: PROCESS_STATE.UNKNOWN, unparsed: true };
 }
