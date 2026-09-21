@@ -482,3 +482,12 @@ M147,density,V009643,context
 M147,hdt045,V009650,context
 M148,density,V009726,value
 M148,hdt045,V009734,context
+M150,density,V010000,value
+M151,density,V010100,value
+M151,tensileModulusXY,V010102,value
+M151,tensileStrengthXY,V010101,value
+M151,elongationXY,V010103,value
+M152,density,V010252,value
+M156,density,V010359,value
+M156,hdt045,V010365,value
+M157,density,V010383,value

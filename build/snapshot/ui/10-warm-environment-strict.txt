@@ -1,7 +1,7 @@
 COUNT 23 shown PASS
-STATUS ☑ PASS 23 | ☐ UNKNOWN 65 | ☐ FAIL 56
-23 of the 144 materials in this database meet these requirements
-65 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+STATUS ☑ PASS 23 | ☐ UNKNOWN 73 | ☐ FAIL 56
+23 of the 152 materials in this database meet these requirements
+73 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -40,7 +40,7 @@ ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
 ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
 CPE
 Copolyesters
- PASS 1,250 1.55* 47* 150* 80 — ☆
+ PASS 1,250 1.85* 55* 6.2* 80 — ☆
 HIPS
 Styrenics
  PASS 1,040 1.35 40* 18 80 43↗ ☆

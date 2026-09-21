@@ -1,0 +1,1396 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "34f028a12c8cfa940d8b95df18918b63ed079346363212618c68cb86d66b3b7c",
+    "url": "https://www.stratasys.com/contentassets/6729604c61704654ac5c0392276a2d57/mds_fdm_diran410mf07_0224a-1.pdf?v=4aa22c",
+    "pages": 9,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/contentassets/6729604c61704654ac5c0392276a2d57/mds_fdm_diran410mf07_0224a-1.pdf?v=4aa22c"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"FDM Thermoplastic\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+      "Publisher": "Stratasys",
+      "Title": "Diran 410MF07",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/contentassets/6729604c61704654ac5c0392276a2d57/mds_fdm_diran410mf07_0224a-1.pdf?v=4aa22c",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "34f028a12c8cfa940d8b95df18918b63ed079346363212618c68cb86d66b3b7c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Diran 410MF07"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "FDM Thermoplastic",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Composition / filler": "Diran™ 410MF07 is a nylon-based thermoplastic FDM material, mineral-filled 7% by weight. It demonstrates very good (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Diran 410MF07"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66psi ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties · Property Test Method · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 4: HDT @ 66psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66psi 90 °C (194 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties · Property Test Method · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 4: HDT @ 66psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66psi 90 °C (194 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "70 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264psi ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties · Property Test Method · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 4: HDT @ 264psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264psi 70 °C (158 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "70 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties · Property Test Method · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 4: HDT @ 264psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264psi 70 °C (158 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Volume resistivity",
+        "Raw value": "1.50*10^15 Ω·cm",
+        "Raw unit": "Ω·cm",
+        "Raw numeric": "1500000000000000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1500000000000000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω·cm",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D257",
+        "Standards": "ASTM D257",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties · Property Test Method · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 4: Volume Resistivity ASTM D257",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Volume Resistivity ASTM D257 1.50*10^15 Ω·cm"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Volume resistivity",
+        "Raw value": "1.50*10^15 Ω·cm",
+        "Raw unit": "Ω·cm",
+        "Raw numeric": "1500000000000000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1500000000000000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω·cm",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D257",
+        "Standards": "ASTM D257",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties · Property Test Method · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 4: Volume Resistivity ASTM D257",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Volume Resistivity ASTM D257 1.50*10^15 Ω·cm"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. Diran 410MF07 Thermoplastic Filament Mechanical Properties",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 4.3 (0.041)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "12 %",
+        "Raw unit": "%",
+        "Raw numeric": "12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. Diran 410MF07 Thermoplastic Filament Mechanical Properties",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 12 (3.2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. Diran 410MF07 Thermoplastic Filament Mechanical Properties",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 3.1 (1.0)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "26.8 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "26.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Table 3. Diran 410MF07 Thermoplastic Filament Mechanical Properties · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 6: J/m Izod, Notched",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "J/m 26.8 (5.3)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "30 %",
+        "Raw unit": "%",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4. Diran 410MF07 Change in Tensile Properties – 72 Hours · Reagent",
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a-1",
+        "Locator": "p. 7: Elongation @ Break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "30% Sulfuric Acid -23%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Diran 410MF07",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Diran™ 410MF07 is a nylon-based thermoplastic FDM material, mineral-filled 7% by weight. It demonstrates very good",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Overview …………………………………………………………………………………...........................................…………............. 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information ……………………………………………………………....................................................……………………. 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ............................................................................................................................................",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties …………………………..……………………................................……...................………………………...... 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "UV Aging and Chemical Resistance Data …………………………………..……………………................................……................... 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ………………………………………………………………………………................................……………...........……..… 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3D Printer Compatibility: F370™ and F370 CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Support Material: SUP4000B™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Build Tray: F370/F370CR, High Temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1. Diran 410MF07 Thermoplastic Filament Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-90410 Diran 410MF07, 90 cu in, F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-60400 SUP4000B™, 60 cu in, F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00402-S F123 Standard Head (All Layer Heights)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00314-S F370/F370CR Build Tray, High Temperature",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 2. Diran 410MF07 Thermoplastic Filament Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg 117.34 °C (243.21 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg 117.34 °C (243.21 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "56.60 μm/[m·°C]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "112.6 μm/[m·°C]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(31.44 μin/[in·°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(62.56 μin/[in·°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(40 °C to 140 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 3.58",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 3.73",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 2.85",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.013",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.012",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D792",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 2.95",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "Specific Gravity 1.16",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "@ 23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Specific Gravity 1.16",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Samples were printed with 0.010 in. (0.254 mm) layer height. For the full test procedure please see the Stratasys Materials Test",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 3. Diran 410MF07 Thermoplastic Filament Mechanical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(1) (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 44.8 (1.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 6490 (220)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 40.4 (3.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 30.7 (2.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 5860 (440)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 4460 (290)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.69 (0.017)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.46 (0.021)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 246 (2.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 212 (3.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 46.7 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 6770 (330)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 59.9 (1.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strength @ 5% Strain",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 8690 (230)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % 3.1 (0.53)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.85 (0.043)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.47 (0.065)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 268 (6.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 213 (9.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 6,
+      "text": "MPa 75.8 (4.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 163 (30)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 11000 (630)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 23600 (4300)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.54 (0.026)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.46 (0.022)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 223 (3.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 212 (3.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 442 (76)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 8.28 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 0.502 (0.10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 1420 (200)",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 6,
+      "text": "J/m 142 (25)",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 26.5 (3.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 2.66 (0.46)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(1) Values in parentheses are standard deviations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Diran410MF07 was tested for resistance to chemical exposure by soaking coupons in reagents for 72 hours. Afterwards the coupons",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "were tensile tested following ASTM D638. Chemicals tested and percent change from control is listed below.",
+      "reason": "properties.csv carries no property for \"were tensile tested following\""
+    },
+    {
+      "page": 7,
+      "text": "Table 4. Diran 410MF07 Change in Tensile Properties – 72 Hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Nitric Acid -54%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Nitric Acid -63%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Sulfuric Acid -33%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Sulfuric Acid -47%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40% NaOH 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40% NaOH -24%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Concentrated Ammonia -47%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Concentrated Ammonia -57%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Nitric Acid -47%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Nitric Acid -18%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Sulfuric Acid -28%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40% NaOH -41%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40% NaOH -20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Concentrated Ammonia 545%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Concentrated Ammonia -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Nitric Acid -70%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Nitric Acid -50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Sulfuric Acid 1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "30% Sulfuric Acid -9%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40% NaOH 26%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "40% NaOH 8%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Concentrated Ammonia -49%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Concentrated Ammonia -30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Diran 410MF07 was tested before and after UV exposure. Ten ASTM D638 upright (ZX) dogbones were tested in tensile after UV",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "exposure and an additional 10 ASTM D638 ZX dogbones were the control (No UV Exposure). The UV exposed samples were cycled",
+      "reason": "properties.csv carries no property for \"exposure and an additional 10\""
+    },
+    {
+      "page": 7,
+      "text": "in the QUV chamber per ASTM G154 (Standard Practice for Operating Fluorescent Ultraviolet (UV) Lamp Apparatus for Exposure",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "of Non-Metallic Materials) for 1000 hours, alternating for 8 hours at 60 °C (140 °F) and 4 hours at 50 °C (122°F) with humidity and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 5. Diran 410MF07 UV Exposure Test Results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "No UV Exposure 3760 26.0 3780 26.0 2.5",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "No UV Exposure 3760 26.0 3780 26.0 195 1.34",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "Diran 410MF07",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "UV Exposure 3830 26.4 3840 26.5 2.3 1.80",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "UV Exposure 3830 26.4 3840 26.5 227 1.56",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "Diran 410MF07 coupons were built on the F370 using the standard F123 head.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Figure 1. 2nd heating scan, DSC, for Diran 410MF07",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Tg: Half Cp Extrapolated = 117.34 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Delta Cp = 0.277 J/g*°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Figure 2. TMA CTE curve inplane with the layer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Diran 410MF07 Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Figure 3. TMA CTE curve normal to the layer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "7665 Commerce Way, 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Eden Prairie, MN 55344 PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+1 800 801 6491 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+1 952 937-0070 (Fax) +972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ISO 9001:2015 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "© 2024 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, and Fortus are registered trademarks of Stratasys Inc. F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "and Diran 410MF07 are trademarks of Stratasys, Inc. All other trademarks are the property of their respective owners, and Stratasys assumes no",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Diran 410MF07 Data Sheetnotice. MDS_FDM_Diran410MF07_0224a.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

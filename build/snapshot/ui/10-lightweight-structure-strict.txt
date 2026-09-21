@@ -1,7 +1,7 @@
 COUNT 23 shown PASS
-STATUS ☑ PASS 23 | ☐ UNKNOWN 40 | ☐ FAIL 81
-23 of the 144 materials in this database meet these requirements
-40 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
+STATUS ☑ PASS 23 | ☐ UNKNOWN 45 | ☐ FAIL 84
+23 of the 152 materials in this database meet these requirements
+45 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.

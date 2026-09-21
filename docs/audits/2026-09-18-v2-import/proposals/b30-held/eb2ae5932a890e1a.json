@@ -1,0 +1,449 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "eb2ae5932a890e1ac290d8dd4ca5a97bbb0b5c87dbb0b21736e35dee98bd89ae",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=1346",
+    "pages": 1,
+    "provider": "Filament2Print",
+    "manufacturer": "Filament2Print",
+    "docKey": "eb2ae5932a890e1a"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Product: iglidur A350 3D-printed 26.11.2019\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Iglidur",
+      "Publisher": "Filament2Print",
+      "Title": "Product Data Sheet Product: iglidur® A350 3D-printed 26.11.2019",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=1346",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "eb2ae5932a890e1ac290d8dd4ca5a97bbb0b5c87dbb0b21736e35dee98bd89ae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Product Data Sheet Product: iglidur® A350 3D-printed 26.11.2019"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "Product: iglidur A350 3D-printed 26.11.2019",
+        "Shared formulation key": "R-FILAMENT2PRINT-Iglidur",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Iglidur",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Product Data Sheet Product: iglidur® A350 3D-printed 26.11.2019"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.42 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.42",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1420",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Iglidur",
+        "Locator": "p. 1: density:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "density: 1.42 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1390 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1390",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.39",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1250 /",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Iglidur",
+        "Locator": "p. 1: flexural modulus: 1250 /",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "flexural modulus: 1250 / 1390 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "46 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "46",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 /",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Iglidur",
+        "Locator": "p. 1: flexural strength: 50 /",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "flexural strength: 50 / 46 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "76",
+        "Raw unit": "Shore D",
+        "Raw numeric": "76",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "76",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Iglidur",
+        "Locator": "p. 1: Shore D hardness:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D hardness: 76"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "10^10 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "10000000000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "10000000000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Iglidur",
+        "Locator": "p. 1: surface resistivity:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "surface resistivity: >10^10 Ω"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "saturation with moisture absorption at 23°C / 50% r. h.: 0.6 weight %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "saturation with water: 1.9 weight %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4) 5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4) 5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "max. permissible surface pressure at 20 °C: 35 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": ": 180°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1), 2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": ": 210°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1), 2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": ": 260°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "lowest service temperature: -100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "specific volume resistivity: >10^11 Ωcm",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "depending on 3D printer and printing parameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Erstellt: 26.11.2019 / Niklas Eutebach / Entwicklung additive I:\\QS\\Qmdok\\Formular\\Allgemein\\Entwicklung\\F-2-0105 Vorlage Werkstoffdatenblatt.dot",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Geändert: QS-Nr.: F-2-0105-C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Seite 1 von 1",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

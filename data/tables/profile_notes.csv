@@ -1908,3 +1908,115 @@ P0976,Retraction,1-2mm
 P0977,Cooling,Speed 100
 P0977,Speed,30
 P0977,Retraction,Off Recommended
+P0978,Speed,20-40 mm/s
+P0978,Retraction,"s speed 35-50 mm/s at a distance of 2,5-6 mm"
+P0979,Cooling,100%
+P0979,Speed,30mm/s
+P0980,Cooling,0-50 %
+P0980,Speed,40-70 mm/s
+P0981,Layer height,0.2 mm
+P0981,Speed,(mm³/s) 3.5 mm³/s
+P0981,Adhesion / release,30% - 9.55 mm/s
+P0981,Retraction,2.5–5.0 mm
+P0985,Adhesion / release,not required
+P0985,Speed,20-40mm/s
+P0985,Cooling,10-30%
+P0986,Adhesion / release,"Print the first layer slower (e.g., 15-20mm/s) and slightly hotter (e.g., +5°C o"
+P0986,Speed,30-120mm/s
+P0987,Speed,40 – 80 mm/s
+P0990,Speed,50-100mm/s
+P0990,Retraction,1-3 (mm)
+P0990,Cooling,OFF-20%
+P0991,Cooling,100%
+P0992,Adhesion / release,not required
+P0992,Speed,20-200mm/s
+P0992,Cooling,30-100%
+P0993,Speed,of printing 20–30 mm/s
+P0994,Cooling,Speed 20-50%
+P0994,Speed,30-100mm/s
+P0994,Retraction,Spe ed 25-35mm/s
+P0995,Speed,50-200mm/s
+P0995,Retraction,1-3 (mm)
+P0995,Shell / walls,2
+P0996,Speed,50-200mm/s
+P0996,Retraction,1-3 (mm)
+P0996,Shell / walls,2
+P0997,Speed,40-100 mm/s
+P0999,Layer height,0.2 mm
+P0999,Speed,(mm³/s) 5.0 mm³/s
+P0999,Adhesion / release,30% - 13.64 mm/s
+P0999,Retraction,2.5–6.0 mm
+P1000,Shell / walls,linecount:2
+P1001,Shell / walls,linecount:2
+P1002,Speed,50-150mm/s
+P1002,Retraction,1-3 (mm)
+P1004,Speed,60 mm/s
+P1005,Speed,30-50 (mm/s)
+P1005,Adhesion / release,separation distance 0.2 (mm)
+P1005,Retraction,3 (mm)
+P1005,Shell / walls,2
+P1006,Speed,30-50 (mm/s)
+P1006,Adhesion / release,separation distance 0.2 (mm)
+P1006,Retraction,3 (mm)
+P1006,Shell / walls,2
+P1007,Shell / walls,linecount:2
+P1008,Shell / walls,linecount:2
+P1009,Speed,60mm/s
+P1009,Shell / walls,1.2mm
+P1009,Cooling,50~100%
+P1009,Layer height,0.12~0.3mm
+P1009,Retraction,1~2mm
+P1010,Speed,30-150 mm/s
+P1010,Layer height,0.2 mm
+P1011,Layer height,0.25mm
+P1012,Cooling,50 – 90 %
+P1012,Speed,40 – 70 mm/s
+P1014,Speed,40-60 (mm/s)
+P1014,Adhesion / release,separation distance 0.1-0.14 (mm)
+P1014,Retraction,1 (mm)
+P1014,Shell / walls,2
+P1015,Speed,40-60 (mm/s)
+P1015,Adhesion / release,separation distance 0.1-0.14 (mm)
+P1015,Retraction,1 (mm)
+P1015,Shell / walls,2
+P1016,Adhesion / release,not required
+P1016,Speed,20-200mm/s
+P1016,Cooling,30-100%
+P1017,Cooling,50 - 100%
+P1017,Speed,30 - 120 mm/s
+P1017,Retraction,0mm or OFF
+P1018,Cooling,50 - 100%
+P1018,Speed,30 - 120 mm/s
+P1018,Retraction,0mm or OFF
+P1019,Cooling,75 - 100 %
+P1021,Speed,20-40 mm/s
+P1021,Retraction,"s speed 35-50 mm/s at a distance of 2,5-6 mm"
+P1022,Speed,40 mm
+P1025,Adhesion / release,not required
+P1025,Speed,40-60mm/s
+P1025,Cooling,50-80%
+P1026,Speed,of printing 30–50 mm/s
+P1027,Cooling,0 %
+P1027,Speed,40-70 mm/s
+P1028,Layer height,0.2
+P1029,Cooling,0%
+P1029,Speed,40mm/s
+P1031,Cooling,50-100%
+P1031,Speed,30-120 mm/s
+P1031,Retraction,0.4-1 mm
+P1032,Layer height,0.2 mm
+P1032,Speed,(mm³/s) 4.0 mm³/s
+P1032,Adhesion / release,30% - 15.79 mm/s
+P1032,Retraction,1.5–2.0 mm
+P1033,Cooling,100%
+P1033,Speed,40-100 mm/s
+P1035,Cooling,50 %
+P1035,Speed,30-50 mm/s
+P1037,Speed,30-70 (mm/s)
+P1037,Adhesion / release,separation distance 0.2 (mm)
+P1037,Retraction,1 - 3 (mm)
+P1037,Shell / walls,2
+P1038,Speed,30-70 (mm/s)
+P1038,Adhesion / release,separation distance 0.2 (mm)
+P1038,Retraction,1 - 3 (mm)
+P1038,Shell / walls,2

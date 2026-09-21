@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "b9a9aaedec585155b842071016f04f5042ee52342864919e969ac4cfbd378bf4",
+    "url": "https://s1.raise3d.com/2023/03/Raise3D-Industrial-PET-Support_TDS_V1.pdf",
+    "pages": 2,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "b9a9aaedec585155"
+  },
+  "identity": {
+    "polymer": "Support",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: pet",
+      "filler: carbonfiber (from the sheet, not the name)",
+      "a breakaway support for PET CF: Support for PA/PET (R076)"
+    ],
+    "materialId": "M080",
+    "materialName": "Support for PA/PET",
+    "estimateIdentity": "Support",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Industrial-PET-Support-TDS-V1",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Industrial PET Support Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2023/03/Raise3D-Industrial-PET-Support_TDS_V1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b9a9aaedec585155b842071016f04f5042ee52342864919e969ac4cfbd378bf4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Industrial PET Support Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M080",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PET Support",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PET-Support-TDS-V1",
+        "Composition / filler": "Filament Program) certified carbon fiber reinforced composite filaments and is more cost-effective comparing with (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PET-Support-TDS-V1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Industrial PET Support Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M080",
+        "GradeID": "",
+        "Property": "Moisture content",
+        "Raw value": "0.4",
+        "Raw unit": "%",
+        "Raw numeric": "0.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 62",
+        "Standards": "ISO 62",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PET-Support-TDS-V1",
+        "Locator": "p. 1: Moisture content",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Moisture content (%) ISO 62: Method 0.4"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "the sheet prints \"Moisture content (%) ISO 62: Method 0.4\""
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PET Support_TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "02.2023 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PET Support Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PET Support Filament is a break-away support material specially GF.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "During 3D printing process, it creates a stable support structure, provides proper printed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "broad compatibility with Raise3D OFP (Open",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3 at 21.5 °C) ASTM D792 1.16",
+      "reason": "the sheet states Density in °C), and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "Melt index (g/10 min) 260 °C, 2.16 kg 5.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PET CF & PET GF ++",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. It is recommended to use hardening steel nozzle, tungsten steel or ruby",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. PET Support is sensitive to moisture and should always be stored and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(relative humidity below 15%).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Dry PET Support at 70 - 80°C for 4-6 hours before printing, moisture",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Industrial PET Support_TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "02.2023 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "practices of Raise3D materials for the intended application. Raise3D makes no warranty of any kind, unless",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "announced separately, to the fitness for any particular use or application. Raise3D shall not be made liable for any",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "damage, injury or loss induced from the use of Raise3D materials in any particular application.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21",
+    "note": "every row read against its line; the exceptions carry their own notes"
+  }
+}

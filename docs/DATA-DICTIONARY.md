@@ -826,6 +826,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | lightweight additive | A declared additive (hollow microspheres, a foaming agent) lowers the density well below the base polymer's; stiffness and strength may move with it. |
 | plasticised | A declared plasticiser lowers the density, the modulus and the softening point well below the neat polymer's; a plasticised PVC is a different material from the rigid one and its published values are its own. |
 | undisclosed dense filler | The published density or stiffness is beyond what the unfilled base polymer can reach, so the product contains a filler its maker does not name. |
+| declared softer grade | The maker declares a flexible or elastomeric grade of the named polymer (an elastomer-modified or low-comonomer grade, R098). Its density, modulus and softening point sit below the rigid polymer’s, it foams nothing, and the estimate model keeps its values from pulling the family. |
 
 <a id="vocab-h2c-status"></a>
 ### h2c-status
@@ -1266,6 +1267,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 15075 | Road-vehicle navigation systems, which is not a plastics test. Extrudr prints it on the heat-deflection row of its XPETG sheets, where ISO 75 is meant. It is recorded because the sheet names it (D35) and it backs no comparison. |
 | ISO 178 | Flexural properties of plastics. |
 | ISO 179 | Charpy impact strength. |
+| ISO 1798 | Tensile strength and elongation at break of flexible cellular polymeric materials; Siraya Tech cites it for the foamed PEBA Air. |
 | ISO 180 | Izod impact strength. |
 | ISO 2039 | Hardness by ball indentation. |
 | ISO 2577 | Shrinkage of thermosetting moulding materials; colorFabb cites it for the mould shrinkage of its copperFill. |
