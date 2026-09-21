@@ -55,18 +55,18 @@ document stays held under its ruling with the strike noted.
 | carbon | colorFabb | Not read | Not read | density 1,35 g/cm3; melting 235-255 °C — this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
 | colorFabb Woodfill Fine | colorFabb | Not read | Not read | this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
 | colorFabb XT Light Blue | colorFabb | Not read | Not read | this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
-| FiberFlex 30D | Fiberlogy | Not read | Not read | its numbers admit PA12, PP, PVDF, POM, PA11, PLA-PHB — melting 174 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
-| FIBERLOGY FIBERFLEX 30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 170 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
-| FIBERLOGY FIBERFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
-| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
-| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FiberFlex 30D | Fiberlogy | Not read | Not read | its numbers admit PA12, PP, PVDF, POM, PA11, PLA-PHB — melting 174 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
+| FIBERLOGY FIBERFLEX 30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 170 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
+| FIBERLOGY FIBERFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
+| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
+| FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
 | ultrafuse 17 4 ph | Ultrafuse | Not read | Not read | the sheet publishes no number and names no polymer this reader can map |
 | hi temp | BigRep | Not read | Not read | this maker's range: PLA×2, BVOH×1, ASA×1, ABS×1, PETG×1 |
 | hi temp cf | BigRep | Not read | Not read | density 1.36 g/cm3; vicat 165 °C; melting 180 °C — this maker's range: PLA×2, BVOH×1, ASA×1, ABS×1, PETG×1 |
 | pro ht | BigRep | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.3 g/cm³ — this maker's range: PLA×2, BVOH×1, ASA×1, ABS×1, PETG×1 |
 | purefil kerfil alumina | purefil | Not read | Not read | density 3.776 g/cm3 — this maker's range: PLA×6, ABS×3, PC×2, ASA×2, PA12×2 |
-| FIBERLOGY FIBERFLEX30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 174 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
-| FIBERLOGY FIBERFLEX40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 157 °C — this maker's range: PLA×10, PETG×8, ABS×6, CPE×3, PCTG×3 |
+| FIBERLOGY FIBERFLEX30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 174 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
+| FIBERLOGY FIBERFLEX40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 157 °C — this maker's range: PLA×11, PETG×8, ABS×6, PA12×4, CPE×3 |
 | Electrifi | Electrifi | Not read | Not read | density 2.0-4.0 g/cm³ — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | Iglidur | Iglidur | Not read | Not read | its numbers admit PET, POM — density 1.42 g/cm3 — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | Nuterials Jecto [EN] | Nuterials | Not read | Not read | polymers the page prints somewhere: PEI×1 — density 1.1-1.2 g/cm³; melting 150 °C — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |

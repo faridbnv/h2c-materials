@@ -1,0 +1,693 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "6facf3dae24322debb2abebf62579e7f7607b4c9ea3ce75f2f6fed38a468e114",
+    "url": "https://fiberlogy.com/app/uploads/2026/05/FIBERLOGY_FIBERWOOD_TDS.pdf",
+    "pages": 1,
+    "provider": "Fiberlogy",
+    "manufacturer": "Fiberlogy",
+    "docKey": "6facf3dae24322de"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "ruling R141: PLA"
+    ],
+    "materialId": "M014",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+      "Publisher": "Fiberlogy",
+      "Title": "TECHNICAL DATA SHEET Fiberlogy FiberWood",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/app/uploads/2026/05/FIBERLOGY_FIBERWOOD_TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6facf3dae24322debb2abebf62579e7f7607b4c9ea3ce75f2f6fed38a468e114"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET Fiberlogy FiberWood"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "Read against p. 1 by claude-optical: \"TRADE NAME: Fiberlogy FiberWood\". MaterialID: M001 -> M014. A name that carries the finish files under the finish material (R039): FiberWood is Fiberlogy's wood-effect PLA, which its own page titles \"FiberWood PLA Filament\"."
+      },
+      "row": {
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "FiberWood",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET Fiberlogy FiberWood"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.30 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Specific Density ISO 1183 g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Density ISO 1183 g/cm? 1.30"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "27 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "27",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Tensile Strength @ Yield ISO 527 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength @ Yield ISO 527 MPa 27"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "26",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Tensile Strength @ Break ISO 527 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength @ Break ISO 527 MPa 26"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3600 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3600",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Tensile Modulus ISO 527 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus ISO 527 MPa 3600"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "0.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Elongation @ Yield ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Yield ISO 527 % 0.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "0.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Elongation @ Break ISO 527 %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation @ Break ISO 527 % 0.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "14 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m? 14"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "50 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Heat Distortion Temperature @ 0.45 MPa ISO 75 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "65 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "65",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "65",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "Locator": "p. 1: Vicat Softening Temperature ISO 306 °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature ISO 306 °C 65"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png (Fiberlogy FiberWood, last update May 29, 2025): Specific Density ISO 1183 g/cm3 1.30; Tensile Strength @ Yield ISO 527 MPa 27, @ Break 26; Tensile Modulus ISO 527 MPa 3600; Elongation @ Yield ISO 527 % 0.9, @ Break 0.9; Charpy Impact Strength (Unnotched) @ 23°C ISO 179 kJ/m2 14; Heat Distortion Temperature @ 0.45 MPa ISO 75 °C 50; Vicat Softening Temperature ISO 306 °C 65. The page states no direction, specimen, conditioning or annealing for any value"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "180°C - 200°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "180",
+        "Nozzle max °C": "200",
+        "Nozzle requirement": "required",
+        "Bed °C": "50°C - 70°C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "70",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERWOOD-TDS",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Print Temperature: 180°C - 200°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "visual": true,
+        "note": "read against p-1.png: the page prints \"Print Temperature: 180°C - 200°C\" and \"Bed Temperature: 50°C - 70°C\", and no chamber, enclosure, plate, drying or nozzle guidance"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print Temperature",
+      "raw": "180°C - 200°C",
+      "fromBelow": false,
+      "line": "Print Temperature: 180°C - 200°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "50°C - 70°C",
+      "fromBelow": false,
+      "line": "Bed Temperature: 50°C - 70°C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "MANUFACTURER: Fiberlab S.A., Brzezie 387, 32-014 Brzezie, Poland",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75 mm or 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter Tolerance: +/- 0.02 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Avg Roundness: + 0.01 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Net Weight: 0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Last update: May 29, 2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberlab S.A., Brzezie 387, 32-014 Brzezie, Poland | VAT EU PL6772384498 | office@fiberlogy.com | +48 731 400 201",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21",
+    "note": "grade filed under PLA Wood by R039; every other row read against the page image by claude-optical"
+  },
+  "acceptances": [
+    {
+      "row": "m06",
+      "code": "MEAS-PHYSICS-WINDOW",
+      "field": "Normalized value",
+      "reason": "a wood-filled PLA breaks early: the sheet prints 0.9 % at break (ISO 527), read against the page image by claude-optical.",
+      "by": "claude-opus-5",
+      "date": "2026-09-21"
+    }
+  ]
+}

@@ -765,7 +765,7 @@ Warm environment,Explore with estimates,M139,LCP,UNKNOWN,yes,
 Warm environment,Explore with estimates,M140,PBT,UNKNOWN,yes,
 Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M143,nGen FLEX,UNKNOWN,yes,
-Warm environment,Explore with estimates,M145,PLA-PHA,UNKNOWN,yes,
+Warm environment,Explore with estimates,M145,PLA-PHA,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M146,PLA-PHB,UNKNOWN,yes,
 Warm environment,Explore with estimates,M147,PAHT,UNKNOWN,yes,
 Warm environment,Explore with estimates,M148,PAHT-CE,UNKNOWN,yes,
@@ -1014,7 +1014,7 @@ Flexible component,Explore with estimates,M086,OBC,UNKNOWN,yes,
 Flexible component,Explore with estimates,M089,CPE,UNKNOWN,yes,
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M091,CoPE,UNKNOWN,yes,
-Flexible component,Explore with estimates,M093,PVB,UNKNOWN,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M093,PVB,UNKNOWN,yes,
 Flexible component,Explore with estimates,M104,PA6-CE,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M105,ASA-EC,UNKNOWN,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M106,ABS-AF,UNKNOWN,screened,elongationXY >= 100

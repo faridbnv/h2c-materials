@@ -26,7 +26,7 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 153 materials, 139 of them in H2C scope
-10847 measurements, each traceable to a source
+10897 measurements, each traceable to a source
 127 have a density, 92 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer

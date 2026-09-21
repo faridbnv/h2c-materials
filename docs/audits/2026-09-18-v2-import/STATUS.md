@@ -8,10 +8,10 @@ can go stale without the command that made it saying so.
 | Table | Rows |
 |---|---:|
 | materials | 158 |
-| grades | 1,114 |
-| measurements | 11,046 |
-| sources | 1,416 |
-| profiles | 1,092 |
+| grades | 1,119 |
+| measurements | 11,096 |
+| sources | 1,422 |
+| profiles | 1,097 |
 | profile notes | 2,021 |
 | headlines | 493 |
 
@@ -21,10 +21,10 @@ can go stale without the command that made it saying so.
 
 | Status | Documents |
 |---|---:|
-| applied | 1,257 |
-| duplicate-of | 303 |
-| registered | 171 |
-| held | 120 |
+| applied | 1,264 |
+| duplicate-of | 302 |
+| registered | 172 |
+| held | 113 |
 | deferred | 104 |
 | safety-data-sheet | 49 |
 | not-a-data-sheet | 35 |
@@ -41,7 +41,6 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 |---|---:|---|
 | `ruling` | 105 | 3DJake / 3DJAKE 19, Filament2Print 10, Nanovia 9, Stratasys 6, Fabru / purefil 5 |
 | `twin` | 8 | 3DJake / 3DJAKE 3, 3D4Makers 2, Spectrum 2, Prusa Research / Prusament 1 |
-| `ocr-visual` | 7 | 3DJake / 3DJAKE 3, Fiberlogy 3, Recreus / Filaflex 1 |
 
 ## The reader
 
@@ -131,7 +130,7 @@ npm run ingest:propose -- --compare --all
 
 | Provider | Documents | applied | deferred | duplicate-of | gated | held | not-a-data-sheet | registered | safety-data-sheet | skipped | unreachable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 3DJake / 3DJAKE | 493 | 308 | 7 | 71 |  | 25 | 1 | 73 | 7 |  | 1 |
+| 3DJake / 3DJAKE | 493 | 311 | 7 | 70 |  | 22 | 1 | 74 | 7 |  | 1 |
 | Spectrum | 152 | 93 | 1 | 19 |  | 6 |  | 33 |  |  |  |
 | Extrudr | 150 | 45 |  | 79 |  | 3 |  | 21 |  | 2 |  |
 | 3DXTECH | 75 | 68 |  | 5 |  | 2 |  |  |  |  |  |
@@ -141,7 +140,7 @@ npm run ingest:propose -- --compare --all
 | FormFutura | 68 | 48 |  | 6 |  | 4 |  | 10 |  |  |  |
 | Fabru / purefil | 67 | 41 | 2 | 17 |  | 5 |  |  |  |  | 2 |
 | SUNLU | 53 | 46 |  |  |  | 2 |  | 5 |  |  |  |
-| Fiberlogy | 51 | 36 |  | 8 |  | 5 |  | 2 |  |  |  |
+| Fiberlogy | 51 | 39 |  | 8 |  | 2 |  | 2 |  |  |  |
 | colorFabb | 47 | 39 | 1 | 5 |  | 2 |  |  |  |  |  |
 | Filament2Print | 44 | 16 | 8 | 6 |  | 10 | 1 | 3 |  |  |  |
 | Bambu Lab | 42 | 42 |  |  |  |  |  |  |  |  |  |
@@ -164,7 +163,7 @@ npm run ingest:propose -- --compare --all
 | Siraya Tech | 20 | 11 | 6 |  |  |  |  | 3 |  |  |  |
 | BigRep | 19 | 11 |  | 4 |  | 3 |  | 1 |  |  |  |
 | Essentium / Nexa3D | 19 | 4 | 10 | 2 |  | 2 | 1 |  |  |  |  |
-| Recreus / Filaflex | 16 | 11 | 3 |  |  | 1 |  |  | 1 |  |  |
+| Recreus / Filaflex | 16 | 12 | 3 |  |  |  |  |  | 1 |  |  |
 | UltiMaker / MakerBot | 16 | 3 | 2 | 1 |  | 3 | 5 |  | 2 |  |  |
 | Yousu | 13 | 11 |  |  |  | 1 |  |  |  |  | 1 |
 | 3D-Fuel | 9 | 5 | 3 |  |  |  | 1 |  |  |  |  |
