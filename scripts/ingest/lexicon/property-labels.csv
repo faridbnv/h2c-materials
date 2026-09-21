@@ -28,9 +28,9 @@ Label,Property,Direction,Notch,Note
 ^flexural (stress|strength)|^bending strength,Flexural strength,,Not applicable,
 ^flexular strength,Flexural strength,,Not applicable,the same typo on the strength row
 ^charpy[^a-z]*(impact )?(strength )?(of )?notched|^notched charpy,Charpy strength,Not applicable,Notched,a sheet may put a word between the test and its notch: Charpy Impact Strength of Notched Specimen
-^charpy,Charpy strength,Not applicable,Unnotched,an unqualified Charpy row is the unnotched one; the method may say otherwise and wins
+^charpy,Charpy strength,Not applicable,Not published,"an unqualified Charpy row says nothing about the notch, and the method or the row's own words say it where the sheet does; the second read (R085) found eleven rows given a notch no sheet printed"
 ^izod[^a-z]*(impact )?(strength )?(of )?notched|^notched izod,Izod impact strength,Not applicable,Notched,the same row as the one above it: Izod Impact Strength of Notched Specimen
-^izod,Izod impact strength,Not applicable,Unnotched,
+^izod,Izod impact strength,Not applicable,Not published,the same as an unqualified Charpy row: the notch is what the sheet says or nothing
 "^notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Notched,"the row names the notch and not the test, and the method column names which test it is; a row that names no method is left to the label above it, which is where a sheet that prints a block per notch says Charpy or Izod"
 "^un-?notched impact strength\b(?=.*\b(?:ISO\s?179|ISO\s?180|ASTM\s?D\s?256|GB\s?/\s?T\s?(?:1043|1843))\b)",Impact strength,Not applicable,Unnotched,the same row unnotched
 "^(temperature of deflection under load|heat (deflection|distortion)( temp(erature)?)?\b|deflection temp(erature)?\b|hdt)",HDT,Not applicable,Not applicable,"the load is a condition the row or the line above states; a sheet may abbreviate it ""Heat deflection temp."" or print the abbreviation in place of the word: ""Heat Distortion (HDT)"""

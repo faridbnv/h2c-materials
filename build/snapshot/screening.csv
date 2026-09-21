@@ -3,8 +3,8 @@ density,this-grade,top,1,0,,,no
 density,this-grade,bottom,1,0,,,no
 density,this-material,top,72,3,4,0.975,yes
 density,this-material,bottom,72,2,4,0.025,yes
-density,family,top,113,5,7,0.975,yes
-density,family,bottom,113,0,7,0.025,yes
+density,family,top,112,5,7,0.975,yes
+density,family,bottom,112,0,7,0.025,yes
 tensileModulusXY,this-grade,top,73,2,4,0.975,yes
 tensileModulusXY,this-grade,bottom,73,0,4,0.025,yes
 tensileModulusXY,this-material,top,52,0,3,0.975,yes
@@ -20,16 +20,16 @@ tensileStrengthXY,family,bottom,56,0,3,0.025,yes
 elongationXY,this-grade,top,51,0,2,0.975,yes
 elongationXY,this-grade,bottom,51,0,2,0.025,yes
 elongationXY,this-material,top,51,1,2,0.975,yes
-elongationXY,this-material,bottom,51,3,2,0.0168229,yes
+elongationXY,this-material,bottom,51,3,2,0.0187174,yes
 elongationXY,family,top,78,0,5,0.975,yes
 elongationXY,family,bottom,78,2,5,0.025,yes
-hdt045,this-grade,top,56,3,3,0.978997,yes
-hdt045,this-grade,bottom,56,0,3,0.025,yes
-hdt045,this-material,top,45,2,2,0.983146,yes
-hdt045,this-material,bottom,45,0,2,0.025,yes
-hdt045,family,top,71,5,4,0.983415,yes
-hdt045,family,bottom,71,0,4,0.025,yes
-hdt045 unstated-load bracket,amorphous,top,99,,6,gap 15,yes
+hdt045,this-grade,top,55,2,3,0.975,yes
+hdt045,this-grade,bottom,55,0,3,0.025,yes
+hdt045,this-material,top,45,2,2,0.983046,yes
+hdt045,this-material,bottom,45,1,2,0.025,yes
+hdt045,family,top,70,4,4,0.980455,yes
+hdt045,family,bottom,70,0,4,0.025,yes
+hdt045 unstated-load bracket,amorphous,top,101,,6,gap 15,yes
 hdt045 unstated-load bracket,semi-unfilled,top,5,,,,no
 hdt045 unstated-load bracket,semi-filled,top,26,,1,gap 126,yes
 hdt045 unstated-load bracket,elastomer,top,0,,,,no

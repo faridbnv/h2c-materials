@@ -1,0 +1,230 @@
+MeasurementID,SourceID,Property,Field,Recorded,Fresh,Locator,FreshLocator
+V000027,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Charpy strength,Notch,Unnotched,Not published,p. 3: Charpy impact strength (X-Y),p. 3: Charpy impact strength (X-Y)
+V000037,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Charpy strength,Notch,Unnotched,Not published,p. 3: Charpy impact strength (X-Y),p. 3: Charpy impact strength (X-Y)
+V000408,S-POLYCN-PolyLite-PETG-TDS-V5-3,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001033,S-POLYCN-PolyMide-CoPA-TDS-V5-2,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001043,S-POLYCN-PolyMide-CoPA-TDS-V5-2,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X,p. 4: Charpy impact strength (X-Y)
+V000921,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Charpy strength,Notch,Unnotched,Not published,"p. 1: Impact strength (dry, 80x10x4mm)","p. 1: Impact strength (dry, 80x10x4mm)"
+V000990,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001000,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001189,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001199,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001320,B-ppa-cf-TDS,Charpy strength,Notch,Unnotched,Not published,p. 2: Impact Strength (X-Y),"p. 2: Impact Strength (X-Y) ISO 179, GB/T 1043"
+V001521,S-SPECTRUM-en-tds-spectrum-hdpe,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy Impact Strength,p. 1: Charpy Impact Strength
+V001573,S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001601,S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V002320,S-ESUN-PLA-Silk-TDS-2025-06-19,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y),p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V002321,S-ESUN-PLA-Silk-TDS-2025-06-19,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z),p. 2: IZOD Impact Strength (Z) GB/T 1843
+V002860,S-SPECTRUM-en-tds-spectrum-pa6-gk10,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength (dry, 80x10x4mm)","p. 1: Charpy impact strength (dry, 80x10x4mm)"
+V002940,S-SPECTRUM-en-tds-spectrum-pa6-cf15,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength (dry, 80x10x4mm)","p. 1: Charpy impact strength (dry, 80x10x4mm)"
+V003039,S-SPECTRUM-en-tds-spectrum-pet-cf15,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength, dry","p. 1: Charpy impact strength, dry"
+V003400,S-POLYCN-PolyLite-PLA-TDS-V5-1-7,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V003503,S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 1: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V003522,S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 1: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V003599,S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,Charpy strength,Notch,Unnotched,Not published,p. 5: Charpy impact strength (X-Y),p. 5: Charpy impact strength (X-Y)
+V003669,S-POLYCN-PolyLite-LW-PLA-TDS-US-5-3-20240307,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V003709,S-POLYCN-PolyLite-PC-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V003723,S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 5: Charpy impact strength (X-Y),p. 5: Charpy impact strength (X-Y)
+V003787,S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 1: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V003979,S-POLYCN-PolyLite-PLA-CF-TDS-US-5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V003995,S-POLYCN-PolyLite-PETG-TDS-V5-2,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V004815,R-ERYONE-eryone-silk-pla-tds,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V004826,R-ERYONE-eryone-pla-light-weight-tds,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V004839,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--1d9fed,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004849,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--25961c,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004863,R-ERYONE-eryone-silk-rainbow-pla-tds,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V004877,R-ERYONE-eryone-hyper-speed-dual-color-silk-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004889,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V004902,R-ERYONE-eryone-marble-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004916,R-ERYONE-eryone-galaxy-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004930,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004944,R-ERYONE-eryone-hs-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004957,R-ERYONE-eryone-matte-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004970,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004977,R-ERYONE-eryone-tpu-hs-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V004989,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V005002,R-ERYONE-eryone-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005014,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V005028,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9af0d6,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005042,R-ERYONE-eryone-petg-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005055,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--b99816,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1043.1-2008 kJ/m2
+V005068,R-ERYONE-eryone-hs-matte-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005082,R-ERYONE-eryone-pla-cf-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005094,R-ERYONE-eryone-glow-in-the-dark-pla-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005109,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250909-eryone-,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005122,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V005132,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f94f65,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght D256 kJ/m2,p. 2: Charpy Impact strenght D256 kJ/m2
+V005160,D-FLASH-PETG-HS-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡
+V005170,D-FLASH-PA6-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005180,D-FLASH-PLA-Multicolor-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005190,D-FLASH-ABS-ESD-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V005200,D-FLASH-ASA-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V005230,D-FLASH-PC-ABS-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005244,D-FLASH-PPA-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2
+V005245,D-FLASH-PPA-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: Izod Impact Strength (Z) ISO180 KJ/m2,p. 2: Izod Impact Strength (Z) ISO180 KJ/m2
+V005259,D-FLASH-PET-GF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2
+V005269,D-FLASH-PBT-GF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡
+V005281,D-FLASH-PLA-HS-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/㎡
+V005291,D-FLASH-PETG-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005304,D-FLASH-PPA-GF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2
+V005305,D-FLASH-PPA-GF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: Izod Impact Strength (Z) ISO180 KJ/m2,p. 2: Izod Impact Strength (Z) ISO180 KJ/m2
+V005315,D-FLASH-PET-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength ISO 180 KJ/m2,p. 1: Izod Impact Strength ISO 180 KJ/m2
+V005324,D-FLASH-PLA-Matte-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V005337,D-FLASH-PPS-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO180 KJ/m2
+V005338,D-FLASH-PPS-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: Izod Impact Strength (Z) ISO180 KJ/m2,p. 2: Izod Impact Strength (Z) ISO180 KJ/m2
+V005349,D-FLASH-PLA-Silk-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V005359,D-FLASH-PLA-Pro-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005387,D-FLASH-PC-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V005407,D-FLASH-PETG-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005417,D-FLASH-ASA-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005426,D-FLASH-PLA-Wood-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005436,D-FLASH-PLA-Crystal-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005457,D-FLASH-PETG-ESD-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V005467,D-FLASH-PLA-CF-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V005752,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005763,R-COLORFABB-TDS-nGen-CF10,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005765,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179 N/A","p. 1: Impact Strength Charpy Notch, ISO 179 N/A"
+V005769,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Charpy strength,Notch,Unnotched,Notched,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005776,R-COLORFABB-TDS-varioShore-TPU-95A,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005798,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005799,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Charpy strength,Notch,Unnotched,Notched,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005842,R-COLORFABB-TDS-colorFabb-TPU85A,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005852,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Charpy strength,Notch,Unnotched,Notched,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005864,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005878,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005886,R-COLORFABB-TDS-E-ColorFabb-nGen,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005896,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005897,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Charpy strength,Notch,Unnotched,Notched,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005909,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005910,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Charpy strength,Notch,Unnotched,Notched,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005932,R-COLORFABB-TDS-E-ColorFabb-ASA,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005935,R-COLORFABB-TDS-E-ColorFabb-ASA,Izod impact strength,Notch,Unnotched,Notched,"p. 1: Izod Impact Strength Izod Notch, ISO 180","p. 1: Izod Impact Strength Izod Notch, ISO 180"
+V005944,R-COLORFABB-TDS-colorFabb-TPU95A,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005972,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005980,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005992,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V006016,R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023,Impact strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength,p. 1: Charpy impact strength
+V006026,R-FILLAMENTUM-Fillamentum-ASA-CF10-Carbon,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength,p. 1: Charpy impact strength
+V006035,R-FILLAMENTUM-Technical-Data-Sheet-PP-2320,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength,p. 1: Charpy impact strength
+V006065,R-FILLAMENTUM-TDS-Fishy-filament-OrCA-EN-20072023,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength,p. 1: Charpy impact strength
+V006086,R-FILLAMENTUM-Technical-Data-Sheet-ABS-Extrafill-03012019-1,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength,p. 1: Charpy impact strength
+V006121,R-FILLAMENTUM-Technical-Data-Sheet-PC-ABS,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact resistance,p. 1: Charpy impact resistance
+V006169,R-EXTRUDR-durapro-pc-pbt-cf-TDS-it,Izod impact strength,Notch,Unnotched,Notched,p. 1: Izod-Kerbschlagzähigkeit ISO 180/A kJ/m²,p. 1: Izod-Kerbschlagzähigkeit ISO 180/A kJ/m²
+V006210,R-EXTRUDR-durapro-pc-pbt-TDS-de,Izod impact strength,Notch,Unnotched,Notched,p. 1: Izod-Kerbschlagzähigkeit ISO 180/A kJ/m²,p. 1: Izod-Kerbschlagzähigkeit ISO 180/A kJ/m²
+V006286,D-FLASH-PLA-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength (X-Y) ISO 180 KJ/m2
+V006385,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy Impact Strength at 23℃ ISO 179 kJ/m2,p. 1: Charpy Impact Strength at 23℃ ISO 179 kJ/m2
+V006428,R-EXTRUDR-durapro-pc-fr-v0-TDS-de,Izod impact strength,Notch,Unnotched,Notched,p. 1: Izod-Kerbschlagzähigkeit (23 °C) ISO 180/A kJ/m²,p. 1: Izod-Kerbschlagzähigkeit (23 °C) ISO 180/A kJ/m²
+V006429,R-EXTRUDR-durapro-pc-fr-v0-TDS-de,Izod impact strength,Notch,Unnotched,Notched,p. 1: Izod-Kerbschlagzähigkeit (-30 °C) ISO 180/A kJ/m²,p. 1: Izod-Kerbschlagzähigkeit (-30 °C) ISO 180/A kJ/m²
+V006567,S-PEBA-PLA-Matte-TDS-2025-06-19-1,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006568,S-PEBA-PLA-Matte-TDS-2025-06-19-1,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006581,S-PEBA-ABS-GF-TDS-V1-2024-07-02,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V006592,D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength(X-Y) ISO 179, GB/T 1043","p. 1: Charpy impact strength(X-Y) ISO 179, GB/T 1043"
+V006593,D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength( Z ) ISO 179, GB/T 1043","p. 1: Charpy impact strength( Z ) ISO 179, GB/T 1043"
+V006608,S-PEBA-PLA-CMYK-TDS-2024-06-30,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006625,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,Charpy strength,Notch,Unnotched,Not published,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V006631,S-PEBA-eABS-HS-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006638,S-PEBA-PLA-Matte-Dual-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006645,S-PEBA-ASA-TDS-V1-1,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V006652,S-PEBA-eSUN-eSilk-PLA-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006694,S-PEBA-eSUN-ABS-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006706,S-PEBA-PLA-TDS-en,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006707,S-PEBA-PLA-TDS-en,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006716,S-PEBA-eSUN-PLA-Rock-FilamentTDS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V006723,S-PEBA-eSUN-ePA12-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006736,S-PEBA-PLA-HF-TDS-2026-2-2,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006737,S-PEBA-PLA-HF-TDS-2026-2-2,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006752,S-PEBA-ePLA-CF-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006768,S-PEBA-eSUN-ePLA-LW-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006775,S-PEBA-a2d5f9c0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006802,S-PEBA-eSUN-ePA-Filament-TDS-V4-02,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006815,S-PEBA-PLA-Basic-TDS-EN-2026-6-5,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006816,S-PEBA-PLA-Basic-TDS-EN-2026-6-5,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006843,S-PEBA-eStars-PLA,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006857,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength ISO 179, GB/T 1043","p. 1: Charpy impact strength ISO 179, GB/T 1043"
+V006869,S-PEBA-PC-HT-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006870,S-PEBA-PC-HT-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006894,S-PEBA-ePLA-HS-Filament-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V006908,S-PEBA-PLA-Cast-TDS-EN-2025-8-27,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006909,S-PEBA-PLA-Cast-TDS-EN-2025-8-27,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006931,D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1,Charpy strength,Notch,Unnotched,Not published,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V006942,D-RAISE3D-Raise3D-Industrial-PETG-ESD-TDS-V3,Charpy strength,Notch,Unnotched,Not published,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V006982,S-PEBA-PLA-HS-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V006983,S-PEBA-PLA-HS-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V006989,S-PEBA-ABS-HT-TDS-V1-2024-07-02,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V006999,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,Charpy strength,Notch,Unnotched,Not published,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V007012,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,Charpy strength,Notch,Unnotched,Not published,"p. 3: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 3: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V007042,S-PEBA-59754c44,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007054,S-PEBA-eSUN-PETG-Filament-TDS-1,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007055,S-PEBA-eSUN-PETG-Filament-TDS-1,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007067,D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V2-8c9901cf-e1d5-4e11-b9e2-cd245c298c4f,Charpy strength,Notch,Unnotched,Not published,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043","p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+V007079,D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength (X-Y) ISO 179,p. 1: Charpy impact strength (X-Y) ISO 179
+V007095,S-PEBA-ABS-TDS-EN-docx,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007096,S-PEBA-ABS-TDS-EN-docx,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007109,S-PEBA-79f73c22-1,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007126,S-PEBA-ePLA-HS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007155,S-PEBA-eSUN-eABS-Max-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007188,D-RAISE3D-Raise3d-Premium-PC-Black-White-TDS-V6,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength ISO 179, GB/T 1043","p. 1: Charpy impact strength ISO 179, GB/T 1043"
+V007196,S-PEBA-eSUN-HIPS-Filament-TDS-V4-0-1,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007218,S-PEBA-ABS-ESD-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007219,S-PEBA-ABS-ESD-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007231,S-PEBA-PETG-ESD-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007232,S-PEBA-PETG-ESD-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007252,S-PEBA-PLA-UV-Color-Change-FilamentTDS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V007284,S-PEBA-PETG-TDS-en,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007285,S-PEBA-PETG-TDS-en,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007308,R-3D-FUEL-3D-Fuel-Pro-PETG-9-22-25,Izod impact strength,Notch,Unnotched,Not published,p. 3: Izod Impact Strength ISO 180 KJ/m2,p. 3: Izod Impact Strength ISO 180 KJ/m2
+V007319,S-PEBA-PETG-Basic-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007320,S-PEBA-PETG-Basic-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007343,S-PEBA-PLA-Basic-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007344,S-PEBA-PLA-Basic-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007379,S-PEBA-PETG-Matte-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (X-Y) GB/T 1843,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V007380,S-PEBA-PETG-Matte-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 2: IZOD Impact Strength (Z) GB/T 1843,p. 2: IZOD Impact Strength (Z) GB/T 1843
+V007392,S-PEBA-ePLA-Metal-TDS,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007412,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,Izod impact strength,Notch,Unnotched,Not published,p. 3: Izod Impact Strength ISO 180 KJ/m2,p. 3: Izod Impact Strength ISO 180 KJ/m2
+V007419,S-PEBA-eSUN-ePLA-Matte-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007449,S-PEBA-PLA-Basic-TDS-V1-2024-08-07,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V007859,S-PEBA-ABS-CF-TDS-V1-2024-07-02,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V007915,S-PEBA-PETG-CF-TDS-V1-2024-07-02,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V007946,S-PEBA-eSUN-ePLA-ST-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V007977,S-PEBA-eSUN-PETG-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V008043,R-QIDI-ABS-GF25,Charpy strength,Notch,Unnotched,Notched,p. 4: 缺口冲击强度(X-Y) ISO 179 Charpy impact strength,p. 4: 缺口冲击强度(X-Y) ISO 179 Charpy impact strength
+V008063,R-QIDI-ODORLESS-ABS,Charpy strength,Notch,Unnotched,Not published,p. 3: Charpy impact strength ISO 179,p. 3: Charpy impact strength ISO 179
+V008074,R-QIDI-ASA-AERO,Charpy strength,Notch,Unnotched,Notched,p. 3: 缺口冲击强度(X-Y) ISO 179 Charpy impact strength,p. 3: 缺口冲击强度(X-Y) ISO 179 Charpy impact strength
+V008084,R-QIDI-ASA-CF20-CORE,Charpy strength,Notch,Unnotched,Notched,p. 3: 缺口冲击强度 (X-Y) ISO 179 Charpy impact strength (X-Y),p. 3: 缺口冲击强度 (X-Y) ISO 179 Charpy impact strength (X-Y)
+V008107,R-QIDI-ASA,Charpy strength,Notch,Unnotched,Notched,p. 3: 缺口冲击强度(X-Y) ISO 179 Charpy impact strength,p. 3: 缺口冲击强度(X-Y) ISO 179 Charpy impact strength
+V008122,R-QIDI-PLA-CF,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy impact strength ISO 179,p. 2: Charpy impact strength ISO 179
+V008159,R-QIDI-PET-GF,Charpy strength,Notch,Unnotched,Notched,p. 3: 缺口冲击强度 (X-Y) ISO 179 Charpy impact strength (X-Y),p. 3: 缺口冲击强度 (X-Y) ISO 179 Charpy impact strength (X-Y)
+V008924,R-3DJAKE-3DJAKE-13-TDS-hyper-PLA-EN,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength(Z) ISO 179, GB/T 1043","p. 1: Charpy impact strength(Z) ISO 179, GB/T 1043"
+V008938,R-3DJAKE-3DJAKE-TDS-hyper-ABS-EN,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength (Z) ISO 179, GB/T 1043","p. 1: Charpy impact strength (Z) ISO 179, GB/T 1043"
+V009036,R-3DJAKE-3DJAKE-14-TDS-hyper-PLA-CF-EN,Charpy strength,Notch,Unnotched,Not published,"p. 1: Charpy impact strength(Z) ISO 179, GB/T 1043","p. 1: Charpy impact strength(Z) ISO 179, GB/T 1043"
+V009186,S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V009237,R-COLORFABB-colorFabb-BronzeFill-TDS,Izod impact strength,Notch,Not published,Unnotched,p. 1: Impact Strength (Izod-Un 23°C) kJ/m2,p. 1: Impact Strength (Izod-Un 23°C) kJ/m2
+V009243,R-COLORFABB-TDS-E-ColorFabb-SteelFill,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V009244,R-COLORFABB-TDS-E-ColorFabb-SteelFill,Izod impact strength,Notch,Unnotched,Notched,"p. 1: Izod Impact Strength Izod Notch, ISO 180","p. 1: Izod Impact Strength Izod Notch, ISO 180"
+V009252,R-COLORFABB-TDS-E-ColorFabb-BronzeFill,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V009253,R-COLORFABB-TDS-E-ColorFabb-BronzeFill,Izod impact strength,Notch,Unnotched,Notched,"p. 1: Izod Impact Strength Izod Notch, ISO 180","p. 1: Izod Impact Strength Izod Notch, ISO 180"
+V009273,S-SPECTRUM-EN-TDS-Spectrum-HDPE,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy Impact Strength,p. 1: Charpy Impact Strength
+V009281,R-COLORFABB-colorFabb-SteelFill-TDS,Izod impact strength,Notch,Not published,Unnotched,p. 1: Impact Strength (Izod-Un 23°C) kJ/m2,p. 1: Impact Strength (Izod-Un 23°C) kJ/m2
+V009310,R-ERYONE-eryone-pla-lite-tds,Impact strength,Notch,Unnotched,Not published,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+V009461,R-COLORFABB-TDS-PLA-PHA,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V009462,R-COLORFABB-TDS-PLA-PHA,Charpy strength,Notch,Unnotched,Notched,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V009502,R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact strength,p. 1: Charpy impact strength
+V009524,S-PET-TDS-ABSpro-Flame-Retardant,Izod impact strength,Notch,Not published,Notched,p. 1: Impact strength,p. 1: Impact strength
+V009550,S-PET-TDS-ABSpro,Izod impact strength,Notch,Not published,Notched,p. 1: Impact strength,p. 1: Impact strength
+V009559,S-PET-TDS-EasyFil-ABS,Izod impact strength,Notch,Not published,Notched,p. 1: Impact strength,p. 1: Impact strength
+V009794,S-PET-TDS-ClearScent-ABS,Izod impact strength,Notch,Not published,Notched,p. 1: Impact strength,p. 1: Impact strength
+V009840,S-PET-TDS-Premium-ABS,Izod impact strength,Notch,Not published,Notched,p. 1: Impact strength,p. 1: Impact strength
+V010009,R-COLORFABB-TDS-E-ColorFabb-XT-2,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V010011,R-COLORFABB-TDS-E-ColorFabb-XT-2,Izod impact strength,Notch,Unnotched,Notched,"p. 1: Izod Impact Strength Izod Notch, ISO 180","p. 1: Izod Impact Strength Izod Notch, ISO 180"
+V010082,S-PEBA-TPU-LW-TDS-V1,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength GB/T 1843,p. 1: IZOD Impact Strength GB/T 1843
+V010097,R-FILLAMENTUM-Technical-Data-Sheet-Nylon-CF15-Carbon-03012019,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact resistance,p. 1: Charpy impact resistance
+V010179,S-POLYCN-PolyWood-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V010198,D-FLASH-PVA-TDS-EN,Izod impact strength,Notch,Unnotched,Not published,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2,p. 1: Izod Impact Strength(X-Y) ISO 180 KJ/m2
+V010245,S-POLYCN-PolyCast-TDS-V5-1,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V010291,D-RAISE3D-Raise3D-Premium-PVA-TDS-V2-1-2021-06,Charpy strength,Notch,Unnotched,Not published,p. 2: Charpy Impact Strength 23°C ISO 179,p. 2: Charpy Impact Strength 23°C ISO 179
+V010335,R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid,Charpy strength,Notch,Unnotched,Not published,p. 1: Charpy impact resistance,p. 1: Charpy impact resistance
+V010341,R-COLORFABB-TDS-colorFabb-XT-CF20,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V010342,R-COLORFABB-TDS-colorFabb-XT-CF20,Izod impact strength,Notch,Unnotched,Notched,"p. 1: Izod Impact Strength Izod Notch, ISO 180","p. 1: Izod Impact Strength Izod Notch, ISO 180"
+V010364,S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0,Izod impact strength,Notch,Unnotched,Not published,p. 1: IZOD Impact Strength,p. 1: IZOD Impact Strength
+V010410,R-COLORFABB-TDS-E-ColorFabb-HT,Charpy strength,Notch,Not published,Notched,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V010437,S-POLYCN-Polylite-CosPLA-Version-B-EN-V5-3-20240123,Charpy strength,Notch,Unnotched,Not published,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)

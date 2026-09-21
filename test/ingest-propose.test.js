@@ -35,8 +35,9 @@ test('a published spread belongs to its value, not instead of it', () => {
   assert.equal(charpy.read.rawNumber, '2433.4');
   assert.equal(charpy.read.uncertainty, '79.4');
   assert.equal(charpy.read.raw, '2433.4 ± 79.4 kJ/m2');
-  // An unqualified Charpy row is the unnotched one; a sheet that prints both says which.
-  assert.equal(charpy.notch, 'Unnotched');
+  // An unqualified Charpy row states no notch, and none is assumed (the second read, R085, found eleven rows given
+  // one no sheet printed); a sheet that prints both says which.
+  assert.equal(charpy.notch, 'Not published');
 });
 
 test('the value is the one in the unit the property is kept in, not the first number on the line', () => {
@@ -1342,4 +1343,15 @@ test('a revision date is the document’s, not the product’s name', () => {
   assert.equal(productName('YOUSU POM 3D Filament', 'Yousu'), 'POM');
   // A revision that is part of the name stays: only a labelled date or revision clause comes off.
   assert.equal(productName('PLA Revision 2', 'Nobody'), 'PLA Revision 2');
+});
+
+test('a notch is what the row says, in its method column too, and nothing where it says nothing', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = { polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: [], manufacturers: [{ Value: 'colorFabb' }], rulings: [] };
+  const p = propose({ doc_key: 'k', sha256: 'x', provider: 'colorFabb', provider_kind: 'manufacturer', manufacturer: 'colorFabb', product_raw: 'PLA', url: 'https://x.example/tds.pdf' },
+    page('Technical Data Sheet', 'Product name: colorFabb PLA', 'Izod Impact Strength Izod Notch, ISO 180 10 kJ/m2', 'Impact Strength (Izod-Un 23ºC) kJ/m2 12 ISO 180', 'Charpy impact strength (Z) ISO 179 5.08 kJ/m2'), world);
+  const notch = Object.fromEntries(p.measurements.map((m) => [m.row['Raw numeric'], m.row.Notch]));
+  assert.deepEqual([notch['10'], notch['12'], notch['5.08']], ['Notched', 'Unnotched', 'Not published']);
+  assert.equal(notchOf('ISO 180/A'), 'Notched');
+  assert.equal(notchOf('ISO 180/U'), 'Unnotched');
 });

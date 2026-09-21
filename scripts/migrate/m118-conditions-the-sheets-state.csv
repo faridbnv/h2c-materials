@@ -1,0 +1,516 @@
+MeasurementID,SourceID,Property,Field,Recorded,Fresh,Locator,FreshLocator
+V000001,X-ECOMAX-PLA-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V000027,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Charpy strength,Notch,Not published,Unnotched,p. 3: Charpy impact strength (X-Y),p. 3: Charpy impact strength (X-Y)
+V000037,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Charpy strength,Notch,Not published,Unnotched,p. 3: Charpy impact strength (X-Y),p. 3: Charpy impact strength (X-Y)
+V000049,B-pla-basic-filament-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000070,B-pla-matte-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000090,B-pla-basic-gradient-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000110,B-pla-tough-upgrade-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000130,B-pla-translucent-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000150,B-pla-silk-upgrade-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000171,B-pla-silk-dual-color-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000190,B-pla-metal-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000210,B-pla-marble-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000250,B-pla-wood-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000270,B-pla-galaxy-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000289,B-pla-glow-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000309,B-pla-aero-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000330,B-pla-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000408,S-POLYCN-PolyLite-PETG-TDS-V5-3,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V000418,I-PETG-TDS,Izod impact strength,Direction,Not published,Not applicable,"p. 1: Notched Izod Impact Strength 23ºC, 50 % RH","p. 1: Notched Izod Impact Strength 23°C, 50 % RH ISO 180"
+V000418,I-PETG-TDS,Izod impact strength,Test temperature,Not published,23°C,"p. 1: Notched Izod Impact Strength 23ºC, 50 % RH","p. 1: Notched Izod Impact Strength 23°C, 50 % RH ISO 180"
+V000430,B-petg-basic-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000450,B-petg-hf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000470,B-petg-translucent-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000491,B-petg-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000506,I-PETG-Glass-Fiber-Technical-Data-Sheet,Melting temperature,Standard / load,Not published,DSC,p. 1: Melting point,p. 1: Melting point
+V000506,I-PETG-Glass-Fiber-Technical-Data-Sheet,Melting temperature,Standards,Not published,DSC,p. 1: Melting point,p. 1: Melting point
+V000510,X-3DXSTAT-ESD-PETG-TDS-v03,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V000543,S-SPECTRUM-en-tds-spectrum-petg-esd,Hardness,Direction,Not published,Not applicable,"p. 1: Rockwell Hardness, R Scale","p. 1: Rockwell Hardness, R Scale"
+V000553,B-abs-filament-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000574,B-abs-gf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000587,X-CarbonX-CF-ABS-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V000596,X-3DXSTAT-ESD-ABS-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V000619,B-asa-filament-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000640,B-asa-aero-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000658,B-asa-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000674,I-ASA-Glass-Fiber-Technical-Data-Sheet,Melting temperature,Standard / load,Not published,DSC,p. 1: Melting point,p. 1: Melting point
+V000674,I-ASA-Glass-Fiber-Technical-Data-Sheet,Melting temperature,Standards,Not published,DSC,p. 1: Melting point,p. 1: Melting point
+V000684,B-PC-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000705,B-pc-fr-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000719,X-CarbonX-CF-PC-TDSv3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V000774,B-tpu-for-ams-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000790,B-tpu-95a-hf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000809,B-TPU-SOFT-TDS-4,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000825,B-TPU-SOFT-TDS-5,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000842,S-PEBA-PEBA90A-TDS-en,Vicat softening temperature,Test temperature,Not published,120°C,"p. 1: Vicat Softening Point (120℃, 10N)","p. 1: Vicat Softening Point(120℃,10N) GB/T 1633"
+V000847,S-SPECTRUM-en-tds-spectrum-peba,Hardness,Direction,Not published,Not applicable,p. 1: Shore D Hardness,p. 1: Shore D Hardness
+V000848,S-SPECTRUM-en-tds-spectrum-peba,Hardness,Direction,Not published,Not applicable,p. 1: Shore A Hardness,p. 1: Shore A Hardness
+V000849,S-SPECTRUM-en-tds-spectrum-peba,Tensile modulus,Test temperature,Not published,23°C,"p. 1: Tensile modulus, 23°C, injection moulding","p. 1: Tensile modulus, 23°C, injection moulding"
+V000850,S-SPECTRUM-en-tds-spectrum-peba,Tensile strength (endpoint unspecified),Test temperature,Not published,23°C,"p. 1: Tensile strength, 23°C, injection moulding","p. 1: Tensile strength, 23°C, injection moulding"
+V000851,S-SPECTRUM-en-tds-spectrum-peba,Elongation at break,Test temperature,Not published,23°C,"p. 1: Elongation at break, 23°C, injection moulding","p. 1: Elongation at break, 23°C, injection moulding"
+V000852,S-SPECTRUM-en-tds-spectrum-peba,Flexural modulus,Test temperature,Not published,23°C,"p. 1: Flexural modulus, 23°C, injection moulding","p. 1: Flexural modulus, 23°C, injection moulding"
+V000853,S-SPECTRUM-en-tds-spectrum-peba,Flexural strength,Test temperature,Not published,23°C,"p. 1: Flexural strength, 23°C, injection moulding","p. 1: Flexural strength, 23°C, injection moulding"
+V000903,B-paht-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000918,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Water absorption,Test temperature,Not published,23°C,"p. 1: Water absorption, 23°C/24h","p. 1: Water absorption, 23°C/24h"
+V000919,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Tensile strength (endpoint unspecified),Moisture condition,Not published,Dry,"p. 1: Tensile strength (dry, at 50 mm/min)","p. 1: Tensile strength (dry, at 50 mm/min)"
+V000919,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Tensile strength (endpoint unspecified),Moisture state,not-stated,dry,"p. 1: Tensile strength (dry, at 50 mm/min)","p. 1: Tensile strength (dry, at 50 mm/min)"
+V000921,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Charpy strength,Direction,Not published,Not applicable,"p. 1: Impact strength (dry, 80x10x4mm)","p. 1: Impact strength (dry, 80x10x4mm)"
+V000921,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Charpy strength,Moisture condition,Not published,Dry,"p. 1: Impact strength (dry, 80x10x4mm)","p. 1: Impact strength (dry, 80x10x4mm)"
+V000921,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Charpy strength,Moisture state,not-stated,dry,"p. 1: Impact strength (dry, 80x10x4mm)","p. 1: Impact strength (dry, 80x10x4mm)"
+V000929,B-pa6-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000950,B-pa6-gf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V000964,X-CarbonX-CF-PA12-TDS-v1,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V000990,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001000,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001005,S-SPECTRUM-en-tds-spectrum-pa12-cf15,Charpy strength,Direction,Not published,Not applicable,p. 1: Charpy Impact Strength,p. 1: Charpy Impact Strength
+V001006,S-SPECTRUM-en-tds-spectrum-pa12-cf15,Charpy strength,Direction,Not published,Not applicable,p. 1: Charpy Notched Impact Strength,p. 1: Charpy Notched Impact Strength
+V001007,X-FIBREX-PA12-GF30-TDS-v1-0,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001033,S-POLYCN-PolyMide-CoPA-TDS-V5-2,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001043,S-POLYCN-PolyMide-CoPA-TDS-V5-2,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X,p. 4: Charpy impact strength (X-Y)
+V001044,X-AMIDEX-PA6-Copolymer-v1-0,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001156,I-PA6-CF-TDS,Melting temperature,Standard / load,Not published,DSC,p. 1: Melting Point,p. 1: Melting Point
+V001156,I-PA6-CF-TDS,Melting temperature,Standards,Not published,DSC,p. 1: Melting Point,p. 1: Melting Point
+V001163,X-AMIDEX-Nylon-GF30-TDS-v1,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001189,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001199,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001271,B-pet-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V001286,S-PPA-TDS,Water absorption,Test temperature,Not published,25°C,p. 1: Saturated Water Absorption Rate,"p. 1: Saturated Water Absorption Rate 25 °C,55% RH,room air"
+V001309,B-ppa-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V001323,D-IPCON-PPA,Water absorption,Test temperature,Not published,25°C,p. 1: Saturated Water Absorption Rate,"p. 1: Saturated Water Absorption Rate 25 °C,55% RH,room air"
+V001339,X-THERMAX-PPS-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001348,S-SPECTRUM-en-tds-spectrum-pps-am230,Charpy strength,Direction,Not published,Not applicable,"p. 1: Charpy impact strength, unnotched* (23°C)","p. 1: Charpy impact strength, unnotched* (23°C)"
+V001348,S-SPECTRUM-en-tds-spectrum-pps-am230,Charpy strength,Test temperature,Not published,23°C,"p. 1: Charpy impact strength, unnotched* (23°C)","p. 1: Charpy impact strength, unnotched* (23°C)"
+V001349,S-SPECTRUM-en-tds-spectrum-pps-am230,Charpy strength,Direction,Not published,Not applicable,"p. 1: Charpy impact strength, notched* (23°C)","p. 1: Charpy impact strength, notched* (23°C)"
+V001349,S-SPECTRUM-en-tds-spectrum-pps-am230,Charpy strength,Test temperature,Not published,23°C,"p. 1: Charpy impact strength, notched* (23°C)","p. 1: Charpy impact strength, notched* (23°C)"
+V001360,B-pps-cf-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V001375,S-PPSGF-TDS-0,Water absorption,Test temperature,Not published,25°C,p. 1: Saturated Water Absorption Rate,"p. 1: Saturated Water Absorption Rate 25 °C, 55% RH, room air"
+V001412,B-pva-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V001433,B-support-for-pla-petg-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V001445,B-support-for-abs-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V001464,B-support-for-pa-pet-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption,"p. 2: Saturated Water Absorption 25 °C, 55% RH Rate"
+V001470,X-3DXMAX-HIPS-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001485,S-SPECTRUM-en-tds-spectrum-hipsx,Charpy strength,Direction,Not published,Not applicable,p. 1: Charpy Notched Impact Strength,p. 1: Charpy Notched Impact Strength
+V001486,S-SPECTRUM-en-tds-spectrum-hipsx,Izod impact strength,Direction,Not published,Not applicable,p. 1: Notched Izod Impact,p. 1: Notched Izod Impact
+V001487,S-SPECTRUM-en-tds-spectrum-hipsx,Hardness,Direction,Not published,Not applicable,p. 1: Rockwell Hardness (R-Scale),p. 1: Rockwell Hardness (R-Scale)
+V001502,X-CarbonX-CF-PP-TDSv1,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001509,X-FIBREX-GF-PP-TDS-v1,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001521,S-SPECTRUM-en-tds-spectrum-hdpe,Charpy strength,Direction,Not published,Not applicable,p. 1: Charpy Impact Strength,p. 1: Charpy Impact Strength
+V001521,S-SPECTRUM-en-tds-spectrum-hdpe,Charpy strength,Notch,Not published,Unnotched,p. 1: Charpy Impact Strength,p. 1: Charpy Impact Strength
+V001522,S-SPECTRUM-en-tds-spectrum-hdpe,Hardness,Direction,Not published,Not applicable,p. 1: Rockwell Hardness,p. 1: Rockwell Hardness
+V001523,X-MAXG-PCTG-TDS-v1-0,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001533,S-SPECTRUM-en-tds-spectrum-pctg,Hardness,Direction,Not published,Not applicable,p. 1: Rockwell Hardness,p. 1: Rockwell Hardness
+V001547,X-3DXMAX-PCABS-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001573,S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001576,S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,Izod impact strength,Direction,Not published,Not applicable,p. 1: Notched Izod Impact Strength (23°C),p. 1: Notched Izod Impact Strength (23°C)
+V001576,S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,Izod impact strength,Test temperature,Not published,23°C,p. 1: Notched Izod Impact Strength (23°C),p. 1: Notched Izod Impact Strength (23°C)
+V001601,S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,Charpy strength,Notch,Not published,Unnotched,p. 4: Charpy impact strength (X-Y),p. 4: Charpy impact strength (X-Y)
+V001603,X-FLUORX-PVDF-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001611,X-Themax-PEEK-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001618,X-Themax-PEEK-TDS-v3,HDT,Standard / load,ISO 75,0.45 ISO 75,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001618,X-Themax-PEEK-TDS-v3,HDT,Test load MPa,Not published,0.45,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001619,X-Thermax-PEKK-A-TDS-v2-1,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001626,X-Thermax-PEKK-A-TDS-v2-1,HDT,Standard / load,ISO 75,0.45 ISO 75,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001626,X-Thermax-PEKK-A-TDS-v2-1,HDT,Test load MPa,Not published,0.45,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001627,X-Thermax-PEKK-C-TDS-v3-3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001634,X-Thermax-PEKK-C-TDS-v3-3,HDT,Standard / load,ISO 75,0.45 ISO 75,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001634,X-Thermax-PEKK-C-TDS-v3-3,HDT,Test load MPa,Not published,0.45,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001635,X-THERMAX-PEI-1010-TDS-v4,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001642,X-THERMAX-PEI-1010-TDS-v4,HDT,Standard / load,ISO 75,0.45 ISO 75,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001642,X-THERMAX-PEI-1010-TDS-v4,HDT,Test load MPa,Not published,0.45,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001643,X-THERMAX-PSU-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001650,X-THERMAX-PSU-TDS-v3,HDT,Standard / load,ISO 75,0.45 ISO 75,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001650,X-THERMAX-PSU-TDS-v3,HDT,Test load MPa,Not published,0.45,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001658,S-PES-THERMAX-PES-TDS-v1-0,HDT,Standard / load,ISO 75,1.80 ISO 75,p. 1: Deflection Temperature at 1.80,p. 1: Deflection Temperature at 1.80 ISO 75 °C
+V001658,S-PES-THERMAX-PES-TDS-v1-0,HDT,Test load MPa,Not published,1.8,p. 1: Deflection Temperature at 1.80,p. 1: Deflection Temperature at 1.80 ISO 75 °C
+V001659,X-THERMAX-PPSU-TDS-v3,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V001666,X-THERMAX-PPSU-TDS-v3,HDT,Standard / load,ISO 75,0.45 ISO 75,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001666,X-THERMAX-PPSU-TDS-v3,HDT,Test load MPa,Not published,0.45,p. 1: Deflection Temperature at 0.45,p. 1: Deflection Temperature at 0.45 ISO 75 °C
+V001673,I-PPSU-TDS,Izod impact strength,Direction,Not published,Not applicable,p. 1: Notched,p. 1: Notched Izod Impact 3.18 mm ASTM D256
+V001682,S-CPECF,Hardness,Direction,Not published,Not applicable,p. 1: Hardness,p. 1: Hardness
+V001683,X-EVOLV3D-OBC-TDS,Density,Direction,Not published,Not applicable,p. 1: Density,p. 1: Density
+V001683,X-EVOLV3D-OBC-TDS,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density
+V001684,X-EVOLV3D-OBC-TDS,Melting temperature,Direction,Not published,Not applicable,p. 1: Melting temperature,p. 1: Melting Temperature
+V001684,X-EVOLV3D-OBC-TDS,Melting temperature,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Melting temperature,p. 1: Melting Temperature
+V001690,S-TPC,Density,Direction,Not published,Not applicable,p. 2: Density,p. 2: Density
+V001692,S-TPC,Glass transition temperature,Direction,Not published,Not applicable,p. 2: Glass transition temperature,p. 2: Glass Transition Temperature
+V001694,S-TPC,Melting temperature,Direction,Not published,Not applicable,p. 2: Melting temperature,p. 2: Melting Temperature
+V001701,S-PVB-PVB-Prusament-TDS-2021-10-EN,Hardness,Direction,Not published,Not applicable,p. 2: Hardness,p. 2: Hardness – Shore D
+V001738,I-PEI-9085-TDS,Density,Direction,Not published,Not applicable,p. 2: Density,p. 2: Density
+V001809,R-BAMBU-SUPPORT-PLA-NEW-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V001816,R-BAMBU-SUPPORT-PLA-NEW-TDS,Water absorption,Test temperature,Not published,25°C,p. 2: Saturated Water Absorption Rate,"p. 2: Saturated Water Absorption Rate 25 °C, 55% RH"
+V002059,S-FIBER-PA612,Melt mass-flow rate,Test temperature,Not published,260°C,p. 1: Melt index,"p. 1: Melt index 260°C, 2.16 kg"
+V002066,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,Melt mass-flow rate,Test temperature,Not published,275°C,p. 1: Melt index,"p. 1: Melt index 275°C, 5 kg"
+V002074,S-FIBER-PPSGF-TDS-2,Melt mass-flow rate,Test temperature,Not published,300°C,p. 1: Melt index,"p. 1: Melt index 300°C, 5 kg"
+V002081,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,Melt mass-flow rate,Test temperature,Not published,250°C,"p. 1: Melt flow rate (MFR), 250°C / 2,16kg","p. 1: Melt flow rate (MFR), 250°C / 2,16kg"
+V002084,S-SPECTRUM-en-tds-spectrum-pc-cf,Izod impact strength,Direction,Not published,Not applicable,"p. 1: Izod Impact Strength, Notched @ 23°C","p. 1: Izod Impact Strength, Notched @ 23°C"
+V002092,S-SPECTRUM-en-tds-spectrum-pctg-cf10,Impact strength,Direction,Not published,Not applicable,"p. 1: Izod Impact Strenght, Unnotched @ 23°C",p. 1: Izod Impact Strenght Unnotched @ 23°C
+V002093,S-SPECTRUM-en-tds-spectrum-pctg-cf10,Impact strength,Direction,Not published,Not applicable,"p. 1: Izod Impact Strenght, Notched @ 23°C",p. 1: Izod Impact Strenght Notched @ 23°C
+V002096,S-SPECTRUM-en-tds-spectrum-pa12-cf15,Melt mass-flow rate,Test temperature,Not published,210°C,"p. 1: MFR (210°C, 2.16kg)","p. 1: MFR (210°C, 2.16kg)"
+V002102,S-SPECTRUM-en-tds-spectrum-hipsx,Melt mass-flow rate,Test temperature,Not published,200°C,"p. 1: Melt Flow Rate, (200°C/5.0kg)","p. 1: Melt Flow Rate, (200°C/5.0kg)"
+V002111,B-pla-basic-filament-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002112,B-pla-matte-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002113,B-pla-basic-gradient-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002114,B-pla-tough-upgrade-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002115,B-pla-translucent-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002116,B-pla-silk-upgrade-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002117,B-pla-silk-dual-color-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002118,B-pla-metal-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002119,B-pla-marble-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002120,B-pla-sparkle-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002121,B-pla-wood-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002122,B-pla-galaxy-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002123,B-pla-glow-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002124,B-pla-aero-TDS,Melt mass-flow rate,Test temperature,Not published,260°C,p. 2: Melt Index,"p. 2: Melt Index 260 °C, 2.16 kg"
+V002125,B-pla-cf-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002126,B-petg-basic-TDS,Melt mass-flow rate,Test temperature,Not published,245°C,p. 2: Melt Index,"p. 2: Melt Index 245 °C, 2.16 kg"
+V002127,B-petg-hf-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002128,B-petg-translucent-TDS,Melt mass-flow rate,Test temperature,Not published,230°C,p. 2: Melt Index,"p. 2: Melt Index 230 °C, 2.16 kg"
+V002129,B-petg-cf-TDS,Melt mass-flow rate,Test temperature,Not published,250°C,p. 2: Melt Index,"p. 2: Melt Index 250 °C, 2.16 kg"
+V002130,B-abs-filament-TDS,Melt mass-flow rate,Test temperature,Not published,260°C,p. 2: Melt Index,"p. 2: Melt Index 260 °C, 2.16 kg"
+V002131,B-abs-gf-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002132,B-asa-filament-TDS,Melt mass-flow rate,Test temperature,Not published,260°C,p. 2: Melt Index,"p. 2: Melt Index 260 °C, 2.16 kg"
+V002133,B-asa-aero-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002134,B-asa-cf-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002135,B-PC-TDS,Melt mass-flow rate,Test temperature,Not published,260°C,p. 2: Melt Index,"p. 2: Melt Index 260 °C, 2.16 kg"
+V002136,B-pc-fr-TDS,Melt mass-flow rate,Test temperature,Not published,260°C,p. 2: Melt Index,"p. 2: Melt Index 260 °C, 2.16 kg"
+V002137,B-tpu-for-ams-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002138,B-tpu-95a-hf-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002139,B-TPU-SOFT-TDS-4,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002140,B-TPU-SOFT-TDS-5,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002141,B-paht-cf-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 2: Melt Index,"p. 2: Melt Index 280 °C, 2.16 kg"
+V002142,B-pa6-cf-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 2: Melt Index,"p. 2: Melt Index 280 °C, 2.16 kg"
+V002143,B-pa6-gf-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 2: Melt Index,"p. 2: Melt Index 280 °C, 2.16 kg"
+V002144,B-pet-cf-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 2: Melt Index,"p. 2: Melt Index 280 °C, 2.16 kg"
+V002145,B-ppa-cf-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 2: Melt Index,"p. 2: Melt Index 280 °C, 2.16 kg"
+V002146,B-pps-cf-TDS,Melt mass-flow rate,Test temperature,Not published,320°C,p. 2: Melt Index,"p. 2: Melt Index 320 °C, 2.16 kg"
+V002147,B-pva-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002148,B-support-for-pla-petg-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002149,B-support-for-abs-TDS,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt Index,"p. 2: Melt Index 210 °C, 2.16 kg"
+V002150,B-support-for-pa-pet-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 2: Melt Index,"p. 2: Melt Index 280 °C, 2.16 kg"
+V002164,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,Melt mass-flow rate,Test temperature,Not published,210°C,p. 2: Melt index,"p. 2: Melt index 210°C, 2.16 kg"
+V002165,S-POLYCN-PolyFlex-TPU90-TDS-V5-1,Hardness,Direction,Not published,Not applicable,p. 2: Shore hardness,"p. 3: Shore hardness ISO 7619-1, GB/T 531.1"
+V002168,S-PEBA-PEBA90A-TDS-en,Melt mass-flow rate,Test temperature,Not published,190°C,"p. 1: Melt Flow Index (190℃, 2.16kg)","p. 1: Melt Flow Index(190℃,2.16kg) GB/T 3682"
+V002177,I-TPU-TDS,Hardness,Direction,Not published,Not applicable,p. 1: Hardness,p. 1: Hardness
+V002187,I-ESD-ABS-TDS,Melt mass-flow rate,Test temperature,Not published,280°C,p. 1: Melt Index,"p. 1: Melt Index 280°C, 5kg"
+V002200,S-PPSGF-TDS-0,Melt mass-flow rate,Test temperature,Not published,340°C,p. 1: Melt Index,"p. 1: Melt Index 340 °C, 2.16 kg"
+V002226,X-Hyperlite-PP-TDS-v1,Density,Specimen type,Not published (density specimen form not explicitly established),Printed specimen,p. 1: Density,p. 1: Density ISO 1183 g/cc
+V002320,S-ESUN-PLA-Silk-TDS-2025-06-19,Izod impact strength,Notch,Not published,Unnotched,p. 2: IZOD Impact Strength (X-Y),p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+V002321,S-ESUN-PLA-Silk-TDS-2025-06-19,Izod impact strength,Notch,Not published,Unnotched,p. 2: IZOD Impact Strength (Z),p. 2: IZOD Impact Strength (Z) GB/T 1843
+V002328,R-YOUSU-POM-TDS,Impact strength,Direction,Not published,Not applicable,p. 1: Notched Izod Impact,p. 1: Notched Izod Impact ISO 179/1eA KJ/m2
+V002346,R-FORMFUTURA-STYX-PA6-TDS,Charpy strength,Direction,Not published,Not applicable,"p. 1: Charpy notched impact strength, 23°C","p. 1: Charpy notched impact strength, 23°C"
+V002415,R-FIBERON-PETCF17-TDS,Melt mass-flow rate,Test temperature,Not published,270°C,p. 1: Melt index,"p. 1: Melt index 270°C, 2.16 kg"
+V002437,R-FIBERON-PETGRCF08-TDS,Melt mass-flow rate,Test temperature,Not published,230°C,p. 1: Melt index,"p. 1: Melt index 230°C, 2.16 kg"
+V002780,S-SPECTRUM-en-tds-spectrum-pla-matt,HDT,Test temperature,Not published,90°C,"p. 1: Heat Deflection Temperature 0.45 MN/m2, annealed (4h @ 90°C)","p. 1: Heat Deflection Temperature 0.45 MN/m2, annealed (4h @ 90°C)"
+V002781,S-SPECTRUM-en-tds-spectrum-pla-matt,HDT,Test temperature,Not published,90°C,"p. 1: Heat Deflection Temperature 1.81 MN/m2, annealed (4h @ 90°C)","p. 1: Heat Deflection Temperature 1.81 MN/m2, annealed (4h @ 90°C)"
+V003430,S-POLYCN-PolyFlex-TPU95-HF-TDS-V4-2,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003431,S-POLYCN-PolyFlex-TPU95-HF-TDS-V4-2,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003432,S-POLYCN-PolyFlex-TPU95-HF-TDS-V4-2,Hardness,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31)","p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31)"
+V003457,S-POLYCN-PolyFlex-TPU90-TDS-V4-2,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003458,S-POLYCN-PolyFlex-TPU90-TDS-V4-2,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003459,S-POLYCN-PolyFlex-TPU90-TDS-V4-2,Hardness,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31)","p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31)"
+V003463,S-POLYCN-index-php-controller-attachment-id-attachment-236,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003464,S-POLYCN-index-php-controller-attachment-id-attachment-236,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003465,S-POLYCN-index-php-controller-attachment-id-attachment-236,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003466,S-POLYCN-index-php-controller-attachment-id-attachment-236,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending modulus (X-Y) ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending modulus (X-Y) ASTMD790 (ISO 178, GB/T 9341)"
+V003467,S-POLYCN-index-php-controller-attachment-id-attachment-236,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength (X-Y) ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength (X-Y) ASTMD790 (ISO 178, GB/T 9341)"
+V003468,S-POLYCN-index-php-controller-attachment-id-attachment-236,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength (X-Y) ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength (X-Y) ASTM D256 (ISO 179, GB/T 1043)"
+V003469,S-POLYCN-index-php-controller-attachment-id-attachment-236,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)"
+V003470,S-POLYCN-index-php-controller-attachment-id-attachment-236,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)"
+V003471,S-POLYCN-index-php-controller-attachment-id-attachment-236,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)"
+V003474,S-POLYCN-PolyFlex-TPU95-TDS-V4,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003475,S-POLYCN-PolyFlex-TPU95-TDS-V4,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003476,S-POLYCN-PolyFlex-TPU95-TDS-V4,Hardness,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31) ~","p. 1: Shore hardness ASTM D2240 (ISO 7619, GB/T 31) ~"
+V003603,S-POLYCN-index-php-controller-attachment-id-attachment-167,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003604,S-POLYCN-index-php-controller-attachment-id-attachment-167,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003605,S-POLYCN-index-php-controller-attachment-id-attachment-167,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003606,S-POLYCN-index-php-controller-attachment-id-attachment-167,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)"
+V003607,S-POLYCN-index-php-controller-attachment-id-attachment-167,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)"
+V003608,S-POLYCN-index-php-controller-attachment-id-attachment-167,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)"
+V003609,S-POLYCN-index-php-controller-attachment-id-attachment-167,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)"
+V003613,S-POLYCN-PolyLite-PLA-TDS-V3,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003614,S-POLYCN-PolyLite-PLA-TDS-V3,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003615,S-POLYCN-PolyLite-PLA-TDS-V3,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003616,S-POLYCN-PolyLite-PLA-TDS-V3,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)"
+V003617,S-POLYCN-PolyLite-PLA-TDS-V3,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)"
+V003618,S-POLYCN-PolyLite-PLA-TDS-V3,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)"
+V003619,S-POLYCN-PolyLite-PLA-TDS-V3,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)"
+V003638,S-POLYCN-PolyLite-PETG-TDS-V3,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003639,S-POLYCN-PolyLite-PETG-TDS-V3,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003640,S-POLYCN-PolyLite-PETG-TDS-V3,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003641,S-POLYCN-PolyLite-PETG-TDS-V3,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)"
+V003642,S-POLYCN-PolyLite-PETG-TDS-V3,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)"
+V003643,S-POLYCN-PolyLite-PETG-TDS-V3,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)"
+V003751,S-POLYCN-PolyMax-PETG-TDS-V4,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003752,S-POLYCN-PolyMax-PETG-TDS-V4,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Young’s modulus (Z) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Young’s modulus (Z) ASTM D638 (ISO 527, GB/T 1040)"
+V003753,S-POLYCN-PolyMax-PETG-TDS-V4,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003754,S-POLYCN-PolyMax-PETG-TDS-V4,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)"
+V003755,S-POLYCN-PolyMax-PETG-TDS-V4,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+V003756,S-POLYCN-PolyMax-PETG-TDS-V4,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break (Z) ASTM D638 (ISO 527, GB/T 1040)","p. 1: Elongation at break (Z) ASTM D638 (ISO 527, GB/T 1040)"
+V003757,S-POLYCN-PolyMax-PETG-TDS-V4,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength (X-Y) ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength (X-Y) ASTMD790 (ISO 178, GB/T 9341)"
+V003758,S-POLYCN-PolyMax-PETG-TDS-V4,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Bending strength (Z) ASTMD790 (ISO 178, GB/T 9341)","p. 1: Bending strength (Z) ASTMD790 (ISO 178, GB/T 9341)"
+V003759,S-POLYCN-PolyMax-PETG-TDS-V4,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength (X-Y) ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength (X-Y) ASTM D256 (ISO 179, GB/T 1043)"
+V003760,S-POLYCN-PolyMax-PETG-TDS-V4,Impact strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy impact strength (Z) ASTM D256 (ISO 179, GB/T 1043)","p. 1: Charpy impact strength (Z) ASTM D256 (ISO 179, GB/T 1043)"
+V005481,R-FIBERLOGY-FiberWORKS-PETG-TDS,Tensile yield strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Tensile Strength @ Yield ISO 527 MPa,p. 2: Tensile Strength @ Yield ISO 527 MPa
+V005482,R-FIBERLOGY-FiberWORKS-PETG-TDS,Tensile break strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Tensile Strength @ Break ISO 527 MPa,p. 2: Tensile Strength @ Break ISO 527 MPa
+V005483,R-FIBERLOGY-FiberWORKS-PETG-TDS,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Tensile Modulus ISO 527 MPa,p. 2: Tensile Modulus ISO 527 MPa
+V005484,R-FIBERLOGY-FiberWORKS-PETG-TDS,Elongation at yield,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Elongation @ Yield ISO 527 %,p. 2: Elongation @ Yield ISO 527 %
+V005485,R-FIBERLOGY-FiberWORKS-PETG-TDS,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Elongation @ Break ISO 527 %,p. 2: Elongation @ Break ISO 527 %
+V005486,R-FIBERLOGY-FiberWORKS-PETG-TDS,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Flexural Strength ISO 178 MPa,p. 2: Flexural Strength ISO 178 MPa
+V005487,R-FIBERLOGY-FiberWORKS-PETG-TDS,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Flexural Modulus ISO 178 MPa,p. 2: Flexural Modulus ISO 178 MPa
+V005488,R-FIBERLOGY-FiberWORKS-PETG-TDS,Izod impact strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Izod Impact Strength (Notched) @ 23℃ ISO 180 kJ/m2,p. 2: Izod Impact Strength (Notched) @ 23℃ ISO 180 kJ/m2
+V005495,R-FIBERLOGY-FiberWORKS-PLA-TDS,Tensile yield strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Tensile Strength @ Yield ISO 527 MPa,p. 2: Tensile Strength @ Yield ISO 527 MPa
+V005496,R-FIBERLOGY-FiberWORKS-PLA-TDS,Tensile break strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Tensile Strength @ Break ISO 527 MPa,p. 2: Tensile Strength @ Break ISO 527 MPa
+V005497,R-FIBERLOGY-FiberWORKS-PLA-TDS,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Tensile Modulus ISO 527 MPa,p. 2: Tensile Modulus ISO 527 MPa
+V005498,R-FIBERLOGY-FiberWORKS-PLA-TDS,Elongation at yield,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Elongation @ Yield ISO 527 %,p. 2: Elongation @ Yield ISO 527 %
+V005499,R-FIBERLOGY-FiberWORKS-PLA-TDS,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Elongation @ Break ISO 527 %,p. 2: Elongation @ Break ISO 527 %
+V005500,R-FIBERLOGY-FiberWORKS-PLA-TDS,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Flexural Strength ISO 178 MPa,p. 2: Flexural Strength ISO 178 MPa
+V005501,R-FIBERLOGY-FiberWORKS-PLA-TDS,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Flexural Modulus ISO 178 MPa,p. 2: Flexural Modulus ISO 178 MPa
+V005502,R-FIBERLOGY-FiberWORKS-PLA-TDS,Izod impact strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 2: Izod Impact Strength (Notched) @ 23℃ ISO 180 kJ/m2,p. 2: Izod Impact Strength (Notched) @ 23℃ ISO 180 kJ/m2
+V005739,R-COLORFABB-TDS-LW-PET,Glass transition temperature,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005740,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005741,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005742,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005743,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005744,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005745,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notched, ISO 179","p. 1: Impact Strength Charpy Notched, ISO 179"
+V005746,R-COLORFABB-TDS-PET-HIGH-SPEED-PRO,Glass transition temperature,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005747,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005748,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005749,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005750,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005751,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005752,R-COLORFABB-TDS-E-colorFabb-LW-ASA,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005753,R-COLORFABB-TDS-E-colorFabb-LW-ASA,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005754,R-COLORFABB-TDS-varioShore-PEBA45D,Tensile modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005755,R-COLORFABB-TDS-varioShore-PEBA45D,Flexural modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005756,R-COLORFABB-TDS-varioShore-PEBA45D,Hardness,Specimen type,Not published (do not assume printed),Raw material value,p. 1: Shore hardness ISO 7619-1,p. 1: Shore hardness ISO 7619-1
+V005757,R-COLORFABB-TDS-varioShore-PEBA45D,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005758,R-COLORFABB-TDS-nGen-CF10,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005759,R-COLORFABB-TDS-nGen-CF10,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005760,R-COLORFABB-TDS-nGen-CF10,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005761,R-COLORFABB-TDS-nGen-CF10,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005762,R-COLORFABB-TDS-nGen-CF10,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005763,R-COLORFABB-TDS-nGen-CF10,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005764,R-COLORFABB-TDS-nGen-CF10,HDT,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005765,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179 N/A","p. 1: Impact Strength Charpy Notch, ISO 179 N/A"
+V005766,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Tensile modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005767,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005768,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Elongation at break,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005769,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Charpy strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005770,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005771,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005772,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005773,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005774,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (210°C/2.16 kg)","p. 1: Melt Flow Index MFI, (210°C/2.16 kg)"
+V005775,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (190°C/1,16 kg)","p. 1: Melt Flow Index MFI, (190°C/1,16 kg)"
+V005776,R-COLORFABB-TDS-varioShore-TPU-95A,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005777,R-COLORFABB-TDS-varioShore-TPU-95A,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005778,R-COLORFABB-TDS-varioShore-TPU-95A,Elongation at break,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005779,R-COLORFABB-TDS-varioShore-TPU-95A,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005780,R-COLORFABB-TDS-varioShore-TPU-95A,Hardness,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Hardness Shore A, ASTM D-2240","p. 1: Hardness Shore A, ASTM D-2240"
+V005781,R-COLORFABB-TDS-varioShore-TPU-95A,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005782,R-COLORFABB-TDS-varioShore-TPU-95A,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005783,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile modulus MPa,p. 1: Tensile modulus MPa
+V005784,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Tensile yield strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Yield strength MPa,p. 1: Yield strength MPa
+V005785,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Elongation at yield,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Yield strain %,p. 1: Yield strain %
+V005786,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strength MPa,p. 1: Tensile strength MPa
+V005787,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Tensile strain at strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strain at tensile strength %,p. 1: Tensile strain at tensile strength %
+V005788,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Tensile break strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile stress at break MPa,p. 1: Tensile stress at break MPa
+V005789,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strain at break %,p. 1: Tensile strain at break %
+V005790,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Charpy unnotched impact strength kJ/m2,p. 1: Charpy unnotched impact strength kJ/m2
+V005791,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Charpy notched impact strength kJ/m2,p. 1: Charpy notched impact strength kJ/m2
+V005793,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005794,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005795,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005796,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005797,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005798,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005799,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Charpy strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005800,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005801,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005802,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005803,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005804,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (210°C/2.16 kg)","p. 1: Melt Flow Index MFI, (210°C/2.16 kg)"
+V005805,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (190°C/1,16 kg)","p. 1: Melt Flow Index MFI, (190°C/1,16 kg)"
+V005806,R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005807,R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005808,R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005809,R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005810,R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005811,R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,Glass transition temperature,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005812,R-COLORFABB-TDS-PET-FLEX-MAX,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005813,R-COLORFABB-TDS-PET-FLEX-MAX,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005814,R-COLORFABB-TDS-PET-FLEX-MAX,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005815,R-COLORFABB-TDS-PET-FLEX-MAX,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005816,R-COLORFABB-TDS-PET-FLEX-MAX,Glass transition temperature,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005836,R-COLORFABB-TDS-LW-PET-FLEX,Glass transition temperature,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005837,R-COLORFABB-TDS-colorFabb-TPU85A,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005838,R-COLORFABB-TDS-colorFabb-TPU85A,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005839,R-COLORFABB-TDS-colorFabb-TPU85A,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005840,R-COLORFABB-TDS-colorFabb-TPU85A,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005841,R-COLORFABB-TDS-colorFabb-TPU85A,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005842,R-COLORFABB-TDS-colorFabb-TPU85A,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005843,R-COLORFABB-TDS-colorFabb-TPU85A,Hardness,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Shore Hardness Shore A,p. 1: Shore Hardness Shore A
+V005844,R-COLORFABB-TDS-colorFabb-TPU85A,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Raw material value,p. 1: Tensile Strength DIN 53504-S2,p. 1: Tensile Strength DIN 53504-S2
+V005845,R-COLORFABB-TDS-colorFabb-TPU85A,Elongation at break,Specimen type,Not published (do not assume printed),Raw material value,p. 1: Elongation at break DIN 53504-S2,p. 1: Elongation at break DIN 53504-S2
+V005846,R-COLORFABB-TDS-colorFabb-TPU85A,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Specific Gravity ASTM D-2240,p. 1: Specific Gravity ASTM D-2240
+V005847,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005848,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005849,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005850,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005851,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005852,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005853,R-COLORFABB-TDS-E-ColorFabb-PLA-HP-7a500b,HDT,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Heat Deflection Temp.* HDT-B, ISO 75","p. 1: Heat Deflection Temp.* HDT-B, ISO 75"
+V005854,R-COLORFABB-TDS-varioShore-PEBA40D,Tensile modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005855,R-COLORFABB-TDS-varioShore-PEBA40D,Flexural modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005856,R-COLORFABB-TDS-varioShore-PEBA40D,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005857,R-COLORFABB-TDS-varioShore-PEBA40D,Hardness,Specimen type,Not published (do not assume printed),Raw material value,p. 1: Shore hardness ISO 7619-1,p. 1: Shore hardness ISO 7619-1
+V005858,R-COLORFABB-TDS-varioShore-PEBA40D,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005859,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005860,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005861,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005862,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005863,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005864,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005866,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005867,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Hardness,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Shore Hardness Shore A, ISO 868","p. 1: Shore Hardness Shore A, ISO 868"
+V005868,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005869,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005870,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 36","p. 1: Heat Deflection Temp. HDT-B, ISO 36"
+V005871,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (230°C/2.16 kg)","p. 1: Melt Flow Index MFI, (230°C/2.16 kg)"
+V005872,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (215°C/1,16 kg)","p. 1: Melt Flow Index MFI, (215°C/1,16 kg)"
+V005873,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005874,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005875,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005876,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005877,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005878,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005880,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005881,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005882,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005883,R-COLORFABB-TDS-E-ColorFabb-nGen,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005884,R-COLORFABB-TDS-E-ColorFabb-nGen,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005885,R-COLORFABB-TDS-E-ColorFabb-nGen,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005886,R-COLORFABB-TDS-E-ColorFabb-nGen,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005887,R-COLORFABB-TDS-E-ColorFabb-nGen,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Tensile Strength Tensile, ASTM D638","p. 1: Tensile Strength Tensile, ASTM D638"
+V005888,R-COLORFABB-TDS-E-ColorFabb-nGen,Elongation at break,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Elongation at break Tensile, ASTM D638","p. 1: Elongation at break Tensile, ASTM D638"
+V005889,R-COLORFABB-TDS-E-ColorFabb-nGen,Flexural modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Flexural Modulus Flexural, ASTM D790","p. 1: Flexural Modulus Flexural, ASTM D790"
+V005890,R-COLORFABB-TDS-E-ColorFabb-nGen,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005891,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005892,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005893,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005894,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005895,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005896,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005897,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Charpy strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005898,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005899,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005900,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005901,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005902,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (210°C/2.16 kg)","p. 1: Melt Flow Index MFI, (210°C/2.16 kg)"
+V005903,R-COLORFABB-TDS-E-ColorFabb-Color-on-Demand,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (190°C/1,16 kg)","p. 1: Melt Flow Index MFI, (190°C/1,16 kg)"
+V005904,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005905,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005906,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005907,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005908,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005909,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005910,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Charpy strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Charpy Impact Charpy Notch, ISO 179","p. 1: Charpy Impact Charpy Notch, ISO 179"
+V005911,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005912,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005913,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005914,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005915,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (210°C/2.16 kg)","p. 1: Melt Flow Index MFI, (210°C/2.16 kg)"
+V005916,R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (190°C/1,16 kg)","p. 1: Melt Flow Index MFI, (190°C/1,16 kg)"
+V005929,R-COLORFABB-TDS-E-ColorFabb-ASA,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005930,R-COLORFABB-TDS-E-ColorFabb-ASA,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005931,R-COLORFABB-TDS-E-ColorFabb-ASA,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005932,R-COLORFABB-TDS-E-ColorFabb-ASA,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005933,R-COLORFABB-TDS-E-ColorFabb-ASA,Flexural modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005934,R-COLORFABB-TDS-E-ColorFabb-ASA,Flexural strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005935,R-COLORFABB-TDS-E-ColorFabb-ASA,Izod impact strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Izod Impact Strength Izod Notch, ISO 180","p. 1: Izod Impact Strength Izod Notch, ISO 180"
+V005936,R-COLORFABB-TDS-E-ColorFabb-ASA,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005937,R-COLORFABB-TDS-E-ColorFabb-ASA,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005939,R-COLORFABB-TDS-colorFabb-TPU95A,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005940,R-COLORFABB-TDS-colorFabb-TPU95A,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005941,R-COLORFABB-TDS-colorFabb-TPU95A,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005942,R-COLORFABB-TDS-colorFabb-TPU95A,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005943,R-COLORFABB-TDS-colorFabb-TPU95A,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005944,R-COLORFABB-TDS-colorFabb-TPU95A,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005945,R-COLORFABB-TDS-colorFabb-TPU95A,Hardness,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Shore Hardness Shore A,p. 1: Shore Hardness Shore A
+V005946,R-COLORFABB-TDS-colorFabb-TPU95A,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Raw material value,p. 1: Tensile Strength ASTM D-412,p. 1: Tensile Strength ASTM D-412
+V005947,R-COLORFABB-TDS-colorFabb-TPU95A,Elongation at break,Specimen type,Not published (do not assume printed),Raw material value,p. 1: Elongation at break ASTM D-412,p. 1: Elongation at break ASTM D-412
+V005948,R-COLORFABB-TDS-colorFabb-TPU95A,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Specific Gravity ASTM D-2240,p. 1: Specific Gravity ASTM D-2240
+V005949,R-COLORFABB-TDS-colorFabb-TPU95A,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005950,R-COLORFABB-TDS-colorFabb-TPU95A,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005951,R-COLORFABB-TDS-varioShore-TPU85A,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: elongation Stress @,p. 1: elongation Stress elongation
+V005952,R-COLORFABB-TDS-varioShore-TPU85A,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 37-1A","p. 1: Tensile Strength Tensile, ISO 37-1A"
+V005953,R-COLORFABB-TDS-varioShore-TPU85A,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 37-1A","p. 1: Elongation at break Tensile, ISO 37-1A"
+V005954,R-COLORFABB-TDS-varioShore-TPU85A,Tensile modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005955,R-COLORFABB-TDS-varioShore-TPU85A,Flexural modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005956,R-COLORFABB-TDS-varioShore-TPU85A,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005957,R-COLORFABB-TDS-varioShore-TPU85A,Hardness,Specimen type,Not published (do not assume printed),Raw material value,p. 1: Shore hardness ISO 7619-1,p. 1: Shore hardness ISO 7619-1
+V005969,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,Tensile modulus,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005970,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005971,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,Elongation at break,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005972,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,Charpy strength,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005973,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005974,R-COLORFABB-TDS-E-ColorFabb-LW-PLA-HT,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005975,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005976,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005977,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005978,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005979,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005980,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005981,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Density,Specimen type,Not published (density specimen form not explicitly established),Raw material value,p. 1: Density ISO 1183,p. 1: Density ISO 1183
+V005982,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Glass transition temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Glass Transition Temp. DSC, ISO 11357","p. 1: Glass Transition Temp. DSC, ISO 11357"
+V005983,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Melting temperature,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melting Temp. DSC, ISO 11357","p. 1: Melting Temp. DSC, ISO 11357"
+V005984,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,HDT,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Heat Deflection Temp. HDT-B, ISO 75","p. 1: Heat Deflection Temp. HDT-B, ISO 75"
+V005985,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (210°C/2.16 kg)","p. 1: Melt Flow Index MFI, (210°C/2.16 kg)"
+V005986,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,Melt mass-flow rate,Specimen type,Not published (do not assume printed),Raw material value,"p. 1: Melt Flow Index MFI, (190°C/1,16 kg)","p. 1: Melt Flow Index MFI, (190°C/1,16 kg)"
+V005987,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Youngs Modulus Tensile, ISO 527-1A","p. 1: Youngs Modulus Tensile, ISO 527-1A"
+V005988,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Tensile Strength Tensile, ISO 527-1A","p. 1: Tensile Strength Tensile, ISO 527-1A"
+V005989,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Elongation at break Tensile, ISO 527-1A","p. 1: Elongation at break Tensile, ISO 527-1A"
+V005990,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Flexural modulus,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Modulus Flexural, ISO 178","p. 1: Flexural Modulus Flexural, ISO 178"
+V005991,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Flexural strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Flexural Strength Flexural, ISO 178","p. 1: Flexural Strength Flexural, ISO 178"
+V005992,R-COLORFABB-TDS-E-ColorFabb-Vibers-PLA,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,"p. 1: Impact Strength Charpy Notch, ISO 179","p. 1: Impact Strength Charpy Notch, ISO 179"
+V005993,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Tensile modulus,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile modulus MPa,p. 1: Tensile modulus MPa
+V005994,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Tensile yield strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Yield strength MPa,p. 1: Yield strength MPa
+V005995,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Elongation at yield,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Yield strain %,p. 1: Yield strain %
+V005996,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Tensile strength (endpoint unspecified),Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strength MPa,p. 1: Tensile strength MPa
+V005997,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Tensile strain at strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strain at tensile strength %,p. 1: Tensile strain at tensile strength %
+V005998,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Tensile break strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile stress at break MPa,p. 1: Tensile stress at break MPa
+V005999,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strain at break %,p. 1: Tensile strain at break %
+V006000,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,Charpy strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Charpy notched impact strength kJ/m2,p. 1: Charpy notched impact strength kJ/m2
+V006056,R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019,Tensile break strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tensile strength,p. 1: Tensile strength
+V006057,R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019,Elongation at break,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Elongation at break,p. 1: Elongation at break
+V006058,R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019,Hardness,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Hardness,p. 1: Hardness
+V006059,R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019,Tear strength,Specimen type,Not published (do not assume printed),Printed specimen,p. 1: Tear strength,p. 1: Tear strength
+V006079,R-FILLAMENTUM-Technical-Data-Sheet-ASA-Extrafill-03012019,HDT,Standard / load,ASTM D648,"1,8 MPa ASTM D648",p. 1: Heat distortion temperature,p. 1: Heat distortion temperature
+V006079,R-FILLAMENTUM-Technical-Data-Sheet-ASA-Extrafill-03012019,HDT,Test load MPa,Not published,1.8,p. 1: Heat distortion temperature,p. 1: Heat distortion temperature
+V006100,R-FILLAMENTUM-Technical-Data-Sheet-PETG-EN-06052020-FE,HDT,Standard / load,ASTM D648,0.455 MPa ASTM D648,p. 1: Heat distortion temperature,p. 1: Heat distortion temperature
+V006100,R-FILLAMENTUM-Technical-Data-Sheet-PETG-EN-06052020-FE,HDT,Test load MPa,Not published,0.45,p. 1: Heat distortion temperature,p. 1: Heat distortion temperature
+V006138,R-FILLAMENTUM-Technical-Data-Sheet-HIPS-Extrafill-03012019,HDT,Standard / load,ISO 75,"1,8 MPa ISO 75",p. 1: Heat distortion temperature,p. 1: Heat distortion temperature
+V006138,R-FILLAMENTUM-Technical-Data-Sheet-HIPS-Extrafill-03012019,HDT,Test load MPa,Not published,1.8,p. 1: Heat distortion temperature,p. 1: Heat distortion temperature
+V006674,R-ULTIMAKER-MAKERBOT-Tough-One-Sheet,Flexural strength,Standard / load,Not published,63.3 MPa,p. 2: Flexural Strength,p. 2: Flexural Strength
+V006675,R-ULTIMAKER-MAKERBOT-Tough-One-Sheet,Flexural modulus,Standard / load,Not published,"2,364 MPa",p. 2: Flexural Modulus,p. 2: Flexural Modulus
+V006676,R-ULTIMAKER-MAKERBOT-Tough-One-Sheet,Tensile strength (endpoint unspecified),Standard / load,Not published,39.3 MPa,p. 2: Tensile Strength,p. 2: Tensile Strength
+V006677,R-ULTIMAKER-MAKERBOT-Tough-One-Sheet,Tensile modulus,Standard / load,Not published,2723 MPa,p. 2: Tensile Modulus,p. 2: Tensile Modulus
+V006717,S-PEBA-eSUN-PLA-Rock-FilamentTDS,HDT,Standard / load,GB/T 1634,0.45MPa GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634
+V006717,S-PEBA-eSUN-PLA-Rock-FilamentTDS,HDT,Test load MPa,Not published,0.45,p. 1: Heat distortion Temperature GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634
+V006803,S-PEBA-eSUN-ePA-Filament-TDS-V4-02,HDT,Standard / load,GB/T 1634,0.45MPa GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634
+V006803,S-PEBA-eSUN-ePA-Filament-TDS-V4-02,HDT,Test load MPa,Not published,0.45,p. 1: Heat distortion Temperature GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634
+V007190,D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,Tensile modulus,Standard / load,Not published,80 MPa,p. 1: tensile modulus and strength of over,p. 1: tensile modulus and strength of over
+V007253,S-PEBA-PLA-UV-Color-Change-FilamentTDS,HDT,Standard / load,GB/T 1634,0.45MPa GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634
+V007253,S-PEBA-PLA-UV-Color-Change-FilamentTDS,HDT,Test load MPa,Not published,0.45,p. 1: Heat distortion Temperature GB/T 1634,p. 1: Heat distortion Temperature GB/T 1634
+V007265,R-YOUSU-YOUSUSILKPLATDS-81c3,Impact strength,Notch,Not published,Notched,"p. 1: Impact Strength, IZOD D256 KJ/m2","p. 1: Impact Strength, IZOD D256 KJ/m2 4mm,23℃ notched"
+V007265,R-YOUSU-YOUSUSILKPLATDS-81c3,Impact strength,Test temperature,Not published,23°C,"p. 1: Impact Strength, IZOD D256 KJ/m2","p. 1: Impact Strength, IZOD D256 KJ/m2 4mm,23℃ notched"
+V008115,R-QIDI-PLA-CF,HDT,Standard / load,Not published,0.45 MPa,p. 1: 热变形温度,p. 1: 热变形温度
+V008115,R-QIDI-PLA-CF,HDT,Test load MPa,Not published,0.45,p. 1: 热变形温度,p. 1: 热变形温度
+V008116,R-QIDI-PLA-CF,HDT,Standard / load,Not published,1.80 MPa,p. 1: Determination of temperature,p. 1: Determination of temperature
+V008116,R-QIDI-PLA-CF,HDT,Test load MPa,Not published,1.8,p. 1: Determination of temperature,p. 1: Determination of temperature
+V008129,R-QIDI-PETG-TOUGH,HDT,Standard / load,:Method A ISO 75,1.8MPa ISO 75,p. 2: 热变形温度 ISO 75:Method A,p. 2: 热变形温度 ISO 75:Method A
+V008129,R-QIDI-PETG-TOUGH,HDT,Test load MPa,Not published,1.8,p. 2: 热变形温度 ISO 75:Method A,p. 2: 热变形温度 ISO 75:Method A
+V008872,R-MATTERHACKERS-PRO-SERIES-xomIDF,HDT,Standard / load,ASTM D648,66 PSI ASTM D648,p. 1: Heat Deflection Temperature,p. 1: Heat Deflection Temperature
+V008872,R-MATTERHACKERS-PRO-SERIES-xomIDF,HDT,Test load MPa,Not published,0.45,p. 1: Heat Deflection Temperature,p. 1: Heat Deflection Temperature

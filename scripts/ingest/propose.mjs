@@ -1719,8 +1719,13 @@ export function readSheet(text, registry) {
       const standardText = [read.conditions, ...read.standards].join(' ');
       const method = impactMethod(read.match.Property, fullLabel, standardText);
       // The notch is what the row says, then what the method implies, then what the label's kind usually means.
-      const notch = /\bun-?notched\b/i.test(fullLabel) ? 'Unnotched'
-        : /\bnotched\b/i.test(fullLabel) ? 'Notched'
+      // colorFabb names the test in its method column, "Izod Notch" and "Charpy Notch", and a notch the row names
+      // anywhere on it is the row's (the second read, R085).
+      const onRow = `${fullLabel} ${read.conditions ?? ''}`;
+      // A sheet may say it in its own language: QIDI's 缺口冲击强度 is the notched impact strength (无缺口, without a
+      // notch), Extrudr's Kerbschlagzähigkeit the notched one (Schlagzähigkeit alone is not).
+      const notch = /\bun-?notch(?:ed)?\b|\bizod-un\b|无缺口/i.test(onRow) ? 'Unnotched'
+        : /\bnotch(?:ed)?\b|缺口|kerbschlag/i.test(onRow) ? 'Notched'
         : notchOf(standardText) ?? read.match.Notch;
       // A foaming filament's sheet prints two densities: the filament's, and the one the print reaches when the
       // foaming is active. The second is what the process achieves at a temperature, not a property of the
@@ -1818,7 +1823,7 @@ export function readSheet(text, registry) {
 // disagree, the property is the generic one and the row says why.
 const IZOD = /ISO\s?180|ASTM\s?D\s?256|GB\/T\s?1843/i;
 const CHARPY = /ISO\s?179|GB\/T\s?1043/i;
-const NOTCHED_BY_METHOD = [[/ISO\s?179[-\/\s]?1eA|ISO\s?180[-\/\s]?1A|ASTM\s?D\s?256/i, 'Notched'], [/ISO\s?179[-\/\s]?1eU/i, 'Unnotched']];
+const NOTCHED_BY_METHOD = [[/ISO\s?179[-\/\s]?1eA|ISO\s?180[-\/\s]?1?A\b|ASTM\s?D\s?256/i, 'Notched'], [/ISO\s?179[-\/\s]?1eU|ISO\s?180[-\/\s]?1?U\b/i, 'Unnotched']];
 
 /**
  * The property a generic label names under a family heading. "Strain at Break" under "Flexural Properties" is the

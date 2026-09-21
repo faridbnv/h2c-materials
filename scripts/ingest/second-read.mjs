@@ -4,7 +4,8 @@
 //   npm run ingest:second-read -- --batch b19                       draw the sample
 //   npm run ingest:second-read -- --batch b19 --seed 20260921       another draw, recorded
 //   npm run ingest:second-read -- --all                             every batch that has none
-//   npm run ingest:second-read -- --batch b19 --tally               read the verdicts back and reopen what disagrees
+//   npm run ingest:second-read -- --tally                           the findings register, second-read/findings.csv
+//   npm run ingest:second-read -- --open                            ... and the findings still open
 //
 // b01 and b02 were read a second time and it found a source collision (m55 repairs it); b03 onward were not,
 // which is some three thousand accepted rows. R085: a separate agent re-reads a seeded sample of each batch
@@ -16,19 +17,17 @@
 // batch whose commonest property is a third of its rows spends a third of the reader's attention on it.
 //
 // `--tally` reads the Verdict column back: `agree`, or anything else as a disagreement with the note beside it.
-// One disagreement reopens its document — the ledger row goes back to `held: second-read`, and the finding is
-// listed for the batch's README — because a reader who finds one wrong row has not established that the rest
-// are right (R085).
+// R085 had one disagreement reopen its document. R165 amends it: the documents are applied and terminal, so a
+// finding questions its row in a register instead, and is closed by the migration that corrects the class it
+// belongs to, counted across the whole table first, or by a reason written against it.
 
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { cacheDir } from '../lib/pdf-text.mjs';
-import { HEADER } from './inventory.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const LEDGER = join(AUDIT, 'ledger.csv');
 const BATCHES = join(AUDIT, 'batches');
 const arg = (name, fallback = null) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : fallback; };
 const flag = (name) => process.argv.includes(`--${name}`);
@@ -115,33 +114,45 @@ if (process.argv[1]?.endsWith('second-read.mjs')) {
   // corrected or added a value is not a batch: its rows were read by a person in the first place, and m13 to
   // m17 name the value each one replaces. Naming one with --batch still draws it.
   const batches = flag('all') ? [...new Set(rows.map((r) => r.batch))].filter((b) => /^b\d/.test(b)).sort() : [arg('batch')].filter(Boolean);
-  if (!batches.length) { console.error('name a batch: --batch b19, or --all'); process.exit(2); }
+  if (!batches.length && !flag('tally') && !flag('open')) { console.error('name a batch: --batch b19, or --all'); process.exit(2); }
   const seed = Number(arg('seed', '20260921'));
 
-  if (flag('tally')) {
-    const ledger = readCsv(LEDGER).records.map((r) => r.values);
-    const bySource = new Map();
-    for (const l of ledger) if (l.registered_source_id) bySource.set(l.registered_source_id, l);
-    let read = 0, disagreed = 0, reopened = 0;
-    for (const batch of batches) {
-      const path = join(BATCHES, batch, 'second-read-sample.csv');
-      if (!existsSync(path)) continue;
-      const sampled = readCsv(path).records.map((r) => r.values);
-      const answered = sampled.filter((r) => String(r.Verdict ?? '').trim());
-      const wrong = answered.filter((r) => !/^agrees?$/i.test(String(r.Verdict).trim()));
-      read += answered.length; disagreed += wrong.length;
-      for (const w of wrong) {
-        const row = bySource.get(w.SourceID);
-        if (!row || /^held: second-read/.test(row.status_note ?? '')) continue;
-        row.status = 'held';
-        row.status_note = `held: second-read — ${w.MeasurementID} ${w.Property}: ${String(w.Note || w.Verdict).slice(0, 260)}`;
-        row.updated = new Date().toISOString().slice(0, 10);
-        reopened++;
+  if (flag('tally') || flag('open')) {
+    // R165 (amends R085): a disagreement about a document already applied questions its rows; it does not reopen
+    // the document. The ledger is not touched — an applied document is terminal — and each finding is a row of the
+    // register, second-read/findings.csv, until a migration corrects the row or a reason closes it. The register
+    // derives what it can: a row a later migration corrected (m104 onward, named in its Notes) or retired is
+    // resolved; a Resolution written by hand is kept; everything else is open.
+    const REGISTER = join(AUDIT, 'second-read', 'findings.csv');
+    const RFIELDS = ['Batch', 'MeasurementID', 'SourceID', 'Property', 'Verdict', 'Note', 'By', 'Resolution'];
+    const kept = existsSync(REGISTER) ? new Map(readCsv(REGISTER).records.map((r) => [r.values.MeasurementID, r.values.Resolution])) : new Map();
+    const measurements = new Map(readCsv(join(projectRoot, 'data/tables/measurements.csv')).records.map((r) => [r.values.MeasurementID, r.values]));
+    const all = [...new Set([...readdirSync(BATCHES).filter((b) => existsSync(join(BATCHES, b, 'second-read-sample.csv')))])].sort();
+    const findings = [];
+    let read = 0;
+    for (const batch of all) {
+      const sampled = readCsv(join(BATCHES, batch, 'second-read-sample.csv')).records.map((r) => r.values);
+      read += sampled.filter((r) => String(r.Verdict ?? '').trim()).length;
+      for (const w of sampled.filter((r) => String(r.Verdict ?? '').trim() && !/^agrees?$/i.test(String(r.Verdict).trim()))) {
+        const m = measurements.get(w.MeasurementID);
+        const later = [...String(m?.Notes ?? '').matchAll(/\((m(\d+)(?:-[^)]*)?)\)/g)].filter((x) => Number(x[2]) >= 104).map((x) => x[1]);
+        // A standard the row now records answers a finding about its standard whatever did it; any other finding
+        // is answered only by a migration that touched the row after the read, and the register names it so a
+        // reader can check it answers this.
+        const standardFixed = /standard/i.test(w.Verdict) && m && !/^Not published$/.test(m.Standards ?? 'Not published');
+        const derived = !m ? 'the row is gone' : /^Retired/.test(m['Data status']) ? `retired: ${m['Data status']}`
+          : /standard/i.test(w.Verdict) ? (standardFixed ? `corrected: the row now records ${m.Standards}` : '')
+          : later.length ? `corrected by ${[...new Set(later)].join(', ')}` : '';
+        const hand = kept.get(w.MeasurementID);
+        const resolution = derived || (hand && hand !== 'open' ? hand : 'open');
+        findings.push({ Batch: batch, MeasurementID: w.MeasurementID, SourceID: w.SourceID, Property: w.Property, Verdict: w.Verdict, Note: w.Note, By: w.By, Resolution: resolution });
       }
-      console.log(`  ${batch}: ${answered.length} of ${sampled.length} read, ${wrong.length} disagree`);
     }
-    if (reopened) writeFileSync(LEDGER, csvText(HEADER, ledger));
-    console.log(`${read} row(s) read a second time, ${disagreed} disagree, ${reopened} document(s) reopened`);
+    mkdirSync(dirname(REGISTER), { recursive: true });
+    writeFileSync(REGISTER, csvText(RFIELDS, findings));
+    const open = findings.filter((f) => f.Resolution === 'open');
+    if (flag('open')) for (const f of open) console.log(`${f.Batch.padEnd(14)} ${f.MeasurementID} ${f.Property.slice(0, 26).padEnd(26)} ${f.Verdict.replace(/^disagrees: /, '').padEnd(10)} ${String(f.Note).slice(0, 110)}`);
+    console.log(`${read} row(s) read a second time, ${findings.length} disagree, ${findings.length - open.length} resolved, ${open.length} open -> ${REGISTER.replace(`${projectRoot}/`, '')}`);
     process.exit(0);
   }
 
