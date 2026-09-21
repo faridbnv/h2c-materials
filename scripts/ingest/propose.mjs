@@ -119,6 +119,20 @@ const unitFirstRe = () => new RegExp(
   `(?:^|\\s)(?<unit>${UNIT_PATTERN})(?<lead>\\s+(?:${CONDITION_UNIT}\\s+)*(?:[${BOUNDS}]\\s*)?)(?<value>${NUMBER_PATTERN})(?![\\d.,])`
   + `(?:\\s*(?:±|\\+\\/-)\\s*(?<spread>\\d+(?:[.,]\\d+)?)|\\s*[-–~]\\s*(?<upper>\\d+(?:[.,]\\d+)?))?`, 'gi');
 
+/**
+ * A line that is nothing but standard designations, and the designations it holds. This is a merged Testing
+ * Method cell: the makers who draw one across a property's two direction rows leave its text on a line of its
+ * own between them. A line that says anything else — a label, a value, a condition — is a row, not a cell.
+ */
+export function standardsOnly(text) {
+  const line = String(text ?? '').trim();
+  if (!line) return null;
+  const named = line.match(new RegExp(STANDARD_RE.source, 'gi')) ?? [];
+  if (!named.length) return null;
+  const rest = line.replace(new RegExp(STANDARD_RE.source, 'gi'), ' ').replace(/[\s,;/&+·]|\band\b/gi, '');
+  return rest ? null : named.map((m) => m.replace(/\s+/g, ' ').trim()).join(', ');
+}
+
 // A section heading tells a value what it is: a printing guide is not a test result, and a storage note is neither.
 //
 // A heading must be the heading, not a line that happens to contain the word. A data sheet prints its marketing
@@ -1681,9 +1695,21 @@ export function readSheet(text, registry) {
         continue;
       }
 
+      // A merged cell says the same thing twice. Polymaker, QIDI and Fiberon print the Testing Method column as
+      // one cell spanning a property's two direction rows, and extraction lands its text on a line of its own
+      // between them — "Young's modulus (X-Y) 2116.8 ± 68.1 MPa", then "ISO 527, GB/T 1040", then "Young's
+      // modulus (Z) 1898.7 ± 98.5 MPa". Read row by row, only one of the two names a standard, and 491 of
+      // Polymaker's 1,092 rows say the sheet named none while 288 carry the designation from those very cells.
+      //
+      // A line that is nothing but standard designations is that cell. It belongs to the row above it and the
+      // row below it, and to nothing further: a cell spans the rows it is drawn across, and reaching past them
+      // would be a guess about a table this reader cannot see the rules of.
+      const mergedStandards = read.standards.length ? null
+        : [lines[li - 1], lines[li + 1]].map((l) => standardsOnly(l ? repair(String(l.text ?? '')) : '')).find(Boolean) ?? null;
+
       values.push({
         page: page.page, property: method?.property ?? familyProperty(read.match.Property, family?.name), methodNote: method?.note ?? null,
-        familyStandards: family?.standards ?? null,
+        familyStandards: family?.standards ?? null, mergedStandards,
         // The column's own condition joins the row's: a value under an "Annealed" heading was annealed as surely
         // as one whose label says so, and the state readers below read the word either way.
         label: fullLabel, condition: [carried ? fullLabel : read.conditions, line.condition ?? ''].filter(Boolean).join(' '),
@@ -1961,7 +1987,9 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // A row that names no standard of its own takes the one its block heading names: "Flexural Properties: ASTM
   // D790, Procedure A" is the sheet stating the method for every row under it.
   const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, leftover || null,
-    ...(v.read.standards.length ? v.read.standards : (v.familyStandards ? [v.familyStandards] : []))].filter(Boolean))];
+    ...(v.read.standards.length ? v.read.standards
+      : v.mergedStandards ? [v.mergedStandards]
+        : (v.familyStandards ? [v.familyStandards] : []))].filter(Boolean))];
   const standardText = named.join(' ').trim();
   const standards = readStandards(standardText);
   // What the row says was done to the specimen before it was tested, and how wet it was, in the sheet's own

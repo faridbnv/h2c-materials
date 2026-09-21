@@ -73,7 +73,7 @@ ASA-AF
 ASA-CF
 110
 ASA-EC
-~87–105†
+~86–105†
 41.4
 300
 all 140 candidates

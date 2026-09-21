@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -1129,4 +1129,29 @@ test('a load a heat deflection was tested under is not also the temperature it w
   // the same one at -40 °C, and a row that does not say which is indistinguishable from its twin.
   const impact = row(['Izod Impact Strength, Notched @ 23°C ASTM D256 kJ/m2 5.4']);
   assert.equal(impact['Test temperature'], '23°C');
+});
+
+test('a merged Testing Method cell belongs to the two rows it is drawn across', () => {
+  // Polymaker, QIDI and Fiberon print the method once for a property's two direction rows, and extraction lands
+  // it on a line of its own between them. Read row by row only one of the two named a standard: 491 of
+  // Polymaker's 1,092 rows said the sheet named none, while 288 carry the designation from those very cells.
+  assert.equal(standardsOnly('ISO 527, GB/T 1040'), 'ISO 527, GB/T 1040');
+  assert.equal(standardsOnly('ASTM D638 and ISO 527'), 'ASTM D638, ISO 527');
+  // A line that says anything else is a row, not a cell: a rate, a label, a value, a heading.
+  assert.equal(standardsOnly('DSC, 10°C/min'), null);
+  assert.equal(standardsOnly('Young’s modulus (Z) 1898.7 ± 98.5 MPa'), null);
+  assert.equal(standardsOnly('Property Testing Method Typical Value'), null);
+  assert.equal(standardsOnly(''), null);
+
+  const sheet = readSheet({ pages: [{ page: 1, lines: [
+    { text: 'Young’s modulus (X-Y) 2116.8 ± 68.1 MPa', x0: 78 },
+    { text: 'ISO 527, GB/T 1040', x0: 261 },
+    { text: 'Young’s modulus (Z) 1898.7 ± 98.5 MPa', x0: 78 },
+    { text: 'Bending modulus (X-Y) 1898.5 ± 35.5 MPa', x0: 78 },
+  ] }] }, registry);
+  const rows = sheet.values.map((v) => measurementRow(v, { sourceId: 'X', materialId: 'M001', gradeId: '', window: {} }));
+  // Both rows the cell is drawn across carry it, the one above as much as the one below.
+  assert.deepEqual(rows.filter((r) => r.Property === 'Tensile modulus').map((r) => r.Standards), ['ISO 527; GB/T 1040', 'ISO 527; GB/T 1040']);
+  // And it reaches no further than the rows it spans: the bending modulus two lines down names no standard.
+  assert.equal(rows.find((r) => r.Property === 'Flexural modulus').Standards, 'Not published');
 });

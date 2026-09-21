@@ -122,7 +122,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | tensileModulusXY | 994 | 77 | 81% | 96% | ×1.51 | 0.342 (718 pairs) |
 | tensileStrengthXY | 1242 | 56 | 80% | 96% | ×1.6 | 0.236 (1608 pairs) |
 | elongationXY | 805 | 77 | 81% | 96% | ×2.83 | 0.728 (1604 pairs) |
-| hdt045 | 1030 | 67 | 81% | 96% | 18.1 °C | 5.24 (1624 pairs) |
+| hdt045 | 1030 | 67 | 79% | 96% | 18.8 °C | 5.24 (1720 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -149,8 +149,8 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | elongationXY | this-material | 51 | 1 | 97.5% point | 2 | 1.46% point |
 | elongationXY | family | 77 | 0 | 97.5% point | 3 | 2.5% point |
 | hdt045 | this-grade | 54 | 1 | 97.5% point | 0 | 2.5% point |
-| hdt045 | this-material | 44 | 3 | 98.04% point | 0 | 2.5% point |
-| hdt045 | family | 67 | 4 | 97.68% point | 1 | 2.5% point |
+| hdt045 | this-material | 44 | 3 | 98.05% point | 0 | 2.5% point |
+| hdt045 | family | 67 | 4 | 97.69% point | 0 | 2.5% point |
 
 - Unstated-load bracket, amorphous: top at the published value + 15 °C (92 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 15 °C, the 6th largest gap observed).
 - Unstated-load bracket, semi-unfilled: its top cannot screen (only 4 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
