@@ -46,7 +46,7 @@ export const REASONS = ['ruling', 'no-name', 'no-values', 'ocr-visual', 'twin', 
 // is built. A hold nobody can act on is worse than no hold at all, so nothing goes here without a way out.
 const READER_GAPS = [
   { gap: 'condition-table', when: (row) => row.provider === 'Stratasys',
-    why: 'a table per layer height, each with a value column per orientation, and two tables of one sheet under the same heading' },
+    why: "a table per layer height, each with a value column per orientation, and the layer height on a line of its own. The columns are read now — 24 documents yield 379 values, 280 of them stating a direction — and what is still missing is the caption: nine of eleven sheets then hold the same property in the same direction two or three times over, one row per table, with nothing on the row saying which table it came from. Carrying \"Table 5: … with Unidirectional Toolpaths\" and \"0.010 in layer height\" onto each row is what frees them, and until then MEAS-CONDITIONS-INDISTINCT is right to refuse" },
   { gap: 'name-not-a-name', when: (row, proposal) => /^(precautions?|material status mass production)$/i.test(proposal?.grades?.[0]?.row?.['Product name'] ?? ''),
     why: 'the reader took a section heading for the product name; the page names no product this reader can use' },
   { gap: 'bilingual-columns', when: (row) => row.provider === 'QIDI',

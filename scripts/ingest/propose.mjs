@@ -1148,7 +1148,12 @@ const axisOf = (text) => {
  */
 export function axisColumns(line) {
   const cells = lineCells(line);
-  if (cells.length < 3) return null;
+  // Three cells is a heading row with a label column and its orientations. Two is one too, where both of them
+  // name an orientation and nothing else does: Stratasys sets its tables' headings on three lines — "Typical
+  // Values", then "Property Test Method", then "XY ZX" — and the line that names the columns names only them.
+  // Requiring a third cell lost every Stratasys table, which is 24 documents and 400 values.
+  const allAxes = cells.length === 2 && cells.every((c) => axisOf(c.text) && !/\d/.test(c.text));
+  if (cells.length < 3 && !allAxes) return null;
   // Where one column ends and the next begins is halfway between where the heading before it ends and where it
   // starts, because a maker centres a value under its heading as often as it aligns it: BASF's XY heading
   // stands at 381 and its values start at 354, while Fillamentum sets both at 162. Measuring from the previous

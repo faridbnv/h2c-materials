@@ -68,9 +68,9 @@ Where: 3DJake / 3DJAKE 20, Filament2Print 9, QIDI 8, Siraya Tech 6, Fiberlogy 1,
 
 ### `reader:condition-table` — 24 document(s)
 
-**Waits on:** the pipeline. **Needs:** a table per condition under repeated headings, with a value column per orientation.
+**Waits on:** the pipeline. **Needs:** each row to carry the caption of the table it came from.
 
-**Uncertain:** nothing: Stratasys prints one layout and 24 documents share it.
+**Uncertain:** nothing, and it is measured: the columns are read now and the 24 documents yield 379 values, 280 stating a direction. Nine of eleven sheets then hold one property in one direction two or three times, one row per layer height, with nothing saying which table each came from.
 
 Where: Stratasys 24.
 

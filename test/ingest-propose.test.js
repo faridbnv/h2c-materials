@@ -946,3 +946,20 @@ test('a domain a sheet prints is the maker naming itself, and a standards body i
   assert.equal(makerFromSheet(sheet('ensingerplastics.com', 'conditions.de Lieferung', 'ensingerplastics.com'))?.name, 'ensingerplastics');
   assert.equal(makerFromSheet(sheet('printed to printables.com')), null);
 });
+
+test('a heading that names only its orientations is still a heading', async () => {
+  const { axisColumns } = await import('../scripts/ingest/propose.mjs');
+  const cell = (text, x) => ({ str: text, x, w: text.length * 6 });
+  const line = (...cells) => ({ text: cells.map((c) => c.str).join(' '), x0: cells[0].x, spans: cells });
+  // Stratasys sets its table headings on three lines — "Typical Values", "Property Test Method", "XY ZX" — and
+  // the line that names the columns names only them. Requiring a third cell lost every Stratasys table.
+  const two = axisColumns(line(cell('XY', 367), cell('ZX', 430)));
+  assert.deepEqual(two?.axes.map((a) => a.axis), ['XY', 'ZX']);
+  // Two cells that are not both orientations are not a heading: a property and its value look like this.
+  assert.equal(axisColumns(line(cell('Density', 50), cell('1.24', 230))), null);
+  assert.equal(axisColumns(line(cell('XY', 367), cell('1.24', 430))), null);
+  // And the three-cell heading with a label column still carries the condition that column states.
+  const three = axisColumns(line(cell('0.25 mm Layer Height', 50), cell('XZ', 367), cell('ZX', 430)));
+  assert.deepEqual(three?.axes.map((a) => a.axis), ['XZ', 'ZX']);
+  assert.equal(three?.heading, '0.25 mm Layer Height');
+});
