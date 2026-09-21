@@ -118,7 +118,11 @@ const valueRe = () => new RegExp(`(${NUMBER_PATTERN})\\s*\\(?\\s*(${UNIT_PATTERN
 // became the impact strength on every one of that sheet's impact rows. A condition is glued to its own unit, so
 // a word standing apart from the number in front of it is the column beside the table, not a condition: Extrudr's
 // "MPa 40 Nozzle 230-260°C" still states a modulus of 40, not one of 230.
-const CONDITION_UNIT = `\\d+(?:[.,]\\d+)?[A-Za-zµ°℃%][\\w/°²³]*`;
+// A condition between the unit and the value is a number with its own unit: "kJ/m2 2.75J 2.83". Yousu sets it
+// apart and ends it with a comma, "g/10min 210℃, 2.16Kg 7" and "g/cm 23 ℃ 1.20", and read without that every one
+// of its melt-flow rates was the test temperature (210, 190, 230 g/10 min) and three densities 23 g/cm³. Set
+// apart, the unit must be one a test condition is stated in, or "% 6 at 23 °C" would make "6 at" a condition.
+const CONDITION_UNIT = `\\d+(?:[.,]\\d+)?(?:[A-Za-zµ°℃%][\\w/°²³]*|\\s(?:℃|°\\s?[CF]|[Kk]g|N|J|mm\\/min)(?=[\\s,]))(?:\\s?,)?`;
 const unitFirstRe = () => new RegExp(
   `(?:^|\\s)(?<unit>${UNIT_PATTERN})(?<lead>\\s+(?:${CONDITION_UNIT}\\s+)*(?:[${BOUNDS}]\\s*)?)(?<value>${NUMBER_PATTERN})(?![\\d.,])`
   + `(?:\\s*(?:±|\\+\\/-)\\s*(?<spread>\\d+(?:[.,]\\d+)?)|\\s*[-–~]\\s*(?<upper>\\d+(?:[.,]\\d+)?))?`, 'gi');
@@ -219,7 +223,9 @@ function repair(text) {
   // part of a number, so it is dropped where it stands against one of those two units and the rules below name
   // the unit as the database keeps it. Without this, Fiberlogy's 33 scans stated every density and every impact
   // strength in a unit nothing is kept in.
-  const line = joinStandardDigits(String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2'))
+  // A text layer may set ISO with a zero ("IS0 1183 1.19g/cm³", QIDI), and a designation the reader does not see
+  // as one gives up its number as the value: a density of 1,183 g/cm³.
+  const line = joinStandardDigits(String(text ?? '').replace(/\b(cm|m|mm)\s+([23])\b/g, '$1$2').replace(/\bIS0(?=\s?\d)/g, 'ISO'))
     .replace(/\b(g\s?\/\s?cm|kJ\s?\/\s?m)\s*\?/gi, '$1')
     .replace(/[˚º](?=\s?[CF]\b)/g, '°')
     .replace(/\bg\/cm(?![\d²³])/g, 'g/cm3')

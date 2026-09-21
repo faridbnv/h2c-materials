@@ -1289,3 +1289,14 @@ test('a maker’s range menu on a product page names other products, not this on
   assert.equal(p.identity.polymer, 'TPU');
   assert.equal(p.identity.modifier, 'Unfilled / unspecified');
 });
+
+test('a condition set apart between the unit and the value is a condition, and ISO may be printed with a zero', () => {
+  // Yousu: "g/10min 210℃, 2.16Kg 7". Read without the comma, every melt-flow rate was its test temperature.
+  assert.equal(read('Melt Flow Rate ASTM D1238 g/10min 210℃, 2.16Kg 7').raw, '7 g/10min');
+  assert.equal(read('Melt Flow Rate GB/T 3682-2000 g/10min 230℃, 2.16Kg 12~15').raw, '12-15 g/10min');
+  assert.equal(read('Density ASTM D792 g/cm 23 ℃ 1.20').raw, '1.20 g/cm3');
+  // Set apart, only a unit a condition is stated in: "6 at" is not a condition, and 6 is the value.
+  assert.equal(read('Elongation at break % 6 at 23 °C').raw, '6 %');
+  // QIDI's text layer: "IS0 1183" gave up 1183 as a density.
+  assert.equal(read('Density IS0 1183 1.19g/cm³').raw, '1.19 g/cm³');
+});
