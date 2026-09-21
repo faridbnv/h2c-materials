@@ -1,0 +1,11 @@
+    22  db.grades[]
+    22  db.sources[]
+    11  db.materials[].gradeIds.length
+    10  db.coverage[]
+     2  db.coverage[].status
+     2  db.coverage[].manufacturerCount
+     2  db.coverage[].finding
+     1  db.meta.counts.grades
+     1  db.meta.counts.sources
+     1  db.meta.counts.coverage
+74 difference(s) between HEAD and the working tree

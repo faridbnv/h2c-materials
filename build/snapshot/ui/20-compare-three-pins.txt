@@ -87,7 +87,7 @@ ASA-CF yes yes yes required guidance published
 ASA-EC yes yes not recorded required not recorded
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
-ASA-AF 0 of 6 5† 2 21
+ASA-AF 0 of 6 5† 3 21
 ASA-CF 5 of 6 — 17 165
 ASA-EC 0 of 6 5† 1 10
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

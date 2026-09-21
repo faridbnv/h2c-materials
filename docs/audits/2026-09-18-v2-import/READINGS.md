@@ -72,9 +72,9 @@ document stays held under its ruling with the strike noted.
 | Nuterials Jecto [EN] | Nuterials | Not read | Not read | polymers the page prints somewhere: PEI×1 — density 1.1-1.2 g/cm³; melting 150 °C — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | POP 4 | POP | Not read | Not read | polymers the page prints somewhere: PC×3 — this maker's range: PEEK×1, ASA×1, PETG×1, PLA×1, PVDF×1 |
 | Timberfill | Fillamentum | Not read | Not read | density 1,26 g/cm3; melting 145-160 °C — this maker's range: CPE×2, PA6×2, ASA×2, PLA×2, TPU×2 |
-| Crystal Flex | FormFutura | Not read | Not read | polymers the page prints somewhere: COC×1 — its numbers admit ABS, PA12, PAHT, TPE, PEBA, COC — density 1.01 g/cc — this maker's range: PLA×19, PETG×7, ABS×7, TPU×5, ASA×4 |
+| Crystal Flex | FormFutura | Not read | Not read | polymers the page prints somewhere: COC×1 — its numbers admit ABS, PA12, PAHT, TPE, PEBA, COC — density 1.01 g/cc — this maker's range: PLA×21, PETG×7, ABS×7, TPU×5, ASA×4 |
 | MDflex | Copper3D | Not read | Not read | its numbers admit PA, PA6, PAHT — density 1,16 g/cc; melting 225 °C; glass -16 °C; vicat 138 °C — this maker's range: PLA×1 |
-| SKULPT | FormFutura | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cc — this maker's range: PLA×19, PETG×7, ABS×7, TPU×5, ASA×4 |
+| SKULPT | FormFutura | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cc — this maker's range: PLA×21, PETG×7, ABS×7, TPU×5, ASA×4 |
 | Flex | Nanovia | Not read | Not read | polymers the page prints somewhere: ASA×2, PC×2, PA6×2, ABS×1, HIPS×1, PEI×1 — its numbers admit PLA, PCTG, CPE, PC, PC-ABS, PC-PBT, PPA, PVA, BVOH, TPU, TPE, TPC, PLA-PHA — density 1.21 g/cm3 — this  |
 | Flex B4C | Nanovia | Not read | Not read | polymers the page prints somewhere: ASA×2, PC×2, ABS×1, HIPS×1, PEI×1, PEKK×1 — density 1,45 g/cm3 — this maker's range: PLA×5, PC×5, ABS×4, PETG×4, PA6×3 |
 | Flex VX | Nanovia | Not read | Not read | polymers the page prints somewhere: ABS×2, PLA×2, PA6×2, ASA×1, HIPS×1, PC×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PBAT — density 1,25 g/cm3; vicat 91 °C — this m |
@@ -84,7 +84,7 @@ document stays held under its ruling with the strike noted.
 | NinjaFlex Edge | NinjaTek | Not read | Not read | this maker's range: TPU×3 |
 | S WHITE | QIDI | Not read | Not read | polymers the page prints somewhere: PET×4, ABS×2, PETG×2, PLA×1 — density 1.16 g/cm³; melting 168 ℃ — this maker's range: PETG×4, ASA×3, ABS×2, TPU×1, PLA×1 |
 | Ultrafuse Stainless Steel 316L | Ultrafuse / Forward AM | Not read | Not read | the sheet publishes no number and names no polymer this reader can map |
-| spectrum greeny pro | Spectrum | Not read | Not read | its numbers admit PET, PPS, PVA — density 1.34 g/cm3; vicat 160 °C — this maker's range: PLA×33, PETG×12, ASA×9, PA6×8, TPU×7 |
+| spectrum greeny pro | Spectrum | Not read | Not read | its numbers admit PET, PPS, PVA — density 1.34 g/cm3; vicat 160 °C — this maker's range: PLA×35, PETG×12, ASA×9, PA6×8, TPU×7 |
 | Composite Molding Material | Stratasys | Not read | Not read | glass 132 °C — this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | diran410mf07 | Stratasys | Not read | Not read | this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 
@@ -128,7 +128,7 @@ document stays held under its ruling with the strike noted.
 | PA Blue Metal Detectable | colorFabb | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PBAT — density 1.25 g/cm3 — this maker's range: PLA×15, PET×5, TPU×5, nGen×4, ASA×3 |
 | Essentium PA | Essentium | Not read | Not read | this maker's range: TPU×2, PPS×1 |
 | Essentium PA CF | Essentium | Not read | Not read | polymers the page prints somewhere: PVA×1 — this maker's range: TPU×2, PPS×1 |
-| eSUN TPE 83A Filament | eSUN | Not read | Not read | polymers the page prints somewhere: TPU×1 — its numbers admit PC-ABS, PA6, PA66, PA6/66, PAHT, PPA, BVOH, TPU, TPE, TPC — density 1.14 g/cm3 — this maker's range: PLA×32, ABS×7, PETG×7, TPU×5, PA6/66× |
+| eSUN TPE 83A Filament | eSUN | Not read | Not read | polymers the page prints somewhere: TPU×1 — its numbers admit PC-ABS, PA6, PA66, PA6/66, PAHT, PPA, BVOH, TPU, TPE, TPC — density 1.14 g/cm3 — this maker's range: PLA×37, ABS×7, PETG×7, TPU×5, PA6/66× |
 | greentec | Extrudr | Not read | Not read | vicat 115 °C; melting 180-200 °C; density 1.3 g/cm³ — this maker's range: PLA×10, TPU×6, ASA×3, PETG×3, PA12×2 |
 | greentec pro | Extrudr | Not read | Not read | vicat 160 °C; melting 180-200 °C; density 1.35 g/cm³ — this maker's range: PLA×10, TPU×6, ASA×3, PETG×3, PA12×2 |
 | greentec pro cf | Extrudr | Not read | Not read | its numbers admit BVOH, PLA-PHB — vicat 165 °C; melting 180-200 °C; density 1.2 g/cm³ — this maker's range: PLA×10, TPU×6, ASA×3, PETG×3, PA12×2 |
@@ -141,7 +141,7 @@ document stays held under its ruling with the strike noted.
 | MatterHackers PRO Series Nylon | MatterHackers | Not read | Not read | polymers the page prints somewhere: PEI×1 — this maker's range: PETG×5, PLA×4, TPU×2, ABS×2, PA12×2 |
 | PA Food Industry | Nanovia | Not read | Not read | polymers the page prints somewhere: PLA×3, PC×2, PEKK×2, ABS×1, ASA×1, HIPS×1 — its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1,30 g/cm3 — this maker's range: PLA×5, PC×5, ABS×4, |
 | TPE 22D | Nanovia | Not read | Not read | polymers the page prints somewhere: ABS×3, PEI×3, PLA×2, ASA×1, HIPS×1, PC×1 — this maker's range: PLA×5, PC×5, ABS×4, PETG×4, PA6×3 |
-| spectrum thermatech pa | Spectrum | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.30 g/cm3 — this maker's range: PLA×33, PETG×12, ASA×9, PA6×8, TPU×7 |
+| spectrum thermatech pa | Spectrum | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.30 g/cm3 — this maker's range: PLA×35, PETG×12, ASA×9, PA6×8, TPU×7 |
 | nylon cf10 | Stratasys | Not read | Not read | this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | MakerBot Specialty Nylon | MakerBot | Not read | Not read | polymers the page prints somewhere: PVA×1, ABS×1 |
 | MakerBot Specialty Nylon | MakerBot | Not read | Not read | polymers the page prints somewhere: PLA×3, ABS×3, PC-ABS×3, PET×2, PETG×1, ASA×1 |
@@ -183,7 +183,7 @@ document stays held under its ruling with the strike noted.
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
-| BioFil Wood 1 | FormFutura | Not read | Not read | polymers the page prints somewhere: PLA×1, SAN×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cm3; vicat 50 °C — this maker's range: PLA×19, PETG×7, ABS×7, TP |
+| BioFil Wood 1 | FormFutura | Not read | Not read | polymers the page prints somewhere: PLA×1, SAN×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cm3; vicat 50 °C — this maker's range: PLA×21, PETG×7, ABS×7, TP |
 
 ## The materials this would create
 

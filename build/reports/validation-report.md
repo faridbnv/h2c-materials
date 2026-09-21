@@ -13,15 +13,15 @@ Database snapshot 2026-09-16 · build 2026-09-21
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 1084 |
+| grades | 1106 |
 | measurements | 10840 |
 | numericMeasurements | 10679 |
 | quarantined | 4 |
 | profiles | 1091 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 1386 |
-| coverage | 782 |
+| sources | 1408 |
+| coverage | 792 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 355 |
 | coverageDerived | 700 |
